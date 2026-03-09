@@ -1,48 +1,87 @@
 # Atlas Home Pro
 
-> Premium multi-trade home services for Los Angeles homeowners. One call covers every home system.
+> Atlas Home Pro is a premium multi-trade home services company serving Los Angeles and the surrounding communities. We offer a single point of contact for all major home services — one call, every trade, trusted professionals.
 
 ## Company
 
 - **Name:** Atlas Home Pro
 - **Phone:** 213-275-2210
-- **Email:** david@atlashomepro.com
+- **Email:** hello@atlashomepro.com
 - **Address:** 145 S Fairfax Suite 200, Los Angeles CA 90036
 - **Website:** https://atlashomepro.com
-- **License:** CSLB Licensed, Bonded & Insured
+- **Tagline:** One Call. Every Home Service. Los Angeles.
 
 ## Services
 
-Atlas Home Pro provides the following home services across Los Angeles:
+### Plumbing
+Drain cleaning, hydro-jetting, water heater repair and replacement, slab leak detection, repiping, fixture installation, emergency plumbing, sewer line repair.
+More info: https://atlashomepro.com/plumbing/
 
-- **Plumbing:** Drain cleaning, water heater repair/replacement, slab leak detection, repiping, sewer line repair, leak detection, emergency plumbing
-- **HVAC:** AC installation, AC repair, heating systems, duct cleaning, thermostat installation, seasonal tune-ups
-- **Electrical:** Panel upgrades, EV charger installation, whole-home rewiring, smart home wiring, solar-ready electrical, generator installation
-- **Roofing:** Roof repair, roof replacement, emergency leak repair, roof inspection, gutters & drainage, tile and composition roofing
-- **Painting:** Interior painting, exterior painting, cabinet refinishing, drywall repair, color consultation
-- **Water & Fire Restoration:** Water damage restoration, mold remediation, smoke and fire damage repair, insurance claim assistance
-- **Pest Control:** General pest control, ant control, rodent exclusion, bed bug treatment, quarterly maintenance programs
+### HVAC (Heating, Ventilation & Air Conditioning)
+AC installation and repair, heating systems, duct cleaning, thermostat installation and programming, tune-ups, heat pump systems, smart home climate control.
+More info: https://atlashomepro.com/hvac/
+
+### Electrical
+Panel upgrades, EV charger installation, solar-ready wiring, smart home electrical, whole-home generators, circuit breaker repair, outlet and fixture installation.
+More info: https://atlashomepro.com/electrical/
+
+### Roofing
+Roof repair and full replacement, emergency leak repair, tile and composition roofing, flat roofs, gutters and drainage, roof inspections.
+More info: https://atlashomepro.com/roofing/
+
+### Painting
+Interior and exterior painting, cabinet refinishing, drywall repair, color consultation, stucco repair and paint.
+More info: https://atlashomepro.com/painting/
+
+### Water Damage Restoration
+Water damage mitigation, mold remediation, smoke and fire damage restoration, insurance claim assistance.
+More info: https://atlashomepro.com/restoration/
+
+### Pest Control
+General pest control, ant control, rodent exclusion, bed bug treatment, quarterly maintenance programs.
+More info: https://atlashomepro.com/pest-control/
 
 ## Service Areas
 
-Atlas Home Pro serves the following neighborhoods in Los Angeles:
+Atlas Home Pro serves West Los Angeles and the greater LA metro area, including:
 
-Beverly Hills, Bel Air, Brentwood, Pacific Palisades, Santa Monica, West Hollywood, Westwood, Century City, Hancock Park, Fairfax District, Silver Lake, Los Feliz, Echo Park, Highland Park, Pasadena, Burbank, Glendale, Culver City, Playa Vista, Mar Vista, Venice, Palms, Mid-City, Koreatown, and surrounding West LA communities.
+- Beverly Hills
+- Santa Monica
+- Brentwood
+- Bel-Air
+- Pacific Palisades
+- West Hollywood
+- Hancock Park
+- Fairfax District
+- Century City
+- Westwood
+- Burbank
+- Glendale
+- Pasadena
 
-## Pricing Philosophy
+Full list: https://atlashomepro.com/service-areas/
 
-Atlas Home Pro uses transparent, upfront pricing — no surprise charges after the job starts. Pricing is competitive with major chains but with a premium quality guarantee. Free estimates on all jobs.
+## Free Educational Resources
 
-## About
+Atlas Home Pro maintains a free guide library for LA homeowners covering all major home systems, maintenance schedules, cost guides, and neighborhood-specific advice.
 
-Founded by a Los Angeles real estate investor and property manager with 30+ years of experience maintaining and renovating residential and commercial properties. Atlas Home Pro was built to solve the fragmented, unreliable home services market by offering a single trusted provider across all major trades.
+Guide library: https://atlashomepro.com/learn/
 
-## Education Resources
+## Offers
 
-Free guides for LA homeowners: https://atlashomepro.com/learn/
-Topics include plumbing, HVAC, electrical, roofing, painting, restoration, pest control, and home sale preparation.
+- Free drain cleaning for new customers (limited availability)
+- Free estimates on all services
+Details: https://atlashomepro.com/offers/
 
-## Booking
+## Licensing & Trust
 
-Book a free estimate: https://atlashomepro.com/contact/
-Current offers and promotions: https://atlashomepro.com/offers/
+- Licensed, bonded, and insured in California
+- All technicians background-checked
+- Transparent, upfront pricing
+- Serving LA homeowners since 2024
+
+## Contact
+
+- **Book a free estimate:** https://atlashomepro.com/contact/
+- **Phone:** 213-275-2210
+- **Email:** hello@atlashomepro.com
