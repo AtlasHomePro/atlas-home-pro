@@ -156,7 +156,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .glass-info p{color:rgba(255,255,255,0.5);font-size:.78rem;font-weight:500}
 
 /* --- PHOTO STRIP --- */
-.photo-strip{display:flex;gap:16px;justify-content:center;padding:40px 20px;background:#fff}
+.photo-strip{display:flex;gap:16px;justify-content:center;padding:48px 20px;background:#fff}
 .photo-strip-item{width:260px;height:170px;border-radius:12px;overflow:hidden;position:relative;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
 .photo-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .photo-strip-item:hover img{transform:scale(1.05)}
@@ -213,35 +213,56 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .culture-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(transparent,rgba(0,0,0,0.4))}
 
 /* --- APPLICATION FORM --- */
-.form-section{background:#111;padding:80px 5%}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:0 auto;align-items:start}
-.form-left .sec-label{background:rgba(255,230,0,0.1);border:1px solid rgba(255,230,0,0.25);color:#ffe600}
-.form-left h2{font-size:clamp(1.8rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:14px;line-height:1.15}
-.form-left h2 em{color:#ffe600;font-style:italic;font-family:'Playfair Display',serif}
-.form-left > p{color:#999;font-size:.95rem;line-height:1.7;margin-bottom:28px}
-.form-checks{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
-.form-check{display:flex;align-items:center;gap:12px;color:#ccc;font-size:.9rem;font-weight:500}
-.form-check .fck{width:28px;height:28px;background:#ffe600;color:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0}
-.form-check .fck svg{width:14px;height:14px;stroke:#111;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.form-phone-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px}
-.form-phone-box .ph-icon{width:44px;height:44px;background:#ffe600;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.form-phone-box .ph-icon svg{width:22px;height:22px;stroke:#111;fill:none;stroke-width:2}
-.form-phone-box strong{color:#fff;font-size:.9rem;display:block;margin-bottom:2px}
-.form-phone-box a{color:#ffe600;text-decoration:none;font-weight:700;font-size:1rem}
-.form-right form{background:#fff;border-radius:16px;padding:36px 32px;box-shadow:0 12px 40px rgba(0,0,0,0.3)}
-.form-right .form-header{text-align:center;margin-bottom:24px}
-.form-right .form-header h3{color:#111;font-size:1.2rem;font-weight:900;margin-bottom:4px}
-.form-right .form-header p{color:#888;font-size:.82rem}
-.form-right input,.form-right select,.form-right textarea{width:100%;padding:14px 16px;border:2px solid #eee;border-radius:8px;font-size:.92rem;margin-bottom:14px;font-family:inherit;background:#f9f9f9;color:#333;transition:border-color .2s}
-.form-right input:focus,.form-right select:focus,.form-right textarea:focus{border-color:#ffe600;outline:none;background:#fff}
-.form-right input::placeholder,.form-right textarea::placeholder{color:#999}
-.form-right select{color:#555}
-.form-right textarea{min-height:80px;resize:vertical}
-.form-right button{width:100%;padding:16px;background:#ffe600;color:#111;border:none;border-radius:8px;font-weight:900;font-size:1rem;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:all .2s}
-.form-right button:hover{background:#111;color:#ffe600}
+/* === BOOK/CTA SECTION === */
+.book-premium{background:#111;position:relative;overflow:hidden;padding:0}
+.book-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.book-left{position:relative;padding:70px 48px;display:flex;flex-direction:column;justify-content:center}
+.book-left-bg{position:absolute;inset:0;z-index:0}
+.book-left-bg img{width:100%;height:100%;object-fit:cover}
+.book-left-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.7) 100%)}
+.book-left-content{position:relative;z-index:1}
+.book-badge{display:inline-block;background:rgba(255,230,0,.12);border:1px solid rgba(255,230,0,.3);color:#ffe600;font-size:.68rem;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:16px}
+.book-left h2{color:#fff;font-size:2rem;font-weight:900;margin-bottom:14px;line-height:1.2}
+.book-left h2 em{color:#ffe600;font-style:italic;font-family:'Playfair Display',serif}
+.book-sub{color:#aaa;line-height:1.65;margin-bottom:28px;font-size:.95rem;max-width:420px}
+.book-checks{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+.book-checks li{color:#ccc;font-size:.88rem;display:flex;align-items:center;gap:10px}
+.book-checks li svg{width:18px;height:18px;flex-shrink:0}
+.book-phone-card{margin-top:28px;background:rgba(255,230,0,.08);border:1px solid rgba(255,230,0,.2);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px}
+.book-phone-card svg{width:24px;height:24px;stroke:#ffe600;fill:none;stroke-width:2;flex-shrink:0}
+.book-phone-card a{color:#ffe600;font-weight:700;font-size:1.1rem;text-decoration:none}
+.book-phone-card p{color:#888;font-size:.78rem;margin-top:2px}
+.book-right{padding:70px 48px;display:flex;align-items:center;justify-content:center;background:#0a0a0a}
+.book-form{background:#fff;border-radius:16px;padding:36px 32px;box-shadow:0 12px 40px rgba(0,0,0,0.3);width:100%;max-width:440px}
+.book-form-header{text-align:center;margin-bottom:24px}
+.book-form-header h3{color:#111;font-size:1.15rem;font-weight:900;margin-bottom:4px}
+.book-form-header p{color:#888;font-size:.82rem}
+.book-form input,.book-form select,.book-form textarea{width:100%;padding:14px 16px;border:2px solid #eee;border-radius:8px;font-size:.92rem;margin-bottom:12px;font-family:inherit;background:#fafafa;color:#333;transition:border-color .2s}
+.book-form input:focus,.book-form select:focus,.book-form textarea:focus{border-color:#ffe600;outline:none;background:#fff}
+.book-form input::placeholder,.book-form textarea::placeholder{color:#aaa}
+.book-form select{color:#888}
+.book-form textarea{min-height:80px;resize:vertical}
+.book-form button{width:100%;padding:16px;background:#ffe600;color:#111;border:none;border-radius:8px;font-weight:900;font-size:1rem;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .2s}
+.book-form button:hover{background:#111;color:#ffe600}
 .trust-row{display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap}
 .trust-row span{font-size:.72rem;color:#888;display:flex;align-items:center;gap:5px}
 .trust-row svg{width:14px;height:14px;stroke:#ffe600;fill:none;stroke-width:2}
+
+/* === FAQ SECTION === */
+.faq-premium{background:#fff;padding:80px 5%}
+.faq-premium-inner{max-width:800px;margin:0 auto}
+.faq-premium .fp-label{display:block;text-align:center;background:#111;color:#fff;font-size:.68rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;width:fit-content;margin:0 auto 14px}
+.faq-premium h2{font-size:2rem;font-weight:900;text-align:center;margin-bottom:36px;color:#111}
+.faq-premium h2 em{color:#ffe600;font-style:italic;font-family:'Playfair Display',serif}
+.fp-item{border:1px solid #eee;border-left:4px solid #ffe600;border-radius:10px;margin-bottom:12px;overflow:hidden;background:#fafafa;transition:all .2s}
+.fp-item:hover{border-left-color:#111}
+.fp-q{padding:18px 24px;font-weight:700;font-size:.93rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#111;transition:color .2s;user-select:none}
+.fp-q:hover{color:#ffe600}
+.fp-q .toggle{color:#ffe600;font-size:1.2rem;transition:transform .3s ease}
+.fp-item.open .fp-q .toggle{transform:rotate(45deg)}
+.fp-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.fp-a-inner{padding:0 24px 18px;font-size:.9rem;color:#666;line-height:1.65}
+.fp-item.open .fp-a{max-height:200px}
 
 /* === RESPONSIVE === */
 @media(max-width:900px){
@@ -259,8 +280,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .culture-grid{grid-template-columns:1fr;gap:32px}
   .culture-img{order:-1}
   .culture-img img{min-height:280px}
-  .form-grid{grid-template-columns:1fr;gap:32px}
-  .form-right form{padding:28px 20px}
+  .book-grid{grid-template-columns:1fr}
+  .book-left{padding:48px 24px}
+  .book-right{padding:0 24px 48px}
+  .book-form{max-width:100%}
 }
 @media(max-width:480px){
   .hero-inner{padding:40px 16px 48px}
@@ -269,7 +292,9 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .glass-items{grid-template-columns:1fr}
   .photo-strip-item{width:100%;height:160px}
   .ben-grid{grid-template-columns:1fr}
-  .pos-section,.ben-section,.culture-section,.form-section{padding:60px 16px}
+  .pos-section,.ben-section,.culture-section,.faq-premium{padding:60px 16px}
+  .fp-q{font-size:.87rem;padding:16px 18px}
+  .fp-a-inner{padding:0 18px 14px;font-size:.85rem}
 }
 </style>
 </head>
@@ -470,10 +495,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 
 <!-- PHOTO STRIP -->
 <div class="photo-strip">
-  <div class="photo-strip-item"><img src="/images/atlas-home-pro-hvac-technician-los-angeles.png" alt="Atlas HVAC Technician"></div>
+  <div class="photo-strip-item"><img src="/van%20pics/Atlas%20HVAC%20Van%20Ford.png" alt="Atlas HVAC service van"></div>
   <div class="photo-strip-item"><img src="/atlas%20home%20pro/tech%20with%20van.png" alt="Atlas technician with service van"></div>
-  <div class="photo-strip-item"><img src="/images/atlas-home-pro-electrician-los-angeles.png" alt="Atlas Electrician"></div>
-  <div class="photo-strip-item"><img src="/images/atlas-home-pro-plumbing-technician-los-angeles.png" alt="Atlas Plumbing Technician"></div>
+  <div class="photo-strip-item"><img src="/van%20pics/Atlas%20Plumbing%20Van.png" alt="Atlas Plumbing service van"></div>
+  <div class="photo-strip-item"><img src="/van%20pics/Atlas%20Electric.png" alt="Atlas Electric service van"></div>
 </div>
 
 <!-- OPEN POSITIONS -->
@@ -620,42 +645,84 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
 </section>
 
-<!-- APPLICATION FORM -->
-<section class="form-section" id="apply">
-  <div class="form-grid">
-    <div class="form-left">
-      <div class="sec-label">JOIN OUR TEAM</div>
-      <h2>Ready to Join the <em>Atlas Team?</em></h2>
-      <p>Submit your application and our hiring manager will contact you within 24 hours. We're growing fast and looking for talented professionals.</p>
-      <div class="form-checks">
-        <div class="form-check"><div class="fck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div> Quick application — takes 2 minutes</div>
-        <div class="form-check"><div class="fck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div> We respond within 24 hours</div>
-        <div class="form-check"><div class="fck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div> In-person interview within the week</div>
-        <div class="form-check"><div class="fck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div> Start earning within days of hire</div>
+<!-- FAQ SECTION -->
+<section class="faq-premium">
+  <div class="faq-premium-inner">
+    <span class="fp-label">COMMON QUESTIONS</span>
+    <h2>Frequently Asked <em>Questions</em></h2>
+    <div class="fp-item">
+      <div class="fp-q" onclick="this.parentElement.classList.toggle('open')">What qualifications do I need to apply? <span class="toggle">+</span></div>
+      <div class="fp-a"><div class="fp-a-inner">Requirements vary by position. Licensed trades (plumbing, electrical, HVAC) require valid California licenses. For roofing, painting, and pest control, relevant experience is preferred but we also offer paid training for motivated candidates.</div></div>
+    </div>
+    <div class="fp-item">
+      <div class="fp-q" onclick="this.parentElement.classList.toggle('open')">What is the pay range and how often do I get paid? <span class="toggle">+</span></div>
+      <div class="fp-a"><div class="fp-a-inner">Pay ranges from $20–$52/hour depending on trade and experience level. All employees are paid weekly via direct deposit. Overtime is available for most positions and paid at 1.5x the regular rate.</div></div>
+    </div>
+    <div class="fp-item">
+      <div class="fp-q" onclick="this.parentElement.classList.toggle('open')">What benefits are included? <span class="toggle">+</span></div>
+      <div class="fp-a"><div class="fp-a-inner">Full-time employees receive comprehensive health insurance (medical, dental, vision), paid time off, paid holidays, a company vehicle or van, all tools and equipment, ongoing paid training, and growth opportunities within the company.</div></div>
+    </div>
+    <div class="fp-item">
+      <div class="fp-q" onclick="this.parentElement.classList.toggle('open')">How quickly can I start working? <span class="toggle">+</span></div>
+      <div class="fp-a"><div class="fp-a-inner">Our hiring process is fast. After you submit an application, our hiring manager will reach out within 24 hours. In-person interviews are typically scheduled within the same week, and qualified candidates can start earning within days of being hired.</div></div>
+    </div>
+    <div class="fp-item">
+      <div class="fp-q" onclick="this.parentElement.classList.toggle('open')">Do you provide a company vehicle? <span class="toggle">+</span></div>
+      <div class="fp-a"><div class="fp-a-inner">Yes. All field technicians receive a fully stocked company service van with all necessary tools and equipment. This means no wear and tear on your personal vehicle and no out-of-pocket expenses for tools.</div></div>
+    </div>
+    <div class="fp-item">
+      <div class="fp-q" onclick="this.parentElement.classList.toggle('open')">Is there year-round work available? <span class="toggle">+</span></div>
+      <div class="fp-a"><div class="fp-a-inner">Absolutely. Atlas Home Pro operates across 7 trade divisions, so there is always work available regardless of season. We guarantee 40+ hours per week with no seasonal layoffs. Los Angeles' climate means demand is steady all year.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION / CTA SECTION -->
+<section class="book-premium" id="apply">
+  <div class="book-grid">
+    <div class="book-left">
+      <div class="book-left-bg">
+        <img src="/van%20pics/atlas%20black%20truck%20hollywood%20sign.png" alt="Atlas Home Pro fleet truck in Los Angeles">
       </div>
-      <div class="form-phone-box">
-        <div class="ph-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <div><strong>Questions? Call us</strong><a href="tel:2132752210">(213) 275-2210</a></div>
+      <div class="book-left-content">
+        <span class="book-badge">JOIN OUR TEAM</span>
+        <h2>Ready to Join the <em>Atlas Team?</em></h2>
+        <p class="book-sub">Submit your application and our hiring manager will contact you within 24 hours. We're growing fast and looking for talented professionals.</p>
+        <ul class="book-checks">
+          <li><svg viewBox="0 0 24 24" stroke="#ffe600" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Quick application — takes 2 minutes</li>
+          <li><svg viewBox="0 0 24 24" stroke="#ffe600" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> We respond within 24 hours</li>
+          <li><svg viewBox="0 0 24 24" stroke="#ffe600" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> In-person interview within the week</li>
+          <li><svg viewBox="0 0 24 24" stroke="#ffe600" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Start earning within days of hire</li>
+        </ul>
+        <div class="book-phone-card">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div>
+            <p style="color:#888;font-size:.78rem;margin-bottom:2px">Questions? Call us</p>
+            <a href="tel:2132752210">(213) 275-2210</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="form-right">
-      <form action="https://formsubmit.co/David@AtlasHomePro.com" method="POST">
-        <input type="hidden" name="_subject" value="New Job Application - Atlas Home Pro">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://atlashomepro.com/thank-you/">
-        <input type="hidden" name="_template" value="table">
-        <div class="form-header"><h3>Apply Now</h3><p>We're looking forward to hearing from you.</p></div>
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <select name="position" required><option value="" disabled selected>Position Applying For</option><option>HVAC Technician</option><option>Licensed Plumber</option><option>Licensed Electrician</option><option>Roofing Crew Member</option><option>Professional Painter</option><option>Pest Control Technician</option><option>Restoration Technician</option><option>Other</option></select>
-        <input type="text" name="experience" placeholder="Years of Experience">
-        <textarea name="message" placeholder="Tell us about your experience and certifications..."></textarea>
-        <button type="submit">SUBMIT APPLICATION →</button>
-      </form>
-      <div class="trust-row">
-        <span><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure &amp; confidential</span>
-        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 24hr response</span>
+    <div class="book-right">
+      <div class="book-form">
+        <div class="book-form-header"><h3>Apply Now</h3><p>We're looking forward to hearing from you.</p></div>
+        <form action="https://formsubmit.co/David@AtlasHomePro.com" method="POST">
+          <input type="hidden" name="_subject" value="New Job Application - Atlas Home Pro">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://atlashomepro.com/thank-you/">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <select name="position" required><option value="" disabled selected>Position Applying For</option><option>HVAC Technician</option><option>Licensed Plumber</option><option>Licensed Electrician</option><option>Roofing Crew Member</option><option>Professional Painter</option><option>Pest Control Technician</option><option>Restoration Technician</option><option>Other</option></select>
+          <input type="text" name="experience" placeholder="Years of Experience">
+          <textarea name="message" placeholder="Tell us about your experience and certifications..."></textarea>
+          <button type="submit">SUBMIT APPLICATION →</button>
+        </form>
+        <div class="trust-row">
+          <span><svg viewBox="0 0 24 24" width="14" height="14" stroke="#ffe600" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure &amp; confidential</span>
+          <span><svg viewBox="0 0 24 24" width="14" height="14" stroke="#ffe600" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 24hr response</span>
+        </div>
       </div>
     </div>
   </div>
@@ -672,11 +739,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
           <a href="https://www.instagram.com/atlas_homepro/" target="_blank" rel="noopener noreferrer" aria-label="Follow Atlas Home Pro on Instagram" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#feda75"/><stop offset="25%" style="stop-color:#fa7e1e"/><stop offset="50%" style="stop-color:#d62976"/><stop offset="75%" style="stop-color:#962fbf"/><stop offset="100%" style="stop-color:#4f5bd5"/></linearGradient></defs><path fill="url(#ig-grad)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             <span>@atlas_homepro</span>
-          </a>
-        
-          <a href="https://nextdoor.com/page/atlas-home-pro/" target="_blank" rel="noopener noreferrer" aria-label="Atlas Home Pro on Nextdoor" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#00B551"><path d="M12 1L2 8.5V23h7v-7.5h6V23h7V8.5L12 1zm0 2.1l7.5 5.6V21h-3v-7.5H7.5V21h-3V8.7L12 3.1z"/></svg>
-            <span>Nextdoor</span>
           </a>
         </div>
       </div>
