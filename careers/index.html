@@ -120,12 +120,22 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Manrope',sans-serif;background:#fff;color:#111;padding-bottom:60px}
-nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;min-height:64px;flex-wrap:wrap;gap:8px}
-.nav-brand a{color:#FFDC00;font-size:1.05rem;font-weight:900;text-decoration:none;letter-spacing:2px}
-.nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.nav-links a{color:#ccc;text-decoration:none;font-size:.85rem;font-weight:500}
-.nav-links a:hover,.nav-links a.active{color:#FFDC00}
-.nav-cta{background:#FFDC00!important;color:#111!important;padding:8px 18px;border-radius:6px;font-weight:700!important}
+nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:72px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-brand a{color:#fff;font-size:1.1rem;font-weight:900;text-decoration:none;letter-spacing:3px;font-family:'Manrope',sans-serif}
+.nav-brand a span.brand-accent{color:#FFDC00}
+.nav-links{display:flex;gap:0;align-items:center;height:100%}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.4px}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.nav-phone{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.78rem;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-phone:hover{color:#FFDC00}
+.nav-phone svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.nav-divider{width:1px;height:24px;background:rgba(255,255,255,0.1)}
+.nav-mobile-phone{display:none}
+.nav-mobile-cta{display:none!important}
+.nav-cta{background:#FFDC00!important;color:#0a0a0a!important;padding:10px 24px;border-radius:6px;font-weight:800!important;font-size:.78rem!important;letter-spacing:1.2px;text-transform:uppercase;transition:all .25s ease!important;box-shadow:0 0 0 0 rgba(255,220,0,0);position:relative;overflow:hidden}
+.nav-cta:hover{background:#fff!important;box-shadow:0 4px 20px rgba(255,220,0,0.25)!important;transform:translateY(-1px)}
 
 .breadcrumb{color:rgba(255,255,255,0.65);font-size:.82rem;margin-bottom:16px}
 .breadcrumb a{color:rgba(255,255,255,0.65);text-decoration:none}
@@ -216,14 +226,18 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 .reviews-rating{margin-bottom:24px}
 .reviews-rating-text{font-size:1.1rem;font-weight:600;color:#111}
 
-@media(max-width:768px){
-  nav{padding:8px 16px;flex-wrap:wrap}
-  .nav-links{display:none;width:100%;flex-direction:column;gap:0;background:#111;padding:0}
+.hamburger{display:none}
+@media(max-width:900px){
+  nav{padding:0 20px;height:64px}
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
   .nav-links.open{display:flex}
-  .nav-links a{padding:12px 16px;border-bottom:1px solid #222;font-size:.9rem}
-  .nav-links .nav-cta{margin:12px 16px;text-align:center}
-  .hamburger{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:8px;z-index:1000}
-  .hamburger span{width:24px;height:2px;background:#FFDC00;transition:.3s}
+  .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem}
+  .nav-right{display:none}
+  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1000;background:none;border:none}
+  .hamburger span{width:22px;height:1.5px;background:#fff;transition:all .3s ease;display:block}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
   
   
   
@@ -539,26 +553,38 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 @media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr;gap:30px}}
 @media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
 
-/* Dropdown Navigation */
-.nav-item{position:relative}
-.nav-item > a{color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:8px 0;display:block}
-.nav-item.has-dropdown > a::after{content:'';display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #FFDC00;margin-left:5px;vertical-align:middle;transition:transform .2s}
-.nav-item.has-dropdown:hover > a::after{transform:rotate(180deg)}
-.dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#111;border:1px solid #222;min-width:220px;padding:8px 0;z-index:1000;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+/* Dropdown Navigation — Premium */
+.nav-item{position:relative;height:100%;display:flex;align-items:center}
+.nav-item > a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:0 16px;display:flex;align-items:center;height:100%;transition:color .2s;position:relative}
+.nav-item > a::before{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:#FFDC00;transform:scaleX(0);transition:transform .25s ease;transform-origin:center}
+.nav-item:hover > a{color:#fff}
+.nav-item:hover > a::before{transform:scaleX(1)}
+.nav-item.has-dropdown > a::after{content:'';display:inline-block;width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:3.5px solid rgba(255,255,255,0.35);margin-left:6px;transition:all .25s ease}
+.nav-item.has-dropdown:hover > a::after{border-top-color:#FFDC00;transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(0);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);min-width:240px;padding:12px 0;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 8px 8px;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 .nav-item.has-dropdown:hover .dropdown{display:block}
-.dropdown a{display:block;padding:10px 20px;color:#ccc;text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:color .15s,background .15s}
-.dropdown a:hover{color:#FFDC00;background:rgba(255,220,0,.05)}
-.dropdown a:first-child{color:#fff;font-weight:700;border-bottom:1px solid #222;padding-bottom:12px;margin-bottom:4px}
-.nav-cta{background:#FFDC00!important;color:#0A0A0A!important;padding:10px 20px!important;font-weight:800!important;font-size:.8rem!important;letter-spacing:1.5px!important;text-transform:uppercase!important;text-decoration:none!important;border:none!important;display:inline-block!important;transition:opacity .2s!important}
-.nav-cta:hover{opacity:.9!important}
+.dropdown a{display:block;padding:10px 24px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:all .15s}
+.dropdown a:hover{color:#fff;background:rgba(255,220,0,.04);padding-left:28px}
+.dropdown a:first-child{color:rgba(255,255,255,0.9);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:12px;margin-bottom:4px}
+/* Mega Dropdown for Services */
+.mega-dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);padding:28px 32px;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 10px 10px;min-width:680px;animation:dropIn .2s ease}
+.nav-item.has-mega:hover .mega-dropdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 32px}
+.mega-dropdown a{display:block;padding:7px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .15s}
+.mega-dropdown a:hover{color:#fff}
+.mega-dropdown a:first-child{border:none;padding-bottom:7px;margin-bottom:0;color:rgba(255,255,255,0.55);font-weight:500}
 
 /* Mobile dropdown */
-@media(max-width:768px){
+@media(max-width:900px){
   .nav-links{flex-direction:column;gap:0}
-  .nav-item > a{padding:12px 20px;border-bottom:1px solid #222}
-  .dropdown{position:static;transform:none;display:none;border:none;box-shadow:none;padding-left:16px;background:#0a0a0a}
-  .nav-item.has-dropdown.open .dropdown{display:block}
-  .nav-cta{margin:16px 20px;text-align:center;display:block!important}
+  .nav-item{height:auto;display:block}
+  .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
+  .nav-item > a::before{display:none}
+  .dropdown,.mega-dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
+  .nav-item.has-dropdown.open .dropdown,.nav-item.has-mega.open .mega-dropdown{display:block!important;grid-template-columns:1fr!important}
+  .nav-cta:not(.nav-mobile-cta){display:none!important}
+  .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
+  .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
 }
 .gallery-slide{flex:0 0 280px;position:relative;overflow:hidden}.gallery-slide img{width:100%;height:220px;object-fit:cover;display:block}.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:#fff;font-family:'Manrope',sans-serif;font-size:14px;font-weight:600}.svc-card{overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}.svc-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12)}.svc-card img{transition:transform 0.3s}.svc-card:hover img{transform:scale(1.05)}.svc-btn{display:inline-block;padding:10px 20px;border:2px solid #111;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:13px;text-decoration:none;color:#111;transition:all 0.2s;font-family:'Manrope',sans-serif}.svc-btn:hover{background:#FFDC00;border-color:#FFDC00}@media(max-width:768px){.gallery-slide{flex:0 0 240px}.gallery-slide img{height:180px}}
 @media(max-width:768px){.hero-grid{grid-template-columns:1fr!important}.hero-img-wrap{order:-1}.svc-grid{grid-template-columns:1fr!important}.trust-grid{grid-template-columns:1fr!important}.form-grid{grid-template-columns:1fr!important}.stats-row{grid-template-columns:repeat(2,1fr)!important}}
@@ -596,12 +622,24 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 .cr-hero .hero-pills span{background:rgba(255,230,0,.08);border:1px solid rgba(255,230,0,.25);color:#ffe600;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600}
 .cr-hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cr-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px 20px;text-align:center}
-.cr-stat .big{font-size:2rem;font-weight:900;color:#ffe600}
-.cr-stat .label{font-size:.78rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.cr-stat .num,.cr-stat .big{font-size:2rem;font-weight:900;color:#ffe600}
+.cr-stat .label{font-size:.78rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
 
-/* Stats Bar */
-.cr-stats-bar{background:#ffe600;padding:20px 5%;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.cr-stats-bar span{font-size:.88rem;font-weight:700;color:#111;display:flex;align-items:center;gap:6px}
+/* Stats Bar — Premium Redesign */
+.cr-stats-bar{background:#0d0d0d;padding:0;position:relative;overflow:hidden}
+.cr-stats-bar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,220,0,.3),transparent)}
+.cr-stats-bar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,220,0,.15),transparent)}
+.cr-stats-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1200px;margin:0 auto}
+.cr-stats-bar .stat{padding:36px 24px;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
+.cr-stats-bar .stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.06)}
+.cr-stats-bar .stat .num{font-size:1.8rem;font-weight:900;color:#ffe600;letter-spacing:-1px;line-height:1}
+.cr-stats-bar .stat .label{font-size:.68rem;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px}
+@media(max-width:768px){
+  .cr-stats-inner{grid-template-columns:1fr 1fr}
+  .cr-stats-bar .stat{padding:24px 16px}
+  .cr-stats-bar .stat:nth-child(2)::after{display:none}
+  .cr-stats-bar .stat .num{font-size:1.5rem}
+}
 
 /* Open Positions - WHITE background */
 .cr-positions{background:#fff;padding:70px 5%}
@@ -665,72 +703,56 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 </style>
 <body>
 <nav>
-  <div class="nav-brand"><a href="/">ATLAS HOME PRO</a></div>
-  <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('.hamburger').classList.toggle('active')"><span></span><span></span><span></span></div>
+  <div class="nav-brand"><a href="/">ATLAS <span class="brand-accent">HOME PRO</span></a></div>
   <div class="nav-links">
-    <div class="nav-item has-dropdown">
-      <a href="/plumbing/">Plumbing</a>
-      <div class="dropdown">
-        <a href="/plumbing/">All Plumbing Services</a>
-        <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
-        <a href="/plumbing/water-heater/">Water Heater Replacement</a>
-        <a href="/plumbing/repiping/">Repiping &amp; Pipe Repair</a>
-        <a href="/plumbing/leak-detection/">Leak Detection &amp; Repair</a>
-        <a href="/plumbing/sewer-line/">Sewer Line Services</a>
-        <a href="/plumbing/emergency/">Emergency Plumbing</a>
-        <a href="/plumbing/fixtures/">Faucets, Toilets &amp; Fixtures</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/hvac/">HVAC</a>
-      <div class="dropdown">
-        <a href="/hvac/">All HVAC Services</a>
-        <a href="/hvac/ac-repair/">AC Repair</a>
-        <a href="/hvac/ac-installation/">AC Installation</a>
-        <a href="/hvac/heating/">Heating Repair &amp; Installation</a>
-        <a href="/hvac/tune-up/">Tune-Up &amp; Maintenance</a>
-        <a href="/hvac/thermostat/">Thermostat Installation</a>
-        <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/electrical/">Electrical</a>
-      <div class="dropdown">
-        <a href="/electrical/">All Electrical Services</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/roofing/">Roofing</a>
-      <div class="dropdown">
-        <a href="/roofing/">All Roofing Services</a>
-        <a href="/roofing/roof-repair/">Roof Repair &amp; Patching</a>
-        <a href="/roofing/roof-replacement/">Full Roof Replacement</a>
-        <a href="/roofing/roof-inspection/">Roof Inspection</a>
-        <a href="/roofing/gutters/">Gutter Cleaning &amp; Repair</a>
-        <a href="/roofing/emergency-leak/">Emergency Roof Leak</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/painting/">Painting</a>
-      <div class="dropdown">
-        <a href="/painting/">All Painting Services</a>
-        <a href="/painting/interior/">Interior Painting</a>
-        <a href="/painting/exterior/">Exterior Painting</a>
-        <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
-        <a href="/painting/drywall-repair/">Drywall Repair &amp; Patching</a>
-        <a href="/painting/color-consultation/">Color Consultation</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="#">More</a>
-      <div class="dropdown">
-        <a href="/restoration/">Water Damage Restoration</a>
-        <a href="/pest-control/">Pest Control</a>
+    <div class="nav-item has-dropdown has-mega">
+      <a href="#">Services</a>
+      <div class="mega-dropdown">
+        <div class="mega-col">
+          <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
+          <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
+          <a href="/plumbing/water-heater/">Water Heater</a>
+          <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
+          <a href="/plumbing/leak-detection/">Leak Detection</a>
+          <a href="/plumbing/sewer-line/">Sewer Line</a>
+          <a href="/plumbing/emergency/">Emergency</a>
+          <a href="/plumbing/fixtures/">Fixtures</a>
+        </div>
+        <div class="mega-col">
+          <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
+          <a href="/hvac/ac-repair/">AC Repair</a>
+          <a href="/hvac/ac-installation/">AC Installation</a>
+          <a href="/hvac/heating/">Heating</a>
+          <a href="/hvac/tune-up/">Tune-Up</a>
+          <a href="/hvac/thermostat/">Thermostat</a>
+          <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
+        </div>
+        <div class="mega-col">
+          <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
+          <a href="/electrical/">All Electrical Services</a>
+          <a href="/roofing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Roofing</a>
+          <a href="/roofing/roof-repair/">Roof Repair</a>
+          <a href="/roofing/roof-replacement/">Replacement</a>
+          <a href="/roofing/roof-inspection/">Inspection</a>
+          <a href="/roofing/gutters/">Gutters</a>
+        </div>
+        <div class="mega-col">
+          <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
+          <a href="/painting/interior/">Interior</a>
+          <a href="/painting/exterior/">Exterior</a>
+          <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
+          <a href="/painting/drywall-repair/">Drywall Repair</a>
+          <a href="/painting/color-consultation/">Color Consultation</a>
+          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">More</a>
+          <a href="/restoration/">Restoration</a>
+          <a href="/pest-control/">Pest Control</a>
+        </div>
       </div>
     </div>
     <div class="nav-item has-dropdown">
       <a href="/service-areas/">Areas</a>
       <div class="dropdown">
+        <a href="/service-areas/">All Service Areas</a>
         <a href="/service-areas/beverly-hills/">Beverly Hills</a>
         <a href="/service-areas/brentwood/">Brentwood</a>
         <a href="/service-areas/bel-air/">Bel Air</a>
@@ -750,10 +772,21 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
         <a href="/reviews/">Customer Reviews</a>
         <a href="/offers/">Current Offers</a>
         <a href="/careers/">Join Our Team</a>
-        <a href="/contact/">Get in Touch</a></div>
+        <a href="/contact/">Get in Touch</a>
+      </div>
     </div>
-    <a href="/#book" class="nav-cta">GET A QUOTE</a>
+    <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
+    <a href="/#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
   </div>
+  <div class="nav-right">
+    <a href="tel:2132752210" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (213) 275-2210
+    </a>
+    <div class="nav-divider"></div>
+    <a href="/#book" class="nav-cta">Get a Quote</a>
+  </div>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav><div class="proof-bar">
   <div class="proof-track">
       <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Jennifer in Long Beach rated us 5 stars — "Saved our home after the flood."</span></div><div class="proof-divider"></div>
@@ -795,7 +828,7 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 <div class="cr-stat"><div class="num">$25-52</div><div class="label">Hourly Pay Range</div></div>
 <div class="cr-stat"><div class="num">100%</div><div class="label">Health Coverage</div></div>
 </div></div></div></section>
-<div class="cr-stats-bar"><div class="stat"><span class="num">7</span><span class="label">Trade Divisions</span></div><div class="stat"><span class="num">$52/hr</span><span class="label">Top Pay Rate</span></div><div class="stat"><span class="num">100%</span><span class="label">Health Benefits</span></div><div class="stat"><span class="num">365</span><span class="label">Days of Work</span></div></div>
+<div class="cr-stats-bar"><div class="cr-stats-inner"><div class="stat"><span class="num">7</span><span class="label">Trade Divisions</span></div><div class="stat"><span class="num">$52/hr</span><span class="label">Top Pay Rate</span></div><div class="stat"><span class="num">100%</span><span class="label">Health Benefits</span></div><div class="stat"><span class="num">365</span><span class="label">Days of Work</span></div></div></div>
 <section class="cr-positions"><div class="section-label">OPEN POSITIONS</div><h2>Join Our <em>Growing Team</em></h2><p class="section-sub">We are hiring across all trades. Experienced professionals earn top-of-market pay with full benefits.</p>
 <div class="pos-grid">
 <div class="pos-card"><span class="pos-cat">HVAC</span><h3>HVAC Technician</h3><p class="pos-desc">Experienced AC and heating technicians needed for residential and commercial service. EPA and NATE certification preferred.</p><div class="pos-pay">💰 $30 – $50/hr + Overtime</div><div class="pos-tags"><span>Full-Time</span><span>Company Van</span><span>Benefits</span></div><a href="#apply" class="pos-apply">APPLY NOW →</a></div>
@@ -848,7 +881,7 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
         <p class="footer-email">David@AtlasHomePro.com</p>
         <div style="margin-top:14px;">
           <a href="https://www.instagram.com/atlas_homepro/" target="_blank" rel="noopener noreferrer" aria-label="Follow Atlas Home Pro on Instagram" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#feda75"/><stop offset="25%" style="stop-color:#fa7e1e"/><stop offset="50%" style="stop-color:#d62976"/><stop offset="75%" style="stop-color:#962fbf"/><stop offset="100%" style="stop-color:#4f5bd5"/></linearGradient></defs><path fill="url(#ig-grad)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512" fill="#FFDC00"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             <span>@atlas_homepro</span>
           </a>
         </div>
@@ -872,8 +905,6 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
           <li><a href="/service-areas/">Service Areas</a></li>
           <li><a href="/#book">Book a Free Estimate</a></li>
           <li><a href="/learn/">Home Guides</a></li>
-          <li><a href="/privacy-policy/">Privacy Policy</a></li>
-          <li><a href="/terms-of-service/">Terms of Service</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -893,7 +924,7 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
     </div>
   </footer>
 <script>
-document.querySelectorAll('.nav-item.has-dropdown > a').forEach(item => {
+document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
   item.addEventListener('click', e => {
     if(window.innerWidth < 900) {
       e.preventDefault();
