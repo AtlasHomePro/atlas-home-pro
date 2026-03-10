@@ -303,12 +303,19 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .nav-item{height:auto;display:block}
   .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
   .nav-item > a::before{display:none}
-  .dropdown,.mega-dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
-  .nav-item.has-dropdown.open .dropdown,.nav-item.has-mega.open .mega-dropdown{display:block!important;grid-template-columns:1fr!important}
+  .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
+  .nav-item.has-dropdown.open .dropdown{display:block!important}
+  .mega-dropdown{display:none!important}
+  .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+  .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
+  .mobile-services a:hover{color:#FFDC00}
+  .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+  .nav-item.has-mega.open .mobile-services{display:grid}
   .nav-cta:not(.nav-mobile-cta){display:none!important}
   .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
   .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
 }
+.mobile-services{display:none}
 </style>
   <meta property="og:image" content="https://atlashomepro.com/images/learn/true-cost-deferred-maintenance/hero.jpg" />
   <script type="application/ld+json">
@@ -382,6 +389,16 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
           <a href="/restoration/">Restoration</a>
           <a href="/pest-control/">Pest Control</a>
         </div>
+      </div>
+      <div class="mobile-services">
+        <a href="/plumbing/"><span class="ms-icon">🔧</span> Plumbing</a>
+        <a href="/hvac/"><span class="ms-icon">❄️</span> HVAC</a>
+        <a href="/electrical/"><span class="ms-icon">⚡</span> Electrical</a>
+        <a href="/roofing/"><span class="ms-icon">🏠</span> Roofing</a>
+        <a href="/painting/"><span class="ms-icon">🎨</span> Painting</a>
+        <a href="/restoration/"><span class="ms-icon">💧</span> Restoration</a>
+        <a href="/pest-control/"><span class="ms-icon">🐜</span> Pest Control</a>
+        <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
       </div>
     </div>
     <div class="nav-item has-dropdown">
@@ -518,7 +535,10 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
   item.addEventListener('click', e => {
     if(window.innerWidth < 900) {
       e.preventDefault();
-      item.parentElement.classList.toggle('open');
+      const parent = item.parentElement;
+      parent.classList.toggle('open');
+      const ms = parent.querySelector('.mobile-services');
+      if(ms) ms.style.display = parent.classList.contains('open') ? 'grid' : 'none';
     }
   });
 });

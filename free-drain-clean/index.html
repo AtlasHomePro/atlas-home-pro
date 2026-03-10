@@ -684,12 +684,19 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .nav-item{height:auto;display:block}
   .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
   .nav-item > a::before{display:none}
-  .dropdown,.mega-dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
-  .nav-item.has-dropdown.open .dropdown,.nav-item.has-mega.open .mega-dropdown{display:block!important;grid-template-columns:1fr!important}
+  .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
+  .nav-item.has-dropdown.open .dropdown{display:block!important}
+  .mega-dropdown{display:none!important}
+  .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+  .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
+  .mobile-services a:hover{color:#FFDC00}
+  .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+  .nav-item.has-mega.open .mobile-services{display:grid}
   .nav-cta:not(.nav-mobile-cta){display:none!important}
   .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
   .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
 }
+.mobile-services{display:none}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. No hidden fees, no bait-and-switch. We clear your drain and inspect your plumbing at absolutely no cost. This is how we introduce ourselves to new neighborhoods."}},{"@type":"Question","name":"What's the catch?","acceptedAnswer":{"@type":"Answer","text":"There isn't one. If you like our work, we hope you'll call us for future home services. If not, no hard feelings. We never pressure, upsell, or create fake urgency."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We currently serve Beverly Hills, Westwood, Brentwood, West LA, Century City, Culver City, Mar Vista, Pacific Palisades, and surrounding areas."}},{"@type":"Question","name":"Are you licensed and insured?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Atlas Home Pro is fully licensed, bonded, and insured across all seven trades we offer."}},{"@type":"Question","name":"Why only 50 spots?","acceptedAnswer":{"@type":"Answer","text":"We want to deliver exceptional service to every founding member. Limiting spots lets us schedule carefully and build real relationships in the neighborhood."}},{"@type":"Question","name":"What other services do you offer?","acceptedAnswer":{"@type":"Answer","text":"Atlas Home Pro covers seven home trades: HVAC, plumbing, electrical, roofing, painting, pest control, and water restoration."}}]}</script>
 
@@ -753,6 +760,16 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
           <a href="/restoration/">Restoration</a>
           <a href="/pest-control/">Pest Control</a>
         </div>
+      </div>
+      <div class="mobile-services">
+        <a href="/plumbing/"><span class="ms-icon">🔧</span> Plumbing</a>
+        <a href="/hvac/"><span class="ms-icon">❄️</span> HVAC</a>
+        <a href="/electrical/"><span class="ms-icon">⚡</span> Electrical</a>
+        <a href="/roofing/"><span class="ms-icon">🏠</span> Roofing</a>
+        <a href="/painting/"><span class="ms-icon">🎨</span> Painting</a>
+        <a href="/restoration/"><span class="ms-icon">💧</span> Restoration</a>
+        <a href="/pest-control/"><span class="ms-icon">🐜</span> Pest Control</a>
+        <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
       </div>
     </div>
     <div class="nav-item has-dropdown">
@@ -1097,7 +1114,10 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
   item.addEventListener('click', e => {
     if(window.innerWidth < 900) {
       e.preventDefault();
-      item.parentElement.classList.toggle('open');
+      const parent = item.parentElement;
+      parent.classList.toggle('open');
+      const ms = parent.querySelector('.mobile-services');
+      if(ms) ms.style.display = parent.classList.contains('open') ? 'grid' : 'none';
     }
   });
 });
