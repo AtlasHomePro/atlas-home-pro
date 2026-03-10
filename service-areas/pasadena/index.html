@@ -637,6 +637,18 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .mobile-services{display:none}
 .mobile-areas{display:none}
 .mobile-about{display:none}
+
+/* Mobile footer accordions */
+@media(max-width:768px){
+  .footer-col h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
+  .footer-col h4::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400;transition:transform .2s}
+  .footer-col.fc-open h4::after{content:'−'}
+  .footer-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0;padding:0}
+  .footer-col.fc-open ul{max-height:400px;padding:8px 0 12px}
+  .footer-col:first-child h4{cursor:default}
+  .footer-col:first-child h4::after{display:none}
+  .footer-col:first-child p,.footer-col:first-child .footer-phone,.footer-col:first-child .footer-email,.footer-col:first-child > div{display:block}
+}
 </style>  <link rel="canonical" href="https://atlashomepro.com/service-areas/pasadena/" />
   <meta property="og:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atlas Home Pro","url":"https://atlashomepro.com","telephone":"+1-213-275-2210","email":"David@AtlasHomePro.com","address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"areaServed":{"@type":"City","name":"Pasadena","containedInPlace":{"@type":"State","name":"California"}},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Services in Pasadena","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plumbing Services in Pasadena"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HVAC Services in Pasadena"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Electrical Services in Pasadena"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Roofing Services in Pasadena"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Painting Services in Pasadena"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pest Control in Pasadena"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Restoration in Pasadena"}}]},"priceRange":"$$","image":"https://atlashomepro.com/van%20pics/atlas-van-new-phone.png","sameAs":["https://www.instagram.com/atlas_homepro/"]}</script>
@@ -923,4 +935,15 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
   });
 });
 </script>
+<script>
+// Footer accordions on mobile
+document.querySelectorAll('.footer-col h4').forEach(h4 => {
+  h4.addEventListener('click', () => {
+    if(window.innerWidth <= 768) {
+      const col = h4.parentElement;
+      if(col === col.parentElement.firstElementChild) return;
+      col.classList.toggle('fc-open');
+    }
+  });
+});</script>
 </body></html>

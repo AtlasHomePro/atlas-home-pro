@@ -639,6 +639,42 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .mobile-services{display:none}
 .mobile-areas{display:none}
 .mobile-about{display:none}
+
+/* Mobile footer accordions */
+@media(max-width:768px){
+  .footer-col h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
+  .footer-col h4::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400;transition:transform .2s}
+  .footer-col.fc-open h4::after{content:'−'}
+  .footer-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0;padding:0}
+  .footer-col.fc-open ul{max-height:400px;padding:8px 0 12px}
+  .footer-col:first-child h4{cursor:default}
+  .footer-col:first-child h4::after{display:none}
+  .footer-col:first-child p,.footer-col:first-child .footer-phone,.footer-col:first-child .footer-email,.footer-col:first-child > div{display:block}
+}
+
+/* Compact service cards on mobile */
+@media(max-width:600px){
+  .services-grid{gap:12px!important}
+  .service-card{display:flex;flex-direction:row;border-radius:10px}
+  .card-img{width:110px;min-width:110px;height:auto!important;min-height:100px}
+  .card-img img{height:100%!important;border-radius:10px 0 0 10px}
+  .card-body{padding:14px!important}
+  .card-body h3{font-size:.95rem!important;margin-bottom:3px!important}
+  .card-body p{font-size:.8rem!important;line-height:1.4!important;margin-bottom:6px!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .card-link{font-size:.78rem!important}
+}
+/* Stats grid visual punch on mobile */
+@media(max-width:600px){
+  .stat{border:1px solid #FFDC00!important;border-radius:10px!important;background:rgba(255,220,0,0.04)!important;padding:18px 12px!important}
+  .stat-number{font-size:1.7rem!important;text-shadow:0 0 20px rgba(255,220,0,0.2)}
+  .stat-label{font-size:.7rem!important;color:#aaa!important}
+}
+/* Gallery label truncation fix */
+@media(max-width:600px){
+  .gallery-item{width:200px!important}
+  .gallery-item img{width:200px!important;height:150px!important}
+  .gallery-label{font-size:.75rem!important;padding:24px 10px 10px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -1341,5 +1377,16 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
   <a href="tel:+12132752210">📞 Call Now</a>
   <a href="#book">📋 Book Online</a>
 </div>
+<script>
+// Footer accordions on mobile
+document.querySelectorAll('.footer-col h4').forEach(h4 => {
+  h4.addEventListener('click', () => {
+    if(window.innerWidth <= 768) {
+      const col = h4.parentElement;
+      if(col === col.parentElement.firstElementChild) return;
+      col.classList.toggle('fc-open');
+    }
+  });
+});</script>
 </body>
 </html><!-- form-trigger -->
