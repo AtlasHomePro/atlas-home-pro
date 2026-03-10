@@ -425,17 +425,67 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
   .nav-cta{margin:16px 20px;text-align:center;display:block!important}
 }
 
-    /* Mobile: Collapse sub-dropdowns for cleaner navigation */
-    @media (max-width: 768px) {
-      .nav-item.has-dropdown .dropdown-menu .has-dropdown .dropdown-menu {
-        display: none !important;
-      }
-      .nav-item.has-dropdown .dropdown-menu {
-        max-height: 300px;
-        overflow-y: auto;
-      }
-    }
-  </style>
+    
+/* Premium Navigation */
+nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:72px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-brand a{color:#fff;font-size:1.1rem;font-weight:900;text-decoration:none;letter-spacing:3px;font-family:'Manrope',sans-serif}
+.nav-brand a span.brand-accent{color:#FFDC00}
+.nav-links{display:flex;gap:0;align-items:center;height:100%}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.4px}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.nav-phone{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.78rem;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-phone:hover{color:#FFDC00}
+.nav-phone svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
+.nav-divider{width:1px;height:24px;background:rgba(255,255,255,0.1)}
+.nav-mobile-phone{display:none}
+.nav-mobile-cta{display:none!important}
+.nav-cta{background:#FFDC00!important;color:#0a0a0a!important;padding:10px 24px;border-radius:6px;font-weight:800!important;font-size:.78rem!important;letter-spacing:1.2px;text-transform:uppercase;transition:all .25s ease!important;box-shadow:0 0 0 0 rgba(255,220,0,0);position:relative;overflow:hidden}
+.nav-cta:hover{background:#fff!important;box-shadow:0 4px 20px rgba(255,220,0,0.25)!important;transform:translateY(-1px)}
+.hamburger{display:none}
+/* Nav dropdown items */
+.nav-item{position:relative;height:100%;display:flex;align-items:center}
+.nav-item > a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:0 16px;display:flex;align-items:center;height:100%;transition:color .2s;position:relative}
+.nav-item > a::before{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:#FFDC00;transform:scaleX(0);transition:transform .25s ease;transform-origin:center}
+.nav-item:hover > a{color:#fff}
+.nav-item:hover > a::before{transform:scaleX(1)}
+.nav-item.has-dropdown > a::after{content:'';display:inline-block;width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:3.5px solid rgba(255,255,255,0.35);margin-left:6px;transition:all .25s ease}
+.nav-item.has-dropdown:hover > a::after{border-top-color:#FFDC00;transform:rotate(180deg)}
+.dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(0);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);min-width:240px;padding:12px 0;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 8px 8px;animation:dropIn .2s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-item.has-dropdown:hover .dropdown{display:block}
+.dropdown a{display:block;padding:10px 24px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:all .15s}
+.dropdown a:hover{color:#fff;background:rgba(255,220,0,.04);padding-left:28px}
+.dropdown a:first-child{color:rgba(255,255,255,0.9);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:12px;margin-bottom:4px}
+/* Mega Dropdown for Services */
+.mega-dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);padding:28px 32px;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 10px 10px;min-width:680px;animation:dropIn .2s ease}
+.nav-item.has-mega:hover .mega-dropdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 32px}
+.mega-dropdown a{display:block;padding:7px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .15s}
+.mega-dropdown a:hover{color:#fff}
+.mega-dropdown a:first-child{border:none;padding-bottom:7px;margin-bottom:0;color:rgba(255,255,255,0.55);font-weight:500}
+/* Mobile nav */
+@media(max-width:900px){
+  nav{padding:0 20px;height:64px}
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem}
+  .nav-right{display:none}
+  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1000;background:none;border:none}
+  .hamburger span{width:22px;height:1.5px;background:#fff;transition:all .3s ease;display:block}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .nav-item{height:auto;display:block}
+  .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
+  .nav-item > a::before{display:none}
+  .dropdown,.mega-dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
+  .nav-item.has-dropdown.open .dropdown,.nav-item.has-mega.open .mega-dropdown{display:block!important;grid-template-columns:1fr!important}
+  .nav-cta:not(.nav-mobile-cta){display:none!important}
+  .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
+  .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
+}
+</style>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -456,67 +506,48 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 </head>
 <body>
 <nav>
-  <div class="nav-brand"><a href="/">ATLAS HOME PRO</a></div>
-  <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('.hamburger').classList.toggle('active')"><span></span><span></span><span></span></div>
+  <div class="nav-brand"><a href="/">ATLAS <span class="brand-accent">HOME PRO</span></a></div>
   <div class="nav-links">
-    <div class="nav-item has-dropdown">
-      <a href="/plumbing/">Plumbing</a>
-      <div class="dropdown">
-        <a href="/plumbing/">All Plumbing Services</a>
-        <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
-        <a href="/plumbing/water-heater/">Water Heater Replacement</a>
-        <a href="/plumbing/repiping/">Repiping &amp; Pipe Repair</a>
-        <a href="/plumbing/leak-detection/">Leak Detection &amp; Repair</a>
-        <a href="/plumbing/sewer-line/">Sewer Line Services</a>
-        <a href="/plumbing/emergency/">Emergency Plumbing</a>
-        <a href="/plumbing/fixtures/">Faucets, Toilets &amp; Fixtures</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/hvac/">HVAC</a>
-      <div class="dropdown">
-        <a href="/hvac/">All HVAC Services</a>
-        <a href="/hvac/ac-repair/">AC Repair</a>
-        <a href="/hvac/ac-installation/">AC Installation</a>
-        <a href="/hvac/heating/">Heating Repair &amp; Installation</a>
-        <a href="/hvac/tune-up/">Tune-Up &amp; Maintenance</a>
-        <a href="/hvac/thermostat/">Thermostat Installation</a>
-        <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/electrical/">Electrical</a>
-      <div class="dropdown">
-        <a href="/electrical/">All Electrical Services</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/roofing/">Roofing</a>
-      <div class="dropdown">
-        <a href="/roofing/">All Roofing Services</a>
-        <a href="/roofing/roof-repair/">Roof Repair &amp; Patching</a>
-        <a href="/roofing/roof-replacement/">Full Roof Replacement</a>
-        <a href="/roofing/roof-inspection/">Roof Inspection</a>
-        <a href="/roofing/gutters/">Gutter Cleaning &amp; Repair</a>
-        <a href="/roofing/emergency-leak/">Emergency Roof Leak</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/painting/">Painting</a>
-      <div class="dropdown">
-        <a href="/painting/">All Painting Services</a>
-        <a href="/painting/interior/">Interior Painting</a>
-        <a href="/painting/exterior/">Exterior Painting</a>
-        <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
-        <a href="/painting/drywall-repair/">Drywall Repair &amp; Patching</a>
-        <a href="/painting/color-consultation/">Color Consultation</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="#">More</a>
-      <div class="dropdown">
-        <a href="/restoration/">Water Damage Restoration</a>
-        <a href="/pest-control/">Pest Control</a>
+    <div class="nav-item has-dropdown has-mega">
+      <a href="#">Services</a>
+      <div class="mega-dropdown">
+        <div class="mega-col">
+          <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
+          <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
+          <a href="/plumbing/water-heater/">Water Heater</a>
+          <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
+          <a href="/plumbing/leak-detection/">Leak Detection</a>
+          <a href="/plumbing/sewer-line/">Sewer Line</a>
+          <a href="/plumbing/emergency/">Emergency</a>
+          <a href="/plumbing/fixtures/">Fixtures</a>
+        </div>
+        <div class="mega-col">
+          <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
+          <a href="/hvac/ac-repair/">AC Repair</a>
+          <a href="/hvac/ac-installation/">AC Installation</a>
+          <a href="/hvac/heating/">Heating</a>
+          <a href="/hvac/tune-up/">Tune-Up</a>
+          <a href="/hvac/thermostat/">Thermostat</a>
+          <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
+        </div>
+        <div class="mega-col">
+          <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
+          <a href="/electrical/">All Electrical Services</a>
+          <a href="/roofing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Roofing</a>
+          <a href="/roofing/roof-repair/">Roof Repair</a>
+          <a href="/roofing/roof-replacement/">Replacement</a>
+          <a href="/roofing/roof-inspection/">Inspection</a>
+          <a href="/roofing/gutters/">Gutters</a>
+        </div>
+        <div class="mega-col">
+          <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
+          <a href="/painting/interior/">Interior</a>
+          <a href="/painting/exterior/">Exterior</a>
+          <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
+          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">More</a>
+          <a href="/restoration/">Restoration</a>
+          <a href="/pest-control/">Pest Control</a>
+        </div>
       </div>
     </div>
     <div class="nav-item has-dropdown">
@@ -541,10 +572,21 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
         <a href="/reviews/">Customer Reviews</a>
         <a href="/offers/">Current Offers</a>
         <a href="/careers/">Join Our Team</a>
-        <a href="/contact/">Get in Touch</a></div>
+        <a href="/contact/">Get in Touch</a>
+      </div>
     </div>
-    <a href="/#book" class="nav-cta">GET A QUOTE</a>
+    <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
+    <a href="/#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
   </div>
+  <div class="nav-right">
+    <a href="tel:2132752210" class="nav-phone">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (213) 275-2210
+    </a>
+    <div class="nav-divider"></div>
+    <a href="/#book" class="nav-cta">Get a Quote</a>
+  </div>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <section class="hero" id="home">
   <div class="hero-split">
@@ -690,9 +732,12 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 </div>
 <script>
 // Mobile dropdown toggle
-document.querySelectorAll('.nav-item.has-dropdown > a').forEach(function(a){
-  a.addEventListener('click',function(e){
-    if(window.innerWidth<=768){e.preventDefault();this.parentElement.classList.toggle('open');}
+document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
+  item.addEventListener('click', e => {
+    if(window.innerWidth < 900) {
+      e.preventDefault();
+      item.parentElement.classList.toggle('open');
+    }
   });
 });
 </script>
