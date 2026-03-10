@@ -32,11 +32,11 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--ink);padd
 .nav-brand{color:var(--yellow);font-family:'Manrope',sans-serif;font-size:.9rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
 .nav-links{display:flex;align-items:center;gap:8px}
 .nav-item{position:relative}
-.nav-item>a{font-family:'Manrope',sans-serif;color:#999;text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;display:block;transition:color .15s}
+.nav-item>a{font-family:'Manrope',sans-serif;color:#c0c0c0;text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;display:block;transition:color .15s}
 .nav-item>a:hover{color:#fff}
 .nav-item.has-dropdown:hover .dropdown{display:block}
 .dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#111;border-top:2px solid var(--yellow);min-width:200px;padding:6px 0;z-index:999;box-shadow:0 12px 32px rgba(0,0,0,.5)}
-.dropdown a{display:block;padding:9px 18px;color:#aaa;text-decoration:none;font-size:.75rem;font-family:'Manrope',sans-serif;font-weight:500;white-space:nowrap;transition:color .12s}
+.dropdown a{display:block;padding:9px 18px;color:#d0d0d0;text-decoration:none;font-size:.75rem;font-family:'Manrope',sans-serif;font-weight:500;white-space:nowrap;transition:color .12s}
 .dropdown a:hover{color:var(--yellow)}
 .dropdown a:first-child{color:#fff;font-weight:700;border-bottom:1px solid #222;padding-bottom:11px;margin-bottom:4px}
 .nav-cta{background:var(--yellow);color:var(--black)!important;font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:9px 18px;text-decoration:none;transition:background .15s;margin-left:8px}
@@ -108,13 +108,13 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--ink);padd
 .kn-item:last-child{border-right:none}
 .kn-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--black);line-height:1;margin-bottom:6px;display:flex;align-items:baseline;gap:2px}
 .kn-num span{font-size:1.2rem;color:var(--yellow);margin-left:2px}
-.kn-desc{font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:600;color:#999;line-height:1.4;text-transform:uppercase;letter-spacing:.04em}
+.kn-desc{font-family:'Manrope',sans-serif;font-size:.75rem;font-weight:600;color:#c0c0c0;line-height:1.4;text-transform:uppercase;letter-spacing:.04em}
 
 /* ── DATA TABLE ── */
 .data-table-wrap{margin:36px 0;overflow-x:auto}
-.data-table-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#999;margin-bottom:10px}
+.data-table-label{font-family:'Manrope',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#c0c0c0;margin-bottom:10px}
 .data-table{width:100%;border-collapse:collapse;font-size:.88rem}
-.data-table thead th{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#999;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border)}
+.data-table thead th{font-family:'Manrope',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c0c0c0;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border)}
 .data-table thead th:first-child{border-left:2px solid var(--yellow)}
 .data-table tbody tr{border-bottom:1px solid #f0f0f0;transition:background .1s}
 .data-table tbody tr:hover{background:var(--bg2)}
@@ -259,7 +259,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.4px}
 .nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-right{display:flex;align-items:center;gap:20px;flex-shrink:0}
-.nav-phone{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:.78rem;font-weight:500;text-decoration:none;transition:color .2s}
+.nav-phone{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.75);font-size:.78rem;font-weight:500;text-decoration:none;transition:color .2s}
 .nav-phone:hover{color:#FFDC00}
 .nav-phone svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
 .nav-divider{width:1px;height:24px;background:rgba(255,255,255,0.1)}
@@ -531,7 +531,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     <span class="trust-item">Upfront Pricing</span>
     <span class="trust-item">West LA Specialists</span>
   </div>
-  <div class="art-body"><img src="/images/learn/true-cost-deferred-maintenance/hero.jpg" alt="The True Cost of Deferred Maintenance in a West LA Home" width="1200" height="630" loading="eager" style="width:100%;height:auto;border-radius:12px;margin-bottom:2rem;"><p class="art-intro">Deferred maintenance is the home improvement category that consistently costs homeowners the most over time — not because any single deferred item is catastrophic, but because they accumulate, compound, and create negotiating leverage for buyers.</p>
+  <div class="art-body"><picture><source type="image/webp" srcset="/images/learn/true-cost-deferred-maintenance/hero-mobile.webp 600w, /images/learn/true-cost-deferred-maintenance/hero.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px"><img src="/images/learn/true-cost-deferred-maintenance/hero.jpg" alt="The True Cost of Deferred Maintenance in a West LA Home" width="1200" height="630" loading="eager" style="width:100%;height:auto;border-radius:12px;margin-bottom:2rem;"></picture><p class="art-intro">Deferred maintenance is the home improvement category that consistently costs homeowners the most over time — not because any single deferred item is catastrophic, but because they accumulate, compound, and create negotiating leverage for buyers.</p>
 <h2>How Deferred Maintenance Compounds</h2>
 <p>A roof that needs $800 in flashing repair and is ignored for two years leads to water intrusion, which leads to damaged sheathing, damaged insulation, stained drywall, and potentially structural framing exposure. What was an $800 repair is now a $12,000 project. This pattern repeats across every trade. Deferred plumbing maintenance leads to water damage. Deferred electrical maintenance leads to overheating and fire risk. Deferred pest control leads to structural damage. The compounding effect is the single most consistent destroyer of residential equity in West LA.</p>
 <h2>The Buyer Perception Cost</h2>
