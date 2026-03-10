@@ -332,18 +332,25 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
   .nav-item > a::before{display:none}
   .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
-  .nav-item.has-dropdown.open .dropdown{display:block!important}
+  .nav-item.has-dropdown.open .dropdown{display:none!important}
   .mega-dropdown{display:none!important}
   .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
   .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
   .mobile-services a:hover{color:#FFDC00}
   .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
   .nav-item.has-mega.open .mobile-services{display:grid}
+  .mobile-areas,.mobile-about{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+  .mobile-areas a,.mobile-about a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
+  .mobile-areas a:hover,.mobile-about a:hover{color:#FFDC00}
+  .mobile-areas a .ms-icon,.mobile-about a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+  .nav-item.has-dropdown.open .mobile-areas,.nav-item.has-dropdown.open .mobile-about{display:grid}
   .nav-cta:not(.nav-mobile-cta){display:none!important}
   .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
   .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
 }
 .mobile-services{display:none}
+.mobile-areas{display:none}
+.mobile-about{display:none}
 </style>
   <meta property="og:image" content="https://atlashomepro.com/images/learn/whole-home-repiping/hero.jpg" />
   <script type="application/ld+json">
@@ -443,6 +450,22 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
         <a href="/service-areas/hancock-park/">Hancock Park</a>
         <a href="/service-areas/fairfax-district/">Fairfax District</a>
       </div>
+      <div class="mobile-areas">
+        <a href="/service-areas/beverly-hills/"><span class="ms-icon">⭐</span> Beverly Hills</a>
+        <a href="/service-areas/bel-air/"><span class="ms-icon">🏔️</span> Bel Air</a>
+        <a href="/service-areas/brentwood/"><span class="ms-icon">🌳</span> Brentwood</a>
+        <a href="/service-areas/pacific-palisades/"><span class="ms-icon">🌊</span> Pacific Palisades</a>
+        <a href="/service-areas/santa-monica/"><span class="ms-icon">🏖️</span> Santa Monica</a>
+        <a href="/service-areas/west-hollywood/"><span class="ms-icon">🌆</span> West Hollywood</a>
+        <a href="/service-areas/century-city/"><span class="ms-icon">🏙️</span> Century City</a>
+        <a href="/service-areas/westwood/"><span class="ms-icon">🎓</span> Westwood</a>
+        <a href="/service-areas/hancock-park/"><span class="ms-icon">🏡</span> Hancock Park</a>
+        <a href="/service-areas/fairfax-district/"><span class="ms-icon">🎭</span> Fairfax District</a>
+        <a href="/service-areas/pasadena/"><span class="ms-icon">🌹</span> Pasadena</a>
+        <a href="/service-areas/glendale/"><span class="ms-icon">🏘️</span> Glendale</a>
+        <a href="/service-areas/burbank/"><span class="ms-icon">🎬</span> Burbank</a>
+        <a href="/service-areas/"><span class="ms-icon">📍</span> All Areas</a>
+      </div>
     </div>
     <div class="nav-item has-dropdown">
       <a href="/about/">About</a>
@@ -452,6 +475,14 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
         <a href="/offers/">Current Offers</a>
         <a href="/careers/">Join Our Team</a>
         <a href="/contact/">Get in Touch</a>
+      </div>
+      <div class="mobile-about">
+        <a href="/about/"><span class="ms-icon">🏢</span> About Us</a>
+        <a href="/reviews/"><span class="ms-icon">⭐</span> Reviews</a>
+        <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
+        <a href="/careers/"><span class="ms-icon">👷</span> Join Our Team</a>
+        <a href="/contact/"><span class="ms-icon">✉️</span> Get in Touch</a>
+        <a href="/learn/"><span class="ms-icon">📚</span> Learn Center</a>
       </div>
     </div>
     <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
@@ -569,6 +600,10 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
       parent.classList.toggle('open');
       const ms = parent.querySelector('.mobile-services');
       if(ms) ms.style.display = parent.classList.contains('open') ? 'grid' : 'none';
+      const ma = parent.querySelector('.mobile-areas');
+      if(ma) ma.style.display = parent.classList.contains('open') ? 'grid' : 'none';
+      const mb = parent.querySelector('.mobile-about');
+      if(mb) mb.style.display = parent.classList.contains('open') ? 'grid' : 'none';
     }
   });
 });
