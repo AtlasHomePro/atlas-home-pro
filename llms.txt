@@ -6,7 +6,7 @@
 
 - **Name:** Atlas Home Pro
 - **Phone:** 213-275-2210
-- **Email:** hello@atlashomepro.com
+- **Email:** David@AtlasHomePro.com
 - **Address:** 145 S Fairfax Suite 200, Los Angeles CA 90036
 - **Website:** https://atlashomepro.com
 - **Tagline:** One Call. Every Home Service. Los Angeles.
@@ -84,4 +84,4 @@ Details: https://atlashomepro.com/offers/
 
 - **Book a free estimate:** https://atlashomepro.com/contact/
 - **Phone:** 213-275-2210
-- **Email:** hello@atlashomepro.com
+- **Email:** David@AtlasHomePro.com
