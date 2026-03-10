@@ -531,7 +531,7 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 /* Footer */
 .site-footer{background:#111;color:#ccc;padding:60px 20px 0;font-size:.85rem;line-height:1.7}
 .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.footer-col h4{color:#FFDC00;font-size:.95rem;margin-bottom:14px;letter-spacing:1px}
+.footer-col h3{color:#FFDC00;font-size:.95rem;margin-bottom:14px;letter-spacing:1px}
 .footer-col p{margin-bottom:8px}
 .footer-phone{font-size:1.1rem;font-weight:700;color:#FFDC00}
 .footer-email{color:#aaa}
@@ -642,13 +642,13 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 
 /* Mobile footer accordions */
 @media(max-width:768px){
-  .footer-col h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
-  .footer-col h4::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400;transition:transform .2s}
-  .footer-col.fc-open h4::after{content:'−'}
+  .footer-col h3{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
+  .footer-col h3::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400;transition:transform .2s}
+  .footer-col.fc-open h3::after{content:'−'}
   .footer-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0;padding:0}
   .footer-col.fc-open ul{max-height:400px;padding:8px 0 12px}
-  .footer-col:first-child h4{cursor:default}
-  .footer-col:first-child h4::after{display:none}
+  .footer-col:first-child h3{cursor:default}
+  .footer-col:first-child h3::after{display:none}
   .footer-col:first-child p,.footer-col:first-child .footer-phone,.footer-col:first-child .footer-email,.footer-col:first-child > div{display:block}
 }
 
@@ -679,7 +679,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"500","bestRating":"5"},
+  "@type": "HomeAndConstructionBusiness",
   "name": "Atlas Home Pro",
   "description": "Los Angeles full-service home services company offering HVAC, plumbing, electrical, roofing, painting, pest control, and water restoration.",
   "url": "https://atlashomepro.com",
@@ -752,6 +752,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <meta name="twitter:title" content="Atlas Home Pro | One Call. Every Home Service. Los Angeles" />
 <meta name="twitter:description" content="LA's most complete home services company. Plumbing, HVAC, electrical, roofing, painting, pest control & restoration. Call (213) 275-2210." />
 <meta name="twitter:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://atlashomepro.com/" />
 </head>
@@ -874,6 +878,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
+<main>
 <section class="hero" id="home">
   <div class="hero-split">
     <div class="hero-text">
@@ -902,7 +907,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </div>
     </div>
     <div class="hero-van">
-      <img src="/van%20pics/atlas-home-pro-van.png" alt="Atlas Home Pro service van - Los Angeles home services" loading="eager">
+      <img src="/van%20pics/atlas-home-pro-van.png" alt="Atlas Home Pro service van - Los Angeles home services" loading="eager" width="600" height="400">
     </div>
   </div>
 </section>
@@ -945,7 +950,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   <div class="services-grid">
 
     <a class='service-card' href='/hvac/'>
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-hvac-technician-los-angeles.png" alt="HVAC repair technician Los Angeles - Atlas Home Pro" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-hvac-technician-los-angeles.png" alt="HVAC repair technician Los Angeles - Atlas Home Pro" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>HVAC</h3>
         <p>AC repair, heating, installation &amp; commercial HVAC. Same-day service across all of LA.</p>
@@ -954,7 +959,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </a>
 
     <a class='service-card' href='/plumbing/'>
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-plumbing-technician-los-angeles.png" alt="Licensed plumber Los Angeles - Atlas Home Pro plumbing services" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-plumbing-technician-los-angeles.png" alt="Licensed plumber Los Angeles - Atlas Home Pro plumbing services" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>Plumbing</h3>
         <p>Leak repair, drain cleaning, water heaters, pipe replacement &amp; more.</p>
@@ -963,7 +968,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </a>
 
     <a class='service-card' href='/electrical/'>
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-electrician-los-angeles.png" alt="Licensed electrician Los Angeles - Atlas Home Pro electrical services" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-electrician-los-angeles.png" alt="Licensed electrician Los Angeles - Atlas Home Pro electrical services" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>Electrical</h3>
         <p>Panel upgrades, outlet installs, EV chargers, lighting &amp; whole-home electrical.</p>
@@ -972,7 +977,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </a>
 
     <a class="service-card" href="/roofing/">
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-roofing-contractor-los-angeles.png" alt="Roofing contractor Los Angeles - Atlas Home Pro roof repair and installation" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-roofing-contractor-los-angeles.png" alt="Roofing contractor Los Angeles - Atlas Home Pro roof repair and installation" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>Roofing</h3>
         <p>Roof repair, replacement, inspections &amp; storm damage claims. All roof types.</p>
@@ -981,7 +986,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </a>
 
     <a class="service-card" href="/painting/">
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-house-painter-los-angeles.png" alt="Professional house painter Los Angeles - Atlas Home Pro painting services" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-house-painter-los-angeles.png" alt="Professional house painter Los Angeles - Atlas Home Pro painting services" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>Painting</h3>
         <p>Interior &amp; exterior painting, cabinet refinishing &amp; color consultation. Premium finishes.</p>
@@ -990,7 +995,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </a>
 
     <a class="service-card" href="/pest-control/">
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-pest-control-technician-los-angeles.png" alt="Pest control technician Los Angeles - Atlas Home Pro exterminator services" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-pest-control-technician-los-angeles.png" alt="Pest control technician Los Angeles - Atlas Home Pro exterminator services" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>Pest Control</h3>
         <p>Ants, roaches, rodents, termites &amp; more. Year-round protection plans available.</p>
@@ -999,7 +1004,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </a>
 
     <a class="service-card" href="/restoration/">
-      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-water-damage-restoration-los-angeles.png" alt="Water damage restoration Los Angeles - Atlas Home Pro emergency services" loading="lazy"></div>
+      <div class="card-img"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-water-damage-restoration-los-angeles.png" alt="Water damage restoration Los Angeles - Atlas Home Pro emergency services" loading="lazy" width="320" height="200"></div>
       <div class="card-body">
         <h3>Water Restoration</h3>
         <p>24/7 emergency water damage, flood cleanup, mold remediation &amp; structural drying.</p>
@@ -1100,58 +1105,58 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
     </div>
     <div class="gallery-track-wrapper">
       <div class="gallery-track">
-      <div class="gallery-item"><img src="./hvac/hvac diagnostics.png" alt="Atlas Home Pro HVAC Diagnostics Los Angeles" loading="lazy"><div class="gallery-label">HVAC Diagnostics</div></div>
-      <div class="gallery-item"><img src="./hvac/hvac testing.png" alt="Atlas Home Pro AC Service Los Angeles" loading="lazy"><div class="gallery-label">AC Service</div></div>
-      <div class="gallery-item"><img src="./hvac/air filter swap.png" alt="Atlas Home Pro Filter Replacement Los Angeles" loading="lazy"><div class="gallery-label">Filter Replacement</div></div>
-      <div class="gallery-item"><img src="./hvac/hvac maintenance tech.png" alt="Atlas Home Pro HVAC Maintenance Los Angeles" loading="lazy"><div class="gallery-label">HVAC Maintenance</div></div>
-      <div class="gallery-item"><img src="./plumbing/water heater repair.png" alt="Atlas Home Pro Water Heater Repair Los Angeles" loading="lazy"><div class="gallery-label">Water Heater Repair</div></div>
-      <div class="gallery-item"><img src="./plumbing/pipe swap.png" alt="Atlas Home Pro Pipe Replacement Los Angeles" loading="lazy"><div class="gallery-label">Pipe Replacement</div></div>
-      <div class="gallery-item"><img src="./plumbing/snaking.png" alt="Atlas Home Pro Drain Clearing Los Angeles" loading="lazy"><div class="gallery-label">Drain Clearing</div></div>
-      <div class="gallery-item"><img src="./plumbing/pipe torching.png" alt="Atlas Home Pro Copper Soldering Los Angeles" loading="lazy"><div class="gallery-label">Copper Soldering</div></div>
-      <div class="gallery-item"><img src="./electric/ev charging.png" alt="Atlas Home Pro EV Charger Install Los Angeles" loading="lazy"><div class="gallery-label">EV Charger Install</div></div>
-      <div class="gallery-item"><img src="./electric/51abad3a-bb2f-4614-aff0-5b3e1bbd1125.png" alt="Atlas Home Pro Electrical Work Los Angeles" loading="lazy"><div class="gallery-label">Electrical Work</div></div>
-      <div class="gallery-item"><img src="./electric/b5f61ba7-5ebc-4e0c-98c5-bc47c8c4a508.png" alt="Atlas Home Pro Panel Upgrade Los Angeles" loading="lazy"><div class="gallery-label">Panel Upgrade</div></div>
-      <div class="gallery-item"><img src="./painting/ea2085e2-e9d0-4555-8b48-fe57c1ff23e7.png" alt="Atlas Home Pro Exterior Painting Los Angeles" loading="lazy"><div class="gallery-label">Exterior Painting</div></div>
-      <div class="gallery-item"><img src="./painting/88071699-9e58-4c1b-8211-b162fddcd46a.png" alt="Atlas Home Pro Interior Painting Los Angeles" loading="lazy"><div class="gallery-label">Interior Painting</div></div>
-      <div class="gallery-item"><img src="./painting/0a679975-beaa-499f-abed-6a7c12b114c8.png" alt="Atlas Home Pro Wall Finishing Los Angeles" loading="lazy"><div class="gallery-label">Wall Finishing</div></div>
-      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 07_31_14 am.png" alt="Atlas Home Pro Roof Repair Los Angeles" loading="lazy"><div class="gallery-label">Roof Repair</div></div>
-      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 06_54_41 am.png" alt="Atlas Home Pro Tile Roofing Los Angeles" loading="lazy"><div class="gallery-label">Tile Roofing</div></div>
-      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 08_06_00 am.png" alt="Atlas Home Pro Full Replacement Los Angeles" loading="lazy"><div class="gallery-label">Full Replacement</div></div>
-      <div class="gallery-item"><img src="./pest control/c6d3fe22-500b-4004-8938-61abc61c5349.png" alt="Atlas Home Pro Perimeter Spray Los Angeles" loading="lazy"><div class="gallery-label">Perimeter Spray</div></div>
-      <div class="gallery-item"><img src="./pest control/ebcb973d-a97c-4d8f-8f4e-05ff40f1a02f.png" alt="Atlas Home Pro Pest Inspection Los Angeles" loading="lazy"><div class="gallery-label">Pest Inspection</div></div>
-      <div class="gallery-item"><img src="./pest control/016d6f96-a20b-44f5-97df-e9c23fcd99fe.png" alt="Atlas Home Pro Termite Treatment Los Angeles" loading="lazy"><div class="gallery-label">Termite Treatment</div></div>
-      <div class="gallery-item"><img src="./restoration/air blowers 2.png" alt="Atlas Home Pro Water Damage Drying Los Angeles" loading="lazy"><div class="gallery-label">Water Damage Drying</div></div>
-      <div class="gallery-item"><img src="./restoration/water removal.png" alt="Atlas Home Pro Water Extraction Los Angeles" loading="lazy"><div class="gallery-label">Water Extraction</div></div>
-      <div class="gallery-item"><img src="./restoration/tech gun.png" alt="Atlas Home Pro Moisture Detection Los Angeles" loading="lazy"><div class="gallery-label">Moisture Detection</div></div>
-      <div class="gallery-item"><img src="./restoration/drywall removal.png" alt="Atlas Home Pro Drywall Restoration Los Angeles" loading="lazy"><div class="gallery-label">Drywall Restoration</div></div>
-      <div class="gallery-item"><img src="./restoration/mold clean up.png" alt="Atlas Home Pro Mold Remediation Los Angeles" loading="lazy"><div class="gallery-label">Mold Remediation</div></div>
-      <div class="gallery-item"><img src="./van pics/atlas-van-new-phone.png" alt="Atlas Home Pro Our Service Fleet Los Angeles" loading="lazy"><div class="gallery-label">Our Service Fleet</div></div>
-      <div class="gallery-item"><img src="./hvac/hvac diagnostics.png" alt="Atlas Home Pro HVAC Diagnostics Los Angeles" loading="lazy"><div class="gallery-label">HVAC Diagnostics</div></div>
-      <div class="gallery-item"><img src="./hvac/hvac testing.png" alt="Atlas Home Pro AC Service Los Angeles" loading="lazy"><div class="gallery-label">AC Service</div></div>
-      <div class="gallery-item"><img src="./hvac/air filter swap.png" alt="Atlas Home Pro Filter Replacement Los Angeles" loading="lazy"><div class="gallery-label">Filter Replacement</div></div>
-      <div class="gallery-item"><img src="./hvac/hvac maintenance tech.png" alt="Atlas Home Pro HVAC Maintenance Los Angeles" loading="lazy"><div class="gallery-label">HVAC Maintenance</div></div>
-      <div class="gallery-item"><img src="./plumbing/water heater repair.png" alt="Atlas Home Pro Water Heater Repair Los Angeles" loading="lazy"><div class="gallery-label">Water Heater Repair</div></div>
-      <div class="gallery-item"><img src="./plumbing/pipe swap.png" alt="Atlas Home Pro Pipe Replacement Los Angeles" loading="lazy"><div class="gallery-label">Pipe Replacement</div></div>
-      <div class="gallery-item"><img src="./plumbing/snaking.png" alt="Atlas Home Pro Drain Clearing Los Angeles" loading="lazy"><div class="gallery-label">Drain Clearing</div></div>
-      <div class="gallery-item"><img src="./plumbing/pipe torching.png" alt="Atlas Home Pro Copper Soldering Los Angeles" loading="lazy"><div class="gallery-label">Copper Soldering</div></div>
-      <div class="gallery-item"><img src="./electric/ev charging.png" alt="Atlas Home Pro EV Charger Install Los Angeles" loading="lazy"><div class="gallery-label">EV Charger Install</div></div>
-      <div class="gallery-item"><img src="./electric/51abad3a-bb2f-4614-aff0-5b3e1bbd1125.png" alt="Atlas Home Pro Electrical Work Los Angeles" loading="lazy"><div class="gallery-label">Electrical Work</div></div>
-      <div class="gallery-item"><img src="./electric/b5f61ba7-5ebc-4e0c-98c5-bc47c8c4a508.png" alt="Atlas Home Pro Panel Upgrade Los Angeles" loading="lazy"><div class="gallery-label">Panel Upgrade</div></div>
-      <div class="gallery-item"><img src="./painting/ea2085e2-e9d0-4555-8b48-fe57c1ff23e7.png" alt="Atlas Home Pro Exterior Painting Los Angeles" loading="lazy"><div class="gallery-label">Exterior Painting</div></div>
-      <div class="gallery-item"><img src="./painting/88071699-9e58-4c1b-8211-b162fddcd46a.png" alt="Atlas Home Pro Interior Painting Los Angeles" loading="lazy"><div class="gallery-label">Interior Painting</div></div>
-      <div class="gallery-item"><img src="./painting/0a679975-beaa-499f-abed-6a7c12b114c8.png" alt="Atlas Home Pro Wall Finishing Los Angeles" loading="lazy"><div class="gallery-label">Wall Finishing</div></div>
-      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 07_31_14 am.png" alt="Atlas Home Pro Roof Repair Los Angeles" loading="lazy"><div class="gallery-label">Roof Repair</div></div>
-      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 06_54_41 am.png" alt="Atlas Home Pro Tile Roofing Los Angeles" loading="lazy"><div class="gallery-label">Tile Roofing</div></div>
-      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 08_06_00 am.png" alt="Atlas Home Pro Full Replacement Los Angeles" loading="lazy"><div class="gallery-label">Full Replacement</div></div>
-      <div class="gallery-item"><img src="./pest control/c6d3fe22-500b-4004-8938-61abc61c5349.png" alt="Atlas Home Pro Perimeter Spray Los Angeles" loading="lazy"><div class="gallery-label">Perimeter Spray</div></div>
-      <div class="gallery-item"><img src="./pest control/ebcb973d-a97c-4d8f-8f4e-05ff40f1a02f.png" alt="Atlas Home Pro Pest Inspection Los Angeles" loading="lazy"><div class="gallery-label">Pest Inspection</div></div>
-      <div class="gallery-item"><img src="./pest control/016d6f96-a20b-44f5-97df-e9c23fcd99fe.png" alt="Atlas Home Pro Termite Treatment Los Angeles" loading="lazy"><div class="gallery-label">Termite Treatment</div></div>
-      <div class="gallery-item"><img src="./restoration/air blowers 2.png" alt="Atlas Home Pro Water Damage Drying Los Angeles" loading="lazy"><div class="gallery-label">Water Damage Drying</div></div>
-      <div class="gallery-item"><img src="./restoration/water removal.png" alt="Atlas Home Pro Water Extraction Los Angeles" loading="lazy"><div class="gallery-label">Water Extraction</div></div>
-      <div class="gallery-item"><img src="./restoration/tech gun.png" alt="Atlas Home Pro Moisture Detection Los Angeles" loading="lazy"><div class="gallery-label">Moisture Detection</div></div>
-      <div class="gallery-item"><img src="./restoration/drywall removal.png" alt="Atlas Home Pro Drywall Restoration Los Angeles" loading="lazy"><div class="gallery-label">Drywall Restoration</div></div>
-      <div class="gallery-item"><img src="./restoration/mold clean up.png" alt="Atlas Home Pro Mold Remediation Los Angeles" loading="lazy"><div class="gallery-label">Mold Remediation</div></div>
-      <div class="gallery-item"><img src="./van pics/atlas-van-new-phone.png" alt="Atlas Home Pro Our Service Fleet Los Angeles" loading="lazy"><div class="gallery-label">Our Service Fleet</div></div>
+      <div class="gallery-item"><img src="./hvac/hvac diagnostics.png" alt="Atlas Home Pro HVAC Diagnostics Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">HVAC Diagnostics</div></div>
+      <div class="gallery-item"><img src="./hvac/hvac testing.png" alt="Atlas Home Pro AC Service Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">AC Service</div></div>
+      <div class="gallery-item"><img src="./hvac/air filter swap.png" alt="Atlas Home Pro Filter Replacement Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Filter Replacement</div></div>
+      <div class="gallery-item"><img src="./hvac/hvac maintenance tech.png" alt="Atlas Home Pro HVAC Maintenance Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">HVAC Maintenance</div></div>
+      <div class="gallery-item"><img src="./plumbing/water heater repair.png" alt="Atlas Home Pro Water Heater Repair Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Water Heater Repair</div></div>
+      <div class="gallery-item"><img src="./plumbing/pipe swap.png" alt="Atlas Home Pro Pipe Replacement Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Pipe Replacement</div></div>
+      <div class="gallery-item"><img src="./plumbing/snaking.png" alt="Atlas Home Pro Drain Clearing Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Drain Clearing</div></div>
+      <div class="gallery-item"><img src="./plumbing/pipe torching.png" alt="Atlas Home Pro Copper Soldering Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Copper Soldering</div></div>
+      <div class="gallery-item"><img src="./electric/ev charging.png" alt="Atlas Home Pro EV Charger Install Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">EV Charger Install</div></div>
+      <div class="gallery-item"><img src="./electric/51abad3a-bb2f-4614-aff0-5b3e1bbd1125.png" alt="Atlas Home Pro Electrical Work Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Electrical Work</div></div>
+      <div class="gallery-item"><img src="./electric/b5f61ba7-5ebc-4e0c-98c5-bc47c8c4a508.png" alt="Atlas Home Pro Panel Upgrade Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Panel Upgrade</div></div>
+      <div class="gallery-item"><img src="./painting/ea2085e2-e9d0-4555-8b48-fe57c1ff23e7.png" alt="Atlas Home Pro Exterior Painting Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Exterior Painting</div></div>
+      <div class="gallery-item"><img src="./painting/88071699-9e58-4c1b-8211-b162fddcd46a.png" alt="Atlas Home Pro Interior Painting Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Interior Painting</div></div>
+      <div class="gallery-item"><img src="./painting/0a679975-beaa-499f-abed-6a7c12b114c8.png" alt="Atlas Home Pro Wall Finishing Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Wall Finishing</div></div>
+      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 07_31_14 am.png" alt="Atlas Home Pro Roof Repair Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Roof Repair</div></div>
+      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 06_54_41 am.png" alt="Atlas Home Pro Tile Roofing Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Tile Roofing</div></div>
+      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 08_06_00 am.png" alt="Atlas Home Pro Full Replacement Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Full Replacement</div></div>
+      <div class="gallery-item"><img src="./pest control/c6d3fe22-500b-4004-8938-61abc61c5349.png" alt="Atlas Home Pro Perimeter Spray Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Perimeter Spray</div></div>
+      <div class="gallery-item"><img src="./pest control/ebcb973d-a97c-4d8f-8f4e-05ff40f1a02f.png" alt="Atlas Home Pro Pest Inspection Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Pest Inspection</div></div>
+      <div class="gallery-item"><img src="./pest control/016d6f96-a20b-44f5-97df-e9c23fcd99fe.png" alt="Atlas Home Pro Termite Treatment Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Termite Treatment</div></div>
+      <div class="gallery-item"><img src="./restoration/air blowers 2.png" alt="Atlas Home Pro Water Damage Drying Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Water Damage Drying</div></div>
+      <div class="gallery-item"><img src="./restoration/water removal.png" alt="Atlas Home Pro Water Extraction Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Water Extraction</div></div>
+      <div class="gallery-item"><img src="./restoration/tech gun.png" alt="Atlas Home Pro Moisture Detection Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Moisture Detection</div></div>
+      <div class="gallery-item"><img src="./restoration/drywall removal.png" alt="Atlas Home Pro Drywall Restoration Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Drywall Restoration</div></div>
+      <div class="gallery-item"><img src="./restoration/mold clean up.png" alt="Atlas Home Pro Mold Remediation Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Mold Remediation</div></div>
+      <div class="gallery-item"><img src="./van pics/atlas-van-new-phone.png" alt="Atlas Home Pro Our Service Fleet Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Our Service Fleet</div></div>
+      <div class="gallery-item"><img src="./hvac/hvac diagnostics.png" alt="Atlas Home Pro HVAC Diagnostics Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">HVAC Diagnostics</div></div>
+      <div class="gallery-item"><img src="./hvac/hvac testing.png" alt="Atlas Home Pro AC Service Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">AC Service</div></div>
+      <div class="gallery-item"><img src="./hvac/air filter swap.png" alt="Atlas Home Pro Filter Replacement Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Filter Replacement</div></div>
+      <div class="gallery-item"><img src="./hvac/hvac maintenance tech.png" alt="Atlas Home Pro HVAC Maintenance Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">HVAC Maintenance</div></div>
+      <div class="gallery-item"><img src="./plumbing/water heater repair.png" alt="Atlas Home Pro Water Heater Repair Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Water Heater Repair</div></div>
+      <div class="gallery-item"><img src="./plumbing/pipe swap.png" alt="Atlas Home Pro Pipe Replacement Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Pipe Replacement</div></div>
+      <div class="gallery-item"><img src="./plumbing/snaking.png" alt="Atlas Home Pro Drain Clearing Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Drain Clearing</div></div>
+      <div class="gallery-item"><img src="./plumbing/pipe torching.png" alt="Atlas Home Pro Copper Soldering Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Copper Soldering</div></div>
+      <div class="gallery-item"><img src="./electric/ev charging.png" alt="Atlas Home Pro EV Charger Install Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">EV Charger Install</div></div>
+      <div class="gallery-item"><img src="./electric/51abad3a-bb2f-4614-aff0-5b3e1bbd1125.png" alt="Atlas Home Pro Electrical Work Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Electrical Work</div></div>
+      <div class="gallery-item"><img src="./electric/b5f61ba7-5ebc-4e0c-98c5-bc47c8c4a508.png" alt="Atlas Home Pro Panel Upgrade Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Panel Upgrade</div></div>
+      <div class="gallery-item"><img src="./painting/ea2085e2-e9d0-4555-8b48-fe57c1ff23e7.png" alt="Atlas Home Pro Exterior Painting Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Exterior Painting</div></div>
+      <div class="gallery-item"><img src="./painting/88071699-9e58-4c1b-8211-b162fddcd46a.png" alt="Atlas Home Pro Interior Painting Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Interior Painting</div></div>
+      <div class="gallery-item"><img src="./painting/0a679975-beaa-499f-abed-6a7c12b114c8.png" alt="Atlas Home Pro Wall Finishing Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Wall Finishing</div></div>
+      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 07_31_14 am.png" alt="Atlas Home Pro Roof Repair Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Roof Repair</div></div>
+      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 06_54_41 am.png" alt="Atlas Home Pro Tile Roofing Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Tile Roofing</div></div>
+      <div class="gallery-item"><img src="./roofing/chatgpt image mar 4, 2026, 08_06_00 am.png" alt="Atlas Home Pro Full Replacement Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Full Replacement</div></div>
+      <div class="gallery-item"><img src="./pest control/c6d3fe22-500b-4004-8938-61abc61c5349.png" alt="Atlas Home Pro Perimeter Spray Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Perimeter Spray</div></div>
+      <div class="gallery-item"><img src="./pest control/ebcb973d-a97c-4d8f-8f4e-05ff40f1a02f.png" alt="Atlas Home Pro Pest Inspection Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Pest Inspection</div></div>
+      <div class="gallery-item"><img src="./pest control/016d6f96-a20b-44f5-97df-e9c23fcd99fe.png" alt="Atlas Home Pro Termite Treatment Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Termite Treatment</div></div>
+      <div class="gallery-item"><img src="./restoration/air blowers 2.png" alt="Atlas Home Pro Water Damage Drying Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Water Damage Drying</div></div>
+      <div class="gallery-item"><img src="./restoration/water removal.png" alt="Atlas Home Pro Water Extraction Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Water Extraction</div></div>
+      <div class="gallery-item"><img src="./restoration/tech gun.png" alt="Atlas Home Pro Moisture Detection Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Moisture Detection</div></div>
+      <div class="gallery-item"><img src="./restoration/drywall removal.png" alt="Atlas Home Pro Drywall Restoration Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Drywall Restoration</div></div>
+      <div class="gallery-item"><img src="./restoration/mold clean up.png" alt="Atlas Home Pro Mold Remediation Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Mold Remediation</div></div>
+      <div class="gallery-item"><img src="./van pics/atlas-van-new-phone.png" alt="Atlas Home Pro Our Service Fleet Los Angeles" loading="lazy" width="280" height="200"><div class="gallery-label">Our Service Fleet</div></div>
       </div>
     </div>
   </div>
@@ -1320,10 +1325,11 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
   });
 });
 </script>
+</main>
 <footer style="background:#111;color:#ccc" class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>ATLAS HOME PRO</h4>
+        <h3>ATLAS HOME PRO</h3>
         <p>One call. Every home service. Licensed, bonded, and insured across all of Los Angeles.</p>
         <p class="footer-phone">(213) 275-2210</p>
         <p class="footer-email">David@AtlasHomePro.com</p>
@@ -1340,7 +1346,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
         </div>
       </div>
       <div class="footer-col">
-        <h4>Our Services</h4>
+        <h3>Our Services</h3>
         <ul>
           <li><a href="/hvac/">HVAC</a></li>
           <li><a href="/plumbing/">Plumbing</a></li>
@@ -1352,7 +1358,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h3>Company</h3>
         <ul>
           <li><a href="/offers/">Current Offers</a></li>
           <li><a href="/service-areas/">Service Areas</a></li>
@@ -1363,7 +1369,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Service Areas</h4>
+        <h3>Service Areas</h3>
         <ul>
           <li><a href="/service-areas/beverly-hills/">Beverly Hills</a></li>
           <li><a href="/service-areas/santa-monica/">Santa Monica</a></li>
@@ -1384,7 +1390,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
 </div>
 <script>
 // Footer accordions on mobile
-document.querySelectorAll('.footer-col h4').forEach(h4 => {
+document.querySelectorAll('.footer-col h3').forEach(h4 => {
   h4.addEventListener('click', () => {
     if(window.innerWidth <= 768) {
       const col = h4.parentElement;
