@@ -16,6 +16,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Manrope',sans-serif;background:#0a0a0a;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:auto}
 
 /* ═══════════════════════════════════════
    NAVIGATION (unchanged from site)
@@ -46,15 +47,245 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .nav-item.has-dropdown:hover > a::after{border-top-color:#FFDC00;transform:rotate(180deg)}
 .dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(0);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);min-width:240px;padding:12px 0;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 8px 8px;animation:dropIn .2s ease}
 @keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.dropdown a{display:block;padding:9px 24px;color:rgba(255,255,255,0.55);font-size:.78rem;transition:all .15s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,0.04)}
 .nav-item.has-dropdown:hover .dropdown{display:block}
-.dropdown a{display:block;padding:10px 24px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:all .15s}
-.dropdown a:hover{color:#fff;background:rgba(255,220,0,.04);padding-left:28px}
-.dropdown a:first-child{color:rgba(255,255,255,0.9);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:12px;margin-bottom:4px}
 .mega-dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);padding:28px 32px;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 10px 10px;min-width:680px;animation:dropIn .2s ease}
 .nav-item.has-mega:hover .mega-dropdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 32px}
 .mega-dropdown a{display:block;padding:7px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .15s}
 .mega-dropdown a:hover{color:#fff}
 .mega-dropdown a:first-child{border:none;padding-bottom:7px;margin-bottom:0;color:rgba(255,255,255,0.55);font-weight:500}
+
+/* ═══════════════════════════════════════
+   HERO — Cinematic, minimal
+   ═══════════════════════════════════════ */
+.learn-hero{
+  padding:120px 24px 100px;
+  text-align:center;
+}
+.learn-hero h1{
+  font-size:clamp(2.4rem, 5vw, 4rem);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  color:#fff;
+  max-width:680px;
+  margin:0 auto;
+}
+.learn-hero p{
+  font-size:1.05rem;
+  color:rgba(255,255,255,0.4);
+  font-weight:400;
+  max-width:440px;
+  margin:20px auto 0;
+  line-height:1.6;
+}
+
+/* ═══════════════════════════════════════
+   CATEGORY NAV — Floating pill bar
+   ═══════════════════════════════════════ */
+.cat-nav{
+  position:sticky;
+  top:72px;
+  z-index:100;
+  background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:0 24px;
+}
+.cat-nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:0;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-nav a{
+  display:block;
+  padding:16px 20px;
+  color:rgba(255,255,255,0.35);
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transition:color .2s;
+  position:relative;
+}
+.cat-nav a::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:20px;right:20px;
+  height:2px;
+  background:#FFDC00;
+  transform:scaleX(0);
+  transition:transform .25s;
+}
+.cat-nav a:hover{color:rgba(255,255,255,0.7)}
+.cat-nav a.active{color:#fff}
+.cat-nav a.active::after{transform:scaleX(1)}
+
+/* ═══════════════════════════════════════
+   CATEGORY SECTIONS — Image-led, Apple-style
+   ═══════════════════════════════════════ */
+.cat-section{
+  padding:0 24px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.cat-section.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* Full-bleed image with overlay text */
+.cat-hero{
+  position:relative;
+  max-width:1200px;
+  margin:0 auto;
+  padding-top:100px;
+}
+.cat-hero-img{
+  width:100%;
+  height:480px;
+  object-fit:cover;
+  border-radius:16px;
+}
+.cat-hero-content{
+  padding:48px 0 0;
+}
+.cat-label{
+  font-size:0.68rem;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:12px;
+}
+.cat-title{
+  font-size:clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight:800;
+  letter-spacing:-0.025em;
+  line-height:1.1;
+  color:#fff;
+}
+.cat-desc{
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.4);
+  max-width:520px;
+  line-height:1.6;
+  margin-top:14px;
+}
+.cat-count{
+  display:inline-block;
+  margin-top:20px;
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+}
+
+/* Guide list — clean, spacious */
+.guide-list{
+  max-width:1200px;
+  margin:48px auto 0;
+  padding-bottom:40px;
+}
+.guide-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:22px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  text-decoration:none;
+  transition:all .2s;
+}
+.guide-item:first-child{
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.guide-item:hover{
+  padding-left:8px;
+}
+.guide-item-title{
+  font-size:0.95rem;
+  font-weight:500;
+  color:rgba(255,255,255,0.7);
+  transition:color .2s;
+  line-height:1.4;
+  flex:1;
+  padding-right:20px;
+}
+.guide-item:hover .guide-item-title{
+  color:#fff;
+}
+.guide-item-arrow{
+  color:rgba(255,255,255,0.15);
+  font-size:1.1rem;
+  transition:all .25s;
+  flex-shrink:0;
+}
+.guide-item:hover .guide-item-arrow{
+  color:#FFDC00;
+  transform:translateX(4px);
+}
+
+/* Service CTA per section */
+.cat-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:32px;
+  padding:14px 28px;
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.8px;
+  color:#0a0a0a;
+  background:#FFDC00;
+  border-radius:8px;
+  transition:all .25s;
+}
+.cat-cta:hover{
+  background:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px rgba(255,220,0,0.15);
+}
+.cat-cta svg{
+  width:14px;height:14px;
+  transition:transform .25s;
+}
+.cat-cta:hover svg{
+  transform:translateX(3px);
+}
+
+/* Bottom spacer before footer */
+.page-end{
+  height:80px;
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.site-footer{background:#0a0a0a;color:#ccc;padding:60px 20px 0;font-size:.85rem;line-height:1.7;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.footer-col h4{color:#FFDC00;font-size:.95rem;margin-bottom:14px;letter-spacing:1px}
+.footer-col p{margin-bottom:8px}
+.footer-phone{font-size:1.1rem;font-weight:700;color:#FFDC00}
+.footer-email{color:#aaa}
+.footer-col ul{list-style:none;padding:0}
+.footer-col ul li{margin-bottom:6px}
+.footer-col ul a{color:#ccc;text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#FFDC00}
+.footer-bottom{max-width:1100px;margin:40px auto 0;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);text-align:center;color:#555;font-size:.8rem}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — Mobile first
+   ═══════════════════════════════════════ */
 @media(max-width:900px){
   nav{padding:0 20px;height:64px}
   .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
@@ -85,310 +316,36 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .nav-cta:not(.nav-mobile-cta){display:none!important}
   .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
   .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
+  .cat-nav{top:64px}
+  .cat-nav a{padding:14px 16px;font-size:0.65rem}
 }
 .mobile-services{display:none}
 .mobile-areas{display:none}
 .mobile-about{display:none}
 
-/* ═══════════════════════════════════════
-   HERO — Full dark, editorial
-   ═══════════════════════════════════════ */
-.learn-hero{
-  position:relative;
-  padding:100px 24px 80px;
-  text-align:center;
-  overflow:hidden;
-  background:#0a0a0a;
-}
-.learn-hero::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,220,0,0.06) 0%, transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(255,220,0,0.03) 0%, transparent 40%);
-  pointer-events:none;
-}
-.learn-hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,220,0,0.15),transparent);
-}
-.learn-hero-inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
-.learn-hero-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,220,0,0.08);
-  border:1px solid rgba(255,220,0,0.2);
-  color:#FFDC00;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  padding:8px 20px;border-radius:100px;margin-bottom:32px;
-}
-.learn-hero h1{
-  font-size:clamp(2.2rem, 4vw, 3.4rem);font-weight:900;color:#fff;
-  margin:0 0 20px;line-height:1.1;letter-spacing:-0.02em;
-}
-.learn-hero h1 em{
-  color:#FFDC00;font-style:normal;
-  background:linear-gradient(135deg, #FFDC00, #FFB700);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.learn-hero-sub{
-  font-size:1.05rem;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 48px;line-height:1.7;font-weight:400;
-}
-.learn-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
-.learn-stat{text-align:center;position:relative}
-.learn-stat:not(:last-child)::after{
-  content:'';position:absolute;right:-24px;top:50%;transform:translateY(-50%);
-  width:1px;height:36px;background:rgba(255,255,255,0.08);
-}
-.learn-stat-num{
-  display:block;font-size:2rem;font-weight:900;line-height:1;
-  background:linear-gradient(135deg, #FFDC00, #FFB700);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.learn-stat-label{display:block;font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:8px}
-
-/* ═══════════════════════════════════════
-   CATEGORY NAV — Sleek horizontal tabs
-   ═══════════════════════════════════════ */
-.trade-nav{
-  background:#0a0a0a;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  position:sticky;top:72px;z-index:100;overflow-x:auto;scrollbar-width:none;
-}
-.trade-nav::-webkit-scrollbar{display:none}
-.trade-nav-inner{display:flex;max-width:1200px;margin:0 auto;padding:0 24px}
-.trade-nav a{
-  padding:16px 18px;font-size:0.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  color:rgba(255,255,255,0.35);text-decoration:none;
-  border-bottom:2px solid transparent;white-space:nowrap;
-  transition:color .25s,border-color .25s;flex-shrink:0;
-}
-.trade-nav a:hover{color:rgba(255,255,255,0.7)}
-.trade-nav a.active{color:#FFDC00;border-bottom-color:#FFDC00}
-@media(max-width:900px){.trade-nav{top:64px}}
-
-/* ═══════════════════════════════════════
-   GUIDE SECTIONS — Editorial category blocks
-   ═══════════════════════════════════════ */
-.guides-body{
-  background:#0a0a0a;
-  padding:0 0 40px;
-}
-.guides-body-inner{max-width:1200px;margin:0 auto;padding:0 24px}
-
-.guide-section{
-  padding:64px 0;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  opacity:0;transform:translateY(20px);
-  transition:opacity 0.5s ease, transform 0.5s ease;
-}
-.guide-section.visible{opacity:1;transform:translateY(0)}
-
-.section-header{
-  display:flex;align-items:flex-start;justify-content:space-between;gap:32px;
-  margin-bottom:40px;flex-wrap:wrap;
-}
-.section-header-left{flex:1;min-width:280px}
-
-.section-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:0.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
-  margin-bottom:16px;
-}
-.section-eyebrow .ey-icon{
-  width:28px;height:28px;border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.85rem;
-}
-.section-eyebrow .ey-text{opacity:0.5}
-
-.guide-section h2{
-  font-size:clamp(1.6rem, 2.5vw, 2rem);font-weight:900;color:#fff;
-  margin:0 0 10px;line-height:1.15;letter-spacing:-0.01em;
-}
-.section-desc{
-  color:rgba(255,255,255,0.4);font-size:0.92rem;line-height:1.6;margin:0 0 20px;max-width:460px;
-}
-.topic-pills{display:flex;flex-wrap:wrap;gap:6px}
-.topic-pill{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  color:rgba(255,255,255,0.5);font-size:0.72rem;font-weight:600;
-  padding:5px 12px;border-radius:100px;
-  transition:all .2s;
-}
-.topic-pill:hover{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7)}
-
-.section-header-right{
-  display:flex;align-items:center;gap:16px;flex-shrink:0;padding-top:4px;
-}
-.section-count-block{
-  text-align:right;
-}
-.section-count{
-  font-size:2.8rem;font-weight:900;line-height:1;color:#fff;letter-spacing:-0.02em;
-}
-.section-count-label{
-  font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(255,255,255,0.25);margin-top:2px;
-}
-.section-service-btn{
-  display:inline-flex;align-items:center;gap:6px;
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.12);
-  color:rgba(255,255,255,0.6);
-  font-size:0.78rem;font-weight:700;
-  padding:10px 20px;border-radius:8px;text-decoration:none;
-  transition:all .25s;white-space:nowrap;letter-spacing:0.3px;
-}
-.section-service-btn:hover{
-  background:#FFDC00;color:#0a0a0a;border-color:#FFDC00;
-}
-.section-service-btn svg{width:14px;height:14px;transition:transform .25s}
-.section-service-btn:hover svg{transform:translateX(3px)}
-
-/* ═══════════════════════════════════════
-   GUIDE CARDS — Polished interactive tiles
-   ═══════════════════════════════════════ */
-.guide-cards-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:12px;
-}
-.guide-card{
-  display:flex;align-items:center;gap:14px;
-  padding:18px 20px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:10px;
-  text-decoration:none;
-  transition:all .2s ease;
-  position:relative;overflow:hidden;
-}
-.guide-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(255,220,0,0.06) 0%, transparent 60%);
-  opacity:0;transition:opacity .25s;pointer-events:none;
-}
-.guide-card:hover{
-  background:rgba(255,255,255,0.06);
-  border-color:rgba(255,220,0,0.2);
-  transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(0,0,0,0.3);
-}
-.guide-card:hover::before{opacity:1}
-.guide-card-icon{
-  flex-shrink:0;width:36px;height:36px;border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.75rem;font-weight:900;
-  transition:all .2s;
-}
-.guide-card:hover .guide-card-icon{transform:scale(1.05)}
-.guide-card-title{
-  font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.8);line-height:1.45;
-  transition:color .2s;
-}
-.guide-card:hover .guide-card-title{color:#fff}
-.guide-card-arrow{
-  flex-shrink:0;margin-left:auto;
-  color:rgba(255,255,255,0.15);font-size:0.85rem;
-  transition:all .25s;
-}
-.guide-card:hover .guide-card-arrow{color:#FFDC00;transform:translateX(3px)}
-
-/* Trade-specific accent colors */
-.trade-plumbing .section-eyebrow .ey-icon{background:rgba(56,182,255,0.12);color:#38B6FF}
-.trade-plumbing .guide-card-icon{background:rgba(56,182,255,0.08);color:#38B6FF}
-.trade-plumbing .section-count{color:#38B6FF}
-
-.trade-hvac .section-eyebrow .ey-icon{background:rgba(100,200,255,0.12);color:#64C8FF}
-.trade-hvac .guide-card-icon{background:rgba(100,200,255,0.08);color:#64C8FF}
-.trade-hvac .section-count{color:#64C8FF}
-
-.trade-electrical .section-eyebrow .ey-icon{background:rgba(255,220,0,0.12);color:#FFDC00}
-.trade-electrical .guide-card-icon{background:rgba(255,220,0,0.08);color:#FFDC00}
-.trade-electrical .section-count{color:#FFDC00}
-
-.trade-roofing .section-eyebrow .ey-icon{background:rgba(255,150,80,0.12);color:#FF9650}
-.trade-roofing .guide-card-icon{background:rgba(255,150,80,0.08);color:#FF9650}
-.trade-roofing .section-count{color:#FF9650}
-
-.trade-painting .section-eyebrow .ey-icon{background:rgba(200,120,255,0.12);color:#C878FF}
-.trade-painting .guide-card-icon{background:rgba(200,120,255,0.08);color:#C878FF}
-.trade-painting .section-count{color:#C878FF}
-
-.trade-restoration .section-eyebrow .ey-icon{background:rgba(255,100,100,0.12);color:#FF6464}
-.trade-restoration .guide-card-icon{background:rgba(255,100,100,0.08);color:#FF6464}
-.trade-restoration .section-count{color:#FF6464}
-
-.trade-pest .section-eyebrow .ey-icon{background:rgba(100,220,120,0.12);color:#64DC78}
-.trade-pest .guide-card-icon{background:rgba(100,220,120,0.08);color:#64DC78}
-.trade-pest .section-count{color:#64DC78}
-
-.trade-home-sales .section-eyebrow .ey-icon{background:rgba(255,180,60,0.12);color:#FFB43C}
-.trade-home-sales .guide-card-icon{background:rgba(255,180,60,0.08);color:#FFB43C}
-.trade-home-sales .section-count{color:#FFB43C}
-
-/* ═══════════════════════════════════════
-   CTA SECTION
-   ═══════════════════════════════════════ */
-.learn-cta{
-  background:#FFDC00;padding:72px 24px;text-align:center;position:relative;overflow:hidden;
-}
-.learn-cta::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.05) 0%, transparent 70%);
-  pointer-events:none;
-}
-.learn-cta h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#0a0a0a;margin:0 0 12px;letter-spacing:-0.01em;position:relative}
-.learn-cta p{color:rgba(0,0,0,0.6);font-size:0.95rem;margin:0 auto 32px;max-width:420px;line-height:1.6;position:relative}
-.learn-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
-.learn-cta-btns a{
-  padding:15px 32px;border-radius:8px;font-weight:800;font-size:0.95rem;
-  text-decoration:none;display:inline-block;transition:all .25s;
-}
-.learn-cta-btns a:first-child{background:#0a0a0a;color:#FFDC00}
-.learn-cta-btns a:first-child:hover{background:#222;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
-.learn-cta-btns a:last-child{background:transparent;color:#0a0a0a;border:2px solid rgba(0,0,0,0.25)}
-.learn-cta-btns a:last-child:hover{border-color:#0a0a0a;background:rgba(0,0,0,0.05)}
-
-/* ═══════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════ */
-.site-footer{background:#0a0a0a;color:#ccc;padding:60px 20px 0;font-size:.85rem;line-height:1.7;border-top:1px solid rgba(255,255,255,0.06)}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.footer-col h4{color:#FFDC00;font-size:.95rem;margin-bottom:14px;letter-spacing:1px}
-.footer-col p{margin-bottom:8px}
-.footer-phone{font-size:1.1rem;font-weight:700;color:#FFDC00}
-.footer-email{color:#aaa}
-.footer-col ul{list-style:none;padding:0}
-.footer-col ul li{margin-bottom:6px}
-.footer-col ul a{color:#ccc;text-decoration:none;transition:color .2s}
-.footer-col ul a:hover{color:#FFDC00}
-.footer-bottom{max-width:1100px;margin:40px auto 0;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);text-align:center;color:#555;font-size:.8rem}
-@media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr;gap:30px}}
-@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
-
-/* ═══════════════════════════════════════
-   MOBILE RESPONSIVE
-   ═══════════════════════════════════════ */
 @media(max-width:768px){
-  .learn-hero{padding:60px 20px 50px}
-  .learn-hero h1{font-size:1.8rem}
-  .learn-hero-sub{font-size:0.95rem;margin-bottom:36px}
-  .learn-stats{gap:28px}
-  .learn-stat:not(:last-child)::after{display:none}
-  .learn-stat-num{font-size:1.6rem}
-  .guide-section{padding:40px 0}
-  .section-header{flex-direction:column;gap:16px;margin-bottom:28px}
-  .section-header-right{width:100%;justify-content:space-between}
-  .section-count-block{text-align:left}
-  .section-count{font-size:2rem}
-  .guide-cards-grid{grid-template-columns:1fr;gap:8px}
-  .guide-card{padding:14px 16px}
-  .guides-body-inner{padding:0 16px}
-  .learn-cta{padding:48px 20px}
+  .learn-hero{padding:80px 20px 60px}
+  .learn-hero h1{font-size:2rem}
+  .learn-hero p{font-size:0.92rem}
+  .cat-hero{padding-top:60px}
+  .cat-hero-img{height:280px;border-radius:12px}
+  .cat-hero-content{padding:32px 0 0}
+  .cat-title{font-size:1.6rem}
+  .guide-item{padding:18px 0}
+  .guide-item-title{font-size:0.88rem}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
 }
-</style>
+
+@media(max-width:480px){
+  .learn-hero{padding:60px 16px 40px}
+  .learn-hero h1{font-size:1.65rem}
+  .cat-section{padding:0 16px}
+  .cat-hero{padding-top:48px}
+  .cat-hero-img{height:220px;border-radius:10px}
+  .guide-item-title{font-size:0.85rem}
+  .footer-inner{grid-template-columns:1fr}
+}
+  </style>
 </head>
 <body>
 <nav>
@@ -509,24 +466,20 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
 <section class="learn-hero">
-  <div class="learn-hero-inner">
-    <span class="learn-hero-badge">Free Resources</span>
-    <h1>The LA Homeowner's<br><em>Guide Library</em></h1>
-    <p class="learn-hero-sub">Expert answers on every home system — written for Los Angeles homes, neighborhoods, and climates.</p>
-    <div class="learn-stats">
-      <div class="learn-stat"><span class="learn-stat-num">71</span><span class="learn-stat-label">Guides</span></div>
-      <div class="learn-stat"><span class="learn-stat-num">8</span><span class="learn-stat-label">Categories</span></div>
-      <div class="learn-stat"><span class="learn-stat-num">Free</span><span class="learn-stat-label">Always</span></div>
-    </div>
-  </div>
+  <h1>Home Guides</h1>
+  <p>Expert knowledge for Los Angeles homeowners. Written by the people who do the work.</p>
 </section>
 
-<!-- CATEGORY NAV -->
-<div class="trade-nav">
-  <div class="trade-nav-inner">
-    <a href="#plumbing">Plumbing</a>
+<!-- ═══════════════════════════════════════
+     CATEGORY NAV
+     ═══════════════════════════════════════ -->
+<div class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#plumbing" class="active">Plumbing</a>
     <a href="#hvac">HVAC</a>
     <a href="#electrical">Electrical</a>
     <a href="#roofing">Roofing</a>
@@ -537,367 +490,226 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
 </div>
 
-<!-- GUIDE SECTIONS -->
-<div class="guides-body">
-  <div class="guides-body-inner">
-
-    <!-- PLUMBING -->
-    <section class="guide-section trade-plumbing" id="plumbing">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>
-            </span>
-            <span class="ey-text">Plumbing</span>
-          </div>
-          <h2>Pipes, Drains & Water Systems</h2>
-          <p class="section-desc">Leak and drain repair, water heaters, repiping, and more — everything running through your LA home's walls.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Leak Repair</span>
-            <span class="topic-pill">Drain Cleaning</span>
-            <span class="topic-pill">Water Heaters</span>
-            <span class="topic-pill">Repiping</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">8</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/plumbing/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/plumbing-warning-signs/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></span><span class="guide-card-title">10 Plumbing Warning Signs You Shouldn't Ignore</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/water-heater-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg></span><span class="guide-card-title">Water Heater Guide: Replacement, Maintenance & Costs</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/slab-leak-detection/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><span class="guide-card-title">Slab Leak Detection in LA: Signs & Solutions</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/drain-cleaning-hydrojetting/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></span><span class="guide-card-title">Drain Cleaning & Hydrojetting: What LA Homeowners Need to Know</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/plumbing-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Plumbing Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/whole-home-repiping/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><span class="guide-card-title">Whole-Home Repiping: When You Need It & What It Costs</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/why-low-water-pressure/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></span><span class="guide-card-title">Why Is My Water Pressure Low?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/sewage-backup/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></span><span class="guide-card-title">Sewage Backup: Causes, Prevention & What to Do</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- HVAC -->
-    <section class="guide-section trade-hvac" id="hvac">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v18M5.5 8l13 0M5.5 16l13 0M8 5.5L12 3l4 2.5M8 18.5L12 21l4-2.5"/></svg>
-            </span>
-            <span class="ey-text">HVAC</span>
-          </div>
-          <h2>Heating, Cooling & Air Quality</h2>
-          <p class="section-desc">AC repair, heating systems, duct cleaning, and smart climate control for LA's unique weather patterns.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">AC Repair</span>
-            <span class="topic-pill">Heating</span>
-            <span class="topic-pill">Duct Cleaning</span>
-            <span class="topic-pill">Thermostats</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">7</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/hvac/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/hvac-system-signals/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></span><span class="guide-card-title">Signs Your HVAC System Needs Service</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/why-ac-blowing-warm/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5.5 8l13 0M5.5 16l13 0"/></svg></span><span class="guide-card-title">Why Is My AC Blowing Warm Air?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/heat-pump-vs-central-ac/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></span><span class="guide-card-title">Heat Pump vs. Central AC: What's Right for Your LA Home</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/hvac-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">HVAC Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/duct-cleaning-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></span><span class="guide-card-title">Duct Cleaning: Do You Really Need It?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/indoor-air-quality/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></span><span class="guide-card-title">Indoor Air Quality: What LA Homeowners Need to Know</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/smart-thermostats/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="guide-card-title">Smart Thermostats: Installation, Savings & What to Buy</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- ELECTRICAL -->
-    <section class="guide-section trade-electrical" id="electrical">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </span>
-            <span class="ey-text">Electrical</span>
-          </div>
-          <h2>Panels, Wiring & Power</h2>
-          <p class="section-desc">Panel upgrades, EV chargers, solar wiring, and smart home systems for modern LA living.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Panel Upgrades</span>
-            <span class="topic-pill">EV Chargers</span>
-            <span class="topic-pill">Solar Ready</span>
-            <span class="topic-pill">Smart Home</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">7</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/electrical/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/electrical-upgrades-2026/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span class="guide-card-title">Electrical Upgrades Every LA Homeowner Should Consider in 2026</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/ev-charger-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2"/><path d="M23 13v-2M7 12h6"/></svg></span><span class="guide-card-title">EV Charger Installation: Cost, Time & What to Expect</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/solar-ready-wiring/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></span><span class="guide-card-title">Solar-Ready Wiring: What It Means & Why It Matters</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/smart-home-electrical/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="guide-card-title">Smart Home Electrical: Panels, Circuits & Retrofit Options</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/electrical-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Electrical Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/why-electricity-bill-high/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></span><span class="guide-card-title">Why Is My Electricity Bill So High?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/whole-home-generators/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span class="guide-card-title">Whole-Home Generators: Sizing, Cost & Installation in LA</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- ROOFING -->
-    <section class="guide-section trade-roofing" id="roofing">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-            </span>
-            <span class="ey-text">Roofing</span>
-          </div>
-          <h2>Roofs, Gutters & Weather Protection</h2>
-          <p class="section-desc">Repair, replacement, inspections, and fire-season prep to keep your roof ready for anything LA throws at it.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Roof Repair</span>
-            <span class="topic-pill">Inspections</span>
-            <span class="topic-pill">Gutters</span>
-            <span class="topic-pill">Fire Season</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">7</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/roofing/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/roofing-fire-season/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12c-2-2.67-4-4-4-6a4 4 0 018 0c0 2-2 3.33-4 6z"/><path d="M8 21h8M12 17v4"/></svg></span><span class="guide-card-title">LA Fire Season Roofing: What Homeowners Must Know</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/roof-leak-repair/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></span><span class="guide-card-title">Roof Leak Repair: Causes, Fixes & When to Call a Pro</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/tile-vs-composition/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></span><span class="guide-card-title">Tile vs. Composition Roofing: Which Is Right for Your LA Home?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/flat-roof-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><span class="guide-card-title">Flat Roof Guide: Maintenance, Repair & Replacement in LA</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/roofing-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Roofing Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/gutters-drainage/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></span><span class="guide-card-title">Gutters & Drainage: What Every LA Homeowner Needs to Know</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/roof-only-10-years-leaking/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="guide-card-title">My Roof Is Only 10 Years Old — Why Is It Leaking?</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- PAINTING -->
-    <section class="guide-section trade-painting" id="painting">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 3H5a2 2 0 00-2 2v2a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM12 9v12"/><path d="M8 21h8"/></svg>
-            </span>
-            <span class="ey-text">Painting</span>
-          </div>
-          <h2>Interior, Exterior & Finishes</h2>
-          <p class="section-desc">Interior and exterior painting, stucco repair, and cabinet refinishing — color choices made for LA sunlight.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Interior Paint</span>
-            <span class="topic-pill">Exterior Paint</span>
-            <span class="topic-pill">Cabinet Refresh</span>
-            <span class="topic-pill">Stucco Repair</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">6</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/painting/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/interior-painting-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 3H5a2 2 0 00-2 2v2a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 9v12M8 21h8"/></svg></span><span class="guide-card-title">Interior Painting Guide: Prep, Paint & Professional Tips</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/exterior-color-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg></span><span class="guide-card-title">Exterior Paint Colors: What Works Best in Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/exterior-paint-maintenance/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="guide-card-title">Exterior Paint Maintenance: How Long It Lasts & When to Repaint</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/stucco-repair-paint/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><span class="guide-card-title">Stucco Repair & Paint: The Complete LA Homeowner Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/cabinet-painting-roi/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></span><span class="guide-card-title">Cabinet Painting vs. Replacement: The ROI Breakdown</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/painting-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Painting Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- RESTORATION -->
-    <section class="guide-section trade-restoration" id="restoration">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
-            </span>
-            <span class="ey-text">Water Damage & Restoration</span>
-          </div>
-          <h2>Damage Recovery & Claims</h2>
-          <p class="section-desc">Water damage, mold, fire and smoke restoration, and insurance claims support — act fast, recover smart.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Water Damage</span>
-            <span class="topic-pill">Mold Removal</span>
-            <span class="topic-pill">Fire & Smoke</span>
-            <span class="topic-pill">Insurance Help</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">7</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/restoration/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/water-damage-72-hours/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span class="guide-card-title">Water Damage: The 72-Hour Rule Every Homeowner Must Know</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/mold-remediation/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Mold Remediation in LA: What It Costs & How It Works</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/smoke-fire-damage/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12c-2-2.67-4-4-4-6a4 4 0 018 0c0 2-2 3.33-4 6z"/><path d="M8 21h8M12 17v4"/></svg></span><span class="guide-card-title">Smoke & Fire Damage Restoration: What to Expect</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/insurance-claims-restoration/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><span class="guide-card-title">Navigating Insurance Claims After Water or Fire Damage</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/restoration-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Restoration Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/why-ceiling-stains/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><span class="guide-card-title">Why Do I Have Yellow or Brown Ceiling Stains?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/pre-rain-season-checklist/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span><span class="guide-card-title">Pre-Rain Season Home Checklist for LA Homeowners</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- PEST CONTROL -->
-    <section class="guide-section trade-pest" id="pest-control">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </span>
-            <span class="ey-text">Pest Control</span>
-          </div>
-          <h2>Pests, Prevention & Programs</h2>
-          <p class="section-desc">Ant control, rodent exclusion, bed bugs, and quarterly programs to keep your home pest-free year-round.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Ant Control</span>
-            <span class="topic-pill">Rodent Exclusion</span>
-            <span class="topic-pill">Bed Bugs</span>
-            <span class="topic-pill">Quarterly Programs</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">7</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/pest-control/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/pest-control-west-la/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="guide-card-title">Pest Control in West LA: What's Common & What Works</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/ant-control-west-la/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><span class="guide-card-title">Ant Control in West LA: Why They Keep Coming Back</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/why-ants-keep-coming-back/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></span><span class="guide-card-title">Why Do Ants Keep Coming Back Even After Treatment?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/rodent-exclusion/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="guide-card-title">Rodent Exclusion: How to Keep Rats & Mice Out for Good</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/bed-bugs-multifamily/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><span class="guide-card-title">Bed Bugs in Multifamily Housing: What LA Renters & Owners Must Know</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/quarterly-pest-programs/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="guide-card-title">Quarterly Pest Programs: Are They Worth It?</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/pest-cost-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">Pest Control Cost Guide for Los Angeles</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
-    <!-- HOME SALES -->
-    <section class="guide-section trade-home-sales" id="home-sales">
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="section-eyebrow">
-            <span class="ey-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
-            </span>
-            <span class="ey-text">Buying, Selling & Home Value</span>
-          </div>
-          <h2>Real Estate & Neighborhood Guides</h2>
-          <p class="section-desc">Pre-sale prep, buyer inspections, neighborhood ROI, and maintenance guides for LA's best areas.</p>
-          <div class="topic-pills">
-            <span class="topic-pill">Pre-Sale Prep</span>
-            <span class="topic-pill">ROI Guides</span>
-            <span class="topic-pill">Buyer Inspections</span>
-            <span class="topic-pill">Neighborhood Guides</span>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="section-count-block">
-            <div class="section-count">22</div>
-            <div class="section-count-label">Guides</div>
-          </div>
-          <a href="/" class="section-service-btn">
-            View Services
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="guide-cards-grid">
-        <a href="/learn/pre-sale-prep-checklist/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span><span class="guide-card-title">Pre-Sale Home Prep Checklist for LA Sellers</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/repairs-that-move-needle/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></span><span class="guide-card-title">The Repairs That Actually Move the Needle Before Listing</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/what-buyers-inspect/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></span><span class="guide-card-title">What Buyers Inspect (and What Kills Deals)</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/staging-vs-renovating/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></span><span class="guide-card-title">Staging vs. Renovating: What Gets You More in LA</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/50k-pre-sale-roi/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">How to Spend $50K Pre-Sale for Maximum ROI</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/west-la-improvement-roi/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></span><span class="guide-card-title">West LA Home Improvement ROI by Neighborhood</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/home-inspection-red-flags/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></span><span class="guide-card-title">Home Inspection Red Flags: What LA Buyers Are Watching For</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/true-cost-deferred-maintenance/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><span class="guide-card-title">The True Cost of Deferred Maintenance When You Sell</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/buying-1960s-la-home/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><span class="guide-card-title">Buying a 1960s LA Home? Read This First</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/hillside-property-checklist/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span><span class="guide-card-title">The Hillside Property Maintenance Checklist</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/spring-maintenance-checklist/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span><span class="guide-card-title">Spring Home Maintenance Checklist for LA Homeowners</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/pre-fire-season-checklist/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 12c-2-2.67-4-4-4-6a4 4 0 018 0c0 2-2 3.33-4 6z"/><path d="M8 21h8M12 17v4"/></svg></span><span class="guide-card-title">Pre-Fire Season Home Prep Checklist</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/midcentury-modern-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><span class="guide-card-title">Maintaining a Mid-Century Modern Home in LA</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/bel-air-maintenance/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Bel Air Home Maintenance Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/beverly-hills-maintenance/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Beverly Hills Home Maintenance Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/brentwood-pacific-palisades/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Brentwood & Pacific Palisades Homeowner Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/santa-monica-coastal/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Santa Monica Coastal Home Maintenance Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/venice-mar-vista-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Venice & Mar Vista Homeowner Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/culver-city-playa-vista-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Culver City & Playa Vista Homeowner Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/hancock-park-los-feliz-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Hancock Park & Los Feliz Homeowner Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/canyon-properties-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Canyon Properties: Malibu, Topanga & Laurel Canyon</span><span class="guide-card-arrow">&#8594;</span></a>
-        <a href="/learn/silver-lake-los-feliz-east-guide/" class="guide-card"><span class="guide-card-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="guide-card-title">Silver Lake, Los Feliz & East Side Homeowner Guide</span><span class="guide-card-arrow">&#8594;</span></a>
-      </div>
-    </section>
-
+<!-- ═══════════════════════════════════════
+     PLUMBING
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="plumbing">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/plumbing.jpg" alt="Premium copper plumbing tools" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Plumbing</div>
+      <h2 class="cat-title">Know your home's<br>water systems</h2>
+      <p class="cat-desc">From leak detection to full repiping — everything LA homeowners need to understand about the pipes behind the walls.</p>
+      <div class="cat-count">8 Guides</div>
+    </div>
   </div>
-</div>
-
-<!-- CTA -->
-<section class="learn-cta">
-  <h2>Need a Pro, Not Just a Guide?</h2>
-  <p>Our licensed teams serve all of West LA — free estimates, same-day service available.</p>
-  <div class="learn-cta-btns">
-    <a href="tel:2132752210">Call (213) 275-2210</a>
-    <a href="/contact/">Get a Free Estimate</a>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/plumbing-warning-signs/"><span class="guide-item-title">10 Plumbing Warning Signs You Shouldn't Ignore</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/water-heater-guide/"><span class="guide-item-title">Water Heater Guide: Replacement, Maintenance & Costs</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/slab-leak-detection/"><span class="guide-item-title">Slab Leak Detection in LA: Signs & Solutions</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/drain-cleaning-hydrojetting/"><span class="guide-item-title">Drain Cleaning & Hydrojetting: What LA Homeowners Need to Know</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/plumbing-cost-guide/"><span class="guide-item-title">Plumbing Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/whole-home-repiping/"><span class="guide-item-title">Whole-Home Repiping: When You Need It & What It Costs</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/why-low-water-pressure/"><span class="guide-item-title">Why Is My Water Pressure Low?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/sewage-backup/"><span class="guide-item-title">Sewage Backup: Causes, Prevention & What to Do</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/plumbing/">Book plumbing service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════════
+     HVAC
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="hvac">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/hvac.jpg" alt="Smart thermostat on white wall" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">HVAC</div>
+      <h2 class="cat-title">Climate control,<br>demystified</h2>
+      <p class="cat-desc">LA heat is serious. Understand your system, cut energy costs, and breathe cleaner air at home.</p>
+      <div class="cat-count">7 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/hvac-system-signals/"><span class="guide-item-title">Signs Your HVAC System Needs Service</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/why-ac-blowing-warm/"><span class="guide-item-title">Why Is My AC Blowing Warm Air?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/heat-pump-vs-central-ac/"><span class="guide-item-title">Heat Pump vs. Central AC: What's Right for Your LA Home</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/hvac-cost-guide/"><span class="guide-item-title">HVAC Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/duct-cleaning-guide/"><span class="guide-item-title">Duct Cleaning: Do You Really Need It?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/indoor-air-quality/"><span class="guide-item-title">Indoor Air Quality: What LA Homeowners Need to Know</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/smart-thermostats/"><span class="guide-item-title">Smart Thermostats: Installation, Savings & What to Buy</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/hvac/">Book HVAC service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ELECTRICAL
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="electrical">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/electrical.jpg" alt="Electrical panel with warm light" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Electrical</div>
+      <h2 class="cat-title">Power your home<br>with confidence</h2>
+      <p class="cat-desc">Panels, EV chargers, solar prep, smart home wiring — the modern LA home demands more from its electrical.</p>
+      <div class="cat-count">7 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/electrical-upgrades-2026/"><span class="guide-item-title">Electrical Upgrades Every LA Homeowner Should Consider in 2026</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/ev-charger-guide/"><span class="guide-item-title">EV Charger Installation: Cost, Time & What to Expect</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/solar-ready-wiring/"><span class="guide-item-title">Solar-Ready Wiring: What It Means & Why It Matters</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/smart-home-electrical/"><span class="guide-item-title">Smart Home Electrical: Panels, Circuits & Retrofit Options</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/electrical-cost-guide/"><span class="guide-item-title">Electrical Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/why-electricity-bill-high/"><span class="guide-item-title">Why Is My Electricity Bill So High?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/whole-home-generators/"><span class="guide-item-title">Whole-Home Generators: Sizing, Cost & Installation in LA</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/electrical/">Book electrical service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ROOFING
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="roofing">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/roofing.jpg" alt="Terra cotta roof tiles aerial view" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Roofing</div>
+      <h2 class="cat-title">What's above you<br>matters most</h2>
+      <p class="cat-desc">Fire season, rain season, or just time — your roof protects everything. Know when to act.</p>
+      <div class="cat-count">7 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/roofing-fire-season/"><span class="guide-item-title">LA Fire Season Roofing: What Homeowners Must Know</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/roof-leak-repair/"><span class="guide-item-title">Roof Leak Repair: Causes, Fixes & When to Call a Pro</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/tile-vs-composition/"><span class="guide-item-title">Tile vs. Composition Roofing: Which Is Right for Your LA Home?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/flat-roof-guide/"><span class="guide-item-title">Flat Roof Guide: Maintenance, Repair & Replacement in LA</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/roofing-cost-guide/"><span class="guide-item-title">Roofing Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/gutters-drainage/"><span class="guide-item-title">Gutters & Drainage: What Every LA Homeowner Needs to Know</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/roof-only-10-years-leaking/"><span class="guide-item-title">My Roof Is Only 10 Years Old — Why Is It Leaking?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/roofing/">Book roofing service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PAINTING
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="painting">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/painting.jpg" alt="Paint swatches and brush on marble" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Painting</div>
+      <h2 class="cat-title">Transform any space<br>with color</h2>
+      <p class="cat-desc">Interior, exterior, cabinets, stucco — the right paint job changes how your home feels and what it's worth.</p>
+      <div class="cat-count">6 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/interior-painting-guide/"><span class="guide-item-title">Interior Painting Guide: Prep, Paint & Professional Tips</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/exterior-color-guide/"><span class="guide-item-title">Exterior Paint Colors: What Works Best in Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/exterior-paint-maintenance/"><span class="guide-item-title">Exterior Paint Maintenance: How Long It Lasts & When to Repaint</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/stucco-repair-paint/"><span class="guide-item-title">Stucco Repair & Paint: The Complete LA Homeowner Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/cabinet-painting-roi/"><span class="guide-item-title">Cabinet Painting vs. Replacement: The ROI Breakdown</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/painting-cost-guide/"><span class="guide-item-title">Painting Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/painting/">Book painting service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     RESTORATION
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="restoration">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/restoration.jpg" alt="Hardwood floor restoration" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Restoration</div>
+      <h2 class="cat-title">Recover what<br>damage took</h2>
+      <p class="cat-desc">Water, fire, mold — when disaster hits your LA home, understanding the process is the first step to recovery.</p>
+      <div class="cat-count">7 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/water-damage-72-hours/"><span class="guide-item-title">Water Damage: The 72-Hour Rule Every Homeowner Must Know</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/mold-remediation/"><span class="guide-item-title">Mold Remediation in LA: What It Costs & How It Works</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/smoke-fire-damage/"><span class="guide-item-title">Smoke & Fire Damage Restoration: What to Expect</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/insurance-claims-restoration/"><span class="guide-item-title">Navigating Insurance Claims After Water or Fire Damage</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/restoration-cost-guide/"><span class="guide-item-title">Restoration Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/why-ceiling-stains/"><span class="guide-item-title">Why Do I Have Yellow or Brown Ceiling Stains?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/pre-rain-season-checklist/"><span class="guide-item-title">Pre-Rain Season Home Checklist for LA Homeowners</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/restoration/">Book restoration service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PEST CONTROL
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="pest-control">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/pest-control.jpg" alt="Clean modern kitchen interior" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Pest Control</div>
+      <h2 class="cat-title">Protect your home<br>from the inside out</h2>
+      <p class="cat-desc">Ants, rodents, bed bugs — LA's climate invites them all. Learn what works and what doesn't.</p>
+      <div class="cat-count">7 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/pest-control-west-la/"><span class="guide-item-title">Pest Control in West LA: What's Common & What Works</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/ant-control-west-la/"><span class="guide-item-title">Ant Control in West LA: Why They Keep Coming Back</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/why-ants-keep-coming-back/"><span class="guide-item-title">Why Do Ants Keep Coming Back Even After Treatment?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/rodent-exclusion/"><span class="guide-item-title">Rodent Exclusion: How to Keep Rats & Mice Out for Good</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/bed-bugs-multifamily/"><span class="guide-item-title">Bed Bugs in Multifamily Housing: What LA Renters & Owners Must Know</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/quarterly-pest-programs/"><span class="guide-item-title">Quarterly Pest Programs: Are They Worth It?</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/pest-cost-guide/"><span class="guide-item-title">Pest Control Cost Guide for Los Angeles</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/pest-control/">Book pest control <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOME SALES
+     ═══════════════════════════════════════ -->
+<section class="cat-section" id="home-sales">
+  <div class="cat-hero">
+    <img class="cat-hero-img" src="images/home-sales.jpg" alt="Luxury Los Angeles home at golden hour" loading="lazy">
+    <div class="cat-hero-content">
+      <div class="cat-label">Home Sales</div>
+      <h2 class="cat-title">Sell smarter<br>in Los Angeles</h2>
+      <p class="cat-desc">Pre-sale prep, inspections, ROI on renovations, neighborhood-specific guides — everything to maximize your home's value.</p>
+      <div class="cat-count">22 Guides</div>
+    </div>
+  </div>
+  <div class="guide-list">
+    <a class="guide-item" href="/learn/pre-sale-prep-checklist/"><span class="guide-item-title">Pre-Sale Home Prep Checklist for LA Sellers</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/repairs-that-move-needle/"><span class="guide-item-title">The Repairs That Actually Move the Needle Before Listing</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/what-buyers-inspect/"><span class="guide-item-title">What Buyers Inspect (and What Kills Deals)</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/staging-vs-renovating/"><span class="guide-item-title">Staging vs. Renovating: What Gets You More in LA</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/50k-pre-sale-roi/"><span class="guide-item-title">How to Spend $50K Pre-Sale for Maximum ROI</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/west-la-improvement-roi/"><span class="guide-item-title">West LA Home Improvement ROI by Neighborhood</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/home-inspection-red-flags/"><span class="guide-item-title">Home Inspection Red Flags: What LA Buyers Are Watching For</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/true-cost-deferred-maintenance/"><span class="guide-item-title">The True Cost of Deferred Maintenance When You Sell</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/buying-1960s-la-home/"><span class="guide-item-title">Buying a 1960s LA Home? Read This First</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/hillside-property-checklist/"><span class="guide-item-title">The Hillside Property Maintenance Checklist</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/spring-maintenance-checklist/"><span class="guide-item-title">Spring Home Maintenance Checklist for LA Homeowners</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/pre-fire-season-checklist/"><span class="guide-item-title">Pre-Fire Season Home Prep Checklist</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/midcentury-modern-guide/"><span class="guide-item-title">Maintaining a Mid-Century Modern Home in LA</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/bel-air-maintenance/"><span class="guide-item-title">Bel Air Home Maintenance Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/beverly-hills-maintenance/"><span class="guide-item-title">Beverly Hills Home Maintenance Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/brentwood-pacific-palisades/"><span class="guide-item-title">Brentwood & Pacific Palisades Homeowner Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/santa-monica-coastal/"><span class="guide-item-title">Santa Monica Coastal Home Maintenance Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/venice-mar-vista-guide/"><span class="guide-item-title">Venice & Mar Vista Homeowner Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/culver-city-playa-vista-guide/"><span class="guide-item-title">Culver City & Playa Vista Homeowner Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/hancock-park-los-feliz-guide/"><span class="guide-item-title">Hancock Park & Los Feliz Homeowner Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/canyon-properties-guide/"><span class="guide-item-title">Canyon Properties: Malibu, Topanga & Laurel Canyon</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="guide-item" href="/learn/silver-lake-los-feliz-east-guide/"><span class="guide-item-title">Silver Lake, Los Feliz & East Side Homeowner Guide</span><span class="guide-item-arrow">&#8594;</span></a>
+    <a class="cat-cta" href="/#book">Get a free estimate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<div class="page-end"></div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER (unchanged from site)
+     ═══════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-col">
@@ -953,35 +765,44 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
 </footer>
 
-<!-- SCRIPTS -->
 <script>
 // Scroll-triggered section reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-    }
+    if (e.isIntersecting) e.target.classList.add('visible');
   });
-}, { threshold: 0.08 });
-document.querySelectorAll('.guide-section').forEach(s => observer.observe(s));
+}, { threshold: 0.05 });
+document.querySelectorAll('.cat-section').forEach(s => observer.observe(s));
 
-// Active trade nav on scroll
-const secs = document.querySelectorAll('.guide-section');
-const links = document.querySelectorAll('.trade-nav a');
+// Active category nav on scroll
+const sections = document.querySelectorAll('.cat-section');
+const navLinks = document.querySelectorAll('.cat-nav a');
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      links.forEach(a => a.classList.remove('active'));
-      const m = document.querySelector('.trade-nav a[href="#' + e.target.id + '"]');
-      if (m) {
-        m.classList.add('active');
-        // Auto-scroll the nav to keep active tab visible
-        m.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      navLinks.forEach(a => a.classList.remove('active'));
+      const match = document.querySelector('.cat-nav a[href="#' + e.target.id + '"]');
+      if (match) {
+        match.classList.add('active');
+        match.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
   });
 }, { rootMargin: '-20% 0px -60% 0px' });
-secs.forEach(s => navObserver.observe(s));
+sections.forEach(s => navObserver.observe(s));
+
+// Smooth scroll for category nav
+document.querySelectorAll('.cat-nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      const navHeight = 72 + 50; // main nav + cat nav
+      const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
 
 // Mobile nav toggle
 document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
