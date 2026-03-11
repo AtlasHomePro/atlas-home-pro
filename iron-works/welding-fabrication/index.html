@@ -391,28 +391,17 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 @media(max-width:600px){}
 
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
-.svc-card{background:#f5f5f5;border-radius:8px;padding:32px 24px;text-align:center;transition:background .3s,transform .2s;cursor:default;position:relative;overflow:hidden}
-.svc-card:hover{background:#FFDC00;transform:translateY(-4px)}
-.svc-card:hover .svc-icon{background:#111}
-.svc-card:hover .svc-icon svg{stroke:#FFDC00}
-.svc-card:hover h3{color:#111}
-.svc-card:hover p{color:#222}
-.svc-card:hover .svc-btn{background:#111;color:#FFDC00;border-color:#111}
-.svc-icon{width:72px;height:72px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;transition:background .3s}
-.svc-icon svg{width:36px;height:36px;transition:stroke .3s}
-.svc-card h3{font-size:1.05rem;font-weight:800;color:#111;margin-bottom:10px;letter-spacing:-0.2px}
-.svc-card p{font-size:.86rem;color:#555;line-height:1.55;margin-bottom:18px;min-height:60px}
-.svc-btn{display:inline-block;padding:8px 22px;border:2px solid #111;border-radius:4px;font-size:.82rem;font-weight:700;color:#111;text-decoration:none;transition:all .3s;letter-spacing:0.5px}
-.svc-btn:hover{background:#111;color:#FFDC00}
-@media(max-width:768px){
-  .svc-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-  .svc-card{padding:24px 16px}
-  .svc-icon{width:60px;height:60px}
-  .svc-icon svg{width:30px;height:30px}
-}
-@media(max-width:480px){
-  .svc-grid{grid-template-columns:1fr}
-}
+.svc-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee;transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;display:block;text-align:left}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.12)}
+.svc-img{overflow:hidden;height:200px}
+.svc-img img{width:100%;height:200px;object-fit:cover;transition:transform .4s ease}
+.svc-card:hover .svc-img img{transform:scale(1.04)}
+.svc-card h3{font-size:1.05rem;font-weight:800;color:#111;margin:16px 20px 8px;letter-spacing:-0.2px}
+.svc-card p{font-size:.86rem;color:#555;line-height:1.55;margin:0 20px 16px;min-height:60px}
+.svc-btn{display:inline-block;margin:0 20px 20px;padding:8px 22px;border:2px solid #111;border-radius:4px;font-size:.82rem;font-weight:700;color:#111;text-decoration:none;transition:all .3s;letter-spacing:0.5px}
+.svc-card:hover .svc-btn{background:#FFDC00;border-color:#FFDC00}
+@media(max-width:768px){.svc-grid{grid-template-columns:repeat(2,1fr);gap:16px}.svc-img{height:160px}.svc-img img{height:160px}}
+@media(max-width:480px){.svc-grid{grid-template-columns:1fr}}
 
 
 .form-box{background:#fff!important;border-radius:16px;padding:44px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
@@ -754,7 +743,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
       </div>
       <div class="hero-btns">
       <a href="tel:+12132752210" class="btn-primary">📞 Call Now</a>
-      <a href="#book" class="btn-outline" style="color:#111;border-color:#111;">📋 Free Estimate</a>
+      <a href="#book" style="display:inline-block;padding:14px 28px;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;text-align:center;background:#111;color:#FFDC00;border:2px solid #111;">📋 Free Estimate</a>
     </div>
       <div class="hero-pills">
       <span class="hero-pill" style="background:#f5f5f5;color:#333;border:1px solid #e0e0e0;">✓ AWS-Certified</span>
@@ -799,46 +788,46 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 </div>
 
 <div class="section">
-  <div class="section-label">Welding &amp; Fabrication Services</div>
-  <h2>Expert Welding &amp; <span>Metal Fabrication</span></h2>
-  <p class="section-sub">AWS-certified welders delivering precision MIG, TIG, and stick welding for every residential and commercial application.</p>
+  <div class="section-label">Iron Works Services</div>
+  <h2>Custom Iron &amp; <span>Security Solutions</span></h2>
+  <p class="section-sub">Every piece handcrafted by AWS-certified welders — custom designed, fabricated in-house, and installed by our own team.</p>
   <div class="svc-grid">
-    <div class="svc-card">
-      <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-      <h3>MIG Welding</h3>
-      <p>Metal Inert Gas welding for structural steel, frames, and heavy-duty fabrication projects.</p>
-      <a href="#book" class="svc-btn">Get a Quote</a>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/></svg></div>
-      <h3>TIG Welding</h3>
-      <p>Tungsten Inert Gas welding for precision work on stainless steel, aluminum, and decorative pieces.</p>
-      <a href="#book" class="svc-btn">Get a Quote</a>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-      <h3>Stick Welding</h3>
-      <p>Shielded Metal Arc welding for on-site repairs, structural work, and outdoor projects.</p>
-      <a href="#book" class="svc-btn">Get a Quote</a>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg></div>
-      <h3>Custom Fabrication</h3>
-      <p>From concept to creation — custom metal fabrication for furniture, fixtures, and architectural elements.</p>
-      <a href="#book" class="svc-btn">Get a Quote</a>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-4h6v4"/></svg></div>
-      <h3>Structural Steel</h3>
-      <p>Steel beams, columns, brackets, and structural reinforcements for residential and commercial buildings.</p>
-      <a href="#book" class="svc-btn">Get a Quote</a>
-    </div>
-    <div class="svc-card">
-      <div class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V10"/><path d="M15 21V10"/><path d="M3 10h18"/></svg></div>
-      <h3>Repair &amp; Restoration</h3>
-      <p>Welding repairs for gates, railings, fencing, and metal structures. Restore strength and appearance.</p>
-      <a href="#book" class="svc-btn">Get a Quote</a>
-    </div>
+    <a class="svc-card" href="/iron-works/security-gates/" style="text-decoration:none;color:inherit;cursor:pointer">
+      <div class="svc-img"><picture><source type="image/webp" srcset="../svc-security-gate-mobile.webp 320w, ../svc-security-gate.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="../svc-security-gate.png" alt="Custom security gate Los Angeles" loading="lazy" width="640" height="480"></picture></div>
+      <h3>Security Gates</h3>
+      <p>Custom wrought iron security gates for driveways and entries. Automated, elegant, and built for LA luxury homes.</p>
+      <span class="svc-btn">Learn More</span>
+    </a>
+    <a class="svc-card" href="/iron-works/steel-railings/" style="text-decoration:none;color:inherit;cursor:pointer">
+      <div class="svc-img"><picture><source type="image/webp" srcset="../svc-steel-railings-mobile.webp 320w, ../svc-steel-railings.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="../svc-steel-railings.png" alt="Custom steel railings Los Angeles" loading="lazy" width="640" height="480"></picture></div>
+      <h3>Steel Railings</h3>
+      <p>Balcony railings, stair railings, and handrails. Modern and classic designs custom-fitted to your property.</p>
+      <span class="svc-btn">Learn More</span>
+    </a>
+    <a class="svc-card" href="/iron-works/welding-fabrication/" style="text-decoration:none;color:inherit;cursor:pointer">
+      <div class="svc-img"><picture><source type="image/webp" srcset="../svc-welding-sparks-mobile.webp 320w, ../svc-welding-sparks.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="../svc-welding-sparks.png" alt="Welding and metal fabrication Los Angeles" loading="lazy" width="640" height="480"></picture></div>
+      <h3>Welding &amp; Fabrication</h3>
+      <p>Expert MIG, TIG, and stick welding. Custom metal fabrication for residential and commercial projects.</p>
+      <span class="svc-btn">Learn More</span>
+    </a>
+    <a class="svc-card" href="#book" style="text-decoration:none;color:inherit;cursor:pointer">
+      <div class="svc-img"><picture><source type="image/webp" srcset="../svc-window-guards-mobile.webp 320w, ../svc-window-guards.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="../svc-window-guards.png" alt="Decorative window guards Los Angeles" loading="lazy" width="640" height="480"></picture></div>
+      <h3>Window Guards</h3>
+      <p>Decorative security bars that protect without sacrificing style. Custom designed for every window.</p>
+      <span class="svc-btn">Get a Quote</span>
+    </a>
+    <a class="svc-card" href="#book" style="text-decoration:none;color:inherit;cursor:pointer">
+      <div class="svc-img"><picture><source type="image/webp" srcset="../svc-iron-door-mobile.webp 320w, ../svc-iron-door.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="../svc-iron-door.png" alt="Custom wrought iron entry door Los Angeles" loading="lazy" width="640" height="480"></picture></div>
+      <h3>Iron Doors</h3>
+      <p>Custom wrought iron entry doors and security screen doors. Beautiful protection for your home's entrance.</p>
+      <span class="svc-btn">Get a Quote</span>
+    </a>
+    <a class="svc-card" href="#book" style="text-decoration:none;color:inherit;cursor:pointer">
+      <div class="svc-img"><picture><source type="image/webp" srcset="../svc-iron-fencing-mobile.webp 320w, ../svc-iron-fencing.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="../svc-iron-fencing.png" alt="Custom iron fencing Los Angeles property" loading="lazy" width="640" height="480"></picture></div>
+      <h3>Fencing &amp; Enclosures</h3>
+      <p>Perimeter iron fencing, pool enclosures, and property boundary solutions. Security meets elegance.</p>
+      <span class="svc-btn">Get a Quote</span>
+    </a>
   </div>
 </div>
 
