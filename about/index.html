@@ -108,7 +108,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .founder-right h2{font-size:2.4rem;color:#fff;margin-bottom:24px;line-height:1.2}
 .founder-right h2 em{color:#ffe600;font-style:italic;font-family:'Playfair Display',serif}
 .founder-right p{color:#bbb;font-size:1.05rem;line-height:1.8;margin-bottom:20px}
-.founder-photo{width:100%;border-radius:12px;margin-top:24px;height:260px;object-fit:cover}
+.founder-photo{width:100%;border-radius:12px;margin-top:24px;height:auto;max-height:400px;object-fit:contain}
 .founder-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
 .founder-stat{background:#1a1a1a;border-radius:10px;padding:20px;text-align:center}
 .founder-stat-num{color:#ffe600;font-size:1.8rem;font-weight:800}
@@ -133,10 +133,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .accordion-toggle .acc-sub{color:#a0a0a0;font-size:0.9rem;margin:4px 0 0}
 .accordion-arrow{font-size:1.5rem;color:#c0c0c0;transition:transform 0.3s}
 .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
-.accordion-item.open .accordion-content{max-height:500px!important}
+.accordion-item.open .accordion-content{max-height:2000px!important}
 .accordion-item.open .accordion-arrow{transform:rotate(180deg)}
 .accordion-content-inner{padding:0 16px 30px;display:flex;gap:30px;align-items:center;flex-wrap:wrap}
-.accordion-content-inner img{width:320px;max-width:100%;border-radius:12px;object-fit:cover}
+.accordion-content-inner img{max-width:400px;width:100%;border-radius:12px;height:auto}
 .accordion-content-inner .acc-text{flex:1;min-width:250px}
 .accordion-content-inner p{color:#444;line-height:1.7;margin:0 0 12px}
 .accordion-content-inner a{color:#111;font-weight:700;text-decoration:none;border-bottom:2px solid #ffe600;transition:color .2s}
@@ -259,7 +259,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .founder-photo{height:200px}
   .services-header h2{font-size:1.6rem}
   .accordion-content-inner{flex-direction:column!important}
-  .accordion-content-inner img{width:100%!important}
+  .accordion-content-inner img{width:100%!important;height:auto!important}
   .standard-inner{flex-direction:column!important}
   .standard-right{flex:1!important}
   .standard-stats{grid-template-columns:1fr 1fr}
