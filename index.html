@@ -683,66 +683,86 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Atlas Home Pro",
-  "description": "Los Angeles full-service home services company offering HVAC, plumbing, electrical, roofing, painting, pest control, water restoration, and gates &amp; welding.",
-  "url": "https://atlashomepro.com",
-  "telephone": "+1-213-275-2210",
-  "image": "https://atlashomepro.com/van%20pics/Atlas%20Home%20Pro%20Van.png",
-  "logo": "https://atlashomepro.com/van%20pics/Atlas%20Home%20Pro%20Van.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "145 S Fairfax Suite 200", "addressLocality": "Los Angeles",
-    "addressRegion": "CA",
-    "postalCode": "90036",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 34.0522,
-    "longitude": -118.2437
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Los Angeles", "sameAs": "https://en.wikipedia.org/wiki/Los_Angeles"},
-    {"@type": "City", "name": "Santa Monica"},
-    {"@type": "City", "name": "Beverly Hills"},
-    {"@type": "City", "name": "West Hollywood"},
-    {"@type": "City", "name": "Culver City"},
-    {"@type": "City", "name": "Burbank"},
-    {"@type": "City", "name": "Pasadena"},
-    {"@type": "City", "name": "Glendale"},
-    {"@type": "City", "name": "Long Beach"}
-  ],
-  "openingHoursSpecification": [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "08:00",
-      "closes": "20:00"
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "https://atlashomepro.com/#business",
+      "name": "Atlas Home Pro",
+      "alternateName": "Atlas Home Builders Inc.",
+      "url": "https://atlashomepro.com",
+      "logo": "https://atlashomepro.com/van%20pics/atlas-van-new-phone.png",
+      "image": "https://atlashomepro.com/van%20pics/atlas-van-new-phone.png",
+      "description": "Los Angeles's premier multi-trade home services company. HVAC, plumbing, electrical, roofing, painting, pest control, water restoration, and gates & welding. One call, every trade.",
+      "telephone": "+12132752210",
+      "email": "hello@atlashomepro.com",
+      "foundingDate": "2024",
+      "priceRange": "670",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "145 S Fairfax Ave Suite 200",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "postalCode": "90036",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.0736,
+        "longitude": -118.3534
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "areaServed": [
+        {"@type": "City", "name": "Los Angeles"},
+        {"@type": "Neighborhood", "name": "Beverly Hills"},
+        {"@type": "Neighborhood", "name": "Bel-Air"},
+        {"@type": "Neighborhood", "name": "Brentwood"},
+        {"@type": "Neighborhood", "name": "Santa Monica"},
+        {"@type": "Neighborhood", "name": "West Hollywood"},
+        {"@type": "Neighborhood", "name": "Hancock Park"},
+        {"@type": "Neighborhood", "name": "Pacific Palisades"},
+        {"@type": "Neighborhood", "name": "Westwood"},
+        {"@type": "Neighborhood", "name": "Century City"}
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Home Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Repair & Installation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plumbing Services"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electrical Services"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roofing Services"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Painting Services"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pest Control"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Water Damage Restoration"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Security Gates & Welding"}}
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/atlas_homepro/",
+        "https://nextdoor.com/page/atlas-home-pro/",
+        "https://www.yelp.com/biz/atlas-home-pro-los-angeles"
+      ]
     },
     {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "09:00",
-      "closes": "17:00"
+      "@type": "WebSite",
+      "@id": "https://atlashomepro.com/#website",
+      "url": "https://atlashomepro.com",
+      "name": "Atlas Home Pro",
+      "publisher": {"@id": "https://atlashomepro.com/#business"},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://atlashomepro.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
-  ],
-  "priceRange": "$",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Home Services",
-    "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Repair & Installation"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plumbing Services"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electrical Services"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Roofing Services"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "House Painting"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pest Control"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Water Damage Restoration"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gates &amp; Welding & Security Gates"}}
-    ]
-  },
-  "sameAs": ["https://www.instagram.com/atlas_homepro/", "https://nextdoor.com/page/atlas-home-pro/", "https://www.yelp.com/biz/atlas-home-pro-los-angeles"]
+  ]
 }
 </script>
 
