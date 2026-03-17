@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Service Areas | Atlas Home Pro | Los Angeles</title>
-<meta name="description" content="Atlas Home Pro serves all of Los Angeles — from Santa Monica to Pasadena, Long Beach to Woodland Hills. Same-day home services across LA County.">
+<meta name="description" content="Atlas Home Pro serves 13+ LA neighborhoods with 7 trades — HVAC, plumbing, electrical, roofing, painting, water restoration, gates &amp; welding. Same-day service from our Fairfax office. (213) 275-2210.">
 <style>
 .hero{
   position:relative;
@@ -514,6 +514,29 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   .footer-col:first-child h4::after{display:none}
   .footer-col:first-child p,.footer-col:first-child .footer-phone,.footer-col:first-child .footer-email,.footer-col:first-child > div{display:block}
 }
+
+/* Featured Neighborhoods */
+.featured-hoods{padding:64px 20px;max-width:1100px;margin:0 auto}
+.featured-hoods .section-label{font-size:.7rem;font-weight:800;letter-spacing:3px;color:#FFDC00;text-transform:uppercase;margin-bottom:10px}
+.featured-hoods h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:#111;margin-bottom:10px}
+.featured-hoods h2 span{color:#FFDC00}
+.featured-hoods .section-sub{color:#555;font-size:.95rem;margin-bottom:40px;line-height:1.6;max-width:600px}
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.hood-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:28px 24px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.hood-card:hover{border-color:#FFDC00;box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px)}
+.hood-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.hood-card h3{font-size:1.1rem;font-weight:800;color:#111;margin:0}
+.hood-card h3 a{color:#111;text-decoration:none}
+.hood-card h3 a:hover{color:#FFDC00}
+.hood-card .hood-badge{font-size:.7rem;font-weight:700;color:#FFDC00;background:#111;padding:4px 10px;border-radius:12px;letter-spacing:.5px}
+.hood-card .trade-links{display:flex;flex-wrap:wrap;gap:6px}
+.hood-card .trade-links a{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;background:#f5f5f5;color:#333;border:1px solid #e8e8e8;transition:all .15s}
+.hood-card .trade-links a:hover{background:#FFDC00;color:#111;border-color:#FFDC00}
+@media(max-width:768px){
+  .hood-grid{grid-template-columns:1fr}
+  .hood-card{padding:20px 18px}
+}
+
 </style>
 
 <!-- Open Graph -->
@@ -531,7 +554,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <meta name="twitter:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://atlashomepro.com/service-areas/" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atlas Home Pro","url":"https://atlashomepro.com","telephone":"+1-213-275-2210","email":"David@AtlasHomePro.com","address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Bel Air"},{"@type":"City","name":"Beverly Hills"},{"@type":"City","name":"Brentwood"},{"@type":"City","name":"Burbank"},{"@type":"City","name":"Century City"},{"@type":"City","name":"Fairfax District"},{"@type":"City","name":"Glendale"},{"@type":"City","name":"Hancock Park"},{"@type":"City","name":"Pacific Palisades"},{"@type":"City","name":"Pasadena"},{"@type":"City","name":"Santa Monica"},{"@type":"City","name":"West Hollywood"},{"@type":"City","name":"Westwood"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Services in Los Angeles","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plumbing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HVAC Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Electrical Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Roofing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Painting Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Restoration Services"}}]},"priceRange":"$$","image":"https://atlashomepro.com/van%20pics/atlas-van-new-phone.png","sameAs":["https://www.instagram.com/atlas_homepro/","https://nextdoor.com/page/atlas-home-pro/","https://www.yelp.com/biz/atlas-home-pro-los-angeles"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atlas Home Pro","url":"https://atlashomepro.com","telephone":"+1-213-275-2210","email":"David@AtlasHomePro.com","address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Bel Air"},{"@type":"City","name":"Beverly Hills"},{"@type":"City","name":"Brentwood"},{"@type":"City","name":"Burbank"},{"@type":"City","name":"Century City"},{"@type":"City","name":"Fairfax District"},{"@type":"City","name":"Glendale"},{"@type":"City","name":"Hancock Park"},{"@type":"City","name":"Pacific Palisades"},{"@type":"City","name":"Pasadena"},{"@type":"City","name":"Santa Monica"},{"@type":"City","name":"West Hollywood"},{"@type":"City","name":"Westwood"},{"@type":"City","name":"Koreatown"},{"@type":"City","name":"Windsor Square"},{"@type":"City","name":"Pico-Robertson"},{"@type":"City","name":"Park La Brea"},{"@type":"City","name":"Mid-City"},{"@type":"City","name":"Carthay"},{"@type":"City","name":"Larchmont"},{"@type":"City","name":"Beverly Grove"},{"@type":"City","name":"Miracle Mile"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Services in Los Angeles","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plumbing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HVAC Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Electrical Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Roofing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Painting Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Restoration Services"}}]},"priceRange":"$$","image":"https://atlashomepro.com/van%20pics/atlas-van-new-phone.png","sameAs":["https://www.instagram.com/atlas_homepro/","https://nextdoor.com/page/atlas-home-pro/","https://www.yelp.com/biz/atlas-home-pro-los-angeles"]}</script>
 </head>
 <body>
 <nav>
@@ -700,12 +723,230 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 </div>
 </div>
 </div>
+
+<div class="featured-hoods">
+  <div class="section-label">FEATURED NEIGHBORHOODS</div>
+  <h2>Explore Our <span>Tier 1 Service Areas</span></h2>
+  <p class="section-sub">Full trade-specific pages for the 13 neighborhoods closest to our Fairfax office. Every page is customized for your neighborhood.</p>
+  <div class="hood-grid">
+    
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/miracle-mile/">Miracle Mile</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/miracle-mile/hvac/">❄️ HVAC</a>
+<a href="/service-areas/miracle-mile/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/miracle-mile/electrical/">⚡ Electrical</a>
+<a href="/service-areas/miracle-mile/roofing/">🏠 Roofing</a>
+<a href="/service-areas/miracle-mile/painting/">🎨 Painting</a>
+<a href="/service-areas/miracle-mile/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/miracle-mile/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/beverly-grove/">Beverly Grove</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/beverly-grove/hvac/">❄️ HVAC</a>
+<a href="/service-areas/beverly-grove/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/beverly-grove/electrical/">⚡ Electrical</a>
+<a href="/service-areas/beverly-grove/roofing/">🏠 Roofing</a>
+<a href="/service-areas/beverly-grove/painting/">🎨 Painting</a>
+<a href="/service-areas/beverly-grove/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/beverly-grove/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/fairfax-district/">Fairfax District</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/fairfax-district/hvac/">❄️ HVAC</a>
+<a href="/service-areas/fairfax-district/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/fairfax-district/electrical/">⚡ Electrical</a>
+<a href="/service-areas/fairfax-district/roofing/">🏠 Roofing</a>
+<a href="/service-areas/fairfax-district/painting/">🎨 Painting</a>
+<a href="/service-areas/fairfax-district/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/fairfax-district/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/hancock-park/">Hancock Park</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/hancock-park/hvac/">❄️ HVAC</a>
+<a href="/service-areas/hancock-park/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/hancock-park/electrical/">⚡ Electrical</a>
+<a href="/service-areas/hancock-park/roofing/">🏠 Roofing</a>
+<a href="/service-areas/hancock-park/painting/">🎨 Painting</a>
+<a href="/service-areas/hancock-park/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/hancock-park/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/larchmont/">Larchmont</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/larchmont/hvac/">❄️ HVAC</a>
+<a href="/service-areas/larchmont/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/larchmont/electrical/">⚡ Electrical</a>
+<a href="/service-areas/larchmont/roofing/">🏠 Roofing</a>
+<a href="/service-areas/larchmont/painting/">🎨 Painting</a>
+<a href="/service-areas/larchmont/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/larchmont/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/carthay/">Carthay</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/carthay/hvac/">❄️ HVAC</a>
+<a href="/service-areas/carthay/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/carthay/electrical/">⚡ Electrical</a>
+<a href="/service-areas/carthay/roofing/">🏠 Roofing</a>
+<a href="/service-areas/carthay/painting/">🎨 Painting</a>
+<a href="/service-areas/carthay/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/carthay/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/mid-city/">Mid-City</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/mid-city/hvac/">❄️ HVAC</a>
+<a href="/service-areas/mid-city/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/mid-city/electrical/">⚡ Electrical</a>
+<a href="/service-areas/mid-city/roofing/">🏠 Roofing</a>
+<a href="/service-areas/mid-city/painting/">🎨 Painting</a>
+<a href="/service-areas/mid-city/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/mid-city/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/west-hollywood/">West Hollywood</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/west-hollywood/hvac/">❄️ HVAC</a>
+<a href="/service-areas/west-hollywood/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/west-hollywood/electrical/">⚡ Electrical</a>
+<a href="/service-areas/west-hollywood/roofing/">🏠 Roofing</a>
+<a href="/service-areas/west-hollywood/painting/">🎨 Painting</a>
+<a href="/service-areas/west-hollywood/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/west-hollywood/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/beverly-hills/">Beverly Hills</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/beverly-hills/hvac/">❄️ HVAC</a>
+<a href="/service-areas/beverly-hills/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/beverly-hills/electrical/">⚡ Electrical</a>
+<a href="/service-areas/beverly-hills/roofing/">🏠 Roofing</a>
+<a href="/service-areas/beverly-hills/painting/">🎨 Painting</a>
+<a href="/service-areas/beverly-hills/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/beverly-hills/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/koreatown/">Koreatown</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/koreatown/hvac/">❄️ HVAC</a>
+<a href="/service-areas/koreatown/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/koreatown/electrical/">⚡ Electrical</a>
+<a href="/service-areas/koreatown/roofing/">🏠 Roofing</a>
+<a href="/service-areas/koreatown/painting/">🎨 Painting</a>
+<a href="/service-areas/koreatown/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/koreatown/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/park-la-brea/">Park La Brea</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/park-la-brea/hvac/">❄️ HVAC</a>
+<a href="/service-areas/park-la-brea/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/park-la-brea/electrical/">⚡ Electrical</a>
+<a href="/service-areas/park-la-brea/roofing/">🏠 Roofing</a>
+<a href="/service-areas/park-la-brea/painting/">🎨 Painting</a>
+<a href="/service-areas/park-la-brea/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/park-la-brea/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/pico-robertson/">Pico-Robertson</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/pico-robertson/hvac/">❄️ HVAC</a>
+<a href="/service-areas/pico-robertson/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/pico-robertson/electrical/">⚡ Electrical</a>
+<a href="/service-areas/pico-robertson/roofing/">🏠 Roofing</a>
+<a href="/service-areas/pico-robertson/painting/">🎨 Painting</a>
+<a href="/service-areas/pico-robertson/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/pico-robertson/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+    <div class="hood-card">
+      <div class="hood-card-header">
+        <h3><a href="/service-areas/windsor-square/">Windsor Square</a></h3>
+        <span class="hood-badge">7 TRADES</span>
+      </div>
+      <div class="trade-links">
+        <a href="/service-areas/windsor-square/hvac/">❄️ HVAC</a>
+<a href="/service-areas/windsor-square/plumbing/">🔧 Plumbing</a>
+<a href="/service-areas/windsor-square/electrical/">⚡ Electrical</a>
+<a href="/service-areas/windsor-square/roofing/">🏠 Roofing</a>
+<a href="/service-areas/windsor-square/painting/">🎨 Painting</a>
+<a href="/service-areas/windsor-square/water-restoration/">💧 Restoration</a>
+<a href="/service-areas/windsor-square/gates-welding/">🔩 Gates & Welding</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="city-section">
   <div class="section-label">Where We Work</div>
   <h2>All LA <span>Neighborhoods</span></h2>
   <p class="section-sub">If you're in Los Angeles County, we're your team. Here are just some of the cities we serve:</p>
   <div class="city-grid">
-    <div class="city-card"><h3>Santa Monica</h3><p>Same-day available</p></div><div class="city-card"><h3>Culver City</h3><p>Same-day available</p></div><div class="city-card"><h3>West Hollywood</h3><p>Same-day available</p></div><div class="city-card"><h3>Beverly Hills</h3><p>Same-day available</p></div><div class="city-card"><h3>Brentwood</h3><p>Same-day available</p></div><div class="city-card"><h3>Pacific Palisades</h3><p>Same-day available</p></div><div class="city-card"><h3>Malibu</h3><p>Same-day available</p></div><div class="city-card"><h3>Sherman Oaks</h3><p>Same-day available</p></div><div class="city-card"><h3>Encino</h3><p>Same-day available</p></div><div class="city-card"><h3>Tarzana</h3><p>Same-day available</p></div><div class="city-card"><h3>Woodland Hills</h3><p>Same-day available</p></div><div class="city-card"><h3>Calabasas</h3><p>Same-day available</p></div><div class="city-card"><h3>Burbank</h3><p>Same-day available</p></div><div class="city-card"><h3>Glendale</h3><p>Same-day available</p></div><div class="city-card"><h3>Pasadena</h3><p>Same-day available</p></div><div class="city-card"><h3>Arcadia</h3><p>Same-day available</p></div><div class="city-card"><h3>Monrovia</h3><p>Same-day available</p></div><div class="city-card"><h3>Torrance</h3><p>Same-day available</p></div><div class="city-card"><h3>Long Beach</h3><p>Same-day available</p></div><div class="city-card"><h3>El Segundo</h3><p>Same-day available</p></div><div class="city-card"><h3>Hawthorne</h3><p>Same-day available</p></div><div class="city-card"><h3>Inglewood</h3><p>Same-day available</p></div><div class="city-card"><h3>Gardena</h3><p>Same-day available</p></div><div class="city-card"><h3>Compton</h3><p>Same-day available</p></div><div class="city-card"><h3>Los Feliz</h3><p>Same-day available</p></div><div class="city-card"><h3>Silver Lake</h3><p>Same-day available</p></div><div class="city-card"><h3>Echo Park</h3><p>Same-day available</p></div><div class="city-card"><h3>Highland Park</h3><p>Same-day available</p></div><div class="city-card"><h3>Koreatown</h3><p>Same-day available</p></div><div class="city-card"><h3>Westlake</h3><p>Same-day available</p></div><div class="city-card"><h3>Mar Vista</h3><p>Same-day available</p></div><div class="city-card"><h3>Westchester</h3><p>Same-day available</p></div><div class="city-card"><h3>Playa del Rey</h3><p>Same-day available</p></div><div class="city-card"><h3>Marina del Rey</h3><p>Same-day available</p></div><div class="city-card"><h3>Venice</h3><p>Same-day available</p></div><div class="city-card"><h3>Palms</h3><p>Same-day available</p></div><div class="city-card"><h3>Sawtelle</h3><p>Same-day available</p></div>
+    <a href="/service-areas/miracle-mile/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Miracle Mile</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/beverly-grove/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Beverly Grove</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/larchmont/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Larchmont</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/carthay/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Carthay</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/mid-city/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Mid-City</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/park-la-brea/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Park La Brea</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/pico-robertson/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Pico-Robertson</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/windsor-square/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Windsor Square</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/santa-monica/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Santa Monica</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Culver City</h3><p>Same-day available</p></div><a href="/service-areas/west-hollywood/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>West Hollywood</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/beverly-hills/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Beverly Hills</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/brentwood/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Brentwood</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/pacific-palisades/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Pacific Palisades</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Malibu</h3><p>Same-day available</p></div><div class="city-card"><h3>Sherman Oaks</h3><p>Same-day available</p></div><div class="city-card"><h3>Encino</h3><p>Same-day available</p></div><div class="city-card"><h3>Tarzana</h3><p>Same-day available</p></div><div class="city-card"><h3>Woodland Hills</h3><p>Same-day available</p></div><div class="city-card"><h3>Calabasas</h3><p>Same-day available</p></div><a href="/service-areas/burbank/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Burbank</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/glendale/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Glendale</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/pasadena/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Pasadena</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Arcadia</h3><p>Same-day available</p></div><div class="city-card"><h3>Monrovia</h3><p>Same-day available</p></div><div class="city-card"><h3>Torrance</h3><p>Same-day available</p></div><div class="city-card"><h3>Long Beach</h3><p>Same-day available</p></div><div class="city-card"><h3>El Segundo</h3><p>Same-day available</p></div><div class="city-card"><h3>Hawthorne</h3><p>Same-day available</p></div><div class="city-card"><h3>Inglewood</h3><p>Same-day available</p></div><div class="city-card"><h3>Gardena</h3><p>Same-day available</p></div><div class="city-card"><h3>Compton</h3><p>Same-day available</p></div><div class="city-card"><h3>Los Feliz</h3><p>Same-day available</p></div><div class="city-card"><h3>Silver Lake</h3><p>Same-day available</p></div><div class="city-card"><h3>Echo Park</h3><p>Same-day available</p></div><div class="city-card"><h3>Highland Park</h3><p>Same-day available</p></div><a href="/service-areas/koreatown/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Koreatown</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Westlake</h3><p>Same-day available</p></div><div class="city-card"><h3>Mar Vista</h3><p>Same-day available</p></div><div class="city-card"><h3>Westchester</h3><p>Same-day available</p></div><div class="city-card"><h3>Playa del Rey</h3><p>Same-day available</p></div><div class="city-card"><h3>Marina del Rey</h3><p>Same-day available</p></div><div class="city-card"><h3>Venice</h3><p>Same-day available</p></div><div class="city-card"><h3>Palms</h3><p>Same-day available</p></div><div class="city-card"><h3>Sawtelle</h3><p>Same-day available</p></div>
   </div>
 </div>
 <section class="form-section" id="book">
