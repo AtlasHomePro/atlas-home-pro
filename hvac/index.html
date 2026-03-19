@@ -757,6 +757,19 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
       </div>
     </div>
     <div class="nav-item has-dropdown">
+      <a href="/learn/">Learn</a>
+      <div class="dropdown">
+        <a href="/learn/">All Home Guides</a>
+        <a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a>
+        <a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a>
+        <a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a>
+        <a href="/learn/roofing-cost-guide/">Roofing Cost Guide</a>
+        <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
+        <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
+        <a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a>
+      </div>
+    </div>
+    <div class="nav-item has-dropdown">
       <a href="/about/">About</a>
       <div class="dropdown">
         <a href="/about/">About Us</a>
@@ -1094,6 +1107,57 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
     track.style.transform='translateX('+galleryPos+'px)';
   }
   </script>
+
+<!-- Related Guides Section -->
+<section class="section" id="related-guides" style="background:#f9f9f9;padding:64px 20px;max-width:100%">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-label">HOMEOWNER GUIDES</div>
+    <h2>HVAC <span>Guides & Resources</span></h2>
+    <p class="section-sub">Expert advice to help you make informed decisions about your home's hvac needs.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px">
+      
+        <a href="/learn/hvac-cost-guide/" class="guide-card">
+          <span class="guide-icon">📖</span>
+          <span class="guide-title">HVAC Replacement Cost Guide</span>
+          <span class="guide-arrow">→</span>
+        </a>
+        <a href="/learn/heat-pump-vs-central-ac/" class="guide-card">
+          <span class="guide-icon">📖</span>
+          <span class="guide-title">Heat Pump vs. Central AC</span>
+          <span class="guide-arrow">→</span>
+        </a>
+        <a href="/learn/why-ac-blowing-warm/" class="guide-card">
+          <span class="guide-icon">📖</span>
+          <span class="guide-title">Why Is My AC Blowing Warm Air?</span>
+          <span class="guide-arrow">→</span>
+        </a>
+        <a href="/learn/hvac-system-signals/" class="guide-card">
+          <span class="guide-icon">📖</span>
+          <span class="guide-title">Signs Your HVAC Needs Attention</span>
+          <span class="guide-arrow">→</span>
+        </a>
+        <a href="/learn/smart-thermostats/" class="guide-card">
+          <span class="guide-icon">📖</span>
+          <span class="guide-title">Smart Thermostats: What Saves Energy</span>
+          <span class="guide-arrow">→</span>
+        </a>
+        <a href="/learn/duct-cleaning-guide/" class="guide-card">
+          <span class="guide-icon">📖</span>
+          <span class="guide-title">Duct Cleaning & Sealing Guide</span>
+          <span class="guide-arrow">→</span>
+        </a>
+    </div>
+    <p style="text-align:center;margin-top:32px"><a href="/learn/" style="color:#111;font-weight:700;font-size:.9rem;text-decoration:none;border-bottom:2px solid #FFDC00;padding-bottom:2px">Browse All Home Guides →</a></p>
+  </div>
+</section>
+<style>
+.guide-card{display:flex;align-items:center;gap:12px;padding:16px 20px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#111;transition:all .2s;font-size:.92rem}
+.guide-card:hover{border-color:#FFDC00;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.guide-icon{font-size:1.2rem;flex-shrink:0}
+.guide-title{flex:1;font-weight:600}
+.guide-arrow{color:#FFDC00;font-weight:700;font-size:1.1rem}
+</style>
+
 <footer style="background:#111;color:#ccc" class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
@@ -1137,6 +1201,11 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
           <li><a href="/service-areas/">Service Areas</a></li>
           <li><a href="/#book">Book a Free Estimate</a></li>
           <li><a href="/learn/">Home Guides</a></li>
+          <li><a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a></li>
+          <li><a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a></li>
+          <li><a href="/learn/roofing-cost-guide/">Roofing Cost Guide</a></li>
+          <li><a href="/learn/painting-cost-guide/">Painting Cost Guide</a></li>
+          <li><a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms-of-service/">Terms of Service</a></li>
         </ul>
