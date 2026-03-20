@@ -1,39 +1,96 @@
 # Atlas Home Pro
 
-> Atlas Home Pro is a premium multi-trade home services company serving Los Angeles and the surrounding communities. We offer a single point of contact for all major home services — one call, every trade, trusted professionals.
+> Atlas Home Pro is Los Angeles's complete home services company, offering seven trades under one roof: HVAC, Plumbing, Electrical, Roofing, Painting, Pest Control, and Water Damage Restoration. Licensed, insured, and trusted by thousands of LA homeowners.
 
-## Company
+## Company Info
 
-- **Name:** Atlas Home Pro
-- **Phone:** 213-275-2210
-- **Email:** David@AtlasHomePro.com
-- **Address:** 145 S Fairfax Suite 200, Los Angeles CA 90036
-- **Website:** https://atlashomepro.com
-- **Tagline:** One Call. Every Home Service. Los Angeles.
+- Business Name: Atlas Home Pro (DBA Atlas Home Builders Inc.)
+- Address: 145 S Fairfax Ave Suite 200, Los Angeles, CA 90036
+- Phone: (213) 275-2210
+- Email: hello@atlashomepro.com
+- Website: https://atlashomepro.com
+- Service Area: Los Angeles County — Beverly Hills, Santa Monica, West Hollywood, Koreatown, Silver Lake, and 20+ neighborhoods
+- Hours: Available 24/7 for emergencies; standard hours 7 days a week
 
 ## Services
 
-### Plumbing
-Drain cleaning, hydro-jetting, water heater repair and replacement, slab leak detection, repiping, fixture installation, emergency plumbing, sewer line repair.
-More info: https://atlashomepro.com/plumbing/
+### HVAC
+- [AC Repair](https://atlashomepro.com/hvac/ac-repair/)
+- [AC Installation](https://atlashomepro.com/hvac/ac-installation/)
+- [Heating Services](https://atlashomepro.com/hvac/heating/)
+- [Duct Cleaning](https://atlashomepro.com/hvac/duct-cleaning/)
+- [Thermostat Installation](https://atlashomepro.com/hvac/thermostat/)
+- [HVAC Tune-Up](https://atlashomepro.com/hvac/tune-up/)
 
-### HVAC (Heating, Ventilation & Air Conditioning)
-AC installation and repair, heating systems, duct cleaning, thermostat installation and programming, tune-ups, heat pump systems, smart home climate control.
-More info: https://atlashomepro.com/hvac/
+### Plumbing
+- [Drain Cleaning](https://atlashomepro.com/plumbing/drain-cleaning/)
+- [Water Heater Services](https://atlashomepro.com/plumbing/water-heater/)
+- [Leak Detection](https://atlashomepro.com/plumbing/leak-detection/)
+- [Sewer Line Services](https://atlashomepro.com/plumbing/sewer-line/)
+- [Repiping](https://atlashomepro.com/plumbing/repiping/)
+- [Fixture Installation](https://atlashomepro.com/plumbing/fixtures/)
+- [Emergency Plumbing](https://atlashomepro.com/plumbing/emergency/)
 
 ### Electrical
-Panel upgrades, EV charger installation, solar-ready wiring, smart home electrical, whole-home generators, circuit breaker repair, outlet and fixture installation.
-More info: https://atlashomepro.com/electrical/
+- [Electrical Services](https://atlashomepro.com/electrical/)
 
 ### Roofing
-Roof repair and full replacement, emergency leak repair, tile and composition roofing, flat roofs, gutters and drainage, roof inspections.
-More info: https://atlashomepro.com/roofing/
+- [Roof Repair](https://atlashomepro.com/roofing/roof-repair/)
+- [Roof Replacement](https://atlashomepro.com/roofing/roof-replacement/)
+- [Roof Inspection](https://atlashomepro.com/roofing/roof-inspection/)
+- [Emergency Leak Repair](https://atlashomepro.com/roofing/emergency-leak/)
+- [Gutters & Drainage](https://atlashomepro.com/roofing/gutters/)
 
 ### Painting
-Interior and exterior painting, cabinet refinishing, drywall repair, color consultation, stucco repair and paint.
-More info: https://atlashomepro.com/painting/
+- [Interior Painting](https://atlashomepro.com/painting/interior/)
+- [Exterior Painting](https://atlashomepro.com/painting/exterior/)
+- [Cabinet Refinishing](https://atlashomepro.com/painting/cabinet-refinishing/)
+- [Drywall Repair](https://atlashomepro.com/painting/drywall-repair/)
+- [Color Consultation](https://atlashomepro.com/painting/color-consultation/)
 
 ### Water Damage Restoration
-Water damage mitigation, mold remediation, smoke and fire damage restoration, insurance claim assistance.
-More info: https://atlashomepro.com/restoration/
+- [Water Damage Restoration](https://atlashomepro.com/restoration/)
 
+### Gates & Welding
+- [Gates & Welding Services](https://atlashomepro.com/gates-welding/)
+
+## Service Areas
+- [All Service Areas](https://atlashomepro.com/service-areas/)
+- [Beverly Hills](https://atlashomepro.com/service-areas/beverly-hills/)
+- [Santa Monica](https://atlashomepro.com/service-areas/santa-monica/)
+- [West Hollywood](https://atlashomepro.com/service-areas/west-hollywood/)
+- [Koreatown](https://atlashomepro.com/service-areas/koreatown/)
+- [Silver Lake](https://atlashomepro.com/service-areas/silver-lake/)
+- [Los Feliz](https://atlashomepro.com/service-areas/los-feliz/)
+- [Culver City](https://atlashomepro.com/service-areas/culver-city/)
+- [Brentwood](https://atlashomepro.com/service-areas/brentwood/)
+- [Westwood](https://atlashomepro.com/service-areas/westwood/)
+- [Century City](https://atlashomepro.com/service-areas/century-city/)
+- [Pacific Palisades](https://atlashomepro.com/service-areas/pacific-palisades/)
+- [Marina Del Rey](https://atlashomepro.com/service-areas/marina-del-rey/)
+- [Playa Vista](https://atlashomepro.com/service-areas/playa-vista/)
+- [Mar Vista](https://atlashomepro.com/service-areas/mar-vista/)
+- [Palms](https://atlashomepro.com/service-areas/palms/)
+- [East Hollywood](https://atlashomepro.com/service-areas/east-hollywood/)
+- [West Los Angeles](https://atlashomepro.com/service-areas/west-los-angeles/)
+- [Los Angeles](https://atlashomepro.com/service-areas/los-angeles/)
+- [Bel Air](https://atlashomepro.com/service-areas/bel-air/)
+- [Pasadena](https://atlashomepro.com/service-areas/pasadena/)
+- [Burbank](https://atlashomepro.com/service-areas/burbank/)
+- [Glendale](https://atlashomepro.com/service-areas/glendale/)
+
+## Other Pages
+- [About Us](https://atlashomepro.com/about/)
+- [Reviews](https://atlashomepro.com/reviews/)
+- [Careers](https://atlashomepro.com/careers/)
+- [Contact](https://atlashomepro.com/contact/)
+- [Special Offers](https://atlashomepro.com/offers/)
+- [Learning Center](https://atlashomepro.com/learn/)
+
+## Key Facts
+- 500+ five-star reviews across platforms
+- $0 service call fees
+- Same-day service available
+- Licensed and insured
+- Serves 20+ Los Angeles neighborhoods
+- One company for all home service needs
