@@ -1,0 +1,6 @@
+# Netlify redirects
+# https://docs.netlify.com/routing/redirects/
+
+# Broken URL from Google Search Console — no rodent exclusion content exists
+/learn/rodent-exclusion/  /learn/  301
+/learn/rodent-exclusion   /learn/  301
