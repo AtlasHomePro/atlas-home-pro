@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<!-- Google Analytics (GA4) — deferred for performance -->
+<script>
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+  s.async=true;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+});
+</script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23111%27/%3E%3Ctext x=%2716%27 y=%2724%27 font-size=%2724%27 font-weight=%27900%27 font-family=%27Arial,sans-serif%27 fill=%27%23FFD700%27 text-anchor=%27middle%27%3EA%3C/text%3E%3C/svg%3E">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,7 +135,6 @@
   height:auto;
 }
 
-
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Manrope',sans-serif;background:#fff;color:#111;padding-bottom:60px}
 nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;min-height:64px;flex-wrap:wrap;gap:8px}
@@ -143,7 +151,6 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem}
 
 .hero-pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:5px 12px;border-radius:16px;font-size:.76rem;font-weight:600}
-
 
 .section{padding:64px 20px;max-width:1100px;margin:0 auto}
 .section-label{font-size:.7rem;font-weight:800;letter-spacing:3px;color:#FFDC00;text-transform:uppercase;margin-bottom:10px}
@@ -231,7 +238,6 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
   .areas-tags span{font-size:.75rem;padding:6px 12px}
 }
 
-
 @media(max-width:768px){
   .hero-split{
     flex-direction:column-reverse;
@@ -303,7 +309,6 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
   .form-guarantees{flex-direction:row;flex-wrap:wrap;gap:8px;}
 }
 
-
 .areas-section{background:#f9f9f9;padding:60px 20px;position:relative;overflow:hidden;}
 .areas-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FFDC00 0%,#111 50%,#FFDC00 100%);}
 .areas-inner{max-width:1000px;margin:0 auto;text-align:center;}
@@ -322,11 +327,6 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
   .areas-grid a,.areas-grid span{padding:8px 14px;font-size:0.8rem;}
 }
 
-
-
-
-
-
 .form-box{background:#fff!important;border-radius:16px;padding:44px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
 .form-box-header{background:#FFDC00;margin:-44px -36px 28px -36px;padding:24px 36px;border-radius:16px 16px 0 0;text-align:center}
 .form-box-header h3{color:#111;font-size:1.4rem;font-weight:900;margin:0;letter-spacing:-0.3px}
@@ -341,24 +341,14 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
 .form-box button{width:100%;background:#FFDC00;color:#111;padding:16px;border-radius:8px;font-weight:900;font-size:1.05rem;border:none;cursor:pointer;letter-spacing:0.3px;transition:background .2s}
 .form-box button:hover{background:#e6c200}
 
-
-
 .partner-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .partner-logo span{font-weight:900;color:#111;opacity:0.7;transition:opacity .2s;white-space:nowrap}
 .partner-logo:hover span{opacity:1}
-
-
-
-
-
-
-
 
 @media(max-width:768px){
   
   .partner-logo span{font-size:0.8rem!important}
 }
-
 
 /* Social Proof Ticker */
 .proof-bar { background: #FFDC00; padding: 14px 0; overflow: hidden; position: relative; }
@@ -389,7 +379,6 @@ nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-conte
   .proof-track { gap: 40px; }
   .proof-text { font-size: 0.85rem; }
 }
-
 
 /* Footer */
 .site-footer{background:#111;color:#ccc;padding:60px 20px 0;font-size:.85rem;line-height:1.7}
@@ -552,7 +541,8 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <meta name="twitter:title" content="Service Areas | Atlas Home Pro Los Angeles" />
 <meta name="twitter:description" content="Atlas Home Pro serves all of Los Angeles County. Beverly Hills, Santa Monica, Pasadena, Burbank & more. Call (213) 275-2210." />
 <meta name="twitter:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
   <link rel="canonical" href="https://atlashomepro.com/service-areas/" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atlas Home Pro","url":"https://atlashomepro.com","telephone":"+1-213-275-2210","email":"David@AtlasHomePro.com","address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Bel Air"},{"@type":"City","name":"Beverly Hills"},{"@type":"City","name":"Brentwood"},{"@type":"City","name":"Burbank"},{"@type":"City","name":"Century City"},{"@type":"City","name":"Fairfax District"},{"@type":"City","name":"Glendale"},{"@type":"City","name":"Hancock Park"},{"@type":"City","name":"Pacific Palisades"},{"@type":"City","name":"Pasadena"},{"@type":"City","name":"Santa Monica"},{"@type":"City","name":"West Hollywood"},{"@type":"City","name":"Westwood"},{"@type":"City","name":"Koreatown"},{"@type":"City","name":"Windsor Square"},{"@type":"City","name":"Pico-Robertson"},{"@type":"City","name":"Park La Brea"},{"@type":"City","name":"Mid-City"},{"@type":"City","name":"Carthay"},{"@type":"City","name":"Larchmont"},{"@type":"City","name":"Beverly Grove"},{"@type":"City","name":"Miracle Mile"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Services in Los Angeles","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plumbing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HVAC Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Electrical Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Roofing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Painting Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Restoration Services"}}]},"priceRange":"$$","image":"https://atlashomepro.com/van%20pics/atlas-van-new-phone.png","sameAs":["https://www.instagram.com/atlas_homepro/","https://nextdoor.com/page/atlas-home-pro/","https://www.yelp.com/biz/atlas-home-pro-los-angeles"]}</script>
 </head>
@@ -596,7 +586,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
           <a href="/painting/interior/">Interior</a>
           <a href="/painting/exterior/">Exterior</a>
           <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
-          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">More</a>
+          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
           <a href="/restoration/">Restoration</a>
           <a href="/iron-works/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Welding</a>
           <a href="/iron-works/security-gates/">Security Gates</a>

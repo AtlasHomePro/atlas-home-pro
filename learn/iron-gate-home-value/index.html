@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<!-- Google Analytics (GA4) — deferred for performance -->
+<script>
+window.addEventListener('load',function(){
+  var s=document.createElement('script');
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+  s.async=true;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+});
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>How an Iron Gate Adds Value to Your Los Angeles Home | Atlas Home Pro</title>
@@ -13,7 +22,8 @@
 <meta property="og:url" content="https://atlashomepro.com/learn/iron-gate-home-value/">
 <meta property="og:type" content="article">
 <link rel="canonical" href="https://atlashomepro.com/learn/iron-gate-home-value/">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How an Iron Gate Adds Value to Your Los Angeles Home", "description": "Iron gates boost curb appeal, home value, and buyer perception in LA's luxury market. See real ROI numbers and what buyers look for in gated properties.", "author": {"@type": "Organization", "name": "Atlas Home Pro"}, "publisher": {"@type": "Organization", "name": "Atlas Home Pro", "url": "https://atlashomepro.com", "logo": {"@type": "ImageObject", "url": "https://atlashomepro.com/images/atlas-logo.png"}}, "url": "https://atlashomepro.com/learn/iron-gate-home-value/", "mainEntityOfPage": "https://atlashomepro.com/learn/iron-gate-home-value/", "datePublished": "2026-03-13", "dateModified": "2026-03-13", "image": {"@type": "ImageObject", "url": "https://atlashomepro.com/images/atlas-logo.png", "width": 1200, "height": 630}}</script>
 <style>
 :root{
@@ -416,7 +426,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
           <a href="/painting/interior/">Interior</a>
           <a href="/painting/exterior/">Exterior</a>
           <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
-          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">More</a>
+          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
           <a href="/restoration/">Restoration</a>
         </div>
       </div>
@@ -547,7 +557,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
   <div class="art-body">
 <img src="../../iron-works/security-gate-beverly-hills.png" alt="Custom iron security gate boosting home value in Beverly Hills - Atlas Home Pro" width="1200" height="630" loading="eager" style="width:100%;height:auto;border-radius:12px;margin-bottom:32px">
-
 
 <p class="art-intro">In Los Angeles real estate, curb appeal is not a nice-to-have — it is the difference between a quick sale at asking price and months on the market with price reductions. And nothing transforms the front of a property faster than a custom iron gate. It is one of the few exterior upgrades that improves both the look and the function of a home while delivering a measurable return on investment.</p>
 
