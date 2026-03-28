@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Atlas Parts Request</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#D4A843;--gold-hover:#C09530;--gold-bg:rgba(212,168,67,.07);
+  --black:#1A1A1A;--dark:#2A2A2A;
+  --g100:#F5F5F5;--g200:#E8E8E8;--g300:#D0D0D0;--g400:#999;--g600:#666;
+  --white:#FFF;--red:#D44;--green:#2A9D3E;
+  --radius:10px;
+}
+html{font-size:16px}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--g100);color:var(--black);min-height:100dvh;-webkit-font-smoothing:antialiased}
+
+/* ── Header ── */
+.hdr{background:var(--black);padding:16px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
+.hdr-logo{width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hdr h1{color:var(--white);font-size:1.125rem;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.hdr .sub{color:var(--gold);font-size:.75rem;font-weight:500}
+
+/* ── Main ── */
+.main{max-width:540px;margin:0 auto;padding:20px 16px 100px}
+
+/* ── Form Elements ── */
+.fg{margin-bottom:20px}
+.fl{display:block;font-size:.8125rem;font-weight:600;color:var(--dark);margin-bottom:6px;letter-spacing:.01em}
+.fl .req{color:var(--red);margin-left:2px}
+.fi,.ft,.fs{width:100%;padding:12px 14px;font-size:1rem;font-family:inherit;border:1.5px solid var(--g200);border-radius:var(--radius);background:var(--white);color:var(--black);transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
+.fi:focus,.ft:focus,.fs:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.15)}
+.fi::placeholder,.ft::placeholder{color:var(--g400)}
+.ft{min-height:100px;resize:vertical;line-height:1.5}
+.fs{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:40px}
+.fh{font-size:.75rem;color:var(--g600);margin-top:5px;line-height:1.4}
+
+/* ── Urgency Chips ── */
+.uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.uc{display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 10px;border:1.5px solid var(--g200);border-radius:var(--radius);background:var(--white);font-size:.875rem;font-weight:500;color:var(--dark);cursor:pointer;transition:all .15s;user-select:none;-webkit-tap-highlight-color:transparent}
+.uc:active{transform:scale(.97)}
+.uc.on{border-color:var(--gold);background:var(--gold-bg);color:var(--black)}
+.uc .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.uc[data-v="Emergency"] .dot{background:#D44}
+.uc[data-v="Urgent"] .dot{background:#E89020}
+.uc[data-v="Standard"] .dot{background:#3B8ED0}
+.uc[data-v="Planned"] .dot{background:var(--g400)}
+
+/* ── Photo Upload ── */
+.pa{border:2px dashed var(--g300);border-radius:12px;padding:28px 16px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;-webkit-tap-highlight-color:transparent}
+.pa:active,.pa.hover{border-color:var(--gold);background:var(--gold-bg)}
+.pa-icon{display:block;margin:0 auto 10px;width:40px;height:40px;background:var(--g200);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pa-icon svg{width:20px;height:20px}
+.pa p{font-size:.875rem;font-weight:500;color:var(--dark)}
+.pa .sub{font-size:.75rem;color:var(--g600);margin-top:4px;line-height:1.4}
+.pp{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pt{position:relative;width:72px;height:72px;border-radius:8px;overflow:hidden;border:1px solid var(--g200)}
+.pt img{width:100%;height:100%;object-fit:cover}
+.pt .rm{position:absolute;top:3px;right:3px;width:22px;height:22px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;font-size:14px;line-height:22px;text-align:center;cursor:pointer;padding:0}
+
+/* ── Submit Button ── */
+.sbtn{width:100%;padding:16px;background:var(--gold);color:var(--black);border:none;border-radius:12px;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;letter-spacing:-.01em;transition:background .15s,transform .1s;-webkit-tap-highlight-color:transparent;margin-top:8px}
+.sbtn:active{transform:scale(.98)}
+.sbtn:hover{background:var(--gold-hover)}
+.sbtn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ── Toast ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);padding:14px 24px;border-radius:12px;font-size:.875rem;font-weight:500;z-index:200;opacity:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;max-width:calc(100vw - 32px);text-align:center;color:#fff}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.error{background:var(--red)}
+.toast.success{background:var(--green)}
+
+/* ── Spinner ── */
+.spin{display:inline-block;width:18px;height:18px;border:2px solid rgba(26,26,26,.2);border-top-color:var(--black);border-radius:50%;animation:sp .6s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ── Success Screen ── */
+.success-screen{display:none;text-align:center;padding:60px 20px}
+.success-screen .check{width:64px;height:64px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.success-screen h2{font-size:1.25rem;font-weight:600;margin-bottom:8px}
+.success-screen p{font-size:.875rem;color:var(--g600);line-height:1.5;margin-bottom:24px}
+.success-screen button{padding:12px 32px;background:var(--black);color:var(--white);border:none;border-radius:var(--radius);font-family:inherit;font-size:.875rem;font-weight:500;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-logo">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 18H2L10 2Z" fill="#1A1A1A" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><line x1="6" y1="13" x2="14" y2="13" stroke="#D4A843" stroke-width="1.2"/></svg>
+  </div>
+  <div>
+    <h1>Atlas Parts Request</h1>
+    <div class="sub">Submit a procurement request</div>
+  </div>
+</div>
+
+<div class="main">
+  <!-- Form -->
+  <form id="form" novalidate>
+    <div class="fg">
+      <label class="fl">Your Name <span class="req">*</span></label>
+      <input type="text" class="fi" id="fname" placeholder="e.g. Mike, Carlos, Sarah" autocomplete="name" required>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Job Address</label>
+      <input type="text" class="fi" id="fjob" placeholder="Where is the part needed?">
+    </div>
+
+    <div class="fg">
+      <label class="fl">What do you need? <span class="req">*</span></label>
+      <textarea class="ft" id="fdesc" placeholder="Describe the part, material, or equipment. Be as specific as you can." required></textarea>
+      <p class="fh">Example: "Need a 40-gal gas water heater" or "Run capacitor on rooftop unit is blown — oval, 45/5 MFD"</p>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Photos <span class="req">*</span></label>
+      <div class="pa" id="pa">
+        <div class="pa-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <p>Tap to take a photo or choose from gallery</p>
+        <div class="sub">Include: the part, label/data plate, model number, and a wider shot</div>
+      </div>
+      <input type="file" id="phin" accept="image/*" capture="environment" multiple hidden>
+      <div class="pp" id="pp"></div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">How urgent? <span class="req">*</span></label>
+      <div class="uc-grid" id="ucg">
+        <div class="uc" data-v="Emergency"><span class="dot"></span>Emergency</div>
+        <div class="uc" data-v="Urgent"><span class="dot"></span>Urgent (today)</div>
+        <div class="uc" data-v="Standard"><span class="dot"></span>Standard (1-2 days)</div>
+        <div class="uc" data-v="Planned"><span class="dot"></span>Planned</div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <label class="fl">Trade</label>
+      <select class="fs" id="ftrade">
+        <option value="">AI will detect if left blank</option>
+        <option>HVAC</option><option>Plumbing</option><option>Electrical</option>
+        <option>Roofing</option><option>Painting</option><option>Handyman</option><option>Appliances</option>
+      </select>
+    </div>
+
+    <button type="submit" class="sbtn" id="sbtn">Submit Request</button>
+  </form>
+
+  <!-- Success Screen -->
+  <div class="success-screen" id="success">
+    <div class="check">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>Request Submitted</h2>
+    <p>The AI is processing your request now. Your coordinator will have a complete procurement card with supplier recommendations within minutes.</p>
+    <button onclick="resetForm()">Submit Another Request</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let urgency=null, photos=[];
+const pa=document.getElementById("pa"),phin=document.getElementById("phin"),pp=document.getElementById("pp");
+
+// Urgency
+document.querySelectorAll(".uc").forEach(c=>{
+  c.addEventListener("click",()=>{
+    document.querySelectorAll(".uc").forEach(x=>x.classList.remove("on"));
+    c.classList.add("on");
+    urgency=c.dataset.v;
+  });
+});
+
+// Photos
+pa.addEventListener("click",()=>phin.click());
+pa.addEventListener("dragover",e=>{e.preventDefault();pa.classList.add("hover")});
+pa.addEventListener("dragleave",()=>pa.classList.remove("hover"));
+pa.addEventListener("drop",e=>{e.preventDefault();pa.classList.remove("hover");addPhotos([...e.dataTransfer.files].filter(f=>f.type.startsWith("image/")))});
+phin.addEventListener("change",e=>{addPhotos([...e.target.files]);phin.value=""});
+
+function addPhotos(files){
+  photos.push(...files.slice(0,5-photos.length));
+  renderPhotos();
+}
+function renderPhotos(){
+  pp.innerHTML="";
+  photos.forEach((f,i)=>{
+    const d=document.createElement("div");d.className="pt";
+    const img=document.createElement("img");img.src=URL.createObjectURL(f);
+    const b=document.createElement("button");b.className="rm";b.innerHTML="×";b.type="button";
+    b.onclick=()=>{photos.splice(i,1);renderPhotos()};
+    d.append(img,b);pp.appendChild(d);
+  });
+  pa.querySelector("p").textContent=photos.length>0?`${photos.length}/5 photo${photos.length>1?"s":""} — tap to add more`:"Tap to take a photo or choose from gallery";
+}
+
+// Submit
+document.getElementById("form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const name=document.getElementById("fname").value.trim();
+  const job=document.getElementById("fjob").value.trim();
+  const desc=document.getElementById("fdesc").value.trim();
+  const trade=document.getElementById("ftrade").value;
+
+  if(!name){toast("Please enter your name","error");return}
+  if(!desc){toast("Please describe what you need","error");return}
+  if(photos.length===0){toast("Please add at least one photo","error");return}
+  if(!urgency){toast("Please select urgency","error");return}
+
+  const btn=document.getElementById("sbtn");
+  btn.disabled=true;
+  btn.innerHTML='<span class="spin"></span>Submitting...';
+
+  try{
+    const fd=new FormData();
+    fd.append("name",name);
+    fd.append("jobAddress",job);
+    fd.append("description",desc);
+    fd.append("urgency",urgency);
+    fd.append("trade",trade);
+    photos.forEach(f=>fd.append("photos",f));
+
+    const r=await fetch("/api/requests",{method:"POST",body:fd});
+    const data=await r.json();
+    if(!r.ok) throw new Error(data.error||"Submission failed");
+
+    // Show success
+    document.getElementById("form").style.display="none";
+    document.getElementById("success").style.display="block";
+  }catch(err){
+    console.error(err);
+    toast("Failed: "+err.message,"error");
+  }finally{
+    btn.disabled=false;
+    btn.textContent="Submit Request";
+  }
+});
+
+function resetForm(){
+  document.getElementById("form").style.display="block";
+  document.getElementById("success").style.display="none";
+  document.getElementById("form").reset();
+  urgency=null;photos=[];
+  document.querySelectorAll(".uc").forEach(c=>c.classList.remove("on"));
+  renderPhotos();
+}
+
+function toast(msg,type){
+  const t=document.getElementById("toast");
+  t.textContent=msg;t.className="toast "+(type||"");
+  void t.offsetWidth;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),4000);
+}
+</script>
+</body>
+</html>
