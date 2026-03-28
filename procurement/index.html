@@ -166,7 +166,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 
 <script>
 let urgency=null, photos=[];
-const pa=document.getElementById("pa"),phin=document.getElementById("phin"),pp=document.getElementById("pp");
+
+// Robust element references
+const photoArea = document.getElementById("pa");
+const photoInput = document.getElementById("phin");
+const photoPreviews = document.getElementById("pp");
 
 // Urgency
 document.querySelectorAll(".uc").forEach(c=>{
@@ -177,27 +181,61 @@ document.querySelectorAll(".uc").forEach(c=>{
   });
 });
 
-// Photos
-pa.addEventListener("click",()=>phin.click());
-pa.addEventListener("dragover",e=>{e.preventDefault();pa.classList.add("hover")});
-pa.addEventListener("dragleave",()=>pa.classList.remove("hover"));
-pa.addEventListener("drop",e=>{e.preventDefault();pa.classList.remove("hover");addPhotos([...e.dataTransfer.files].filter(f=>f.type.startsWith("image/")))});
-phin.addEventListener("change",e=>{addPhotos([...e.target.files]);phin.value=""});
+// Photos - use a standalone function so we can attach it multiple ways
+function openPhotoPicker(e) {
+  if (e) e.preventDefault();
+  if (e) e.stopPropagation();
+  // Force the file input to trigger
+  try {
+    photoInput.value = '';
+    photoInput.click();
+  } catch(err) {
+    console.error('Photo picker error:', err);
+  }
+}
+
+// Attach click to the photo drop area — both click and touchend for max coverage
+photoArea.addEventListener("click", openPhotoPicker);
+photoArea.addEventListener("touchend", function(e) {
+  e.preventDefault();
+  openPhotoPicker();
+}, {passive: false});
+
+// Also attach to all children inside the photo area so taps on the icon/text work
+photoArea.querySelectorAll("*").forEach(function(el) {
+  el.style.pointerEvents = "none";
+});
+
+// Drag and drop
+photoArea.addEventListener("dragover",e=>{e.preventDefault();photoArea.classList.add("hover")});
+photoArea.addEventListener("dragleave",()=>photoArea.classList.remove("hover"));
+photoArea.addEventListener("drop",e=>{e.preventDefault();photoArea.classList.remove("hover");addPhotos([...e.dataTransfer.files].filter(f=>f.type.startsWith("image/")))});
+
+// File input change handler
+photoInput.addEventListener("change", function(e) {
+  if (e.target.files && e.target.files.length > 0) {
+    addPhotos([...e.target.files]);
+  }
+  photoInput.value = '';
+});
 
 function addPhotos(files){
-  photos.push(...files.slice(0,5-photos.length));
+  const remaining = 5 - photos.length;
+  if (remaining <= 0) return;
+  photos.push(...files.slice(0, remaining));
   renderPhotos();
 }
 function renderPhotos(){
-  pp.innerHTML="";
+  photoPreviews.innerHTML="";
   photos.forEach((f,i)=>{
     const d=document.createElement("div");d.className="pt";
-    const img=document.createElement("img");img.src=URL.createObjectURL(f);
+    const img=document.createElement("img");
+    try { img.src=URL.createObjectURL(f); } catch(err) { img.src=''; }
     const b=document.createElement("button");b.className="rm";b.innerHTML="×";b.type="button";
     b.onclick=()=>{photos.splice(i,1);renderPhotos()};
-    d.append(img,b);pp.appendChild(d);
+    d.append(img,b);photoPreviews.appendChild(d);
   });
-  pa.querySelector("p").textContent=photos.length>0?`${photos.length}/5 photo${photos.length>1?"s":""} — tap to add more`:"Tap to take a photo or choose from gallery";
+  photoArea.querySelector("p").textContent=photos.length>0?`${photos.length}/5 photo${photos.length>1?"s":""} — tap to add more`:"Tap to take a photo or choose from gallery";
 }
 
 // Submit
