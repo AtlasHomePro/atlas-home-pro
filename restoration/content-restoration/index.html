@@ -2,13 +2,13 @@
 <!-- Google Analytics (GA4) — deferred for performance -->
 <script>
 window.addEventListener('load',function(){
-  var s=document.createElement('script');
-  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-  s.async=true;
-  document.head.appendChild(s);
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+ var s=document.createElement('script');
+ s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+ s.async=true;
+ document.head.appendChild(s);
+ window.dataLayer=window.dataLayer||[];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
 });
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -55,45 +55,45 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .mega-dropdown a{display:block;padding:7px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .15s}
 .mega-dropdown a:hover{color:#fff}
 @media(max-width:900px){
-  nav{padding:0 20px;height:64px}
-  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem}
-  .nav-right{display:none}
-  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1000;background:none;border:none}
-  .hamburger span{width:22px;height:1.5px;background:#fff;display:block}
-  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
-  .hamburger.active span:nth-child(2){opacity:0}
-  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-  .nav-item{height:auto;display:block}
-  .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
-  .nav-item > a::before{display:none}
-  .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
-  .mega-dropdown{display:none!important}
-  .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
-  .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px}
-  .mobile-services a:hover{color:#FFDC00}
-  .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
-  .nav-item.has-mega.open .mobile-services{display:grid}
-  .mobile-areas,.mobile-about{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
-  .mobile-areas a,.mobile-about a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px}
-  .mobile-areas a:hover,.mobile-about a:hover{color:#FFDC00}
-  .nav-item.has-dropdown.open .mobile-areas,.nav-item.has-dropdown.open .mobile-about{display:grid}
-  .nav-cta:not(.nav-mobile-cta){display:none!important}
-  .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
-  .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
+ nav{padding:0 20px;height:64px}
+ .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
+ .nav-links.open{display:flex}
+ .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem}
+ .nav-right{display:none}
+ .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1000;background:none;border:none}
+ .hamburger span{width:22px;height:1.5px;background:#fff;display:block}
+ .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+ .hamburger.active span:nth-child(2){opacity:0}
+ .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+ .nav-item{height:auto;display:block}
+ .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
+ .nav-item > a::before{display:none}
+ .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
+ .mega-dropdown{display:none!important}
+ .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+ .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px}
+ .mobile-services a:hover{color:#FFDC00}
+ .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+ .nav-item.has-mega.open .mobile-services{display:grid}
+ .mobile-areas,.mobile-about{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+ .mobile-areas a,.mobile-about a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px}
+ .mobile-areas a:hover,.mobile-about a:hover{color:#FFDC00}
+ .nav-item.has-dropdown.open .mobile-areas,.nav-item.has-dropdown.open .mobile-about{display:grid}
+ .nav-cta:not(.nav-mobile-cta){display:none!important}
+ .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
+ .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
 }
 .mobile-services{display:none}
 .mobile-areas{display:none}
 .mobile-about{display:none}
 @media(max-width:768px){
-  .footer-col h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
-  .footer-col h4::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400}
-  .footer-col.fc-open h4::after{content:'−'}
-  .footer-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0;padding:0}
-  .footer-col.fc-open ul{max-height:400px;padding:8px 0 12px}
-  .footer-col:first-child h4{cursor:default}
-  .footer-col:first-child h4::after{display:none}
+ .footer-col h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
+ .footer-col h4::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400}
+ .footer-col.fc-open h4::after{content:'−'}
+ .footer-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0;padding:0}
+ .footer-col.fc-open ul{max-height:400px;padding:8px 0 12px}
+ .footer-col:first-child h4{cursor:default}
+ .footer-col:first-child h4::after{display:none}
 }
 .faq-item{border-bottom:1px solid #eee;padding:20px 0}
 .faq-item h3{font-size:1rem;font-weight:700;color:#111;margin-bottom:8px}
@@ -137,604 +137,599 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 </head>
 <body style="margin:0;font-family:'Manrope',sans-serif">
 <nav>
-  <div class="nav-brand"><a href="/">ATLAS <span class="brand-accent">HOME PRO</span></a></div>
-  <div class="nav-links">
-    <div class="nav-item has-dropdown has-mega">
-      <a href="#">Services</a>
-      <div class="mega-dropdown">
-        <div class="mega-col">
-          <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
-          <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
-          <a href="/plumbing/water-heater/">Water Heater</a>
-          <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
-          <a href="/plumbing/leak-detection/">Leak Detection</a>
-          <a href="/plumbing/sewer-line/">Sewer Line</a>
-          <a href="/plumbing/emergency/">Emergency</a>
-          <a href="/plumbing/fixtures/">Fixtures</a>
-        </div>
-        <div class="mega-col">
-          <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
-          <a href="/hvac/ac-repair/">AC Repair</a>
-          <a href="/hvac/ac-installation/">AC Installation</a>
-          <a href="/hvac/heating/">Heating</a>
-          <a href="/hvac/tune-up/">Tune-Up</a>
-          <a href="/hvac/thermostat/">Thermostat</a>
-          <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
-        </div>
-        <div class="mega-col">
-          <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
-          <a href="/electrical/">All Electrical Services</a>
-          <a href="/roofing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Roofing</a>
-          <a href="/roofing/roof-repair/">Roof Repair</a>
-          <a href="/roofing/roof-replacement/">Replacement</a>
-          <a href="/roofing/roof-inspection/">Inspection</a>
-          <a href="/roofing/gutters/">Gutters</a>
-        </div>
-        <div class="mega-col">
-          <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
-          <a href="/painting/interior/">Interior</a>
-          <a href="/painting/exterior/">Exterior</a>
-          <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
-          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
-          <a href="/restoration/">Restoration</a>
-          <a href="/iron-works/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Welding</a>
-          <a href="/iron-works/security-gates/">Security Gates</a>
-          <a href="/iron-works/steel-railings/">Steel Railings</a>
-          <a href="/iron-works/welding-fabrication/">Welding</a>
-        </div>
-      </div>
-      <div class="mobile-services">
-        <a href="/plumbing/"><span class="ms-icon">&#x1F527;</span> Plumbing</a>
-        <a href="/hvac/"><span class="ms-icon">&#x2744;&#xFE0F;</span> HVAC</a>
-        <a href="/electrical/"><span class="ms-icon">&#x26A1;</span> Electrical</a>
-        <a href="/roofing/"><span class="ms-icon">&#x1F3E0;</span> Roofing</a>
-        <a href="/painting/"><span class="ms-icon">&#x1F3A8;</span> Painting</a>
-        <a href="/restoration/"><span class="ms-icon">&#x1F4A7;</span> Restoration</a>
-        <a href="/offers/"><span class="ms-icon">&#x1F3F7;&#xFE0F;</span> Current Offers</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/service-areas/">Areas</a>
-      <div class="dropdown">
-        <a href="/service-areas/beverly-hills/">Beverly Hills</a>
-        <a href="/service-areas/brentwood/">Brentwood</a>
-        <a href="/service-areas/bel-air/">Bel Air</a>
-        <a href="/service-areas/pacific-palisades/">Pacific Palisades</a>
-        <a href="/service-areas/santa-monica/">Santa Monica</a>
-        <a href="/service-areas/century-city/">Century City</a>
-        <a href="/service-areas/west-hollywood/">West Hollywood</a>
-        <a href="/service-areas/westwood/">Westwood</a>
-        <a href="/service-areas/hancock-park/">Hancock Park</a>
-        <a href="/service-areas/fairfax-district/">Fairfax District</a>
-      </div>
-      <div class="mobile-areas">
-        <a href="/service-areas/beverly-hills/"><span class="ms-icon">&#x2B50;</span> Beverly Hills</a>
-        <a href="/service-areas/santa-monica/"><span class="ms-icon">&#x1F3D6;&#xFE0F;</span> Santa Monica</a>
-        <a href="/service-areas/"><span class="ms-icon">&#x1F4CD;</span> All Areas</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/learn/">Learn</a>
-      <div class="dropdown">
-        <a href="/learn/">All Home Guides</a>
-        <a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a>
-        <a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a>
-        <a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a>
-        <a href="/learn/roofing-cost-guide/">Roofing Cost Guide</a>
-        <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
-        <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
-        <a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/about/">About</a>
-      <div class="dropdown">
-        <a href="/about/">About Us</a>
-        <a href="/reviews/">Customer Reviews</a>
-        <a href="/offers/">Current Offers</a>
-        <a href="/careers/">Join Our Team</a>
-        <a href="/contact/">Get in Touch</a>
-      </div>
-      <div class="mobile-about">
-        <a href="/about/"><span class="ms-icon">&#x1F3E2;</span> About Us</a>
-        <a href="/reviews/"><span class="ms-icon">&#x2B50;</span> Reviews</a>
-        <a href="/contact/"><span class="ms-icon">&#x2709;&#xFE0F;</span> Get in Touch</a>
-      </div>
-    </div>
-    <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
-    <a href="#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
-  </div>
-  <div class="nav-right">
-    <a href="tel:2132752210" class="nav-phone">
-      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      (213) 275-2210
-    </a>
-    <div class="nav-divider"></div>
-    <a href="#book" class="nav-cta">Get a Quote</a>
-  </div>
-  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
+ <div class="nav-brand"><a href="/">ATLAS <span class="brand-accent">HOME PRO</span></a></div>
+ <div class="nav-links">
+ <div class="nav-item has-dropdown has-mega">
+ <a href="#">Services</a>
+ <div class="mega-dropdown">
+ <div class="mega-col">
+ <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
+ <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
+ <a href="/plumbing/water-heater/">Water Heater</a>
+ <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
+ <a href="/plumbing/leak-detection/">Leak Detection</a>
+ <a href="/plumbing/sewer-line/">Sewer Line</a>
+ <a href="/plumbing/emergency/">Emergency</a>
+ <a href="/plumbing/fixtures/">Fixtures</a>
+ </div>
+ <div class="mega-col">
+ <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
+ <a href="/hvac/ac-repair/">AC Repair</a>
+ <a href="/hvac/ac-installation/">AC Installation</a>
+ <a href="/hvac/heating/">Heating</a>
+ <a href="/hvac/tune-up/">Tune-Up</a>
+ <a href="/hvac/thermostat/">Thermostat</a>
+ <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
+ </div>
+ <div class="mega-col">
+ <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
+ <a href="/electrical/">All Electrical Services</a>
+ </div>
+ <div class="mega-col">
+ <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
+ <a href="/painting/interior/">Interior</a>
+ <a href="/painting/exterior/">Exterior</a>
+ <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
+ <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
+ <a href="/restoration/">Restoration</a>
+ <a href="/gates-garage-doors/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Garage Doors</a>
+ <a href="/gates-garage-doors/garage-door-repair/">Garage Door Repair</a>
+ <a href="/gates-garage-doors/electric-gate-repair/">Electric Gate Repair</a>
+ <a href="/gates-garage-doors/custom-gate-installation/">Custom Gates</a>
+ </div>
+ </div>
+ <div class="mobile-services">
+ <a href="/plumbing/"><span class="ms-icon">&#x1F527;</span> Plumbing</a>
+ <a href="/hvac/"><span class="ms-icon">&#x2744;&#xFE0F;</span> HVAC</a>
+ <a href="/electrical/"><span class="ms-icon">&#x26A1;</span> Electrical</a>
+ 
+ <a href="/painting/"><span class="ms-icon">&#x1F3A8;</span> Painting</a>
+ <a href="/restoration/"><span class="ms-icon">&#x1F4A7;</span> Restoration</a>
+ <a href="/offers/"><span class="ms-icon">&#x1F3F7;&#xFE0F;</span> Current Offers</a>
+ </div>
+ </div>
+ <div class="nav-item has-dropdown">
+ <a href="/service-areas/">Areas</a>
+ <div class="dropdown">
+ <a href="/service-areas/beverly-hills/">Beverly Hills</a>
+ <a href="/service-areas/brentwood/">Brentwood</a>
+ <a href="/service-areas/bel-air/">Bel Air</a>
+ <a href="/service-areas/pacific-palisades/">Pacific Palisades</a>
+ <a href="/service-areas/santa-monica/">Santa Monica</a>
+ <a href="/service-areas/century-city/">Century City</a>
+ <a href="/service-areas/west-hollywood/">West Hollywood</a>
+ <a href="/service-areas/westwood/">Westwood</a>
+ <a href="/service-areas/hancock-park/">Hancock Park</a>
+ <a href="/service-areas/fairfax-district/">Fairfax District</a>
+ </div>
+ <div class="mobile-areas">
+ <a href="/service-areas/beverly-hills/"><span class="ms-icon">&#x2B50;</span> Beverly Hills</a>
+ <a href="/service-areas/santa-monica/"><span class="ms-icon">&#x1F3D6;&#xFE0F;</span> Santa Monica</a>
+ <a href="/service-areas/"><span class="ms-icon">&#x1F4CD;</span> All Areas</a>
+ </div>
+ </div>
+ <div class="nav-item has-dropdown">
+ <a href="/learn/">Learn</a>
+ <div class="dropdown">
+ <a href="/learn/">All Home Guides</a>
+ <a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a>
+ <a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a>
+ <a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a>
+ 
+ <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
+ <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
+ <a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a>
+ </div>
+ </div>
+ <div class="nav-item has-dropdown">
+ <a href="/about/">About</a>
+ <div class="dropdown">
+ <a href="/about/">About Us</a>
+ <a href="/reviews/">Customer Reviews</a>
+ <a href="/offers/">Current Offers</a>
+ <a href="/careers/">Join Our Team</a>
+ <a href="/contact/">Get in Touch</a>
+ </div>
+ <div class="mobile-about">
+ <a href="/about/"><span class="ms-icon">&#x1F3E2;</span> About Us</a>
+ <a href="/reviews/"><span class="ms-icon">&#x2B50;</span> Reviews</a>
+ <a href="/contact/"><span class="ms-icon">&#x2709;&#xFE0F;</span> Get in Touch</a>
+ </div>
+ </div>
+ <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
+ <a href="#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
+ </div>
+ <div class="nav-right">
+ <a href="tel:2132752210" class="nav-phone">
+ <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+ (213) 275-2210
+ </a>
+ <div class="nav-divider"></div>
+ <a href="#book" class="nav-cta">Get a Quote</a>
+ </div>
+ <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="proof-bar">
-  <div class="proof-track">
-    <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Sophia in Hancock Park just booked Content Pack-Out &amp; Storage</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x2705;</span><span class="proof-text">Full Inventory Documentation &mdash; Every Item Photographed &amp; Tagged</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">David in Brentwood just had Furniture Restored After Pipe Burst</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F5BC;&#xFE0F;</span><span class="proof-text">Document &amp; Photo Recovery &mdash; Irreplaceable Items Saved</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Elena in West Hollywood just had Electronics Cleaned After Flood</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F3E0;</span><span class="proof-text">IICRC Certified Technicians &mdash; Industry-Standard Cleaning Methods</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Sophia in Hancock Park just booked Content Pack-Out &amp; Storage</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x2705;</span><span class="proof-text">Full Inventory Documentation &mdash; Every Item Photographed &amp; Tagged</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">David in Brentwood just had Furniture Restored After Pipe Burst</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F5BC;&#xFE0F;</span><span class="proof-text">Document &amp; Photo Recovery &mdash; Irreplaceable Items Saved</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Elena in West Hollywood just had Electronics Cleaned After Flood</span></div><div class="proof-divider"></div>
-    <div class="proof-item"><span class="proof-icon">&#x1F3E0;</span><span class="proof-text">IICRC Certified Technicians &mdash; Industry-Standard Cleaning Methods</span></div><div class="proof-divider"></div>
-  </div>
+ <div class="proof-track">
+ <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Sophia in Hancock Park just booked Content Pack-Out &amp; Storage</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x2705;</span><span class="proof-text">Full Inventory Documentation &mdash; Every Item Photographed &amp; Tagged</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">David in Brentwood just had Furniture Restored After Pipe Burst</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F5BC;&#xFE0F;</span><span class="proof-text">Document &amp; Photo Recovery &mdash; Irreplaceable Items Saved</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Elena in West Hollywood just had Electronics Cleaned After Flood</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F3E0;</span><span class="proof-text">IICRC Certified Technicians &mdash; Industry-Standard Cleaning Methods</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Sophia in Hancock Park just booked Content Pack-Out &amp; Storage</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x2705;</span><span class="proof-text">Full Inventory Documentation &mdash; Every Item Photographed &amp; Tagged</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">David in Brentwood just had Furniture Restored After Pipe Burst</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F5BC;&#xFE0F;</span><span class="proof-text">Document &amp; Photo Recovery &mdash; Irreplaceable Items Saved</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F4E6;</span><span class="proof-text">Elena in West Hollywood just had Electronics Cleaned After Flood</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">&#x1F3E0;</span><span class="proof-text">IICRC Certified Technicians &mdash; Industry-Standard Cleaning Methods</span></div><div class="proof-divider"></div>
+ </div>
 </div>
 
 <!-- Hero -->
 <section style="padding:60px 5% 50px;max-width:1200px;margin:0 auto">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" class="hero-grid">
-    <div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
-        <a href="/restoration/" style="font-size:.8rem;color:#666;text-decoration:none">Restoration</a>
-        <span style="color:#ccc">/</span>
-        <span style="font-size:.8rem;color:#111;font-weight:600">Content Restoration</span>
-      </div>
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px">PACK-OUT &amp; SALVAGE</div>
-      <h1 style="font-family:'Playfair Display',serif;font-size:2.8rem;line-height:1.15;margin:0 0 16px">Content Restoration &amp; Salvage <span style="color:#FFDC00;font-style:italic">Los Angeles</span></h1>
-      <p style="font-size:1.05rem;color:#444;line-height:1.7;margin:0 0 28px">When water damage strikes, your belongings matter as much as your structure. Atlas Home Pro's IICRC certified content restoration team inventories, packs out, professionally cleans, and stores your furniture, electronics, clothing, documents, and personal items — then returns them when your home is ready. We save what can be saved, and document what can't, so your insurance claim is complete and accurate.</p>
-      <a href="#book" style="display:inline-block;background:#FFDC00;color:#000;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;margin-right:12px">SAVE MY BELONGINGS</a>
-      <a href="tel:2132752210" style="display:inline-block;background:#111;color:#FFDC00;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none">CALL NOW</a>
-      <div style="margin-top:20px">
-        <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; IICRC Certified</span>
-        <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; Full Inventory Documentation</span>
-        <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; Secure Climate Storage</span>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <img src="../tech gun.png" alt="Content restoration specialist treating belongings - Atlas Home Pro Los Angeles" style="width:100%;max-width:560px;height:auto;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12)" loading="eager" width="1536" height="1024">
-    </div>
-  </div>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" class="hero-grid">
+ <div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+ <a href="/restoration/" style="font-size:.8rem;color:#666;text-decoration:none">Restoration</a>
+ <span style="color:#ccc">/</span>
+ <span style="font-size:.8rem;color:#111;font-weight:600">Content Restoration</span>
+ </div>
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px">PACK-OUT &amp; SALVAGE</div>
+ <h1 style="font-family:'Playfair Display',serif;font-size:2.8rem;line-height:1.15;margin:0 0 16px">Content Restoration &amp; Salvage <span style="color:#FFDC00;font-style:italic">Los Angeles</span></h1>
+ <p style="font-size:1.05rem;color:#444;line-height:1.7;margin:0 0 28px">When water damage strikes, your belongings matter as much as your structure. Atlas Home Pro's IICRC certified content restoration team inventories, packs out, professionally cleans, and stores your furniture, electronics, clothing, documents, and personal items — then returns them when your home is ready. We save what can be saved, and document what can't, so your insurance claim is complete and accurate.</p>
+ <a href="#book" style="display:inline-block;background:#FFDC00;color:#000;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;margin-right:12px">SAVE MY BELONGINGS</a>
+ <a href="tel:2132752210" style="display:inline-block;background:#111;color:#FFDC00;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none">CALL NOW</a>
+ <div style="margin-top:20px">
+ <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; IICRC Certified</span>
+ <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; Full Inventory Documentation</span>
+ <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; Secure Climate Storage</span>
+ </div>
+ </div>
+ <div style="text-align:center">
+ <img src="../tech gun.png" alt="Content restoration specialist treating belongings - Atlas Home Pro Los Angeles" style="width:100%;max-width:560px;height:auto;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.12)" loading="eager" width="1536" height="1024">
+ </div>
+ </div>
 </section>
 
 <!-- Salvage vs Replace Guide -->
 <section style="background:#f9f9f9;padding:64px 5%">
-  <div style="max-width:1100px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:40px">
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">SALVAGE GUIDE</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">What Can Be Saved vs. What Must Be Replaced</h2>
-      <p style="color:#555;max-width:680px;margin:0 auto;font-size:.95rem;line-height:1.6">Understanding salvageability helps set realistic expectations and ensures your insurance claim covers non-salvageable items at replacement value.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px" class="content-grid">
-      <div style="background:#fff;border-radius:12px;padding:32px;border-top:4px solid #22c55e">
-        <div style="font-size:1.6rem;margin-bottom:12px">&#x2705;</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;color:#111">Often Salvageable</h3>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Solid wood furniture</strong> — Can be dried, cleaned, and refinished. Los Angeles's low humidity helps prevent warping if drying begins quickly.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Upholstered furniture</strong> — Salvageable if exposed to clean water (Cat 1/2) and treated within 24–48 hours before microbial growth begins.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Clothing and linens</strong> — Industrial laundering with antimicrobial treatment restores most fabrics, including delicate items and drapes.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Hard goods &amp; ceramics</strong> — Non-porous items clean easily; metals may require rust treatment; ceramic and glass are nearly always salvageable.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Electronics</strong> — When powered off at the time of damage and brought to a specialist promptly, many devices can be restored through professional cleaning.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Documents &amp; photos</strong> — Air-dried or freeze-dried within hours, many paper documents and photographs can be recovered, including deeds and family photos.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Area rugs</strong> — Professional rug cleaning and drying can save most wool, silk, and synthetic rugs if contamination is limited to clean water.</span></li>
-        </ul>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:32px;border-top:4px solid #ef4444">
-        <div style="font-size:1.6rem;margin-bottom:12px">&#x274C;</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;color:#111">Typically Must Be Replaced</h3>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Particle board &amp; MDF furniture</strong> — These materials absorb water rapidly, swell, delaminate, and cannot be dried or restored effectively.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Mattresses</strong> — Foam and innerspring mattresses absorb contaminated water into a core that cannot be adequately cleaned or sanitized.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Upholstered items — Cat 3 water</strong> — Sewage or floodwater contamination permanently compromises porous upholstered materials; these are a health hazard and must go.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Pillows &amp; stuffed items</strong> — Internal fill materials cannot be adequately sanitized; replacement is the safe and standard approach.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Electronics — powered on while wet</strong> — Short circuits cause oxidation and component damage that is permanent; attempting to power on is the most common cause of total loss.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Severely mold-affected items</strong> — Items with active visible mold growth that have been wet for more than 72 hours typically cannot be restored to a safe, clean condition.</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Food &amp; perishables</strong> — Any food products, opened containers, or items stored at floor level in a sewage or floodwater event must be discarded per California health code.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div style="margin-top:20px;background:#FFDC00;border-radius:8px;padding:18px 24px;display:flex;align-items:center;gap:16px">
-      <span style="font-size:1.5rem">&#x26A0;&#xFE0F;</span>
-      <p style="font-size:.88rem;color:#111;margin:0"><strong>Los Angeles-specific note:</strong> California's dry climate means that items left in a flooded home can appear dry on the surface while retaining dangerous levels of moisture inside. Do not attempt to evaluate salvageability yourself before a professional inspection — secondary mold growth can develop within 24–48 hours in the warm LA climate, even in spaces that look dry.</p>
-    </div>
-  </div>
+ <div style="max-width:1100px;margin:0 auto">
+ <div style="text-align:center;margin-bottom:40px">
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">SALVAGE GUIDE</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">What Can Be Saved vs. What Must Be Replaced</h2>
+ <p style="color:#555;max-width:680px;margin:0 auto;font-size:.95rem;line-height:1.6">Understanding salvageability helps set realistic expectations and ensures your insurance claim covers non-salvageable items at replacement value.</p>
+ </div>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px" class="content-grid">
+ <div style="background:#fff;border-radius:12px;padding:32px;border-top:4px solid #22c55e">
+ <div style="font-size:1.6rem;margin-bottom:12px">&#x2705;</div>
+ <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;color:#111">Often Salvageable</h3>
+ <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Solid wood furniture</strong> — Can be dried, cleaned, and refinished. Los Angeles's low humidity helps prevent warping if drying begins quickly.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Upholstered furniture</strong> — Salvageable if exposed to clean water (Cat 1/2) and treated within 24–48 hours before microbial growth begins.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Clothing and linens</strong> — Industrial laundering with antimicrobial treatment restores most fabrics, including delicate items and drapes.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Hard goods &amp; ceramics</strong> — Non-porous items clean easily; metals may require rust treatment; ceramic and glass are nearly always salvageable.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Electronics</strong> — When powered off at the time of damage and brought to a specialist promptly, many devices can be restored through professional cleaning.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Documents &amp; photos</strong> — Air-dried or freeze-dried within hours, many paper documents and photographs can be recovered, including deeds and family photos.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#22c55e;font-weight:700;flex-shrink:0">&#10003;</span><span style="font-size:.88rem;color:#444"><strong>Area rugs</strong> — Professional rug cleaning and drying can save most wool, silk, and synthetic rugs if contamination is limited to clean water.</span></li>
+ </ul>
+ </div>
+ <div style="background:#fff;border-radius:12px;padding:32px;border-top:4px solid #ef4444">
+ <div style="font-size:1.6rem;margin-bottom:12px">&#x274C;</div>
+ <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;color:#111">Typically Must Be Replaced</h3>
+ <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px">
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Particle board &amp; MDF furniture</strong> — These materials absorb water rapidly, swell, delaminate, and cannot be dried or restored effectively.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Mattresses</strong> — Foam and innerspring mattresses absorb contaminated water into a core that cannot be adequately cleaned or sanitized.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Upholstered items — Cat 3 water</strong> — Sewage or floodwater contamination permanently compromises porous upholstered materials; these are a health hazard and must go.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Pillows &amp; stuffed items</strong> — Internal fill materials cannot be adequately sanitized; replacement is the safe and standard approach.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Electronics — powered on while wet</strong> — Short circuits cause oxidation and component damage that is permanent; attempting to power on is the most common cause of total loss.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Severely mold-affected items</strong> — Items with active visible mold growth that have been wet for more than 72 hours typically cannot be restored to a safe, clean condition.</span></li>
+ <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:#ef4444;font-weight:700;flex-shrink:0">&#10007;</span><span style="font-size:.88rem;color:#444"><strong>Food &amp; perishables</strong> — Any food products, opened containers, or items stored at floor level in a sewage or floodwater event must be discarded per California health code.</span></li>
+ </ul>
+ </div>
+ </div>
+ <div style="margin-top:20px;background:#FFDC00;border-radius:8px;padding:18px 24px;display:flex;align-items:center;gap:16px">
+ <span style="font-size:1.5rem">&#x26A0;&#xFE0F;</span>
+ <p style="font-size:.88rem;color:#111;margin:0"><strong>Los Angeles-specific note:</strong> California's dry climate means that items left in a flooded home can appear dry on the surface while retaining dangerous levels of moisture inside. Do not attempt to evaluate salvageability yourself before a professional inspection — secondary mold growth can develop within 24–48 hours in the warm LA climate, even in spaces that look dry.</p>
+ </div>
+ </div>
 </section>
 
 <!-- Pack-Out Process -->
 <section style="padding:64px 5%">
-  <div style="max-width:1100px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:40px">
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">OUR PROCESS</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">The Atlas Content Restoration Process</h2>
-      <p style="color:#555;max-width:620px;margin:0 auto;font-size:.95rem;line-height:1.6">A structured six-step process ensures every item is tracked, treated appropriately, and returned in the best possible condition.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="method-grid">
-      <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
-        <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">1</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">On-Site Assessment &amp; Triage</h3>
-        <p style="font-size:.88rem;color:#555;line-height:1.6">Our IICRC certified content specialists walk every affected area, assessing water category, contamination level, and salvageability of each item type. Items are triaged into three categories: restore in-place, pack-out for off-site cleaning, and non-salvageable (documented for insurance).</p>
-      </div>
-      <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
-        <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">2</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Digital Inventory Documentation</h3>
-        <p style="font-size:.88rem;color:#555;line-height:1.6">Every item to be packed out is photographed, described, and assigned a unique item number in our digital inventory system. The inventory includes item description, room of origin, pre-restoration condition rating, and estimated replacement cost. You receive a copy of the complete inventory before the truck leaves your property.</p>
-      </div>
-      <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
-        <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">3</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Professional Pack-Out</h3>
-        <p style="font-size:.88rem;color:#555;line-height:1.6">Items are carefully wrapped and packed using professional moving materials. Fragile items, artwork, mirrors, and electronics receive individual protection. All boxes are labeled by room and item number, cross-referenced to the digital inventory. Furniture is pad-wrapped and secured for transport to our Los Angeles facility.</p>
-      </div>
-      <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
-        <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">4</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Content Cleaning &amp; Restoration</h3>
-        <p style="font-size:.88rem;color:#555;line-height:1.6">At our facility, each item is cleaned using the IICRC-specified method for its material type: dry cleaning for delicate textiles, wet cleaning for washable fabrics, foam cleaning for upholstery, and ultrasonic immersion for hard goods and electronics. Items are sanitized, deodorized, and dried in our controlled environment.</p>
-      </div>
-      <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
-        <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">5</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Climate-Controlled Storage</h3>
-        <p style="font-size:.88rem;color:#555;line-height:1.6">Cleaned items are stored in our secure Los Angeles facility until your home is ready. Our storage environment maintains temperature between 60–75°F and relative humidity below 55% — conditions that prevent any secondary moisture damage or mold growth during the structural restoration period. Access to inventory is available by appointment.</p>
-      </div>
-      <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
-        <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">6</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Return &amp; Final Documentation</h3>
-        <p style="font-size:.88rem;color:#555;line-height:1.6">Once structural restoration is complete, your belongings are returned, unpacked, and placed in the appropriate rooms per your direction. You sign off on the return inventory, confirming each item was received. Final documentation — including pre- and post-restoration photos, cleaning reports, and the complete inventory — is provided for your insurance file.</p>
-      </div>
-    </div>
-  </div>
+ <div style="max-width:1100px;margin:0 auto">
+ <div style="text-align:center;margin-bottom:40px">
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">OUR PROCESS</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">The Atlas Content Restoration Process</h2>
+ <p style="color:#555;max-width:620px;margin:0 auto;font-size:.95rem;line-height:1.6">A structured six-step process ensures every item is tracked, treated appropriately, and returned in the best possible condition.</p>
+ </div>
+ <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="method-grid">
+ <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
+ <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">1</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">On-Site Assessment &amp; Triage</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6">Our IICRC certified content specialists walk every affected area, assessing water category, contamination level, and salvageability of each item type. Items are triaged into three categories: restore in-place, pack-out for off-site cleaning, and non-salvageable (documented for insurance).</p>
+ </div>
+ <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
+ <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">2</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Digital Inventory Documentation</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6">Every item to be packed out is photographed, described, and assigned a unique item number in our digital inventory system. The inventory includes item description, room of origin, pre-restoration condition rating, and estimated replacement cost. You receive a copy of the complete inventory before the truck leaves your property.</p>
+ </div>
+ <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
+ <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">3</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Professional Pack-Out</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6">Items are carefully wrapped and packed using professional moving materials. Fragile items, artwork, mirrors, and electronics receive individual protection. All boxes are labeled by room and item number, cross-referenced to the digital inventory. Furniture is pad-wrapped and secured for transport to our Los Angeles facility.</p>
+ </div>
+ <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
+ <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">4</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Content Cleaning &amp; Restoration</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6">At our facility, each item is cleaned using the IICRC-specified method for its material type: dry cleaning for delicate textiles, wet cleaning for washable fabrics, foam cleaning for upholstery, and ultrasonic immersion for hard goods and electronics. Items are sanitized, deodorized, and dried in our controlled environment.</p>
+ </div>
+ <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
+ <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">5</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Climate-Controlled Storage</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6">Cleaned items are stored in our secure Los Angeles facility until your home is ready. Our storage environment maintains temperature between 60–75°F and relative humidity below 55% — conditions that prevent any secondary moisture damage or mold growth during the structural restoration period. Access to inventory is available by appointment.</p>
+ </div>
+ <div style="background:#f9f9f9;border-radius:12px;padding:28px;position:relative">
+ <div style="width:36px;height:36px;background:#FFDC00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;margin-bottom:16px">6</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px">Return &amp; Final Documentation</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6">Once structural restoration is complete, your belongings are returned, unpacked, and placed in the appropriate rooms per your direction. You sign off on the return inventory, confirming each item was received. Final documentation — including pre- and post-restoration photos, cleaning reports, and the complete inventory — is provided for your insurance file.</p>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- Cleaning Methods -->
 <section style="background:#f9f9f9;padding:64px 5%">
-  <div style="max-width:1100px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:40px">
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">CLEANING METHODS</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">IICRC-Recognized Content Cleaning Techniques</h2>
-      <p style="color:#555;max-width:680px;margin:0 auto;font-size:.95rem;line-height:1.6">The Institute of Inspection, Cleaning and Restoration Certification defines specific cleaning methods for different content types. Atlas Home Pro's IICRC certified technicians apply the right method to every item.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px" class="content-grid">
-      <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
-        <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F9F4;</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Dry Cleaning</h3>
-          <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Uses chemical solvents and low-moisture techniques. Appropriate for delicate fabrics, antique textiles, silk, wool, and items that would be damaged by water-based methods. Common for draperies, formal wear, and heirloom items.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Silk</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Wool</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Antique Textiles</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Formal Wear</span>
-          </div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
-        <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F4A7;</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Wet Cleaning</h3>
-          <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Uses water-based cleaning solutions with controlled moisture application and professional drying. The most thorough method for odor elimination and sanitization. Used for cotton, synthetic fabrics, and moderately contaminated items.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Cotton</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Synthetics</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Linens</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Bedding</span>
-          </div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
-        <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1FAD7;</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Foam Cleaning</h3>
-          <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Applies a whipped cleaning compound that lifts soil and contamination from the surface without saturating the substrate. Ideal for upholstered sofas, chairs, and area rugs where excessive moisture would cause secondary damage.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Upholstered Sofas</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Area Rugs</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Chairs</span>
-          </div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
-        <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F30A;</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Immersion &amp; Ultrasonic Cleaning</h3>
-          <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Submerges items in a cleaning solution, using ultrasonic agitation for hard surfaces and complex-geometry items. The most thorough cleaning method for electronics circuit boards, HVAC components, hard goods, figurines, and decorative items.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Electronics</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Hard Goods</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Decorative Items</span>
-          </div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
-        <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F4C4;</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Document &amp; Photo Recovery</h3>
-          <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Wet documents and photographs require immediate attention — drying within the first 24–48 hours prevents permanent damage and mold growth. We air-dry or freeze-dry paper documents, and digitally scan recoverable photographs and important records for permanent backup.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Legal Documents</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Family Photos</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Books</span>
-          </div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
-        <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F4BB;</div>
-        <div>
-          <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Electronics Restoration</h3>
-          <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">We coordinate with certified electronics restoration specialists for televisions, computers, audio equipment, appliances, and smart home devices. The key rule: never power on a wet device. Professional restoration involves disassembly, board cleaning, dielectric treatment, and functional testing before return.</p>
-          <div style="display:flex;gap:6px;flex-wrap:wrap">
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">TVs</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Computers</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Appliances</span>
-            <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Audio Equipment</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div style="max-width:1100px;margin:0 auto">
+ <div style="text-align:center;margin-bottom:40px">
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">CLEANING METHODS</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">IICRC-Recognized Content Cleaning Techniques</h2>
+ <p style="color:#555;max-width:680px;margin:0 auto;font-size:.95rem;line-height:1.6">The Institute of Inspection, Cleaning and Restoration Certification defines specific cleaning methods for different content types. Atlas Home Pro's IICRC certified technicians apply the right method to every item.</p>
+ </div>
+ <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px" class="content-grid">
+ <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
+ <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F9F4;</div>
+ <div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Dry Cleaning</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Uses chemical solvents and low-moisture techniques. Appropriate for delicate fabrics, antique textiles, silk, wool, and items that would be damaged by water-based methods. Common for draperies, formal wear, and heirloom items.</p>
+ <div style="display:flex;gap:6px;flex-wrap:wrap">
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Silk</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Wool</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Antique Textiles</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Formal Wear</span>
+ </div>
+ </div>
+ </div>
+ <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
+ <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F4A7;</div>
+ <div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Wet Cleaning</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Uses water-based cleaning solutions with controlled moisture application and professional drying. The most thorough method for odor elimination and sanitization. Used for cotton, synthetic fabrics, and moderately contaminated items.</p>
+ <div style="display:flex;gap:6px;flex-wrap:wrap">
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Cotton</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Synthetics</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Linens</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Bedding</span>
+ </div>
+ </div>
+ </div>
+ <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
+ <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1FAD7;</div>
+ <div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Foam Cleaning</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Applies a whipped cleaning compound that lifts soil and contamination from the surface without saturating the substrate. Ideal for upholstered sofas, chairs, and area rugs where excessive moisture would cause secondary damage.</p>
+ <div style="display:flex;gap:6px;flex-wrap:wrap">
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Upholstered Sofas</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Area Rugs</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Chairs</span>
+ </div>
+ </div>
+ </div>
+ <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
+ <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F30A;</div>
+ <div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Immersion &amp; Ultrasonic Cleaning</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Submerges items in a cleaning solution, using ultrasonic agitation for hard surfaces and complex-geometry items. The most thorough cleaning method for electronics circuit boards, HVAC components, hard goods, figurines, and decorative items.</p>
+ <div style="display:flex;gap:6px;flex-wrap:wrap">
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Electronics</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Hard Goods</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Decorative Items</span>
+ </div>
+ </div>
+ </div>
+ <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
+ <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F4C4;</div>
+ <div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Document &amp; Photo Recovery</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">Wet documents and photographs require immediate attention — drying within the first 24–48 hours prevents permanent damage and mold growth. We air-dry or freeze-dry paper documents, and digitally scan recoverable photographs and important records for permanent backup.</p>
+ <div style="display:flex;gap:6px;flex-wrap:wrap">
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Legal Documents</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Family Photos</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Books</span>
+ </div>
+ </div>
+ </div>
+ <div style="background:#fff;border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start">
+ <div style="width:48px;height:48px;background:#0a0a0a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">&#x1F4BB;</div>
+ <div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:8px">Electronics Restoration</h3>
+ <p style="font-size:.88rem;color:#555;line-height:1.6;margin-bottom:8px">We coordinate with certified electronics restoration specialists for televisions, computers, audio equipment, appliances, and smart home devices. The key rule: never power on a wet device. Professional restoration involves disassembly, board cleaning, dielectric treatment, and functional testing before return.</p>
+ <div style="display:flex;gap:6px;flex-wrap:wrap">
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">TVs</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Computers</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Appliances</span>
+ <span style="background:#f0f0f0;padding:3px 10px;font-size:.75rem;border-radius:20px">Audio Equipment</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- Why Atlas -->
 <section style="background:#111;padding:64px 5%;color:#fff">
-  <div style="max-width:1100px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:44px">
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;color:#111">WHY ATLAS HOME PRO</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">Your Belongings, Treated With the Care They Deserve</h2>
-      <p style="color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto;font-size:.95rem;line-height:1.6">Los Angeles families trust Atlas Home Pro to protect what matters most after a disaster. Here's what sets our content restoration service apart.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:44px" class="method-grid">
-      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
-        <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">01</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">IICRC Certified Technicians</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Our content restoration specialists hold IICRC certification, ensuring every cleaning decision follows the industry's established standards for content cleaning and deodorization. No guesswork — only proven methodology.</p>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
-        <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">02</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Complete Chain of Custody</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">From the moment we photograph an item in your home to the moment it's returned, every handling is logged and documented. You always know exactly where your belongings are, and your insurance carrier receives the full chain-of-custody documentation they require.</p>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
-        <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">03</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Insurance Claim Integration</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Content restoration documentation is prepared in the format required by California homeowners insurance carriers. We clearly separate salvageable from non-salvageable items so your adjuster can apply proper replacement cost or actual cash value coverage to each line item.</p>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
-        <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">04</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Secure Los Angeles Facility</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Our climate-controlled storage facility serves greater Los Angeles, from Beverly Hills and Brentwood to Hancock Park and the Fairfax District. Stored items are insured during storage, and access by appointment is always available to homeowners.</p>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
-        <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">05</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Irreplaceable Items Are Our Priority</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Family photos, heirloom documents, artwork, and sentimental items receive priority attention. We understand that some things cannot be replaced by an insurance check, and we apply every available restoration technique before declaring an item non-salvageable.</p>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
-        <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">06</div>
-        <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Coordinated with Structural Work</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Because Atlas Home Pro handles both structural restoration and content restoration, the two workstreams are coordinated seamlessly. Your belongings return when the structure is ready — not before, not long after — minimizing disruption to your family during the recovery period.</p>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:36px" class="method-grid">
-      <div style="text-align:center">
-        <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">48hrs</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">Typical pack-out window after water event</div>
-      </div>
-      <div style="text-align:center">
-        <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">100%</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">Items photographed and inventoried</div>
-      </div>
-      <div style="text-align:center">
-        <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">4+</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">IICRC cleaning methods applied by material type</div>
-      </div>
-      <div style="text-align:center">
-        <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">LA</div>
-        <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">Secure climate-controlled storage in Los Angeles</div>
-      </div>
-    </div>
-  </div>
+ <div style="max-width:1100px;margin:0 auto">
+ <div style="text-align:center;margin-bottom:44px">
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;color:#111">WHY ATLAS HOME PRO</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">Your Belongings, Treated With the Care They Deserve</h2>
+ <p style="color:rgba(255,255,255,0.65);max-width:620px;margin:0 auto;font-size:.95rem;line-height:1.6">Los Angeles families trust Atlas Home Pro to protect what matters most after a disaster. Here's what sets our content restoration service apart.</p>
+ </div>
+ <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:44px" class="method-grid">
+ <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+ <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">01</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">IICRC Certified Technicians</h3>
+ <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Our content restoration specialists hold IICRC certification, ensuring every cleaning decision follows the industry's established standards for content cleaning and deodorization. No guesswork — only proven methodology.</p>
+ </div>
+ <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+ <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">02</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Complete Chain of Custody</h3>
+ <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">From the moment we photograph an item in your home to the moment it's returned, every handling is logged and documented. You always know exactly where your belongings are, and your insurance carrier receives the full chain-of-custody documentation they require.</p>
+ </div>
+ <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+ <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">03</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Insurance Claim Integration</h3>
+ <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Content restoration documentation is prepared in the format required by California homeowners insurance carriers. We clearly separate salvageable from non-salvageable items so your adjuster can apply proper replacement cost or actual cash value coverage to each line item.</p>
+ </div>
+ <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+ <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">04</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Secure Los Angeles Facility</h3>
+ <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Our climate-controlled storage facility serves greater Los Angeles, from Beverly Hills and Brentwood to Hancock Park and the Fairfax District. Stored items are insured during storage, and access by appointment is always available to homeowners.</p>
+ </div>
+ <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+ <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">05</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Irreplaceable Items Are Our Priority</h3>
+ <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Family photos, heirloom documents, artwork, and sentimental items receive priority attention. We understand that some things cannot be replaced by an insurance check, and we apply every available restoration technique before declaring an item non-salvageable.</p>
+ </div>
+ <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px">
+ <div style="font-size:2rem;font-weight:900;color:#FFDC00;margin-bottom:4px">06</div>
+ <h3 style="font-size:1rem;font-weight:800;margin-bottom:10px;color:#fff">Coordinated with Structural Work</h3>
+ <p style="font-size:.88rem;color:rgba(255,255,255,0.6);line-height:1.6">Because Atlas Home Pro handles both structural restoration and content restoration, the two workstreams are coordinated seamlessly. Your belongings return when the structure is ready — not before, not long after — minimizing disruption to your family during the recovery period.</p>
+ </div>
+ </div>
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:36px" class="method-grid">
+ <div style="text-align:center">
+ <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">48hrs</div>
+ <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">Typical pack-out window after water event</div>
+ </div>
+ <div style="text-align:center">
+ <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">100%</div>
+ <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">Items photographed and inventoried</div>
+ </div>
+ <div style="text-align:center">
+ <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">4+</div>
+ <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">IICRC cleaning methods applied by material type</div>
+ </div>
+ <div style="text-align:center">
+ <div style="font-size:2.4rem;font-weight:900;color:#FFDC00;margin-bottom:4px">LA</div>
+ <div style="font-size:.82rem;color:rgba(255,255,255,0.55)">Secure climate-controlled storage in Los Angeles</div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- FAQ -->
 <section style="padding:64px 5%">
-  <div style="max-width:800px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:40px">
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">FAQ</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">Frequently Asked Questions</h2>
-      <p style="color:#555;font-size:.95rem">Answers to what Los Angeles homeowners most often ask about content restoration after water damage.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What items can actually be saved after water damage?</h3>
-      <p>The salvageability of contents depends primarily on two factors: the category of water involved and how quickly restoration begins. Clean water (Category 1) from a supply line break gives the widest window for salvage — upholstered furniture, area rugs, clothing, books, wood furniture, and most hard goods can often be restored if work begins within 24–48 hours. Gray water (Category 2) from dishwashers or washing machines can still yield significant salvage with prompt professional cleaning and sanitization. Black water (Category 3) from sewage or floodwater contaminates porous materials irreversibly — upholstered items, mattresses, and particle-board furniture that have absorbed Category 3 water are typically not salvageable. In Los Angeles, the dry climate is actually an advantage — materials tend to dry faster here than in more humid climates, which extends the restoration window when professionals are called immediately.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you store belongings during the restoration process?</h3>
-      <p>Yes. Atlas Home Pro offers full pack-out and secure climate-controlled storage as part of content restoration services. When a home requires structural drying, mold remediation, or reconstruction, belongings often cannot remain on-site. Our team inventories every item before it leaves your property — each piece is photographed, tagged with a unique item number, and logged in a digital inventory system. Items are transported to our secure Los Angeles facility where temperature and humidity are controlled. Clean, restored items are returned when your structure is ready. The inventory log is also provided to your insurance adjuster as part of the claims documentation package, helping support coverage for temporary storage costs, which are typically included under most California homeowners policies as part of additional living expense or personal property coverage.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How do you clean water-damaged furniture and textiles?</h3>
-      <p>Atlas Home Pro uses the cleaning method standards recognized by the IICRC (Institute of Inspection, Cleaning and Restoration Certification). The method is matched to the item type and contamination level. Dry cleaning uses chemical solvents for delicate fabrics, silk, wool, and antique textiles that would be damaged by water-based cleaning. Wet cleaning uses water-based solutions with controlled moisture application for cotton, synthetics, and moderately soiled items — this is the most thorough method for odor elimination. Foam cleaning applies a whipped cleaning compound to upholstered items and carpets, lifting soil without saturating the fabric. Immersion cleaning submerges hard goods and textiles in ultrasonic tanks with appropriate solutions — ideal for draperies, heavily soiled fabrics, and hard surfaces. After cleaning, all items are properly dried in a controlled environment before packaging and storage.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can electronics and appliances be saved after water damage?</h3>
-      <p>Electronics that have been exposed to water can sometimes be restored, but the outcome depends on whether power was applied while wet, the type of water involved, and how quickly they are brought to a professional. The cardinal rule: never attempt to power on a water-damaged electronic device — this causes short circuits and oxidation that permanently destroys components that might otherwise be salvageable. Atlas Home Pro coordinates with certified electronics restoration specialists in the Los Angeles area who can disassemble, clean, and test devices including televisions, home theater equipment, computers, kitchen appliances, and audio equipment. The restoration process involves disassembly, ultrasonic cleaning of circuit boards, dielectric spray treatment, controlled drying, and functional testing. Success rates are highest for devices exposed to clean water that were powered off at the time of damage. For insurance purposes, all electronics are inventoried and photographed before any restoration attempt, so non-salvageable items can be documented for replacement value claims.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How is salvaged content documented for an insurance claim?</h3>
-      <p>Content documentation is one of the most important and most overlooked aspects of a water damage insurance claim. Atlas Home Pro creates a complete contents inventory that includes: a line-item list of every affected item with description, quantity, condition before damage, and estimated replacement cost; pre-restoration photographs of each item showing damage; post-restoration photographs of successfully cleaned and restored items; a written restoration report describing the cleaning methods applied and the outcome; an itemized cost breakdown for all cleaning, pack-out, storage, and restoration services; and a non-salvageable items list for items that could not be restored. This documentation is submitted to your insurance carrier in the format required for contents claims under your homeowners policy. In California, homeowners policies typically cover personal property at actual cash value unless you have a replacement cost rider — knowing the difference matters when your adjuster reviews the contents claim, and our documentation is prepared with that distinction in mind.</p>
-    </div>
-  </div>
+ <div style="max-width:800px;margin:0 auto">
+ <div style="text-align:center;margin-bottom:40px">
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">FAQ</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:12px">Frequently Asked Questions</h2>
+ <p style="color:#555;font-size:.95rem">Answers to what Los Angeles homeowners most often ask about content restoration after water damage.</p>
+ </div>
+ <div class="faq-item">
+ <h3>What items can actually be saved after water damage?</h3>
+ <p>The salvageability of contents depends primarily on two factors: the category of water involved and how quickly restoration begins. Clean water (Category 1) from a supply line break gives the widest window for salvage — upholstered furniture, area rugs, clothing, books, wood furniture, and most hard goods can often be restored if work begins within 24–48 hours. Gray water (Category 2) from dishwashers or washing machines can still yield significant salvage with prompt professional cleaning and sanitization. Black water (Category 3) from sewage or floodwater contaminates porous materials irreversibly — upholstered items, mattresses, and particle-board furniture that have absorbed Category 3 water are typically not salvageable. In Los Angeles, the dry climate is actually an advantage — materials tend to dry faster here than in more humid climates, which extends the restoration window when professionals are called immediately.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Do you store belongings during the restoration process?</h3>
+ <p>Yes. Atlas Home Pro offers full pack-out and secure climate-controlled storage as part of content restoration services. When a home requires structural drying, mold remediation, or reconstruction, belongings often cannot remain on-site. Our team inventories every item before it leaves your property — each piece is photographed, tagged with a unique item number, and logged in a digital inventory system. Items are transported to our secure Los Angeles facility where temperature and humidity are controlled. Clean, restored items are returned when your structure is ready. The inventory log is also provided to your insurance adjuster as part of the claims documentation package, helping support coverage for temporary storage costs, which are typically included under most California homeowners policies as part of additional living expense or personal property coverage.</p>
+ </div>
+ <div class="faq-item">
+ <h3>How do you clean water-damaged furniture and textiles?</h3>
+ <p>Atlas Home Pro uses the cleaning method standards recognized by the IICRC (Institute of Inspection, Cleaning and Restoration Certification). The method is matched to the item type and contamination level. Dry cleaning uses chemical solvents for delicate fabrics, silk, wool, and antique textiles that would be damaged by water-based cleaning. Wet cleaning uses water-based solutions with controlled moisture application for cotton, synthetics, and moderately soiled items — this is the most thorough method for odor elimination. Foam cleaning applies a whipped cleaning compound to upholstered items and carpets, lifting soil without saturating the fabric. Immersion cleaning submerges hard goods and textiles in ultrasonic tanks with appropriate solutions — ideal for draperies, heavily soiled fabrics, and hard surfaces. After cleaning, all items are properly dried in a controlled environment before packaging and storage.</p>
+ </div>
+ <div class="faq-item">
+ <h3>Can electronics and appliances be saved after water damage?</h3>
+ <p>Electronics that have been exposed to water can sometimes be restored, but the outcome depends on whether power was applied while wet, the type of water involved, and how quickly they are brought to a professional. The cardinal rule: never attempt to power on a water-damaged electronic device — this causes short circuits and oxidation that permanently destroys components that might otherwise be salvageable. Atlas Home Pro coordinates with certified electronics restoration specialists in the Los Angeles area who can disassemble, clean, and test devices including televisions, home theater equipment, computers, kitchen appliances, and audio equipment. The restoration process involves disassembly, ultrasonic cleaning of circuit boards, dielectric spray treatment, controlled drying, and functional testing. Success rates are highest for devices exposed to clean water that were powered off at the time of damage. For insurance purposes, all electronics are inventoried and photographed before any restoration attempt, so non-salvageable items can be documented for replacement value claims.</p>
+ </div>
+ <div class="faq-item">
+ <h3>How is salvaged content documented for an insurance claim?</h3>
+ <p>Content documentation is one of the most important and most overlooked aspects of a water damage insurance claim. Atlas Home Pro creates a complete contents inventory that includes: a line-item list of every affected item with description, quantity, condition before damage, and estimated replacement cost; pre-restoration photographs of each item showing damage; post-restoration photographs of successfully cleaned and restored items; a written restoration report describing the cleaning methods applied and the outcome; an itemized cost breakdown for all cleaning, pack-out, storage, and restoration services; and a non-salvageable items list for items that could not be restored. This documentation is submitted to your insurance carrier in the format required for contents claims under your homeowners policy. In California, homeowners policies typically cover personal property at actual cash value unless you have a replacement cost rider — knowing the difference matters when your adjuster reviews the contents claim, and our documentation is prepared with that distinction in mind.</p>
+ </div>
+ </div>
 </section>
 
 <!-- Book Form -->
 <section id="book" style="background:#111;padding:64px 5%;color:#fff">
-  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start" class="content-grid">
-    <div>
-      <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;color:#111">GET STARTED</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:14px;color:#fff">Schedule Content Restoration in Los Angeles</h2>
-      <p style="color:rgba(255,255,255,0.65);font-size:.92rem;line-height:1.7;margin-bottom:24px">Call or submit the form and an Atlas Home Pro content restoration specialist will assess your situation and provide a plan within hours — not days. We serve all of Los Angeles and surrounding communities.</p>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
-          <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>IICRC Certified Content Restoration Technicians
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
-          <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Complete Digital Inventory — Every Item Accounted For
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
-          <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Secure Climate-Controlled Storage Available
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
-          <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Insurance Claims Documentation Prepared
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
-          <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Electronics &amp; Document Recovery Available
-        </div>
-      </div>
-      <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)">
-        <a href="tel:2132752210" style="color:#FFDC00;font-size:1.2rem;font-weight:800;text-decoration:none">(213) 275-2210</a>
-        <p style="color:rgba(255,255,255,0.45);font-size:.78rem;margin-top:4px">145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
-        <p style="color:rgba(255,255,255,0.45);font-size:.78rem">David@AtlasHomePro.com</p>
-      </div>
-    </div>
-    <div style="background:#fff;border-radius:12px;overflow:hidden">
-      <div style="background:#FFDC00;padding:20px 28px">
-        <h3 style="font-size:1.1rem;font-weight:800;color:#111">Request Content Restoration</h3>
-        <p style="font-size:.82rem;color:#333;margin-top:4px">We respond within 2 hours during business hours</p>
-      </div>
-      <form onsubmit="return false" style="padding:28px;display:flex;flex-direction:column;gap:16px">
-        <div>
-          <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Your Name</label>
-          <input type="text" placeholder="Full name" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none">
-        </div>
-        <div>
-          <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Phone Number</label>
-          <input type="tel" placeholder="(213) 275-2210" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none">
-        </div>
-        <div>
-          <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Service Needed</label>
-          <select style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none;background:#fff">
-            <option value="">Select a service</option>
-            <option>Content Pack-Out &amp; Storage</option>
-            <option>Furniture &amp; Upholstery Cleaning</option>
-            <option>Electronics Restoration</option>
-            <option>Document &amp; Photo Recovery</option>
-            <option>Full Content Inventory &amp; Documentation</option>
-            <option>Other Content Restoration</option>
-          </select>
-        </div>
-        <div>
-          <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Los Angeles Neighborhood</label>
-          <input type="text" placeholder="e.g. Beverly Hills, Brentwood, Hancock Park" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none">
-        </div>
-        <div>
-          <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Brief Description</label>
-          <textarea placeholder="What happened and what items are affected?" rows="3" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none;resize:vertical"></textarea>
-        </div>
-        <button type="submit" style="background:#FFDC00;color:#111;padding:14px;border:none;border-radius:6px;font-weight:800;font-size:.95rem;letter-spacing:.5px;cursor:pointer;font-family:'Manrope',sans-serif">SUBMIT REQUEST</button>
-      </form>
-    </div>
-  </div>
+ <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start" class="content-grid">
+ <div>
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;color:#111">GET STARTED</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:14px;color:#fff">Schedule Content Restoration in Los Angeles</h2>
+ <p style="color:rgba(255,255,255,0.65);font-size:.92rem;line-height:1.7;margin-bottom:24px">Call or submit the form and an Atlas Home Pro content restoration specialist will assess your situation and provide a plan within hours — not days. We serve all of Los Angeles and surrounding communities.</p>
+ <div style="display:flex;flex-direction:column;gap:12px">
+ <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
+ <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>IICRC Certified Content Restoration Technicians
+ </div>
+ <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
+ <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Complete Digital Inventory — Every Item Accounted For
+ </div>
+ <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
+ <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Secure Climate-Controlled Storage Available
+ </div>
+ <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
+ <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Insurance Claims Documentation Prepared
+ </div>
+ <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.75);font-size:.88rem">
+ <span style="color:#FFDC00;font-weight:700;font-size:1.1rem">&#10003;</span>Electronics &amp; Document Recovery Available
+ </div>
+ </div>
+ <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)">
+ <a href="tel:2132752210" style="color:#FFDC00;font-size:1.2rem;font-weight:800;text-decoration:none">(213) 275-2210</a>
+ <p style="color:rgba(255,255,255,0.45);font-size:.78rem;margin-top:4px">145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
+ <p style="color:rgba(255,255,255,0.45);font-size:.78rem">David@AtlasHomePro.com</p>
+ </div>
+ </div>
+ <div style="background:#fff;border-radius:12px;overflow:hidden">
+ <div style="background:#FFDC00;padding:20px 28px">
+ <h3 style="font-size:1.1rem;font-weight:800;color:#111">Request Content Restoration</h3>
+ <p style="font-size:.82rem;color:#333;margin-top:4px">We respond within 2 hours during business hours</p>
+ </div>
+ <form onsubmit="return false" style="padding:28px;display:flex;flex-direction:column;gap:16px">
+ <div>
+ <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Your Name</label>
+ <input type="text" placeholder="Full name" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none">
+ </div>
+ <div>
+ <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Phone Number</label>
+ <input type="tel" placeholder="(213) 275-2210" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none">
+ </div>
+ <div>
+ <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Service Needed</label>
+ <select style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none;background:#fff">
+ <option value="">Select a service</option>
+ <option>Content Pack-Out &amp; Storage</option>
+ <option>Furniture &amp; Upholstery Cleaning</option>
+ <option>Electronics Restoration</option>
+ <option>Document &amp; Photo Recovery</option>
+ <option>Full Content Inventory &amp; Documentation</option>
+ <option>Other Content Restoration</option>
+ </select>
+ </div>
+ <div>
+ <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Los Angeles Neighborhood</label>
+ <input type="text" placeholder="e.g. Beverly Hills, Brentwood, Hancock Park" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none">
+ </div>
+ <div>
+ <label style="font-size:.78rem;font-weight:700;color:#333;display:block;margin-bottom:5px">Brief Description</label>
+ <textarea placeholder="What happened and what items are affected?" rows="3" style="width:100%;padding:11px 14px;border:1.5px solid #ddd;border-radius:6px;font-size:.88rem;font-family:'Manrope',sans-serif;outline:none;resize:vertical"></textarea>
+ </div>
+ <button type="submit" style="background:#FFDC00;color:#111;padding:14px;border:none;border-radius:6px;font-weight:800;font-size:.95rem;letter-spacing:.5px;cursor:pointer;font-family:'Manrope',sans-serif">SUBMIT REQUEST</button>
+ </form>
+ </div>
+ </div>
 </section>
 
 <!-- Service Areas -->
 <section style="background:#f4f4f4;padding:52px 5%">
-  <div style="max-width:1100px;margin:0 auto;text-align:center">
-    <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">SERVICE AREAS</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:10px">Content Restoration Across Los Angeles</h2>
-    <p style="color:#555;font-size:.9rem;margin-bottom:28px">Atlas Home Pro provides content restoration, pack-out, and secure storage services throughout the greater Los Angeles area.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px">
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Beverly Hills</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Brentwood</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Bel Air</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Pacific Palisades</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Santa Monica</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">West Hollywood</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Westwood</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Hancock Park</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Century City</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Culver City</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Fairfax District</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Silver Lake</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Los Feliz</span>
-      <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Mid-Wilshire</span>
-    </div>
-    <a href="/service-areas/" style="color:#111;font-size:.88rem;font-weight:700;text-decoration:none;border-bottom:2px solid #FFDC00;padding-bottom:2px">View All Service Areas &rarr;</a>
-  </div>
+ <div style="max-width:1100px;margin:0 auto;text-align:center">
+ <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px">SERVICE AREAS</div>
+ <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:10px">Content Restoration Across Los Angeles</h2>
+ <p style="color:#555;font-size:.9rem;margin-bottom:28px">Atlas Home Pro provides content restoration, pack-out, and secure storage services throughout the greater Los Angeles area.</p>
+ <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px">
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Beverly Hills</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Brentwood</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Bel Air</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Pacific Palisades</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Santa Monica</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">West Hollywood</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Westwood</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Hancock Park</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Century City</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Culver City</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Fairfax District</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Silver Lake</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Los Feliz</span>
+ <span style="background:#fff;padding:8px 18px;border-radius:20px;font-size:.82rem;font-weight:600">Mid-Wilshire</span>
+ </div>
+ <a href="/service-areas/" style="color:#111;font-size:.88rem;font-weight:700;text-decoration:none;border-bottom:2px solid #FFDC00;padding-bottom:2px">View All Service Areas &rarr;</a>
+ </div>
 </section>
 
 <!-- Footer -->
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>ATLAS HOME PRO</h4>
-      <p>Licensed, bonded, and insured home services in Los Angeles. IICRC certified restoration technicians.</p>
-      <p class="footer-phone"><a href="tel:2132752210" style="color:#FFDC00;text-decoration:none">(213) 275-2210</a></p>
-      <p>145 S Fairfax Ave Suite 200<br>Los Angeles, CA 90036</p>
-      <p><a href="mailto:David@AtlasHomePro.com" style="color:#ccc;text-decoration:none">David@AtlasHomePro.com</a></p>
-    </div>
-    <div class="footer-col">
-      <h4>Restoration</h4>
-      <ul>
-        <li><a href="/restoration/">Restoration Overview</a></li>
-        <li><a href="/restoration/water-removal/">Water Removal</a></li>
-        <li><a href="/restoration/structural-drying/">Structural Drying</a></li>
-        <li><a href="/restoration/mold-remediation/">Mold Remediation</a></li>
-        <li><a href="/restoration/structural-repairs/">Structural Repairs</a></li>
-        <li><a href="/restoration/insurance/">Insurance Claims</a></li>
-        <li><a href="/restoration/content-restoration/">Content Restoration</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="/plumbing/">Plumbing</a></li>
-        <li><a href="/hvac/">HVAC</a></li>
-        <li><a href="/electrical/">Electrical</a></li>
-        <li><a href="/roofing/">Roofing</a></li>
-        <li><a href="/painting/">Painting</a></li>
-        <li><a href="/iron-works/">Gates &amp; Welding</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Learn</h4>
-      <ul>
-        <li><a href="/learn/">All Home Guides</a></li>
-        <li><a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a></li>
-        <li><a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a></li>
-        <li><a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a></li>
-        <li><a href="/learn/roofing-cost-guide/">Roofing Cost Guide</a></li>
-        <li><a href="/learn/painting-cost-guide/">Painting Cost Guide</a></li>
-        <li><a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a></li>
-        <li><a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Atlas Home Pro. All rights reserved. Licensed Contractor — Los Angeles, CA. | <a href="/privacy/" style="color:#a0a0a0;text-decoration:none">Privacy Policy</a> | <a href="/terms/" style="color:#a0a0a0;text-decoration:none">Terms</a></p>
-  </div>
+ <div class="footer-inner">
+ <div class="footer-col">
+ <h4>ATLAS HOME PRO</h4>
+ <p>Licensed, bonded, and insured home services in Los Angeles. IICRC certified restoration technicians.</p>
+ <p class="footer-phone"><a href="tel:2132752210" style="color:#FFDC00;text-decoration:none">(213) 275-2210</a></p>
+ <p>145 S Fairfax Ave Suite 200<br>Los Angeles, CA 90036</p>
+ <p><a href="mailto:David@AtlasHomePro.com" style="color:#ccc;text-decoration:none">David@AtlasHomePro.com</a></p>
+ </div>
+ <div class="footer-col">
+ <h4>Restoration</h4>
+ <ul>
+ <li><a href="/restoration/">Restoration Overview</a></li>
+ <li><a href="/restoration/water-removal/">Water Removal</a></li>
+ <li><a href="/restoration/structural-drying/">Structural Drying</a></li>
+ <li><a href="/restoration/mold-remediation/">Mold Remediation</a></li>
+ <li><a href="/restoration/structural-repairs/">Structural Repairs</a></li>
+ <li><a href="/restoration/insurance/">Insurance Claims</a></li>
+ <li><a href="/restoration/content-restoration/">Content Restoration</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Services</h4>
+ <ul>
+ <li><a href="/plumbing/">Plumbing</a></li>
+ <li><a href="/hvac/">HVAC</a></li>
+ <li><a href="/electrical/">Electrical</a></li>
+ 
+ <li><a href="/painting/">Painting</a></li>
+ <li><a href="/gates-garage-doors/">Gates &amp; Garage Doors</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Learn</h4>
+ <ul>
+ <li><a href="/learn/">All Home Guides</a></li>
+ <li><a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a></li>
+ <li><a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a></li>
+ <li><a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a></li>
+ <li></li>
+ <li><a href="/learn/painting-cost-guide/">Painting Cost Guide</a></li>
+ <li><a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a></li>
+ <li><a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2025 Atlas Home Pro. All rights reserved. Licensed Contractor — Los Angeles, CA. | <a href="/privacy/" style="color:#a0a0a0;text-decoration:none">Privacy Policy</a> | <a href="/terms/" style="color:#a0a0a0;text-decoration:none">Terms</a></p>
+ </div>
 </footer>
 
 <div class="sticky-bar">
-  <a href="tel:2132752210">&#128222; Call Now</a>
-  <a href="#book">Get a Quote</a>
+ <a href="tel:2132752210">&#128222; Call Now</a>
+ <a href="#book">Get a Quote</a>
 </div>
 
 <script>
 document.querySelectorAll('.nav-item.has-mega > a, .nav-item.has-dropdown > a').forEach(function(link){
-  link.addEventListener('click', function(e){
-    if(window.innerWidth <= 900){
-      e.preventDefault();
-      var item = this.closest('.nav-item');
-      var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.nav-item').forEach(function(i){ i.classList.remove('open'); });
-      if(!wasOpen){ item.classList.add('open'); }
-    }
-  });
+ link.addEventListener('click', function(e){
+ if(window.innerWidth <= 900){
+ e.preventDefault();
+ var item = this.closest('.nav-item');
+ var wasOpen = item.classList.contains('open');
+ document.querySelectorAll('.nav-item').forEach(function(i){ i.classList.remove('open'); });
+ if(!wasOpen){ item.classList.add('open'); }
+ }
+ });
 });
 document.querySelectorAll('.footer-col h4').forEach(function(h4){
-  h4.addEventListener('click', function(){
-    if(window.innerWidth <= 768){
-      this.closest('.footer-col').classList.toggle('fc-open');
-    }
-  });
+ h4.addEventListener('click', function(){
+ if(window.innerWidth <= 768){
+ this.closest('.footer-col').classList.toggle('fc-open');
+ }
+ });
 });
 </script>
 </body>

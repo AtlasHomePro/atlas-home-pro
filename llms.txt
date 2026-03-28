@@ -1,6 +1,6 @@
 # Atlas Home Pro
 
-> Atlas Home Pro is Los Angeles's complete home services company, offering seven trades under one roof: HVAC, Plumbing, Electrical, Roofing, Painting, Pest Control, and Water Damage Restoration. Licensed, insured, and trusted by thousands of LA homeowners.
+> Atlas Home Pro is Los Angeles's complete home services company, offering seven trades under one roof: HVAC, Plumbing, Electrical, Painting, Pest Control, Water Damage Restoration, and Gates & Garage Doors. Licensed, insured, and trusted by thousands of LA homeowners.
 
 ## Company Info
 
@@ -34,13 +34,6 @@
 ### Electrical
 - [Electrical Services](https://atlashomepro.com/electrical/)
 
-### Roofing
-- [Roof Repair](https://atlashomepro.com/roofing/roof-repair/)
-- [Roof Replacement](https://atlashomepro.com/roofing/roof-replacement/)
-- [Roof Inspection](https://atlashomepro.com/roofing/roof-inspection/)
-- [Emergency Leak Repair](https://atlashomepro.com/roofing/emergency-leak/)
-- [Gutters & Drainage](https://atlashomepro.com/roofing/gutters/)
-
 ### Painting
 - [Interior Painting](https://atlashomepro.com/painting/interior/)
 - [Exterior Painting](https://atlashomepro.com/painting/exterior/)
@@ -51,8 +44,22 @@
 ### Water Damage Restoration
 - [Water Damage Restoration](https://atlashomepro.com/restoration/)
 
-### Gates & Welding
-- [Gates & Welding Services](https://atlashomepro.com/gates-welding/)
+### Gates & Garage Doors
+- [Gates & Garage Doors](https://atlashomepro.com/gates-garage-doors/)
+- [Garage Door Spring Repair](https://atlashomepro.com/gates-garage-doors/garage-door-spring-repair/)
+- [Garage Door Opener Repair](https://atlashomepro.com/gates-garage-doors/garage-door-opener-repair/)
+- [Garage Door Off Track](https://atlashomepro.com/gates-garage-doors/garage-door-off-track/)
+- [Garage Door Cable Repair](https://atlashomepro.com/gates-garage-doors/garage-door-cable-repair/)
+- [Garage Door Panel Replacement](https://atlashomepro.com/gates-garage-doors/garage-door-panel-replacement/)
+- [Garage Door Remote & Keypad](https://atlashomepro.com/gates-garage-doors/garage-door-remote-programming/)
+- [Garage Door Tune-Up](https://atlashomepro.com/gates-garage-doors/garage-door-tune-up/)
+- [Electric Gate Repair](https://atlashomepro.com/gates-garage-doors/electric-gate-repair/)
+- [Gate Motor & Automation](https://atlashomepro.com/gates-garage-doors/gate-motor-automation-repair/)
+- [Custom Gate Installation](https://atlashomepro.com/gates-garage-doors/custom-gate-installation/)
+- [Gate Access Control](https://atlashomepro.com/gates-garage-doors/gate-access-control/)
+- [Emergency Garage Door Repair](https://atlashomepro.com/gates-garage-doors/emergency-garage-door-repair/)
+- [Emergency Gate Repair](https://atlashomepro.com/gates-garage-doors/emergency-gate-repair/)
+- [Gates & Garage Doors FAQ](https://atlashomepro.com/gates-garage-doors/faq/)
 
 ## Service Areas
 - [All Service Areas](https://atlashomepro.com/service-areas/)

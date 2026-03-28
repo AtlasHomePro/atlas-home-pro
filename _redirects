@@ -4,3 +4,150 @@
 # Broken URL from Google Search Console — no rodent exclusion content exists
 /learn/rodent-exclusion/  /learn/  301
 /learn/rodent-exclusion   /learn/  301
+
+# ──────────────────────────────────────────────────────────
+# Roofing removal — 301 redirects (March 2026)
+# Redirect all deleted roofing pages to appropriate parents
+# ──────────────────────────────────────────────────────────
+
+# Roofing hub → homepage
+/roofing/                         /  301
+/roofing                          /  301
+
+# Roofing sub-services → homepage
+/roofing/roof-repair/             /  301
+/roofing/roof-repair              /  301
+/roofing/roof-replacement/        /  301
+/roofing/roof-replacement         /  301
+/roofing/roof-inspection/         /  301
+/roofing/roof-inspection          /  301
+/roofing/emergency-leak/          /  301
+/roofing/emergency-leak           /  301
+/roofing/gutters/                 /  301
+/roofing/gutters                  /  301
+/roofing/flat-roofing/            /  301
+/roofing/flat-roofing             /  301
+/roofing/solar-ready-roofing/     /  301
+/roofing/solar-ready-roofing      /  301
+
+# Learn roofing guides → learn hub
+/learn/roofing-fire-season/           /learn/  301
+/learn/roofing-fire-season            /learn/  301
+/learn/roof-leak-repair/              /learn/  301
+/learn/roof-leak-repair               /learn/  301
+/learn/tile-vs-composition/           /learn/  301
+/learn/tile-vs-composition            /learn/  301
+/learn/flat-roof-guide/               /learn/  301
+/learn/flat-roof-guide                /learn/  301
+/learn/roofing-cost-guide/            /learn/  301
+/learn/roofing-cost-guide             /learn/  301
+/learn/gutters-drainage/              /learn/  301
+/learn/gutters-drainage               /learn/  301
+/learn/roof-only-10-years-leaking/    /learn/  301
+/learn/roof-only-10-years-leaking     /learn/  301
+/learn/roof-storm-damage-inspection/  /learn/  301
+/learn/roof-storm-damage-inspection   /learn/  301
+
+# Service area roofing sub-pages → city parent pages
+/service-areas/beverly-grove/roofing/      /service-areas/beverly-grove/      301
+/service-areas/beverly-grove/roofing       /service-areas/beverly-grove/      301
+/service-areas/beverly-hills/roofing/      /service-areas/beverly-hills/      301
+/service-areas/beverly-hills/roofing       /service-areas/beverly-hills/      301
+/service-areas/carthay/roofing/            /service-areas/carthay/            301
+/service-areas/carthay/roofing             /service-areas/carthay/            301
+/service-areas/culver-city/roofing/        /service-areas/culver-city/        301
+/service-areas/culver-city/roofing         /service-areas/culver-city/        301
+/service-areas/east-hollywood/roofing/     /service-areas/east-hollywood/     301
+/service-areas/east-hollywood/roofing      /service-areas/east-hollywood/     301
+/service-areas/fairfax-district/roofing/   /service-areas/fairfax-district/   301
+/service-areas/fairfax-district/roofing    /service-areas/fairfax-district/   301
+/service-areas/hancock-park/roofing/       /service-areas/hancock-park/       301
+/service-areas/hancock-park/roofing        /service-areas/hancock-park/       301
+/service-areas/koreatown/roofing/          /service-areas/koreatown/          301
+/service-areas/koreatown/roofing           /service-areas/koreatown/          301
+/service-areas/larchmont/roofing/          /service-areas/larchmont/          301
+/service-areas/larchmont/roofing           /service-areas/larchmont/          301
+/service-areas/los-angeles/roofing/        /service-areas/los-angeles/        301
+/service-areas/los-angeles/roofing         /service-areas/los-angeles/        301
+/service-areas/los-feliz/roofing/          /service-areas/los-feliz/          301
+/service-areas/los-feliz/roofing           /service-areas/los-feliz/          301
+/service-areas/mar-vista/roofing/          /service-areas/mar-vista/          301
+/service-areas/mar-vista/roofing           /service-areas/mar-vista/          301
+/service-areas/mid-city/roofing/           /service-areas/mid-city/           301
+/service-areas/mid-city/roofing            /service-areas/mid-city/           301
+/service-areas/miracle-mile/roofing/       /service-areas/miracle-mile/       301
+/service-areas/miracle-mile/roofing        /service-areas/miracle-mile/       301
+/service-areas/palms/roofing/              /service-areas/palms/              301
+/service-areas/palms/roofing               /service-areas/palms/              301
+/service-areas/park-la-brea/roofing/       /service-areas/park-la-brea/       301
+/service-areas/park-la-brea/roofing        /service-areas/park-la-brea/       301
+/service-areas/pico-robertson/roofing/     /service-areas/pico-robertson/     301
+/service-areas/pico-robertson/roofing      /service-areas/pico-robertson/     301
+/service-areas/playa-vista/roofing/        /service-areas/playa-vista/        301
+/service-areas/playa-vista/roofing         /service-areas/playa-vista/        301
+/service-areas/west-hollywood/roofing/     /service-areas/west-hollywood/     301
+/service-areas/west-hollywood/roofing      /service-areas/west-hollywood/     301
+/service-areas/windsor-square/roofing/     /service-areas/windsor-square/     301
+/service-areas/windsor-square/roofing      /service-areas/windsor-square/     301
+
+# ──────────────────────────────────────────────────────────
+# Iron-works / Gates & Welding → Gates & Garage Doors (March 2026)
+# ──────────────────────────────────────────────────────────
+/iron-works/                      /gates-garage-doors/  301
+/iron-works                       /gates-garage-doors/  301
+/gates-welding/                   /gates-garage-doors/  301
+/gates-welding                    /gates-garage-doors/  301
+
+# Convenience URL for nav link
+/gates-garage-doors/garage-door-repair/  /gates-garage-doors/garage-door-spring-repair/  301
+/gates-garage-doors/garage-door-repair   /gates-garage-doors/garage-door-spring-repair/  301
+
+# Old iron-works sub-pages
+/iron-works/security-gates/       /gates-garage-doors/custom-gate-installation/  301
+/iron-works/security-gates        /gates-garage-doors/custom-gate-installation/  301
+/iron-works/steel-railings/       /gates-garage-doors/  301
+/iron-works/steel-railings        /gates-garage-doors/  301
+/iron-works/welding-fabrication/  /gates-garage-doors/  301
+/iron-works/welding-fabrication   /gates-garage-doors/  301
+
+# Service area gates-welding → gates-garage-doors
+/service-areas/beverly-grove/gates-welding/  /service-areas/beverly-grove/gates-garage-doors/  301
+/service-areas/beverly-grove/gates-welding   /service-areas/beverly-grove/gates-garage-doors/  301
+/service-areas/beverly-hills/gates-welding/  /service-areas/beverly-hills/gates-garage-doors/  301
+/service-areas/beverly-hills/gates-welding   /service-areas/beverly-hills/gates-garage-doors/  301
+/service-areas/carthay/gates-welding/  /service-areas/carthay/gates-garage-doors/  301
+/service-areas/carthay/gates-welding   /service-areas/carthay/gates-garage-doors/  301
+/service-areas/culver-city/gates-welding/  /service-areas/culver-city/gates-garage-doors/  301
+/service-areas/culver-city/gates-welding   /service-areas/culver-city/gates-garage-doors/  301
+/service-areas/east-hollywood/gates-welding/  /service-areas/east-hollywood/gates-garage-doors/  301
+/service-areas/east-hollywood/gates-welding   /service-areas/east-hollywood/gates-garage-doors/  301
+/service-areas/fairfax-district/gates-welding/  /service-areas/fairfax-district/gates-garage-doors/  301
+/service-areas/fairfax-district/gates-welding   /service-areas/fairfax-district/gates-garage-doors/  301
+/service-areas/hancock-park/gates-welding/  /service-areas/hancock-park/gates-garage-doors/  301
+/service-areas/hancock-park/gates-welding   /service-areas/hancock-park/gates-garage-doors/  301
+/service-areas/koreatown/gates-welding/  /service-areas/koreatown/gates-garage-doors/  301
+/service-areas/koreatown/gates-welding   /service-areas/koreatown/gates-garage-doors/  301
+/service-areas/larchmont/gates-welding/  /service-areas/larchmont/gates-garage-doors/  301
+/service-areas/larchmont/gates-welding   /service-areas/larchmont/gates-garage-doors/  301
+/service-areas/los-angeles/gates-welding/  /service-areas/los-angeles/gates-garage-doors/  301
+/service-areas/los-angeles/gates-welding   /service-areas/los-angeles/gates-garage-doors/  301
+/service-areas/los-feliz/gates-welding/  /service-areas/los-feliz/gates-garage-doors/  301
+/service-areas/los-feliz/gates-welding   /service-areas/los-feliz/gates-garage-doors/  301
+/service-areas/mar-vista/gates-welding/  /service-areas/mar-vista/gates-garage-doors/  301
+/service-areas/mar-vista/gates-welding   /service-areas/mar-vista/gates-garage-doors/  301
+/service-areas/mid-city/gates-welding/  /service-areas/mid-city/gates-garage-doors/  301
+/service-areas/mid-city/gates-welding   /service-areas/mid-city/gates-garage-doors/  301
+/service-areas/miracle-mile/gates-welding/  /service-areas/miracle-mile/gates-garage-doors/  301
+/service-areas/miracle-mile/gates-welding   /service-areas/miracle-mile/gates-garage-doors/  301
+/service-areas/palms/gates-welding/  /service-areas/palms/gates-garage-doors/  301
+/service-areas/palms/gates-welding   /service-areas/palms/gates-garage-doors/  301
+/service-areas/park-la-brea/gates-welding/  /service-areas/park-la-brea/gates-garage-doors/  301
+/service-areas/park-la-brea/gates-welding   /service-areas/park-la-brea/gates-garage-doors/  301
+/service-areas/pico-robertson/gates-welding/  /service-areas/pico-robertson/gates-garage-doors/  301
+/service-areas/pico-robertson/gates-welding   /service-areas/pico-robertson/gates-garage-doors/  301
+/service-areas/playa-vista/gates-welding/  /service-areas/playa-vista/gates-garage-doors/  301
+/service-areas/playa-vista/gates-welding   /service-areas/playa-vista/gates-garage-doors/  301
+/service-areas/west-hollywood/gates-welding/  /service-areas/west-hollywood/gates-garage-doors/  301
+/service-areas/west-hollywood/gates-welding   /service-areas/west-hollywood/gates-garage-doors/  301
+/service-areas/windsor-square/gates-welding/  /service-areas/windsor-square/gates-garage-doors/  301
+/service-areas/windsor-square/gates-welding   /service-areas/windsor-square/gates-garage-doors/  301

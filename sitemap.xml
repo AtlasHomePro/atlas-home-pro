@@ -61,12 +61,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/roofing/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/painting/</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -182,36 +176,6 @@
   </url>
   <url>
     <loc>https://atlashomepro.com/plumbing/water-heater/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/emergency-leak/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/gutters/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/roof-inspection/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/roof-repair/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/roof-replacement/</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -434,48 +398,6 @@
   </url>
   <url>
     <loc>https://atlashomepro.com/learn/whole-home-generators/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/roofing-fire-season/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/roof-leak-repair/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/tile-vs-composition/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/flat-roof-guide/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/roofing-cost-guide/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/gutters-drainage/</loc>
-    <lastmod>2026-03-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/roof-only-10-years-leaking/</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -826,12 +748,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/miracle-mile/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/miracle-mile/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -844,7 +760,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/miracle-mile/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/miracle-mile/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -868,12 +784,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/beverly-grove/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/beverly-grove/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -886,7 +796,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/beverly-grove/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/beverly-grove/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -910,12 +820,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/fairfax-district/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/fairfax-district/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -928,7 +832,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/fairfax-district/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/fairfax-district/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -952,12 +856,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/hancock-park/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/hancock-park/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -970,7 +868,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/hancock-park/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/hancock-park/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -994,12 +892,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/larchmont/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/larchmont/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1012,7 +904,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/larchmont/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/larchmont/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1036,12 +928,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/carthay/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/carthay/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1054,7 +940,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/carthay/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/carthay/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1078,12 +964,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/mid-city/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/mid-city/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1096,7 +976,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/mid-city/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/mid-city/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1120,12 +1000,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/west-hollywood/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/west-hollywood/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1138,7 +1012,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/west-hollywood/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/west-hollywood/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1162,12 +1036,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/beverly-hills/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/beverly-hills/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1180,7 +1048,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/beverly-hills/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/beverly-hills/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1204,12 +1072,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/koreatown/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/koreatown/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1222,7 +1084,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/koreatown/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/koreatown/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1246,12 +1108,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/park-la-brea/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/park-la-brea/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1264,7 +1120,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/park-la-brea/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/park-la-brea/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1288,12 +1144,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/pico-robertson/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/pico-robertson/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1306,7 +1156,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/pico-robertson/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/pico-robertson/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1330,12 +1180,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/windsor-square/roofing/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/windsor-square/painting/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -1348,25 +1192,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/windsor-square/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/windsor-square/gates-garage-doors/</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://atlashomepro.com/electrical/whole-home-rewiring/</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/flat-roofing/</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/roofing/solar-ready-roofing/</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1504,12 +1336,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/palms/roofing/</loc>
-    <lastmod>2026-03-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/palms/painting/</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -1522,7 +1348,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/palms/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/palms/gates-garage-doors/</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1546,12 +1372,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/mar-vista/roofing/</loc>
-    <lastmod>2026-03-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/mar-vista/painting/</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -1564,7 +1384,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/mar-vista/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/mar-vista/gates-garage-doors/</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1583,12 +1403,6 @@
   </url>
   <url>
     <loc>https://atlashomepro.com/learn/electrical-panel-upgrade-cost-la/</loc>
-    <lastmod>2026-03-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlashomepro.com/learn/roof-storm-damage-inspection/</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1630,12 +1444,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/los-angeles/roofing/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/los-angeles/painting/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -1648,7 +1456,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/los-angeles/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/los-angeles/gates-garage-doors/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1672,12 +1480,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/playa-vista/roofing/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/playa-vista/painting/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -1690,7 +1492,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/playa-vista/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/playa-vista/gates-garage-doors/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1714,12 +1516,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/east-hollywood/roofing/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/east-hollywood/painting/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -1732,7 +1528,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/east-hollywood/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/east-hollywood/gates-garage-doors/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1756,12 +1552,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/los-feliz/roofing/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/los-feliz/painting/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -1774,7 +1564,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/los-feliz/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/los-feliz/gates-garage-doors/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1798,12 +1588,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/culver-city/roofing/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://atlashomepro.com/service-areas/culver-city/painting/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -1816,8 +1600,98 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://atlashomepro.com/service-areas/culver-city/gates-welding/</loc>
+    <loc>https://atlashomepro.com/service-areas/culver-city/gates-garage-doors/</loc>
     <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-spring-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-opener-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-off-track/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-cable-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-panel-replacement/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-remote-programming/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/garage-door-tune-up/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/electric-gate-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/gate-motor-automation-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/custom-gate-installation/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/gate-access-control/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/emergency-garage-door-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/emergency-gate-repair/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atlashomepro.com/gates-garage-doors/faq/</loc>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

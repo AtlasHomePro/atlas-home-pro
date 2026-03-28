@@ -2,18 +2,18 @@
 <!-- Google Analytics (GA4) — deferred for performance -->
 <script>
 window.addEventListener('load',function(){
-  var s=document.createElement('script');
-  s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-  s.async=true;
-  document.head.appendChild(s);
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+ var s=document.createElement('script');
+ s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+ s.async=true;
+ document.head.appendChild(s);
+ window.dataLayer=window.dataLayer||[];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
 });
 </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>About Atlas Home Pro | Los Angeles Home Services Company</title><meta name="description" content="Atlas Home Pro brings seven essential home service trades under one company. Founded by David Safai in Los Angeles."><link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
-  <link rel="canonical" href="https://atlashomepro.com/about/" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Atlas Home Pro","legalName":"Atlas Home Builders Inc","url":"https://atlashomepro.com","logo":"https://atlashomepro.com/van%20pics/Atlas%20Home%20Pro%20Van.png","foundingDate":"2026","founder":{"@type":"Person","name":"David Safai","jobTitle":"Founder & CEO"},"address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"contactPoint":{"@type":"ContactPoint","telephone":"+1-213-275-2210","contactType":"customer service","availableLanguage":["English","Spanish"]},"sameAs":["https://www.instagram.com/atlas_homepro/"],"description":"Atlas Home Pro provides premium plumbing, HVAC, electrical, roofing, painting, restoration, and gates & welding services across Los Angeles."}</script>
+ <link rel="canonical" href="https://atlashomepro.com/about/" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Atlas Home Pro","legalName":"Atlas Home Builders Inc","url":"https://atlashomepro.com","logo":"https://atlashomepro.com/van%20pics/Atlas%20Home%20Pro%20Van.png","foundingDate":"2026","founder":{"@type":"Person","name":"David Safai","jobTitle":"Founder & CEO"},"address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"contactPoint":{"@type":"ContactPoint","telephone":"+1-213-275-2210","contactType":"customer service","availableLanguage":["English","Spanish"]},"sameAs":["https://www.instagram.com/atlas_homepro/"],"description":"Atlas Home Pro provides premium plumbing, HVAC, electrical, painting, restoration, gates & garage doors, and pest control services across Los Angeles."}</script>
 <style>
 /* === RESET & BASE === */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -222,67 +222,67 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 
 /* === MOBILE NAV === */
 @media(max-width:900px){
-  nav{padding:0 20px;height:64px}
-  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem}
-  .nav-right{display:none}
-  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1000;background:none;border:none}
-  .hamburger span{width:22px;height:1.5px;background:#fff;transition:all .3s ease;display:block}
-  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
-  .hamburger.active span:nth-child(2){opacity:0}
-  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-  .nav-item{height:auto;display:block}
-  .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
-  .nav-item > a::before{display:none}
-  .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
-  .nav-item.has-dropdown.open .dropdown{display:none!important}
-  .mega-dropdown{display:none!important}
-  .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
-  .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
-  .mobile-services a:hover{color:#FFDC00}
-  .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
-  .nav-item.has-mega.open .mobile-services{display:grid}
-  .mobile-areas,.mobile-about{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
-  .mobile-areas a,.mobile-about a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
-  .mobile-areas a:hover,.mobile-about a:hover{color:#FFDC00}
-  .mobile-areas a .ms-icon,.mobile-about a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
-  .nav-item.has-dropdown.open .mobile-areas,.nav-item.has-dropdown.open .mobile-about{display:grid}
-  .nav-cta:not(.nav-mobile-cta){display:none!important}
-  .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
-  .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
+ nav{padding:0 20px;height:64px}
+ .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
+ .nav-links.open{display:flex}
+ .nav-links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:.9rem}
+ .nav-right{display:none}
+ .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1000;background:none;border:none}
+ .hamburger span{width:22px;height:1.5px;background:#fff;transition:all .3s ease;display:block}
+ .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+ .hamburger.active span:nth-child(2){opacity:0}
+ .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+ .nav-item{height:auto;display:block}
+ .nav-item > a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.06);height:auto;display:block}
+ .nav-item > a::before{display:none}
+ .dropdown{position:static;transform:none;display:none!important;border:none;box-shadow:none;padding:0 0 0 20px;background:rgba(255,255,255,0.02);min-width:auto;border-radius:0;animation:none}
+ .nav-item.has-dropdown.open .dropdown{display:none!important}
+ .mega-dropdown{display:none!important}
+ .mobile-services{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+ .mobile-services a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
+ .mobile-services a:hover{color:#FFDC00}
+ .mobile-services a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+ .nav-item.has-mega.open .mobile-services{display:grid}
+ .mobile-areas,.mobile-about{display:none;grid-template-columns:1fr 1fr;gap:0;padding:8px 12px 4px;background:rgba(255,255,255,0.02)}
+ .mobile-areas a,.mobile-about a{padding:12px 14px;color:rgba(255,255,255,0.7);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:8px;transition:color .15s}
+ .mobile-areas a:hover,.mobile-about a:hover{color:#FFDC00}
+ .mobile-areas a .ms-icon,.mobile-about a .ms-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0}
+ .nav-item.has-dropdown.open .mobile-areas,.nav-item.has-dropdown.open .mobile-about{display:grid}
+ .nav-cta:not(.nav-mobile-cta){display:none!important}
+ .nav-mobile-phone{display:block;padding:16px 24px;color:#FFDC00;font-weight:700;font-size:.9rem;text-decoration:none;border-top:1px solid rgba(255,220,0,0.15);text-align:center}
+ .nav-mobile-cta{display:block!important;margin:12px 24px 20px!important;text-align:center;border-radius:8px;padding:14px 24px!important;font-size:.88rem!important}
 }
 
 /* === RESPONSIVE === */
 @media(max-width:768px){
-  .proof-track{gap:40px}
-  .proof-text{font-size:.85rem}
-  .hero-inner{grid-template-columns:1fr;padding:50px 24px 60px;gap:32px}
-  .hero-sub{max-width:100%}
-  .hero-btns{justify-content:center}
-  .hero-btns a{flex:1;min-width:140px;text-align:center;padding:13px 20px;font-size:.85rem}
-  .hero-pills{justify-content:center}
-  .glass-card{padding:28px 24px}
-  .founder-grid{grid-template-columns:1fr!important;gap:32px!important}
-  .founder-right h2{font-size:1.8rem!important}
-  .founder-photo{height:200px}
-  .services-header h2{font-size:1.6rem}
-  .accordion-content-inner{flex-direction:column!important}
-  .accordion-content-inner img{width:100%!important;height:auto!important}
-  .standard-inner{flex-direction:column!important}
-  .standard-right{flex:1!important}
-  .standard-stats{grid-template-columns:1fr 1fr}
-  .cta-grid{grid-template-columns:1fr}
-  .cta-left{padding:48px 24px}
-  .cta-right{padding:0 24px 48px}
-  .cta-form{max-width:100%}
-  .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
+ .proof-track{gap:40px}
+ .proof-text{font-size:.85rem}
+ .hero-inner{grid-template-columns:1fr;padding:50px 24px 60px;gap:32px}
+ .hero-sub{max-width:100%}
+ .hero-btns{justify-content:center}
+ .hero-btns a{flex:1;min-width:140px;text-align:center;padding:13px 20px;font-size:.85rem}
+ .hero-pills{justify-content:center}
+ .glass-card{padding:28px 24px}
+ .founder-grid{grid-template-columns:1fr!important;gap:32px!important}
+ .founder-right h2{font-size:1.8rem!important}
+ .founder-photo{height:200px}
+ .services-header h2{font-size:1.6rem}
+ .accordion-content-inner{flex-direction:column!important}
+ .accordion-content-inner img{width:100%!important;height:auto!important}
+ .standard-inner{flex-direction:column!important}
+ .standard-right{flex:1!important}
+ .standard-stats{grid-template-columns:1fr 1fr}
+ .cta-grid{grid-template-columns:1fr}
+ .cta-left{padding:48px 24px}
+ .cta-right{padding:0 24px 48px}
+ .cta-form{max-width:100%}
+ .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
 }
 @media(max-width:480px){
-  .footer-inner{grid-template-columns:1fr}
-  .hero-btns a{font-size:.82rem;padding:12px 16px}
-  .founder-stats{grid-template-columns:1fr 1fr}
-  .standard-stats{grid-template-columns:1fr 1fr}
+ .footer-inner{grid-template-columns:1fr}
+ .hero-btns a{font-size:.82rem;padding:12px 16px}
+ .founder-stats{grid-template-columns:1fr 1fr}
+ .standard-stats{grid-template-columns:1fr 1fr}
 }
 </style>
 <meta property="og:type" content="website" />
@@ -295,670 +295,653 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 </head>
 <body>
 <nav>
-  <div class="nav-brand"><a href="/">ATLAS <span class="brand-accent">HOME PRO</span></a></div>
-  <div class="nav-links">
-    <div class="nav-item has-dropdown has-mega">
-      <a href="#">Services</a>
-      <div class="mega-dropdown">
-        <div class="mega-col">
-          <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
-          <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
-          <a href="/plumbing/water-heater/">Water Heater</a>
-          <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
-          <a href="/plumbing/leak-detection/">Leak Detection</a>
-          <a href="/plumbing/sewer-line/">Sewer Line</a>
-          <a href="/plumbing/emergency/">Emergency</a>
-          <a href="/plumbing/fixtures/">Fixtures</a>
-        </div>
-        <div class="mega-col">
-          <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
-          <a href="/hvac/ac-repair/">AC Repair</a>
-          <a href="/hvac/ac-installation/">AC Installation</a>
-          <a href="/hvac/heating/">Heating</a>
-          <a href="/hvac/tune-up/">Tune-Up</a>
-          <a href="/hvac/thermostat/">Thermostat</a>
-          <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
-        </div>
-        <div class="mega-col">
-          <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
-          <a href="/electrical/">All Electrical Services</a>
-          <a href="/roofing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Roofing</a>
-          <a href="/roofing/roof-repair/">Roof Repair</a>
-          <a href="/roofing/roof-replacement/">Replacement</a>
-          <a href="/roofing/roof-inspection/">Inspection</a>
-          <a href="/roofing/gutters/">Gutters</a>
-        </div>
-        <div class="mega-col">
-          <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
-          <a href="/painting/interior/">Interior</a>
-          <a href="/painting/exterior/">Exterior</a>
-          <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
-          <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
-          <a href="/restoration/">Restoration</a>
-          <a href="/iron-works/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Welding</a>
-          <a href="/iron-works/security-gates/">Security Gates</a>
-          <a href="/iron-works/steel-railings/">Steel Railings</a>
-          <a href="/iron-works/welding-fabrication/">Welding</a>
-        </div>
-      </div>
-      <div class="mobile-services">
-        <a href="/plumbing/"><span class="ms-icon">🔧</span> Plumbing</a>
-        <a href="/hvac/"><span class="ms-icon">❄️</span> HVAC</a>
-        <a href="/electrical/"><span class="ms-icon">⚡</span> Electrical</a>
-        <a href="/roofing/"><span class="ms-icon">🏠</span> Roofing</a>
-        <a href="/painting/"><span class="ms-icon">🎨</span> Painting</a>
-        <a href="/restoration/"><span class="ms-icon">💧</span> Restoration</a>
-        <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/service-areas/">Areas</a>
-      <div class="dropdown">
-        <a href="/service-areas/beverly-hills/">Beverly Hills</a>
-        <a href="/service-areas/brentwood/">Brentwood</a>
-        <a href="/service-areas/bel-air/">Bel Air</a>
-        <a href="/service-areas/pacific-palisades/">Pacific Palisades</a>
-        <a href="/service-areas/santa-monica/">Santa Monica</a>
-        <a href="/service-areas/century-city/">Century City</a>
-        <a href="/service-areas/west-hollywood/">West Hollywood</a>
-        <a href="/service-areas/westwood/">Westwood</a>
-        <a href="/service-areas/hancock-park/">Hancock Park</a>
-        <a href="/service-areas/fairfax-district/">Fairfax District</a>
-      </div>
-      <div class="mobile-areas">
-        <a href="/service-areas/beverly-hills/"><span class="ms-icon">⭐</span> Beverly Hills</a>
-        <a href="/service-areas/bel-air/"><span class="ms-icon">🏔️</span> Bel Air</a>
-        <a href="/service-areas/brentwood/"><span class="ms-icon">🌳</span> Brentwood</a>
-        <a href="/service-areas/pacific-palisades/"><span class="ms-icon">🌊</span> Pacific Palisades</a>
-        <a href="/service-areas/santa-monica/"><span class="ms-icon">🏖️</span> Santa Monica</a>
-        <a href="/service-areas/west-hollywood/"><span class="ms-icon">🌆</span> West Hollywood</a>
-        <a href="/service-areas/century-city/"><span class="ms-icon">🏙️</span> Century City</a>
-        <a href="/service-areas/westwood/"><span class="ms-icon">🎓</span> Westwood</a>
-        <a href="/service-areas/hancock-park/"><span class="ms-icon">🏡</span> Hancock Park</a>
-        <a href="/service-areas/fairfax-district/"><span class="ms-icon">🎭</span> Fairfax District</a>
-        <a href="/service-areas/pasadena/"><span class="ms-icon">🌹</span> Pasadena</a>
-        <a href="/service-areas/glendale/"><span class="ms-icon">🏘️</span> Glendale</a>
-        <a href="/service-areas/burbank/"><span class="ms-icon">🎬</span> Burbank</a>
-        <a href="/service-areas/"><span class="ms-icon">📍</span> All Areas</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/learn/">Learn</a>
-      <div class="dropdown">
-        <a href="/learn/">All Home Guides</a>
-        <a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a>
-        <a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a>
-        <a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a>
-        <a href="/learn/roofing-cost-guide/">Roofing Cost Guide</a>
-        <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
-        <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
-        <a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a>
-      </div>
-    </div>
-    <div class="nav-item has-dropdown">
-      <a href="/about/">About</a>
-      <div class="dropdown">
-        <a href="/about/">About Us</a>
-        <a href="/reviews/">Customer Reviews</a>
-        <a href="/offers/">Current Offers</a>
-        <a href="/careers/">Join Our Team</a>
-        <a href="/contact/">Get in Touch</a>
-      </div>
-      <div class="mobile-about">
-        <a href="/about/"><span class="ms-icon">🏢</span> About Us</a>
-        <a href="/reviews/"><span class="ms-icon">⭐</span> Reviews</a>
-        <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
-        <a href="/careers/"><span class="ms-icon">👷</span> Join Our Team</a>
-        <a href="/contact/"><span class="ms-icon">✉️</span> Get in Touch</a>
-        <a href="/learn/"><span class="ms-icon">📚</span> Learn Center</a>
-      </div>
-    </div>
-    <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
-    <a href="/#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
-  </div>
-  <div class="nav-right">
-    <a href="tel:2132752210" class="nav-phone">
-      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      (213) 275-2210
-    </a>
-    <div class="nav-divider"></div>
-    <a href="/#book" class="nav-cta">Get a Quote</a>
-  </div>
-  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
+ <div class="nav-brand"><a href="/">ATLAS <span class="brand-accent">HOME PRO</span></a></div>
+ <div class="nav-links">
+ <div class="nav-item has-dropdown has-mega">
+ <a href="#">Services</a>
+ <div class="mega-dropdown">
+ <div class="mega-col">
+ <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
+ <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
+ <a href="/plumbing/water-heater/">Water Heater</a>
+ <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
+ <a href="/plumbing/leak-detection/">Leak Detection</a>
+ <a href="/plumbing/sewer-line/">Sewer Line</a>
+ <a href="/plumbing/emergency/">Emergency</a>
+ <a href="/plumbing/fixtures/">Fixtures</a>
+ </div>
+ <div class="mega-col">
+ <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
+ <a href="/hvac/ac-repair/">AC Repair</a>
+ <a href="/hvac/ac-installation/">AC Installation</a>
+ <a href="/hvac/heating/">Heating</a>
+ <a href="/hvac/tune-up/">Tune-Up</a>
+ <a href="/hvac/thermostat/">Thermostat</a>
+ <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
+ </div>
+ <div class="mega-col">
+ <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
+ <a href="/electrical/">All Electrical Services</a>
+ </div>
+ <div class="mega-col">
+ <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
+ <a href="/painting/interior/">Interior</a>
+ <a href="/painting/exterior/">Exterior</a>
+ <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
+ <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
+ <a href="/restoration/">Restoration</a>
+ <a href="/gates-garage-doors/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Garage Doors</a>
+ <a href="/gates-garage-doors/garage-door-repair/">Garage Door Repair</a>
+ <a href="/gates-garage-doors/electric-gate-repair/">Electric Gate Repair</a>
+ <a href="/gates-garage-doors/custom-gate-installation/">Custom Gates</a>
+ </div>
+ </div>
+ <div class="mobile-services">
+ <a href="/plumbing/"><span class="ms-icon">🔧</span> Plumbing</a>
+ <a href="/hvac/"><span class="ms-icon">❄️</span> HVAC</a>
+ <a href="/electrical/"><span class="ms-icon">⚡</span> Electrical</a>
+ 
+ <a href="/painting/"><span class="ms-icon">🎨</span> Painting</a>
+ <a href="/restoration/"><span class="ms-icon">💧</span> Restoration</a>
+ <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
+ </div>
+ </div>
+ <div class="nav-item has-dropdown">
+ <a href="/service-areas/">Areas</a>
+ <div class="dropdown">
+ <a href="/service-areas/beverly-hills/">Beverly Hills</a>
+ <a href="/service-areas/brentwood/">Brentwood</a>
+ <a href="/service-areas/bel-air/">Bel Air</a>
+ <a href="/service-areas/pacific-palisades/">Pacific Palisades</a>
+ <a href="/service-areas/santa-monica/">Santa Monica</a>
+ <a href="/service-areas/century-city/">Century City</a>
+ <a href="/service-areas/west-hollywood/">West Hollywood</a>
+ <a href="/service-areas/westwood/">Westwood</a>
+ <a href="/service-areas/hancock-park/">Hancock Park</a>
+ <a href="/service-areas/fairfax-district/">Fairfax District</a>
+ </div>
+ <div class="mobile-areas">
+ <a href="/service-areas/beverly-hills/"><span class="ms-icon">⭐</span> Beverly Hills</a>
+ <a href="/service-areas/bel-air/"><span class="ms-icon">🏔️</span> Bel Air</a>
+ <a href="/service-areas/brentwood/"><span class="ms-icon">🌳</span> Brentwood</a>
+ <a href="/service-areas/pacific-palisades/"><span class="ms-icon">🌊</span> Pacific Palisades</a>
+ <a href="/service-areas/santa-monica/"><span class="ms-icon">🏖️</span> Santa Monica</a>
+ <a href="/service-areas/west-hollywood/"><span class="ms-icon">🌆</span> West Hollywood</a>
+ <a href="/service-areas/century-city/"><span class="ms-icon">🏙️</span> Century City</a>
+ <a href="/service-areas/westwood/"><span class="ms-icon">🎓</span> Westwood</a>
+ <a href="/service-areas/hancock-park/"><span class="ms-icon">🏡</span> Hancock Park</a>
+ <a href="/service-areas/fairfax-district/"><span class="ms-icon">🎭</span> Fairfax District</a>
+ <a href="/service-areas/pasadena/"><span class="ms-icon">🌹</span> Pasadena</a>
+ <a href="/service-areas/glendale/"><span class="ms-icon">🏘️</span> Glendale</a>
+ <a href="/service-areas/burbank/"><span class="ms-icon">🎬</span> Burbank</a>
+ <a href="/service-areas/"><span class="ms-icon">📍</span> All Areas</a>
+ </div>
+ </div>
+ <div class="nav-item has-dropdown">
+ <a href="/learn/">Learn</a>
+ <div class="dropdown">
+ <a href="/learn/">All Home Guides</a>
+ <a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a>
+ <a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a>
+ <a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a>
+ 
+ <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
+ <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
+ <a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a>
+ </div>
+ </div>
+ <div class="nav-item has-dropdown">
+ <a href="/about/">About</a>
+ <div class="dropdown">
+ <a href="/about/">About Us</a>
+ <a href="/reviews/">Customer Reviews</a>
+ <a href="/offers/">Current Offers</a>
+ <a href="/careers/">Join Our Team</a>
+ <a href="/contact/">Get in Touch</a>
+ </div>
+ <div class="mobile-about">
+ <a href="/about/"><span class="ms-icon">🏢</span> About Us</a>
+ <a href="/reviews/"><span class="ms-icon">⭐</span> Reviews</a>
+ <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
+ <a href="/careers/"><span class="ms-icon">👷</span> Join Our Team</a>
+ <a href="/contact/"><span class="ms-icon">✉️</span> Get in Touch</a>
+ <a href="/learn/"><span class="ms-icon">📚</span> Learn Center</a>
+ </div>
+ </div>
+ <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
+ <a href="/#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
+ </div>
+ <div class="nav-right">
+ <a href="tel:2132752210" class="nav-phone">
+ <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+ (213) 275-2210
+ </a>
+ <div class="nav-divider"></div>
+ <a href="/#book" class="nav-cta">Get a Quote</a>
+ </div>
+ <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="proof-bar">
-    <div class="proof-track">
-      <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Maria in Beverly Hills rated us 5 stars — "AC was ice cold within an hour!"</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">James in Pasadena just booked HVAC Repair</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Licensed &amp; Insured</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">David in Santa Monica rated us 5 stars — "Diagnosed the problem in 15 minutes."</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Sandra in West Hollywood just booked AC Tune-Up</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">Voted #1 Home Services Company in LA — 2026</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">A+ Rated by the Better Business Bureau</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Rosa in Glendale — "Best plumber we have ever had. Fast and honest."</span></div><div class="proof-divider"></div>
-      
-      <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">2,847+ jobs completed across Los Angeles</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Jennifer in Long Beach — "No service call fee and they showed up on time!"</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">David in West Hollywood just booked Duct Cleaning</span></div><div class="proof-divider"></div>
-      <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Carlos in Brentwood rated us 5 stars — "They fixed our roof the same day!"</span></div><div class="proof-divider"></div>
-    </div>
-  </div>
+ <div class="proof-track">
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Maria in Beverly Hills rated us 5 stars — "AC was ice cold within an hour!"</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">James in Pasadena just booked HVAC Repair</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Licensed &amp; Insured</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">David in Santa Monica rated us 5 stars — "Diagnosed the problem in 15 minutes."</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Sandra in West Hollywood just booked AC Tune-Up</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">Voted #1 Home Services Company in LA — 2026</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">A+ Rated by the Better Business Bureau</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Rosa in Glendale — "Best plumber we have ever had. Fast and honest."</span></div><div class="proof-divider"></div>
+ 
+ <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">2,847+ jobs completed across Los Angeles</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Jennifer in Long Beach — "No service call fee and they showed up on time!"</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">David in West Hollywood just booked Duct Cleaning</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Carlos in Brentwood rated us 5 stars — "They fixed our roof the same day!"</span></div><div class="proof-divider"></div>
+ </div>
+ </div>
 
 <!-- ===================== -->
-<!-- PREMIUM HERO SECTION  -->
+<!-- PREMIUM HERO SECTION -->
 <!-- ===================== -->
 <section class="hero-premium">
-  <div class="hero-bg">
-    <picture><source type="image/webp" srcset="/van%20pics/black%20truck%20city-mobile.webp 280w, /van%20pics/black%20truck%20city.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/black%20truck%20city.jpeg" alt="Atlas Home Pro truck in Los Angeles" loading="eager" width="540" height="360"></picture>
-  </div>
-  <div class="hero-inner">
-    <div>
-      <span class="hero-badge">About Atlas Home Pro</span>
-      <h1>One Company.<br><em>Every Trade.</em></h1>
-      <p class="hero-sub">LA's most complete home services company — one team, one number, every job done right. Plumbing, HVAC, electrical, roofing, painting, restoration, and gates &amp; welding under one roof.</p>
-      <div class="hero-btns">
-        <a href="tel:2132752210" class="btn-gold">CALL (213) 275-2210</a>
-        <a href="/get-quote/" class="btn-ghost">BOOK A FREE ESTIMATE</a>
-      </div>
-      <div class="hero-pills">
-        <span>Licensed &amp; Insured</span>
-        <span>Satisfaction Guaranteed</span>
-        <span>Same-Day Service</span>
-      </div>
-    </div>
-    <div class="glass-card">
-      <div class="glass-card-title">Atlas at a Glance</div>
-      <div class="glass-stat">
-        <div class="glass-stat-icon">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div class="glass-stat-info">
-          <h4>7 Trades</h4>
-          <p>Every home service under one roof</p>
-        </div>
-      </div>
-      <div class="glass-stat">
-        <div class="glass-stat-icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div class="glass-stat-info">
-          <h4>500+ Reviews</h4>
-          <p>Five-star rated on Google</p>
-        </div>
-      </div>
-      <div class="glass-stat">
-        <div class="glass-stat-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <div class="glass-stat-info">
-          <h4>Same-Day</h4>
-          <p>Most jobs scheduled same day</p>
-        </div>
-      </div>
-      <div class="glass-stat">
-        <div class="glass-stat-icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        </div>
-        <div class="glass-stat-info">
-          <h4>$0 Fees</h4>
-          <p>No service call or dispatch fees</p>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="hero-bg">
+ <picture><source type="image/webp" srcset="/van%20pics/black%20truck%20city-mobile.webp 280w, /van%20pics/black%20truck%20city.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/black%20truck%20city.jpeg" alt="Atlas Home Pro truck in Los Angeles" loading="eager" width="540" height="360"></picture>
+ </div>
+ <div class="hero-inner">
+ <div>
+ <span class="hero-badge">About Atlas Home Pro</span>
+ <h1>One Company.<br><em>Every Trade.</em></h1>
+ <p class="hero-sub">LA's most complete home services company — one team, one number, every job done right. Plumbing, HVAC, electrical, painting, restoration, gates &amp; garage doors, and pest control under one roof.</p>
+ <div class="hero-btns">
+ <a href="tel:2132752210" class="btn-gold">CALL (213) 275-2210</a>
+ <a href="/get-quote/" class="btn-ghost">BOOK A FREE ESTIMATE</a>
+ </div>
+ <div class="hero-pills">
+ <span>Licensed &amp; Insured</span>
+ <span>Satisfaction Guaranteed</span>
+ <span>Same-Day Service</span>
+ </div>
+ </div>
+ <div class="glass-card">
+ <div class="glass-card-title">Atlas at a Glance</div>
+ <div class="glass-stat">
+ <div class="glass-stat-icon">
+ <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+ </div>
+ <div class="glass-stat-info">
+ <h4>7 Trades</h4>
+ <p>Every home service under one roof</p>
+ </div>
+ </div>
+ <div class="glass-stat">
+ <div class="glass-stat-icon">
+ <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+ </div>
+ <div class="glass-stat-info">
+ <h4>500+ Reviews</h4>
+ <p>Five-star rated on Google</p>
+ </div>
+ </div>
+ <div class="glass-stat">
+ <div class="glass-stat-icon">
+ <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ </div>
+ <div class="glass-stat-info">
+ <h4>Same-Day</h4>
+ <p>Most jobs scheduled same day</p>
+ </div>
+ </div>
+ <div class="glass-stat">
+ <div class="glass-stat-icon">
+ <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+ </div>
+ <div class="glass-stat-info">
+ <h4>$0 Fees</h4>
+ <p>No service call or dispatch fees</p>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ===================== -->
-<!-- FOUNDER SECTION       -->
+<!-- FOUNDER SECTION -->
 <!-- ===================== -->
 <section class="founder-section">
-  <div class="founder-grid">
-    <!-- Left: Quote Card -->
-    <div style="position:relative;">
-      <div class="founder-quote-card">
-        <div class="founder-tag">The Founder</div>
-        <div class="founder-quote-mark">&ldquo;</div>
-        <p class="founder-quote-text">&ldquo;I started Atlas Home Pro because homeowners deserve better than juggling seven different contractors.&rdquo;</p>
-        <div class="founder-byline">
-          <div class="founder-avatar">DS</div>
-          <div>
-            <div class="founder-name">David Safai</div>
-            <div class="founder-title">Founder &amp; CEO, Atlas Home Pro</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Right: Story -->
-    <div class="founder-right">
-      <h2>Built From <em>Frustration.</em><br>Driven by <em>Standards.</em></h2>
-      <p>After years of managing properties and his own home in Los Angeles, David experienced the same frustrations every homeowner knows &mdash; unreliable contractors, inconsistent pricing, and zero accountability.</p>
-      <p>He built Atlas Home Pro to solve that problem: one company that handles every trade, with one standard of quality and one phone number to call.</p>
-      <picture><source type="image/webp" srcset="/atlas%20home%20pro/tech%20with%20van-mobile.webp 600w, /atlas%20home%20pro/tech%20with%20van.webp 1200w" sizes="(max-width: 768px) 100vw, 600px"><img src="/atlas%20home%20pro/tech%20with%20van.png" alt="Atlas Home Pro technician with service van" class="founder-photo" loading="lazy" width="1536" height="1024"></picture>
-      <div class="founder-stats">
-        <div class="founder-stat">
-          <div class="founder-stat-num">7</div>
-          <div class="founder-stat-label">Trades Under One Roof</div>
-        </div>
-        <div class="founder-stat">
-          <div class="founder-stat-num">1</div>
-          <div class="founder-stat-label">Phone Number to Call</div>
-        </div>
-        <div class="founder-stat">
-          <div class="founder-stat-num">7</div>
-          <div class="founder-stat-label">Trades Covered</div>
-        </div>
-        <div class="founder-stat">
-          <div class="founder-stat-num">$0</div>
-          <div class="founder-stat-label">Service Call Fees</div>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="founder-grid">
+ <!-- Left: Quote Card -->
+ <div style="position:relative;">
+ <div class="founder-quote-card">
+ <div class="founder-tag">The Founder</div>
+ <div class="founder-quote-mark">&ldquo;</div>
+ <p class="founder-quote-text">&ldquo;I started Atlas Home Pro because homeowners deserve better than juggling seven different contractors.&rdquo;</p>
+ <div class="founder-byline">
+ <div class="founder-avatar">DS</div>
+ <div>
+ <div class="founder-name">David Safai</div>
+ <div class="founder-title">Founder &amp; CEO, Atlas Home Pro</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- Right: Story -->
+ <div class="founder-right">
+ <h2>Built From <em>Frustration.</em><br>Driven by <em>Standards.</em></h2>
+ <p>After years of managing properties and his own home in Los Angeles, David experienced the same frustrations every homeowner knows &mdash; unreliable contractors, inconsistent pricing, and zero accountability.</p>
+ <p>He built Atlas Home Pro to solve that problem: one company that handles every trade, with one standard of quality and one phone number to call.</p>
+ <picture><source type="image/webp" srcset="/atlas%20home%20pro/tech%20with%20van-mobile.webp 600w, /atlas%20home%20pro/tech%20with%20van.webp 1200w" sizes="(max-width: 768px) 100vw, 600px"><img src="/atlas%20home%20pro/tech%20with%20van.png" alt="Atlas Home Pro technician with service van" class="founder-photo" loading="lazy" width="1536" height="1024"></picture>
+ <div class="founder-stats">
+ <div class="founder-stat">
+ <div class="founder-stat-num">7</div>
+ <div class="founder-stat-label">Trades Under One Roof</div>
+ </div>
+ <div class="founder-stat">
+ <div class="founder-stat-num">1</div>
+ <div class="founder-stat-label">Phone Number to Call</div>
+ </div>
+ <div class="founder-stat">
+ <div class="founder-stat-num">7</div>
+ <div class="founder-stat-label">Trades Covered</div>
+ </div>
+ <div class="founder-stat">
+ <div class="founder-stat-num">$0</div>
+ <div class="founder-stat-label">Service Call Fees</div>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ===================== -->
-<!-- SERVICES ACCORDION    -->
+<!-- SERVICES ACCORDION -->
 <!-- ===================== -->
 <section class="services-section">
-  <div class="services-inner">
-    <div class="services-header">
-      <div class="services-badge">OUR FLEET</div>
-      <h2>seven trades. <em>One Team.</em></h2>
-      <p>Every service backed by licensed professionals, branded vans, and the Atlas standard of quality.</p>
-    </div>
+ <div class="services-inner">
+ <div class="services-header">
+ <div class="services-badge">OUR FLEET</div>
+ <h2>seven trades. <em>One Team.</em></h2>
+ <p>Every service backed by licensed professionals, branded vans, and the Atlas standard of quality.</p>
+ </div>
 
-    <!-- HVAC -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 00-3 3v1a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 14a3 3 0 00-2.12.88L12 10l-4.88 4.88A3 3 0 005 14a3 3 0 000 6 3 3 0 002.12-.88L12 14l4.88 4.88A3 3 0 0019 20a3 3 0 000-6z"/><line x1="12" y1="10" x2="12" y2="2"/></svg>
-          </div>
-          <div>
-            <h3>HVAC</h3>
-            <p class="acc-sub">AC repair, heating, installation &amp; maintenance</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
-          <div class="acc-text">
-            <p>Same-day AC repair, full system installations, tune-ups, duct cleaning, and thermostat upgrades. Our certified HVAC technicians handle every brand and every system — residential and commercial.</p>
-            <a href="/hvac/">View HVAC Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- HVAC -->
+ <div class="accordion-item">
+ <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
+ <div class="accordion-toggle-left">
+ <div class="accordion-icon">
+ <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 00-3 3v1a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 14a3 3 0 00-2.12.88L12 10l-4.88 4.88A3 3 0 005 14a3 3 0 000 6 3 3 0 002.12-.88L12 14l4.88 4.88A3 3 0 0019 20a3 3 0 000-6z"/><line x1="12" y1="10" x2="12" y2="2"/></svg>
+ </div>
+ <div>
+ <h3>HVAC</h3>
+ <p class="acc-sub">AC repair, heating, installation &amp; maintenance</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
+ <div class="acc-text">
+ <p>Same-day AC repair, full system installations, tune-ups, duct cleaning, and thermostat upgrades. Our certified HVAC technicians handle every brand and every system — residential and commercial.</p>
+ <a href="/hvac/">View HVAC Services &rarr;</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Plumbing -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M6 12h12M6 12a6 6 0 006 6 6 6 0 006-6M6 12a6 6 0 016-6h6a6 6 0 016 6"/></svg>
-          </div>
-          <div>
-            <h3>Plumbing</h3>
-            <p class="acc-sub">Leak repair, drain cleaning, water heaters &amp; repiping</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
-          <div class="acc-text">
-            <p>Licensed plumbers for every job — from emergency leak repairs to full repiping. Drain cleaning, water heater replacement, sewer line services, and fixture installation throughout Los Angeles.</p>
-            <a href="/plumbing/">View Plumbing Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Plumbing -->
+ <div class="accordion-item">
+ <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
+ <div class="accordion-toggle-left">
+ <div class="accordion-icon">
+ <svg viewBox="0 0 24 24"><path d="M6 12h12M6 12a6 6 0 006 6 6 6 0 006-6M6 12a6 6 0 016-6h6a6 6 0 016 6"/></svg>
+ </div>
+ <div>
+ <h3>Plumbing</h3>
+ <p class="acc-sub">Leak repair, drain cleaning, water heaters &amp; repiping</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
+ <div class="acc-text">
+ <p>Licensed plumbers for every job — from emergency leak repairs to full repiping. Drain cleaning, water heater replacement, sewer line services, and fixture installation throughout Los Angeles.</p>
+ <a href="/plumbing/">View Plumbing Services &rarr;</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Electrical -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <div>
-            <h3>Electrical</h3>
-            <p class="acc-sub">Panel upgrades, EV chargers, outlets &amp; rewiring</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
-          <div class="acc-text">
-            <p>Panel upgrades, EV charger installations, outlet work, lighting, and whole-home electrical. Licensed electricians serving all of LA with permit-ready work.</p>
-            <a href="/electrical/">View Electrical Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Electrical -->
+ <div class="accordion-item">
+ <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
+ <div class="accordion-toggle-left">
+ <div class="accordion-icon">
+ <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+ </div>
+ <div>
+ <h3>Electrical</h3>
+ <p class="acc-sub">Panel upgrades, EV chargers, outlets &amp; rewiring</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
+ <div class="acc-text">
+ <p>Panel upgrades, EV charger installations, outlet work, lighting, and whole-home electrical. Licensed electricians serving all of LA with permit-ready work.</p>
+ <a href="/electrical/">View Electrical Services &rarr;</a>
+ </div>
+ </div>
+ </div>
+ </div>
+<p class="acc-sub">Repair, replacement, inspections &amp; storm damage</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
+ <div class="acc-text">
+ <p>Emergency roof leak repair, full replacements, inspections, gutter cleaning, and storm damage claims. Licensed and bonded for all roof types.</p>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Roofing -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div>
-            <h3>Roofing</h3>
-            <p class="acc-sub">Repair, replacement, inspections &amp; storm damage</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
-          <div class="acc-text">
-            <p>Emergency roof leak repair, full replacements, inspections, gutter cleaning, and storm damage claims. Licensed and bonded for all roof types.</p>
-            <a href="/roofing/">View Roofing Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Painting -->
+ <div class="accordion-item">
+ <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
+ <div class="accordion-toggle-left">
+ <div class="accordion-icon">
+ <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 11v6"/><path d="M8 21h8"/><path d="M12 17h.01"/></svg>
+ </div>
+ <div>
+ <h3>Painting</h3>
+ <p class="acc-sub">Interior, exterior, cabinets &amp; color consultation</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
+ <div class="acc-text">
+ <p>Interior and exterior painting, cabinet refinishing, drywall repair, and free color consultation. Premium paints, licensed crews, and clean results.</p>
+ <a href="/painting/">View Painting Services &rarr;</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Painting -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 11v6"/><path d="M8 21h8"/><path d="M12 17h.01"/></svg>
-          </div>
-          <div>
-            <h3>Painting</h3>
-            <p class="acc-sub">Interior, exterior, cabinets &amp; color consultation</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
-          <div class="acc-text">
-            <p>Interior and exterior painting, cabinet refinishing, drywall repair, and free color consultation. Premium paints, licensed crews, and clean results.</p>
-            <a href="/painting/">View Painting Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Restoration -->
+ <div class="accordion-item">
+ <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
+ <div class="accordion-toggle-left">
+ <div class="accordion-icon">
+ <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+ </div>
+ <div>
+ <h3>Water Restoration</h3>
+ <p class="acc-sub">24/7 emergency water damage, flood cleanup &amp; mold</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
+ <div class="acc-text">
+ <p>24/7 emergency water damage restoration, flood cleanup, mold remediation, and structural drying. Fast response when every minute counts.</p>
+ <a href="/restoration/">View Restoration Services &rarr;</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Restoration -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
-          </div>
-          <div>
-            <h3>Water Restoration</h3>
-            <p class="acc-sub">24/7 emergency water damage, flood cleanup &amp; mold</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <picture><source type="image/webp" srcset="/van%20pics/Atlas-Home-Pro-Real-Van-mobile.webp 280w, /van%20pics/Atlas-Home-Pro-Real-Van.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024"></picture>
-          <div class="acc-text">
-            <p>24/7 emergency water damage restoration, flood cleanup, mold remediation, and structural drying. Fast response when every minute counts.</p>
-            <a href="/restoration/">View Restoration Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Gates & Welding -->
+ <div class="accordion-item">
+ <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
+ <div class="accordion-toggle-left">
+ <div class="accordion-icon">
+ <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14z"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7zM13 13h4v4h-4z"/></svg>
+ </div>
+ <div>
+ <h3>Gates &amp; Garage Doors</h3>
+ <p class="acc-sub">Security gates, driveway gates, steel railings &amp; custom fabrication</p>
+ </div>
+ </div>
+ <span class="accordion-arrow">&#9662;</span>
+ </button>
+ <div class="accordion-content">
+ <div class="accordion-content-inner">
+ <img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024" style="object-fit:cover;border-radius:12px">
+ <div class="acc-text">
+ <p>Atlas Gates &amp; Garage Doors provides custom metal fabrication and security gate solutions for homes and multi-family properties across Los Angeles. Driveway gates, security gates, steel railings, welding repair, gate motor repair, and custom fabrication.</p>
+ <a href="/gates-garage-doors/">View Gates &amp; Garage Doors Services &rarr;</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Gates & Welding -->
-    <div class="accordion-item">
-      <button class="accordion-toggle" onclick="this.parentElement.classList.toggle('open')">
-        <div class="accordion-toggle-left">
-          <div class="accordion-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14z"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7zM13 13h4v4h-4z"/></svg>
-          </div>
-          <div>
-            <h3>Gates &amp; Welding</h3>
-            <p class="acc-sub">Security gates, driveway gates, steel railings &amp; custom fabrication</p>
-          </div>
-        </div>
-        <span class="accordion-arrow">&#9662;</span>
-      </button>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <img src="/van%20pics/Atlas-Home-Pro-Real-Van.jpg" alt="Atlas Home Pro service van" loading="lazy" width="1536" height="1024" style="object-fit:cover;border-radius:12px">
-          <div class="acc-text">
-            <p>Atlas Gates &amp; Welding provides custom metal fabrication and security gate solutions for homes and multi-family properties across Los Angeles. Driveway gates, security gates, steel railings, welding repair, gate motor repair, and custom fabrication.</p>
-            <a href="/iron-works/">View Gates &amp; Welding Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+ </div>
 </section>
 
 <!-- ===================== -->
-<!-- ATLAS STANDARD        -->
+<!-- ATLAS STANDARD -->
 <!-- ===================== -->
 <section class="standard-section">
-  <div class="standard-bg">
-    <picture><source type="image/webp" srcset="/van%20pics/atlas%20black%20truck%20hollywood%20sign-mobile.webp 280w, /van%20pics/atlas%20black%20truck%20hollywood%20sign.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/atlas%20black%20truck%20hollywood%20sign.png" alt="Atlas Home Pro truck with Hollywood sign" loading="lazy" width="1536" height="1024"></picture>
-  </div>
-  <div class="standard-inner">
-    <div class="standard-left">
-      <span class="standard-badge">THE ATLAS STANDARD</span>
-      <h2>Why LA Trusts <em>Atlas Home Pro</em></h2>
+ <div class="standard-bg">
+ <picture><source type="image/webp" srcset="/van%20pics/atlas%20black%20truck%20hollywood%20sign-mobile.webp 280w, /van%20pics/atlas%20black%20truck%20hollywood%20sign.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/atlas%20black%20truck%20hollywood%20sign.png" alt="Atlas Home Pro truck with Hollywood sign" loading="lazy" width="1536" height="1024"></picture>
+ </div>
+ <div class="standard-inner">
+ <div class="standard-left">
+ <span class="standard-badge">THE ATLAS STANDARD</span>
+ <h2>Why LA Trusts <em>Atlas Home Pro</em></h2>
 
-      <div class="promise-item">
-        <span class="promise-num">01</span>
-        <div>
-          <h3>One Call Covers It All</h3>
-          <p>HVAC, plumbing, electrical, roofing, painting, water restoration, and gates &amp; welding. Seven trades, one trusted team, one number.</p>
-        </div>
-      </div>
+ <div class="promise-item">
+ <span class="promise-num">01</span>
+ <div>
+ <h3>One Call Covers It All</h3>
+ <p>HVAC, plumbing, electrical, painting, gates & garage doors, water restoration, and gates &amp; welding. Seven trades, one trusted team, one number.</p>
+ </div>
+ </div>
 
-      <div class="promise-item">
-        <span class="promise-num">02</span>
-        <div>
-          <h3>We Show Up — Same Day</h3>
-          <p>Most jobs scheduled same day or next day. Emergency dispatch available 24/7, 365 days a year.</p>
-        </div>
-      </div>
+ <div class="promise-item">
+ <span class="promise-num">02</span>
+ <div>
+ <h3>We Show Up — Same Day</h3>
+ <p>Most jobs scheduled same day or next day. Emergency dispatch available 24/7, 365 days a year.</p>
+ </div>
+ </div>
 
-      <div class="promise-item">
-        <span class="promise-num">03</span>
-        <div>
-          <h3>The Price We Quote Is the Price You Pay</h3>
-          <p>No hidden fees. No bait-and-switch. No surprise charges at the end. Full price before any work starts.</p>
-        </div>
-      </div>
+ <div class="promise-item">
+ <span class="promise-num">03</span>
+ <div>
+ <h3>The Price We Quote Is the Price You Pay</h3>
+ <p>No hidden fees. No bait-and-switch. No surprise charges at the end. Full price before any work starts.</p>
+ </div>
+ </div>
 
-      <div class="promise-item" style="margin-bottom:0">
-        <span class="promise-num">04</span>
-        <div>
-          <h3>If It Breaks, We Come Back Free</h3>
-          <p>Every job backed by our 6-month warranty. If something we fixed breaks again, we come back and fix it at no charge.</p>
-        </div>
-      </div>
-    </div>
+ <div class="promise-item" style="margin-bottom:0">
+ <span class="promise-num">04</span>
+ <div>
+ <h3>If It Breaks, We Come Back Free</h3>
+ <p>Every job backed by our 6-month warranty. If something we fixed breaks again, we come back and fix it at no charge.</p>
+ </div>
+ </div>
+ </div>
 
-    <div class="standard-right">
-      <div class="standard-stats">
-        <div class="standard-stat">
-          <div class="standard-stat-num">7</div>
-          <div class="standard-stat-label">Trades Covered</div>
-        </div>
-        <div class="standard-stat">
-          <div class="standard-stat-num">7</div>
-          <div class="standard-stat-label">Home Trades</div>
-        </div>
-        <div class="standard-stat">
-          <div class="standard-stat-num">24/7</div>
-          <div class="standard-stat-label">Emergency Service</div>
-        </div>
-        <div class="standard-stat">
-          <div class="standard-stat-num">$0</div>
-          <div class="standard-stat-label">Service Call Fees</div>
-        </div>
-      </div>
-      <a href="tel:2132752210" class="standard-cta">Call (213) 275-2210</a>
-    </div>
-  </div>
+ <div class="standard-right">
+ <div class="standard-stats">
+ <div class="standard-stat">
+ <div class="standard-stat-num">7</div>
+ <div class="standard-stat-label">Trades Covered</div>
+ </div>
+ <div class="standard-stat">
+ <div class="standard-stat-num">7</div>
+ <div class="standard-stat-label">Home Trades</div>
+ </div>
+ <div class="standard-stat">
+ <div class="standard-stat-num">24/7</div>
+ <div class="standard-stat-label">Emergency Service</div>
+ </div>
+ <div class="standard-stat">
+ <div class="standard-stat-num">$0</div>
+ <div class="standard-stat-label">Service Call Fees</div>
+ </div>
+ </div>
+ <a href="tel:2132752210" class="standard-cta">Call (213) 275-2210</a>
+ </div>
+ </div>
 </section>
 
 <!-- ===================== -->
 <!-- CTA / BOOKING SECTION -->
 <!-- ===================== -->
 <section class="cta-section" id="book">
-  <div class="cta-grid">
-    <div class="cta-left">
-      <div class="cta-left-bg">
-        <picture><source type="image/webp" srcset="/van%20pics/atlas%20yellow%20fleet-mobile.webp 280w, /van%20pics/atlas%20yellow%20fleet.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/atlas%20yellow%20fleet.jpeg" alt="Atlas Home Pro fleet" loading="lazy" width="1536" height="1024"></picture>
-      </div>
-      <div class="cta-left-content">
-        <span class="cta-badge">STOP JUGGLING CONTRACTORS</span>
-        <h2>One Call <em>Solves It.</em></h2>
-        <p class="cta-sub">Atlas Home Pro handles your plumbing, HVAC, electrical, roofing, painting, and restoration. One company. One standard. One phone number.</p>
-        <ul class="cta-checks">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>No service call fees</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>No dispatch fees</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Upfront written estimate</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Licensed &amp; insured technicians</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>6-month warranty on all work</li>
-        </ul>
-        <div class="cta-phone-card">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          <div>
-            <strong style="color:#ccc">Prefer to call?</strong>
-            <a href="tel:2132752210">(213) 275-2210</a>
-            <p>Available 7 days a week</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cta-right">
-      <div class="cta-form">
-        <div class="cta-form-header">
-          <h3>Get Your Free Quote</h3>
-          <p>We respond within 1 hour</p>
-        </div>
-        <form action="https://formsubmit.co/David@AtlasHomePro.com" method="POST">
-          <input type="hidden" name="_subject" value="New About Page Request - Atlas Home Pro">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://atlashomepro.com/thank-you/">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="name" placeholder="Full Name" required>
-          <input type="tel" name="phone" placeholder="Phone Number" required>
-          <input type="email" name="email" placeholder="Email Address" required>
-          <input type="text" name="address" placeholder="Address or Zip Code">
-          <select aria-label="Select a service type" name="service" required>
-            <option value="" disabled selected>Service Needed</option>
-            <option>HVAC / Air Conditioning</option>
-            <option>Plumbing</option>
-            <option>Electrical</option>
-            <option>Roofing</option>
-            <option>Painting</option>
-                        <option>Restoration</option>
-            <option>Other</option>
-          </select>
-          <textarea name="message" placeholder="Short description of the issue"></textarea>
-          <button type="submit">BOOK FREE ESTIMATE &rarr;</button>
-        </form>
-        <div class="trust-row">
-          <span>🔒 Secure form</span>
-          <span>⭐ 500+ reviews</span>
-          <span>🚫 No spam</span>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="cta-grid">
+ <div class="cta-left">
+ <div class="cta-left-bg">
+ <picture><source type="image/webp" srcset="/van%20pics/atlas%20yellow%20fleet-mobile.webp 280w, /van%20pics/atlas%20yellow%20fleet.webp 560w" sizes="(max-width: 768px) 100vw, 280px"><img src="/van%20pics/atlas%20yellow%20fleet.jpeg" alt="Atlas Home Pro fleet" loading="lazy" width="1536" height="1024"></picture>
+ </div>
+ <div class="cta-left-content">
+ <span class="cta-badge">STOP JUGGLING CONTRACTORS</span>
+ <h2>One Call <em>Solves It.</em></h2>
+ <p class="cta-sub">Atlas Home Pro handles your plumbing, HVAC, electrical, painting, restoration, gates &amp; garage doors, and pest control. One company. One standard. One phone number.</p>
+ <ul class="cta-checks">
+ <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>No service call fees</li>
+ <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>No dispatch fees</li>
+ <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Upfront written estimate</li>
+ <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Licensed &amp; insured technicians</li>
+ <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffe600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>6-month warranty on all work</li>
+ </ul>
+ <div class="cta-phone-card">
+ <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+ <div>
+ <strong style="color:#ccc">Prefer to call?</strong>
+ <a href="tel:2132752210">(213) 275-2210</a>
+ <p>Available 7 days a week</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="cta-right">
+ <div class="cta-form">
+ <div class="cta-form-header">
+ <h3>Get Your Free Quote</h3>
+ <p>We respond within 1 hour</p>
+ </div>
+ <form action="https://formsubmit.co/David@AtlasHomePro.com" method="POST">
+ <input type="hidden" name="_subject" value="New About Page Request - Atlas Home Pro">
+ <input type="hidden" name="_captcha" value="false">
+ <input type="hidden" name="_next" value="https://atlashomepro.com/thank-you/">
+ <input type="hidden" name="_template" value="table">
+ <input type="text" name="name" placeholder="Full Name" required>
+ <input type="tel" name="phone" placeholder="Phone Number" required>
+ <input type="email" name="email" placeholder="Email Address" required>
+ <input type="text" name="address" placeholder="Address or Zip Code">
+ <select aria-label="Select a service type" name="service" required>
+ <option value="" disabled selected>Service Needed</option>
+ <option>HVAC / Air Conditioning</option>
+ <option>Plumbing</option>
+ <option>Electrical</option>
+  <option>Painting</option>
+ <option>Restoration</option>
+ <option>Other</option>
+ </select>
+ <textarea name="message" placeholder="Short description of the issue"></textarea>
+ <button type="submit">BOOK FREE ESTIMATE &rarr;</button>
+ </form>
+ <div class="trust-row">
+ <span>🔒 Secure form</span>
+ <span>⭐ 500+ reviews</span>
+ <span>🚫 No spam</span>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <footer style="background:#111;color:#ccc" class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col">
-        <h4>ATLAS HOME PRO</h4>
-        <p>One call. Every home service. Licensed, bonded, and insured across all of Los Angeles.</p>
-        <p class="footer-phone">(213) 275-2210</p>
-        <p class="footer-email">David@AtlasHomePro.com</p>
-        <div style="margin-top:14px;">
-          <a href="https://www.instagram.com/atlas_homepro/" target="_blank" rel="noopener noreferrer" aria-label="Follow Atlas Home Pro on Instagram" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#feda75"/><stop offset="25%" style="stop-color:#fa7e1e"/><stop offset="50%" style="stop-color:#d62976"/><stop offset="75%" style="stop-color:#962fbf"/><stop offset="100%" style="stop-color:#4f5bd5"/></linearGradient></defs><path fill="url(#ig-grad)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-            <span>@atlas_homepro</span>
-          </a>
-          <a href="https://nextdoor.com/page/atlas-home-pro/" target="_blank" rel="noopener noreferrer" aria-label="Atlas Home Pro on Nextdoor" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#00B551"><path d="M12 1L2 8.5V23h7v-7.5h6V23h7V8.5L12 1zm0 2.1l7.5 5.6V21h-3v-7.5H7.5V21h-3V8.7L12 3.1z"/></svg>
-            <span>Nextdoor</span>
-          </a>
-          <a href="https://www.yelp.com/biz/atlas-home-pro-los-angeles" target="_blank" rel="noopener noreferrer" aria-label="Atlas Home Pro on Yelp" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 384 512" fill="#D32323"><path d="M42.9 240.32l99.62 48.61c19.2 9.4 16.2 37.51-4.5 42.71L30.5 358.45a22.79 22.79 0 01-28.21-19.6 197.16 197.16 0 019-85.32 22.8 22.8 0 0131.61-13.21zm44 239.25a199.45 199.45 0 0079.42 32.11A22.78 22.78 0 00192.94 490l3.9-110.82c.7-21.3-25.5-31.91-39.81-16.1l-74.21 82.4a22.82 22.82 0 004.09 34.09zm145.34-109.92l58.81 94a22.93 22.93 0 0034 5.5 198.36 198.36 0 0052.71-67.61 22.8 22.8 0 00-11.61-29.71l-102.82-46.71c-18.8-8.6-39.31 13-30.11 31.51l-.98 13.02zm-87.82-211.45l-98.72-204.12A22.82 22.82 0 0015.91 143c-1.8 36.71.3 75.32 7.1 112.32a22.8 22.8 0 0028.11 17.9l87.22-20.8c20.6-4.81 22.1-34.41 6.08-43.81v69.49zm105.03 7.81l87.51-55.31a22.82 22.82 0 006.4-33.21 198.23 198.23 0 00-65.21-56.41 22.81 22.81 0 00-31.81 8.8l-50.81 97.92c-9.8 18.8 12.9 39 33.51 25.21l20.41 13z"/></svg>
-            <span>Yelp</span>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Our Services</h4>
-        <ul>
-          <li><a href="/hvac/">HVAC</a></li>
-          <li><a href="/plumbing/">Plumbing</a></li>
-          <li><a href="/electrical/">Electrical</a></li>
-          <li><a href="/roofing/">Roofing</a></li>
-          <li><a href="/painting/">Painting</a></li>
-          <li><a href="/restoration/">Restoration</a></li>
-                    <li><a href="/iron-works/">Gates &amp; Welding</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/offers/">Current Offers</a></li>
-          <li><a href="/service-areas/">Service Areas</a></li>
-          <li><a href="/#book">Book a Free Estimate</a></li>
-          <li><a href="/learn/">Home Guides</a></li>
-          <li><a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a></li>
-          <li><a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a></li>
-          <li><a href="/learn/roofing-cost-guide/">Roofing Cost Guide</a></li>
-          <li><a href="/learn/painting-cost-guide/">Painting Cost Guide</a></li>
-          <li><a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a></li>
-          <li><a href="/privacy-policy/">Privacy Policy</a></li>
-          <li><a href="/terms-of-service/">Terms of Service</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Service Areas</h4>
-        <ul>
-          <li><a href="/service-areas/beverly-hills/">Beverly Hills</a></li>
-          <li><a href="/service-areas/santa-monica/">Santa Monica</a></li>
-          <li><a href="/service-areas/pasadena/">Pasadena</a></li>
-          <li><a href="/service-areas/burbank/">Burbank</a></li>
-          <li><a href="/service-areas/glendale/">Glendale</a></li>
-          <li><a href="/service-areas/west-hollywood/">West Hollywood</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Atlas Home Pro. All rights reserved. Licensed & Insured. Serving Los Angeles County.<br>145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
-    </div>
-  </footer><script>document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
-  item.addEventListener('click', e => {
-    if(window.innerWidth < 900) {
-      e.preventDefault();
-      const parent = item.parentElement;
-      parent.classList.toggle('open');
-      const ms = parent.querySelector('.mobile-services');
-      if(ms) ms.style.display = parent.classList.contains('open') ? 'grid' : 'none';
-      const ma = parent.querySelector('.mobile-areas');
-      if(ma) ma.style.display = parent.classList.contains('open') ? 'grid' : 'none';
-      const mb = parent.querySelector('.mobile-about');
-      if(mb) mb.style.display = parent.classList.contains('open') ? 'grid' : 'none';
-    }
-  });
+ <div class="footer-inner">
+ <div class="footer-col">
+ <h4>ATLAS HOME PRO</h4>
+ <p>One call. Every home service. Licensed, bonded, and insured across all of Los Angeles.</p>
+ <p class="footer-phone">(213) 275-2210</p>
+ <p class="footer-email">David@AtlasHomePro.com</p>
+ <div style="margin-top:14px;">
+ <a href="https://www.instagram.com/atlas_homepro/" target="_blank" rel="noopener noreferrer" aria-label="Follow Atlas Home Pro on Instagram" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+ <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#feda75"/><stop offset="25%" style="stop-color:#fa7e1e"/><stop offset="50%" style="stop-color:#d62976"/><stop offset="75%" style="stop-color:#962fbf"/><stop offset="100%" style="stop-color:#4f5bd5"/></linearGradient></defs><path fill="url(#ig-grad)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+ <span>@atlas_homepro</span>
+ </a>
+ <a href="https://nextdoor.com/page/atlas-home-pro/" target="_blank" rel="noopener noreferrer" aria-label="Atlas Home Pro on Nextdoor" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+ <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#00B551"><path d="M12 1L2 8.5V23h7v-7.5h6V23h7V8.5L12 1zm0 2.1l7.5 5.6V21h-3v-7.5H7.5V21h-3V8.7L12 3.1z"/></svg>
+ <span>Nextdoor</span>
+ </a>
+ <a href="https://www.yelp.com/biz/atlas-home-pro-los-angeles" target="_blank" rel="noopener noreferrer" aria-label="Atlas Home Pro on Yelp" style="display:inline-flex;align-items:center;gap:8px;color:#FFDC00;text-decoration:none;font-size:.85rem;transition:opacity .2s" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+ <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 384 512" fill="#D32323"><path d="M42.9 240.32l99.62 48.61c19.2 9.4 16.2 37.51-4.5 42.71L30.5 358.45a22.79 22.79 0 01-28.21-19.6 197.16 197.16 0 019-85.32 22.8 22.8 0 0131.61-13.21zm44 239.25a199.45 199.45 0 0079.42 32.11A22.78 22.78 0 00192.94 490l3.9-110.82c.7-21.3-25.5-31.91-39.81-16.1l-74.21 82.4a22.82 22.82 0 004.09 34.09zm145.34-109.92l58.81 94a22.93 22.93 0 0034 5.5 198.36 198.36 0 0052.71-67.61 22.8 22.8 0 00-11.61-29.71l-102.82-46.71c-18.8-8.6-39.31 13-30.11 31.51l-.98 13.02zm-87.82-211.45l-98.72-204.12A22.82 22.82 0 0015.91 143c-1.8 36.71.3 75.32 7.1 112.32a22.8 22.8 0 0028.11 17.9l87.22-20.8c20.6-4.81 22.1-34.41 6.08-43.81v69.49zm105.03 7.81l87.51-55.31a22.82 22.82 0 006.4-33.21 198.23 198.23 0 00-65.21-56.41 22.81 22.81 0 00-31.81 8.8l-50.81 97.92c-9.8 18.8 12.9 39 33.51 25.21l20.41 13z"/></svg>
+ <span>Yelp</span>
+ </a>
+ </div>
+ </div>
+ <div class="footer-col">
+ <h4>Our Services</h4>
+ <ul>
+ <li><a href="/hvac/">HVAC</a></li>
+ <li><a href="/plumbing/">Plumbing</a></li>
+ <li><a href="/electrical/">Electrical</a></li>
+ 
+ <li><a href="/painting/">Painting</a></li>
+ <li><a href="/restoration/">Restoration</a></li>
+ <li><a href="/gates-garage-doors/">Gates &amp; Garage Doors</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Company</h4>
+ <ul>
+ <li><a href="/offers/">Current Offers</a></li>
+ <li><a href="/service-areas/">Service Areas</a></li>
+ <li><a href="/#book">Book a Free Estimate</a></li>
+ <li><a href="/learn/">Home Guides</a></li>
+ <li><a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a></li>
+ <li><a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a></li>
+ <li></li>
+ <li><a href="/learn/painting-cost-guide/">Painting Cost Guide</a></li>
+ <li><a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a></li>
+ <li><a href="/privacy-policy/">Privacy Policy</a></li>
+ <li><a href="/terms-of-service/">Terms of Service</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Service Areas</h4>
+ <ul>
+ <li><a href="/service-areas/beverly-hills/">Beverly Hills</a></li>
+ <li><a href="/service-areas/santa-monica/">Santa Monica</a></li>
+ <li><a href="/service-areas/pasadena/">Pasadena</a></li>
+ <li><a href="/service-areas/burbank/">Burbank</a></li>
+ <li><a href="/service-areas/glendale/">Glendale</a></li>
+ <li><a href="/service-areas/west-hollywood/">West Hollywood</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>© 2026 Atlas Home Pro. All rights reserved. Licensed & Insured. Serving Los Angeles County.<br>145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
+ </div>
+ </footer><script>document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
+ item.addEventListener('click', e => {
+ if(window.innerWidth < 900) {
+ e.preventDefault();
+ const parent = item.parentElement;
+ parent.classList.toggle('open');
+ const ms = parent.querySelector('.mobile-services');
+ if(ms) ms.style.display = parent.classList.contains('open') ? 'grid' : 'none';
+ const ma = parent.querySelector('.mobile-areas');
+ if(ma) ma.style.display = parent.classList.contains('open') ? 'grid' : 'none';
+ const mb = parent.querySelector('.mobile-about');
+ if(mb) mb.style.display = parent.classList.contains('open') ? 'grid' : 'none';
+ }
+ });
 });</script></body></html>
