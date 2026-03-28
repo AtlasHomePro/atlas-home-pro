@@ -118,14 +118,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 
     <div class="fg">
       <label class="fl">Photos <span class="req">*</span></label>
-      <div class="pa" id="pa">
+      <label class="pa" id="pa" for="phin">
         <div class="pa-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
         <p>Tap to take a photo or choose from gallery</p>
         <div class="sub">Include: the part, label/data plate, model number, and a wider shot</div>
-      </div>
-      <input type="file" id="phin" accept="image/*,.jpg,.jpeg,.png,.heic,.heif,.webp" multiple style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0,0,0,0);pointer-events:none">
+        <input type="file" id="phin" accept="image/*,.jpg,.jpeg,.png,.heic,.heif,.webp" multiple style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0,0,0,0)">
+      </label>
       <div class="pp" id="pp"></div>
     </div>
 
@@ -181,32 +181,10 @@ document.querySelectorAll(".uc").forEach(c=>{
   });
 });
 
-// Photos - use a standalone function so we can attach it multiple ways
-function openPhotoPicker(e) {
-  if (e) e.preventDefault();
-  if (e) e.stopPropagation();
-  // Force the file input to trigger
-  try {
-    photoInput.value = '';
-    photoInput.click();
-  } catch(err) {
-    console.error('Photo picker error:', err);
-  }
-}
+// Photos — the <label for="phin"> natively triggers the file input on click/tap.
+// No programmatic .click() needed — this is the most reliable pattern across all browsers.
 
-// Attach click to the photo drop area — both click and touchend for max coverage
-photoArea.addEventListener("click", openPhotoPicker);
-photoArea.addEventListener("touchend", function(e) {
-  e.preventDefault();
-  openPhotoPicker();
-}, {passive: false});
-
-// Also attach to all children inside the photo area so taps on the icon/text work
-photoArea.querySelectorAll("*").forEach(function(el) {
-  el.style.pointerEvents = "none";
-});
-
-// Drag and drop
+// Drag and drop (bonus for desktop)
 photoArea.addEventListener("dragover",e=>{e.preventDefault();photoArea.classList.add("hover")});
 photoArea.addEventListener("dragleave",()=>photoArea.classList.remove("hover"));
 photoArea.addEventListener("drop",e=>{e.preventDefault();photoArea.classList.remove("hover");addPhotos([...e.dataTransfer.files].filter(f=>f.type.startsWith("image/")))});
