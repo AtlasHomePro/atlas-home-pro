@@ -286,9 +286,17 @@ export default async (request, context) => {
         phone: r.fields.phone || "",
         website: r.fields.website || "",
         la_locations: r.fields.la_locations || "",
+        address: r.fields.address || "",
+        distance_from_90036: r.fields.distance_from_90036 || "",
         pickup: r.fields.pickup || false,
         delivery: r.fields.delivery || false,
+        online_ordering: r.fields.online_ordering || false,
         preferred_contact_method: r.fields.preferred_contact_method || "",
+        order_method: r.fields.order_method || "",
+        online_ordering_url: r.fields.online_ordering_url || "",
+        priority: r.fields.priority || "",
+        supplier_type: r.fields.supplier_type || "",
+        notes: r.fields.notes || "",
       }));
 
       return jsonResponse(suppliers);
@@ -335,6 +343,25 @@ export default async (request, context) => {
       });
 
       return jsonResponse({ success: true });
+    }
+
+    // ── POST /api/suppliers/batch-update ──
+    if (path === "/suppliers/batch-update" && request.method === "POST") {
+      const body = await request.json();
+      const { updates } = body;
+      if (!updates || !Array.isArray(updates)) {
+        return jsonResponse({ error: "Need updates array" }, 400);
+      }
+      const results = [];
+      for (let i = 0; i < updates.length; i += 10) {
+        const batch = updates.slice(i, i + 10);
+        const data = await airtableFetch(SUPPLIERS_TABLE, {
+          method: "PATCH",
+          body: JSON.stringify({ records: batch.map(u => ({ id: u.id, fields: u.fields })) }),
+        });
+        results.push({ batch: i, count: data.records?.length || 0 });
+      }
+      return jsonResponse({ results });
     }
 
     return jsonResponse({ error: "Not found" }, 404);
