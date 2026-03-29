@@ -8,3 +8,10 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# No-cache headers for procurement pages so updates deploy instantly
+[[headers]]
+  for = "/procurement/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"

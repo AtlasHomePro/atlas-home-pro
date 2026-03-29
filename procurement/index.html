@@ -112,8 +112,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 
     <div class="fg">
       <label class="fl">What do you need? <span class="req">*</span></label>
-      <textarea class="ft" id="fdesc" placeholder="Describe the part, material, or equipment. Be as specific as you can." required></textarea>
-      <p class="fh">Example: "Need a 40-gal gas water heater" or "Run capacitor on rooftop unit is blown — oval, 45/5 MFD"</p>
+      <textarea class="ft" id="fdesc" placeholder="List one or more parts — put each on its own line.&#10;&#10;Example:&#10;5 forty gallon water heaters&#10;2 ball valves 3/4 inch&#10;1 roll copper pipe" rows="5" required></textarea>
+      <p class="fh">Need multiple items? Put each on its own line — each one becomes its own procurement card with suppliers.</p>
     </div>
 
     <div class="fg">
@@ -236,28 +236,51 @@ document.getElementById("form").addEventListener("submit",async e=>{
   btn.innerHTML='<span class="spin"></span>Submitting...';
 
   try{
-    const fd=new FormData();
-    fd.append("name",name);
-    fd.append("jobAddress",job);
-    fd.append("description",desc);
-    fd.append("urgency",urgency);
-    fd.append("trade",trade);
-    photos.forEach(f=>fd.append("photos",f));
+    // Split multi-line descriptions into separate items
+    const items = desc.split("\n").map(s => s.trim()).filter(s => s.length > 0);
+    const totalItems = items.length;
+    let successCount = 0;
+    let photoWarning = false;
 
-    const r=await fetch("/api/requests",{method:"POST",body:fd});
-    const data=await r.json();
-    if(!r.ok) throw new Error(data.error||"Submission failed");
+    for (let i = 0; i < items.length; i++) {
+      btn.innerHTML = totalItems > 1
+        ? `<span class="spin"></span>Submitting ${i+1} of ${totalItems}...`
+        : '<span class="spin"></span>Submitting...';
+
+      const fd = new FormData();
+      fd.append("name", name);
+      fd.append("jobAddress", job);
+      fd.append("description", items[i]);
+      fd.append("urgency", urgency);
+      fd.append("trade", trade);
+      // Attach photos only to the first item
+      if (i === 0) photos.forEach(f => fd.append("photos", f));
+
+      const r = await fetch("/api/requests", { method: "POST", body: fd });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || "Submission failed for: " + items[i]);
+      successCount++;
+
+      if (i === 0 && photos.length > 0 && data.photosUploaded < photos.length) {
+        photoWarning = true;
+      }
+    }
 
     // Show success
     document.getElementById("form").style.display="none";
     document.getElementById("success").style.display="block";
 
-    // Show photo upload status if photos were included
-    if(photos.length > 0 && data.photosUploaded < photos.length) {
-      const msg = data.photosUploaded === 0
-        ? "Note: Photos could not be uploaded, but your request was saved. Please share photos with your coordinator."
-        : `${data.photosUploaded} of ${photos.length} photos uploaded. Please share remaining photos with your coordinator.`;
-      document.getElementById("success").querySelector("p").textContent = msg;
+    const successEl = document.getElementById("success");
+    if (totalItems > 1) {
+      successEl.querySelector("h2").textContent = `${successCount} Requests Submitted`;
+      successEl.querySelector("p").textContent = `All ${successCount} items submitted. Each will get its own procurement card with supplier info.`;
+    } else {
+      successEl.querySelector("h2").textContent = "Request Submitted";
+      successEl.querySelector("p").textContent = "The AI is processing your request now. Your coordinator will have a complete procurement card with supplier recommendations within minutes.";
+    }
+
+    if (photoWarning) {
+      successEl.querySelector("p").textContent += " Note: Some photos could not be uploaded — share them with your coordinator.";
     }
   }catch(err){
     console.error(err);
