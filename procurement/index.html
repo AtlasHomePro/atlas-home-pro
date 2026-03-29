@@ -117,7 +117,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
     </div>
 
     <div class="fg">
-      <label class="fl">Photos <span class="req">*</span></label>
+      <label class="fl">Photos <span style="font-weight:400;color:var(--g400)">(optional)</span></label>
       <label class="pa" id="pa" for="phin">
         <div class="pa-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
@@ -227,7 +227,6 @@ document.getElementById("form").addEventListener("submit",async e=>{
 
   if(!name){toast("Please enter your name","error");return}
   if(!desc){toast("Please describe what you need","error");return}
-  if(photos.length===0){toast("Please add at least one photo","error");return}
   if(!urgency){toast("Please select urgency","error");return}
 
   const btn=document.getElementById("sbtn");
@@ -250,6 +249,14 @@ document.getElementById("form").addEventListener("submit",async e=>{
     // Show success
     document.getElementById("form").style.display="none";
     document.getElementById("success").style.display="block";
+
+    // Show photo upload status if photos were included
+    if(photos.length > 0 && data.photosUploaded < photos.length) {
+      const msg = data.photosUploaded === 0
+        ? "Note: Photos could not be uploaded, but your request was saved. Please share photos with your coordinator."
+        : `${data.photosUploaded} of ${photos.length} photos uploaded. Please share remaining photos with your coordinator.`;
+      document.getElementById("success").querySelector("p").textContent = msg;
+    }
   }catch(err){
     console.error(err);
     toast("Failed: "+err.message,"error");

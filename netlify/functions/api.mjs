@@ -48,20 +48,25 @@ async function parseMultipart(request) {
     const files = [];
 
     for (const [key, value] of formData.entries()) {
-      if (value instanceof File || (value && typeof value === "object" && value.arrayBuffer)) {
+      // In Netlify Functions v2 (Web API), files come as Blob objects, not File.
+      // Check for Blob-like objects: has arrayBuffer method AND a type/size property.
+      const isFileLike = value && typeof value === "object" && typeof value.arrayBuffer === "function" && (value.type || value.size > 0);
+      if (isFileLike && typeof value !== "string") {
         try {
           const buffer = await value.arrayBuffer();
-          files.push({
-            fieldname: key,
-            originalname: value.name || `photo_${Date.now()}.jpg`,
-            mimetype: value.type || "image/jpeg",
-            buffer: Buffer.from(buffer),
-          });
+          if (buffer.byteLength > 0) {
+            files.push({
+              fieldname: key,
+              originalname: value.name || `photo_${Date.now()}.jpg`,
+              mimetype: value.type || "image/jpeg",
+              buffer: Buffer.from(buffer),
+            });
+          }
         } catch (e) {
           console.log("File parse error:", e.message);
         }
       } else {
-        fields[key] = value;
+        fields[key] = typeof value === "string" ? value : String(value);
       }
     }
     return { fields, files };
@@ -79,31 +84,61 @@ async function parseMultipart(request) {
 // ── Helper: Upload photo directly to Airtable via Upload Attachment API ──
 // Uses Airtable's content API to upload base64-encoded files — no external hosting needed.
 const AIRTABLE_CONTENT_API = "https://content.airtable.com/v0";
-const PHOTOS_FIELD = "photos"; // Attachment field name in Procurement Requests
+const PHOTOS_FIELD_NAME = "photos"; // Attachment field name in Procurement Requests
+const PHOTOS_FIELD_ID = "fldm4V43zIiBVHTVx"; // Field ID for photos attachment column
 
 async function uploadToAirtable(recordId, buffer, filename, mimetype) {
   const base64 = Buffer.from(buffer).toString("base64");
-  const resp = await fetch(
-    `${AIRTABLE_CONTENT_API}/${BASE_ID}/${recordId}/${PHOTOS_FIELD}/uploadAttachment`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        contentType: mimetype || "image/jpeg",
-        file: base64,
-        filename: filename || `photo_${Date.now()}.jpg`,
-      }),
-    }
-  );
-  if (!resp.ok) {
-    const err = await resp.text();
-    console.log("Airtable upload error:", resp.status, err);
-    return false;
+
+  // Try Upload Attachment API with field ID (more reliable than field name)
+  try {
+    const resp = await fetch(
+      `${AIRTABLE_CONTENT_API}/${BASE_ID}/${recordId}/${PHOTOS_FIELD_ID}/uploadAttachment`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contentType: mimetype || "image/jpeg",
+          file: base64,
+          filename: filename || `photo_${Date.now()}.jpg`,
+        }),
+      }
+    );
+    if (resp.ok) return true;
+    const errText = await resp.text();
+    console.log("Content API error (field ID):", resp.status, errText);
+  } catch (e) {
+    console.log("Content API fetch error:", e.message);
   }
-  return true;
+
+  // Fallback: try with field name instead of field ID
+  try {
+    const resp2 = await fetch(
+      `${AIRTABLE_CONTENT_API}/${BASE_ID}/${recordId}/${PHOTOS_FIELD_NAME}/uploadAttachment`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contentType: mimetype || "image/jpeg",
+          file: base64,
+          filename: filename || `photo_${Date.now()}.jpg`,
+        }),
+      }
+    );
+    if (resp2.ok) return true;
+    const errText2 = await resp2.text();
+    console.log("Content API error (field name):", resp2.status, errText2);
+  } catch (e2) {
+    console.log("Content API fallback error:", e2.message);
+  }
+
+  return false;
 }
 
 // ════════════════════════════════════════════════════════════════
@@ -210,14 +245,25 @@ export default async (request, context) => {
         body: JSON.stringify({ fields: recordFields }),
       });
 
-      // Step 2: Upload photos directly to Airtable via content API
+      // Step 2: Upload photos directly to Airtable via content API (if any)
       let uploadedCount = 0;
+      let uploadErrors = [];
       for (const file of files) {
         const ok = await uploadToAirtable(record.id, file.buffer, file.originalname, file.mimetype);
-        if (ok) uploadedCount++;
+        if (ok) {
+          uploadedCount++;
+        } else {
+          uploadErrors.push(file.originalname);
+        }
       }
 
-      return jsonResponse({ success: true, id: record.id, photosUploaded: uploadedCount });
+      return jsonResponse({
+        success: true,
+        id: record.id,
+        photosUploaded: uploadedCount,
+        photosTotal: files.length,
+        ...(uploadErrors.length > 0 && { photoErrors: uploadErrors }),
+      });
     }
 
     // ── GET /api/suppliers ──
