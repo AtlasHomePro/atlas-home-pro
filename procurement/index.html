@@ -159,7 +159,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
     </div>
     <h2>Request Submitted</h2>
     <p>The AI is processing your request now. Your coordinator will have a complete procurement card with supplier recommendations within minutes.</p>
-    <button onclick="resetForm()">Submit Another Request</button>
+    <button onclick="resetFormKeepJob()" style="margin-bottom:10px">Submit Another Part for This Job</button>
+    <br>
+    <button onclick="resetForm()" style="background:var(--white);color:var(--black);border:1px solid var(--g200)">Start Fresh Request</button>
   </div>
 </div>
 
@@ -273,6 +275,25 @@ function resetForm(){
   urgency=null;photos=[];
   document.querySelectorAll(".uc").forEach(c=>c.classList.remove("on"));
   renderPhotos();
+}
+
+function resetFormKeepJob(){
+  const name=document.getElementById("fname").value;
+  const job=document.getElementById("fjob").value;
+  const tradeEl=document.getElementById("ftrade");
+  const trade=tradeEl?tradeEl.value:"";
+  document.getElementById("form").style.display="block";
+  document.getElementById("success").style.display="none";
+  document.getElementById("form").reset();
+  // Restore name, address, and trade
+  document.getElementById("fname").value=name;
+  document.getElementById("fjob").value=job;
+  if(tradeEl)tradeEl.value=trade;
+  urgency=null;photos=[];
+  document.querySelectorAll(".uc").forEach(c=>c.classList.remove("on"));
+  renderPhotos();
+  // Focus on description for quick entry
+  document.getElementById("fdesc").focus();
 }
 
 function toast(msg,type){
