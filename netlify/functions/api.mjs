@@ -76,44 +76,34 @@ async function parseMultipart(request) {
   }
 }
 
-// ── Helper: Upload photo to temp host for Airtable attachment ──
-async function uploadToTempHost(buffer, filename, mimetype) {
-  // Try tmpfiles.org first
-  try {
-    const formData = new FormData();
-    const blob = new Blob([buffer], { type: mimetype });
-    formData.append("file", blob, filename);
-    const resp = await fetch("https://tmpfiles.org/api/v1/upload", {
-      method: "POST",
-      body: formData,
-    });
-    if (resp.ok) {
-      const data = await resp.json();
-      const directUrl = data.data.url.replace("tmpfiles.org/", "tmpfiles.org/dl/");
-      return { url: directUrl };
-    }
-  } catch (e) {
-    console.log("tmpfiles.org failed:", e.message);
-  }
+// ── Helper: Upload photo directly to Airtable via Upload Attachment API ──
+// Uses Airtable's content API to upload base64-encoded files — no external hosting needed.
+const AIRTABLE_CONTENT_API = "https://content.airtable.com/v0";
+const PHOTOS_FIELD = "photos"; // Attachment field name in Procurement Requests
 
-  // Try file.io as fallback
-  try {
-    const formData = new FormData();
-    const blob = new Blob([buffer], { type: mimetype });
-    formData.append("file", blob, filename);
-    const resp = await fetch("https://file.io/?expires=1h", {
+async function uploadToAirtable(recordId, buffer, filename, mimetype) {
+  const base64 = Buffer.from(buffer).toString("base64");
+  const resp = await fetch(
+    `${AIRTABLE_CONTENT_API}/${BASE_ID}/${recordId}/${PHOTOS_FIELD}/uploadAttachment`,
+    {
       method: "POST",
-      body: formData,
-    });
-    if (resp.ok) {
-      const data = await resp.json();
-      if (data.success) return { url: data.link };
+      headers: {
+        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contentType: mimetype || "image/jpeg",
+        file: base64,
+        filename: filename || `photo_${Date.now()}.jpg`,
+      }),
     }
-  } catch (e) {
-    console.log("file.io failed:", e.message);
+  );
+  if (!resp.ok) {
+    const err = await resp.text();
+    console.log("Airtable upload error:", resp.status, err);
+    return false;
   }
-
-  return null;
+  return true;
 }
 
 // ════════════════════════════════════════════════════════════════
@@ -203,13 +193,7 @@ export default async (request, context) => {
         return jsonResponse({ error: "Name, description, and urgency are required" }, 400);
       }
 
-      // Upload photos
-      const attachments = [];
-      for (const file of files) {
-        const result = await uploadToTempHost(file.buffer, file.originalname, file.mimetype);
-        if (result) attachments.push(result);
-      }
-
+      // Step 1: Create the record (without photos)
       const recordFields = {
         submitted_by: name,
         raw_description: description,
@@ -220,14 +204,20 @@ export default async (request, context) => {
 
       if (jobAddress) recordFields.job_address = jobAddress;
       if (trade) recordFields.trade = trade;
-      if (attachments.length > 0) recordFields.photos = attachments;
 
       const record = await airtableFetch(PROCUREMENT_TABLE, {
         method: "POST",
         body: JSON.stringify({ fields: recordFields }),
       });
 
-      return jsonResponse({ success: true, id: record.id });
+      // Step 2: Upload photos directly to Airtable via content API
+      let uploadedCount = 0;
+      for (const file of files) {
+        const ok = await uploadToAirtable(record.id, file.buffer, file.originalname, file.mimetype);
+        if (ok) uploadedCount++;
+      }
+
+      return jsonResponse({ success: true, id: record.id, photosUploaded: uploadedCount });
     }
 
     // ── GET /api/suppliers ──
