@@ -164,14 +164,17 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .photo-strip-caption{position:absolute;bottom:12px;left:16px;color:#fff;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:1}
 
 /* === TRUST SECTION === */
-.trust-section{background:#f5f5f5;padding:80px 5%}
-.trust-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.trust-content .trust-label{display:inline-block;background:#111;color:#fff;font-size:.68rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:14px}
-.trust-content h2{font-size:2rem;font-weight:900;color:#111;margin-bottom:12px;line-height:1.15}
+.trust-section{position:relative;background:#111;padding:80px 5%;overflow:hidden}
+.trust-bg{position:absolute;inset:0;z-index:0}
+.trust-bg img{width:100%;height:100%;object-fit:cover;opacity:0.25}
+.trust-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,0.92) 0%,rgba(17,17,17,0.8) 50%,rgba(17,17,17,0.7) 100%)}
+.trust-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.trust-content .trust-label{display:inline-block;background:rgba(255,230,0,0.15);border:1px solid rgba(255,230,0,0.35);color:#ffe600;font-size:.68rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:14px}
+.trust-content h2{font-size:2rem;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.15}
 .trust-content h2 em{color:#ffe600;font-style:italic;font-family:'Playfair Display',serif}
-.trust-content p{color:#666;font-size:.95rem;line-height:1.65;margin-bottom:24px}
+.trust-content p{color:rgba(255,255,255,0.7);font-size:.95rem;line-height:1.65;margin-bottom:24px}
 .trust-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:14px}
-.trust-list li{display:flex;align-items:center;gap:12px;font-size:.93rem;color:#333;font-weight:500}
+.trust-list li{display:flex;align-items:center;gap:12px;font-size:.93rem;color:rgba(255,255,255,0.85);font-weight:500}
 .trust-list li svg{width:20px;height:20px;flex-shrink:0}
 .guarantee-card{background:rgba(10,10,10,0.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #ffe600;border-radius:16px;padding:36px 32px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,0.15)}
 .guarantee-card .shield{width:56px;height:56px;background:rgba(255,230,0,0.12);border:1px solid rgba(255,230,0,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
@@ -327,28 +330,38 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  <div class="mega-col">
  <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
- <a href="/electrical/">All Electrical Services</a>
+ <a href="/electrical/panel-upgrades/">Panel Upgrades</a>
+ <a href="/electrical/ev-chargers/">EV Chargers</a>
+ <a href="/electrical/whole-home-rewiring/">Whole-Home Rewiring</a>
+ <a href="/electrical/lighting/">Lighting</a>
+ <a href="/electrical/generators/">Generators</a>
+ <a href="/electrical/smart-home/">Smart Home</a>
+ <a href="/electrical/solar-wiring/">Solar Wiring</a>
+ <a href="/gates-garage-doors/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Garage Doors</a>
+ <a href="/gates-garage-doors/garage-door-repair/">Garage Door Repair</a>
+ <a href="/gates-garage-doors/electric-gate-repair/">Electric Gate Repair</a>
+ <a href="/gates-garage-doors/custom-gate-installation/">Custom Gates</a>
  </div>
  <div class="mega-col">
  <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
  <a href="/painting/interior/">Interior</a>
  <a href="/painting/exterior/">Exterior</a>
  <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
- <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration & More</a>
- <a href="/restoration/">Restoration</a>
- <a href="/gates-garage-doors/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Garage Doors</a>
- <a href="/gates-garage-doors/garage-door-repair/">Garage Door Repair</a>
- <a href="/gates-garage-doors/electric-gate-repair/">Electric Gate Repair</a>
- <a href="/gates-garage-doors/custom-gate-installation/">Custom Gates</a>
+ <a href="/painting/drywall-repair/">Drywall Repair</a>
+ <a href="/painting/color-consultation/">Color Consultation</a>
+ <a href="/painting/specialty-finishes/">Specialty Finishes</a>
+ <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration</a>
+ <a href="/restoration/">Water Damage Restoration</a>
  </div>
  </div>
  <div class="mobile-services">
  <a href="/plumbing/"><span class="ms-icon">🔧</span> Plumbing</a>
  <a href="/hvac/"><span class="ms-icon">❄️</span> HVAC</a>
  <a href="/electrical/"><span class="ms-icon">⚡</span> Electrical</a>
- 
  <a href="/painting/"><span class="ms-icon">🎨</span> Painting</a>
  <a href="/restoration/"><span class="ms-icon">💧</span> Restoration</a>
+ <a href="/gates-garage-doors/"><span class="ms-icon">🚪</span> Gates &amp; Garage Doors</a>
+ <a href="/gates-garage-doors/"><span class="ms-icon">🚪</span> Gates &amp; Garage Doors</a>
  <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
  </div>
  </div>
@@ -393,7 +406,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  
  <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
  <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
- <a href="/learn/security-gate-cost-guide/">Gate Cost Guide</a>
+ <a href="/learn/security-gate-cost-guide/">Gate &amp; Garage Door Cost Guide</a>
  </div>
  </div>
  <div class="nav-item has-dropdown">
@@ -731,6 +744,9 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <!-- TRUST SECTION -->
 <!-- ===================== -->
 <section class="trust-section">
+ <div class="trust-bg">
+  <picture><source type="image/webp" srcset="/images/reviews/trust-bg-mobile.webp 600w, /images/reviews/trust-bg.webp 1200w" sizes="(max-width: 768px) 100vw, 1200px"><img src="/images/reviews/trust-bg.jpg" alt="Atlas Home Pro van at a West Los Angeles home" loading="lazy" width="1200" height="900"></picture>
+ </div>
  <div class="trust-inner">
  <div class="trust-content">
  <span class="trust-label">WHY TRUST US</span>

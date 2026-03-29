@@ -151,3 +151,47 @@
 /service-areas/west-hollywood/gates-welding   /service-areas/west-hollywood/gates-garage-doors/  301
 /service-areas/windsor-square/gates-welding/  /service-areas/windsor-square/gates-garage-doors/  301
 /service-areas/windsor-square/gates-welding   /service-areas/windsor-square/gates-garage-doors/  301
+
+# Broken link fixes — March 2026 audit
+# Missing service area pages → service areas hub
+/service-areas/encino/            /service-areas/  301
+/service-areas/encino              /service-areas/  301
+/service-areas/sherman-oaks/      /service-areas/  301
+/service-areas/sherman-oaks        /service-areas/  301
+/service-areas/studio-city/       /service-areas/  301
+/service-areas/studio-city         /service-areas/  301
+
+# Missing service area sub-pages → parent area page
+/service-areas/marina-del-rey/hvac/              /service-areas/marina-del-rey/  301
+/service-areas/marina-del-rey/plumbing/          /service-areas/marina-del-rey/  301
+/service-areas/marina-del-rey/electrical/        /service-areas/marina-del-rey/  301
+/service-areas/marina-del-rey/painting/          /service-areas/marina-del-rey/  301
+/service-areas/marina-del-rey/water-restoration/ /service-areas/marina-del-rey/  301
+/service-areas/marina-del-rey/gates-welding/     /service-areas/marina-del-rey/  301
+/service-areas/silver-lake/hvac/                 /service-areas/silver-lake/  301
+/service-areas/silver-lake/plumbing/             /service-areas/silver-lake/  301
+/service-areas/silver-lake/electrical/           /service-areas/silver-lake/  301
+/service-areas/silver-lake/painting/             /service-areas/silver-lake/  301
+/service-areas/silver-lake/water-restoration/    /service-areas/silver-lake/  301
+/service-areas/silver-lake/gates-welding/        /service-areas/silver-lake/  301
+/service-areas/west-los-angeles/hvac/              /service-areas/west-los-angeles/  301
+/service-areas/west-los-angeles/plumbing/          /service-areas/west-los-angeles/  301
+/service-areas/west-los-angeles/electrical/        /service-areas/west-los-angeles/  301
+/service-areas/west-los-angeles/painting/          /service-areas/west-los-angeles/  301
+/service-areas/west-los-angeles/water-restoration/ /service-areas/west-los-angeles/  301
+/service-areas/west-los-angeles/gates-welding/     /service-areas/west-los-angeles/  301
+
+# Missing learn articles → learn hub
+/learn/curb-appeal-los-angeles/     /learn/  301
+/learn/emergency-plumbing/          /learn/  301
+/learn/home-security-basics/        /learn/  301
+/learn/smart-home-security/         /learn/  301
+/learn/water-heater-maintenance/    /learn/  301
+
+# Missing utility pages
+/get-quote/     /contact/  301
+/get-quote       /contact/  301
+/privacy/        /  301
+/privacy          /  301
+/terms/          /  301
+/terms            /  301
