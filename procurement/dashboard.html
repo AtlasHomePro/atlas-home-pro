@@ -86,7 +86,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .csec{margin-top:14px}
 .csec-title{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--g500);margin-bottom:8px}
 .csec-text{font-size:.8125rem;color:var(--dark);line-height:1.6;white-space:pre-wrap}
-.csec-text.script{background:var(--g50);border:1px solid var(--g200);border-radius:8px;padding:12px;font-size:.8rem}
+
 
 /* Supplier row */
 .sup-row{padding:10px 12px;background:var(--g50);border-radius:8px;margin-bottom:6px}
@@ -433,17 +433,7 @@ function renderCard(r) {
         </div>
       </div>
 
-      ${r.coordinator_script ? `
-      <div class="csec">
-        <div class="csec-title">Coordinator Script</div>
-        <div class="csec-text script">${esc(r.coordinator_script)}</div>
-      </div>` : ""}
 
-      ${r.coordinator_notes ? `
-      <div class="csec">
-        <div class="csec-title">Notes</div>
-        <div class="csec-text">${esc(r.coordinator_notes)}</div>
-      </div>` : ""}
 
       ${r.status !== "Fulfilled" && r.status !== "Cancelled" ? `
       <div class="status-bar">
