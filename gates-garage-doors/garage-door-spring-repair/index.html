@@ -509,6 +509,87 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  .footer-col:first-child h4::after{display:none}
  .footer-col:first-child p,.footer-col:first-child .footer-phone,.footer-col:first-child .footer-email,.footer-col:first-child > div{display:block}
 }
+
+/* Gallery carousel */
+.gallery-carousel{position:relative;overflow:hidden}
+.gallery-track{display:flex;gap:16px;transition:transform 0.4s ease;padding:0 0 20px}
+.gallery-slide{flex-shrink:0;width:280px;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.gallery-slide img{width:100%;height:200px;object-fit:cover;display:block}
+.gallery-caption{padding:10px 14px;font-size:.82rem;font-weight:600;color:#333;text-align:center}
+.gallery-prev,.gallery-next{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:#FFDC00;border:none;cursor:pointer;font-size:20px;font-weight:bold;z-index:2;display:flex;align-items:center;justify-content:center}
+.gallery-prev{left:8px}
+.gallery-next{right:8px}
+@media(max-width:768px){.gallery-slide{width:240px}}
+
+/* Promos section */
+.promos-section{padding:60px 20px;background:#fafafa;text-align:center}
+.promos-section h2{font-size:2rem;margin-bottom:8px}
+.promos-section h2 span{color:#FFDC00}
+.promos-section>p{color:#666;margin-bottom:40px;font-size:1rem}
+.promos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.promo-card{background:#fff;border-radius:12px;padding:32px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:2px solid #f0f0f0;transition:transform .2s,box-shadow .2s;text-align:left;position:relative;overflow:hidden}
+.promo-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.promo-badge{display:inline-block;background:#FFDC00;color:#111;font-size:.7rem;font-weight:800;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.promo-title{font-size:1.15rem;font-weight:700;color:#111;margin-bottom:12px}
+.promo-pricing{margin-bottom:16px}
+.promo-price{font-size:2rem;font-weight:900;color:#111}
+.promo-was{font-size:.85rem;color:#c0c0c0;text-decoration:line-through;margin-left:8px}
+.promo-checklist{list-style:none;padding:0;margin:0 0 16px}
+.promo-checklist li{padding:6px 0;font-size:.88rem;color:#444}
+.promo-checklist li::before{content:'\2713';color:#FFDC00;font-weight:700;margin-right:8px}
+.promo-fees{font-size:.82rem;font-weight:700;color:#2a7d2a;margin-bottom:20px}
+.promo-cta{display:block;width:100%;padding:14px;background:#FFDC00;color:#111;font-weight:800;font-size:1rem;border:none;border-radius:8px;cursor:pointer;text-align:center;text-decoration:none;transition:background .2s}
+.promo-cta:hover{background:#e6c200}
+
+/* Reviews section */
+.reviews-section{padding:60px 20px;text-align:center}
+.reviews-section h2{font-size:2rem;margin-bottom:8px}
+.reviews-section h2 span{color:#FFDC00}
+.reviews-section>p{color:#666;margin-bottom:40px;font-size:1rem}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.review-card{background:#fff;border-radius:12px;padding:28px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:2px solid #f0f0f0;text-align:left;transition:transform .2s}
+.review-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.review-stars{color:#FFDC00;font-size:1rem;margin-bottom:12px}
+.review-text{font-size:.9rem;color:#333;line-height:1.6;margin-bottom:16px;font-style:italic}
+.review-author{font-size:.85rem;font-weight:700;color:#111}
+.review-location{font-size:.78rem;color:#767676;margin-top:2px}
+.review-badge{display:inline-block;background:#f0f7f0;color:#34a853;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:12px;margin-top:8px}
+.trust-badges{display:flex;justify-content:center;gap:20px;margin:0 0 30px}
+.trust-badge{text-align:center;padding:16px 24px;background:#f9f9f9;border-radius:12px;min-width:120px}
+.trust-badge-icon{margin-bottom:4px}
+.trust-badge-stars{color:#FFDC00;font-size:0.95rem;font-weight:600}
+.trust-badge-label{font-size:0.75rem;color:#666;margin-top:2px}
+
+/* Guide cards */
+.guide-card{display:flex;align-items:center;gap:12px;padding:16px 20px;background:#fff;border:1px solid #eee;border-radius:10px;text-decoration:none;color:#111;transition:all .2s;font-size:.92rem}
+.guide-card:hover{border-color:#FFDC00;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.guide-icon{font-size:1.3rem;flex-shrink:0}
+.guide-title{flex:1;font-weight:600}
+.guide-arrow{color:#FFDC00;font-weight:700;font-size:1.2rem;flex-shrink:0}
+
+/* Brands strip */
+.brands-strip{padding:48px 20px;background:#fff;text-align:center;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.brands-strip .section-label{font-size:.7rem;font-weight:800;letter-spacing:3px;color:#FFDC00;text-transform:uppercase;margin-bottom:16px}
+.brands-strip h3{font-size:1.4rem;font-weight:800;margin-bottom:24px;color:#111}
+.brands-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:900px;margin:0 auto}
+.brand-tag{display:inline-block;padding:8px 20px;background:#f9f9f9;border:1px solid #eee;border-radius:8px;font-size:.85rem;font-weight:600;color:#333;transition:all .2s}
+.brand-tag:hover{border-color:#FFDC00;background:#fffde6}
+
+/* Hood links */
+.hood-links-section a:not([style*="inline-block"]){display:inline-block;padding:8px 18px;background:#fff;border:1px solid #ddd;border-radius:8px;text-decoration:none;color:#333;font-size:.88rem;font-weight:500;transition:all .2s}
+.hood-links-section a:not([style*="inline-block"]):hover{border-color:#FFDC00;background:#fffde6;color:#111}
+
+@media(max-width:768px){
+ .promos-grid{grid-template-columns:1fr}
+ .reviews-grid{grid-template-columns:1fr}
+ .promo-card{padding:24px 20px}
+ .trust-badges{gap:12px;margin:16px 0 20px}
+ .trust-badge{padding:12px 16px;min-width:100px}
+ .trust-badge-icon span{font-size:1.1rem !important}
+ .brands-grid{gap:10px}
+ .brand-tag{padding:6px 14px;font-size:.8rem}
+}
+
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Atlas Home Pro" />
@@ -665,33 +746,32 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 
 <div class="proof-bar">
  <div class="proof-track">
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Sarah in Beverly Hills just booked Spring Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">🔧</span><span class="proof-text">Licensed &amp; Insured — Gates &amp; Garage Doors</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Michael in Brentwood just booked Gate Motor Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Same-Day Service Available</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">David in Pacific Palisades just booked Opener Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">🔧</span><span class="proof-text">6-Month Guarantee on All Work</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Lisa in Santa Monica just booked Custom Gate Install</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Upfront Pricing — No Hidden Fees</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">James in West Hollywood just booked Emergency Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">🔧</span><span class="proof-text">Background-Checked Technicians</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Elena in Hancock Park just booked Garage Door Tune-Up</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Satisfaction Guaranteed — Every Job</span></div><div class="proof-divider"></div>
-
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Sarah in Beverly Hills just booked Spring Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">🔧</span><span class="proof-text">Licensed &amp; Insured — Gates &amp; Garage Doors</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Michael in Brentwood just booked Gate Motor Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Same-Day Service Available</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">David in Pacific Palisades just booked Opener Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">🔧</span><span class="proof-text">6-Month Guarantee on All Work</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Lisa in Santa Monica just booked Custom Gate Install</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Upfront Pricing — No Hidden Fees</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">James in West Hollywood just booked Emergency Repair</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">🔧</span><span class="proof-text">Background-Checked Technicians</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Elena in Hancock Park just booked Garage Door Tune-Up</span></div><div class="proof-divider"></div>
-<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Satisfaction Guaranteed — Every Job</span></div><div class="proof-divider"></div>
-
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Rachel in Beverly Hills rated us 5 stars — "Gate installed beautifully."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Marcus in Brentwood just booked Garage Door Spring Repair</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">500+ Gate &amp; Garage Door Jobs Completed in LA</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Karen in Pacific Palisades — "Same-day spring replacement. Excellent work."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Tony in West Hollywood just booked Electric Gate Repair</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">Licensed &amp; Insured — CA Contractor License</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Steven in Santa Monica rated us 5 stars — "Custom gate exceeded expectations."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Diana in Hancock Park just booked Gate Access Control</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Same-Day Emergency Service Available</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">James in Century City — "Opener fixed in under an hour. Very professional."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Laura in Westwood just booked Custom Gate Installation</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">A+ Rated by the Better Business Bureau</span></div><div class="proof-divider"></div>
+ <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Rachel in Beverly Hills rated us 5 stars — "Gate installed beautifully."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Marcus in Brentwood just booked Garage Door Spring Repair</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">500+ Gate &amp; Garage Door Jobs Completed in LA</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Karen in Pacific Palisades — "Same-day spring replacement. Excellent work."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Tony in West Hollywood just booked Electric Gate Repair</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">Licensed &amp; Insured — CA Contractor License</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Steven in Santa Monica rated us 5 stars — "Custom gate exceeded expectations."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Diana in Hancock Park just booked Gate Access Control</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Same-Day Emergency Service Available</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">James in Century City — "Opener fixed in under an hour. Very professional."</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Laura in Westwood just booked Custom Gate Installation</span></div><div class="proof-divider"></div>
+<div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">A+ Rated by the Better Business Bureau</span></div><div class="proof-divider"></div>
  </div>
+</div>
 </div>
 
 <section style="padding:60px 5% 50px;max-width:1200px;margin:0 auto">
@@ -708,7 +788,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 </div>
 </div>
 <div class="hero-img-wrap" style="text-align:center">
-<img src="../../images/gates/hero.webp" alt="Premium iron driveway gate at a Los Angeles luxury home" width="600" height="400" loading="eager">
+<img src="../../images/gates/hero.webp" alt="Garage door spring repair technician in Los Angeles" width="600" height="400" loading="eager">
 </div>
 </div>
 </section>
@@ -739,7 +819,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <section style="padding:60px 5%;max-width:1100px;margin:0 auto">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" class="book-grid">
 <div>
-<img src="../../images/gates/detail.webp" alt="Custom wrought iron security gate with decorative scrollwork" style="width:100%;height:360px;object-fit:cover;border-radius:12px" loading="lazy">
+<img src="../../images/gates/detail.webp" alt="Commercial-grade torsion spring installation on garage door" style="width:100%;height:360px;object-fit:cover;border-radius:12px" loading="lazy">
 </div>
 <div>
 <div style="font-size:.7rem;font-weight:800;letter-spacing:3px;color:#FFDC00;text-transform:uppercase;margin-bottom:10px">WHY ATLAS HOME PRO</div>
@@ -781,6 +861,119 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <p style="font-size:.92rem;color:#555;line-height:1.7">We carry the most common spring sizes on our trucks. In most cases, we can complete the replacement during the same visit — often within 60 to 90 minutes of arrival.</p>
 </div>
 
+</section>
+
+
+<section style="padding:80px 0;background:#f7f7f7"><div style="max-width:1200px;margin:0 auto;padding:0 24px"><p style="color:#FFDC00;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;text-align:center">OUR WORK</p><h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);text-align:center;margin-bottom:8px">Garage Door Spring Repair Across <em style="color:#FFDC00;font-style:italic">Los Angeles</em></h2><p style="text-align:center;color:#555;max-width:600px;margin:0 auto 40px;font-family:'Manrope',sans-serif">Real jobs. Real results. See our Atlas Home Pro team in action across the greater LA area.</p><div class="gallery-carousel" style="position:relative;overflow:hidden"><div class="gallery-track" style="display:flex;gap:16px;transition:transform 0.4s ease;padding:0 0 20px"><div class="gallery-slide"><img src="../../images/gates/hero.webp" alt="Premium iron driveway gate installation in Beverly Hills" loading="lazy" width="560" height="400"><div class="gallery-caption">Custom Iron Gate — Beverly Hills</div></div>
+<div class="gallery-slide"><img src="../../images/gates/detail.webp" alt="Gate automation and motor installation" loading="lazy" width="560" height="400"><div class="gallery-caption">Gate Motor Installation</div></div>
+<div class="gallery-slide"><img src="../../images/trades/gates.webp" alt="Wrought iron security gate Los Angeles" loading="lazy" width="560" height="400"><div class="gallery-caption">Wrought Iron Security Gate</div></div>
+<div class="gallery-slide"><img src="../../gates-garage-doors/security-gate-beverly-hills.png" alt="Security gate installation Beverly Hills" loading="lazy" width="560" height="400"><div class="gallery-caption">Security Gate — Beverly Hills</div></div>
+<div class="gallery-slide"><img src="../../gates-garage-doors/svc-security-gate.png" alt="Electric gate service and repair" loading="lazy" width="560" height="400"><div class="gallery-caption">Electric Gate Service</div></div></div><button class="gallery-prev" onclick="slideGallery(-1)">&#8249;</button><button class="gallery-next" onclick="slideGallery(1)">&#8250;</button></div></div></section>
+
+<section class="reviews-section">
+<h2>Spring Repair <span>Customer Reviews</span></h2>
+<p>What LA homeowners say about our spring repair service</p>
+<div class="trust-badges">
+ <div class="trust-badge">
+  <div class="trust-badge-icon">
+   <span style="font-size:1.6rem;font-weight:700;color:#4285F4;">G</span><span style="font-size:1.6rem;font-weight:700;color:#EA4335;">o</span><span style="font-size:1.6rem;font-weight:700;color:#FBBC05;">o</span><span style="font-size:1.6rem;font-weight:700;color:#4285F4;">g</span><span style="font-size:1.6rem;font-weight:700;color:#34A853;">l</span><span style="font-size:1.6rem;font-weight:700;color:#EA4335;">e</span>
+  </div>
+  <div class="trust-badge-stars">★★★★★</div>
+  <div class="trust-badge-label">Top Rated Service</div>
+ </div>
+ <div class="trust-badge">
+  <div class="trust-badge-icon">
+   <span style="font-size:1.5rem;font-weight:900;color:#00529B;">BBB</span>
+  </div>
+  <div class="trust-badge-stars" style="color:#00529B;">A+ Rating</div>
+  <div class="trust-badge-label">Accredited Business</div>
+ </div>
+ <a href="https://www.yelp.com/biz/atlas-home-pro-los-angeles" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block">
+  <div class="trust-badge">
+   <div class="trust-badge-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 384 512" fill="#D32323"><path d="M42.9 240.32l99.62 48.61c19.2 9.4 16.2 37.51-4.5 42.71L30.5 358.45a22.79 22.79 0 01-28.21-19.6 197.16 197.16 0 019-85.32 22.8 22.8 0 0131.61-13.21zm44 239.25a199.45 199.45 0 0079.42 32.11A22.78 22.78 0 00192.94 490l3.9-110.82c.7-21.3-25.5-31.91-39.81-16.1l-74.21 82.4a22.82 22.82 0 004.09 34.09zm145.34-109.92l58.81 94a22.93 22.93 0 0034 5.5 198.36 198.36 0 0052.71-67.61 22.8 22.8 0 00-11.61-29.71l-102.82-46.71c-18.8-8.6-39.31 13-30.11 31.51l-.98 13.02zm-87.82-211.45l-98.72-204.12A22.82 22.82 0 0015.91 143c-1.8 36.71.3 75.32 7.1 112.32a22.8 22.8 0 0028.11 17.9l87.22-20.8c20.6-4.81 22.1-34.41 6.08-43.81v69.49zm105.03 7.81l87.51-55.31a22.82 22.82 0 006.4-33.21 198.23 198.23 0 00-65.21-56.41 22.81 22.81 0 00-31.81 8.8l-50.81 97.92c-9.8 18.8 12.9 39 33.51 25.21l20.41 13z"/></svg>
+   </div>
+   <div class="trust-badge-stars">★★★★★</div>
+   <div class="trust-badge-label">Top Rated</div>
+  </div>
+ </a>
+</div>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">"Garage door wouldn't open — broken torsion spring. Atlas was here same day, replaced both springs with commercial-grade ones, and adjusted the tension perfectly. Door works better than new."</div>
+<div class="review-author">Michael R.</div>
+<div class="review-location">Santa Monica, CA</div>
+<div class="review-badge">✓ Verified Google Review</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">"Our extension springs snapped at 6am. Called Atlas, tech arrived by 9am with the right parts on the truck. Replaced both springs and all cables. Total time on site: 90 minutes."</div>
+<div class="review-author">Jennifer L.</div>
+<div class="review-location">West Hollywood, CA</div>
+<div class="review-badge">✓ Verified Google Review</div>
+</div>
+<div class="review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-text">"Third company I called. The first two wanted to replace the whole door. Atlas diagnosed a broken spring and worn cables — fixed both for a fraction of what the others quoted. Honest and skilled."</div>
+<div class="review-author">David &amp; Susan T.</div>
+<div class="review-location">Hancock Park, CA</div>
+<div class="review-badge">✓ Verified Google Review</div>
+</div>
+</div>
+</section>
+
+<section class="promos-section">
+<h2>Spring Repair <span>Special Offers</span></h2>
+<p>Expert spring repair backed by our 6-month workmanship guarantee</p>
+<div class="promos-grid">
+<div class="promo-card">
+<div class="promo-badge">Diagnostic</div>
+<div class="promo-title">FREE On-Site Diagnostic</div>
+<div class="promo-pricing"><span class="promo-price">FREE</span><span class="promo-was">$89</span></div>
+<ul class="promo-checklist"><li>Complete system inspection</li><li>Safety device testing</li><li>Written diagnostic report</li><li>Upfront repair estimate</li><li>No obligation to proceed</li></ul>
+<div class="promo-fees">NO Service Call Fees &bull; NO Dispatch Fees</div>
+<a href="tel:+12132752210" class="promo-cta">📞 Claim This Offer</a>
+</div><div class="promo-card">
+<div class="promo-badge">Maintenance</div>
+<div class="promo-title">Annual Tune-Up &amp; Safety Check</div>
+<div class="promo-pricing"><span class="promo-price">$79</span><span class="promo-was">$149</span></div>
+<ul class="promo-checklist"><li>Full lubrication &amp; adjustment</li><li>Spring tension calibration</li><li>Safety sensor alignment</li><li>Hardware tightening</li><li>Written condition report</li></ul>
+<div class="promo-fees">NO Service Call Fees &bull; NO Dispatch Fees</div>
+<a href="tel:+12132752210" class="promo-cta">📞 Claim This Offer</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="related-guides" style="background:#f9f9f9;padding:64px 20px;max-width:100%">
+ <div style="max-width:1200px;margin:0 auto">
+ <div class="section-label">HOMEOWNER GUIDES</div>
+ <h2>Garage Door Spring <span>Guides &amp; Resources</span></h2>
+ <p class="section-sub">Expert advice to help you make informed decisions about your gate and garage door needs.</p>
+ <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px">
+
+ <a href="/learn/driveway-gate-opener-repair/" class="guide-card">
+  <span class="guide-icon">📖</span>
+  <span class="guide-title">Gate Opener Repair &amp; Costs</span>
+  <span class="guide-arrow">→</span>
+ </a>
+ <a href="/learn/home-security-iron-upgrades/" class="guide-card">
+  <span class="guide-icon">📖</span>
+  <span class="guide-title">Home Security: Iron Gate Upgrades</span>
+  <span class="guide-arrow">→</span>
+ </a>
+ <a href="/learn/garage-door-maintenance/" class="guide-card">
+  <span class="guide-icon">📖</span>
+  <span class="guide-title">Garage Door Maintenance Checklist</span>
+  <span class="guide-arrow">→</span>
+ </a>
+ <a href="/learn/spring-ac-tuneup-checklist/" class="guide-card">
+  <span class="guide-icon">📖</span>
+  <span class="guide-title">Spring Home Maintenance Guide</span>
+  <span class="guide-arrow">→</span>
+ </a>
+ </div>
+ </div>
 </section>
 
 <section class="areas-section">
