@@ -345,47 +345,6 @@ export default async (request, context) => {
       return jsonResponse({ success: true });
     }
 
-    // ── POST /api/suppliers/sync — Temporary endpoint for bulk supplier sync ──
-    if (path === "/suppliers/sync" && request.method === "POST") {
-      const body = await request.json();
-      const { action, records } = body; // action: "create" | "delete" | "update"
-      const results = [];
-
-      if (action === "create" && Array.isArray(records)) {
-        // Batch create in groups of 10 (Airtable limit)
-        for (let i = 0; i < records.length; i += 10) {
-          const batch = records.slice(i, i + 10).map(r => ({ fields: r }));
-          const resp = await airtableFetch(SUPPLIERS_TABLE, {
-            method: "POST",
-            body: JSON.stringify({ records: batch, typecast: true }),
-          });
-          resp.records.forEach(r => results.push({ id: r.id, name: r.fields.company_name }));
-        }
-      }
-
-      if (action === "delete" && Array.isArray(records)) {
-        for (let i = 0; i < records.length; i += 10) {
-          const batch = records.slice(i, i + 10);
-          const qs = batch.map(id => `records[]=${id}`).join("&");
-          await airtableFetch(`${SUPPLIERS_TABLE}?${qs}`, { method: "DELETE" });
-          batch.forEach(id => results.push({ id, deleted: true }));
-        }
-      }
-
-      if (action === "update" && Array.isArray(records)) {
-        for (let i = 0; i < records.length; i += 10) {
-          const batch = records.slice(i, i + 10).map(r => ({ id: r.id, fields: r.fields }));
-          const resp = await airtableFetch(SUPPLIERS_TABLE, {
-            method: "PATCH",
-            body: JSON.stringify({ records: batch, typecast: true }),
-          });
-          resp.records.forEach(r => results.push({ id: r.id, name: r.fields.company_name }));
-        }
-      }
-
-      return jsonResponse({ success: true, count: results.length, results });
-    }
-
     return jsonResponse({ error: "Not found" }, 404);
   } catch (err) {
     console.error("API error:", err);
