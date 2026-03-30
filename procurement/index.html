@@ -12,7 +12,7 @@
   --gold:#D4A843;--gold-hover:#C09530;--gold-bg:rgba(212,168,67,.07);
   --black:#1A1A1A;--dark:#2A2A2A;
   --g100:#F5F5F5;--g200:#E8E8E8;--g300:#D0D0D0;--g400:#999;--g600:#666;
-  --white:#FFF;--red:#D44;--green:#2A9D3E;
+  --white:#FFF;--red:#D44;--green:#2A9D3E;--orange:#E89020;
   --radius:10px;
 }
 html{font-size:16px}
@@ -111,9 +111,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
     </div>
 
     <div class="fg">
-      <label class="fl">What do you need? Or what's the problem? <span class="req">*</span></label>
-      <textarea class="ft" id="fdesc" placeholder="Describe what you need or what the problem is. Include part names, sizes, and quantities if you know them.&#10;&#10;Examples:&#10;5 forty gallon water heaters&#10;2 ball valves 3/4 inch&#10;1 roll copper pipe&#10;AC not blowing cold, compressor running&#10;Water stain on ceiling below bathroom" rows="5" required></textarea>
-      <p class="fh">Need multiple items? Put each on its own line. Describing a problem? Include what you're seeing and any equipment details.</p>
+      <label class="fl">Parts I Need</label>
+      <textarea class="ft" id="fparts" placeholder="List the parts you need, one per line.&#10;&#10;Examples:&#10;5 forty gallon water heaters&#10;2 ball valves 3/4 inch&#10;1 roll copper pipe 3/4" rows="4"></textarea>
+      <p class="fh">Include part names, sizes, quantities, and brand if known.</p>
+    </div>
+
+    <div class="fg" style="border-left:3px solid var(--orange);padding-left:14px">
+      <label class="fl">Need Help? Describe the Problem</label>
+      <textarea class="ft" id="fdiag" placeholder="Describe what you're seeing. Include equipment type, symptoms, and anything unusual.&#10;&#10;Examples:&#10;AC not blowing cold, compressor running outside&#10;Water stain on ceiling below upstairs bathroom&#10;Garage door won't open, motor hums but door doesn't move" rows="4" style="border-color:rgba(232,144,32,.3)"></textarea>
+      <p class="fh">Our AI will diagnose the issue, suggest troubleshooting steps, and identify parts you'll likely need.</p>
     </div>
 
     <div class="fg">
@@ -224,20 +230,39 @@ document.getElementById("form").addEventListener("submit",async e=>{
   e.preventDefault();
   const name=document.getElementById("fname").value.trim();
   const job=document.getElementById("fjob").value.trim();
-  const desc=document.getElementById("fdesc").value.trim();
+  const partsText=document.getElementById("fparts").value.trim();
+  const diagText=document.getElementById("fdiag").value.trim();
   const trade=document.getElementById("ftrade").value;
 
   if(!name){toast("Please enter your name","error");return}
-  if(!desc){toast("Please describe what you need","error");return}
+  if(!partsText && !diagText){toast("Please describe the parts you need or the problem you're seeing.","error");return}
   if(!urgency){toast("Please select urgency","error");return}
+
+  // Build combined raw_description with prefixes
+  let desc = "";
+  if (partsText && diagText) {
+    desc = "[PARTS REQUEST] " + partsText + "\n\n[DIAGNOSTICS] " + diagText;
+  } else if (partsText) {
+    desc = "[PARTS REQUEST] " + partsText;
+  } else {
+    desc = "[DIAGNOSTICS] " + diagText;
+  }
 
   const btn=document.getElementById("sbtn");
   btn.disabled=true;
   btn.innerHTML='<span class="spin"></span>Submitting...';
 
   try{
-    // Split multi-line descriptions into separate items
-    const items = desc.split("\n").map(s => s.trim()).filter(s => s.length > 0);
+    // Split parts into separate items (one per line), diagnostics stays as one item
+    const partsItems = partsText ? partsText.split("\n").map(s => s.trim()).filter(s => s.length > 0) : [];
+    const items = [];
+
+    // Each parts line becomes its own request with [PARTS REQUEST] prefix
+    partsItems.forEach(p => items.push("[PARTS REQUEST] " + p));
+
+    // Diagnostics is always a single request (if present)
+    if (diagText) items.push("[DIAGNOSTICS] " + diagText);
+
     const totalItems = items.length;
     let successCount = 0;
     let photoWarning = false;
@@ -315,8 +340,8 @@ function resetFormKeepJob(){
   urgency=null;photos=[];
   document.querySelectorAll(".uc").forEach(c=>c.classList.remove("on"));
   renderPhotos();
-  // Focus on description for quick entry
-  document.getElementById("fdesc").focus();
+  // Focus on parts box for quick entry
+  document.getElementById("fparts").focus();
 }
 
 function toast(msg,type){
