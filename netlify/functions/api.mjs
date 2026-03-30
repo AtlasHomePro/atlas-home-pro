@@ -214,6 +214,10 @@ export default async (request, context) => {
         order_confirmation: r.fields.order_confirmation || "",
         pickup_location: r.fields.pickup_location || "",
         estimated_cost: r.fields.estimated_cost || null,
+        ai_diagnosis: r.fields.ai_diagnosis || "",
+        troubleshooting_steps: r.fields.troubleshooting_steps || "",
+        likely_parts_needed: r.fields.likely_parts_needed || "",
+        ai_search_query: r.fields.ai_search_query || "",
       }));
 
       return jsonResponse(requests);

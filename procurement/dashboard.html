@@ -356,8 +356,8 @@ function renderCard(r) {
   const currentIdx = statusFlow.indexOf(r.status);
   const nextStatuses = currentIdx >= 0 ? statusFlow.slice(currentIdx + 1) : [];
 
-  // Search query for the part
-  const searchQ = encodeURIComponent(r.ai_part_name || r.raw_description.slice(0, 40));
+  // Search query for the part — prefer ai_search_query, fall back to ai_part_name
+  const searchQ = encodeURIComponent(r.ai_search_query || r.ai_part_name || r.raw_description.slice(0, 40));
 
   return `
   <div class="card" data-id="${r.id}">
@@ -401,6 +401,18 @@ function renderCard(r) {
           ${r.ai_specs ? `<br><span style="color:var(--g600)">${esc(r.ai_specs)}</span>` : ""}
         </div>
         ${r.ai_clarification_needed ? `<div style="margin-top:6px;padding:8px 10px;background:#FEF3E2;border-radius:6px;font-size:.75rem;color:#9A5C0F">⚠ ${esc(r.ai_clarification_needed)}</div>` : ""}
+      </div>` : ""}
+
+      ${r.ai_diagnosis ? `
+      <div class="csec" style="border-left:3px solid var(--orange);padding-left:12px">
+        <div class="csec-title" style="color:var(--orange)">AI Diagnosis</div>
+        <div class="csec-text">${esc(r.ai_diagnosis)}</div>
+        ${r.troubleshooting_steps ? `
+        <div class="csec-title" style="margin-top:10px;color:var(--orange)">Troubleshooting Steps</div>
+        <div class="csec-text">${esc(r.troubleshooting_steps)}</div>` : ""}
+        ${r.likely_parts_needed ? `
+        <div class="csec-title" style="margin-top:10px;color:var(--orange)">Likely Parts Needed</div>
+        <div class="csec-text">${esc(r.likely_parts_needed)}</div>` : ""}
       </div>` : ""}
 
       ${r.raw_description ? `
