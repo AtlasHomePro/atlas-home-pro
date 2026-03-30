@@ -261,6 +261,17 @@ export default async (request, context) => {
         }
       }
 
+      // Step 3: Fire Pipedream webhook to trigger AI processing
+      try {
+        await fetch("https://eofxvfmyq3rwmhg.m.pipedream.net", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ record_id: record.id }),
+        });
+      } catch (webhookErr) {
+        console.error("Pipedream webhook failed (non-blocking):", webhookErr.message);
+      }
+
       return jsonResponse({
         success: true,
         id: record.id,
