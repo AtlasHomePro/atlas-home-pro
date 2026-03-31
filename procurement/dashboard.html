@@ -604,13 +604,10 @@ function renderSupplierRow(s, searchQ) {
     else if (siteBase.includes('grainger.com')) searchUrl = `https://www.grainger.com/search?searchQuery=${searchQ}`;
     else if (siteBase.includes('reliableparts')) searchUrl = `https://www.reliableparts.com/search?q=${searchQ}`;
     else if (siteBase.includes('supplyhouse.com')) searchUrl = `https://www.supplyhouse.com/search?q=${searchQ}`;
-    else if (url && url !== '—') {
-      // Google site-search fallback — extract bare domain
-      try {
-        const domain = new URL(url).hostname.replace(/^www\./, '');
-        searchUrl = `https://www.google.com/search?q=${searchQ}+site:${domain}`;
-        isGoogleSearch = true;
-      } catch(e) {}
+    else {
+      // Google fallback — use supplier name for better results
+      searchUrl = `https://www.google.com/search?q=${searchQ}+${encodeURIComponent(s.company_name)}`;
+      isGoogleSearch = true;
     }
   }
 
