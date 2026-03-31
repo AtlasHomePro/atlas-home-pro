@@ -225,7 +225,15 @@ export default async (request, context) => {
 
     // ── POST /api/requests ──
     if (path === "/requests" && request.method === "POST") {
-      const { fields: body, files } = await parseMultipart(request);
+      let body, files;
+      try {
+        const parsed = await parseMultipart(request);
+        body = parsed.fields;
+        files = parsed.files;
+      } catch (parseErr) {
+        console.error("Multipart parse error:", parseErr.message);
+        return jsonResponse({ error: "Failed to parse form: " + parseErr.message }, 400);
+      }
       const { name, jobAddress, description, urgency, trade } = body;
 
       if (!name || !description || !urgency) {
@@ -244,10 +252,16 @@ export default async (request, context) => {
       if (jobAddress) recordFields.job_address = jobAddress;
       if (trade) recordFields.trade = trade;
 
-      const record = await airtableFetch(PROCUREMENT_TABLE, {
-        method: "POST",
-        body: JSON.stringify({ fields: recordFields, typecast: true }),
-      });
+      let record;
+      try {
+        record = await airtableFetch(PROCUREMENT_TABLE, {
+          method: "POST",
+          body: JSON.stringify({ fields: recordFields, typecast: true }),
+        });
+      } catch (airtableErr) {
+        console.error("Airtable create error:", airtableErr.message, JSON.stringify(recordFields));
+        return jsonResponse({ error: "Airtable: " + airtableErr.message }, 500);
+      }
 
       // Step 2: Upload photos directly to Airtable via content API (if any)
       let uploadedCount = 0;
