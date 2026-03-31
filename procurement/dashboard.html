@@ -277,6 +277,13 @@ async function loadData() {
     suppliers.forEach(s => { allSuppliers[s.id] = s; });
 
     document.getElementById("lastUpdated").textContent = `Updated ${new Date().toLocaleTimeString()}`;
+    // Smart default: if current filter has 0 results, fall back to "all"
+    const activeStatuses = ["Submitted","In Review","Ordered","Ready","In Transit"];
+    if (currentFilter !== "all" && !allRequests.some(r => r.status === currentFilter)) {
+      // Try to pick the first active status that has records
+      const fallback = activeStatuses.find(s => allRequests.some(r => r.status === s));
+      currentFilter = fallback || "all";
+    }
     renderFilters();
     renderStats();
     renderList();
