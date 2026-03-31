@@ -346,7 +346,10 @@ function renderCard(r) {
     : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`;
 
   const thumbClass = r.photos.length > 0 ? "card-thumb" : "card-thumb empty";
-  const partName = r.ai_part_name || r.raw_description.slice(0, 50) || "Pending AI...";
+  const isDiagnostic = r.ai_part_name && (/diagnostic/i.test(r.ai_part_name) || /pending diagnosis/i.test(r.ai_part_name));
+  const partName = isDiagnostic
+    ? (r.raw_description || "").slice(0, 60) || r.ai_part_name
+    : r.ai_part_name || (r.raw_description || "").slice(0, 50) || "Pending AI...";
   const statusKey = r.status.replace(/\s/g, "");
   const timeAgo = getTimeAgo(r.created_at);
   const tradeSuppliers = getTradeSuppliers(r);
