@@ -586,43 +586,37 @@ function renderSupplierRow(s, searchQ) {
     locationLine = `<span class="sup-dist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ${esc(addr)}</span>`;
   }
   
-  // Build a search URL for this supplier's website
+  // Build a search URL for this supplier — only use direct URLs confirmed to work, otherwise Google
   const siteBase = (url || '').replace(/\/+$/, '').toLowerCase();
   let searchUrl = '';
+  let isGoogleSearch = false;
   if (searchQ) {
-    // Known search URL patterns for suppliers
+    // VERIFIED working direct search URLs only
     if (siteBase.includes('homedepot.com')) searchUrl = `https://www.homedepot.com/s/${searchQ}`;
     else if (siteBase.includes('lowes.com')) searchUrl = `https://www.lowes.com/search?searchTerm=${searchQ}`;
     else if (siteBase.includes('amazon.com')) searchUrl = `https://www.amazon.com/s?k=${searchQ}`;
-    else if (siteBase.includes('supplyhouse.com')) searchUrl = `https://www.supplyhouse.com/search?q=${searchQ}`;
-    else if (siteBase.includes('ferguson.com')) searchUrl = `https://www.ferguson.com/search/${searchQ}`;
-    else if (siteBase.includes('hdsupply')) searchUrl = `https://hdsupplysolutions.com/shop/search?query=${searchQ}`;
-    else if (siteBase.includes('hirsch.com')) searchUrl = `https://www.hirsch.com/search?q=${searchQ}`;
-    else if (siteBase.includes('sherwin-williams')) searchUrl = `https://www.sherwin-williams.com/en-us/search#q=${searchQ}`;
-    else if (siteBase.includes('dunnedwards')) searchUrl = `https://www.dunnedwards.com/search?q=${searchQ}`;
-    else if (siteBase.includes('emser.com')) searchUrl = `https://www.emser.com/search?q=${searchQ}`;
+    else if (siteBase.includes('flooranddecor')) searchUrl = `https://www.flooranddecor.com/search?query=${searchQ}`;
     else if (siteBase.includes('daltile.com')) searchUrl = `https://www.daltile.com/search?q=${searchQ}`;
     else if (siteBase.includes('bedrosians')) searchUrl = `https://www.bedrosians.com/search?q=${searchQ}`;
-    else if (siteBase.includes('msisurfaces')) searchUrl = `https://www.msisurfaces.com/search?q=${searchQ}`;
     else if (siteBase.includes('arizonatile')) searchUrl = `https://www.arizonatile.com/search?q=${searchQ}`;
-    else if (siteBase.includes('flooranddecor')) searchUrl = `https://www.flooranddecor.com/search?query=${searchQ}`;
-    else if (siteBase.includes('porcelanosa')) searchUrl = `https://www.porcelanosa.com/search?q=${searchQ}`;
-    else if (siteBase.includes('coastparts')) searchUrl = `https://www.coastparts.com/search?q=${searchQ}`;
-    else if (siteBase.includes('marcone.com')) searchUrl = `https://www.marcone.com/search?q=${searchQ}`;
-    else if (siteBase.includes('encompass.com')) searchUrl = `https://www.encompass.com/search?q=${searchQ}`;
-    else if (siteBase.includes('reliableparts')) searchUrl = `https://www.reliableparts.com/search?q=${searchQ}`;
-    else if (siteBase.includes('johnstonesupply')) searchUrl = `https://www.johnstonesupply.com/search?q=${searchQ}`;
     else if (siteBase.includes('becn.com')) searchUrl = `https://www.becn.com/search?q=${searchQ}`;
-    else if (siteBase.includes('abcsupply')) searchUrl = `https://www.abcsupply.com/search?q=${searchQ}`;
-    else if (siteBase.includes('siteone.com')) searchUrl = `https://www.siteone.com/search?q=${searchQ}`;
-    else if (siteBase.includes('walterswholesale')) searchUrl = `https://www.walterswholesale.com/catalogsearch/result/?q=${searchQ}`;
     else if (siteBase.includes('grainger.com')) searchUrl = `https://www.grainger.com/search?searchQuery=${searchQ}`;
-    else if (siteBase.includes('platt.com')) searchUrl = `https://www.platt.com/search?q=${searchQ}`;
-    else if (url) searchUrl = `https://www.google.com/search?q=${searchQ}+site:${new URL(url).hostname}`;
+    else if (siteBase.includes('reliableparts')) searchUrl = `https://www.reliableparts.com/search?q=${searchQ}`;
+    else if (url && url !== '—') {
+      // Google site-search fallback for all others
+      try { searchUrl = `https://www.google.com/search?q=${searchQ}+site:${new URL(url).hostname}`; isGoogleSearch = true; } catch(e) {}
+    }
   }
 
-  // Search link for this supplier (shown on every supplier that has a website)
-  const searchLink = searchUrl ? `<a class="search-link" href="${searchUrl}" target="_blank" style="margin-top:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search ${esc(s.company_name)}</a>` : '';
+  // Search link — label Google searches differently
+  let searchLink = '';
+  if (searchUrl) {
+    const label = isGoogleSearch ? `Search Google for ${esc(s.company_name)}` : `Search ${esc(s.company_name)}`;
+    const icon = isGoogleSearch
+      ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> '
+      : '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> ';
+    searchLink = `<a class="search-link" href="${searchUrl}" target="_blank" style="margin-top:6px">${icon}${label}</a>`;
+  }
   
   // Call-to-order link for suppliers with phone
   let callLink = '';
