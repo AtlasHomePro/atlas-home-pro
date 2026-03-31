@@ -50,6 +50,17 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .card{background:var(--white);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;transition:box-shadow .15s}
 .card:hover{box-shadow:0 2px 8px rgba(0,0,0,.08)}
 
+/* Bulk toolbar */
+.bulk-bar{display:none;background:var(--white);border-bottom:1px solid var(--g200);padding:10px 20px;align-items:center;gap:12px;font-size:.8125rem}
+.bulk-bar.on{display:flex}
+.bulk-bar label{display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:500;color:var(--g600)}
+.bulk-bar .bulk-count{color:var(--g700);font-weight:600}
+.bulk-bar .bulk-cancel{margin-left:auto;background:none;border:1px solid #fdd;color:var(--red);padding:6px 14px;border-radius:8px;font-family:inherit;font-size:.75rem;font-weight:600;cursor:pointer;transition:background .15s}
+.bulk-bar .bulk-cancel:hover{background:#FDE8E8}
+
+/* Card checkbox */
+.card-cb{width:18px;height:18px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;margin-top:2px}
+
 /* Card Header (always visible) */
 .card-head{padding:14px 16px;display:flex;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .card-thumb{width:52px;height:52px;border-radius:8px;background:var(--g200);overflow:hidden;flex-shrink:0}
@@ -75,6 +86,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 .badge-status-Cancelled{background:#FDE8E8;color:#B91C1C}
 .badge-trade{background:var(--g100);color:var(--g700);font-weight:500;text-transform:none;font-size:.7rem}
 .card-sub{font-size:.75rem;color:var(--g500);margin-top:2px;display:flex;align-items:center;gap:6px}
+.card-id{color:var(--g400);font-size:.7rem;font-weight:400}
 .card-arrow{width:20px;height:20px;color:var(--g400);flex-shrink:0;transition:transform .2s}
 .card.open .card-arrow{transform:rotate(180deg)}
 
@@ -204,6 +216,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 
 <div class="stats" id="stats"></div>
 
+<div class="bulk-bar" id="bulkBar">
+  <label><input type="checkbox" id="selectAll" onchange="toggleSelectAll(this.checked)"> Select All</label>
+  <span class="bulk-count" id="bulkCount">0 selected</span>
+  <button class="bulk-cancel" id="bulkCancelBtn" onclick="bulkCancel()">Cancel Selected</button>
+</div>
+
 <div class="list" id="list">
   <div class="loading"><div class="spin"></div><p>Loading requests...</p></div>
 </div>
@@ -237,8 +255,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:
 <script>
 let allRequests = [];
 let allSuppliers = {};
-let currentFilter = "all";
+let currentFilter = "In Review";
 let pendingStatusUpdate = null;
+let selectedIds = new Set();
 
 // ── Load Data ──
 async function loadData() {
@@ -274,24 +293,36 @@ async function loadData() {
 
 // ── Render Filters ──
 function renderFilters() {
-  const counts = { all: allRequests.length };
+  const now = new Date();
+  const h24 = new Date(now - 24*60*60*1000);
+  const d7 = new Date(now - 7*24*60*60*1000);
+  // For "All" tab: hide cancelled older than 7 days
+  const allVisible = allRequests.filter(r => {
+    if (r.status === "Cancelled" && r.created_at && new Date(r.created_at) < d7) return false;
+    return true;
+  });
+  const counts = { all: allVisible.length };
   const statuses = ["Submitted","In Review","Ordered","Ready","In Transit","Fulfilled","Cancelled"];
-  statuses.forEach(s => { counts[s] = allRequests.filter(r => r.status === s).length; });
+  // For Cancelled tab: only last 24h
+  const cancelledRecent = allRequests.filter(r => r.status === "Cancelled" && r.created_at && new Date(r.created_at) >= h24);
+  statuses.forEach(s => {
+    counts[s] = s === "Cancelled" ? cancelledRecent.length : allRequests.filter(r => r.status === s).length;
+  });
 
   const fil = document.getElementById("filters");
   fil.innerHTML = "";
 
-  const addBtn = (key, label) => {
+  const addBtn = (key, label, subtitle) => {
     if (key !== "all" && !counts[key]) return;
     const b = document.createElement("button");
     b.className = "fbtn" + (currentFilter === key ? " on" : "");
-    b.innerHTML = `${label}<span class="count">${counts[key] || 0}</span>`;
-    b.onclick = () => { currentFilter = key; renderFilters(); renderList(); };
+    b.innerHTML = `${label}<span class="count">${counts[key] || 0}</span>${subtitle ? `<br><span style="font-size:.55rem;font-weight:400;opacity:.7">${subtitle}</span>` : ""}`;
+    b.onclick = () => { currentFilter = key; selectedIds.clear(); renderFilters(); renderList(); updateBulkBar(); };
     fil.appendChild(b);
   };
 
   addBtn("all", "All");
-  statuses.forEach(s => addBtn(s, s));
+  statuses.forEach(s => addBtn(s, s, s === "Cancelled" ? "last 24h" : ""));
 }
 
 // ── Render Stats ──
@@ -314,13 +345,26 @@ function renderStats() {
 }
 
 // ── Render List ──
+function getFilteredRequests() {
+  const now = new Date();
+  const h24 = new Date(now - 24*60*60*1000);
+  const d7 = new Date(now - 7*24*60*60*1000);
+
+  if (currentFilter === "Cancelled") {
+    return allRequests.filter(r => r.status === "Cancelled" && r.created_at && new Date(r.created_at) >= h24);
+  }
+  if (currentFilter === "all") {
+    return allRequests.filter(r => {
+      if (r.status === "Cancelled" && r.created_at && new Date(r.created_at) < d7) return false;
+      return true;
+    });
+  }
+  return allRequests.filter(r => r.status === currentFilter);
+}
+
 function renderList() {
   const list = document.getElementById("list");
-  let filtered = allRequests;
-
-  if (currentFilter !== "all") {
-    filtered = allRequests.filter(r => r.status === currentFilter);
-  }
+  const filtered = getFilteredRequests();
 
   if (filtered.length === 0) {
     list.innerHTML = `
@@ -329,15 +373,17 @@ function renderList() {
         <h3>No requests</h3>
         <p>${currentFilter === "all" ? "No procurement requests yet." : `No requests with status "${currentFilter}".`}</p>
       </div>`;
+    updateBulkBar();
     return;
   }
 
   list.innerHTML = filtered.map(r => renderCard(r)).join("");
 
-  // Attach click handlers
+  // Attach click handlers (expand card, but not on checkbox)
   list.querySelectorAll(".card-head").forEach(h => {
-    h.onclick = () => h.parentElement.classList.toggle("open");
+    h.onclick = (e) => { if (e.target.classList.contains("card-cb")) return; h.parentElement.classList.toggle("open"); };
   });
+  updateBulkBar();
 }
 
 function renderCard(r) {
@@ -367,9 +413,13 @@ function renderCard(r) {
   // Search query for the part — prefer ai_search_query, fall back to ai_part_name
   const searchQ = encodeURIComponent(r.ai_search_query || r.ai_part_name || r.raw_description.slice(0, 40));
 
+  const reqId = r.request_id ? `#${r.request_id}` : "";
+  const isChecked = selectedIds.has(r.id) ? "checked" : "";
+
   return `
   <div class="card" data-id="${r.id}">
     <div class="card-head">
+      <input type="checkbox" class="card-cb" ${isChecked} onchange="toggleSelect('${r.id}', this.checked)">
       <div class="${thumbClass}">${thumb}</div>
       <div class="card-info">
         <div class="card-top">
@@ -382,6 +432,7 @@ function renderCard(r) {
         </div>
         <div class="card-sub">
           <span>${esc(r.submitted_by)}</span>
+          ${reqId ? `<span class="card-id">${reqId}</span>` : ""}
           <span>·</span>
           <span>${timeAgo}</span>
           ${r.fulfillment_method ? `<span>·</span><span>${r.fulfillment_method}</span>` : ""}
@@ -675,6 +726,59 @@ function toast(msg, type) {
   void t.offsetWidth;
   t.classList.add("show");
   setTimeout(() => t.classList.remove("show"), 3500);
+}
+
+// ── Bulk select/cancel ──
+function toggleSelect(id, checked) {
+  if (checked) selectedIds.add(id); else selectedIds.delete(id);
+  updateBulkBar();
+}
+
+function toggleSelectAll(checked) {
+  const filtered = getFilteredRequests();
+  if (checked) {
+    filtered.forEach(r => selectedIds.add(r.id));
+  } else {
+    selectedIds.clear();
+  }
+  renderList();
+}
+
+function updateBulkBar() {
+  const bar = document.getElementById("bulkBar");
+  const count = selectedIds.size;
+  bar.classList.toggle("on", count > 0);
+  document.getElementById("bulkCount").textContent = `${count} selected`;
+  document.getElementById("selectAll").checked = false;
+}
+
+async function bulkCancel() {
+  const count = selectedIds.size;
+  if (!count) return;
+  if (!confirm(`Cancel ${count} request${count > 1 ? "s" : ""}?`)) return;
+
+  const btn = document.getElementById("bulkCancelBtn");
+  btn.disabled = true;
+  btn.textContent = "Cancelling...";
+
+  try {
+    const promises = [...selectedIds].map(id =>
+      fetch(`/api/requests/${id}/status`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: "Cancelled" }),
+      })
+    );
+    await Promise.all(promises);
+    selectedIds.clear();
+    toast(`${count} request${count > 1 ? "s" : ""} cancelled`, "success");
+    await loadData();
+  } catch (err) {
+    toast("Failed: " + err.message, "error");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Cancel Selected";
+  }
 }
 
 // ── Auto-refresh every 30 seconds ──
