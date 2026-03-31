@@ -246,7 +246,7 @@ export default async (request, context) => {
 
       const record = await airtableFetch(PROCUREMENT_TABLE, {
         method: "POST",
-        body: JSON.stringify({ fields: recordFields }),
+        body: JSON.stringify({ fields: recordFields, typecast: true }),
       });
 
       // Step 2: Upload photos directly to Airtable via content API (if any)
