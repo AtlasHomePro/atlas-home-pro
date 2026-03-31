@@ -43,33 +43,61 @@ async function parseMultipart(request) {
   }
 
   if (contentType.includes("multipart/form-data")) {
-    const formData = await request.formData();
-    const fields = {};
-    const files = [];
+    // Clone request so we can retry if formData() fails
+    const cloned = request.clone();
+    try {
+      const formData = await request.formData();
+      const fields = {};
+      const files = [];
 
-    for (const [key, value] of formData.entries()) {
-      // In Netlify Functions v2 (Web API), files come as Blob objects, not File.
-      // Check for Blob-like objects: has arrayBuffer method AND a type/size property.
-      const isFileLike = value && typeof value === "object" && typeof value.arrayBuffer === "function" && (value.type || value.size > 0);
-      if (isFileLike && typeof value !== "string") {
-        try {
-          const buffer = await value.arrayBuffer();
-          if (buffer.byteLength > 0) {
-            files.push({
-              fieldname: key,
-              originalname: value.name || `photo_${Date.now()}.jpg`,
-              mimetype: value.type || "image/jpeg",
-              buffer: Buffer.from(buffer),
-            });
+      for (const [key, value] of formData.entries()) {
+        const isFileLike = value && typeof value === "object" && typeof value.arrayBuffer === "function" && (value.type || value.size > 0);
+        if (isFileLike && typeof value !== "string") {
+          try {
+            const buffer = await value.arrayBuffer();
+            if (buffer.byteLength > 0) {
+              files.push({
+                fieldname: key,
+                originalname: value.name || `photo_${Date.now()}.jpg`,
+                mimetype: value.type || "image/jpeg",
+                buffer: Buffer.from(buffer),
+              });
+            }
+          } catch (e) {
+            console.log("File parse error:", e.message);
           }
-        } catch (e) {
-          console.log("File parse error:", e.message);
+        } else {
+          fields[key] = typeof value === "string" ? value : String(value);
         }
-      } else {
-        fields[key] = typeof value === "string" ? value : String(value);
       }
+      return { fields, files };
+    } catch (formDataErr) {
+      // formData() throws on some Safari/iOS multipart formats
+      // Fallback: parse raw body manually (text fields only, photos skipped)
+      console.error("formData() failed:", formDataErr.message, "- falling back to manual parse");
+      try {
+        const raw = await cloned.text();
+        const boundary = contentType.split("boundary=")[1]?.split(";")[0]?.trim();
+        if (boundary) {
+          const fields = {};
+          const parts = raw.split("--" + boundary).filter(p => p.trim() && p.trim() !== "--");
+          for (const part of parts) {
+            const headerEnd = part.indexOf("\r\n\r\n");
+            if (headerEnd === -1) continue;
+            const headers = part.slice(0, headerEnd);
+            const body = part.slice(headerEnd + 4).replace(/\r\n$/, "");
+            if (headers.includes("filename=")) continue; // Skip file fields
+            const nameMatch = headers.match(/name="([^"]+)"/);
+            if (nameMatch) fields[nameMatch[1]] = body;
+          }
+          console.log("Manual parse recovered:", Object.keys(fields).join(", "));
+          return { fields, files: [] };
+        }
+      } catch (manualErr) {
+        console.error("Manual parse failed:", manualErr.message);
+      }
+      return { fields: {}, files: [] };
     }
-    return { fields, files };
   }
 
   // Fallback: try JSON
