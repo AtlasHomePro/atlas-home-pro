@@ -586,23 +586,48 @@ function renderSupplierRow(s, searchQ) {
     locationLine = `<span class="sup-dist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ${esc(addr)}</span>`;
   }
   
-  // Action buttons: Order link (primary CTA) + Call + Website
-  let orderLink = '';
-  if (orderUrl && method.includes('Online')) {
-    // Build search URL if possible
-    let searchUrl = orderUrl;
-    if (searchQ) {
-      const base = orderUrl.replace(/\/+$/, '');
-      if (base.includes('homedepot.com')) searchUrl = `https://www.homedepot.com/s/${searchQ}`;
-      else if (base.includes('lowes.com')) searchUrl = `https://www.lowes.com/search?searchTerm=${searchQ}`;
-      else if (base.includes('amazon.com')) searchUrl = `https://www.amazon.com/s?k=${searchQ}`;
-      else if (base.includes('supplyhouse.com')) searchUrl = `https://www.supplyhouse.com/search?q=${searchQ}`;
-      else if (base.includes('ferguson.com')) searchUrl = `https://www.ferguson.com/search/${searchQ}`;
-      else if (base.includes('hdsupply')) searchUrl = `https://hdsupplysolutions.com/shop/search?query=${searchQ}`;
-    }
-    orderLink = `<a class="sup-order-link sup-order-link-buy" href="${searchUrl}" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> Order Online</a>`;
-  } else if (s.phone && method.includes('Call')) {
-    orderLink = `<a class="sup-order-link sup-order-link-call" href="tel:${s.phone}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call to Order</a>`;
+  // Build a search URL for this supplier's website
+  const siteBase = (url || '').replace(/\/+$/, '').toLowerCase();
+  let searchUrl = '';
+  if (searchQ) {
+    // Known search URL patterns for suppliers
+    if (siteBase.includes('homedepot.com')) searchUrl = `https://www.homedepot.com/s/${searchQ}`;
+    else if (siteBase.includes('lowes.com')) searchUrl = `https://www.lowes.com/search?searchTerm=${searchQ}`;
+    else if (siteBase.includes('amazon.com')) searchUrl = `https://www.amazon.com/s?k=${searchQ}`;
+    else if (siteBase.includes('supplyhouse.com')) searchUrl = `https://www.supplyhouse.com/search?q=${searchQ}`;
+    else if (siteBase.includes('ferguson.com')) searchUrl = `https://www.ferguson.com/search/${searchQ}`;
+    else if (siteBase.includes('hdsupply')) searchUrl = `https://hdsupplysolutions.com/shop/search?query=${searchQ}`;
+    else if (siteBase.includes('hirsch.com')) searchUrl = `https://www.hirsch.com/search?q=${searchQ}`;
+    else if (siteBase.includes('sherwin-williams')) searchUrl = `https://www.sherwin-williams.com/en-us/search#q=${searchQ}`;
+    else if (siteBase.includes('dunnedwards')) searchUrl = `https://www.dunnedwards.com/search?q=${searchQ}`;
+    else if (siteBase.includes('emser.com')) searchUrl = `https://www.emser.com/search?q=${searchQ}`;
+    else if (siteBase.includes('daltile.com')) searchUrl = `https://www.daltile.com/search?q=${searchQ}`;
+    else if (siteBase.includes('bedrosians')) searchUrl = `https://www.bedrosians.com/search?q=${searchQ}`;
+    else if (siteBase.includes('msisurfaces')) searchUrl = `https://www.msisurfaces.com/search?q=${searchQ}`;
+    else if (siteBase.includes('arizonatile')) searchUrl = `https://www.arizonatile.com/search?q=${searchQ}`;
+    else if (siteBase.includes('flooranddecor')) searchUrl = `https://www.flooranddecor.com/search?query=${searchQ}`;
+    else if (siteBase.includes('porcelanosa')) searchUrl = `https://www.porcelanosa.com/search?q=${searchQ}`;
+    else if (siteBase.includes('coastparts')) searchUrl = `https://www.coastparts.com/search?q=${searchQ}`;
+    else if (siteBase.includes('marcone.com')) searchUrl = `https://www.marcone.com/search?q=${searchQ}`;
+    else if (siteBase.includes('encompass.com')) searchUrl = `https://www.encompass.com/search?q=${searchQ}`;
+    else if (siteBase.includes('reliableparts')) searchUrl = `https://www.reliableparts.com/search?q=${searchQ}`;
+    else if (siteBase.includes('johnstonesupply')) searchUrl = `https://www.johnstonesupply.com/search?q=${searchQ}`;
+    else if (siteBase.includes('becn.com')) searchUrl = `https://www.becn.com/search?q=${searchQ}`;
+    else if (siteBase.includes('abcsupply')) searchUrl = `https://www.abcsupply.com/search?q=${searchQ}`;
+    else if (siteBase.includes('siteone.com')) searchUrl = `https://www.siteone.com/search?q=${searchQ}`;
+    else if (siteBase.includes('walterswholesale')) searchUrl = `https://www.walterswholesale.com/catalogsearch/result/?q=${searchQ}`;
+    else if (siteBase.includes('grainger.com')) searchUrl = `https://www.grainger.com/search?searchQuery=${searchQ}`;
+    else if (siteBase.includes('platt.com')) searchUrl = `https://www.platt.com/search?q=${searchQ}`;
+    else if (url) searchUrl = `https://www.google.com/search?q=${searchQ}+site:${new URL(url).hostname}`;
+  }
+
+  // Search link for this supplier (shown on every supplier that has a website)
+  const searchLink = searchUrl ? `<a class="search-link" href="${searchUrl}" target="_blank" style="margin-top:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search ${esc(s.company_name)}</a>` : '';
+  
+  // Call-to-order link for suppliers with phone
+  let callLink = '';
+  if (s.phone) {
+    callLink = `<a class="sup-order-link sup-order-link-call" href="tel:${s.phone}" style="margin-top:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call</a>`;
   }
   
   return `
@@ -624,7 +649,7 @@ function renderSupplierRow(s, searchQ) {
           ${url ? `<a href="${url}" target="_blank" title="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></a>` : ''}
         </div>
       </div>
-      ${orderLink ? `<div style="margin-top:6px">${orderLink}</div>` : ''}
+      ${searchLink || callLink ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">${searchLink}${callLink}</div>` : ''}
     </div>`;
 }
 
