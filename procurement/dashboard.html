@@ -417,8 +417,9 @@ function renderCard(r) {
   const currentIdx = statusFlow.indexOf(r.status);
   const nextStatuses = currentIdx >= 0 ? statusFlow.slice(currentIdx + 1) : [];
 
-  // Search query for the part — prefer ai_search_query, fall back to ai_part_name
-  const searchQ = encodeURIComponent(r.ai_search_query || r.ai_part_name || r.raw_description.slice(0, 40));
+  // Search query — prefer ai_search_query, fall back to ai_part_name, strip prefixes
+  const rawQ = (r.ai_search_query || r.ai_part_name || cleanDesc.slice(0, 40) || '').replace(/^\[(PARTS REQUEST|DIAGNOSTICS)\]\s*/i, '');
+  const searchQ = encodeURIComponent(rawQ);
 
   const reqId = r.request_id ? `#${r.request_id}` : "";
   const isChecked = selectedIds.has(r.id) ? "checked" : "";
@@ -586,12 +587,12 @@ function renderSupplierRow(s, searchQ) {
     locationLine = `<span class="sup-dist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ${esc(addr)}</span>`;
   }
   
-  // Build a search URL for this supplier — only use direct URLs confirmed to work, otherwise Google
+  // Build a search URL for this supplier
   const siteBase = (url || '').replace(/\/+$/, '').toLowerCase();
   let searchUrl = '';
   let isGoogleSearch = false;
   if (searchQ) {
-    // VERIFIED working direct search URLs only
+    // VERIFIED working direct search URLs
     if (siteBase.includes('homedepot.com')) searchUrl = `https://www.homedepot.com/s/${searchQ}`;
     else if (siteBase.includes('lowes.com')) searchUrl = `https://www.lowes.com/search?searchTerm=${searchQ}`;
     else if (siteBase.includes('amazon.com')) searchUrl = `https://www.amazon.com/s?k=${searchQ}`;
@@ -602,20 +603,24 @@ function renderSupplierRow(s, searchQ) {
     else if (siteBase.includes('becn.com')) searchUrl = `https://www.becn.com/search?q=${searchQ}`;
     else if (siteBase.includes('grainger.com')) searchUrl = `https://www.grainger.com/search?searchQuery=${searchQ}`;
     else if (siteBase.includes('reliableparts')) searchUrl = `https://www.reliableparts.com/search?q=${searchQ}`;
+    else if (siteBase.includes('supplyhouse.com')) searchUrl = `https://www.supplyhouse.com/search?q=${searchQ}`;
     else if (url && url !== '—') {
-      // Google site-search fallback for all others
-      try { searchUrl = `https://www.google.com/search?q=${searchQ}+site:${new URL(url).hostname}`; isGoogleSearch = true; } catch(e) {}
+      // Google site-search fallback — extract bare domain
+      try {
+        const domain = new URL(url).hostname.replace(/^www\./, '');
+        searchUrl = `https://www.google.com/search?q=${searchQ}+site:${domain}`;
+        isGoogleSearch = true;
+      } catch(e) {}
     }
   }
 
-  // Search link — label Google searches differently
+  // Search link — "Order Online" for direct, "Search via Google" for fallback
   let searchLink = '';
-  if (searchUrl) {
-    const label = isGoogleSearch ? `Search Google for ${esc(s.company_name)}` : `Search ${esc(s.company_name)}`;
-    const icon = isGoogleSearch
-      ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> '
-      : '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> ';
-    searchLink = `<a class="search-link" href="${searchUrl}" target="_blank" style="margin-top:6px">${icon}${label}</a>`;
+  const searchIcon = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> ';
+  if (searchUrl && !isGoogleSearch) {
+    searchLink = `<a class="sup-order-link sup-order-link-buy" href="${searchUrl}" target="_blank" style="margin-top:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> Order Online</a>`;
+  } else if (searchUrl && isGoogleSearch) {
+    searchLink = `<a class="search-link" href="${searchUrl}" target="_blank" style="margin-top:6px">${searchIcon}Search via Google</a>`;
   }
   
   // Call-to-order link for suppliers with phone
