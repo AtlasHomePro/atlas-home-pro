@@ -302,12 +302,50 @@ export default async (request, context) => {
     if (photoMatch && request.method === "POST") {
       const recordId = photoMatch[1];
       try {
-        const parsed = await parseMultipart(request);
-        if (parsed.files.length === 0) {
-          return jsonResponse({ error: "No photo in request" }, 400);
+        // Read raw body as ArrayBuffer — avoids formData() which crashes on Safari/iOS
+        const arrayBuf = await request.arrayBuffer();
+        const raw = Buffer.from(arrayBuf);
+        const contentType = request.headers.get("content-type") || "";
+
+        let photoBuffer, filename, mimetype;
+
+        if (contentType.includes("multipart/form-data")) {
+          // Extract the file from multipart manually
+          const boundary = contentType.split("boundary=")[1]?.split(";")[0]?.trim();
+          if (!boundary) {
+            return jsonResponse({ error: "Missing boundary" }, 400);
+          }
+          const boundaryBuf = Buffer.from("--" + boundary);
+          // Find the file content between headers and next boundary
+          const rawStr = raw.toString("latin1");
+          const headerEnd = rawStr.indexOf("\r\n\r\n");
+          if (headerEnd === -1) {
+            return jsonResponse({ error: "Malformed multipart" }, 400);
+          }
+          const headers = rawStr.slice(0, headerEnd);
+          // Get filename from Content-Disposition
+          const fnMatch = headers.match(/filename="([^"]+)"/);
+          filename = fnMatch ? fnMatch[1] : `photo_${Date.now()}.jpg`;
+          // Get content type from part headers
+          const ctMatch = headers.match(/Content-Type:\s*([^\r\n]+)/i);
+          mimetype = ctMatch ? ctMatch[1].trim() : "image/jpeg";
+          // Extract binary content: after headers, before closing boundary
+          const contentStart = headerEnd + 4; // skip \r\n\r\n
+          const closingBoundary = rawStr.lastIndexOf("\r\n--" + boundary);
+          const contentEnd = closingBoundary > contentStart ? closingBoundary : raw.length;
+          photoBuffer = raw.slice(contentStart, contentEnd);
+        } else {
+          // Raw binary upload
+          photoBuffer = raw;
+          mimetype = contentType || "image/jpeg";
+          filename = `photo_${Date.now()}.jpg`;
         }
-        const file = parsed.files[0];
-        const ok = await uploadToAirtable(recordId, file.buffer, file.originalname, file.mimetype);
+
+        if (!photoBuffer || photoBuffer.length < 100) {
+          return jsonResponse({ error: "Empty or invalid photo" }, 400);
+        }
+
+        const ok = await uploadToAirtable(recordId, photoBuffer, filename, mimetype);
         return jsonResponse({ success: ok, recordId });
       } catch (err) {
         console.error("Photo upload error:", err.message);

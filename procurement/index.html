@@ -327,14 +327,16 @@ document.getElementById("form").addEventListener("submit",async e=>{
       if (i === 0) firstRecordId = data.id;
     }
 
-    // Phase 2: Upload photos one at a time to the first record (each is a separate small request)
+    // Phase 2: Upload photos one at a time as raw binary (avoids multipart/formData issues)
     if (photos.length > 0 && firstRecordId) {
       for (let p = 0; p < photos.length; p++) {
         btn.innerHTML = `<span class="spin"></span>Uploading photo ${p+1} of ${photos.length}...`;
         try {
-          const fd = new FormData();
-          fd.append("photo", photos[p]);
-          const pr = await fetch(`/api/requests/${firstRecordId}/photo`, { method: "POST", body: fd });
+          const pr = await fetch(`/api/requests/${firstRecordId}/photo`, {
+            method: "POST",
+            headers: { "Content-Type": photos[p].type || "image/jpeg" },
+            body: photos[p],
+          });
           if (!pr.ok) { photosFailed++; }
         } catch(e) { photosFailed++; }
       }
