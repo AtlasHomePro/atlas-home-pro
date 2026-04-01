@@ -189,6 +189,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
 .vendor-info .vn { font-size: 13px; font-weight: 700; color: var(--gray-900); }
 .vendor-info .vd { font-size: 11px; color: var(--gray-400); margin-top: 1px; }
 .vendor-info .vp { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--navy); margin-top: 2px; font-weight: 500; }
+.vendor-info .vp a { color: var(--navy); text-decoration: none; }
+.vendor-info .vp a:hover { text-decoration: underline; }
 
 /* ANNOUNCEMENT / NOTICE */
 .notice {
@@ -297,13 +299,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
       <p>Your full operations command center — all tools, all data, one place.</p>
     </div>
 
-    <div class="metrics-row">
-      <div class="metric-card"><div class="metric-label">Target Launch</div><div class="metric-val red">Aug 1</div><div class="metric-sub">2026</div></div>
-      <div class="metric-card"><div class="metric-label">Van Phase 1</div><div class="metric-val amber">3 Vans</div><div class="metric-sub">Build-out underway</div></div>
-      <div class="metric-card"><div class="metric-label">Cost / Van</div><div class="metric-val">~$15K</div><div class="metric-sub">Fully equipped</div></div>
-      <div class="metric-card"><div class="metric-label">PE Exit Target</div><div class="metric-val green">8–12×</div><div class="metric-sub">EBITDA multiple</div></div>
-      <div class="metric-card"><div class="metric-label">CSLB Status</div><div class="metric-val amber">Class B</div><div class="metric-sub">Exam imminent</div></div>
-    </div>
+
 
     <div class="notice">
       <div class="notice-icon">📌</div>
@@ -315,9 +311,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
 
     <div class="quick-actions">
       <a href="van-catalog.html" class="qa-btn primary">🔧 Open Van Catalog</a>
-      <a href="roadmap.html" class="qa-btn">📋 Ops Roadmap</a>
-      <a href="pricing.html" class="qa-btn">💰 Job Pricing Calc</a>
-      <a href="ordering.html" class="qa-btn">📦 Parts Ordering</a>
+      <a href="/procurement/dashboard" class="qa-btn primary">📦 Procurement Dashboard</a>
       <a href="https://app.housecallpro.com" target="_blank" class="qa-btn">↗ HouseCall Pro</a>
       <a href="https://www.atlashomepro.com" target="_blank" class="qa-btn">↗ Atlas Website</a>
     </div>
@@ -329,28 +323,28 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
         <div><div class="tool-name">Plumbing Van Catalog</div><div class="tool-desc">Complete tool list, parts inventory, big ticket sourcing, and vendor comparison with live buy links for HD, Lowe's, Ferguson, and Amazon.</div></div>
         <div class="tool-footer"><span class="tool-who">All roles</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="roadmap.html" class="tool-card" style="--accent:var(--navy)">
-        <div class="tool-card-head"><div class="tool-icon">📋</div><span class="tool-badge badge-live">Live</span></div>
+      <a href="roadmap.html" class="tool-card coming-soon" style="--accent:var(--navy)">
+        <div class="tool-card-head"><div class="tool-icon">📋</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Ops Roadmap</div><div class="tool-desc">Week-by-week launch checklist, phase milestones, owner assignments, and recurring weekly ops rhythm. The ops admin's bible.</div></div>
         <div class="tool-footer"><span class="tool-who">David + Ops Admin</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="ordering.html" class="tool-card" style="--accent:var(--amber)">
-        <div class="tool-card-head"><div class="tool-icon">📦</div><span class="tool-badge badge-build">Building</span></div>
-        <div><div class="tool-name">Parts Ordering + Vendor Compare</div><div class="tool-desc">Live price comparison across HD Pro, Lowe's, Ferguson, Hirsch, and Amazon. Build order lists, track POs, and log deliveries.</div></div>
+      <a href="/procurement/dashboard" class="tool-card" style="--accent:var(--green)">
+        <div class="tool-card-head"><div class="tool-icon">📦</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Parts Procurement System</div><div class="tool-desc">Submit parts requests, track orders, coordinate with suppliers. Connected to Airtable. Live now.</div></div>
         <div class="tool-footer"><span class="tool-who">Ops Admin</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="pricing.html" class="tool-card" style="--accent:var(--green)">
-        <div class="tool-card-head"><div class="tool-icon">💰</div><span class="tool-badge badge-build">Building</span></div>
+      <a href="pricing.html" class="tool-card coming-soon" style="--accent:var(--green)">
+        <div class="tool-card-head"><div class="tool-icon">💰</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Job Pricing Calculator</div><div class="tool-desc">Real-time job pricing by service type. Calculates labor + parts + margin. Ensures every job hits target margins. Tech-facing for upsell decisions.</div></div>
         <div class="tool-footer"><span class="tool-who">David + Lead Techs</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="onboarding.html" class="tool-card" style="--accent:#7C3AED">
-        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-build">Building</span></div>
+      <a href="onboarding.html" class="tool-card coming-soon" style="--accent:#7C3AED">
+        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Tech Onboarding + Training</div><div class="tool-desc">New tech orientation, van walkthrough SOPs, safety protocols, HouseCall Pro setup, Power Selling Pros training links, and certification tracking.</div></div>
         <div class="tool-footer"><span class="tool-who">Lead Techs</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="restoration.html" class="tool-card" style="--accent:#0891B2">
-        <div class="tool-card-head"><div class="tool-icon">💧</div><span class="tool-badge badge-build">Building</span></div>
+      <a href="restoration.html" class="tool-card coming-soon" style="--accent:#0891B2">
+        <div class="tool-card-head"><div class="tool-icon">💧</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Water Restoration Workflows</div><div class="tool-desc">IICRC protocols, moisture mapping SOPs, insurance claim process, Ruben + Rigo crew coordination, and equipment checklist.</div></div>
         <div class="tool-footer"><span class="tool-who">David + Ops Admin</span><span class="tool-arrow">→</span></div>
       </a>
@@ -369,12 +363,12 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
     <div class="vendor-bar">
       <h3>Key Vendor Contacts</h3>
       <div class="vendor-row">
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#F96302"></div><div class="vendor-info"><div class="vn">Home Depot Pro Xtra</div><div class="vd">HD account · Next-day delivery</div><div class="vp">homedepot.com/c/pro_xtra</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#F96302"></div><div class="vendor-info"><div class="vn">Home Depot Pro Xtra</div><div class="vd">HD account · Next-day delivery</div><div class="vp"><a href="https://www.homedepot.com/c/pro_xtra" target="_blank">homedepot.com/c/pro_xtra</a></div></div></div>
         <div class="vendor-chip"><div class="vendor-dot" style="background:#004990"></div><div class="vendor-info"><div class="vn">Lowe's Pro</div><div class="vd">15% discount via personal contact</div><div class="vp">Call before every large order</div></div></div>
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#16A34A"></div><div class="vendor-info"><div class="vn">Ferguson Westside LA</div><div class="vd">Contractor wholesale · Net-30</div><div class="vp">310-559-0101</div></div></div>
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#D97706"></div><div class="vendor-info"><div class="vn">Hirsch Pipe & Supply</div><div class="vd">LA plumbing wholesale · specialty</div><div class="vp">hirschpipe.com</div></div></div>
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#1B2A47"></div><div class="vendor-info"><div class="vn">Amazon Business</div><div class="vd">Specialty tools, gas detectors, niche parts</div><div class="vp">amazon.com/business</div></div></div>
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#6B7280"></div><div class="vendor-info"><div class="vn">Grainger LA</div><div class="vd">PPE, industrial supply · Net-30</div><div class="vp">grainger.com</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#16A34A"></div><div class="vendor-info"><div class="vn">Ferguson Westside LA</div><div class="vd">Contractor wholesale · Net-30</div><div class="vp"><a href="tel:3105590101">310-559-0101</a></div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#D97706"></div><div class="vendor-info"><div class="vn">Hirsch Pipe & Supply</div><div class="vd">LA plumbing wholesale · specialty</div><div class="vp"><a href="https://www.hirsch.com" target="_blank">hirsch.com</a></div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#1B2A47"></div><div class="vendor-info"><div class="vn">Amazon Business</div><div class="vd">Specialty tools, gas detectors, niche parts</div><div class="vp"><a href="https://www.amazon.com/business" target="_blank">amazon.com/business</a></div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#6B7280"></div><div class="vendor-info"><div class="vn">Grainger LA</div><div class="vd">PPE, industrial supply · Net-30</div><div class="vp"><a href="https://www.grainger.com" target="_blank">grainger.com</a></div></div></div>
       </div>
     </div>
   </div>
@@ -403,16 +397,15 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
     </div>
 
     <div class="quick-actions">
-      <a href="ordering.html" class="qa-btn primary">📦 Place Parts Order</a>
-      <a href="roadmap.html" class="qa-btn">📋 My Roadmap</a>
+      <a href="/procurement/dashboard" class="qa-btn primary">📦 Parts Procurement</a>
       <a href="van-catalog.html" class="qa-btn">🔧 Van Catalog</a>
       <a href="https://app.housecallpro.com" target="_blank" class="qa-btn">↗ HouseCall Pro</a>
     </div>
 
     <div class="section-head">YOUR TOOLS</div>
     <div class="tools-grid">
-      <a href="roadmap.html" class="tool-card" style="--accent:var(--navy)">
-        <div class="tool-card-head"><div class="tool-icon">📋</div><span class="tool-badge badge-live">Live</span></div>
+      <a href="roadmap.html" class="tool-card coming-soon" style="--accent:var(--navy)">
+        <div class="tool-card-head"><div class="tool-icon">📋</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Ops Roadmap</div><div class="tool-desc">Your week-by-week checklist. Work through this linearly from Day 1. Every task, every milestone, every SOP.</div></div>
         <div class="tool-footer"><span class="tool-who">Start here</span><span class="tool-arrow">→</span></div>
       </a>
@@ -421,13 +414,13 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
         <div><div class="tool-name">Van Catalog + Parts List</div><div class="tool-desc">Full tool list, parts par quantities, reorder triggers, and vendor buy links. Use to build purchase orders.</div></div>
         <div class="tool-footer"><span class="tool-who">Use weekly</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="ordering.html" class="tool-card" style="--accent:var(--amber)">
-        <div class="tool-card-head"><div class="tool-icon">📦</div><span class="tool-badge badge-build">Building</span></div>
-        <div><div class="tool-name">Parts Ordering + Vendor Compare</div><div class="tool-desc">Compare HD, Lowe's, Ferguson, Hirsch, and Amazon side-by-side before placing orders. Build and track POs.</div></div>
+      <a href="/procurement/dashboard" class="tool-card" style="--accent:var(--green)">
+        <div class="tool-card-head"><div class="tool-icon">📦</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Parts Procurement System</div><div class="tool-desc">Submit parts requests, track orders, coordinate with suppliers. Connected to Airtable. Live now.</div></div>
         <div class="tool-footer"><span class="tool-who">Use on Monday</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="restoration.html" class="tool-card" style="--accent:#0891B2">
-        <div class="tool-card-head"><div class="tool-icon">💧</div><span class="tool-badge badge-build">Building</span></div>
+      <a href="restoration.html" class="tool-card coming-soon" style="--accent:#0891B2">
+        <div class="tool-card-head"><div class="tool-icon">💧</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Water Restoration Workflows</div><div class="tool-desc">Crew coordination for Ruben + Rigo. Insurance claim process, IICRC protocols, equipment checklist.</div></div>
         <div class="tool-footer"><span class="tool-who">As needed</span><span class="tool-arrow">→</span></div>
       </a>
@@ -436,10 +429,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
     <div class="vendor-bar">
       <h3>Quick Vendor Reference</h3>
       <div class="vendor-row">
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#16A34A"></div><div class="vendor-info"><div class="vn">Ferguson Westside LA</div><div class="vd">Specialty items, net-30</div><div class="vp">310-559-0101</div></div></div>
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#F96302"></div><div class="vendor-info"><div class="vn">Home Depot Pro Xtra</div><div class="vd">Standard stock, next-day</div><div class="vp">homedepot.com/c/pro_xtra</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#16A34A"></div><div class="vendor-info"><div class="vn">Ferguson Westside LA</div><div class="vd">Specialty items, net-30</div><div class="vp"><a href="tel:3105590101">310-559-0101</a></div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#F96302"></div><div class="vendor-info"><div class="vn">Home Depot Pro Xtra</div><div class="vd">Standard stock, next-day</div><div class="vp"><a href="https://www.homedepot.com/c/pro_xtra" target="_blank">homedepot.com/c/pro_xtra</a></div></div></div>
         <div class="vendor-chip"><div class="vendor-dot" style="background:#004990"></div><div class="vendor-info"><div class="vn">Lowe's Pro</div><div class="vd">Call for 15% off first</div><div class="vp">Ask David for contact</div></div></div>
-        <div class="vendor-chip"><div class="vendor-dot" style="background:#D97706"></div><div class="vendor-info"><div class="vn">Hirsch Pipe & Supply</div><div class="vd">LA wholesale · specialty plumbing</div><div class="vp">hirschpipe.com</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#D97706"></div><div class="vendor-info"><div class="vn">Hirsch Pipe & Supply</div><div class="vd">LA wholesale · specialty plumbing</div><div class="vp"><a href="https://www.hirsch.com" target="_blank">hirsch.com</a></div></div></div>
       </div>
     </div>
   </div>
@@ -469,8 +462,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
 
     <div class="quick-actions">
       <a href="van-catalog.html#parts" class="qa-btn primary">🔩 Parts Reference</a>
-      <a href="pricing.html" class="qa-btn">💰 Job Pricing</a>
-      <a href="onboarding.html" class="qa-btn">🎓 Training</a>
       <a href="/training" class="qa-btn">🦺 Safety Certs</a>
     </div>
 
@@ -481,13 +472,13 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
         <div><div class="tool-name">Van Catalog + Parts Reference</div><div class="tool-desc">Every tool and part on your van with photos, descriptions, and reorder info. Know your van inside and out.</div></div>
         <div class="tool-footer"><span class="tool-who">Daily reference</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="pricing.html" class="tool-card" style="--accent:var(--green)">
-        <div class="tool-card-head"><div class="tool-icon">💰</div><span class="tool-badge badge-build">Building</span></div>
+      <a href="pricing.html" class="tool-card coming-soon" style="--accent:var(--green)">
+        <div class="tool-card-head"><div class="tool-icon">💰</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Job Pricing Calculator</div><div class="tool-desc">Enter service type + parts used → get the right price to quote. Includes upsell prompts for every job type.</div></div>
         <div class="tool-footer"><span class="tool-who">On every job</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="onboarding.html" class="tool-card" style="--accent:#7C3AED">
-        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-build">Building</span></div>
+      <a href="onboarding.html" class="tool-card coming-soon" style="--accent:#7C3AED">
+        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Tech Onboarding + Training</div><div class="tool-desc">Van SOPs, HouseCall Pro setup, safety protocols, Power Selling Pros training, and certification requirements.</div></div>
         <div class="tool-footer"><span class="tool-who">New techs</span><span class="tool-arrow">→</span></div>
       </a>
