@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Atlas Parts Finder</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8fafc;color:#0f172a;min-height:100vh}
+
+/* HEADER */
+.header{background:#fff;border-bottom:2px solid #e2e8f0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.logo{display:flex;align-items:center;gap:10px}
+.tag{background:#f97316;color:#fff;font-weight:800;font-size:10px;letter-spacing:.1em;padding:2px 8px;border-radius:3px}
+.header h1{font-size:17px;font-weight:800;color:#0f172a}
+.header-sub{font-size:11px;color:#94a3b8;margin-top:1px}
+
+/* PART REQUEST FORM */
+.request-bar{background:linear-gradient(135deg,#fff7ed,#fff);border:2px solid #fed7aa;border-radius:14px;padding:18px 20px;margin:16px;box-shadow:0 1px 6px rgba(249,115,22,.1)}
+.request-bar h2{font-size:14px;font-weight:800;color:#ea580c;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}
+.form-group label{display:block;font-size:10px;font-weight:700;color:#64748b;letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase}
+select,input,textarea{width:100%;padding:8px 10px;border:1px solid #e2e8f0;border-radius:7px;font-size:12px;color:#0f172a;background:#fff;outline:none;font-family:inherit}
+select:focus,input:focus{border-color:#f97316;box-shadow:0 0 0 2px #fed7aa}
+.submit-btn{background:#f97316;color:#fff;border:none;padding:9px 18px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .15s}
+.submit-btn:hover{background:#ea580c}
+
+/* RESULT TOAST */
+.toast{display:none;background:#0f172a;color:#fff;border-radius:8px;padding:12px 16px;margin:0 16px 12px;font-size:12px;line-height:1.6}
+.toast.show{display:block}
+
+/* TRADE TABS */
+.tabs{display:flex;gap:4px;padding:0 16px 12px;flex-wrap:wrap}
+.tab{padding:6px 14px;border-radius:20px;border:1px solid #e2e8f0;background:#fff;font-size:12px;font-weight:600;cursor:pointer;color:#475569;transition:all .15s}
+.tab:hover{background:#f8fafc}
+.tab.active{color:#fff;border-color:transparent}
+
+/* SUPPLY CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;padding:0 16px 24px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:box-shadow .15s}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.card-name{font-size:14px;font-weight:800;color:#0f172a}
+.card-type{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700;white-space:nowrap}
+.card-distance{font-size:11px;color:#94a3b8;margin-bottom:4px;display:flex;align-items:center;gap:4px}
+.card-note{font-size:11px;color:#475569;line-height:1.5;margin-bottom:10px}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.tag-pill{font-size:10px;padding:2px 7px;border-radius:8px;background:#f1f5f9;color:#475569;font-weight:500}
+.card-actions{display:flex;gap:6px}
+.action-btn{flex:1;padding:6px 8px;border-radius:6px;border:1px solid #e2e8f0;background:#f8fafc;font-size:11px;font-weight:600;cursor:pointer;color:#475569;text-align:center;text-decoration:none;display:block;transition:all .15s}
+.action-btn:hover{background:#f1f5f9;color:#0f172a}
+.action-btn.primary{background:#0f172a;color:#fff;border-color:#0f172a}
+.action-btn.primary:hover{background:#1e293b}
+
+/* BADGES */
+.badge-primary{background:#dcfce7;color:#15803d}
+.badge-secondary{background:#dbeafe;color:#1d4ed8}
+.badge-online{background:#fef9c3;color:#a16207}
+.badge-backup{background:#f1f5f9;color:#475569}
+.badge-relationship{background:#fae8ff;color:#9333ea}
+
+/* PRIORITY STAR */
+.priority{color:#f97316;font-size:12px;margin-right:2px}
+
+/* WORKFLOW STEPS */
+.workflow{background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin:0 16px 16px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.workflow h2{font-size:13px;font-weight:800;color:#0f172a;margin-bottom:14px;letter-spacing:.02em}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.step{text-align:center;position:relative}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;margin:0 auto 6px;position:relative;z-index:1}
+.step-line{position:absolute;top:16px;left:50%;right:-50%;height:2px;background:#e2e8f0;z-index:0}
+.step:last-child .step-line{display:none}
+.step-label{font-size:10px;font-weight:700;color:#0f172a;margin-bottom:2px;line-height:1.3}
+.step-sub{font-size:9px;color:#94a3b8;line-height:1.3}
+
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr 1fr;gap:6px}
+  .steps{grid-template-columns:1fr 1fr;gap:12px}
+  .step-line{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <span class="tag">ATLAS</span>
+    <div>
+      <div class="header h1" style="font-size:17px;font-weight:800">Parts Finder</div>
+      <div class="header-sub">Supply house lookup · 6 trades · 15-mile radius from 90036</div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:#94a3b8;text-align:right">HQ: 145 S Fairfax Ave<br>Los Angeles 90036</div>
+</div>
+
+<!-- PART REQUEST -->
+<div class="request-bar">
+  <h2>🔧 New Part Request</h2>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Trade</label>
+      <select id="reqTrade" onchange="filterTrade(this.value)">
+        <option value="">-- Select Trade --</option>
+        <option>Plumbing</option>
+        <option>HVAC</option>
+        <option>Electrical</option>
+        <option>Gates & Garage Doors</option>
+        <option>Painting</option>
+        <option>Water Restoration</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Part / Description</label>
+      <input type="text" id="reqPart" placeholder="e.g. 3/4&quot; ball valve, Moen 1225B..."/>
+    </div>
+    <div class="form-group">
+      <label>Job Address / ZIP</label>
+      <input type="text" id="reqZip" placeholder="e.g. 90049 or 1234 Elm St"/>
+    </div>
+    <div class="form-group">
+      <label>&nbsp;</label>
+      <button class="submit-btn" onclick="submitRequest()">🔍 Find Part</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- WORKFLOW -->
+<div class="workflow">
+  <h2>📋 Parts Request Workflow</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-num" style="background:#fff7ed;color:#f97316;border:2px solid #fed7aa">1</div>
+      <div class="step-label">Tech Requests</div>
+      <div class="step-sub">Photo or describe part in HouseCall Pro</div>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-num" style="background:#eff6ff;color:#2563eb;border:2px solid #bfdbfe">2</div>
+      <div class="step-label">Lookup Here</div>
+      <div class="step-sub">Match trade → nearest primary supplier</div>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-num" style="background:#f0fdf4;color:#16a34a;border:2px solid #bbf7d0">3</div>
+      <div class="step-label">Call / Order</div>
+      <div class="step-sub">Will-call or same-day delivery option</div>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-num" style="background:#faf5ff;color:#9333ea;border:2px solid #e9d5ff">4</div>
+      <div class="step-label">Deliver or Pickup</div>
+      <div class="step-sub">Uber Direct if &lt;50 lbs, or tech detour</div>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-num" style="background:#f8fafc;color:#475569;border:2px solid #e2e8f0">5</div>
+      <div class="step-label">Log in HCP</div>
+      <div class="step-sub">Part cost → job ticket → commission</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRADE FILTER TABS -->
+<div class="tabs" id="tabs"></div>
+
+<!-- SUPPLY CARDS -->
+<div class="grid" id="grid"></div>
+
+<script>
+const SUPPLIERS = [
+  // ── PLUMBING ─────────────────────────────────────────────────────────────────
+  {trade:"Plumbing",name:"Hirsch Pipe & Supply",type:"primary",typeBadge:"badge-primary",
+   distance:"0.8 mi",address:"5635 W. Pico Blvd, 90019",phone:"(323) 931-5000",
+   url:"https://www.hirschpipe.com",hours:"Mon–Fri 7am–5pm",
+   note:"Closest wholesale plumbing house to HQ. Contractor account required. Best for common residential supply.",
+   tags:["Copper","PVC","Fittings","Fixtures","Water Heaters"],priority:true},
+  {trade:"Plumbing",name:"Ferguson Plumbing",type:"primary",typeBadge:"badge-primary",
+   distance:"2.1 mi",address:"6555 Santa Monica Blvd, 90038",phone:"(323) 461-4151",
+   url:"https://www.ferguson.com",hours:"Mon–Fri 7am–4:30pm",
+   note:"Premium fixtures + commercial supply. Best for high-end jobs, showroom clients, and water heaters.",
+   tags:["Fixtures","Showroom","Commercial","Water Heaters","Valves"],priority:true},
+  {trade:"Plumbing",name:"HD Supply / Contractors Warehouse",type:"secondary",typeBadge:"badge-secondary",
+   distance:"5.4 mi",address:"11407 S Western Ave, 90047",phone:"(323) 759-2600",
+   url:"https://www.hdsupply.com",hours:"Mon–Fri 7am–5pm, Sat 7am–4pm",
+   note:"Same physical building as old Contractors Warehouse. Good for MRO and multifamily job supplies.",
+   tags:["MRO","Multifamily","Bulk","Hardware"],priority:false},
+  {trade:"Plumbing",name:"Home Depot (La Brea)",type:"backup",typeBadge:"badge-backup",
+   distance:"1.2 mi",address:"5600 W. Sunset Blvd area / 4255 Crenshaw Blvd",phone:"",
+   url:"https://www.homedepot.com",hours:"Daily 6am–10pm",
+   note:"Emergency / after-hours only. Retail pricing but open 7 days. Good for small common fittings.",
+   tags:["Emergency","After-Hours","Common Parts"],priority:false},
+  {trade:"Plumbing",name:"SupplyHouse.com",type:"online",typeBadge:"badge-online",
+   distance:"Online",address:"Ship to job or HQ",phone:"1-888-757-4774",
+   url:"https://www.supplyhouse.com",hours:"Orders 24/7",
+   note:"Best online pricing. 2-day ship on most items. Good for non-urgent parts and specialty items.",
+   tags:["Online","Specialty","Hydronic","Radiant"],priority:false},
+
+  // ── HVAC ─────────────────────────────────────────────────────────────────────
+  {trade:"HVAC",name:"US Air Conditioning Distributors",type:"primary",typeBadge:"badge-primary",
+   distance:"3.2 mi",address:"3520 W. Beverly Blvd, 90004",phone:"(323) 662-2200",
+   url:"https://www.usacdist.com",hours:"Mon–Fri 7am–4:30pm",
+   note:"Requires contractor license to purchase. Primary for Carrier, Bryant, Payne equipment and OEM parts.",
+   tags:["Carrier","Bryant","Compressors","OEM Parts","Equipment"],priority:true},
+  {trade:"HVAC",name:"Ferguson HVAC",type:"primary",typeBadge:"badge-primary",
+   distance:"2.1 mi",address:"6555 Santa Monica Blvd, 90038",phone:"(323) 461-4151",
+   url:"https://www.ferguson.com",hours:"Mon–Fri 7am–4:30pm",
+   note:"Dual-trade relationship — covers both plumbing and HVAC. Good for controls and commercial.",
+   tags:["Controls","Thermostats","Commercial","Ductwork"],priority:true},
+  {trade:"HVAC",name:"Johnstone Supply",type:"secondary",typeBadge:"badge-secondary",
+   distance:"4.1 mi",address:"2000 S Garfield Ave, Commerce, 90040",phone:"(323) 721-6400",
+   url:"https://www.johnstonesupply.com",hours:"Mon–Fri 7am–5pm",
+   note:"Strong for residential repair parts — contactors, capacitors, motors. Good counter service.",
+   tags:["Capacitors","Contactors","Motors","Filters","Repair Parts"],priority:false},
+  {trade:"HVAC",name:"Cold Air Central",type:"online",typeBadge:"badge-online",
+   distance:"Online",address:"Ships same-day if ordered by noon",phone:"1-800-997-2653",
+   url:"https://www.coldaircentral.com",hours:"Orders 24/7",
+   note:"Serves 90036 directly. Good after-hours online sourcing for common OEM parts.",
+   tags:["Online","OEM","Same-Day Ship","Filters"],priority:false},
+
+  // ── ELECTRICAL ────────────────────────────────────────────────────────────────
+  {trade:"Electrical",name:"[David's Family Relationships]",type:"relationship",typeBadge:"badge-relationship",
+   distance:"TBD",address:"To be filled in — family network",phone:"",
+   url:"",hours:"",
+   note:"Family is involved in electrical supply. Add 2–3 specific houses here once confirmed. These are priority accounts.",
+   tags:["Priority","Family Accounts","TBD"],priority:true},
+  {trade:"Electrical",name:"Walters Wholesale Electric",type:"primary",typeBadge:"badge-primary",
+   distance:"5.8 mi",address:"5801 Uplander Way, Culver City, 90230",phone:"(310) 641-8100",
+   url:"https://www.walterswholesale.com",hours:"Mon–Fri 7am–5pm",
+   note:"Strong local Westside electrical house. Good contractor pricing on wire, panels, devices.",
+   tags:["Wire","Panels","Devices","Lighting","Conduit"],priority:false},
+  {trade:"Electrical",name:"Hollywood Wholesale Electric",type:"primary",typeBadge:"badge-primary",
+   distance:"2.4 mi",address:"6700 Santa Monica Blvd, 90038",phone:"(323) 467-2400",
+   url:"",hours:"Mon–Fri 7am–5pm",
+   note:"Closest full-service electrical house to HQ. Good for residential and light commercial.",
+   tags:["Residential","Devices","Breakers","Wire","Controls"],priority:false},
+  {trade:"Electrical",name:"Platt Electric Supply",type:"online",typeBadge:"badge-online",
+   distance:"Online",address:"Ship to job / will-call available",phone:"1-800-257-5288",
+   url:"https://www.platt.com",hours:"Orders 24/7",
+   note:"Full catalog online, competitive pricing. Good for sourcing unusual items without a counter run.",
+   tags:["Online","Full Catalog","Specialty","Industrial"],priority:false},
+
+  // ── GATES & GARAGE DOORS ─────────────────────────────────────────────────────
+  {trade:"Gates & Garage Doors",name:"Multi Sales Inc.",type:"primary",typeBadge:"badge-primary",
+   distance:"6.2 mi",address:"9210 Jordan Ave, Chatsworth, 91311",phone:"(818) 998-0919",
+   url:"https://www.multisales.com",hours:"Mon–Fri 7:30am–4:30pm",
+   note:"Wholesale-only, 4,500+ SKUs. Best for operators, access control, gate hardware. LA/OC/SD coverage.",
+   tags:["Operators","Access Control","LiftMaster","Linear","Gate Hardware"],priority:true},
+  {trade:"Gates & Garage Doors",name:"Master Halco",type:"primary",typeBadge:"badge-primary",
+   distance:"7.4 mi",address:"3211 E Washington Blvd, Los Angeles, 90023",phone:"(323) 264-2441",
+   url:"https://www.masterhalco.com",hours:"Mon–Fri 7am–4pm",
+   note:"Leading wholesale fence + gate material distributor. Best for tube steel, frames, chain link.",
+   tags:["Steel Tube","Chain Link","Frames","Posts","Wholesale"],priority:true},
+  {trade:"Gates & Garage Doors",name:"Globus Gate & Fence",type:"secondary",typeBadge:"badge-secondary",
+   distance:"Online / Local",address:"Serves LA Metro",phone:"1-800-456-1289",
+   url:"https://www.globusgates.com",hours:"Mon–Fri 8am–5pm",
+   note:"Strong for aluminum gates — fire-resistant demand surge in post-Palisades area. Custom fabrication.",
+   tags:["Aluminum","Custom","Fire-Resistant","Ornamental"],priority:false},
+  {trade:"Gates & Garage Doors",name:"Clopay / Amarr Dealer",type:"secondary",typeBadge:"badge-secondary",
+   distance:"Various",address:"Check local dealer network",phone:"",
+   url:"https://www.clopay.com",hours:"Varies",
+   note:"OEM garage door panels, springs, and hardware. Use for residential door replacements.",
+   tags:["Door Panels","Springs","OEM","Residential"],priority:false},
+
+  // ── PAINTING ─────────────────────────────────────────────────────────────────
+  {trade:"Painting",name:"Sherwin-Williams (La Cienega)",type:"primary",typeBadge:"badge-primary",
+   distance:"1.0 mi",address:"8560 W Olympic Blvd, 90035",phone:"(310) 652-5511",
+   url:"https://www.sherwin-williams.com",hours:"Mon–Fri 6am–5pm, Sat 8am–4pm",
+   note:"1 mile from HQ, opens 6am — best for early start jobs. Set up contractor account for 30–40% off.",
+   tags:["Contractor Account","Opens 6am","Interior","Exterior","Primers"],priority:true},
+  {trade:"Painting",name:"SW Commercial (Venice Blvd)",type:"primary",typeBadge:"badge-primary",
+   distance:"2.3 mi",address:"5900 Venice Blvd, 90019",phone:"(323) 933-5510",
+   url:"https://www.sherwin-williams.com",hours:"Mon–Fri 6am–5pm",
+   note:"Dedicated contractor/commercial location. Better for bulk orders and large commercial jobs.",
+   tags:["Commercial","Bulk","Coatings","Contractor"],priority:false},
+  {trade:"Painting",name:"Dunn-Edwards (Mid-City)",type:"secondary",typeBadge:"badge-secondary",
+   distance:"1.8 mi",address:"3800 Crenshaw Blvd, 90016",phone:"(323) 296-8989",
+   url:"https://www.dunnedwards.com",hours:"Mon–Fri 6:30am–5pm, Sat 7am–3pm",
+   note:"SoCal brand loyalty play — many LA homeowners specify Dunn-Edwards by name. Good premium option.",
+   tags:["Premium","SoCal Brand","Fade Resistant","Interior/Exterior"],priority:false},
+
+  // ── WATER RESTORATION ────────────────────────────────────────────────────────
+  {trade:"Water Restoration",name:"Jon-Don",type:"primary",typeBadge:"badge-primary",
+   distance:"8.1 mi",address:"12325 Montague St, Pacoima, 91331",phone:"(818) 897-6400",
+   url:"https://www.jon-don.com",hours:"Mon–Fri 7am–5pm",
+   note:"Full-service distributor. Chemicals, equipment, mold remediation, and IICRC training. Key relationship.",
+   tags:["Equipment","Chemicals","Mold","IICRC","Training"],priority:true},
+  {trade:"Water Restoration",name:"Dri-Eaz / Legend Brands",type:"primary",typeBadge:"badge-primary",
+   distance:"Online",address:"Ship to warehouse",phone:"1-800-932-3030",
+   url:"https://www.legendbrandscleaning.com",hours:"Orders 24/7",
+   note:"Industry gold standard equipment. LGR dehumidifiers, air movers — brand name on truck = trust signal.",
+   tags:["LGR Dehumidifiers","Air Movers","Gold Standard","Brand Recognition"],priority:true},
+  {trade:"Water Restoration",name:"AlorAir / TheDryAir",type:"backup",typeBadge:"badge-backup",
+   distance:"Online",address:"Ship direct",phone:"1-888-990-7469",
+   url:"https://www.alorair.com",hours:"Orders 24/7",
+   note:"Best wholesale bundle pricing for initial equipment purchase. Good for outfitting multiple units at launch.",
+   tags:["Bundle Pricing","Launch Purchase","Dehumidifiers","Air Scrubbers"],priority:false},
+];
+
+const TRADES = ["All Trades","Plumbing","HVAC","Electrical","Gates & Garage Doors","Painting","Water Restoration"];
+const TRADE_COLORS = {
+  "Plumbing":         {tab:"#2563eb",light:"#eff6ff"},
+  "HVAC":             {tab:"#dc2626",light:"#fef2f2"},
+  "Electrical":       {tab:"#ca8a04",light:"#fefce8"},
+  "Gates & Garage Doors":{tab:"#7c3aed",light:"#faf5ff"},
+  "Painting":         {tab:"#0891b2",light:"#ecfeff"},
+  "Water Restoration":{tab:"#0d9488",light:"#f0fdfa"},
+};
+
+let activeTab = "All Trades";
+
+function renderTabs(){
+  document.getElementById("tabs").innerHTML = TRADES.map(t=>{
+    const col = t==="All Trades" ? "#0f172a" : TRADE_COLORS[t].tab;
+    const active = t===activeTab;
+    return `<button class="tab ${active?'active':''}"
+      style="${active?`background:${col};border-color:${col};`:''}color:${active?'#fff':col};border-color:${active?col:col}40"
+      onclick="filterTrade('${t}')">${t}</button>`;
+  }).join('');
+}
+
+function filterTrade(val){
+  activeTab = val==="All Trades"||val===""?"All Trades":val;
+  // sync select
+  const sel=document.getElementById("reqTrade");
+  if(sel&&val!=="All Trades"&&val!=="") sel.value=val;
+  renderTabs();
+  renderGrid();
+}
+
+function renderGrid(){
+  const visible = activeTab==="All Trades"
+    ? SUPPLIERS
+    : SUPPLIERS.filter(s=>s.trade===activeTab);
+
+  document.getElementById("grid").innerHTML = visible.map(s=>{
+    const col = TRADE_COLORS[s.trade]||{tab:"#475569",light:"#f8fafc"};
+    const tradeColor = col.tab;
+    return `<div class="card">
+      <div class="card-top">
+        <div>
+          ${s.priority?'<span class="priority">★</span>':''}
+          <span class="card-name">${s.name}</span>
+        </div>
+        <span class="tier-badge card-type ${s.typeBadge}" style="margin-left:8px">${s.type}</span>
+      </div>
+      <div style="font-size:10px;font-weight:700;color:${tradeColor};letter-spacing:.05em;margin-bottom:6px;text-transform:uppercase">${s.trade}</div>
+      <div class="card-distance">📍 ${s.distance} &nbsp;·&nbsp; ${s.hours||'See website'}</div>
+      ${s.address?`<div style="font-size:11px;color:#64748b;margin-bottom:6px">${s.address}</div>`:''}
+      <div class="card-note">${s.note}</div>
+      <div class="card-tags">${s.tags.map(t=>`<span class="tag-pill">${t}</span>`).join('')}</div>
+      <div class="card-actions">
+        ${s.phone?`<a class="action-btn primary" href="tel:${s.phone.replace(/\D/g,'')}">📞 ${s.phone}</a>`:''}
+        ${s.url?`<a class="action-btn" href="${s.url}" target="_blank">🌐 Website</a>`:''}
+        <button class="action-btn" onclick="copyInfo('${s.name}','${s.address}','${s.phone}')">📋 Copy</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function copyInfo(name,addr,phone){
+  const txt=`${name}\n${addr}\n${phone}`;
+  navigator.clipboard.writeText(txt).catch(()=>{});
+  showToast(`✅ Copied: ${name}`);
+}
+
+function submitRequest(){
+  const trade=document.getElementById("reqTrade").value;
+  const part=document.getElementById("reqPart").value.trim();
+  const zip=document.getElementById("reqZip").value.trim();
+  if(!trade||!part){showToast("⚠️ Please select a trade and describe the part.");return;}
+  const suppliers=SUPPLIERS.filter(s=>s.trade===trade&&(s.type==="primary"||s.priority));
+  let msg=`🔧 <b>Part Request:</b> ${part} &nbsp;|&nbsp; Trade: ${trade}${zip?' &nbsp;|&nbsp; Job: '+zip:''}<br><br>`;
+  msg+=`<b>Recommended suppliers:</b><br>`;
+  suppliers.slice(0,3).forEach((s,i)=>{
+    msg+=`${i+1}. <b>${s.name}</b> — ${s.distance}${s.phone?' · '+s.phone:''}${s.url?' · <a href="'+s.url+'" target="_blank" style="color:#93c5fd">Website</a>':''}<br>`;
+  });
+  if(suppliers.length===0)msg+=`No primary suppliers found for this trade. Check all suppliers below.`;
+  showToast(msg);
+  filterTrade(trade);
+}
+
+function showToast(msg){
+  const t=document.getElementById("toast");
+  t.innerHTML=msg;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),8000);
+}
+
+// Init
+renderTabs();
+renderGrid();
+</script>
+</body>
+</html>
