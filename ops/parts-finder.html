@@ -107,7 +107,7 @@ select:focus,input:focus{border-color:#f97316;box-shadow:0 0 0 2px #fed7aa}
     <span class="tag">ATLAS</span>
     <div>
       <div class="header h1" style="font-size:17px;font-weight:800">Parts Finder</div>
-      <div class="header-sub">Supply house lookup · 6 trades · 15-mile radius from 90036</div>
+      <div class="header-sub">Supply house lookup · 10 trades · 15-mile radius from 90036</div>
     </div>
   </div>
   <div style="font-size:11px;color:#94a3b8;text-align:right">HQ: 145 S Fairfax Ave<br>Los Angeles 90036</div>
@@ -121,12 +121,16 @@ select:focus,input:focus{border-color:#f97316;box-shadow:0 0 0 2px #fed7aa}
       <label>Trade</label>
       <select id="reqTrade" onchange="filterTrade(this.value)">
         <option value="">-- Select Trade --</option>
-        <option>Plumbing</option>
-        <option>HVAC</option>
-        <option>Electrical</option>
-        <option>Gates & Garage Doors</option>
-        <option>Painting</option>
-        <option>Water Restoration</option>
+        <option value="Appliance Repair">Appliance Repair</option>
+        <option value="Electrical">Electrical</option>
+        <option value="Gates & Garage Doors">Gates & Garage Doors</option>
+        <option value="HVAC">HVAC</option>
+        <option value="Landscaping & Nursery">Landscaping & Nursery</option>
+        <option value="Painting">Painting</option>
+        <option value="Plumbing">Plumbing</option>
+        <option value="Roofing">Roofing</option>
+        <option value="Tile & Stone">Tile & Stone</option>
+        <option value="Water Restoration">Water Restoration</option>
       </select>
     </div>
     <div class="form-group">
@@ -319,13 +323,17 @@ const SUPPLIERS = [
    tags:["Bundle Pricing","Launch Purchase","Dehumidifiers","Air Scrubbers"],priority:false},
 ];
 
-const TRADES = ["All Trades","Plumbing","HVAC","Electrical","Gates & Garage Doors","Painting","Water Restoration"];
+const TRADES = ["All Trades","Appliance Repair","Electrical","Gates & Garage Doors","HVAC","Landscaping & Nursery","Painting","Plumbing","Roofing","Tile & Stone","Water Restoration"];
 const TRADE_COLORS = {
-  "Plumbing":         {tab:"#2563eb",light:"#eff6ff"},
-  "HVAC":             {tab:"#dc2626",light:"#fef2f2"},
+  "Appliance Repair": {tab:"#e11d48",light:"#fff1f2"},
   "Electrical":       {tab:"#ca8a04",light:"#fefce8"},
   "Gates & Garage Doors":{tab:"#7c3aed",light:"#faf5ff"},
+  "HVAC":             {tab:"#dc2626",light:"#fef2f2"},
+  "Landscaping & Nursery":{tab:"#65a30d",light:"#f7fee7"},
   "Painting":         {tab:"#0891b2",light:"#ecfeff"},
+  "Plumbing":         {tab:"#2563eb",light:"#eff6ff"},
+  "Roofing":          {tab:"#78716c",light:"#fafaf9"},
+  "Tile & Stone":     {tab:"#a855f7",light:"#faf5ff"},
   "Water Restoration":{tab:"#0d9488",light:"#f0fdfa"},
 };
 
