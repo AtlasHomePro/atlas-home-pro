@@ -1,0 +1,424 @@
+<script>
+(function(){
+  if(!sessionStorage.getItem('atlas_role')){
+    window.location.replace('../index.html');
+  }
+})();
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Atlas Parts Finder — All Trades</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#0f172a;min-height:100vh}
+
+/* ── HEADER ── */
+.header{background:#0f172a;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header-left{display:flex;align-items:center;gap:12px}
+.logo{background:#f97316;color:#fff;font-weight:900;font-size:11px;letter-spacing:.08em;padding:4px 9px;border-radius:4px}
+.htitle{color:#fff;font-size:16px;font-weight:800}
+.hsub{color:#64748b;font-size:10px;text-align:right;line-height:1.4}
+.back-link{color:#94a3b8;text-decoration:none;font-size:11px;font-weight:600;display:flex;align-items:center;gap:4px;transition:color .15s}
+.back-link:hover{color:#fff}
+
+/* ── PART REQUEST BAR ── */
+.req{background:linear-gradient(135deg,#fff7ed,#fff);border:2px solid #fed7aa;border-radius:12px;padding:16px 18px;margin:14px 16px;box-shadow:0 1px 6px rgba(249,115,22,.08)}
+.req h2{font-size:13px;font-weight:800;color:#ea580c;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.req-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}
+label{display:block;font-size:10px;font-weight:700;color:#64748b;letter-spacing:.06em;margin-bottom:3px;text-transform:uppercase}
+select,input{width:100%;padding:8px 10px;border:1px solid #e2e8f0;border-radius:6px;font-size:12px;color:#0f172a;background:#fff;outline:none;font-family:inherit}
+select:focus,input:focus{border-color:#f97316;box-shadow:0 0 0 2px rgba(254,215,170,.25)}
+.go{background:#0f172a;color:#fff;border:none;padding:9px 16px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .15s}
+.go:hover{background:#1e293b}
+
+/* ── TOAST ── */
+.toast{display:none;background:#0f172a;color:#e2e8f0;border-radius:8px;padding:12px 16px;margin:0 16px 10px;font-size:12px;line-height:1.7;animation:fadeIn .2s ease}
+.toast.on{display:block}
+.toast a{color:#f97316;text-decoration:underline}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── WORKFLOW STRIP ── */
+.wf{background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin:0 16px 12px;padding:14px 16px}
+.wf-title{font-size:11px;font-weight:800;color:#0f172a;letter-spacing:.05em;margin-bottom:12px;text-transform:uppercase}
+.steps{display:flex;gap:0}
+.step{flex:1;text-align:center;position:relative}
+.step::after{content:'';position:absolute;top:14px;left:50%;right:-50%;height:2px;background:#e2e8f0;z-index:0}
+.step:last-child::after{display:none}
+.snum{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;margin:0 auto 5px;position:relative;z-index:1}
+.slabel{font-size:10px;font-weight:700;color:#0f172a;line-height:1.3}
+.ssub{font-size:9px;color:#94a3b8;line-height:1.3;margin-top:1px}
+
+/* ── STATS BAR ── */
+.stats{display:flex;gap:8px;padding:0 16px 10px;flex-wrap:wrap}
+.stat{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:8px 14px;font-size:11px;color:#64748b}
+.stat b{color:#0f172a;font-size:14px;display:block}
+
+/* ── TRADE FILTER TABS ── */
+.tabs{display:flex;gap:4px;padding:0 16px 10px;flex-wrap:wrap}
+.tab{padding:5px 12px;border-radius:20px;border:1.5px solid;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s;background:#fff;color:#64748b;border-color:#e2e8f0;user-select:none}
+.tab:hover{border-color:#cbd5e1}
+.tab.active{font-weight:800}
+.cnt{font-size:9px;font-weight:700;padding:1px 5px;border-radius:8px;background:rgba(226,232,240,.06);margin-left:3px}
+
+/* ── SUPPLIER CARDS GRID ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px;padding:0 16px 24px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:box-shadow .15s,transform .15s;position:relative;overflow:hidden}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.09);transform:translateY(-1px)}
+.cbar{position:absolute;top:0;left:0;right:0;height:3px}
+.ctop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.cname{font-size:13px;font-weight:800;color:#0f172a;line-height:1.3;padding-right:6px}
+.badge{font-size:9px;font-weight:800;padding:2px 6px;border-radius:8px;white-space:nowrap;flex-shrink:0}
+.ctrade{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px}
+.caddr{font-size:10px;color:#64748b;margin-bottom:2px}
+.cdist{font-size:10px;color:#94a3b8;margin-bottom:6px}
+.cnote{font-size:11px;color:#475569;line-height:1.5;margin-bottom:8px}
+.ctags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+.tpill{font-size:9px;padding:2px 6px;border-radius:6px;background:#f1f5f9;color:#475569;font-weight:500}
+.cbtns{display:flex;gap:5px}
+.cbtn{flex:1;padding:6px 4px;border-radius:5px;border:1px solid #e2e8f0;background:#f8fafc;font-size:10px;font-weight:600;cursor:pointer;color:#475569;text-align:center;text-decoration:none;display:block;transition:all .15s}
+.cbtn:hover{background:#f1f5f9;color:#0f172a}
+.cbtn.dk{background:#0f172a;color:#fff;border-color:#0f172a}
+.cbtn.dk:hover{background:#1e293b}
+.star{color:#f97316;font-size:11px;margin-right:2px}
+
+/* ── EMPTY STATE ── */
+.empty{text-align:center;padding:40px 20px;color:#94a3b8;font-size:13px}
+.empty b{color:#64748b;display:block;margin-bottom:4px}
+
+/* ── FOOTER ── */
+footer{background:#0f172a;padding:12px 20px;text-align:center;font-size:10px;color:#475569;margin-top:8px}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .req-row{grid-template-columns:1fr 1fr}
+  .steps{flex-wrap:wrap;gap:10px}
+  .step::after{display:none}
+  .grid{grid-template-columns:1fr}
+  .hsub{display:none}
+  .header{padding:10px 14px}
+}
+
+/* ── SEARCH HIGHLIGHT ── */
+.highlight{background:#fef3c7;border-radius:2px;padding:0 1px}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <a href="../index.html" class="back-link">&#8592; Ops</a>
+    <span class="logo">ATLAS</span>
+    <span class="htitle">Parts Finder</span>
+  </div>
+  <div class="hsub">10 trades &middot; 66 suppliers &middot; Built from Supply Chain Master CSV v1</div>
+</div>
+
+<!-- PART REQUEST BAR -->
+<div class="req">
+  <h2>&#128295; New Part Request</h2>
+  <div class="req-row">
+    <div><label>Trade</label><select id="rTrade" onchange="filterTrade(this.value)"><option value="">-- Select Trade --</option></select></div>
+    <div><label>Part / Description</label><input type="text" id="rPart" placeholder="e.g. torsion spring, LG drain pump, ball valve&hellip;" oninput="liveSearch(this.value)"/></div>
+    <div><label>Job ZIP / Address</label><input type="text" id="rZip" placeholder="e.g. 90049 or job address"/></div>
+    <div><label>&nbsp;</label><button class="go" onclick="submitReq()">&#128270; Find Suppliers</button></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- WORKFLOW STRIP -->
+<div class="wf">
+  <div class="wf-title">&#128203; Parts Request Workflow</div>
+  <div class="steps">
+    <div class="step"><div class="snum" style="background:#fff7ed;color:#f97316;border:2px solid #fed7aa">1</div><div class="slabel">Tech Requests</div><div class="ssub">Photo or describe in HouseCall Pro</div></div>
+    <div class="step"><div class="snum" style="background:#eff6ff;color:#2563eb;border:2px solid #bfdbfe">2</div><div class="slabel">Look Up Here</div><div class="ssub">Trade &rarr; best supplier</div></div>
+    <div class="step"><div class="snum" style="background:#f0fdf4;color:#16a34a;border:2px solid #bbf7d0">3</div><div class="slabel">Call / Order</div><div class="ssub">Will-call or same-day delivery</div></div>
+    <div class="step"><div class="snum" style="background:#faf5ff;color:#9333ea;border:2px solid #e9d5ff">4</div><div class="slabel">Deliver</div><div class="ssub">Uber Direct if &lt;50 lbs</div></div>
+    <div class="step"><div class="snum" style="background:#f8fafc;color:#475569;border:2px solid #e2e8f0">5</div><div class="slabel">Log in HCP</div><div class="ssub">Part cost &rarr; job ticket</div></div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats" id="stats"></div>
+
+<!-- TRADE FILTER TABS -->
+<div class="tabs" id="tabs"></div>
+
+<!-- SUPPLIER CARDS GRID -->
+<div class="grid" id="grid"></div>
+
+<!-- FOOTER -->
+<footer>Atlas Home Pro &middot; Internal Use Only &middot; 145 S Fairfax Ave, Los Angeles CA 90036</footer>
+
+<script>
+/* ══════════════════════════════════════════════
+   SUPPLIER DATA — 66 Suppliers / 10 Trades
+   Source: Supply Chain Master CSV v1
+   ══════════════════════════════════════════════ */
+const S=[
+// ── PAINTING (5) ──
+{trade:"Painting",lic:"C-33",name:"Sherwin-Williams (La Cienega)",p:"PRIMARY",type:"Wholesale/Retail",addr:"1404 S La Cienega Blvd, LA 90035",dist:"~1 mi",web:"sherwin-williams.com",notes:"Closest to 90036. Opens 6am M\u2013F. Pro Contractor program. Multiple nearby locations.",tags:["Opens 6am","Pro Account","Interior/Exterior"]},
+{trade:"Painting",lic:"C-33",name:"Sherwin-Williams Commercial (Venice)",p:"PRIMARY",type:"Contractor-Only",addr:"1367 Venice Blvd, LA 90006",dist:"~3 mi",web:"sherwin-williams.com",notes:"Commercial-grade coatings. Opens 6am M\u2013Sa. Better pricing for high-volume accounts.",tags:["Contractor-Only","Bulk","Opens 6am","High-Volume"]},
+{trade:"Painting",lic:"C-33",name:"Dunn-Edwards",p:"PRIMARY",type:"Wholesale/Retail",addr:"2001 S Hoover St, LA 90007",dist:"~4 mi",web:"dunnedwards.com",notes:"SoCal brand. Contractor accounts. Eco-friendly line. PaintCare recycling. Multiple LA locations.",tags:["SoCal Brand","Eco-Friendly","Contractor Account"]},
+{trade:"Painting",lic:"C-33",name:"Home Depot",p:"BACKUP",type:"Big Box",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",notes:"Emergency/overflow only. Behr, PPG, Glidden. Not primary for high-end jobs.",tags:["Emergency","Overflow","After-Hours"]},
+{trade:"Painting",lic:"C-33",name:"Lowe\u2019s",p:"BACKUP",type:"Big Box",addr:"Multiple within 15 mi",dist:"Various",web:"lowes.com",notes:"Backup only. Good for sundries, drop cloths, tape. Valspar, HGTV Home.",tags:["Backup","Sundries","Tape","Drop Cloths"]},
+
+// ── PLUMBING (7) ──
+{trade:"Plumbing",lic:"C-36",name:"Hirsch Pipe & Supply (Gower)",p:"PRIMARY",type:"Wholesale",addr:"1011 N Gower St, LA 90038",dist:"~1 mi",web:"hirsch.com",notes:"Founded 1933. 30 SoCal branches. 25,000+ SKUs. Same-day delivery. 24/7 online ordering.",tags:["25K+ SKUs","Same-Day","24/7 Online","Closest"]},
+{trade:"Plumbing",lic:"C-36",name:"Hirsch Pipe & Supply (Jefferson)",p:"PRIMARY",type:"Wholesale",addr:"3317 W Jefferson Blvd, LA 90018",dist:"~3 mi",web:"hirsch.com",notes:"Second closest Hirsch branch. Same inventory and contractor accounts as Gower.",tags:["Same Inventory","Second Branch","Contractor Account"]},
+{trade:"Plumbing",lic:"C-36",name:"Ferguson Plumbing Supply",p:"PRIMARY",type:"Wholesale/Showroom",addr:"Culver City + West Hollywood",dist:"~5\u20138 mi",web:"ferguson.com",notes:"Covers plumbing + HVAC. Fixtures, fittings, water heaters. Showroom for client selections.",tags:["Showroom","Fixtures","Water Heaters","Dual-Trade"]},
+{trade:"Plumbing",lic:"C-36",name:"HD Supply / Contractors Warehouse",p:"SECONDARY",type:"Wholesale",addr:"11407 S Western Ave, LA 90047",dist:"~7 mi",web:"hdsupply.com",notes:"20,000+ MRO products. Next-day delivery. LA distribution center.",tags:["MRO","20K+ SKUs","Next-Day"]},
+{trade:"Plumbing",lic:"C-36",name:"Hajoca",p:"SECONDARY",type:"Wholesale",addr:"Los Angeles area",dist:"~10 mi",web:"hajoca.com",notes:"Employee-owned. Strong on residential plumbing. Contractor accounts.",tags:["Employee-Owned","Residential","Contractor Account"]},
+{trade:"Plumbing",lic:"C-36",name:"SupplyHouse.com",p:"BACKUP",type:"Online Wholesale",addr:"Ships to job site",dist:"Online",web:"supplyhouse.com",notes:"Massive online catalog. Good for obscure parts after-hours. Fast shipping.",tags:["Online","After-Hours","Obscure Parts","Fast Ship"]},
+{trade:"Plumbing",lic:"C-36",name:"Home Depot",p:"BACKUP",type:"Big Box",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",notes:"Emergency/overflow. Common fittings in a pinch. Limited trade pricing.",tags:["Emergency","Common Fittings","7 Days"]},
+
+// ── HVAC / AC (5) ──
+{trade:"HVAC / AC",lic:"C-20 (RME)",name:"Ferguson HVAC Supply",p:"PRIMARY",type:"Wholesale",addr:"Culver City + West Hollywood",dist:"~5\u20138 mi",web:"ferguson.com",notes:"Covers HVAC + plumbing. Samsung VRF training. Strong on equipment + parts.",tags:["Samsung VRF","Equipment","Parts","Dual-Trade"]},
+{trade:"HVAC / AC",lic:"C-20 (RME)",name:"US Air Conditioning Distributors",p:"PRIMARY",type:"Wholesale",addr:"Los Angeles (50 CA locations)",dist:"~10 mi",web:"us-ac.com",notes:"World\u2019s largest private HVAC distributor. York, Samsung, QuietCool. Requires contractor license.",tags:["York","Samsung","QuietCool","License Required"]},
+{trade:"HVAC / AC",lic:"C-20 (RME)",name:"Johnstone Supply",p:"SECONDARY",type:"Wholesale",addr:"Los Angeles branch",dist:"~8 mi",web:"johnstonesupply.com",notes:"HVACR equipment, parts, supplies. Contractor-only. Strong on refrigerant and repair parts.",tags:["Refrigerant","Capacitors","Contactors","Motors"]},
+{trade:"HVAC / AC",lic:"C-20 (RME)",name:"United Refrigeration (URI)",p:"SECONDARY",type:"Wholesale",addr:"Los Angeles area",dist:"~10 mi",web:"uri.com",notes:"One of the largest HVACR wholesale distributors nationally. Strong on commercial AC.",tags:["Commercial AC","Refrigeration","National"]},
+{trade:"HVAC / AC",lic:"C-20 (RME)",name:"Cold Air Central",p:"BACKUP",type:"Online/Local Delivery",addr:"Serves 90036 directly",dist:"Online",web:"coldaircentral.com",notes:"Full HVAC parts catalog online. Copper tubing, compressors, controls, filters. Same-day sourcing.",tags:["Online","Serves 90036","Compressors","Filters"]},
+
+// ── GATES & GARAGE DOORS (12) ──
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Master Halco",p:"PRIMARY",type:"Wholesale Manufacturer",addr:"Los Angeles branch",dist:"~10 mi",web:"masterhalco.com",notes:"Largest fence/gate manufacturer in North America. Chain link, ornamental, vinyl. Job site delivery.",tags:["Largest in NA","Chain Link","Ornamental","Vinyl","Job Site Delivery"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Multi Sales",p:"PRIMARY",type:"Wholesale Only",addr:"La Palma CA / Rancho Cucamonga",dist:"~25 mi",web:"multisalesinc.com",notes:"Wholesale-only distributor. 4,500+ products: sectional doors, radio controls, access systems, magnetic locks. Same-day shipping.",tags:["4500+ SKUs","Access Control","LiftMaster","50+ Years"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Clopay LA Distribution Center",p:"PRIMARY",type:"Manufacturer DC",addr:"16701 Knott Ave, La Mirada, CA 90638",dist:"~25 mi",web:"clopaydoor.com",notes:"North America\u2019s largest garage door manufacturer DC. Residential & commercial doors, rolling steel, hardware. Apply for dealer account.",tags:["Largest Manufacturer","Residential","Commercial","Dealer Account"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"LiftMaster (Chamberlain Group)",p:"PRIMARY",type:"Dealer Program",addr:"Apply online \u2014 dealer program",dist:"N/A",web:"liftmaster.com",notes:"Apply for authorized dealer program. Tiered pricing, co-op funds, training. Belt, chain, jackshaft operators, gate operators, myQ smart home.",tags:["Dealer Program","myQ Smart Home","Gate Operators","Co-op Funds"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Wayne Dalton (Chatsworth)",p:"PRIMARY",type:"Manufacturer DC",addr:"8921 Quartz Ave, Northridge, CA 91324",dist:"~30 mi",web:"wayne-dalton.com",notes:"Full-service manufacturer DC. Spring cutting, section cutdown on site. Residential & commercial doors.",tags:["Spring Cutting","Section Cutdown","Residential","Commercial"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Globus Gates",p:"SECONDARY",type:"Manufacturer/Wholesale",addr:"Southern California",dist:"Direct",web:"globusgates.com",notes:"Factory-direct aluminum gates, fences, pergolas. Fire-resistant aluminum \u2014 post-Palisades demand. Contractor pricing.",tags:["Aluminum","Fire-Resistant","Post-Palisades","Factory-Direct"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"CPSG (Controlled Products Systems Group)",p:"SECONDARY",type:"Wholesale",addr:"National, ships to LA",dist:"Ships to LA",web:"cpsgonline.com",notes:"Largest wholesale distributor of perimeter access control in the US. Gate operators, access control.",tags:["Access Control","Perimeter Security","Authorized Dealers"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"INSTOCK Garage Doors Supply",p:"SECONDARY",type:"Wholesale B2B",addr:"Greater Los Angeles area",dist:"Within LA Basin",web:"instockgaragedoors.com",notes:"B2B only \u2014 no retail. Serves LA Basin contractors and installers. Garage doors, parts.",tags:["B2B Only","LA Basin","Installer-Focused"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Cali Garage Door Parts",p:"SECONDARY",type:"Wholesale/Parts Counter",addr:"713 N Victory Blvd, Burbank, CA 91502",dist:"~15 mi",web:"caligaragedoorparts.com",notes:"Warehouse + counter pickup. Open 7 days 8am\u20135pm. Torsion springs, rollers, hinges. (818) 287-0555.",tags:["Open 7 Days","Torsion Springs","Rollers","Counter Pickup"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"BD Garage Door & Gate Supply",p:"SECONDARY",type:"Wholesale Distributor",addr:"15115 Califa Street, Van Nuys, CA",dist:"~20 mi",web:"bdgaragedoor.com",notes:"Wholesale to contractors. Serves Greater LA, SoCal, OC. Doors, gates, openers, access control.",tags:["Greater LA","Access Control","Remotes","Security"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Wayne Dalton (Santa Ana)",p:"BACKUP",type:"Manufacturer DC",addr:"1043 E 4th St, Santa Ana, CA 92701",dist:"~40 mi",web:"wayne-dalton.com",notes:"Second DC. Backup to Chatsworth for south OC job sites.",tags:["Backup","South OC","Genie Openers"]},
+{trade:"Gates & Garage Doors",lic:"C-61/D-28",name:"Action Direct",p:"BACKUP",type:"Online Wholesale",addr:"Online \u2014 ships",dist:"Online",web:"actiondirect.com",notes:"Oddball repairs, legacy/discontinued parts. LiftMaster circuit boards, safety beams, belts.",tags:["Discontinued Parts","Legacy Models","Circuit Boards","Online"]},
+
+// ── ELECTRICAL (5) ──
+{trade:"Electrical",lic:"C-10 (RME)",name:"David\u2019s Family Relationships",p:"PRIMARY",type:"Relationship \u2014 TBD",addr:"To be filled in",dist:"\u2014",web:"",notes:"Multiple electrical supply house relationships through family. Will be primary sourcing channel once documented.",tags:["Priority","Family Network","TBD"]},
+{trade:"Electrical",lic:"C-10 (RME)",name:"Walters Wholesale Electric",p:"SECONDARY",type:"Wholesale \u2014 Local",addr:"LAX / Culver City area",dist:"~8 mi",web:"walterswholesale.com",notes:"Full-service electrical wholesale. Serves LA, Marina Del Rey, Culver City, Santa Monica. Contractor accounts.",tags:["Contractor Account","Wire","Panels","Devices"]},
+{trade:"Electrical",lic:"C-10 (RME)",name:"Hollywood Wholesale Electric",p:"SECONDARY",type:"Wholesale \u2014 Local",addr:"Hollywood / Los Angeles",dist:"~3 mi",web:"hollywoodwholesaleelectric.com",notes:"Full electrical distributor in LA. Lutron dimmers, Intermatic timers, LED, landscape lighting.",tags:["Lutron","LED","Landscape Lighting","Online Catalog"]},
+{trade:"Electrical",lic:"C-10 (RME)",name:"SupplyHouse.com \u2014 Electrical",p:"ONLINE",type:"Online Wholesale",addr:"Ships to job site",dist:"Online",web:"supplyhouse.com",notes:"Rush shipping. Panels, conduit, controls, breakers, disconnect switches.",tags:["Rush Ship","Panels","Conduit","Breakers"]},
+{trade:"Electrical",lic:"C-10 (RME)",name:"Platt Electric Supply",p:"ONLINE",type:"Online Wholesale",addr:"Ships to job site",dist:"Online",web:"platt.com",notes:"Industrial + residential. Full online catalog. Contractor pricing. Good for commercial electrical.",tags:["Industrial","Full Catalog","Commercial","Contractor Pricing"]},
+
+// ── APPLIANCE REPAIR (4) ──
+{trade:"Appliance Repair",lic:"Future Trade",name:"Coast Appliance Parts",p:"PRIMARY",type:"Wholesale \u2014 Local",addr:"Los Angeles + So. El Monte",dist:"~8 mi",web:"coastparts.com",notes:"In business since 1958. 13 CA locations. OEM authorized: Samsung, LG, GE, Whirlpool, Bosch, Thermador, Dacor + 50 more brands. Will-call 8\u20135 M\u2013F.",tags:["Since 1958","13 CA Locations","OEM Authorized","Samsung","LG","GE","Whirlpool"]},
+{trade:"Appliance Repair",lic:"Future Trade",name:"Marcone",p:"PRIMARY",type:"Wholesale National",addr:"National, ships to LA",dist:"Ships",web:"marcone.com",notes:"Largest OEM appliance parts distributor in the US. GE, Whirlpool, Electrolux, Samsung, LG, Bosch. AI-powered parts lookup for technicians.",tags:["Largest in US","AI Parts Lookup","GE","Whirlpool","Electrolux","OEM"]},
+{trade:"Appliance Repair",lic:"Future Trade",name:"Encompass Parts",p:"SECONDARY",type:"Online Wholesale",addr:"Ships nationwide",dist:"Online",web:"encompass.com",notes:"350+ brands. OEM genuine parts. Samsung, LG, Dacor, Whirlpool. B2B accounts for property managers.",tags:["350+ Brands","B2B","Property Managers","OEM Genuine"]},
+{trade:"Appliance Repair",lic:"Future Trade",name:"Reliable Parts",p:"SECONDARY",type:"Online Wholesale",addr:"Ships nationwide",dist:"Online",web:"reliableparts.com",notes:"OEM parts for Whirlpool, Frigidaire, Samsung, Kenmore. Flat-rate shipping. Lookup by model number.",tags:["Model # Lookup","Flat-Rate Ship","Whirlpool","Frigidaire","Kenmore"]},
+
+// ── ROOFING (5) ──
+{trade:"Roofing",lic:"C-39 (GC Sub)",name:"Beacon Building Products \u2014 LA",p:"PRIMARY",type:"Wholesale",addr:"3400 S Main St, LA 90037",dist:"~5 mi",web:"becn.com",notes:"One of the largest roofing distributors in North America. GAF, CertainTeed, Carlisle. Delivers to Beverly Hills, West LA, Malibu. Contractor seminars.",tags:["GAF","CertainTeed","Carlisle","Delivers to BH","Contractor Seminars"]},
+{trade:"Roofing",lic:"C-39 (GC Sub)",name:"Beacon Building Products \u2014 Gardena",p:"PRIMARY",type:"Wholesale",addr:"185 W Rosecrans Ave, Gardena 90249",dist:"~12 mi",web:"becn.com",notes:"Second Beacon location. Same inventory. Good fallback if LA branch is out of stock.",tags:["Second Branch","Same Inventory","Gardena"]},
+{trade:"Roofing",lic:"C-39 (GC Sub)",name:"ABC Supply",p:"PRIMARY",type:"Wholesale",addr:"Los Angeles area locations",dist:"~10\u201315 mi",web:"abcsupply.com",notes:"National roofing + building products wholesale. Shingles, tile, siding, windows, gutters. Contractor-only. Mobile app ordering.",tags:["Shingles","Tile","Siding","Windows","Gutters","Mobile App"]},
+{trade:"Roofing",lic:"C-39 (GC Sub)",name:"HD Supply / Contractors Warehouse",p:"SECONDARY",type:"Wholesale",addr:"11407 S Western Ave, LA 90047",dist:"~7 mi",web:"hdsupply.com",notes:"Roofing accessories, fasteners, waterproofing. Not primary for shingles. Good for MRO roofing items.",tags:["Fasteners","Waterproofing","MRO","Accessories"]},
+{trade:"Roofing",lic:"C-39 (GC Sub)",name:"Home Depot (Pro Desk)",p:"BACKUP",type:"Big Box/Pro",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",notes:"Emergency roofing supplies. Tarps, underlayment, fasteners. Pro Desk for bulk contractor pricing.",tags:["Emergency","Tarps","Underlayment","Pro Desk"]},
+
+// ── WATER RESTORATION (4) ──
+{trade:"Water Restoration",lic:"IICRC WRT/ASD",name:"AlorAir / TheDryAir.com",p:"PRIMARY",type:"Wholesale Equipment",addr:"Ships nationally",dist:"Online",web:"thedryair.com",notes:"Best pricing on wholesale bundles. LGR dehumidifiers, air movers, HEPA air scrubbers. Free air mover with combos. 5-yr warranty.",tags:["LGR Dehumidifiers","Air Movers","HEPA","5-yr Warranty","Bundle Pricing"]},
+{trade:"Water Restoration",lic:"IICRC WRT/ASD",name:"Dri-Eaz (Legend Brands)",p:"PRIMARY",type:"Industry Standard",addr:"Through distributors / ships nationally",dist:"Online",web:"legendbrands.com",notes:"Industry gold standard. IICRC-recognized. Commercial dehumidifiers, air movers, structural drying. Higher cost, higher resale value.",tags:["Gold Standard","IICRC-Recognized","Structural Drying","Commercial"]},
+{trade:"Water Restoration",lic:"IICRC WRT/ASD",name:"Jon-Don",p:"SECONDARY",type:"Wholesale Distributor",addr:"National + local branches",dist:"~15 mi",web:"jondon.com",notes:"Full-service restoration distributor. Equipment + chemicals + IICRC training. Mold remediation. Contractor accounts.",tags:["IICRC Training","Mold Remediation","Chemicals","Contractor Account"]},
+{trade:"Water Restoration",lic:"IICRC WRT/ASD",name:"Air Chaser / XPOWER",p:"BACKUP",type:"Wholesale Equipment",addr:"Ships nationally",dist:"Online",web:"airchaser.com",notes:"Flood restoration combo packages. Starter to expert pro packages. Good value for equipping first truck.",tags:["Combo Packages","Budget Option","Air Movers"]},
+
+// ── TILE & STONE (9) ──
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Daltile (Culver City)",p:"PRIMARY",type:"Wholesale/Showroom",addr:"Culver City \u2014 25,000 sq ft",dist:"~6 mi",web:"daltile.com",notes:"Mohawk Industries. Massive contractor showroom. Bilingual staff. Delivery + pickup. Porcelain, natural stone, LVT, mosaics.",tags:["25K sq ft","Mohawk","Bilingual","Porcelain","Natural Stone","LVT"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Daltile / Marazzi (Los Angeles)",p:"PRIMARY",type:"Wholesale/Showroom",addr:"Near Dodger Stadium \u2014 26,000 sq ft",dist:"~8 mi",web:"marazziusa.com",notes:"Same ownership as Daltile. Marazzi + American Olean + Daltile under one roof. 35+ years contractor experience.",tags:["3 Brands","26K sq ft","Mohawk","American Olean"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Bedrosians Tile & Stone",p:"PRIMARY",type:"Wholesale/Showroom",addr:"Los Angeles + multiple SoCal locations",dist:"~8 mi",web:"bedrosians.com",notes:"Founded 1948. Largest independent tile importer in the US. 44 CA branches. Contractor wholesale program.",tags:["Since 1948","44 CA Branches","Wholesale Program","Largest Independent"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Porcelanosa",p:"SECONDARY",type:"Manufacturer Showroom",addr:"Los Angeles area",dist:"~10 mi",web:"porcelanosa.com",notes:"Spanish luxury brand. High-end porcelain, natural stone, kitchen, bath. Premium West LA residential jobs.",tags:["Luxury","Spanish Brand","Porcelain","Kitchen & Bath"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"MSI Surfaces",p:"SECONDARY",type:"Wholesale/Showroom",addr:"Los Angeles area",dist:"~10 mi",web:"msisurfaces.com",notes:"Leading importer of flooring, countertops, backsplash tile, hardscaping. Strong online catalog.",tags:["Countertops","Backsplash","Hardscaping","Online Catalog"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Arizona Tile",p:"SECONDARY",type:"Wholesale/Showroom",addr:"Los Angeles / SoCal",dist:"~12 mi",web:"arizonatile.com",notes:"40+ years. Tile, stone, quartz slabs. Large slab yard with online inventory. R11 anti-slip outdoor tile.",tags:["40+ Years","Quartz Slabs","R11 Anti-Slip","Slab Yard"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"ProSource Wholesale",p:"SECONDARY",type:"Trade-Only Wholesale",addr:"Los Angeles area showroom",dist:"~10 mi",web:"prosourcewholesale.com",notes:"Trade-only. Contractor/designer accounts required. Emser, Marazzi, 50+ brands at wholesale pricing.",tags:["Trade-Only","50+ Brands","Designer Accounts","Emser"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Home Depot (Tile Dept)",p:"BACKUP",type:"Big Box",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",notes:"Emergency tile runs. MSI and select brands. Pro Desk for contractor pricing.",tags:["Emergency","MSI","Pro Desk"]},
+{trade:"Tile & Stone",lic:"C-15/C-54",name:"Floor & Decor",p:"BACKUP",type:"Warehouse Retail",addr:"Multiple LA area locations",dist:"~10\u201315 mi",web:"flooranddecor.com",notes:"Large warehouse format. Open to public + contractors. In-stock floor tile, grout, setting materials. Contractor loyalty program.",tags:["Warehouse","In-Stock","Grout","Loyalty Program"]},
+
+// ── LANDSCAPING & NURSERY (10) ──
+{trade:"Landscaping & Nursery",lic:"C-27",name:"SiteOne Landscape Supply",p:"PRIMARY",type:"Wholesale Distributor",addr:"Canoga Park + multiple SoCal",dist:"~15 mi",web:"siteone.com",notes:"Largest national wholesale landscape distributor. 500+ branches. Irrigation, hardscape, nursery, lighting, turf, mulch, drainage.",tags:["Largest National","500+ Branches","Irrigation","Hardscape","Lighting","Turf"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Devil Mountain Wholesale Nursery",p:"PRIMARY",type:"Wholesale Nursery",addr:"Multiple CA locations",dist:"~15 mi",web:"devilmountainnursery.com",notes:"Wholesale-only. Landscape trade accounts. Trees, shrubs, natives, succulents, drought-tolerant. Online ordering.",tags:["Wholesale-Only","Natives","Succulents","Drought-Tolerant","Online"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Armstrong Growers",p:"PRIMARY",type:"Wholesale Grower",addr:"Serves CA, AZ, NV, UT, NM",dist:"Regional delivery",web:"armstronggrowers.com",notes:"Employee-owned. 30+ years. Wide plant selection. Commercial, residential, resort projects.",tags:["Employee-Owned","30+ Years","Commercial","Residential"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"C&S Nursery",p:"PRIMARY",type:"Wholesale Nursery",addr:"Los Angeles",dist:"Local",web:"csnursery.com",notes:"LA-based wholesale nursery. Ornamental shrubs, grasses, tropical, annuals, perennials, natives, succulents. Water-wise specialists.",tags:["LA-Based","Water-Wise","Ornamental","Natives","Tropical"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Berylwood Tree Farm",p:"SECONDARY",type:"Wholesale Grower",addr:"Ventura County \u2014 delivers to LA",dist:"~40 mi",web:"berylwoodtreefarm.com",notes:"Founded 1969. Specimen trees, vines, shrubs, succulents. Getty Center vendor. Container + field grown.",tags:["Since 1969","Specimen Trees","Getty Vendor","Field Grown"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Briggs Tree Company",p:"SECONDARY",type:"Wholesale Nursery",addr:"Vista, SD County \u2014 delivers to LA",dist:"~60 mi",web:"briggstree.com",notes:"200-acre growing grounds. 45 years. Trees, palms, succulents, fruit trees. Delivers to LA County. No minimum.",tags:["45 Years","Palms","Fruit Trees","No Minimum","Delivers to LA"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Ricardo\u2019s Nursery",p:"SECONDARY",type:"Wholesale/Retail Nursery",addr:"Long Beach, CA",dist:"~20 mi",web:"ricardosnursery.com",notes:"Award-winning. 6-acre lot. Contractor + insurance wholesale accounts. Drought-tolerant specialists. 7-day/week.",tags:["Award-Winning","6 Acres","Drought-Tolerant","7 Days/Week"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"California Greenhouses",p:"SECONDARY",type:"Wholesale Nursery",addr:"Los Angeles",dist:"~10 mi",web:"calgreenhouses.com",notes:"LA-based wholesale garden nursery. Interior + exterior plants. Custom sourcing. Contractor accounts.",tags:["LA-Based","Interior Plants","Custom Sourcing"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Home Depot (Garden Center)",p:"BACKUP",type:"Big Box",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",notes:"Emergency plant runs. Seasonal color, sod, basic shrubs, bags of soil/mulch. Pro Desk for bulk soil.",tags:["Emergency","Sod","Seasonal Color","Bulk Soil"]},
+{trade:"Landscaping & Nursery",lic:"C-27",name:"Lowe\u2019s (Garden Center)",p:"BACKUP",type:"Big Box",addr:"Multiple within 15 mi",dist:"Various",web:"lowes.com",notes:"Backup. Plants, soil, pavers, irrigation basics. Same-day fill-ins on smaller jobs.",tags:["Backup","Pavers","Irrigation Basics","Same-Day"]},
+];
+
+/* ══════════════════════════════════════════════
+   TRADE COLOR MAP
+   ══════════════════════════════════════════════ */
+const TC={
+  "Painting":              {c:"#0891b2",bg:"#ecfeff",br:"#a5f3fc"},
+  "Plumbing":              {c:"#2563eb",bg:"#eff6ff",br:"#bfdbfe"},
+  "HVAC / AC":             {c:"#dc2626",bg:"#fef2f2",br:"#fecaca"},
+  "Gates & Garage Doors":  {c:"#7c3aed",bg:"#faf5ff",br:"#e9d5ff"},
+  "Electrical":            {c:"#ca8a04",bg:"#fefce8",br:"#fef08a"},
+  "Appliance Repair":      {c:"#db2777",bg:"#fdf2f8",br:"#fbcfe8"},
+  "Roofing":               {c:"#65a30d",bg:"#f7fee7",br:"#d9f99d"},
+  "Water Restoration":     {c:"#0d9488",bg:"#f0fdfa",br:"#99f6e4"},
+  "Tile & Stone":          {c:"#9333ea",bg:"#faf5ff",br:"#d8b4fe"},
+  "Landscaping & Nursery": {c:"#16a34a",bg:"#f0fdf4",br:"#bbf7d0"},
+};
+
+const PC={
+  "PRIMARY":   {bg:"#dcfce7",c:"#15803d"},
+  "SECONDARY": {bg:"#dbeafe",c:"#1d4ed8"},
+  "BACKUP":    {bg:"#f1f5f9",c:"#475569"},
+  "ONLINE":    {bg:"#fef9c3",c:"#a16207"},
+};
+
+let active="All Trades";
+let searchTerm="";
+const TRADES=["All Trades",...Object.keys(TC)];
+
+/* ── INIT ── */
+function init(){
+  const sel=document.getElementById("rTrade");
+  Object.keys(TC).forEach(t=>{
+    const o=document.createElement("option");
+    o.value=o.textContent=t;
+    sel.appendChild(o);
+  });
+  render();
+}
+
+/* ── DATA HELPERS ── */
+function rows(){
+  let r=active==="All Trades"?S:S.filter(s=>s.trade===active);
+  if(searchTerm){
+    const q=searchTerm.toLowerCase();
+    r=r.filter(s=>
+      s.name.toLowerCase().includes(q)||
+      s.notes.toLowerCase().includes(q)||
+      s.tags.some(t=>t.toLowerCase().includes(q))||
+      s.addr.toLowerCase().includes(q)||
+      s.type.toLowerCase().includes(q)
+    );
+  }
+  return r;
+}
+
+/* ── STATS ── */
+function renderStats(){
+  const r=rows();
+  const primary=r.filter(s=>s.p==="PRIMARY").length;
+  const trades=active==="All Trades"?Object.keys(TC).length:1;
+  document.getElementById("stats").innerHTML=
+    `<div class="stat"><b>${r.length}</b>Suppliers shown</div>`+
+    `<div class="stat"><b>${primary}</b>Primary</div>`+
+    `<div class="stat"><b>${trades}</b>Trade${trades>1?"s":""}</div>`+
+    `<div class="stat"><b>${S.length}</b>Total in CSV</div>`;
+}
+
+/* ── TABS ── */
+function renderTabs(){
+  document.getElementById("tabs").innerHTML=TRADES.map(t=>{
+    const cfg=TC[t]||{c:"#475569",bg:"#f8fafc"};
+    const isA=t===active;
+    const cnt=t==="All Trades"?S.length:S.filter(s=>s.trade===t).length;
+    return `<button class="tab ${isA?'active':''}"
+      style="color:${isA?(t==="All Trades"?"#fff":cfg.c):"#64748b"};
+             border-color:${isA?(t==="All Trades"?"#0f172a":cfg.c):"#e2e8f0"};
+             background:${isA?(t==="All Trades"?"#0f172a":cfg.bg):"#fff"}"
+      onclick="filterTrade('${t.replace(/'/g,"\\'")}')">
+      ${t}<span class="cnt" style="${isA?"opacity:.7":""}">${cnt}</span>
+    </button>`;
+  }).join('');
+}
+
+/* ── GRID ── */
+function renderGrid(){
+  const r=rows();
+  if(r.length===0){
+    document.getElementById("grid").innerHTML=
+      `<div class="empty" style="grid-column:1/-1"><b>No suppliers match</b>Try a different trade or search term.</div>`;
+    return;
+  }
+  document.getElementById("grid").innerHTML=r.map(s=>{
+    const tc=TC[s.trade]||{c:"#475569"};
+    const pc=PC[s.p]||PC["BACKUP"];
+    const hl=searchTerm?s.name.replace(new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi'),'<span class="highlight">$1</span>'):s.name;
+    return `<div class="card">
+      <div class="cbar" style="background:${tc.c}"></div>
+      <div class="ctop">
+        <div class="cname">${s.p==="PRIMARY"?'<span class="star">\u2605</span>':''}${hl}</div>
+        <span class="badge" style="background:${pc.bg};color:${pc.c}">${s.p}</span>
+      </div>
+      <div class="ctrade" style="color:${tc.c}">${s.trade} \u00b7 ${s.lic}</div>
+      ${s.addr&&s.addr!=="\u2014"?`<div class="caddr">\ud83d\udccd ${s.addr}</div>`:''}
+      <div class="cdist">\ud83d\udccf ${s.dist} \u00a0\u00b7\u00a0 ${s.type}</div>
+      <div class="cnote">${s.notes}</div>
+      <div class="ctags">${s.tags.map(t=>`<span class="tpill">${t}</span>`).join('')}</div>
+      <div class="cbtns">
+        ${s.web&&s.web!=="\u2014"?`<a class="cbtn dk" href="https://${s.web}" target="_blank" rel="noopener">\ud83c\udf10 Website</a>`:''}
+        <button class="cbtn" onclick="copyInfo(this,'${s.name.replace(/'/g,"\\'")}','${(s.addr||'').replace(/'/g,"\\'")}','${s.web||''}')">\ud83d\udccb Copy</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ── ACTIONS ── */
+window.filterTrade=function(t){
+  active=t;
+  const sel=document.getElementById("rTrade");
+  if(sel&&t!=="All Trades")sel.value=t;
+  else if(sel)sel.value="";
+  render();
+};
+
+window.liveSearch=function(val){
+  searchTerm=val.trim();
+  renderStats();
+  renderGrid();
+};
+
+window.submitReq=function(){
+  const trade=document.getElementById("rTrade").value;
+  const part=document.getElementById("rPart").value.trim();
+  const zip=document.getElementById("rZip").value.trim();
+  if(!part){showToast("\u26a0\ufe0f Describe the part first.");return;}
+  const src=trade?S.filter(s=>s.trade===trade):S;
+  const best=src.filter(s=>s.p==="PRIMARY").slice(0,3);
+  let msg=`<b>\ud83d\udd27 ${esc(part)}</b>${trade?" \u00b7 "+trade:""}${zip?" \u00b7 Job: "+esc(zip):""}<br><br><b>Call first:</b><br>`;
+  if(best.length){
+    best.forEach((s,i)=>{
+      msg+=`${i+1}. <b>${s.name}</b> \u2014 ${s.dist}`;
+      if(s.web&&s.web!=="\u2014")msg+=` \u00b7 <a href="https://${s.web}" target="_blank">${s.web}</a>`;
+      msg+=`<br>`;
+    });
+  } else {
+    msg+=`No primary suppliers for this trade yet. See all cards below.`;
+  }
+  showToast(msg);
+  if(trade)filterTrade(trade);
+};
+
+window.copyInfo=function(btn,name,addr,web){
+  const txt=[name,addr,web?"https://"+web:""].filter(Boolean).join("\n");
+  navigator.clipboard.writeText(txt).then(()=>{
+    showToast(`\u2705 Copied: ${name}`);
+    btn.textContent="\u2705 Copied";
+    setTimeout(()=>{btn.textContent="\ud83d\udccb Copy";},1500);
+  }).catch(()=>{
+    showToast(`\u2705 Copied: ${name}`);
+  });
+};
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function showToast(msg){
+  const t=document.getElementById("toast");
+  t.innerHTML=msg;t.classList.add("on");
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),9000);
+}
+
+function render(){renderStats();renderTabs();renderGrid();}
+init();
+</script>
+</body>
+</html>
