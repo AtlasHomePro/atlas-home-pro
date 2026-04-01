@@ -247,15 +247,11 @@ function compressPhoto(file) {
   });
 }
 
-async function addPhotos(files){
+function addPhotos(files){
   const remaining = 5 - photos.length;
   if (remaining <= 0) return;
-  const toAdd = files.slice(0, remaining);
-  // Compress each photo before storing
-  for (const f of toAdd) {
-    const compressed = await compressPhoto(f);
-    photos.push(compressed);
-  }
+  // Store original files — compression happens at submit time
+  photos.push(...files.slice(0, remaining));
   renderPhotos();
 }
 function renderPhotos(){
@@ -327,18 +323,19 @@ document.getElementById("form").addEventListener("submit",async e=>{
       if (i === 0) firstRecordId = data.id;
     }
 
-    // Phase 2: Upload photos one at a time as raw binary (avoids multipart/formData issues)
+    // Phase 2: Compress and upload photos one at a time as raw binary
     if (photos.length > 0 && firstRecordId) {
       for (let p = 0; p < photos.length; p++) {
         btn.innerHTML = `<span class="spin"></span>Uploading photo ${p+1} of ${photos.length}...`;
         try {
+          const compressed = await compressPhoto(photos[p]);
           const pr = await fetch(`/api/requests/${firstRecordId}/photo`, {
             method: "POST",
-            headers: { "Content-Type": photos[p].type || "image/jpeg" },
-            body: photos[p],
+            headers: { "Content-Type": "image/jpeg" },
+            body: compressed,
           });
           if (!pr.ok) { photosFailed++; }
-        } catch(e) { photosFailed++; }
+        } catch(e) { console.error("Photo upload error:", e); photosFailed++; }
       }
     }
 
