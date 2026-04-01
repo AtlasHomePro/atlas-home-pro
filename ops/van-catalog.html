@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Home Pro — Plumbing Van Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C0392B;
+  --red-light: #FDECEA;
+  --navy: #1B2A47;
+  --navy-light: #EEF1F7;
+  --amber: #D97706;
+  --amber-light: #FFFBEB;
+  --green: #16A34A;
+  --green-light: #F0FDF4;
+  --hd: #F96302;
+  --hd-light: #FFF4EE;
+  --lowes: #004990;
+  --lowes-light: #EEF4FF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: var(--gray-900); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; gap: 20px;
+  padding: 12px 24px; flex-wrap: wrap;
+}
+.logo-block { display: flex; align-items: center; gap: 12px; }
+.logo-icon {
+  width: 44px; height: 44px; background: var(--red); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.logo-text h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px; color: var(--navy); letter-spacing: 2px; line-height: 1;
+}
+.logo-text p { font-size: 11px; color: var(--gray-400); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+.header-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+.chip {
+  background: var(--gray-100); border: 1px solid var(--gray-200);
+  border-radius: 20px; padding: 4px 12px;
+  font-size: 11px; font-weight: 600; color: var(--gray-500);
+  letter-spacing: 0.5px; white-space: nowrap;
+}
+.chip.red { background: var(--red-light); border-color: #FBBFBB; color: var(--red); }
+.chip.green { background: var(--green-light); border-color: #BBF7D0; color: var(--green); }
+
+/* ── TAB BAR ── */
+.tab-bar {
+  background: var(--white);
+  border-bottom: 2px solid var(--gray-200);
+  overflow-x: auto; scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+.tab-inner { max-width: 1400px; margin: 0 auto; display: flex; padding: 0 24px; }
+.tab-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 600;
+  padding: 14px 20px; background: none; border: none;
+  color: var(--gray-400); cursor: pointer;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+  white-space: nowrap; transition: all 0.15s; letter-spacing: 0.3px;
+}
+.tab-btn:hover { color: var(--gray-700); }
+.tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+
+/* ── MAIN ── */
+.main { max-width: 1400px; margin: 0 auto; padding: 28px 24px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── PAGE TITLE ── */
+.page-title { margin-bottom: 24px; }
+.page-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--navy); letter-spacing: 1.5px; }
+.page-title p { font-size: 13px; color: var(--gray-400); margin-top: 4px; }
+
+/* ── STAT BAR ── */
+.stat-bar {
+  display: flex; gap: 1px; background: var(--gray-200);
+  border-radius: var(--radius); overflow: hidden;
+  margin-bottom: 28px; box-shadow: var(--shadow-sm);
+}
+.stat-item {
+  flex: 1; background: var(--white); padding: 16px 20px; min-width: 120px;
+}
+.stat-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 4px; }
+.stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--gray-900); line-height: 1; }
+.stat-val.red { color: var(--red); }
+.stat-val.green { color: var(--green); }
+.stat-val.amber { color: var(--amber); }
+
+/* ── CATEGORY LABEL ── */
+.cat-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gray-400); padding: 24px 0 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cat-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+/* ── PRODUCT GRID ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 4px; }
+.parts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.big-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+
+/* ── PRODUCT CARD ── */
+.product-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  position: relative;
+}
+.product-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--gray-300); }
+
+/* BADGES */
+.badge-row { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; z-index: 2; }
+.badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 4px;
+}
+.badge-hd { background: var(--hd); color: white; }
+.badge-lowes { background: var(--lowes); color: white; }
+.badge-tie { background: var(--gray-400); color: white; }
+.badge-exclusive { background: var(--red); color: white; }
+.badge-required { background: var(--red); color: white; }
+.badge-high { background: var(--amber); color: white; }
+.badge-medium { background: #2563EB; color: white; }
+.badge-phase { background: var(--navy); color: white; }
+
+/* PRODUCT IMAGE */
+.prod-img {
+  background: var(--gray-50); height: 160px;
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--gray-100); overflow: hidden;
+}
+.prod-img img {
+  max-width: 80%; max-height: 85%; object-fit: contain;
+  transition: transform 0.3s;
+}
+.product-card:hover .prod-img img { transform: scale(1.05); }
+.img-fallback { font-size: 44px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.img-fallback span { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-300); }
+
+/* CARD BODY */
+.card-body { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+.card-cat-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 5px; }
+.card-name { font-size: 14px; font-weight: 600; color: var(--gray-900); line-height: 1.3; margin-bottom: 6px; }
+.card-desc { font-size: 12px; color: var(--gray-400); line-height: 1.55; flex: 1; margin-bottom: 12px; }
+
+/* PRICE CHIPS */
+.price-row { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+.price-chip {
+  flex: 1; min-width: 70px;
+  background: var(--gray-50); border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm); padding: 6px 8px;
+}
+.price-chip-lbl { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.lbl-hd { color: var(--hd); }
+.lbl-lowes { color: var(--lowes); }
+.lbl-best { color: var(--green); }
+.price-chip-val { font-family: 'DM Mono', monospace; font-size: 15px; font-weight: 500; color: var(--gray-900); }
+.price-chip-val.best { color: var(--green); font-weight: 700; }
+.price-chip-val.na { color: var(--gray-300); font-size: 12px; }
+
+/* BUY BUTTONS */
+.btn-row { display: flex; gap: 6px; }
+.btn {
+  flex: 1; padding: 8px 10px; border-radius: var(--radius-sm); border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; text-decoration: none; text-align: center;
+  transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 4px;
+}
+.btn-hd { background: var(--hd); color: white; }
+.btn-hd:hover { background: #E05500; }
+.btn-lowes { background: var(--lowes); color: white; }
+.btn-lowes:hover { background: #003370; }
+.btn-other { background: var(--green); color: white; }
+.btn-other:hover { background: #15803D; }
+.btn-ghost { background: var(--gray-100); color: var(--gray-500); border: 1px solid var(--gray-200); }
+.btn-ghost:hover { background: var(--gray-200); }
+.btn-navy { background: var(--navy); color: white; }
+.btn-navy:hover { background: #14203A; }
+
+/* ── PARTS CARD ── */
+.part-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.part-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.part-img { background: var(--gray-50); height: 110px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--gray-100); }
+.part-img img { max-width: 75%; max-height: 80%; object-fit: contain; }
+.part-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+.part-cat { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
+.part-name { font-size: 13px; font-weight: 600; color: var(--gray-900); line-height: 1.3; margin-bottom: 5px; }
+.part-desc { font-size: 11px; color: var(--gray-400); line-height: 1.5; flex: 1; margin-bottom: 10px; }
+.part-stats { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+.stat-pill {
+  background: var(--gray-50); border: 1px solid var(--gray-200);
+  border-radius: 4px; padding: 3px 7px; font-size: 10px; font-weight: 600;
+}
+.stat-pill .sl { color: var(--gray-400); }
+.stat-pill .sv { color: var(--gray-900); margin-left: 2px; }
+.stat-pill.reorder { background: var(--red-light); border-color: #FBBFBB; }
+.stat-pill.reorder .sv { color: var(--red); }
+.stat-pill.cost .sv { color: var(--green); }
+.stat-pill.par .sv { color: var(--amber); }
+.part-link { display: block; padding: 7px; border-radius: var(--radius-sm); text-align: center; text-decoration: none; font-size: 11px; font-weight: 600; background: var(--gray-100); color: var(--gray-600); border: 1px solid var(--gray-200); transition: background 0.15s; }
+.part-link:hover { background: var(--gray-200); }
+
+/* ── BIG TICKET CARD ── */
+.big-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s; position: relative;
+}
+.big-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.big-img { background: var(--gray-50); height: 180px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--gray-100); position: relative; }
+.big-img img { max-width: 75%; max-height: 85%; object-fit: contain; }
+.big-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+.big-name { font-size: 15px; font-weight: 700; color: var(--gray-900); line-height: 1.3; margin-bottom: 8px; }
+.big-what { font-size: 13px; color: var(--gray-500); line-height: 1.6; margin-bottom: 14px; flex: 1; }
+.big-prices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+.big-price-item { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 8px 10px; text-align: center; }
+.big-price-lbl { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; }
+.big-price-val { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; color: var(--gray-700); }
+.big-notes {
+  background: var(--amber-light); border-left: 3px solid var(--amber);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 12px; margin-bottom: 14px;
+  font-size: 12px; color: var(--gray-600); line-height: 1.55; font-style: italic;
+}
+.best-buy-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.best-buy-lbl { font-size: 11px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; }
+.best-buy-val { font-size: 13px; font-weight: 700; color: var(--green); }
+
+/* ── OPS ROADMAP ── */
+.roadmap-section { margin-bottom: 40px; }
+.rm-section-head {
+  background: var(--navy); color: white;
+  font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px;
+  padding: 14px 20px; border-radius: var(--radius) var(--radius) 0 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.rm-section-head .phase-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 4px;
+}
+.rm-cards { background: var(--white); border: 1px solid var(--gray-200); border-top: none; border-radius: 0 0 var(--radius) var(--radius); overflow: hidden; }
+.rm-row {
+  display: grid; grid-template-columns: 200px 1fr 120px;
+  border-bottom: 1px solid var(--gray-100); align-items: start;
+}
+.rm-row:last-child { border-bottom: none; }
+.rm-week {
+  padding: 16px; background: var(--gray-50); border-right: 1px solid var(--gray-100);
+  font-family: 'DM Mono', monospace;
+}
+.rm-week-num { font-size: 11px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+.rm-week-title { font-size: 13px; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
+.rm-tasks { padding: 14px 16px; }
+.rm-tasks ul { list-style: none; padding: 0; }
+.rm-tasks li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 12px; color: var(--gray-600); padding: 4px 0; line-height: 1.5;
+}
+.rm-tasks li::before { content: '□'; color: var(--gray-300); font-size: 14px; flex-shrink: 0; margin-top: -1px; }
+.rm-tasks li strong { color: var(--gray-900); }
+.rm-owner { padding: 14px 12px; text-align: center; border-left: 1px solid var(--gray-100); }
+.owner-chip { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.owner-david { background: var(--red-light); color: var(--red); }
+.owner-ops { background: var(--lowes-light); color: var(--lowes); }
+.owner-both { background: var(--amber-light); color: var(--amber); }
+.owner-auto { background: var(--green-light); color: var(--green); }
+
+/* ── AUTOMATION PLAYBOOK ── */
+.auto-section { margin-bottom: 36px; }
+.auto-section-head {
+  font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px;
+  color: var(--navy); padding: 0 0 10px; border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+}
+.auto-section-head .auto-tag {
+  font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: var(--green-light); color: var(--green);
+  border: 1px solid #BBF7D0; padding: 3px 8px; border-radius: 4px;
+}
+.auto-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.auto-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.auto-card-head {
+  padding: 14px 16px; border-bottom: 1px solid var(--gray-100);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.auto-icon { font-size: 22px; flex-shrink: 0; }
+.auto-title { font-size: 14px; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
+.auto-subtitle { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+.auto-body { padding: 14px 16px; flex: 1; }
+.auto-steps { list-style: none; padding: 0; margin-bottom: 12px; }
+.auto-steps li {
+  font-size: 12px; color: var(--gray-600); padding: 5px 0;
+  display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+  border-bottom: 1px solid var(--gray-100);
+}
+.auto-steps li:last-child { border-bottom: none; }
+.step-num {
+  background: var(--navy); color: white;
+  font-size: 9px; font-weight: 700; width: 18px; height: 18px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.auto-footer { padding: 10px 16px; background: var(--gray-50); border-top: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; }
+.auto-tool { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-400); }
+.auto-impact { font-size: 11px; font-weight: 700; }
+.auto-impact.high { color: var(--green); }
+.auto-impact.med { color: var(--amber); }
+.auto-savebox {
+  background: var(--green-light); border: 1px solid #BBF7D0;
+  border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px;
+  display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap;
+}
+.savebox-item { text-align: center; min-width: 100px; }
+.savebox-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--green); letter-spacing: 1px; line-height: 1; }
+.savebox-lbl { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-500); margin-top: 3px; }
+.savebox-divider { width: 1px; background: #BBF7D0; align-self: stretch; }
+
+/* ── INVENTORY SYSTEM ── */
+.inv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.inv-section-head {
+  font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px;
+  color: var(--navy); padding: 0 0 10px; border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 16px; grid-column: 1/-1;
+  display: flex; align-items: center; gap: 10px;
+}
+.inv-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+.inv-card-head { background: var(--gray-50); padding: 10px 14px; border-bottom: 1px solid var(--gray-100); }
+.inv-card-head h4 { font-size: 12px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; }
+.inv-card-body { padding: 12px 14px; font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+.inv-card-body ul { padding-left: 14px; margin-top: 4px; }
+.inv-card-body li { font-size: 12px; margin-bottom: 3px; }
+.inv-link { color: var(--lowes); font-size: 12px; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 8px; }
+.inv-link:hover { text-decoration: underline; }
+
+/* ── CONTACT CALLOUT ── */
+.contact-bar {
+  background: var(--navy); color: white;
+  border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px;
+  display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+}
+.contact-item .cl { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 3px; }
+.contact-item .cv { font-family: 'DM Mono', monospace; font-size: 16px; color: white; font-weight: 500; }
+.contact-item .cv.phone { color: #86EFAC; font-size: 18px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .main { padding: 16px; }
+  .header-inner { padding: 10px 16px; }
+  .stat-bar { flex-wrap: wrap; }
+  .stat-item { min-width: 45%; }
+  .rm-row { grid-template-columns: 1fr; }
+  .rm-week { border-right: none; border-bottom: 1px solid var(--gray-100); }
+  .rm-owner { border-left: none; border-top: 1px solid var(--gray-100); text-align: left; }
+  .big-prices { grid-template-columns: 1fr 1fr; }
+}
+
+/* Print friendly */
+@media print {
+  .site-header { position: relative; }
+  .tab-bar { display: none; }
+  .tab-panel { display: block !important; page-break-before: always; }
+  .tab-panel:first-of-type { page-break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-icon">🔧</div>
+      <div class="logo-text">
+        <h1>ATLAS HOME PRO</h1>
+        <p>Plumbing Van Catalog · March 2026</p>
+      </div>
+    </div>
+    <div class="header-chips">
+      <span class="chip">Milwaukee M18 Platform</span>
+      <span class="chip red">Target: Aug 1 2026</span>
+      <span class="chip green">10-Van Roadmap</span>
+      <span class="chip">90036 Westside LA</span>
+    </div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab-inner">
+      <button class="tab-btn active" onclick="showTab('tools',this)">🔧 Van Tools</button>
+      <button class="tab-btn" onclick="showTab('parts',this)">🔩 Parts Inventory</button>
+      <button class="tab-btn" onclick="showTab('bigticket',this)">💰 Big Ticket</button>
+      <button class="tab-btn" onclick="showTab('roadmap',this)">📋 Ops Roadmap</button>
+      <button class="tab-btn" onclick="showTab('automation',this)">⚡ Automation</button>
+      <button class="tab-btn" onclick="showTab('inventory',this)">📦 Inv. System</button>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- ══ TAB 1: TOOLS ══ -->
+<div id="tab-tools" class="tab-panel active">
+  <div class="page-title"><h2>Van Tools Master</h2><p>Every tool per van · Click to purchase at Home Depot or Lowe's</p></div>
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-label">Cart Items</div><div class="stat-val red">~$9,649</div></div>
+    <div class="stat-item"><div class="stat-label">Gap List</div><div class="stat-val amber">~$2,000</div></div>
+    <div class="stat-item"><div class="stat-label">Van Racking</div><div class="stat-val amber">~$3,000</div></div>
+    <div class="stat-item"><div class="stat-label">Fully Equipped Van</div><div class="stat-val green">~$15K</div></div>
+    <div class="stat-item"><div class="stat-label">10-Van Fleet</div><div class="stat-val">~$150K</div></div>
+  </div>
+  <div class="cat-label">🔨 Hand Tools</div>
+  <div class="product-grid" id="g-hand"></div>
+  <div class="cat-label">⚡ Power Tools — M18 Platform</div>
+  <div class="product-grid" id="g-power"></div>
+  <div class="cat-label">🌀 Drain Cleaning</div>
+  <div class="product-grid" id="g-drain"></div>
+  <div class="cat-label">📷 Sewer Camera</div>
+  <div class="product-grid" id="g-camera"></div>
+  <div class="cat-label">🦺 Safety, Job Site & Storage</div>
+  <div class="product-grid" id="g-safety"></div>
+</div>
+
+<!-- ══ TAB 2: PARTS ══ -->
+<div id="tab-parts" class="tab-panel">
+  <div class="page-title"><h2>Van Parts Inventory</h2><p>Consumable parts par list · First-call resolution target: 85%+ · Target van stock $1,800–$2,200</p></div>
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-label">Target Van Stock</div><div class="stat-val amber">$1,800–$2,200</div></div>
+    <div class="stat-item"><div class="stat-label">Weekly Replen.</div><div class="stat-val">$200–$400</div></div>
+    <div class="stat-item"><div class="stat-label">#1 Part (Moen 1225)</div><div class="stat-val red">15/van</div></div>
+    <div class="stat-item"><div class="stat-label">1st-Call Res. Target</div><div class="stat-val green">85%+</div></div>
+  </div>
+  <div class="cat-label">🚽 Toilet Repairs</div><div class="parts-grid" id="pg-toilet"></div>
+  <div class="cat-label">🚿 Faucet & Fixture</div><div class="parts-grid" id="pg-faucet"></div>
+  <div class="cat-label">🔴 Supply & Stop Valves</div><div class="parts-grid" id="pg-valves"></div>
+  <div class="cat-label">🚨 Pipe Repair — Emergency</div><div class="parts-grid" id="pg-emergency"></div>
+  <div class="cat-label">🔥 Water Heater Parts</div><div class="parts-grid" id="pg-wh"></div>
+  <div class="cat-label">🔵 Gas Components</div><div class="parts-grid" id="pg-gas"></div>
+  <div class="cat-label">🧴 Consumables</div><div class="parts-grid" id="pg-consumables"></div>
+</div>
+
+<!-- ══ TAB 3: BIG TICKET ══ -->
+<div id="tab-bigticket" class="tab-panel">
+  <div class="page-title"><h2>Big Ticket Items ($500+)</h2><p>Deep sourcing · HD + Lowe's + Contractor supply houses</p></div>
+  <div class="contact-bar">
+    <div class="contact-item"><div class="cl">Ferguson Westside LA</div><div class="cv phone">310-559-0101</div></div>
+    <div class="contact-item"><div class="cl">Hydro Jet Revenue / Job</div><div class="cv">$800 – $1,400</div></div>
+    <div class="contact-item"><div class="cl">Camera Inspection Upsell</div><div class="cv">$150 – $300</div></div>
+    <div class="contact-item"><div class="cl">Lowe's Contact Discount</div><div class="cv">~15% off listed price</div></div>
+  </div>
+  <div class="big-grid" id="big-grid"></div>
+</div>
+
+<!-- ══ TAB 4: OPS ROADMAP ══ -->
+<div id="tab-roadmap" class="tab-panel">
+  <div class="page-title"><h2>Operations Roadmap</h2><p>Week-by-week checklist for ops admin + David · Print this and work through it linearly</p></div>
+
+  <div class="stat-bar">
+    <div class="stat-item"><div class="stat-label">Total Weeks</div><div class="stat-val">16</div></div>
+    <div class="stat-item"><div class="stat-label">Target Launch</div><div class="stat-val red">Aug 1 '26</div></div>
+    <div class="stat-item"><div class="stat-label">Ops Admin Start</div><div class="stat-val amber">ASAP</div></div>
+    <div class="stat-item"><div class="stat-label">Vans Phase 1</div><div class="stat-val green">3 Vans</div></div>
+  </div>
+
+  <!-- PHASE 0: PRE-HIRE -->
+  <div class="roadmap-section">
+    <div class="rm-section-head">PHASE 0 — PRE-LAUNCH FOUNDATION <span class="phase-tag">NOW → WEEK 4</span></div>
+    <div class="rm-cards">
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Now</div><div class="rm-week-title">Licensing & Entity</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Class B exam</strong> — schedule and sit within 14 days</li>
+          <li><strong>C-36 Plumbing</strong> — submit application to CSLB immediately after B passes</li>
+          <li><strong>Confirm entity:</strong> Atlas Home Builders Inc. active + proper contractor license name match</li>
+          <li><strong>General liability insurance</strong> — get quotes now; need cert before first van on road</li>
+          <li><strong>Workers comp</strong> — confirm 1099 crew coverage model with attorney</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-david">David</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 1–2</div><div class="rm-week-title">Open Contractor Accounts</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>HD Pro Xtra account</strong> — homedepot.com/c/pro_xtra (free, immediate)</li>
+          <li><strong>Ferguson Westside</strong> — call 310-559-0101, open net-30 account, request contractor pricing</li>
+          <li><strong>Lowe's Pro</strong> — set up formal account; confirm personal contact for 15% discount protocol</li>
+          <li><strong>Grainger account</strong> — grainger.com/business-account for PPE + specialty tools</li>
+          <li><strong>HouseCall Pro</strong> — activate, configure Price Book with all parts from Parts tab</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-david">David</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 2–4</div><div class="rm-week-title">Hire Ops Admin</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Post job via recruiter</strong> — $2K placement, 60-day timeline; brief them on AI-native requirement</li>
+          <li>Target profile: recent college grad, AI-native, strong communicator, ops/real estate minded, ~$70K</li>
+          <li><strong>Pre-screen question:</strong> "Walk me through how you'd use AI to automate a weekly parts reorder"</li>
+          <li>Candidate must set up Make.com, HouseCall Pro, and Samsara within first week as onboarding test</li>
+          <li>First 30 days: ops admin builds all SOPs in this roadmap into a living Notion doc</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 1: VAN BUILD -->
+  <div class="roadmap-section">
+    <div class="rm-section-head">PHASE 1 — VAN BUILD-OUT (VANS 1–3) <span class="phase-tag">WEEK 4 → WEEK 10</span></div>
+    <div class="rm-cards">
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 4–5</div><div class="rm-week-title">Van Acquisition</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Confirm van source</strong> — Ford Transit/ProMaster from Downtown LA Ford (Enrique), Van Nuys CDJR Ram, or Daniel's AZ connection</li>
+          <li>Target: cargo van, high roof, white. Model year 2022+ preferred. Lease ~$900/mo.</li>
+          <li>Ops admin: start Samsara telematics install scheduling once vans confirmed</li>
+          <li><strong>Van graphics:</strong> get 3 quotes from LA vehicle wrap shops; keep Atlas branding clean and bold</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 5–6</div><div class="rm-week-title">Initial Tool Order</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Place HD order</strong> (Van Tools tab) — M18 combo kit, FlexShaft K9-12, drain snake, PACKOUT, PPE</li>
+          <li><strong>Place Lowe's order</strong> — Anysun sewer camera, Channellock set, General Wire machines, JM-1450 jetter</li>
+          <li>Call Lowe's Pro contact for 15% before placing Lowe's order (saves ~$400+ per van)</li>
+          <li><strong>Ferguson order</strong> — T&P valves, specialty fittings, gas flex connectors</li>
+          <li>Ops admin: log all POs into shared tracking sheet with expected delivery dates</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-ops">Ops Admin</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 6–7</div><div class="rm-week-title">Van Racking + Parts Stock</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Adrian Steel or Ranger Design install</strong> — get 3 quotes, schedule installation on first 2 vans</li>
+          <li>Order Uline bin kit per van for labeled parts organization (order with van racking)</li>
+          <li><strong>Initial parts stock order</strong> — use Parts Inventory tab par quantities as order list</li>
+          <li>Ops admin: photograph and label every bin on van after racking installed (creates visual SOP)</li>
+          <li>Photo library: take "full stock" photo of van bins — this becomes the restock reference photo</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-ops">Ops Admin</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 7–8</div><div class="rm-week-title">Tech Hiring + Onboarding</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Lead tech hire</strong> — $42/hr, licensed C-36 or experienced residential plumber, 10+ yrs LA market</li>
+          <li>Regular tech — $30/hr, 5+ yrs residential plumbing, Westside references</li>
+          <li>Onboarding day 1: van walkthrough, every bin labeled, parts par list printed and laminated in van</li>
+          <li><strong>Power Selling Pros CSR training</strong> — enroll lead tech in week 1</li>
+          <li>Avoca AI: configure inbound call scripts, tech availability, and dispatch routing</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 8–10</div><div class="rm-week-title">Soft Launch (Vans 1–2)</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Google Business Profile</strong> — verify at primary address, set service area to Westside 5-7 mile radius from 90036</li>
+          <li>Begin Google review push — 5–10/week from tenant + contractor network (never trigger Google filter)</li>
+          <li><strong>CallRail tracking numbers</strong> live — track source of every inbound call from day 1</li>
+          <li>Ops admin: Monday morning weekly ops check — stock levels, Samsara fleet report, open job review</li>
+          <li>First 2 weeks: David rides along on drain calls to observe tech workflow and parts usage patterns</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2: SCALE -->
+  <div class="roadmap-section">
+    <div class="rm-section-head">PHASE 2 — SCALE TO 8–10 VANS <span class="phase-tag">WEEK 10 → WEEK 24+</span></div>
+    <div class="rm-cards">
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 10–14</div><div class="rm-week-title">Vans 3–5 + Ply Integration</div></div>
+        <div class="rm-tasks"><ul>
+          <li><strong>Add Van 3</strong> when Vans 1–2 are averaging 6+ jobs/day consistently</li>
+          <li><strong>Implement Ply</strong> at Van 4 — connect to HouseCall Pro, migrate parts list, train ops admin on barcode scanning</li>
+          <li>Ops admin: set up auto-replenishment rules in Ply for top 15 fast-moving parts</li>
+          <li><strong>Add JM-1450 hydro jetter</strong> to Van 3 — market aggressively as premium service at $800–$1,400/job</li>
+          <li>Ferguson account: negotiate volume pricing now that monthly spend is significant</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-ops">Ops Admin</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 14–20</div><div class="rm-week-title">Vans 6–8 + Add Water Restoration</div></div>
+        <div class="rm-tasks"><ul>
+          <li>Ruben + Rigo (water restoration crew) — IICRC WRT certification in progress; activate when certified</li>
+          <li>Add water restoration as separate HCP service line with distinct pricing and materials</li>
+          <li><strong>Gates/Garage Doors:</strong> onboard Oscar as 1099 installer, add to dispatch system</li>
+          <li>Ops admin: build van-specific restock templates in Ply (each trade has different par list)</li>
+          <li>Monthly KPI review: first-call resolution rate, parts cost as % of revenue, van utilization</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Week 20–24</div><div class="rm-week-title">Vans 9–10 + Painting</div></div>
+        <div class="rm-tasks"><ul>
+          <li>Painting trade activated — separate van setup, distinct parts/materials kit</li>
+          <li><strong>C-33 Painting license</strong> active by this point (30 days after Class B)</li>
+          <li>Ops admin: full fleet audit — all 10 vans against par list, identify any chronic stockouts</li>
+          <li>Ferguson relationship: push for dedicated account rep + same-day delivery SLA</li>
+          <li>Begin tracking EBITDA per van to understand path to PE exit metrics</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEKLY RECURRING -->
+  <div class="roadmap-section">
+    <div class="rm-section-head">RECURRING — WEEKLY OPS RHYTHM <span class="phase-tag">EVERY WEEK ONCE LIVE</span></div>
+    <div class="rm-cards">
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Monday AM</div><div class="rm-week-title">Weekly Ops Check</div></div>
+        <div class="rm-tasks"><ul>
+          <li>Review Samsara fleet report — any alerts, mileage, idle time</li>
+          <li>Compile all tech restock texts → place batch order with Ferguson + HD Pro</li>
+          <li>Review HCP job completions from last week — flag any unpaid or incomplete</li>
+          <li><strong>Parts cost as % of revenue</strong> — target under 12%; flag if over 15%</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-ops">Ops Admin</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Wednesday</div><div class="rm-week-title">Mid-Week Check</div></div>
+        <div class="rm-tasks"><ul>
+          <li>Confirm all Monday orders received; follow up on any missing deliveries</li>
+          <li>Check HCP pipeline — upcoming jobs, any scheduling gaps to fill with marketing push</li>
+          <li>Google review count check — are we hitting 5–10/week target?</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-ops">Ops Admin</span></div>
+      </div>
+      <div class="rm-row">
+        <div class="rm-week"><div class="rm-week-num">Friday PM</div><div class="rm-week-title">End-of-Week Wrap</div></div>
+        <div class="rm-tasks"><ul>
+          <li>All techs: photograph any bin below reorder trigger, text to ops admin</li>
+          <li>Ops admin: compile weekly revenue + job count report → send to David</li>
+          <li>Any insurance claims from water restoration jobs — flag and escalate immediately</li>
+          <li><strong>Tech commission tracking</strong> — calculate 5% pool distribution for pay period</li>
+        </ul></div>
+        <div class="rm-owner"><span class="owner-chip owner-both">David + Ops</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAB 5: AUTOMATION ══ -->
+<div id="tab-automation" class="tab-panel">
+  <div class="page-title"><h2>Automation Playbook</h2><p>Make.com + HouseCall Pro + Ply · Cut ops costs by 30–40% vs. manual processes</p></div>
+
+  <div class="auto-savebox">
+    <div class="savebox-item"><div class="savebox-val">4–6hrs</div><div class="savebox-lbl">Saved / week (ops admin)</div></div>
+    <div class="savebox-divider"></div>
+    <div class="savebox-item"><div class="savebox-val">~$12K</div><div class="savebox-lbl">Annual ops time savings</div></div>
+    <div class="savebox-divider"></div>
+    <div class="savebox-item"><div class="savebox-val">85%+</div><div class="savebox-lbl">First-call resolution (goal)</div></div>
+    <div class="savebox-divider"></div>
+    <div class="savebox-item"><div class="savebox-val">&lt;12%</div><div class="savebox-lbl">Parts cost as % revenue</div></div>
+    <div class="savebox-divider"></div>
+    <div class="savebox-item"><div class="savebox-val">$0</div><div class="savebox-lbl">Emergency same-day runs (goal)</div></div>
+  </div>
+
+  <!-- ORDERING AUTOMATIONS -->
+  <div class="auto-section">
+    <div class="auto-section-head">📦 ORDERING AUTOMATIONS <span class="auto-tag">Make.com + Ply + HCP</span></div>
+    <div class="auto-grid">
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">🔄</div>
+          <div><div class="auto-title">Auto Weekly Reorder — Monday 6AM</div><div class="auto-subtitle">Make.com scheduled trigger</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Make.com triggers at 6AM Monday — pulls current Ply van stock levels via API</li>
+            <li><div class="step-num">2</div>Compares each item against par quantity — flags anything below reorder trigger</li>
+            <li><div class="step-num">3</div>Generates draft PO for Ferguson (specialty) and HD Pro (standard items) automatically</li>
+            <li><div class="step-num">4</div>Sends ops admin a Slack/text summary: "12 items need reorder — review PO draft"</li>
+            <li><div class="step-num">5</div>Ops admin reviews + clicks approve → PO submitted, no manual data entry</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Make.com + Ply API</div><div class="auto-impact high">Saves 2hrs/week</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">📸</div>
+          <div><div class="auto-title">Tech Photo → Restock Request</div><div class="auto-subtitle">WhatsApp / SMS + Make.com</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Tech photographs low-stock bin and texts photo to dedicated ops number</li>
+            <li><div class="step-num">2</div>Make.com receives the text, uses Claude API to identify the part from the photo + label</li>
+            <li><div class="step-num">3</div>Looks up the part in the Atlas master parts CSV → finds correct SKU and supplier</li>
+            <li><div class="step-num">4</div>Adds item to that van's restock queue in Ply automatically</li>
+            <li><div class="step-num">5</div>Confirms back to tech: "✅ Moen 1225 cartridge added to your restock queue"</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Make.com + Claude API + Ply</div><div class="auto-impact high">Zero manual logging</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">💰</div>
+          <div><div class="auto-title">HD vs Lowe's Price Comparison</div><div class="auto-subtitle">Before every large order</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Before any order over $200, Make.com auto-queries HD Pro API for current pricing</li>
+            <li><div class="step-num">2</div>Compares against Ply's last-known Lowe's prices for same SKUs</li>
+            <li><div class="step-num">3</div>Generates side-by-side comparison report in under 60 seconds</li>
+            <li><div class="step-num">4</div>If Lowe's wins by 10%+, auto-flags to call Lowe's contact for additional 15% discount</li>
+            <li><div class="step-num">5</div>Decision logged with pricing rationale — creates audit trail for cost control</div></li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Make.com + HD Pro API</div><div class="auto-impact high">Saves $300–500/month</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECEIVING AUTOMATIONS -->
+  <div class="auto-section">
+    <div class="auto-section-head">📥 RECEIVING & INVENTORY AUTOMATIONS <span class="auto-tag">Ply + HCP + Make.com</span></div>
+    <div class="auto-grid">
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">📦</div>
+          <div><div class="auto-title">Delivery Confirmation → Stock Update</div><div class="auto-subtitle">Ply barcode scan workflow</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Ops admin receives delivery at staging area (home base or Ferguson pickup)</li>
+            <li><div class="step-num">2</div>Opens Ply mobile app → scans each item barcode as received</li>
+            <li><div class="step-num">3</div>Ply auto-reconciles against the open PO — flags any discrepancies or backorders</li>
+            <li><div class="step-num">4</div>Stock levels updated instantly across all van assignments in HCP</li>
+            <li><div class="step-num">5</div>Make.com triggers invoice matching — compares delivery receipt vs. PO vs. invoice before paying</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Ply Mobile + Make.com</div><div class="auto-impact high">Eliminates stock errors</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">🚐</div>
+          <div><div class="auto-title">Van Stock Assignment</div><div class="auto-subtitle">Ply van-level allocation</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>When parts are received and scanned, ops admin assigns batch to specific van in Ply</li>
+            <li><div class="step-num">2</div>Ply updates Van 1, Van 2, Van 3 stock levels individually — knows exactly what's where</li>
+            <li><div class="step-num">3</div>If a van is running low mid-week, ops admin can transfer stock between vans in the app</li>
+            <li><div class="step-num">4</div>HCP job creation automatically deducts parts used from the correct van's stock</li>
+            <li><div class="step-num">5</div>Weekly Ply report shows per-van usage rates — spot which van burns parts fastest</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Ply + HCP Integration</div><div class="auto-impact med">Full van visibility</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">📊</div>
+          <div><div class="auto-title">Parts Cost → Job Profitability</div><div class="auto-subtitle">HCP + QuickBooks Online</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Tech adds parts used as line items in HCP job invoice (required — no exceptions)</li>
+            <li><div class="step-num">2</div>HCP calculates gross margin per job in real time: Revenue − Labor − Parts = Job Margin</li>
+            <li><div class="step-num">3</div>HCP syncs to QuickBooks Online Plus — full COGS tracking, parts as inventory expense</li>
+            <li><div class="step-num">4</div>Make.com: if job margin falls below 40%, auto-flag to David via text immediately</li>
+            <li><div class="step-num">5</div>Monthly Make.com report: parts cost as % of revenue by van, by tech, by job type</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">HCP + QBO + Make.com</div><div class="auto-impact high">Real-time margins</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIELD AUTOMATIONS -->
+  <div class="auto-section">
+    <div class="auto-section-head">🔧 FIELD & DISPATCH AUTOMATIONS <span class="auto-tag">Avoca AI + HCP + Chiirp</span></div>
+    <div class="auto-grid">
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">📞</div>
+          <div><div class="auto-title">Inbound Call → Booked Job</div><div class="auto-subtitle">Avoca AI + HCP</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Customer calls CallRail tracking number — Avoca AI answers 24/7 in natural voice</li>
+            <li><div class="step-num">2</div>Avoca qualifies: job type, address, urgency level, availability window</li>
+            <li><div class="step-num">3</div>Avoca books the job in HCP directly — assigns to correct van based on location</li>
+            <li><div class="step-num">4</div>HCP sends automated confirmation text to customer with tech name + ETA window</li>
+            <li><div class="step-num">5</div>Samsara: tech gets job on mobile, navigation opens. Zero ops admin involvement.</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Avoca AI + HCP + Samsara</div><div class="auto-impact high">Zero missed calls</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">⭐</div>
+          <div><div class="auto-title">Post-Job Review Request</div><div class="auto-subtitle">HCP + Chiirp automation</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Job marked "Complete" in HCP by tech → triggers Make.com workflow</li>
+            <li><div class="step-num">2</div>30-minute delay → Chiirp sends customer personalized SMS: "How did [Tech Name] do today?"</li>
+            <li><div class="step-num">3</div>If customer replies positively (4–5 stars) → auto-sends Google review link</li>
+            <li><div class="step-num">4</div>If negative → immediately alerts ops admin + David via text for same-day resolution</li>
+            <li><div class="step-num">5</div>Goal: 5–10 reviews/week to hit 300 reviews before full launch. Never trigger Google filter.</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">HCP + Chiirp + Make.com</div><div class="auto-impact high">5–10 reviews/week</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head">
+          <div class="auto-icon">🚛</div>
+          <div><div class="auto-title">Fleet Alerts + Geofencing</div><div class="auto-subtitle">Samsara + Make.com</div></div>
+        </div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Samsara geofence set around the 5–7 mile service radius from 90036</li>
+            <li><div class="step-num">2</div>If van exits service area during business hours → Make.com texts ops admin immediately</li>
+            <li><div class="step-num">3</div>Hard-braking or speeding events → auto-log + weekly safety report sent to David</li>
+            <li><div class="step-num">4</div>End-of-day: Make.com confirms all vans returned to base; flags any van still out after 7PM</li>
+            <li><div class="step-num">5</div>Monthly: Samsara mileage report feeds into GEICO vehicle insurance discount (up to 10% off)</div></li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Samsara + Make.com</div><div class="auto-impact med">Safety + cost control</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPLEMENTATION ORDER -->
+  <div class="auto-section">
+    <div class="auto-section-head">🗓️ AUTOMATION IMPLEMENTATION ORDER <span class="auto-tag">Build sequence for ops admin</span></div>
+    <div class="auto-grid">
+      <div class="auto-card">
+        <div class="auto-card-head"><div class="auto-icon">1️⃣</div><div><div class="auto-title">Day 1–7: Foundation</div><div class="auto-subtitle">Must work before anything else</div></div></div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>HCP fully configured: all techs, services, price book loaded with every part</li>
+            <li><div class="step-num">2</div>Avoca AI live and answering calls — test with 20 scenarios before going live</li>
+            <li><div class="step-num">3</div>Samsara installed in all vans, geofence active, fleet dashboard live</li>
+            <li><div class="step-num">4</div>CallRail tracking numbers forwarding correctly to Avoca</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Day 1–7</div><div class="auto-impact high">Required for launch</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head"><div class="auto-icon">2️⃣</div><div><div class="auto-title">Week 2–4: Automation Layer 1</div><div class="auto-subtitle">First Make.com workflows</div></div></div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Post-job review request via Chiirp (highest ROI automation — build first)</li>
+            <li><div class="step-num">2</div>Job completion → Make.com → Samsara end-of-day van check</li>
+            <li><div class="step-num">3</div>Weekly ops summary report auto-emailed to David every Friday 5PM</li>
+            <li><div class="step-num">4</div>Low-margin job alert → text David if job margin under 40%</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Make.com + Chiirp</div><div class="auto-impact high">Week 2–4</div></div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-card-head"><div class="auto-icon">3️⃣</div><div><div class="auto-title">Week 4–8: Inventory Layer</div><div class="auto-subtitle">Add Ply when Van 4 launches</div></div></div>
+        <div class="auto-body">
+          <ul class="auto-steps">
+            <li><div class="step-num">1</div>Ply integrated with HCP — all price book parts synced</li>
+            <li><div class="step-num">2</div>Auto weekly reorder Make.com workflow live (Monday 6AM trigger)</li>
+            <li><div class="step-num">3</div>Tech photo → restock request automation (Claude API identification)</li>
+            <li><div class="step-num">4</div>HD vs Lowe's price comparison before every order over $200</li>
+          </ul>
+        </div>
+        <div class="auto-footer"><div class="auto-tool">Make.com + Ply + Claude API</div><div class="auto-impact high">Week 4–8</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAB 6: INVENTORY SYSTEM ══ -->
+<div id="tab-inventory" class="tab-panel">
+  <div class="page-title"><h2>Inventory System</h2><p>Phase 1: Simple par list + HCP · Phase 2: Ply integration at Van #4</p></div>
+  <div id="inv-content"></div>
+</div>
+
+</main>
+
+<script>
+function showTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── IMAGE ERROR HANDLER ──
+function imgErr(el, emoji, label) {
+  el.parentElement.innerHTML = `<div class="img-fallback">${emoji}<span>${label}</span></div>`;
+}
+
+// ── TOOLS DATA ──
+const tools = {
+  hand: [
+    {name:"Milwaukee 18\" Plumbers Hand Tool Set (6-pc)",desc:"18\" pipe wrench, 6\"/10\" adjustables, 1½\" & mini copper cutter, reaming pen",hd:"$149.97",hdU:"https://www.homedepot.com/p/310083561",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/3e4b1e92-96ea-4b15-84b2-57fc7cafd3ef/svelte/Milwaukee-Plumber-s-Hand-Tools-48-22-7218-64_600.jpg",fb:"🔧",fbl:"Wrench Set",qty:1},
+    {name:"Milwaukee 24\" Aluminum Pipe Wrench",desc:"Heavy-duty aluminum, overbite jaw. Keep 1 on every van.",hd:"$114.00",hdU:"https://www.homedepot.com/p/207153953",lw:"$169.33",lwU:"https://www.lowes.com/pd/8907728",win:"hd",img:"https://images.thdstatic.com/productImages/1a3ed46e-11de-4ead-a0a6-fc3e5a7d5a72/svelte/Milwaukee-Pipe-Wrenches-48-22-7224-64_600.jpg",fb:"🔩",fbl:"Pipe Wrench",qty:1},
+    {name:"Milwaukee 10\"+14\" Pipe Wrench Set (2-pc)",desc:"Compact aluminum pair for tight spaces. Daily workhorse.",hd:"$85.25",hdU:"https://www.homedepot.com/p/316112733",lw:"$88.29",lwU:"https://www.lowes.com/pd/8936076",win:"hd",img:"https://images.thdstatic.com/productImages/f3e3e2b3-4957-4d26-88f0-5e2ce14e8d3a/svelte/Milwaukee-Pipe-Wrenches-48-22-7213-64_600.jpg",fb:"🔩",fbl:"Wrench Set",qty:1},
+    {name:"Channellock Pliers Set (3-pc: 6.5\", 10\", 12\")",desc:"Tongue-and-groove pro-grade. Lowe's has the complete set.",hd:null,hdU:null,lw:"$67.94",lwU:"https://www.lowes.com/pd/97343",win:"lowes",img:"https://mobileimages.lowes.com/productimages/7a11e3a9-c8ef-46d4-9e8e-0ce10f20ca43/img/Channellock-430.jpg",fb:"🔧",fbl:"Channellock",qty:1},
+    {name:"Klein Needle Nose + Side Cutter Set",desc:"Contractor grade. 7\" for plumbing work.",hd:null,hdU:null,lw:"$66.46",lwU:"https://www.lowes.com/pd/5380048",win:"lowes",img:"https://mobileimages.lowes.com/productimages/4a5c3aef-7f8f-4c0b-927d-8a00fc7b4c5e/img/Klein-Tools-D2037C-EINS.jpg",fb:"✂️",fbl:"Klein Pliers",qty:1},
+    {name:"Milwaukee Basin Wrench 1.25\"",desc:"Spring-loaded, 10\"–17\" reach under-sink faucet nuts. Best price at Lowe's.",hd:"$39.97",hdU:"https://www.homedepot.com/p/207103144",lw:"$28.98",lwU:"https://www.lowes.com/pd/5730762",win:"lowes",img:"https://mobileimages.lowes.com/productimages/5c6f5acd-ee8a-4462-b278-4bc4e8174c1d/img/68232.jpg",fb:"🔧",fbl:"Basin Wrench",qty:1},
+    {name:"Milwaukee Close-Quarters Tubing Cutter Set (3-pc)",desc:"Mini cutters for copper in tight spaces. HD EXCLUSIVE.",hd:"$59.97",hdU:"https://www.homedepot.com/p/332908228",lw:null,lwU:null,win:"exclusive",img:"https://images.thdstatic.com/productImages/d2c8b4e8-0ca7-45c9-8c13-3fbe7a7c0374/svelte/Milwaukee-Tube-Pipe-Cutters-48-22-4267-64_600.jpg",fb:"✂️",fbl:"Tubing Cutter",qty:1},
+    {name:"Kobalt 25' Tape Measure (×2)",desc:"Best value at Lowe's. Keep 2 per van — they walk off.",hd:null,hdU:null,lw:"$19.98",lwU:"https://www.lowes.com/pd/4063135",win:"lowes",img:"https://mobileimages.lowes.com/productimages/b8e3e4b2-1a0e-4b63-b8a8-4c5e8e2b2d0a/img/Kobalt-KB97324.jpg",fb:"📏",fbl:"Tape Measure",qty:2},
+    {name:"General Pipe AutoCut ½\" Copper Cutter",desc:"One-hand ratcheting cutter, fast and accurate.",hd:null,hdU:null,lw:"$24.98",lwU:"https://www.lowes.com/pd/2416790",win:"lowes",img:"https://mobileimages.lowes.com/productimages/ATC12/img/AutoCut.jpg",fb:"✂️",fbl:"Copper Cutter",qty:1},
+    {name:"Klein 8-pc Screwdriver Set + Utility Knife",desc:"All-purpose flat + Phillips + Lenox retractable knife.",hd:null,hdU:null,lw:"$46.96",lwU:"https://www.lowes.com/pd/5719056",win:"lowes",img:"https://mobileimages.lowes.com/productimages/5719056/img/Klein85808.jpg",fb:"🪛",fbl:"Screwdrivers",qty:1},
+    {name:"TEKTON Hex Key Set (23-pc SAE + Metric)",desc:"Full hex key set for fixture and appliance work.",hd:null,hdU:null,lw:"$35.15",lwU:"https://www.lowes.com/pd/6547942",win:"lowes",img:"https://mobileimages.lowes.com/productimages/6547942/img/TektonHexKeys.jpg",fb:"🔑",fbl:"Hex Keys",qty:1},
+  ],
+  power: [
+    {name:"Milwaukee M18 4-Tool Combo Kit",desc:"Hammer drill, impact driver, recip saw, work light + 2×2.0Ah batteries + charger.",hd:"$499.00",hdU:"https://www.homedepot.com/p/327861305",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/e1f8a3c2-5b0e-4c6e-8b7a-4d3e9c2b5a7f/svelte/Milwaukee-Power-Tool-Combo-Kits-3693-24CX-64_600.jpg",fb:"⚡",fbl:"M18 Combo Kit",qty:1},
+    {name:"Milwaukee M18 FUEL Oscillating Multi-Tool",desc:"Essential for cut-outs, access panels, removing fittings. Bare tool.",hd:"$249.00",hdU:"https://www.homedepot.com/p/314292748",lw:"$249.00",lwU:"https://www.lowes.com/pd/2836-20",win:"tie",img:"https://images.thdstatic.com/productImages/5a2b3c4d-6e7f-8g9h-0i1j-2k3l4m5n6o7p/svelte/Milwaukee-Oscillating-Tools-2836-20-64_600.jpg",fb:"⚡",fbl:"Multi-Tool",qty:1},
+    {name:"Milwaukee M18 FUEL HackZall Recip Saw",desc:"Compact recip saw for pipe cutting in crawlspaces. Bare tool.",hd:"$199.00",hdU:"https://www.homedepot.com/p/302190765",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/302190765/svelte/400.webp",fb:"⚡",fbl:"HackZall",qty:1},
+    {name:"Milwaukee M18 XC 5.0Ah Battery 2-Pack",desc:"High-capacity batteries for heavy tools (drill, sewer machine). Better at HD.",hd:"$269.00",hdU:"https://www.homedepot.com/p/205783065",lw:"$299.00",lwU:"https://www.lowes.com/pd/1138408",win:"hd",img:"https://images.thdstatic.com/productImages/205783065/svelte/400.webp",fb:"🔋",fbl:"M18 Batteries",qty:1},
+  ],
+  drain: [
+    {name:"Ridgid K9-12 FlexShaft 30ft (Drill-Driven)",desc:"1¼\"–2\" lines, chain knockers. HOME DEPOT EXCLUSIVE — not sold at Lowe's.",hd:"$265.00",hdU:"https://www.homedepot.com/p/52363",lw:null,lwU:null,win:"exclusive",img:"https://images.thdstatic.com/productImages/a8b9c0d1-e2f3-4g5h-6i7j-8k9l0m1n2o3p/svelte/RIDGID-Drain-Augers-53538-64_600.jpg",fb:"🌀",fbl:"FlexShaft K9-12",qty:1},
+    {name:"Milwaukee M18 FUEL Drain Snake 5/16\"×35ft Kit",desc:"Battery drum auger for 2\" lines. Includes battery + charger.",hd:"$499.00",hdU:"https://www.homedepot.com/p/303229042",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/303229042/svelte/400.webp",fb:"🌀",fbl:"M18 Drain Snake",qty:1},
+    {name:"General Wire Mainline Drum Machine (3/8\"×75ft)",desc:"Electric drum machine, 1¼\"–3\" lines. Reliable backup.",hd:null,hdU:null,lw:"$957.85",lwU:"https://www.lowes.com/pd/1208440",win:"lowes",img:"https://mobileimages.lowes.com/productimages/1208440/img/GeneralWireMRP.jpg",fb:"🌀",fbl:"Drum Machine",qty:1},
+    {name:"General Wire ¼\"×25ft Hand Drum Auger",desc:"Manual sink/tub auger — backup when no power available.",hd:null,hdU:null,lw:"$62.98",lwU:"https://www.lowes.com/pd/1024754",win:"lowes",img:"https://mobileimages.lowes.com/productimages/1024754/img/HandAuger25.jpg",fb:"🌀",fbl:"Hand Auger",qty:1},
+    {name:"General Wire 15ft Clog Chaser Drum Opener",desc:"Light sink/tub clogs — fast first-response tool.",hd:null,hdU:null,lw:"$35.71",lwU:"https://www.lowes.com/pd/8899624",win:"lowes",img:"https://mobileimages.lowes.com/productimages/8899624/img/ClogChaser15.jpg",fb:"🌀",fbl:"Clog Chaser",qty:1},
+  ],
+  camera: [
+    {name:"Anysun 150ft Sewer Camera w/ 512Hz Sonde + 9\" DVR",desc:"Self-leveling, HD monitor, DVR recording, 32GB, IP68, 12 LEDs, 5× zoom. LOWE'S EXCLUSIVE in this price range.",hd:null,hdU:null,lw:"$799.99",lwU:"https://www.lowes.com/pd/8222156",win:"lowes",img:"https://mobileimages.lowes.com/productimages/8222156/img/AnysunCamera150ft.jpg",fb:"📷",fbl:"Sewer Camera",qty:1},
+  ],
+  safety: [
+    {name:"DEWALT 6-Gal Wet/Dry Shop Vacuum",desc:"Drain work, water cleanup. 4HP. Best price at HD.",hd:"$72.00",hdU:"https://www.homedepot.com/p/5735923",lw:"$76.98",lwU:"https://www.lowes.com/pd/4906671",win:"hd",img:"https://images.thdstatic.com/productImages/5735923/svelte/400.webp",fb:"🧹",fbl:"Shop Vac",qty:1},
+    {name:"PPE Bundle: Safety Glasses, Gloves, Hard Hat",desc:"ANSI-rated; 1 full set per tech on van + spares.",hd:"$95.00",hdU:"https://www.homedepot.com/s/safety+glasses+gloves+hard+hat+kit",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/PPE_bundle/svelte/400.webp",fb:"🦺",fbl:"PPE Bundle",qty:2},
+    {name:"N95 Respirator + First Aid Kit (200pc)",desc:"3M half-face for crawlspace/mold work. ANSI Class A first aid.",hd:"$85.00",hdU:"https://www.homedepot.com/s/N95+respirator+3M+first+aid+200",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/N95/svelte/400.webp",fb:"😷",fbl:"N95 + First Aid",qty:1},
+    {name:"Fire Extinguisher ABC 5 lb",desc:"Required by insurance. Wall-mount in cargo area. One per van.",hd:"$55.00",hdU:"https://www.homedepot.com/s/fire+extinguisher+5+lb+ABC",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/FireExt/svelte/400.webp",fb:"🧯",fbl:"Extinguisher",qty:1},
+    {name:"4' Type IA Fiberglass Step Ladder",desc:"300-lb rated, compact for service calls. Fits most cargo vans.",hd:"$75.00",hdU:"https://www.homedepot.com/s/4+foot+fiberglass+ladder+type+IA+300",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/Ladder4ft/svelte/400.webp",fb:"🪜",fbl:"Step Ladder",qty:1},
+    {name:"Drop Cloths (10-pk) + 6-mil Poly Sheeting",desc:"Canvas runner + poly — protect flooring on EVERY job. Non-negotiable.",hd:"$55.00",hdU:"https://www.homedepot.com/s/drop+cloth+canvas+10+pack+poly+sheeting",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/DropCloth/svelte/400.webp",fb:"🛡️",fbl:"Drop Cloths",qty:1},
+    {name:"Milwaukee PACKOUT 3-Drawer Tool Box",desc:"Van organizer for fittings + parts. Stackable modular system.",hd:"$229.00",hdU:"https://www.homedepot.com/s/Milwaukee+PACKOUT+3+drawer+tool+box",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/PACKOUT3D/svelte/400.webp",fb:"🗃️",fbl:"PACKOUT Drawer",qty:1},
+    {name:"Milwaukee PACKOUT Large Rolling Tool Box",desc:"Rolling base for heavy tools and drain machines.",hd:"$179.00",hdU:"https://www.homedepot.com/s/Milwaukee+PACKOUT+large+rolling+tool+box",lw:null,lwU:null,win:"hd",img:"https://images.thdstatic.com/productImages/PACKOUTRoll/svelte/400.webp",fb:"🗃️",fbl:"PACKOUT Rolling",qty:1},
+  ]
+};
+
+// ── PARTS DATA ──
+const parts = {
+  toilet:[
+    {name:"Fluidmaster 400A Fill Valve",cat:"Toilet",desc:"Universal; fits 99% of toilets. #1 most common toilet call in LA.",par:10,cost:7.50,reorder:3,src:"HD/Lowe's",url:"https://www.homedepot.com/p/206478491",img:"https://images.thdstatic.com/productImages/206478491/svelte/400.webp",fb:"🚽"},
+    {name:"Fluidmaster Flapper Assortment",cat:"Toilet",desc:"Universal + 2\"/3\" tower flappers. Always replace with fill valve.",par:15,cost:3.50,reorder:5,src:"HD/Lowe's",url:"https://www.lowes.com/pd/5226137",img:"https://mobileimages.lowes.com/productimages/5226137/img/Flapper501B.jpg",fb:"🚽"},
+    {name:"Wax Ring — Johni-Ring Jumbo w/ Bolts",cat:"Toilet",desc:"1 standard + 1 jumbo on van at all times. Oatey.",par:6,cost:7.00,reorder:2,src:"Lowe's",url:"https://www.lowes.com/pd/330429",img:"https://mobileimages.lowes.com/productimages/330429/img/OateyWaxRing.jpg",fb:"🚽"},
+    {name:"Toilet Closet Bolts + Shims (5/16\" brass)",cat:"Toilet",desc:"Replace on EVERY wax ring pull — never reuse old bolts.",par:10,cost:2.50,reorder:3,src:"HD/Lowe's",url:"https://www.homedepot.com/s/toilet+closet+bolts+brass+5/16",img:"https://images.thdstatic.com/productImages/ClosetBolts/svelte/400.webp",fb:"🔩"},
+    {name:"Toilet Supply Line 12\" (3/8\"×7/8\")",cat:"Toilet",desc:"BrassCraft. Replace on every toilet pull — $5 prevents callback.",par:8,cost:5.30,reorder:3,src:"HD",url:"https://www.homedepot.com/p/100094502",img:"https://images.thdstatic.com/productImages/100094502/svelte/400.webp",fb:"🔵"},
+    {name:"Toilet Supply Line 20\"",cat:"Toilet",desc:"For deeper rough-in situations. Reliabilt.",par:5,cost:7.79,reorder:2,src:"Lowe's",url:"https://www.lowes.com/pd/751665",img:"https://mobileimages.lowes.com/productimages/751665/img/SupplyLine20.jpg",fb:"🔵"},
+    {name:"Fluidmaster 507AKR Flush Valve (tower)",cat:"Toilet",desc:"Universal tower flush valve — Kohler/Toto/Am Std. Big in LA.",par:3,cost:18.00,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/s/Fluidmaster+507+universal+flush+valve",img:"https://images.thdstatic.com/productImages/FlushValve507/svelte/400.webp",fb:"🚽"},
+  ],
+  faucet:[
+    {name:"Moen 1225 Cartridge (single-handle)",cat:"Faucet",desc:"MOST COMMON faucet part in LA. Covers 70%+ of all faucet calls.",par:15,cost:12.00,reorder:5,src:"HD/Lowe's",url:"https://www.homedepot.com/s/Moen+1225+cartridge+replacement",img:"https://images.thdstatic.com/productImages/Moen1225/svelte/400.webp",fb:"🚰"},
+    {name:"Moen 1200 Cartridge (2-handle)",cat:"Faucet",desc:"2-handle Moen widespread; older LA homes and hotels.",par:5,cost:8.50,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/Moen+1200+cartridge",img:"https://images.thdstatic.com/productImages/Moen1200/svelte/400.webp",fb:"🚰"},
+    {name:"Delta RP46074 Shower Cartridge",cat:"Faucet",desc:"Delta Monitor shower valve. Delta is #2 brand in LA behind Moen.",par:6,cost:14.00,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/Delta+RP46074+cartridge",img:"https://images.thdstatic.com/productImages/DeltaCart/svelte/400.webp",fb:"🚿"},
+    {name:"Delta Ball + Seats/Springs Kit (kitchen)",cat:"Faucet",desc:"Delta ball faucet repair. 20-min job, easy upsell.",par:5,cost:12.00,reorder:2,src:"HD",url:"https://www.homedepot.com/s/Delta+ball+faucet+repair+kit+kitchen",img:"https://images.thdstatic.com/productImages/DeltaBall/svelte/400.webp",fb:"🚰"},
+    {name:"Aerator Assortment (½\" + 15/16\")",cat:"Faucet",desc:"Low-flow 1.5/2.2 GPM. Upsell every faucet job — $25 item + $50 labor.",par:10,cost:4.00,reorder:3,src:"HD/Lowe's",url:"https://www.homedepot.com/s/faucet+aerator+assortment+low+flow",img:"https://images.thdstatic.com/productImages/Aerator/svelte/400.webp",fb:"💧"},
+    {name:"Braided Supply Lines Assortment (10\"/12\"/20\")",cat:"Faucet",desc:"3/8\"×½\" IPS stainless. Replace on EVERY faucet/fixture job.",par:10,cost:6.00,reorder:4,src:"HD/Lowe's",url:"https://www.homedepot.com/s/faucet+supply+line+braided+stainless+3/8",img:"https://images.thdstatic.com/productImages/SupplyLineBraid/svelte/400.webp",fb:"🔵"},
+    {name:"P-Trap Kit 1½\" + 1¼\" PVC (slip joint)",cat:"Faucet",desc:"Slip-joint p-traps for kitchen/bath sinks. 2 of each + chrome for exposed.",par:6,cost:5.50,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/p-trap+1.5+slip+joint+PVC",img:"https://images.thdstatic.com/productImages/PTrap/svelte/400.webp",fb:"🔧"},
+    {name:"Pop-Up Drain Assembly (universal, BN)",cat:"Faucet",desc:"Universal bathroom lav pop-up. Keep chrome + brushed nickel.",par:4,cost:15.00,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/pop+up+drain+assembly+universal",img:"https://images.thdstatic.com/productImages/PopUpDrain/svelte/400.webp",fb:"🔵"},
+  ],
+  valves:[
+    {name:"Angle Stop Valve (3/8\" Comp×½\", Q-Turn)",cat:"Valves",desc:"Most common valve replacement. Under-sink + toilet shutoffs. Keep 15/van min.",par:15,cost:7.00,reorder:5,src:"HD",url:"https://www.homedepot.com/p/309283969",img:"https://images.thdstatic.com/productImages/309283969/svelte/400.webp",fb:"🔴"},
+    {name:"Straight Stop Valve (3/8\" Comp×½\")",cat:"Valves",desc:"Toilet floor-mount supply in older buildings.",par:6,cost:7.00,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/straight+stop+valve+1/4+turn+3/8+comp",img:"https://images.thdstatic.com/productImages/StraightStop/svelte/400.webp",fb:"🔴"},
+    {name:"SharkBite ½\" Push Fittings Assortment",cat:"Valves",desc:"Couplings, elbows, tees — no-solder emergency repairs. 5-min fix, huge upsell.",par:10,cost:5.50,reorder:3,src:"HD/Lowe's",url:"https://www.lowes.com/pd/5204305",img:"https://mobileimages.lowes.com/productimages/5204305/img/SharkBite12.jpg",fb:"🔵"},
+    {name:"SharkBite ¾\" Push Fittings Assortment",cat:"Valves",desc:"¾\" couplings, elbows, tees — main line repairs. Keep 6 of each.",par:6,cost:7.50,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/SharkBite+3/4+push+fittings+assortment",img:"https://images.thdstatic.com/productImages/SharkBite34/svelte/400.webp",fb:"🔵"},
+    {name:"Watts ½\" Full-Port Brass Ball Valve",cat:"Valves",desc:"Inline shutoffs; isolation on repair work. Carry ½\" and ¾\".",par:5,cost:15.00,reorder:2,src:"HD",url:"https://www.homedepot.com/p/205888734",img:"https://images.thdstatic.com/productImages/205888734/svelte/400.webp",fb:"🔴"},
+  ],
+  emergency:[
+    {name:"Repair Clamp Assortment (½\"–2\"×3\" band)",cat:"Emergency Repair",desc:"CRITICAL — stainless clamps for pinhole leaks. Stop active leaks in under 2 min.",par:10,cost:8.00,reorder:3,src:"HD/Ferguson",url:"https://www.homedepot.com/s/pipe+repair+clamp+stainless+band",img:"https://images.thdstatic.com/productImages/RepairClamp/svelte/400.webp",fb:"🚨"},
+    {name:"Fernco / No-Hub Couplings (1½\"–4\")",cat:"Emergency Repair",desc:"Cast-iron tie-ins and emergency repairs. Keep 1.5\"–4\" sizes.",par:8,cost:9.00,reorder:3,src:"HD/Lowe's",url:"https://www.homedepot.com/p/202309391",img:"https://images.thdstatic.com/productImages/202309391/svelte/400.webp",fb:"🔧"},
+    {name:"Push-on Rubber End Cap Assortment (½\"–2\")",cat:"Emergency Repair",desc:"Fast temporary pipe cap while sourcing parts.",par:6,cost:3.50,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/rubber+pipe+end+cap+push+on",img:"https://images.thdstatic.com/productImages/RubberEndCap/svelte/400.webp",fb:"🔴"},
+  ],
+  wh:[
+    {name:"T&P Relief Valve 3/4\"×4\" (150 psi, 30 BTU)",cat:"Water Heater",desc:"CA code: replace on EVERY WH install. Watts or equiv.",par:5,cost:22.00,reorder:2,src:"HD/Ferguson",url:"https://www.homedepot.com/s/TPR+valve+3/4+150+psi+30+BTU",img:"https://images.thdstatic.com/productImages/TPRValve/svelte/400.webp",fb:"🔥"},
+    {name:"Magnesium Anode Rod 3/4\" Hex",cat:"Water Heater",desc:"Upsell at $75–$100 installed on every WH service call. Easy money.",par:3,cost:18.00,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/s/water+heater+anode+rod+magnesium+3/4",img:"https://images.thdstatic.com/productImages/AnodeRod/svelte/400.webp",fb:"🔥"},
+    {name:"Everbilt 3/4\" SS WH Flex Connectors (2-pk)",cat:"Water Heater",desc:"Replace on EVERY WH install — never reuse old connectors.",par:8,cost:11.00,reorder:3,src:"HD",url:"https://www.homedepot.com/p/306035644",img:"https://images.thdstatic.com/productImages/306035644/svelte/400.webp",fb:"🔵"},
+    {name:"Dielectric Union 3/4\" (copper to WH)",cat:"Water Heater",desc:"CA code REQUIRED on copper connections. Prevents galvanic corrosion.",par:5,cost:4.77,reorder:2,src:"HD",url:"https://www.homedepot.com/p/331674086",img:"https://images.thdstatic.com/productImages/331674086/svelte/400.webp",fb:"🔵"},
+    {name:"Eastman 2-Gal Thermal Expansion Tank",cat:"Water Heater",desc:"CA code required on closed systems. 1×2-gal + 1×4.4-gal per van.",par:2,cost:34.42,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/p/330866982",img:"https://images.thdstatic.com/productImages/330866982/svelte/400.webp",fb:"🔥"},
+  ],
+  gas:[
+    {name:"Gas Flex Connector (3/8\"+½\" CSA, 24\")",cat:"Gas",desc:"CSA-approved corrugated stainless. Replace on EVERY WH install.",par:4,cost:14.00,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/s/gas+flex+connector+corrugated+stainless+CSA+24",img:"https://images.thdstatic.com/productImages/GasFlexConn/svelte/400.webp",fb:"🔵"},
+    {name:"Black Iron Nipples Assortment (½\"+¾\")",cat:"Gas",desc:"Threaded black iron for gas line repairs. 3 each: 2\", 3\", 4\", 6\".",par:6,cost:3.50,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/black+iron+nipple+threaded+1/2",img:"https://images.thdstatic.com/productImages/BlackIronNipple/svelte/400.webp",fb:"⚫"},
+    {name:"Gas Leak Detector (UEI or Fieldpiece)",cat:"Gas",desc:"REQUIRED on every gas appliance install. CA code. DO NOT skip.",par:1,cost:85.00,reorder:1,src:"Amazon/Grainger",url:"https://www.amazon.com/s?k=combustible+gas+leak+detector+UEI+Fieldpiece",img:"https://images.thdstatic.com/productImages/GasDetector/svelte/400.webp",fb:"⚠️"},
+  ],
+  consumables:[
+    {name:"PTFE Tape — White, 6-pack (260\" rolls)",cat:"Consumables",desc:"White=water, yellow=gas. NEVER mix. Essential on every threaded connection.",par:12,cost:1.50,reorder:4,src:"HD/Lowe's",url:"https://www.homedepot.com/p/202280370",img:"https://images.thdstatic.com/productImages/202280370/svelte/400.webp",fb:"🧴"},
+    {name:"Pipe Joint Compound (Oatey Pro Dope, 8oz)",cat:"Consumables",desc:"Thread sealant — use WITH PTFE tape on all threaded connections.",par:4,cost:4.76,reorder:2,src:"HD",url:"https://www.homedepot.com/p/100204007",img:"https://images.thdstatic.com/productImages/100204007/svelte/400.webp",fb:"🧴"},
+    {name:"PVC Purple Primer + Clear Cement Combo",cat:"Consumables",desc:"DWV PVC glue-up. Replace when low — cement dries out in hot LA van.",par:4,cost:11.98,reorder:1,src:"HD",url:"https://www.homedepot.com/p/100151579",img:"https://images.thdstatic.com/productImages/100151579/svelte/400.webp",fb:"🟣"},
+    {name:"ABS Black Cement (8oz)",cat:"Consumables",desc:"ABS drain repairs — common in older LA construction. Separate from PVC.",par:2,cost:8.00,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/s/ABS+cement+black+8+oz",img:"https://images.thdstatic.com/productImages/ABSCement/svelte/400.webp",fb:"⚫"},
+    {name:"Lead-Free Solder (Harris 4oz) + Flux",cat:"Consumables",desc:"95/5 lead-free + Oatey flux for copper sweat work.",par:2,cost:32.00,reorder:1,src:"Lowe's/HD",url:"https://www.lowes.com/pd/5376004",img:"https://mobileimages.lowes.com/productimages/5376004/img/HarrisSolder.jpg",fb:"🔥"},
+    {name:"Silicone Sealant (clear, DAP or GE)",cat:"Consumables",desc:"Sink rims, tub surrounds, fixture caulking. Upsell re-caulk on every WH visit.",par:4,cost:6.50,reorder:2,src:"HD/Lowe's",url:"https://www.homedepot.com/s/clear+silicone+caulk+plumbing+DAP",img:"https://images.thdstatic.com/productImages/SiliconeGE/svelte/400.webp",fb:"🧴"},
+    {name:"Plumber's Putty (8oz)",cat:"Consumables",desc:"Drain basket and sink rim sealing. Still needed on basket strainer installs.",par:3,cost:4.00,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/s/plumbers+putty+8oz",img:"https://images.thdstatic.com/productImages/PlumbersPutty/svelte/400.webp",fb:"🧴"},
+    {name:"Emery Cloth (1½\"×10-yd roll)",cat:"Consumables",desc:"Clean copper before soldering. Cheap — always have 2+ on van.",par:3,cost:4.00,reorder:1,src:"HD/Lowe's",url:"https://www.homedepot.com/s/emery+cloth+plumbing+1.5+inch",img:"https://images.thdstatic.com/productImages/EmeryCloth/svelte/400.webp",fb:"🧻"},
+  ]
+};
+
+// ── BIG TICKET ──
+const bigItems = [
+  {name:"Milwaukee M18 FUEL Sewer Sectional Machine (2871-22)",what:"Cordless sectional — clears 2\"–8\" sewer lines up to 200ft. Auto feed/retract via CABLE DRIVE. ONE-KEY theft protection. The #1 tool for mainline sewer calls.",hd:"$4,799",hdU:"https://www.homedepot.com/p/303229042",lw:"Not at Lowe's",lwU:null,contractor:"Acme Tools, Toolup.com (MAP enforced)",cPrice:"$4,799 (MAP)",best:"HOME DEPOT",bestU:"https://www.homedepot.com/p/303229042",phase:"PHASE 1",pri:"required",notes:"Buy 1 per 2 vans initially → 1 per van by Van 5. Milwaukee runs free battery rebates — check before buying. ONE-KEY lock-out if stolen.",img:"https://images.thdstatic.com/productImages/303229042/svelte/400.webp",fb:"🌀"},
+  {name:"RIDGID K-400 Drum Machine (3/8\"×75ft + 4-pc Tool Set)",what:"Electric drum machine for 1.5\"–4\" lines. The workhorse backup. Plug-in, reliable. ~40% of sewer calls resolved with K-400 alone.",hd:"$597",hdU:"https://www.homedepot.com/p/206405033",lw:"Not at Lowe's",lwU:null,contractor:"Ferguson, Grainger (~same price)",cPrice:"~$550–$597",best:"HOME DEPOT",bestU:"https://www.homedepot.com/p/206405033",phase:"PHASE 1",pri:"required",notes:"1 K-400 per van for everyday sewer snaking. Use M18 sectional for serious mainline root jobs only. Every tech already knows this machine.",img:"https://images.thdstatic.com/productImages/206405033/svelte/400.webp",fb:"🌀"},
+  {name:"General Wire JM-1450 Hydro Jetter (1500 PSI Electric)",what:"Blasts grease, sludge, ice from 1.5\"–4\" lines. Plugs into standard 120V outlet. 1500 PSI / 1.7 GPM. Vibra-pulse for tight bends. 34\" height, fits in van.",hd:"Not at HD",hdU:null,lw:"~$1,800",lwU:"https://www.lowes.com/pd/5014711187",contractor:"Ferguson, Grainger, Amazon (JM-1450-C with 150' + 75' hose + nozzle sets)",cPrice:"~$1,600–$1,900",best:"LOWE'S / FERGUSON",bestU:"https://www.lowes.com/pd/5014711187",phase:"PHASE 1–2",pri:"high",notes:"BIGGEST REVENUE PLAY. Bills $800–$1,400/job vs $119 snake call. LA grease-heavy market (WeHo/BH). Every van has one by Van 3. Use your Lowe's contact — 15% off = saves ~$270.",img:"https://mobileimages.lowes.com/productimages/5014711187/img/GeneralJM1450.jpg",fb:"💧"},
+  {name:"Anysun 150ft Sewer Camera w/ 512Hz Sonde (AS-IIS1MP0020-K0)",what:"9\" HD monitor, self-leveling, DVR recording, 32GB card, IP68 waterproof, 12 LEDs, 5× zoom. 512Hz sonde for above-ground line locating.",hd:"Not stocked reliably",hdU:null,lw:"$799.99",lwU:"https://www.lowes.com/pd/8222156",contractor:"Ferguson → Ridgid SeeSnake upgrade ($4K–$8K)",cPrice:"Anysun: $799 · SeeSnake: $4K–$8K",best:"LOWE'S (Anysun)",bestU:"https://www.lowes.com/pd/8222156",phase:"PHASE 1",pri:"required",notes:"Camera inspection = $150–$300 upsell on every drain call. Anysun is excellent for residential diagnostics. Buy 2: 1 per 2 vans. Upgrade to SeeSnake when doing insurance/code documentation work.",img:"https://mobileimages.lowes.com/productimages/8222156/img/AnysunSewer.jpg",fb:"📷"},
+  {name:"Van Racking System (Adrian Steel / Ranger Design)",what:"Fixed shelving + labeled bin system bolted to van cargo area. PACKOUT is a temporary stopgap only. Pro image, organization, and tech speed all depend on this.",hd:"Not at HD",hdU:null,lw:"Not at Lowe's",lwU:null,contractor:"Adrian Steel · Ranger Design · Weather Guard · Leer",cPrice:"$2,000–$4,000 installed",best:"CONTRACTOR ONLY",bestU:"https://www.adriansteel.com",phase:"PHASE 1–2",pri:"high",notes:"Get 3 LA installer quotes. Install on first 3 vans before scaling. With proper racking + Uline bins, tech finds any part in 30 seconds. Lasts 10 years.",img:"https://www.adriansteel.com/wp-content/uploads/2021/06/van-shelving-header.jpg",fb:"🚐"},
+  {name:"Ridgid K9-102 FlexShaft (2\"–4\" lines)",what:"Larger FlexShaft for 2\"–4\" drain lines. Faster and cleaner in tight residential spaces vs. sectional machine. Drill-powered.",hd:"Not at HD (only K9-12 for 1.25\"–2\")",hdU:null,lw:"Not at Lowe's",lwU:null,contractor:"Ridgid Direct, Ferguson Westside LA",cPrice:"$1,200–$1,800",best:"RIDGID / FERGUSON",bestU:"https://www.ridgid.com/us/en/k-9-102-kit",phase:"PHASE 2",pri:"medium",notes:"Phase 1: use M18 sectional for 2\"–4\" mains. Phase 2 add-on. Cleaner/faster in residential tight spaces than dragging out the full sectional machine.",img:"https://www.ridgid.com/binaries/content/gallery/ridgid-website/products/pipeline-inspection-diagnostics/k9-12-kit.jpg",fb:"🌀"},
+  {name:"Fieldpiece SDMN6 Digital Manometer + Gas Test Kit",what:"Required to test gas line pressure before/after every WH install. CA plumbing code requires documented pressure test. Contractor standard tool.",hd:"Not at HD plumbing aisle",hdU:null,lw:"Not at Lowe's",lwU:null,contractor:"Amazon: Fieldpiece SDMN6 or Yellow Jacket 78060",cPrice:"$80–$200 (Amazon)",best:"AMAZON",bestU:"https://www.amazon.com/s?k=Fieldpiece+SDMN6+digital+manometer",phase:"PHASE 1",pri:"required",notes:"DO NOT skip. CA requires documented gas pressure test on every WH install. $150 tool protects you from liability on every gas job. ONE per van.",img:"https://images.thdstatic.com/productImages/GasManometer/svelte/400.webp",fb:"🔵"},
+  {name:"Milwaukee M18 PEX Expander Tool (2432-21XC)",what:"Required for PEX-A (Uponor/Wirsbo) expansion-style fittings. Opens $5K–$15K repiping jobs without any soldering.",hd:"HD · ~$400–$600 kit",hdU:"https://www.homedepot.com/s/Milwaukee+M18+PEX+expander+2432",lw:"Limited at Lowe's",lwU:null,contractor:"Ferguson, Milwaukee Direct",cPrice:"$400–$600",best:"HOME DEPOT",bestU:"https://www.homedepot.com/s/Milwaukee+M18+PEX+expander+2432",phase:"PHASE 2",pri:"medium",notes:"Decide PEX-A vs PEX-B before buying. Phase 1 = PEX-B crimp (in M18 kit). PEX-A expander opens the repiping revenue stream — Phase 2 priority.",img:"https://images.thdstatic.com/productImages/MilwaukeePEX/svelte/400.webp",fb:"🔧"},
+  {name:"Bernzomatic TS8000 Torch + Map-Pro Fuel (×6 canisters)",what:"Pro torch for copper sweat work. TS8000 runs hotter than standard propane. Keep 6 Map-Pro canisters per van at all times.",hd:"HD · ~$80 + $15/ea",hdU:"https://www.homedepot.com/s/Bernzomatic+TS8000",lw:"Lowe's · ~$80 + $15/ea",lwU:"https://www.lowes.com/s/Bernzomatic+TS8000",contractor:"Both HD and Lowe's stock this",cPrice:"$80 torch + $90 for 6 Map-Pro",best:"HD OR LOWE'S",bestU:"https://www.homedepot.com/s/Bernzomatic+TS8000",phase:"PHASE 1",pri:"required",notes:"NEVER use standard propane. CA fire code: store Map-Pro canisters in ventilated exterior-access box in van. Check canisters monthly in summer.",img:"https://images.thdstatic.com/productImages/Bernzomatic_TS8000/svelte/400.webp",fb:"🔥"},
+];
+
+// ── RENDER HELPERS ──
+function winBadge(w) {
+  if(w==='hd') return `<span class="badge badge-hd">🏠 HD Best Price</span>`;
+  if(w==='lowes') return `<span class="badge badge-lowes">🔵 Lowe's Best Price</span>`;
+  if(w==='tie') return `<span class="badge badge-tie">= TIE</span>`;
+  if(w==='exclusive') return `<span class="badge badge-exclusive">★ EXCLUSIVE</span>`;
+  return '';
+}
+function priBadge(p) {
+  if(p==='required') return `<span class="badge badge-required">⚠ REQUIRED</span>`;
+  if(p==='high') return `<span class="badge badge-high">↑ HIGH</span>`;
+  return `<span class="badge badge-medium">● MED</span>`;
+}
+function phaseBadge(p) { return `<span class="badge badge-phase">${p}</span>`; }
+
+function priceChips(hd, lw) {
+  let h = '';
+  if(hd) h += `<div class="price-chip"><div class="price-chip-lbl lbl-hd">🏠 HD</div><div class="price-chip-val">${hd}</div></div>`;
+  if(lw) h += `<div class="price-chip"><div class="price-chip-lbl lbl-lowes">🔵 Lowe's</div><div class="price-chip-val">${lw}</div></div>`;
+  if(hd && lw) {
+    const a = parseFloat(hd.replace(/[^0-9.]/g,'')), b = parseFloat(lw.replace(/[^0-9.]/g,''));
+    if(!isNaN(a)&&!isNaN(b)) h += `<div class="price-chip"><div class="price-chip-lbl lbl-best">✓ Best</div><div class="price-chip-val best">$${Math.min(a,b).toFixed(2)}</div></div>`;
+  }
+  return h;
+}
+function buyBtns(hd, hdU, lw, lwU) {
+  let h = '';
+  if(hdU) h += `<a href="${hdU}" target="_blank" class="btn btn-hd">🏠 HD</a>`;
+  else if(hd) h += `<span class="btn btn-ghost">HD N/A</span>`;
+  if(lwU) h += `<a href="${lwU}" target="_blank" class="btn btn-lowes">🔵 Lowe's</a>`;
+  else if(lw) h += `<span class="btn btn-ghost">Lowe's N/A</span>`;
+  return h;
+}
+
+function toolCard(t) {
+  return `<div class="product-card">
+    <div class="badge-row"><div></div>${winBadge(t.win)}</div>
+    <div class="prod-img"><img src="${t.img}" alt="${t.name}" onerror="imgErr(this,'${t.fb}','${t.fbl}')" loading="lazy"></div>
+    <div class="card-body">
+      <div class="card-cat-label">${t.qty>1?`Qty: ${t.qty}/van`:'1 per van'}</div>
+      <div class="card-name">${t.name}</div>
+      <div class="card-desc">${t.desc}</div>
+      <div class="price-row">${priceChips(t.hd, t.lw)}</div>
+      <div class="btn-row">${buyBtns(t.hd,t.hdU,t.lw,t.lwU)}</div>
+    </div>
+  </div>`;
+}
+
+function partCard(p) {
+  const pv = (p.par * p.cost).toFixed(2);
+  return `<div class="part-card">
+    <div class="part-img"><img src="${p.img}" alt="${p.name}" onerror="imgErr(this,'${p.fb}','${p.cat}')" loading="lazy"></div>
+    <div class="part-body">
+      <div class="part-cat">${p.cat}</div>
+      <div class="part-name">${p.name}</div>
+      <div class="part-desc">${p.desc}</div>
+      <div class="part-stats">
+        <div class="stat-pill par"><span class="sl">Par</span><span class="sv">${p.par}/van</span></div>
+        <div class="stat-pill cost"><span class="sl">Unit</span><span class="sv">$${p.cost.toFixed(2)}</span></div>
+        <div class="stat-pill reorder"><span class="sl">Reorder @</span><span class="sv">${p.reorder}</span></div>
+        <div class="stat-pill"><span class="sl">Par $</span><span class="sv">$${pv}</span></div>
+      </div>
+      <a href="${p.url}" target="_blank" class="part-link">🛒 Buy from ${p.src}</a>
+    </div>
+  </div>`;
+}
+
+function bigCard(b) {
+  const hdTxt = b.hd !== 'Not at HD' && b.hd !== 'Not stocked reliably' ? b.hd : '—';
+  const lwTxt = b.lw !== 'Not at Lowe\'s' ? b.lw : '—';
+  return `<div class="big-card">
+    <div class="badge-row">${priBadge(b.pri)}${phaseBadge(b.phase)}</div>
+    <div class="big-img"><img src="${b.img}" alt="${b.name}" onerror="imgErr(this,'${b.fb}','${b.name.slice(0,20)}')" loading="lazy"></div>
+    <div class="big-body">
+      <div class="big-name">${b.name}</div>
+      <div class="big-what">${b.what}</div>
+      <div class="big-prices">
+        <div class="big-price-item"><div class="big-price-lbl lbl-hd">🏠 HD</div><div class="big-price-val">${hdTxt}</div></div>
+        <div class="big-price-item"><div class="big-price-lbl lbl-lowes">🔵 Lowe's</div><div class="big-price-val">${lwTxt}</div></div>
+        <div class="big-price-item"><div class="big-price-lbl" style="color:var(--green)">🏭 Contractor</div><div class="big-price-val">${b.cPrice}</div></div>
+      </div>
+      <div class="big-notes">${b.notes}</div>
+      <div class="best-buy-row"><span class="best-buy-lbl">Best Buy:</span><span class="best-buy-val">${b.best}</span></div>
+      <div class="btn-row">
+        ${b.hdU ? `<a href="${b.hdU}" target="_blank" class="btn btn-hd">🏠 HD</a>` : ''}
+        ${b.lwU ? `<a href="${b.lwU}" target="_blank" class="btn btn-lowes">🔵 Lowe's</a>` : ''}
+        <a href="${b.bestU}" target="_blank" class="btn btn-navy">🔍 Research</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── RENDER ALL ──
+document.getElementById('g-hand').innerHTML = tools.hand.map(toolCard).join('');
+document.getElementById('g-power').innerHTML = tools.power.map(toolCard).join('');
+document.getElementById('g-drain').innerHTML = tools.drain.map(toolCard).join('');
+document.getElementById('g-camera').innerHTML = tools.camera.map(toolCard).join('');
+document.getElementById('g-safety').innerHTML = tools.safety.map(toolCard).join('');
+
+document.getElementById('pg-toilet').innerHTML = parts.toilet.map(partCard).join('');
+document.getElementById('pg-faucet').innerHTML = parts.faucet.map(partCard).join('');
+document.getElementById('pg-valves').innerHTML = parts.valves.map(partCard).join('');
+document.getElementById('pg-emergency').innerHTML = parts.emergency.map(partCard).join('');
+document.getElementById('pg-wh').innerHTML = parts.wh.map(partCard).join('');
+document.getElementById('pg-gas').innerHTML = parts.gas.map(partCard).join('');
+document.getElementById('pg-consumables').innerHTML = parts.consumables.map(partCard).join('');
+
+document.getElementById('big-grid').innerHTML = bigItems.map(bigCard).join('');
+
+// ── INVENTORY SYSTEM ──
+const inv = [
+  {head:"Phase 1 (Vans 1–3) — Keep It Simple", cards:[
+    {t:"The System",b:"Spreadsheet par list (this catalog). Each tech checks van against Parts tab before and after each job. When a part drops to reorder trigger, tech texts photo to ops admin."},
+    {t:"HouseCall Pro Price Book",b:"Add every part as a line item in HCP with your cost. HCP tracks material used per job automatically. No extra software needed for 3 vans."},
+    {t:"Restocking Cadence",b:"Monday AM: ops admin compiles all restock requests → batch order Ferguson (specialty) + HD Pro (standard). Weekly rhythm, no scrambling mid-week."},
+    {t:"Target Van Stock",b:"Always maintain $1,800+ in parts per van. Below $1,200 = tech is running blind and losing first-call resolution. First-call resolution target: 85%+."},
+  ]},
+  {head:"Phase 2 (Van 4+) — Ply + HouseCall Pro", cards:[
+    {t:"What is Ply?",b:"Native HCP inventory integration (getply.com). Barcode scanning, per-van stock tracking, auto POs, supplier price comparison. ~$100–$200/month.",link:"https://getply.com",lt:"→ View Ply"},
+    {t:"Key Ply Features",b:"Van-level stock tracking · Auto-replenishment at reorder points · Price shopping across Ferguson/Grainger/HD Pro · Barcode scanning for van audits"},
+    {t:"HCP + QuickBooks Sync",b:"Parts used on jobs in HCP → auto-sync to QuickBooks Online Plus as COGS. Real-time job margin tracking. Target: parts cost under 12% of revenue."},
+    {t:"When to Implement",b:"Start Ply at Van #4 or when ops admin is spending 3+ hours/week managing parts manually. Implement before adding Van 5."},
+  ]},
+  {head:"Contractor Accounts — Open These Now", cards:[
+    {t:"Ferguson Plumbing — Westside LA",b:"Contractor wholesale. Call 310-559-0101. Net-30, contractor pricing, will-call pickup. Critical for specialty items not at HD/Lowe's.",link:"https://www.ferguson.com",lt:"→ Ferguson Account"},
+    {t:"HD Pro Xtra",b:"Free contractor account. Volume discounts + next-day delivery + Pro desk. Essential for weekly HD orders.",link:"https://www.homedepot.com/c/pro_xtra",lt:"→ Open HD Pro Xtra"},
+    {t:"Lowe's Pro + Your Contact",b:"Your Westside Lowe's contact = 15% off any order. Sewer camera $800 → $680. JM-1450 jetter saves ~$270. Call before every large order."},
+    {t:"Grainger LA",b:"Industrial supply for specialty tools, PPE, gas detectors. Net-30, volume discounts.",link:"https://www.grainger.com/business-account",lt:"→ Grainger Account"},
+  ]},
+  {head:"Restock Protocol — Weekly SOP", cards:[
+    {t:"End-of-Day (Tech)",b:"1. Park van. 2. Photograph any bin below reorder trigger. 3. Text photo to ops admin with part name + quantity needed. 4. Log all parts used in HCP same day."},
+    {t:"Monday AM (Ops Admin)",b:"1. Compile all tech restock requests. 2. Place batch order: Ferguson (specialty) + HD Pro (standard). 3. Confirm delivery window. 4. Update inventory tracking."},
+    {t:"Monthly Van Audit",b:"Full van audit against Parts tab par list. Check expired Map-Pro canisters, dried PVC cement, corroded clamps. Replace proactively. Takes ~20 min per van."},
+    {t:"Emergency Parts Protocol",b:"Same-day need: nearest HD or Lowe's for standard items. Ferguson will-call for specialty (call ahead). Log all same-day runs as job cost in HCP."},
+  ]},
+];
+
+let invHtml = '';
+inv.forEach(s => {
+  invHtml += `<div class="inv-grid"><div class="inv-section-head">${s.head}</div>`;
+  s.cards.forEach(c => {
+    invHtml += `<div class="inv-card"><div class="inv-card-head"><h4>${c.t}</h4></div><div class="inv-card-body"><p>${c.b}</p>${c.link?`<a href="${c.link}" target="_blank" class="inv-link">${c.lt}</a>`:''}</div></div>`;
+  });
+  invHtml += `</div>`;
+});
+document.getElementById('inv-content').innerHTML = invHtml;
+</script>
+</body>
+</html>
