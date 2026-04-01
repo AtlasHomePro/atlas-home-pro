@@ -214,10 +214,48 @@ photoInput.addEventListener("change", function(e) {
   photoInput.value = '';
 });
 
-function addPhotos(files){
+// Compress photo using Canvas — resize to max 1200px, convert to JPEG ~200-400KB
+function compressPhoto(file) {
+  return new Promise((resolve) => {
+    // If file is already small (<500KB), skip compression
+    if (file.size < 500000) { resolve(file); return; }
+
+    const img = new Image();
+    img.onload = () => {
+      const MAX = 1200;
+      let w = img.width, h = img.height;
+      if (w > MAX || h > MAX) {
+        if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+        else { w = Math.round(w * MAX / h); h = MAX; }
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, w, h);
+      canvas.toBlob((blob) => {
+        if (blob) {
+          const compressed = new File([blob], file.name.replace(/\.[^.]+$/, ".jpg"), { type: "image/jpeg" });
+          console.log(`Compressed ${file.name}: ${(file.size/1024).toFixed(0)}KB → ${(compressed.size/1024).toFixed(0)}KB`);
+          resolve(compressed);
+        } else {
+          resolve(file); // fallback to original
+        }
+      }, "image/jpeg", 0.8);
+    };
+    img.onerror = () => resolve(file); // fallback to original
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+async function addPhotos(files){
   const remaining = 5 - photos.length;
   if (remaining <= 0) return;
-  photos.push(...files.slice(0, remaining));
+  const toAdd = files.slice(0, remaining);
+  // Compress each photo before storing
+  for (const f of toAdd) {
+    const compressed = await compressPhoto(f);
+    photos.push(compressed);
+  }
   renderPhotos();
 }
 function renderPhotos(){
