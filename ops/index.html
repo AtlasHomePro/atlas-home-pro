@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Home Pro — Operations Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C0392B; --red-d: #A93226; --red-light: #FDECEA;
+  --navy: #1B2A47; --navy-d: #12203A;
+  --amber: #D97706; --amber-light: #FFFBEB;
+  --green: #16A34A; --green-light: #F0FDF4;
+  --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB; --gray-400: #9CA3AF; --gray-500: #6B7280;
+  --gray-700: #374151; --gray-900: #111827; --white: #FFFFFF;
+  --shadow: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --radius: 12px; --radius-sm: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: var(--gray-900); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+/* ── LOGIN SCREEN ── */
+.login-screen {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--navy-d) 0%, var(--navy) 60%, #243B6A 100%);
+  padding: 24px;
+}
+.login-logo { text-align: center; margin-bottom: 40px; }
+.login-logo .icon {
+  width: 72px; height: 72px; background: var(--red); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; margin: 0 auto 16px;
+  box-shadow: 0 8px 24px rgba(192,57,43,0.4);
+}
+.login-logo h1 {
+  font-family: 'Bebas Neue', sans-serif; font-size: 36px;
+  color: var(--white); letter-spacing: 3px; line-height: 1;
+}
+.login-logo p { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 6px; letter-spacing: 1.5px; text-transform: uppercase; }
+.login-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 36px; width: 100%; max-width: 400px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+}
+.login-card h2 { font-size: 20px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+.login-card p { font-size: 13px; color: var(--gray-400); margin-bottom: 28px; }
+.field-label { font-size: 12px; font-weight: 700; color: var(--gray-500); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+.field-input {
+  width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200);
+  border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif;
+  font-size: 15px; color: var(--gray-900);
+  transition: border-color 0.15s; outline: none; margin-bottom: 16px;
+  background: var(--gray-50);
+}
+.field-input:focus { border-color: var(--navy); background: var(--white); }
+.field-input.error { border-color: var(--red); background: var(--red-light); }
+.login-btn {
+  width: 100%; padding: 14px; background: var(--navy);
+  color: white; border: none; border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background 0.15s; letter-spacing: 0.5px;
+}
+.login-btn:hover { background: var(--navy-d); }
+.login-btn:active { transform: scale(0.99); }
+.error-msg { display: none; color: var(--red); font-size: 13px; font-weight: 600; margin-top: 10px; text-align: center; }
+.error-msg.show { display: block; }
+.login-footer { text-align: center; margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ── ROLE SCREEN ── */
+.role-screen {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--navy-d) 0%, var(--navy) 60%, #243B6A 100%);
+  padding: 24px;
+}
+.role-logo { text-align: center; margin-bottom: 36px; }
+.role-logo .icon { width: 56px; height: 56px; background: var(--red); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 12px; }
+.role-logo h1 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: white; letter-spacing: 3px; }
+.role-logo p { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 4px; text-transform: uppercase; letter-spacing: 1.5px; }
+.role-card { background: white; border-radius: var(--radius); padding: 32px; width: 100%; max-width: 420px; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+.role-card h2 { font-size: 18px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+.role-card p { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+.role-btn {
+  width: 100%; padding: 16px 20px; border: 2px solid var(--gray-200);
+  border-radius: var(--radius-sm); background: var(--gray-50);
+  cursor: pointer; transition: all 0.15s; margin-bottom: 10px;
+  text-align: left; display: flex; align-items: center; gap: 14px;
+}
+.role-btn:hover { border-color: var(--navy); background: var(--white); box-shadow: var(--shadow); }
+.role-btn:last-child { margin-bottom: 0; }
+.role-icon { font-size: 24px; flex-shrink: 0; }
+.role-info .role-name { font-size: 15px; font-weight: 700; color: var(--gray-900); }
+.role-info .role-desc { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+.role-btn.david { border-color: var(--red); background: var(--red-light); }
+.role-btn.david .role-name { color: var(--red); }
+
+/* ── PORTAL / DASHBOARD ── */
+.portal { display: none; min-height: 100vh; }
+.portal.active { display: block; }
+
+/* TOPBAR */
+.topbar {
+  background: var(--navy); padding: 0 24px;
+  display: flex; align-items: center; gap: 16px;
+  height: 60px; position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.topbar-logo { display: flex; align-items: center; gap: 10px; }
+.topbar-logo .tl-icon { width: 32px; height: 32px; background: var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.topbar-logo span { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: white; letter-spacing: 2px; }
+.topbar-role {
+  background: rgba(255,255,255,0.1); border-radius: 6px; padding: 4px 12px;
+  font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.topbar-date { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.35); }
+.topbar-logout { background: none; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 6px 12px; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.topbar-logout:hover { background: rgba(255,255,255,0.08); color: white; }
+
+/* MAIN CONTENT */
+.portal-main { max-width: 1280px; margin: 0 auto; padding: 32px 24px; }
+
+/* HERO */
+.portal-hero { margin-bottom: 32px; }
+.portal-hero h2 { font-family: 'Bebas Neue', sans-serif; font-size: 34px; color: var(--navy); letter-spacing: 2px; line-height: 1; }
+.portal-hero p { font-size: 14px; color: var(--gray-400); margin-top: 6px; }
+
+/* METRICS */
+.metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 36px; }
+.metric-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.metric-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 6px; }
+.metric-val { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 1px; line-height: 1; color: var(--gray-900); }
+.metric-val.red { color: var(--red); }
+.metric-val.green { color: var(--green); }
+.metric-val.amber { color: var(--amber); }
+.metric-sub { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+
+/* TOOL SECTIONS */
+.section-head { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-200); }
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 36px; }
+
+/* TOOL CARD */
+.tool-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); padding: 22px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  display: flex; flex-direction: column; gap: 14px;
+  text-decoration: none; color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.tool-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent, var(--navy)); }
+.tool-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--gray-300); }
+.tool-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.tool-icon { font-size: 30px; flex-shrink: 0; }
+.tool-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; }
+.badge-live { background: var(--green-light); color: var(--green); border: 1px solid #BBF7D0; }
+.badge-build { background: var(--amber-light); color: var(--amber); border: 1px solid #FDE68A; }
+.badge-soon { background: var(--gray-100); color: var(--gray-400); border: 1px solid var(--gray-200); }
+.tool-name { font-size: 16px; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
+.tool-desc { font-size: 13px; color: var(--gray-400); line-height: 1.55; }
+.tool-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--gray-100); }
+.tool-who { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-300); }
+.tool-arrow { font-size: 18px; color: var(--gray-300); transition: transform 0.15s, color 0.15s; }
+.tool-card:hover .tool-arrow { color: var(--navy); transform: translateX(3px); }
+
+/* COMING SOON overlay */
+.tool-card.coming-soon { opacity: 0.65; cursor: default; }
+.tool-card.coming-soon:hover { transform: none; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+
+/* VENDOR CALLOUT */
+.vendor-bar {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); padding: 20px 24px; margin-bottom: 36px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.vendor-bar h3 { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 16px; }
+.vendor-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.vendor-chip {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--gray-50); border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  flex: 1; min-width: 180px;
+}
+.vendor-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.vendor-info .vn { font-size: 13px; font-weight: 700; color: var(--gray-900); }
+.vendor-info .vd { font-size: 11px; color: var(--gray-400); margin-top: 1px; }
+.vendor-info .vp { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--navy); margin-top: 2px; font-weight: 500; }
+
+/* ANNOUNCEMENT / NOTICE */
+.notice {
+  background: linear-gradient(135deg, var(--navy) 0%, #243B6A 100%);
+  border-radius: var(--radius); padding: 20px 24px; margin-bottom: 36px;
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.notice-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.notice-body h3 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 4px; }
+.notice-body p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+.notice-body a { color: #93C5FD; text-decoration: none; font-weight: 600; }
+.notice-body a:hover { text-decoration: underline; }
+
+/* QUICK ACTIONS */
+.quick-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+.qa-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm); padding: 10px 16px;
+  font-size: 13px; font-weight: 600; color: var(--gray-700);
+  cursor: pointer; text-decoration: none;
+  transition: all 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.qa-btn:hover { background: var(--gray-50); box-shadow: var(--shadow); border-color: var(--gray-300); }
+.qa-btn.primary { background: var(--red); color: white; border-color: var(--red); }
+.qa-btn.primary:hover { background: var(--red-d); }
+
+/* HIDDEN */
+.hidden { display: none !important; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .portal-main { padding: 20px 16px; }
+  .topbar { padding: 0 16px; }
+  .topbar-date { display: none; }
+  .metric-val { font-size: 24px; }
+  .tools-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ LOGIN SCREEN ══════════════════════ -->
+<div id="login-screen" class="login-screen">
+  <div class="login-logo">
+    <div class="icon">🔧</div>
+    <h1>ATLAS HOME PRO</h1>
+    <p>Internal Operations Portal</p>
+  </div>
+  <div class="login-card">
+    <h2>Team Access</h2>
+    <p>Enter your portal password to continue. Contact David if you need access.</p>
+    <label class="field-label">Password</label>
+    <input type="password" id="pwd-input" class="field-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPassword()">
+    <button class="login-btn" onclick="checkPassword()">Enter Portal →</button>
+    <p class="error-msg" id="error-msg">Incorrect password. Try again or contact David.</p>
+  </div>
+  <p class="login-footer">Atlas Home Builders Inc. · Internal Use Only · © 2026</p>
+</div>
+
+<!-- ══════════════════════ ROLE SCREEN ══════════════════════ -->
+<div id="role-screen" class="role-screen hidden">
+  <div class="role-logo">
+    <div class="icon">🔧</div>
+    <h1>ATLAS HOME PRO</h1>
+    <p>Select your role to continue</p>
+  </div>
+  <div class="role-card">
+    <h2>Who are you?</h2>
+    <p>Your dashboard will show the tools most relevant to your role.</p>
+    <button class="role-btn david" onclick="setRole('david')">
+      <div class="role-icon">👤</div>
+      <div class="role-info">
+        <div class="role-name">David — Founder</div>
+        <div class="role-desc">Full access to all tools, financials, and ops data</div>
+      </div>
+    </button>
+    <button class="role-btn" onclick="setRole('ops')">
+      <div class="role-icon">📋</div>
+      <div class="role-info">
+        <div class="role-name">Operations Admin</div>
+        <div class="role-desc">Ordering, inventory, roadmap, vendor management</div>
+      </div>
+    </button>
+    <button class="role-btn" onclick="setRole('tech')">
+      <div class="role-icon">🔧</div>
+      <div class="role-info">
+        <div class="role-name">Lead Tech / Field</div>
+        <div class="role-desc">Van catalog, parts reference, job pricing, training</div>
+      </div>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════ PORTAL — DAVID ══════════════════════ -->
+<div id="portal-david" class="portal">
+  <nav class="topbar">
+    <div class="topbar-logo"><div class="tl-icon">🔧</div><span>ATLAS OPS</span></div>
+    <div class="topbar-role">👤 David</div>
+    <span class="topbar-date" id="date-david"></span>
+    <button class="topbar-logout" onclick="logout()">Log out</button>
+  </nav>
+  <div class="portal-main">
+    <div class="portal-hero">
+      <h2>Good morning, David.</h2>
+      <p>Your full operations command center — all tools, all data, one place.</p>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric-card"><div class="metric-label">Target Launch</div><div class="metric-val red">Aug 1</div><div class="metric-sub">2026</div></div>
+      <div class="metric-card"><div class="metric-label">Van Phase 1</div><div class="metric-val amber">3 Vans</div><div class="metric-sub">Build-out underway</div></div>
+      <div class="metric-card"><div class="metric-label">Cost / Van</div><div class="metric-val">~$15K</div><div class="metric-sub">Fully equipped</div></div>
+      <div class="metric-card"><div class="metric-label">PE Exit Target</div><div class="metric-val green">8–12×</div><div class="metric-sub">EBITDA multiple</div></div>
+      <div class="metric-card"><div class="metric-label">CSLB Status</div><div class="metric-val amber">Class B</div><div class="metric-sub">Exam imminent</div></div>
+    </div>
+
+    <div class="notice">
+      <div class="notice-icon">📌</div>
+      <div class="notice-body">
+        <h3>Priority This Week</h3>
+        <p>Open Ferguson account (310-559-0101) · Confirm van source with Enrique at Ford Downtown LA · Post ops admin role with recruiter · Class B exam scheduling. <a href="roadmap.html">View full Ops Roadmap →</a></p>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <a href="van-catalog.html" class="qa-btn primary">🔧 Open Van Catalog</a>
+      <a href="roadmap.html" class="qa-btn">📋 Ops Roadmap</a>
+      <a href="pricing.html" class="qa-btn">💰 Job Pricing Calc</a>
+      <a href="ordering.html" class="qa-btn">📦 Parts Ordering</a>
+      <a href="https://app.housecallpro.com" target="_blank" class="qa-btn">↗ HouseCall Pro</a>
+      <a href="https://www.atlashomepro.com" target="_blank" class="qa-btn">↗ Atlas Website</a>
+    </div>
+
+    <div class="section-head">OPERATIONS TOOLS</div>
+    <div class="tools-grid">
+      <a href="van-catalog.html" class="tool-card" style="--accent:var(--red)">
+        <div class="tool-card-head"><div class="tool-icon">🔧</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Plumbing Van Catalog</div><div class="tool-desc">Complete tool list, parts inventory, big ticket sourcing, and vendor comparison with live buy links for HD, Lowe's, Ferguson, and Amazon.</div></div>
+        <div class="tool-footer"><span class="tool-who">All roles</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="roadmap.html" class="tool-card" style="--accent:var(--navy)">
+        <div class="tool-card-head"><div class="tool-icon">📋</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Ops Roadmap</div><div class="tool-desc">Week-by-week launch checklist, phase milestones, owner assignments, and recurring weekly ops rhythm. The ops admin's bible.</div></div>
+        <div class="tool-footer"><span class="tool-who">David + Ops Admin</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="ordering.html" class="tool-card" style="--accent:var(--amber)">
+        <div class="tool-card-head"><div class="tool-icon">📦</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Parts Ordering + Vendor Compare</div><div class="tool-desc">Live price comparison across HD Pro, Lowe's, Ferguson, Hirsch, and Amazon. Build order lists, track POs, and log deliveries.</div></div>
+        <div class="tool-footer"><span class="tool-who">Ops Admin</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="pricing.html" class="tool-card" style="--accent:var(--green)">
+        <div class="tool-card-head"><div class="tool-icon">💰</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Job Pricing Calculator</div><div class="tool-desc">Real-time job pricing by service type. Calculates labor + parts + margin. Ensures every job hits target margins. Tech-facing for upsell decisions.</div></div>
+        <div class="tool-footer"><span class="tool-who">David + Lead Techs</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="onboarding.html" class="tool-card" style="--accent:#7C3AED">
+        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Tech Onboarding + Training</div><div class="tool-desc">New tech orientation, van walkthrough SOPs, safety protocols, HouseCall Pro setup, Power Selling Pros training links, and certification tracking.</div></div>
+        <div class="tool-footer"><span class="tool-who">Lead Techs</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="restoration.html" class="tool-card" style="--accent:#0891B2">
+        <div class="tool-card-head"><div class="tool-icon">💧</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Water Restoration Workflows</div><div class="tool-desc">IICRC protocols, moisture mapping SOPs, insurance claim process, Ruben + Rigo crew coordination, and equipment checklist.</div></div>
+        <div class="tool-footer"><span class="tool-who">David + Ops Admin</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="/training" class="tool-card" style="--accent:var(--red)">
+        <div class="tool-card-head"><div class="tool-icon">🦺</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Safety Training Portal</div><div class="tool-desc">Existing OSHA safety training portal. Certifications, test portal, required annual completions.</div></div>
+        <div class="tool-footer"><span class="tool-who">All Techs</span><span class="tool-arrow">→</span></div>
+      </a>
+      <div class="tool-card coming-soon" style="--accent:var(--gray-300)">
+        <div class="tool-card-head"><div class="tool-icon">📊</div><span class="tool-badge badge-soon">Coming Soon</span></div>
+        <div><div class="tool-name">Fleet + KPI Dashboard</div><div class="tool-desc">Live Samsara fleet data, HouseCall Pro job metrics, parts cost as % of revenue, first-call resolution rate by van and tech.</div></div>
+        <div class="tool-footer"><span class="tool-who">David</span><span class="tool-arrow">→</span></div>
+      </div>
+    </div>
+
+    <div class="vendor-bar">
+      <h3>Key Vendor Contacts</h3>
+      <div class="vendor-row">
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#F96302"></div><div class="vendor-info"><div class="vn">Home Depot Pro Xtra</div><div class="vd">HD account · Next-day delivery</div><div class="vp">homedepot.com/c/pro_xtra</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#004990"></div><div class="vendor-info"><div class="vn">Lowe's Pro</div><div class="vd">15% discount via personal contact</div><div class="vp">Call before every large order</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#16A34A"></div><div class="vendor-info"><div class="vn">Ferguson Westside LA</div><div class="vd">Contractor wholesale · Net-30</div><div class="vp">310-559-0101</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#D97706"></div><div class="vendor-info"><div class="vn">Hirsch Pipe & Supply</div><div class="vd">LA plumbing wholesale · specialty</div><div class="vp">hirschpipe.com</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#1B2A47"></div><div class="vendor-info"><div class="vn">Amazon Business</div><div class="vd">Specialty tools, gas detectors, niche parts</div><div class="vp">amazon.com/business</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#6B7280"></div><div class="vendor-info"><div class="vn">Grainger LA</div><div class="vd">PPE, industrial supply · Net-30</div><div class="vp">grainger.com</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PORTAL — OPS ADMIN ══════════════════════ -->
+<div id="portal-ops" class="portal">
+  <nav class="topbar">
+    <div class="topbar-logo"><div class="tl-icon">🔧</div><span>ATLAS OPS</span></div>
+    <div class="topbar-role">📋 Ops Admin</div>
+    <span class="topbar-date" id="date-ops"></span>
+    <button class="topbar-logout" onclick="logout()">Log out</button>
+  </nav>
+  <div class="portal-main">
+    <div class="portal-hero">
+      <h2>Ops Admin Dashboard</h2>
+      <p>Everything you need to run Atlas day-to-day. Work through the roadmap top to bottom.</p>
+    </div>
+
+    <div class="notice">
+      <div class="notice-icon">✅</div>
+      <div class="notice-body">
+        <h3>Your Monday Morning Checklist</h3>
+        <p>1. Check all tech restock texts → place batch order · 2. Review Samsara fleet report · 3. Check HCP jobs from last week · 4. Confirm any open POs from Ferguson. <a href="roadmap.html">Full Roadmap →</a></p>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <a href="ordering.html" class="qa-btn primary">📦 Place Parts Order</a>
+      <a href="roadmap.html" class="qa-btn">📋 My Roadmap</a>
+      <a href="van-catalog.html" class="qa-btn">🔧 Van Catalog</a>
+      <a href="https://app.housecallpro.com" target="_blank" class="qa-btn">↗ HouseCall Pro</a>
+    </div>
+
+    <div class="section-head">YOUR TOOLS</div>
+    <div class="tools-grid">
+      <a href="roadmap.html" class="tool-card" style="--accent:var(--navy)">
+        <div class="tool-card-head"><div class="tool-icon">📋</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Ops Roadmap</div><div class="tool-desc">Your week-by-week checklist. Work through this linearly from Day 1. Every task, every milestone, every SOP.</div></div>
+        <div class="tool-footer"><span class="tool-who">Start here</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="van-catalog.html" class="tool-card" style="--accent:var(--red)">
+        <div class="tool-card-head"><div class="tool-icon">🔧</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Van Catalog + Parts List</div><div class="tool-desc">Full tool list, parts par quantities, reorder triggers, and vendor buy links. Use to build purchase orders.</div></div>
+        <div class="tool-footer"><span class="tool-who">Use weekly</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="ordering.html" class="tool-card" style="--accent:var(--amber)">
+        <div class="tool-card-head"><div class="tool-icon">📦</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Parts Ordering + Vendor Compare</div><div class="tool-desc">Compare HD, Lowe's, Ferguson, Hirsch, and Amazon side-by-side before placing orders. Build and track POs.</div></div>
+        <div class="tool-footer"><span class="tool-who">Use on Monday</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="restoration.html" class="tool-card" style="--accent:#0891B2">
+        <div class="tool-card-head"><div class="tool-icon">💧</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Water Restoration Workflows</div><div class="tool-desc">Crew coordination for Ruben + Rigo. Insurance claim process, IICRC protocols, equipment checklist.</div></div>
+        <div class="tool-footer"><span class="tool-who">As needed</span><span class="tool-arrow">→</span></div>
+      </a>
+    </div>
+
+    <div class="vendor-bar">
+      <h3>Quick Vendor Reference</h3>
+      <div class="vendor-row">
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#16A34A"></div><div class="vendor-info"><div class="vn">Ferguson Westside LA</div><div class="vd">Specialty items, net-30</div><div class="vp">310-559-0101</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#F96302"></div><div class="vendor-info"><div class="vn">Home Depot Pro Xtra</div><div class="vd">Standard stock, next-day</div><div class="vp">homedepot.com/c/pro_xtra</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#004990"></div><div class="vendor-info"><div class="vn">Lowe's Pro</div><div class="vd">Call for 15% off first</div><div class="vp">Ask David for contact</div></div></div>
+        <div class="vendor-chip"><div class="vendor-dot" style="background:#D97706"></div><div class="vendor-info"><div class="vn">Hirsch Pipe & Supply</div><div class="vd">LA wholesale · specialty plumbing</div><div class="vp">hirschpipe.com</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PORTAL — TECH ══════════════════════ -->
+<div id="portal-tech" class="portal">
+  <nav class="topbar">
+    <div class="topbar-logo"><div class="tl-icon">🔧</div><span>ATLAS OPS</span></div>
+    <div class="topbar-role">🔧 Lead Tech</div>
+    <span class="topbar-date" id="date-tech"></span>
+    <button class="topbar-logout" onclick="logout()">Log out</button>
+  </nav>
+  <div class="portal-main">
+    <div class="portal-hero">
+      <h2>Tech Portal</h2>
+      <p>Van reference, parts, pricing, and training. Everything you need in the field.</p>
+    </div>
+
+    <div class="notice">
+      <div class="notice-icon">📸</div>
+      <div class="notice-body">
+        <h3>Low on a part?</h3>
+        <p>Photograph the bin and text it to the ops admin number. Do this at end of every day before you leave the van. Log all parts used in HouseCall Pro same day.</p>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <a href="van-catalog.html#parts" class="qa-btn primary">🔩 Parts Reference</a>
+      <a href="pricing.html" class="qa-btn">💰 Job Pricing</a>
+      <a href="onboarding.html" class="qa-btn">🎓 Training</a>
+      <a href="/training" class="qa-btn">🦺 Safety Certs</a>
+    </div>
+
+    <div class="section-head">YOUR TOOLS</div>
+    <div class="tools-grid">
+      <a href="van-catalog.html" class="tool-card" style="--accent:var(--red)">
+        <div class="tool-card-head"><div class="tool-icon">🔧</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Van Catalog + Parts Reference</div><div class="tool-desc">Every tool and part on your van with photos, descriptions, and reorder info. Know your van inside and out.</div></div>
+        <div class="tool-footer"><span class="tool-who">Daily reference</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="pricing.html" class="tool-card" style="--accent:var(--green)">
+        <div class="tool-card-head"><div class="tool-icon">💰</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Job Pricing Calculator</div><div class="tool-desc">Enter service type + parts used → get the right price to quote. Includes upsell prompts for every job type.</div></div>
+        <div class="tool-footer"><span class="tool-who">On every job</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="onboarding.html" class="tool-card" style="--accent:#7C3AED">
+        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-build">Building</span></div>
+        <div><div class="tool-name">Tech Onboarding + Training</div><div class="tool-desc">Van SOPs, HouseCall Pro setup, safety protocols, Power Selling Pros training, and certification requirements.</div></div>
+        <div class="tool-footer"><span class="tool-who">New techs</span><span class="tool-arrow">→</span></div>
+      </a>
+      <a href="/training" class="tool-card" style="--accent:var(--red)">
+        <div class="tool-card-head"><div class="tool-icon">🦺</div><span class="tool-badge badge-live">Live</span></div>
+        <div><div class="tool-name">Safety Training Portal</div><div class="tool-desc">OSHA safety training, certifications, and annual renewal requirements. Required for all field techs.</div></div>
+        <div class="tool-footer"><span class="tool-who">Required</span><span class="tool-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ──
+// Change this password before deploying to your site
+const PORTAL_PASSWORD = 'atlas2026';
+
+// ── DATE ──
+const now = new Date();
+const dateStr = now.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
+['david','ops','tech'].forEach(r => {
+  const el = document.getElementById('date-' + r);
+  if(el) el.textContent = dateStr;
+});
+
+// ── GREETING ──
+const hr = now.getHours();
+const greet = hr < 12 ? 'Good morning' : hr < 17 ? 'Good afternoon' : 'Good evening';
+const heroEl = document.querySelector('#portal-david .portal-hero h2');
+if(heroEl) heroEl.textContent = greet + ', David.';
+
+// ── SESSION (sessionStorage so logout works on tab close) ──
+function checkSession() {
+  const role = sessionStorage.getItem('atlas_role');
+  if(role) { showPortal(role); return true; }
+  return false;
+}
+
+function checkPassword() {
+  const val = document.getElementById('pwd-input').value;
+  const errEl = document.getElementById('error-msg');
+  const input = document.getElementById('pwd-input');
+  if(val === PORTAL_PASSWORD) {
+    input.classList.remove('error');
+    errEl.classList.remove('show');
+    document.getElementById('login-screen').classList.add('hidden');
+    document.getElementById('role-screen').classList.remove('hidden');
+  } else {
+    input.classList.add('error');
+    errEl.classList.add('show');
+    input.value = '';
+    input.focus();
+  }
+}
+
+function setRole(role) {
+  sessionStorage.setItem('atlas_role', role);
+  document.getElementById('role-screen').classList.add('hidden');
+  showPortal(role);
+}
+
+function showPortal(role) {
+  document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('role-screen').classList.add('hidden');
+  document.querySelectorAll('.portal').forEach(p => p.classList.remove('active'));
+  const portal = document.getElementById('portal-' + role);
+  if(portal) portal.classList.add('active');
+}
+
+function logout() {
+  sessionStorage.removeItem('atlas_role');
+  document.querySelectorAll('.portal').forEach(p => p.classList.remove('active'));
+  document.getElementById('login-screen').classList.remove('hidden');
+  document.getElementById('pwd-input').value = '';
+}
+
+// Check on load
+if(!checkSession()) {
+  // Show login
+}
+</script>
+</body>
+</html>
