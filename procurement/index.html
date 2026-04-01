@@ -214,36 +214,48 @@ photoInput.addEventListener("change", function(e) {
   photoInput.value = '';
 });
 
-// Compress photo using Canvas — resize to max 1200px, convert to JPEG ~200-400KB
+// Compress photo — returns a Blob ready to upload
 function compressPhoto(file) {
   return new Promise((resolve) => {
-    // If file is already small (<500KB), skip compression
-    if (file.size < 500000) { resolve(file); return; }
+    // If already small, send as-is
+    if (file.size < 800000) { resolve(file); return; }
 
-    const img = new Image();
-    img.onload = () => {
-      const MAX = 1200;
-      let w = img.width, h = img.height;
-      if (w > MAX || h > MAX) {
-        if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
-        else { w = Math.round(w * MAX / h); h = MAX; }
-      }
-      const canvas = document.createElement("canvas");
-      canvas.width = w; canvas.height = h;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, w, h);
-      canvas.toBlob((blob) => {
-        if (blob) {
-          const compressed = new File([blob], file.name.replace(/\.[^.]+$/, ".jpg"), { type: "image/jpeg" });
-          console.log(`Compressed ${file.name}: ${(file.size/1024).toFixed(0)}KB → ${(compressed.size/1024).toFixed(0)}KB`);
-          resolve(compressed);
-        } else {
-          resolve(file); // fallback to original
+    // Timeout: if compression takes > 8 seconds, send original
+    const timer = setTimeout(() => { console.log("Compression timeout, using original"); resolve(file); }, 8000);
+
+    try {
+      const img = new Image();
+      const objUrl = URL.createObjectURL(file);
+      img.onload = () => {
+        try {
+          const MAX = 1200;
+          let w = img.width, h = img.height;
+          if (w > MAX || h > MAX) {
+            if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+            else { w = Math.round(w * MAX / h); h = MAX; }
+          }
+          const c = document.createElement("canvas");
+          c.width = w; c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          c.toBlob((blob) => {
+            clearTimeout(timer);
+            URL.revokeObjectURL(objUrl);
+            if (blob && blob.size > 0) {
+              console.log(`Compressed: ${(file.size/1024).toFixed(0)}KB -> ${(blob.size/1024).toFixed(0)}KB`);
+              resolve(blob);
+            } else {
+              resolve(file);
+            }
+          }, "image/jpeg", 0.7);
+        } catch(e) {
+          clearTimeout(timer); URL.revokeObjectURL(objUrl); resolve(file);
         }
-      }, "image/jpeg", 0.8);
-    };
-    img.onerror = () => resolve(file); // fallback to original
-    img.src = URL.createObjectURL(file);
+      };
+      img.onerror = () => { clearTimeout(timer); URL.revokeObjectURL(objUrl); resolve(file); };
+      img.src = objUrl;
+    } catch(e) {
+      clearTimeout(timer); resolve(file);
+    }
   });
 }
 
@@ -339,18 +351,30 @@ document.getElementById("form").addEventListener("submit",async e=>{
 
     // Upload photos in background AFTER showing success
     if (savedPhotos.length > 0 && firstRecordId) {
-      successEl.querySelector("p").textContent += ` Uploading ${savedPhotos.length} photo(s)...`;
+      const statusP = successEl.querySelector("p");
       let uploaded = 0;
-      for (const photo of savedPhotos) {
+      for (let pi = 0; pi < savedPhotos.length; pi++) {
+        statusP.textContent = `Uploading photo ${pi+1} of ${savedPhotos.length}...`;
         try {
-          const compressed = await compressPhoto(photo);
+          // Compress first, then send as raw binary
+          const compressed = await compressPhoto(savedPhotos[pi]);
           const pr = await fetch(`/api/requests/${firstRecordId}/photo`, {
             method: "POST",
             headers: { "Content-Type": "image/jpeg" },
             body: compressed,
           });
-          if (pr.ok) uploaded++;
-        } catch(e) { console.error("Photo upload error:", e); }
+          if (pr.ok) { uploaded++; }
+          else {
+            const errBody = await pr.text().catch(()=>"");
+            console.error(`Photo ${pi+1} upload failed (${pr.status}):`, errBody);
+            statusP.textContent = `Photo ${pi+1} failed (${pr.status}). Trying next...`;
+            await new Promise(r => setTimeout(r, 1000));
+          }
+        } catch(e) {
+          console.error(`Photo ${pi+1} error:`, e);
+          statusP.textContent = `Photo ${pi+1} error: ${e.message}. Trying next...`;
+          await new Promise(r => setTimeout(r, 1000));
+        }
       }
       // Update success message with photo result
       const base = totalItems > 1
