@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Atlas Home Pro — Market Intelligence</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#0a0e17;color:#e2e8f0;min-height:100vh}
+  h1{font-size:20px;font-weight:800;color:#f8fafc}
+  .tag{background:#f97316;color:#fff;font-weight:800;font-size:10px;letter-spacing:.1em;padding:2px 7px;border-radius:3px}
+  .header{background:linear-gradient(135deg,#0f1117,#1a2035);border-bottom:1px solid #1e293b;padding:16px 20px 12px}
+  .sub{color:#64748b;font-size:11px}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:14px 16px 0}
+  .card{background:#111827;border:1px solid #1e293b;border-radius:10px;padding:12px}
+  .card-label{font-size:10px;color:#475569;font-weight:700;letter-spacing:.06em;margin-bottom:2px}
+  .card-val{font-size:22px;font-weight:800;line-height:1}
+  .card-sub{font-size:10px;color:#374151;margin-top:3px}
+  .controls{display:flex;gap:6px;padding:12px 16px;flex-wrap:wrap;align-items:center}
+  .btn{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid #1e293b;background:transparent;color:#64748b;cursor:pointer;transition:all .15s}
+  .btn.active-green{border-color:#22c55e;background:#22c55e18;color:#22c55e}
+  .btn.active-blue{border-color:#3b82f6;background:#3b82f618;color:#3b82f6}
+  .btn.active-amber{border-color:#f59e0b;background:#f59e0b18;color:#f59e0b}
+  .btn.active-orange{border-color:#f97316;background:#f9731618;color:#f97316}
+  .btn.active-all{border-color:#94a3b8;background:#94a3b818;color:#94a3b8}
+  .view-btn{border-radius:6px!important}
+  #map{height:420px;border-radius:10px;border:1px solid #1e293b}
+  .map-wrap{padding:0 16px 16px}
+  .map-note{font-size:11px;color:#475569;margin-top:8px}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{padding:8px 10px;text-align:right;font-size:11px;font-weight:700;color:#64748b;cursor:pointer;white-space:nowrap;letter-spacing:.04em;border-bottom:1px solid #1e293b;background:#0f1117;user-select:none}
+  th.left{text-align:left}
+  th.active{color:#f97316}
+  td{padding:8px 10px;text-align:right;border-bottom:1px solid #1a2035}
+  td.left{text-align:left}
+  tr:nth-child(even){background:#111827}
+  tr:nth-child(odd){background:#0f1117}
+  tr.total-row{background:#1e293b!important;border-top:2px solid #334155}
+  .tier-badge{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:700}
+  .notes{margin:0 16px 24px;background:#111827;border:1px solid #1e293b;border-radius:12px;padding:16px}
+  .notes-title{font-weight:800;font-size:13px;color:#f97316;margin-bottom:12px;letter-spacing:.04em}
+  .note-head{font-size:11px;font-weight:700;margin-bottom:6px}
+  .note-item{font-size:12px;color:#94a3b8;padding:3px 0 3px 12px;margin-bottom:3px}
+  .notes-footer{font-size:10px;color:#374151;border-top:1px solid #1e293b;padding-top:10px;margin-top:6px}
+  .hidden{display:none}
+  @media(max-width:600px){
+    .cards{grid-template-columns:1fr 1fr}
+    .card-val{font-size:16px}
+    td,th{padding:6px 6px;font-size:10px}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+    <span class="tag">ATLAS HOME PRO</span>
+    <span class="sub">Market Intelligence · Service Territory TAM</span>
+  </div>
+  <h1>$2M+ Household Targeting Map</h1>
+  <p class="sub" style="margin-top:3px">38 ZIP codes · Census ACS 2024 · Zillow/Redfin Q1 2026 · $2M+ homes estimated from price distribution</p>
+</div>
+
+<div class="cards" id="cards"></div>
+
+<div class="controls" id="controls"></div>
+
+<div class="map-wrap hidden" id="mapWrap">
+  <div id="map"></div>
+  <div class="map-note">Bubble size = estimated # of $2M+ homes. Orange dot = Atlas HQ (90036). Dashed ring = 15-mile radius.</div>
+</div>
+
+<div id="tableWrap" style="padding:0 16px 16px;overflow-x:auto"></div>
+
+<div class="notes" id="notes"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const ZIPS = [
+  // CORE TIER 1
+  {zip:"90210",name:"Beverly Hills (North)",tier:"core",lat:34.0901,lng:-118.4065,totalHH:4600,medianValue:3900000,pct2M:.65},
+  {zip:"90211",name:"Beverly Hills (Central)",tier:"core",lat:34.0753,lng:-118.3982,totalHH:7500,medianValue:1800000,pct2M:.30},
+  {zip:"90212",name:"Beverly Hills (South)",tier:"core",lat:34.0610,lng:-118.4012,totalHH:8500,medianValue:1500000,pct2M:.20},
+  {zip:"90048",name:"Beverly Grove / W.Hollywood",tier:"core",lat:34.0780,lng:-118.3740,totalHH:14000,medianValue:1750000,pct2M:.28},
+  {zip:"90036",name:"Fairfax / Miracle Mile / Park La Brea",tier:"core",lat:34.0694,lng:-118.3614,totalHH:16000,medianValue:1150000,pct2M:.07},
+  {zip:"90046",name:"WeHo / Fairfax Hills",tier:"core",lat:34.0940,lng:-118.3710,totalHH:18500,medianValue:1200000,pct2M:.09},
+  {zip:"90069",name:"WeHo Hills / Sunset Strip",tier:"core",lat:34.0890,lng:-118.3900,totalHH:12000,medianValue:1600000,pct2M:.22},
+  {zip:"90004",name:"Hancock Park / Windsor Sq / Larchmont",tier:"core",lat:34.0750,lng:-118.3080,totalHH:20000,medianValue:1500000,pct2M:.20},
+  {zip:"90035",name:"Carthay / Pico-Robertson",tier:"core",lat:34.0520,lng:-118.3800,totalHH:12000,medianValue:1250000,pct2M:.10},
+  {zip:"90019",name:"Mid-City / Mid-Wilshire",tier:"core",lat:34.0450,lng:-118.3450,totalHH:18000,medianValue:1000000,pct2M:.03},
+  {zip:"90020",name:"Koreatown / Windsor Sq N",tier:"core",lat:34.0640,lng:-118.3010,totalHH:22000,medianValue:900000,pct2M:.04},
+  {zip:"90010",name:"Koreatown Core",tier:"core",lat:34.0570,lng:-118.3000,totalHH:11000,medianValue:780000,pct2M:.02},
+  {zip:"90067",name:"Century City / Westwood Hills",tier:"core",lat:34.0580,lng:-118.4180,totalHH:5000,medianValue:1450000,pct2M:.16},
+  // EXTENDED
+  {zip:"90077",name:"Bel Air / Stone Canyon",tier:"extend",lat:34.0940,lng:-118.4530,totalHH:3900,medianValue:4200000,pct2M:.68},
+  {zip:"90272",name:"Pacific Palisades",tier:"extend",lat:34.0490,lng:-118.5264,totalHH:8200,medianValue:3200000,pct2M:.58},
+  {zip:"90049",name:"Brentwood",tier:"extend",lat:34.0536,lng:-118.4791,totalHH:15170,medianValue:2300000,pct2M:.42},
+  {zip:"90402",name:"Santa Monica N / Ocean",tier:"extend",lat:34.0350,lng:-118.5000,totalHH:5500,medianValue:2600000,pct2M:.52},
+  {zip:"90403",name:"Santa Monica Mid",tier:"extend",lat:34.0240,lng:-118.4920,totalHH:8000,medianValue:1950000,pct2M:.33},
+  {zip:"90405",name:"Santa Monica South",tier:"extend",lat:34.0060,lng:-118.4750,totalHH:10000,medianValue:1700000,pct2M:.23},
+  {zip:"90291",name:"Venice",tier:"extend",lat:33.9870,lng:-118.4695,totalHH:14000,medianValue:1900000,pct2M:.30},
+  {zip:"90292",name:"Marina del Rey",tier:"extend",lat:33.9803,lng:-118.4517,totalHH:8200,medianValue:1350000,pct2M:.12},
+  {zip:"90066",name:"Mar Vista",tier:"extend",lat:34.0021,lng:-118.4284,totalHH:22000,medianValue:1550000,pct2M:.18},
+  {zip:"90025",name:"Sawtelle / West LA",tier:"extend",lat:34.0340,lng:-118.4430,totalHH:20000,medianValue:1300000,pct2M:.10},
+  {zip:"90064",name:"Palms / West LA",tier:"extend",lat:34.0133,lng:-118.4100,totalHH:18000,medianValue:1300000,pct2M:.09},
+  {zip:"90230",name:"Culver City North",tier:"extend",lat:34.0250,lng:-118.3980,totalHH:12000,medianValue:1200000,pct2M:.08},
+  {zip:"90232",name:"Culver City South",tier:"extend",lat:34.0050,lng:-118.3950,totalHH:8000,medianValue:1100000,pct2M:.05},
+  {zip:"90045",name:"Westchester / LAX area",tier:"extend",lat:33.9609,lng:-118.4006,totalHH:18000,medianValue:1400000,pct2M:.14},
+  {zip:"90293",name:"Playa del Rey",tier:"extend",lat:33.9561,lng:-118.4444,totalHH:4500,medianValue:1300000,pct2M:.10},
+  {zip:"90301",name:"Inglewood North",tier:"extend",lat:33.9700,lng:-118.3650,totalHH:20000,medianValue:680000,pct2M:.01},
+  {zip:"90034",name:"Palms / Culver Adj.",tier:"extend",lat:34.0200,lng:-118.4000,totalHH:14000,medianValue:1000000,pct2M:.04},
+  {zip:"90024",name:"Westwood / UCLA",tier:"extend",lat:34.0630,lng:-118.4430,totalHH:20000,medianValue:1500000,pct2M:.18},
+  // BORDERLINE
+  {zip:"90026",name:"Echo Park / Westlake",tier:"borderline",lat:34.0770,lng:-118.2660,totalHH:21000,medianValue:900000,pct2M:.03},
+  {zip:"90027",name:"Los Feliz",tier:"borderline",lat:34.1075,lng:-118.2896,totalHH:14000,medianValue:1400000,pct2M:.14},
+  {zip:"90039",name:"Silver Lake / Atwater",tier:"borderline",lat:34.1040,lng:-118.2620,totalHH:9000,medianValue:1100000,pct2M:.07},
+  {zip:"90028",name:"Hollywood",tier:"borderline",lat:34.0988,lng:-118.3271,totalHH:16000,medianValue:950000,pct2M:.04},
+  {zip:"90038",name:"Hollywood / Melrose",tier:"borderline",lat:34.0870,lng:-118.3280,totalHH:11000,medianValue:1050000,pct2M:.06},
+];
+
+const TIER = {
+  core:       {color:"#22c55e",bg:"#22c55e20",label:"Core Tier 1"},
+  extend:     {color:"#3b82f6",bg:"#3b82f620",label:"Extended"},
+  borderline: {color:"#f59e0b",bg:"#f59e0b20",label:"Borderline"},
+};
+
+const CENTER = [34.0694,-118.3614];
+
+function fmt(n){return n>=1e6?'$'+(n/1e6).toFixed(1)+'M':'$'+(n/1000).toFixed(0)+'K'}
+function fmtN(n){return n>=1000?(n/1000).toFixed(1)+'K':n.toString()}
+
+// Enrich
+const data = ZIPS.map(z=>({...z,
+  hh2m: Math.round(z.totalHH*z.pct2M),
+  svcTAM: Math.round(z.totalHH*z.pct2M*850)
+}));
+
+let currentFilter="all", currentView="table", sortCol="hh2m", sortDir="desc";
+let mapInited=false;
+
+// ── RENDER CARDS ──
+function renderCards(rows){
+  const total={hh:rows.reduce((s,z)=>s+z.totalHH,0),hh2m:rows.reduce((s,z)=>s+z.hh2m,0),svc:rows.reduce((s,z)=>s+z.svcTAM,0)};
+  document.getElementById("cards").innerHTML=`
+    <div class="card"><div class="card-label">TOTAL HOUSEHOLDS</div><div class="card-val" style="color:#94a3b8">${fmtN(total.hh)}</div><div class="card-sub">all ZIPs shown</div></div>
+    <div class="card"><div class="card-label">EST. $2M+ HOMES</div><div class="card-val" style="color:#22c55e">${fmtN(total.hh2m)}</div><div class="card-sub">your premium TAM</div></div>
+    <div class="card"><div class="card-label">ANNUAL SVC TAM</div><div class="card-val" style="color:#f97316">$${(total.svc/1e6).toFixed(0)}M</div><div class="card-sub">@$850/yr per premium HH</div></div>
+  `;
+}
+
+// ── RENDER CONTROLS ──
+function renderControls(){
+  const tiers=[["all","All ZIPs","active-all"],["core","Core Tier 1","active-green"],["extend","Extended","active-blue"],["borderline","Borderline","active-amber"]];
+  let html=tiers.map(([t,l,cls])=>`<button class="btn ${currentFilter===t?cls:''}" onclick="setFilter('${t}')">${l}</button>`).join('');
+  html+=`<div style="margin-left:auto;display:flex;gap:4px">
+    <button class="btn view-btn ${currentView==='table'?'active-orange':''}" onclick="setView('table')">📊 Table</button>
+    <button class="btn view-btn ${currentView==='map'?'active-orange':''}" onclick="setView('map')">🗺 Map</button>
+  </div>`;
+  document.getElementById("controls").innerHTML=html;
+}
+
+// ── RENDER TABLE ──
+function renderTable(rows){
+  const sorted=[...rows].sort((a,b)=>sortDir==='desc'?b[sortCol]-a[sortCol]:a[sortCol]-b[sortCol]);
+  const total={hh:rows.reduce((s,z)=>s+z.totalHH,0),hh2m:rows.reduce((s,z)=>s+z.hh2m,0),svc:rows.reduce((s,z)=>s+z.svcTAM,0)};
+  const arrow=col=>sortCol===col?(sortDir==='desc'?'↓':'↑'):'<span style="opacity:.3">↕</span>';
+  const ac=col=>sortCol===col?'active':'';
+  let html=`<table>
+    <thead><tr>
+      <th class="left" onclick="setSort('zip')">ZIP / Area ${arrow('zip')}</th>
+      <th onclick="setSort('tier')" class="${ac('tier')}">Tier ${arrow('tier')}</th>
+      <th onclick="setSort('totalHH')" class="${ac('totalHH')}">Total HH ${arrow('totalHH')}</th>
+      <th onclick="setSort('medianValue')" class="${ac('medianValue')}">Median Value ${arrow('medianValue')}</th>
+      <th onclick="setSort('pct2M')" class="${ac('pct2M')}">% $2M+ ${arrow('pct2M')}</th>
+      <th onclick="setSort('hh2m')" class="${ac('hh2m')}" style="color:${sortCol==='hh2m'?'#f97316':'#22c55e'}">$2M+ Homes ${arrow('hh2m')}</th>
+      <th onclick="setSort('svcTAM')" class="${ac('svcTAM')}">Svc TAM/yr ${arrow('svcTAM')}</th>
+    </tr></thead>
+    <tbody>`;
+  sorted.forEach(z=>{
+    const cfg=TIER[z.tier]||TIER.borderline;
+    const hi=z.hh2m>=2000;
+    html+=`<tr>
+      <td class="left"><div style="font-weight:${hi?700:500};color:${hi?'#f8fafc':'#cbd5e1'}">${z.zip}</div><div style="font-size:10px;color:#475569;margin-top:1px">${z.name}</div></td>
+      <td><span class="tier-badge" style="background:${cfg.bg};color:${cfg.color}">${z.tier}</span></td>
+      <td style="color:#94a3b8">${fmtN(z.totalHH)}</td>
+      <td style="color:${z.medianValue>=2e6?'#22c55e':'#94a3b8'};font-weight:${z.medianValue>=2e6?700:400}">${fmt(z.medianValue)}</td>
+      <td style="color:#94a3b8">${(z.pct2M*100).toFixed(0)}%</td>
+      <td style="color:${z.hh2m>=3000?'#22c55e':z.hh2m>=1000?'#60a5fa':'#94a3b8'};font-weight:${z.hh2m>=1000?700:400}">${fmtN(z.hh2m)}</td>
+      <td style="color:#64748b">$${(z.svcTAM/1000).toFixed(0)}K</td>
+    </tr>`;
+  });
+  html+=`<tr class="total-row">
+    <td class="left" style="font-weight:800;color:#f97316">TOTAL (${rows.length} ZIPs)</td>
+    <td></td>
+    <td style="font-weight:700;color:#f8fafc">${fmtN(total.hh)}</td>
+    <td></td><td></td>
+    <td style="font-weight:800;color:#22c55e;font-size:13px">${fmtN(total.hh2m)}</td>
+    <td style="font-weight:800;color:#f97316">$${(total.svc/1e6).toFixed(1)}M</td>
+  </tr></tbody></table>`;
+  document.getElementById("tableWrap").innerHTML=html;
+}
+
+// ── RENDER MAP ──
+function renderMap(rows){
+  document.getElementById("mapWrap").classList.remove("hidden");
+  if(mapInited){return;}
+  mapInited=true;
+  const map=L.map("map").setView(CENTER,11);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:19,attribution:"© Carto"}).addTo(map);
+  // 15mi ring
+  L.circle(CENTER,{radius:24140,color:"#94a3b8",weight:1.5,dashArray:"6 4",fill:true,fillColor:"#e2e8f0",fillOpacity:.03}).addTo(map);
+  // HQ
+  L.marker(CENTER,{icon:L.divIcon({className:"",html:`<div style="width:14px;height:14px;border-radius:50%;background:#f97316;border:3px solid #fff;box-shadow:0 0 0 3px #f97316,0 2px 8px rgba(0,0,0,.6)"></div>`,iconSize:[14,14],iconAnchor:[7,7]})})
+    .addTo(map).bindTooltip("<b>90036 — Atlas HQ</b>");
+  // All zips
+  data.forEach(z=>{
+    const cfg=TIER[z.tier]||TIER.borderline;
+    const r=Math.max(500,Math.min(5000,z.hh2m*5));
+    L.circle([z.lat,z.lng],{radius:r,color:cfg.color,weight:1,fill:true,fillColor:cfg.color,fillOpacity:.28})
+      .addTo(map)
+      .bindTooltip(`<b>${z.zip} — ${z.name}</b><br>Total HH: ${fmtN(z.totalHH)}<br>Median: ${fmt(z.medianValue)}<br><b>$2M+ homes: ${fmtN(z.hh2m)}</b>`,{direction:"top"});
+  });
+}
+
+// ── RENDER NOTES ──
+function renderNotes(){
+  document.getElementById("notes").innerHTML=`
+    <div class="notes-title">⚡ TARGETING PLAYBOOK</div>
+    <div style="margin-bottom:14px">
+      <div class="note-head" style="color:#22c55e">TOP 5 $2M+ ZIP CODES — OWN THESE FIRST</div>
+      ${["90049 Brentwood — ~6.4K premium HH, highest single-ZIP volume",
+         "90077 Bel Air — ~2.6K HH but highest avg ticket in portfolio",
+         "90210 Beverly Hills — ~3.0K HH, trophy ZIP for brand credibility",
+         "90272 Pacific Palisades — ~4.8K HH + fire recovery tailwind active NOW",
+         "90291 Venice — ~4.2K HH, fast-growing premium renter + owner split"]
+      .map(i=>`<div class="note-item" style="border-left:2px solid #22c55e30">${i}</div>`).join('')}
+    </div>
+    <div style="margin-bottom:14px">
+      <div class="note-head" style="color:#3b82f6">SOCIAL MEDIA TARGETING INSIGHT</div>
+      ${["Combined $2M+ TAM: ~67K households across your 15-mile radius",
+         "Facebook/Instagram: layer ZIP code + homeowner + $200K+ HHI filters",
+         "Estimated reachable premium audience: 40–50K unique HH on Meta",
+         "Creative angle: 'Your neighborhood's premium home service team' — ZIP-specific ads"]
+      .map(i=>`<div class="note-item" style="border-left:2px solid #3b82f630">${i}</div>`).join('')}
+    </div>
+    <div style="margin-bottom:14px">
+      <div class="note-head" style="color:#f59e0b">APARTMENT / COMMERCIAL OVERLAY (FULL UNIVERSE)</div>
+      ${["Total HH across all ZIPs: ~490K — your brand awareness universe for social",
+         "Koreatown (90010/90020) alone: 33K HH, massive plumbing + restoration demand",
+         "Property manager outreach priority: Brentwood, Marina del Rey, Culver City",
+         "2028 Olympics: Westchester + Marina apt owners need a reliable trade partner NOW"]
+      .map(i=>`<div class="note-item" style="border-left:2px solid #f59e0b30">${i}</div>`).join('')}
+    </div>
+    <div class="notes-footer">
+      Data sources: Census ACS 2024 5-yr estimates (households, income) · Zillow/Redfin median sale prices Q1 2026 ·
+      $2M+ % estimates derived from price distribution relative to ZIP median — treat as directional TAM.
+      Annual service TAM assumes $850/yr avg spend per premium HH (plumbing + restoration combined).
+    </div>
+  `;
+}
+
+// ── STATE MANAGEMENT ──
+window.setFilter=function(t){
+  currentFilter=t;
+  render();
+}
+window.setView=function(v){
+  currentView=v;
+  if(v==='table'){
+    document.getElementById("mapWrap").classList.add("hidden");
+    document.getElementById("tableWrap").style.display="";
+  } else {
+    document.getElementById("tableWrap").style.display="none";
+    document.getElementById("mapWrap").classList.remove("hidden");
+    renderMap();
+  }
+  renderControls();
+}
+window.setSort=function(col){
+  if(sortCol===col) sortDir=sortDir==='desc'?'asc':'desc';
+  else {sortCol=col;sortDir='desc';}
+  const rows=currentFilter==='all'?data:data.filter(z=>z.tier===currentFilter);
+  renderTable(rows);
+  renderControls();
+}
+
+function render(){
+  const rows=currentFilter==='all'?data:data.filter(z=>z.tier===currentFilter);
+  renderCards(rows);
+  renderControls();
+  if(currentView==='table'){
+    document.getElementById("tableWrap").style.display="";
+    document.getElementById("mapWrap").classList.add("hidden");
+    renderTable(rows);
+  } else {
+    document.getElementById("tableWrap").style.display="none";
+    renderMap(data);
+  }
+  renderNotes();
+}
+
+render();
+</script>
+</body>
+</html>
