@@ -251,16 +251,21 @@ export default async (request, context) => {
       return jsonResponse(requests);
     }
 
-    // ── POST /api/requests ──
+    // ── POST /api/requests ── (text fields only — photos uploaded separately)
     if (path === "/requests" && request.method === "POST") {
-      let body, files;
+      let body;
       try {
-        const parsed = await parseMultipart(request);
-        body = parsed.fields;
-        files = parsed.files;
+        const contentType = request.headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          body = await request.json();
+        } else {
+          // Accept form-urlencoded or simple multipart (text fields only)
+          const parsed = await parseMultipart(request);
+          body = parsed.fields;
+        }
       } catch (parseErr) {
-        console.error("Multipart parse error:", parseErr.message);
-        return jsonResponse({ error: "Failed to parse form: " + parseErr.message }, 400);
+        console.error("Parse error:", parseErr.message);
+        return jsonResponse({ error: "Failed to parse: " + parseErr.message }, 400);
       }
       const { name, jobAddress, description, urgency, trade } = body;
 
@@ -268,7 +273,6 @@ export default async (request, context) => {
         return jsonResponse({ error: "Name, description, and urgency are required" }, 400);
       }
 
-      // Step 1: Create the record (without photos)
       const recordFields = {
         submitted_by: name,
         raw_description: description,
@@ -276,7 +280,6 @@ export default async (request, context) => {
         status: "Submitted",
         role: "Tech",
       };
-
       if (jobAddress) recordFields.job_address = jobAddress;
       if (trade) recordFields.trade = trade;
 
@@ -287,29 +290,29 @@ export default async (request, context) => {
           body: JSON.stringify({ fields: recordFields, typecast: true }),
         });
       } catch (airtableErr) {
-        console.error("Airtable create error:", airtableErr.message, JSON.stringify(recordFields));
+        console.error("Airtable create error:", airtableErr.message);
         return jsonResponse({ error: "Airtable: " + airtableErr.message }, 500);
       }
 
-      // Step 2: Upload photos directly to Airtable via content API (if any)
-      let uploadedCount = 0;
-      let uploadErrors = [];
-      for (const file of files) {
-        const ok = await uploadToAirtable(record.id, file.buffer, file.originalname, file.mimetype);
-        if (ok) {
-          uploadedCount++;
-        } else {
-          uploadErrors.push(file.originalname);
-        }
-      }
+      return jsonResponse({ success: true, id: record.id });
+    }
 
-      return jsonResponse({
-        success: true,
-        id: record.id,
-        photosUploaded: uploadedCount,
-        photosTotal: files.length,
-        ...(uploadErrors.length > 0 && { photoErrors: uploadErrors }),
-      });
+    // ── POST /api/requests/:id/photo ── (upload one photo at a time)
+    const photoMatch = path.match(/^\/requests\/([^/]+)\/photo$/);
+    if (photoMatch && request.method === "POST") {
+      const recordId = photoMatch[1];
+      try {
+        const parsed = await parseMultipart(request);
+        if (parsed.files.length === 0) {
+          return jsonResponse({ error: "No photo in request" }, 400);
+        }
+        const file = parsed.files[0];
+        const ok = await uploadToAirtable(recordId, file.buffer, file.originalname, file.mimetype);
+        return jsonResponse({ success: ok, recordId });
+      } catch (err) {
+        console.error("Photo upload error:", err.message);
+        return jsonResponse({ error: "Photo upload failed: " + err.message }, 500);
+      }
     }
 
     // ── GET /api/suppliers ──

@@ -302,49 +302,47 @@ document.getElementById("form").addEventListener("submit",async e=>{
     // Split parts into separate items (one per line), diagnostics stays as one item
     const partsItems = partsText ? partsText.split("\n").map(s => s.trim()).filter(s => s.length > 0) : [];
     const items = [];
-
-    // Each parts line becomes its own request with [PARTS REQUEST] prefix
     partsItems.forEach(p => items.push("[PARTS REQUEST] " + p));
-
-    // Diagnostics is always a single request (if present)
     if (diagText) items.push("[DIAGNOSTICS] " + diagText);
 
     const totalItems = items.length;
     let successCount = 0;
-    let photoWarning = false;
+    let photosFailed = 0;
+    let firstRecordId = null;
 
+    // Phase 1: Submit text fields as JSON (no photos — tiny payload, always works)
     for (let i = 0; i < items.length; i++) {
       btn.innerHTML = totalItems > 1
         ? `<span class="spin"></span>Submitting ${i+1} of ${totalItems}...`
         : '<span class="spin"></span>Submitting...';
 
-      const fd = new FormData();
-      fd.append("name", name);
-      fd.append("jobAddress", job);
-      fd.append("description", items[i]);
-      fd.append("urgency", urgency);
-      fd.append("trade", trade);
-      // Attach photos only to the first item
-      if (i === 0) photos.forEach(f => fd.append("photos", f));
-
-      const r = await fetch("/api/requests", { method: "POST", body: fd });
-      const responseText = await r.text();
-      let data;
-      try { data = JSON.parse(responseText); } catch(e) {
-        throw new Error(`Server error (${r.status}): ${responseText.slice(0, 120)}`);
-      }
+      const r = await fetch("/api/requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, jobAddress: job, description: items[i], urgency, trade }),
+      });
+      const data = await r.json().catch(() => ({ error: "Server error" }));
       if (!r.ok) throw new Error(data.error || "Submission failed");
       successCount++;
+      if (i === 0) firstRecordId = data.id;
+    }
 
-      if (i === 0 && photos.length > 0 && data.photosUploaded < photos.length) {
-        photoWarning = true;
+    // Phase 2: Upload photos one at a time to the first record (each is a separate small request)
+    if (photos.length > 0 && firstRecordId) {
+      for (let p = 0; p < photos.length; p++) {
+        btn.innerHTML = `<span class="spin"></span>Uploading photo ${p+1} of ${photos.length}...`;
+        try {
+          const fd = new FormData();
+          fd.append("photo", photos[p]);
+          const pr = await fetch(`/api/requests/${firstRecordId}/photo`, { method: "POST", body: fd });
+          if (!pr.ok) { photosFailed++; }
+        } catch(e) { photosFailed++; }
       }
     }
 
     // Show success
     document.getElementById("form").style.display="none";
     document.getElementById("success").style.display="block";
-
     const successEl = document.getElementById("success");
     if (totalItems > 1) {
       successEl.querySelector("h2").textContent = `${successCount} Requests Submitted`;
@@ -353,9 +351,8 @@ document.getElementById("form").addEventListener("submit",async e=>{
       successEl.querySelector("h2").textContent = "Request Submitted";
       successEl.querySelector("p").textContent = "The AI is processing your request now. Your coordinator will have a complete procurement card with supplier recommendations within minutes.";
     }
-
-    if (photoWarning) {
-      successEl.querySelector("p").textContent += " Note: Some photos could not be uploaded — share them with your coordinator.";
+    if (photosFailed > 0) {
+      successEl.querySelector("p").textContent += ` Note: ${photosFailed} photo(s) could not be uploaded.`;
     }
   }catch(err){
     console.error(err);
