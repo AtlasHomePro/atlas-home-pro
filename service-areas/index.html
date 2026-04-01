@@ -16,412 +16,20 @@ window.addEventListener('load',function(){
  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23111%27/%3E%3Ctext x=%2716%27 y=%2724%27 font-size=%2724%27 font-weight=%27900%27 font-family=%27Arial,sans-serif%27 fill=%27%23FFD700%27 text-anchor=%27middle%27%3EA%3C/text%3E%3C/svg%3E">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Service Areas | Atlas Home Pro | Los Angeles</title>
-<meta name="description" content="Atlas Home Pro serves 13+ LA neighborhoods with 7 trades — HVAC, plumbing, electrical, painting, gates & garage doors, water restoration, gates &amp; welding. Same-day service from our Fairfax office. (213) 275-2210.">
+<title>Westside Los Angeles Service Areas | Atlas Home Pro</title>
+<meta name="description" content="Atlas Home Pro serves 33 Westside LA neighborhoods with 7 licensed trades — HVAC, plumbing, electrical, painting, gates &amp; garage doors, water restoration, gates &amp; welding. Same-day service. (213) 275-2210.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-.hero{
- position:relative;
- background:#fff;
- overflow:hidden;
- padding:0;
-}
-.hero::before{display:none;}
-.hero-split{
- display:flex;
- align-items:center;
- max-width:1200px;
- margin:0 auto;
- min-height:480px;
- gap:30px;
-}
-.hero-text{
- flex:1;
- padding:50px 40px;
- text-align:left;
-}
-.hero-text .hero-badge{
- display:inline-block;
- background:#FFDC00;
- color:#111;
- padding:6px 18px;
- border-radius:20px;
- font-weight:700;
- font-size:0.85rem;
- letter-spacing:1px;
- text-transform:uppercase;
- margin-bottom:18px;
- border:none;
-}
-.hero-text h1{
- font-size:2.6rem;
- color:#111;
- line-height:1.15;
- margin-bottom:16px;
- font-weight:900;
-}
-.hero-text h1 span{
- color:#111;
- display:block;
-}
-.hero-text .hero-sub{
- color:#444;
- font-size:1.05rem;
- line-height:1.6;
- margin-bottom:22px;
- max-width:480px;
-}
-.hero-text .hero-btns{
- display:flex;
- gap:12px;
- margin-bottom:20px;
- flex-wrap:wrap;
-}
-.hero-text .hero-btns a{
- padding:14px 28px;
- border-radius:6px;
- font-weight:700;
- font-size:1rem;
- text-decoration:none;
- text-align:center;
- display:inline-block;
-}
-.hero-text .hero-btns a:first-child{
- background:#FFDC00;
- color:#111;
- border:none;
-}
-.hero-text .hero-btns a:last-child{
- background:#111;
- color:#FFDC00;
- border:2px solid #FFDC00;
-}
-.hero-text .hero-pills{
- display:flex;
- flex-wrap:wrap;
- gap:8px;
-}
-.hero-text .hero-pills span{
- background:#f5f5f5;
- color:#333;
- padding:6px 14px;
- border-radius:20px;
- font-size:0.82rem;
- font-weight:600;
- border:1px solid #e0e0e0;
-}
-.hero-text .hero-trades{
- display:flex;
- flex-wrap:wrap;
- gap:6px;
- margin-bottom:18px;
-}
-.hero-text .hero-trades a{
- color:#111;
- font-weight:600;
- text-decoration:none;
- font-size:0.9rem;
-}
-.hero-text .hero-trades a:hover{color:#FFDC00;}
-.hero-text .hero-trades > span{color:#c0c0c0;}
-.hero-van{
- flex:1;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:20px;
-}
-.hero-van img{
- max-width:100%;
- height:auto;
-}
-
+/* ===== RESET & BASE ===== */
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Manrope',sans-serif;background:#fff;color:#111;padding-bottom:60px}
-nav{background:#111;padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;min-height:64px;flex-wrap:wrap;gap:8px}
-.nav-brand a{color:#FFDC00;font-size:1.05rem;font-weight:900;text-decoration:none;letter-spacing:2px}
-.nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.nav-links a{color:#ccc;text-decoration:none;font-size:.85rem;font-weight:500}
-.nav-links a:hover,.nav-links a.active{color:#FFDC00}
-.nav-cta{background:#FFDC00!important;color:#111!important;padding:8px 18px;border-radius:6px;font-weight:700!important}
+body{font-family:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;background:#fff;color:#1e1e1e;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
-.breadcrumb{color:rgba(255,255,255,0.65);font-size:.82rem;margin-bottom:14px}
-.breadcrumb a{color:rgba(255,255,255,0.65);text-decoration:none}
-
-.btn-primary{background:#FFDC00;color:#111;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:800;font-size:.95rem}
-.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem}
-
-.hero-pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:5px 12px;border-radius:16px;font-size:.76rem;font-weight:600}
-
-.section{padding:64px 20px;max-width:1100px;margin:0 auto}
-.section-label{font-size:.7rem;font-weight:800;letter-spacing:3px;color:#FFDC00;text-transform:uppercase;margin-bottom:10px}
-.section h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:#111;margin-bottom:10px}
-.section h2 span{color:#FFDC00}
-.section-sub{color:#555;font-size:.95rem;margin-bottom:40px;line-height:1.6;max-width:540px}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.service-card{background:#f9f9f9;border-radius:10px;padding:24px;border:1px solid #eee}
-.service-card .icon{font-size:1.6rem;margin-bottom:12px}
-.service-card h3{font-size:1rem;font-weight:800;color:#111;margin-bottom:8px}
-.service-card p{font-size:.86rem;color:#555;line-height:1.5}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:64px 20px;max-width:1100px;margin:0 auto}
-.split img{width:100%;height:360px;object-fit:cover;border-radius:12px}
-.split-content .section-label{display:block;margin-bottom:10px}
-.split-content h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;margin-bottom:12px}
-.split-content h2 span{color:#FFDC00}
-.split-content p{color:#555;font-size:.95rem;line-height:1.7;margin-bottom:20px}
-.check-list{list-style:none;display:flex;flex-direction:column;gap:8px}
-.check-list li{font-size:.9rem;color:#333;display:flex;align-items:flex-start;gap:10px}
-.check-list li::before{content:'✓';color:#FFDC00;font-weight:900;flex-shrink:0}
-.dark-section{background:#111;padding:64px 20px;text-align:center}
-.dark-section .section-label{color:#FFDC00}
-.dark-section h2{color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;margin-bottom:40px}
-.dark-section h2 span{color:#FFDC00}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;max-width:1050px;margin:0 auto}
-.why-card{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:24px;text-align:left}
-.why-card .wi{font-size:1.6rem;margin-bottom:12px}
-.why-card h3{font-size:.95rem;font-weight:800;color:#FFDC00;margin-bottom:8px}
-.why-card p{font-size:.84rem;color:#d0d0d0;line-height:1.5}
-.faq-section{padding:64px 20px;max-width:800px;margin:0 auto}
-.faq-item{border-bottom:1px solid #eee;padding:20px 0}
-.faq-item h3{font-size:1rem;font-weight:700;color:#111;margin-bottom:8px}
-.faq-item p{font-size:.9rem;color:#555;line-height:1.6}
-
-.form-box{background:#111;border-radius:16px;padding:44px 36px}
-.form-box .section-label{color:#FFDC00}
-.form-box h2{color:#fff;margin-bottom:8px}
-.form-box p{color:#d0d0d0;font-size:.9rem;margin-bottom:28px}
-.form-box input,.form-box select,.form-box textarea{width:100%;padding:13px 15px;border-radius:8px;border:1px solid #333;background:#222;color:#fff;font-size:.92rem;margin-bottom:12px;font-family:inherit}
-.form-box select option{background:#222}
-.form-box button{width:100%;background:#FFDC00;color:#111;padding:15px;border-radius:8px;font-weight:800;font-size:1rem;border:none;cursor:pointer}
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;z-index:998;height:56px}
-.sticky-bar a{display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:800;font-size:.95rem;height:100%}
-.sticky-bar a:first-child{background:#FFDC00;color:#111}
-.sticky-bar a:last-child{background:#111;color:#FFDC00}
-@media(max-width:768px){.split{grid-template-columns:1fr}.split img{height:260px}}
-@media(max-width:600px){.form-box{padding:28px 18px}.section{padding:44px 16px}}
-
-.city-section{padding:64px 20px;max-width:1100px;margin:0 auto}
-.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:32px}
-.city-card{background:#f9f9f9;border:1px solid #eee;border-radius:10px;padding:20px;text-align:center}
-.city-card h3{font-size:.95rem;font-weight:800;color:#111;margin-bottom:4px}
-.city-card p{font-size:.8rem;color:#a0a0a0}
-
-@media(max-width:768px){
- nav{padding:8px 16px;flex-wrap:wrap}
- .nav-links{display:none;width:100%;flex-direction:column;gap:0;background:#111;padding:0}
- .nav-links.open{display:flex}
- .nav-links a{padding:12px 16px;border-bottom:1px solid #222;font-size:.9rem}
- .nav-links .nav-cta{margin:12px 16px;text-align:center}
- .hamburger{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:8px;z-index:1000}
- .hamburger span{width:24px;height:2px;background:#FFDC00;transition:.3s}
- 
- 
- 
- .hero p{font-size:.85rem;margin-bottom:16px}
- .hero 
- .hero .hero-badges{display:none}
- 
- 
- .services-grid{grid-template-columns:1fr;gap:16px;padding:0 16px}
- .section{padding:32px 16px}
- .section h2{font-size:1.4rem}
- .promos-grid{grid-template-columns:1fr}
- .reviews-grid{grid-template-columns:1fr}
- .promo-card{padding:24px 20px}
- .form-box{padding:24px 16px;margin:0 16px}
- .cta-buttons{flex-direction:column;gap:10px}
- .cta-buttons a{width:100%;text-align:center}
- .service-card img{height:180px}
- .why-grid,.trust-grid{grid-template-columns:1fr}
- .approach-section{flex-direction:column}
- .approach-section img{width:100%;max-width:100%}
- .areas-tags{gap:6px}
- .areas-tags span{font-size:.75rem;padding:6px 12px}
-}
-
-@media(max-width:768px){
- .hero-split{
- flex-direction:column-reverse;
- min-height:auto;
- gap:0;
- }
- .hero-van{
- padding:20px 20px 0;
- width:100%;
- }
- .hero-van img{
- width:100%;
- border-radius:10px;
- }
- .hero-text{
- padding:24px 20px 30px;
- text-align:center;
- }
- .hero-text h1{
- font-size:1.8rem;
- }
- .hero-text .hero-sub{
- max-width:100%;
- font-size:0.95rem;
- }
- .hero-text .hero-btns{
- justify-content:center;
- }
- .hero-text .hero-btns a{
- flex:1;
- min-width:140px;
- padding:12px 16px;
- font-size:0.9rem;
- }
- .hero-text .hero-pills{
- justify-content:center;
- }
- .hero-text .hero-pills span{
- font-size:0.75rem;
- padding:5px 10px;
- }
- .hero-text .hero-trades{
- justify-content:center;
- }
- .hero-text .hero-badge{
- font-size:0.75rem;
- padding:5px 14px;
- }
-}
-
-.form-section{background:#111;padding:0;overflow:hidden;}
-.form-split{display:flex;max-width:1100px;margin:0 auto;min-height:500px;}
-.form-brand{flex:1;padding:60px 40px;display:flex;flex-direction:column;justify-content:center;}
-.form-brand .form-badge{display:inline-block;background:#FFDC00;color:#111;padding:5px 16px;border-radius:20px;font-weight:800;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;width:fit-content;}
-.form-brand h2{color:#fff;font-size:2rem;font-weight:900;margin-bottom:14px;line-height:1.2;}
-.form-brand h2 span{color:#FFDC00;}
-.form-brand p{color:#c0c0c0;font-size:0.95rem;line-height:1.7;margin-bottom:28px;}
-.form-brand .form-guarantees{display:flex;flex-direction:column;gap:12px;}
-.form-brand .form-guarantee{display:flex;align-items:center;gap:12px;color:#ccc;font-size:0.9rem;font-weight:600;}
-.form-brand .form-guarantee .gcheck{width:28px;height:28px;background:#FFDC00;color:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.8rem;flex-shrink:0;}
-.form-box{flex:1;padding:50px 40px;background:#1a1a1a;display:flex;flex-direction:column;justify-content:center;}
-.form-box h3{color:#fff;font-size:1.3rem;font-weight:800;margin-bottom:8px;text-align:center;}
-.form-box .form-sub{color:#b0b0b0;font-size:0.85rem;text-align:center;margin-bottom:24px;}
-@media(max-width:768px){
- .form-split{flex-direction:column;}
- .form-brand{padding:40px 24px 20px;}
- .form-brand h2{font-size:1.5rem;}
- .form-box{padding:30px 24px 40px;}
- .form-guarantees{flex-direction:row;flex-wrap:wrap;gap:8px;}
-}
-
-.areas-section{background:#f9f9f9;padding:60px 20px;position:relative;overflow:hidden;}
-.areas-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#FFDC00 0%,#111 50%,#FFDC00 100%);}
-.areas-inner{max-width:1000px;margin:0 auto;text-align:center;}
-.areas-section .section-label{color:#FFDC00;font-size:0.75rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:block;}
-.areas-section h2{font-size:2rem;font-weight:900;margin-bottom:10px;color:#111;}
-.areas-section h2 span{color:#FFDC00;}
-.areas-section .areas-sub{color:#666;font-size:0.95rem;margin-bottom:32px;}
-.areas-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:30px;}
-.areas-grid a,.areas-grid span{padding:10px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;text-decoration:none;background:#fff;color:#333;border:1px solid #e0e0e0;transition:all 0.2s;}
-.areas-grid a:hover{background:#FFDC00;color:#111;border-color:#FFDC00;}
-.areas-cta{display:inline-block;padding:12px 28px;background:#111;color:#FFDC00;text-decoration:none;font-weight:700;border-radius:8px;font-size:0.9rem;transition:background 0.2s;}
-.areas-cta:hover{background:#FFDC00;color:#111;}
-@media(max-width:768px){
- .areas-section h2{font-size:1.5rem;}
- .areas-grid{gap:6px;}
- .areas-grid a,.areas-grid span{padding:8px 14px;font-size:0.8rem;}
-}
-
-.form-box{background:#fff!important;border-radius:16px;padding:44px 36px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
-.form-box-header{background:#FFDC00;margin:-44px -36px 28px -36px;padding:24px 36px;border-radius:16px 16px 0 0;text-align:center}
-.form-box-header h3{color:#111;font-size:1.4rem;font-weight:900;margin:0;letter-spacing:-0.3px}
-.form-box-header .form-sub{color:#333;font-size:.88rem;margin:6px 0 0 0}
-.form-box h3{color:#111!important}
-.form-box .form-sub{color:#555!important}
-.form-box input,.form-box select,.form-box textarea{width:100%;padding:14px 16px;border-radius:8px;border:2px solid #ddd!important;background:#fff!important;color:#111!important;font-size:.95rem;margin-bottom:14px;font-family:inherit;transition:border-color .2s}
-.form-box input:focus,.form-box select:focus,.form-box textarea:focus{border-color:#FFDC00!important;outline:none}
-.form-box input::placeholder{color:#c0c0c0!important}
-.form-box select{color:#555!important}
-.form-box select option{background:#fff!important;color:#111!important}
-.form-box button{width:100%;background:#FFDC00;color:#111;padding:16px;border-radius:8px;font-weight:900;font-size:1.05rem;border:none;cursor:pointer;letter-spacing:0.3px;transition:background .2s}
-.form-box button:hover{background:#e6c200}
-
-.partner-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.partner-logo span{font-weight:900;color:#111;opacity:0.7;transition:opacity .2s;white-space:nowrap}
-.partner-logo:hover span{opacity:1}
-
-@media(max-width:768px){
- 
- .partner-logo span{font-size:0.8rem!important}
-}
-
-/* Social Proof Ticker */
-.proof-bar { background: #FFDC00; padding: 14px 0; overflow: hidden; position: relative; }
-.proof-bar::before, .proof-bar::after {
- content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
-}
-.proof-bar::before { left: 0; background: linear-gradient(to right, #FFDC00 0%, transparent 100%); }
-.proof-bar::after { right: 0; background: linear-gradient(to left, #FFDC00 0%, transparent 100%); }
-.proof-track {
- display: flex; align-items: center; gap: 60px;
- animation: proofScroll 45s linear infinite;
- width: max-content;
-}
-.proof-track:hover { animation-play-state: paused; }
-@keyframes proofScroll {
- 0% { transform: translateX(0); }
- 100% { transform: translateX(-50%); }
-}
-.proof-item {
- flex-shrink: 0; display: flex; align-items: center; gap: 10px;
- font-family:'Manrope',sans-serif; white-space: nowrap;
-}
-.proof-icon { font-size: 1.2rem; }
-.proof-text { font-size: 0.95rem; color: #111; font-weight: 500; }
-.proof-text strong { font-weight: 700; }
-.proof-divider { flex-shrink: 0; width: 4px; height: 4px; background: #333; border-radius: 50%; opacity: 0.4; }
-@media (max-width: 768px) {
- .proof-track { gap: 40px; }
- .proof-text { font-size: 0.85rem; }
-}
-
-/* Footer */
-.site-footer{background:#111;color:#ccc;padding:60px 20px 0;font-size:.85rem;line-height:1.7}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.footer-col h4{color:#FFDC00;font-size:.95rem;margin-bottom:14px;letter-spacing:1px}
-.footer-col p{margin-bottom:8px}
-.footer-phone{font-size:1.1rem;font-weight:700;color:#FFDC00}
-.footer-email{color:#d0d0d0}
-.footer-col ul{list-style:none;padding:0}
-.footer-col ul li{margin-bottom:6px}
-.footer-col ul a{color:#ccc;text-decoration:none;transition:color .2s}
-.footer-col ul a:hover{color:#FFDC00}
-.footer-bottom{max-width:1100px;margin:40px auto 0;padding:20px 0;border-top:1px solid #333;text-align:center;color:#a0a0a0;font-size:.8rem}
-@media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr;gap:30px}}
-@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
-
-/* Dropdown Navigation */
-.nav-item{position:relative}
-.nav-item > a{color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:8px 0;display:block}
-.nav-item.has-dropdown > a::after{content:'';display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid #FFDC00;margin-left:5px;vertical-align:middle;transition:transform .2s}
-.nav-item.has-dropdown:hover > a::after{transform:rotate(180deg)}
-.dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#111;border:1px solid #222;min-width:220px;padding:8px 0;z-index:1000;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.nav-item.has-dropdown:hover .dropdown{display:block}
-.dropdown a{display:block;padding:10px 20px;color:#ccc;text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:color .15s,background .15s}
-.dropdown a:hover{color:#FFDC00;background:rgba(255,220,0,.05)}
-.dropdown a:first-child{color:#fff;font-weight:700;border-bottom:1px solid #222;padding-bottom:12px;margin-bottom:4px}
-.nav-cta{background:#FFDC00!important;color:#0A0A0A!important;padding:10px 20px!important;font-weight:800!important;font-size:.8rem!important;letter-spacing:1.5px!important;text-transform:uppercase!important;text-decoration:none!important;border:none!important;display:inline-block!important;transition:opacity .2s!important}
-.nav-cta:hover{opacity:.9!important}
-
-/* Mobile dropdown */
-@media(max-width:768px){
- .nav-links{flex-direction:column;gap:0}
- .nav-item > a{padding:12px 20px;border-bottom:1px solid #222}
- .dropdown{position:static;transform:none;display:none;border:none;box-shadow:none;padding-left:16px;background:#0a0a0a}
- .nav-item.has-dropdown.open .dropdown{display:block}
- .nav-cta{margin:16px 20px;text-align:center;display:block!important}
-}
-
- 
-/* Premium Navigation */
+/* ===== PREMIUM NAV (unchanged structure) ===== */
 nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:72px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .nav-brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.nav-brand a{color:#fff;font-size:1.1rem;font-weight:900;text-decoration:none;letter-spacing:3px;font-family:'Manrope',sans-serif}
+.nav-brand a{color:#fff;font-size:1.1rem;font-weight:900;text-decoration:none;letter-spacing:3px;font-family:'DM Sans','Manrope',sans-serif}
 .nav-brand a span.brand-accent{color:#FFDC00}
 .nav-links{display:flex;gap:0;align-items:center;height:100%}
 .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.4px}
@@ -436,7 +44,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .nav-cta{background:#FFDC00!important;color:#0a0a0a!important;padding:10px 24px;border-radius:6px;font-weight:800!important;font-size:.78rem!important;letter-spacing:1.2px;text-transform:uppercase;transition:all .25s ease!important;box-shadow:0 0 0 0 rgba(255,220,0,0);position:relative;overflow:hidden}
 .nav-cta:hover{background:#fff!important;box-shadow:0 4px 20px rgba(255,220,0,0.25)!important;transform:translateY(-1px)}
 .hamburger{display:none}
-/* Nav dropdown items */
 .nav-item{position:relative;height:100%;display:flex;align-items:center}
 .nav-item > a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:0 16px;display:flex;align-items:center;height:100%;transition:color .2s;position:relative}
 .nav-item > a::before{content:'';position:absolute;bottom:0;left:16px;right:16px;height:2px;background:#FFDC00;transform:scaleX(0);transition:transform .25s ease;transform-origin:center}
@@ -450,13 +57,263 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .dropdown a{display:block;padding:10px 24px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:all .15s}
 .dropdown a:hover{color:#fff;background:rgba(255,220,0,.04);padding-left:28px}
 .dropdown a:first-child{color:rgba(255,255,255,0.9);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:12px;margin-bottom:4px}
-/* Mega Dropdown for Services */
 .mega-dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);padding:28px 32px;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 10px 10px;min-width:680px;animation:dropIn .2s ease}
 .nav-item.has-mega:hover .mega-dropdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 32px}
 .mega-dropdown a{display:block;padding:7px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .15s}
 .mega-dropdown a:hover{color:#fff}
 .mega-dropdown a:first-child{border:none;padding-bottom:7px;margin-bottom:0;color:rgba(255,255,255,0.55);font-weight:500}
-/* Mobile nav */
+
+/* ===== HERO — Dark, SoulCycle aesthetic ===== */
+.sa-hero{
+ background:#1e1e1e;
+ padding:100px 24px 80px;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+}
+.sa-hero::after{
+ content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+ background:linear-gradient(to bottom,transparent,rgba(30,30,30,0));
+ pointer-events:none;
+}
+.sa-hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.sa-hero-label{
+ display:inline-block;
+ font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+ color:#f97316;margin-bottom:20px;
+}
+.sa-hero h1{
+ font-size:clamp(2.4rem,5vw,3.6rem);
+ font-weight:900;color:#fff;line-height:1.08;
+ margin-bottom:20px;letter-spacing:-1px;
+}
+.sa-hero-sub{
+ color:#a7a8aa;font-size:1.05rem;line-height:1.7;
+ max-width:560px;margin:0 auto 36px;
+}
+.sa-hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.sa-hero-btns a{
+ padding:15px 32px;font-weight:700;font-size:.9rem;text-decoration:none;
+ letter-spacing:.5px;transition:all .2s;
+}
+.sa-hero-btns .btn-orange{
+ background:#f97316;color:#fff;border:2px solid #f97316;border-radius:0;
+}
+.sa-hero-btns .btn-orange:hover{background:#e06610;border-color:#e06610}
+.sa-hero-btns .btn-ghost{
+ background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);border-radius:0;
+}
+.sa-hero-btns .btn-ghost:hover{border-color:#f97316;color:#f97316}
+
+/* ===== TRUST BAR ===== */
+.trust-bar{
+ background:#fff;padding:28px 24px;
+ border-bottom:1px solid #e2e8f0;
+}
+.trust-bar-inner{
+ max-width:1100px;margin:0 auto;
+ display:flex;align-items:center;justify-content:center;
+ gap:32px;flex-wrap:wrap;
+}
+.trust-item{
+ display:flex;align-items:center;gap:10px;
+ font-size:.85rem;font-weight:600;color:#1e1e1e;
+ white-space:nowrap;
+}
+.trust-icon{
+ width:32px;height:32px;background:#1e1e1e;color:#f97316;
+ display:flex;align-items:center;justify-content:center;
+ font-size:.8rem;font-weight:900;flex-shrink:0;
+}
+.trust-divider{
+ width:1px;height:24px;background:#e2e8f0;flex-shrink:0;
+}
+
+/* ===== TIER 1 NEIGHBORHOODS ===== */
+.tier1-section{
+ padding:80px 24px;max-width:1100px;margin:0 auto;
+}
+.tier1-section .section-label{
+ font-size:.7rem;font-weight:700;letter-spacing:3px;
+ text-transform:uppercase;color:#f97316;margin-bottom:10px;
+}
+.tier1-section h2{
+ font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#1e1e1e;
+ margin-bottom:8px;
+}
+.tier1-section .section-sub{
+ color:#64748b;font-size:.95rem;line-height:1.6;margin-bottom:44px;max-width:560px;
+}
+.hood-grid{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;
+}
+.hood-card{
+ background:#fff;
+ border:1px solid #e2e8f0;
+ border-left:4px solid #f97316;
+ padding:24px 22px;
+ transition:all .2s;
+}
+.hood-card:hover{
+ border-color:#f97316;
+ box-shadow:0 8px 24px rgba(0,0,0,.06);
+ transform:translateY(-2px);
+}
+.hood-card-header{
+ display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;
+}
+.hood-card h3{font-size:1rem;font-weight:800;color:#1e1e1e;margin:0}
+.hood-card h3 a{color:#1e1e1e;text-decoration:none}
+.hood-card h3 a:hover{color:#f97316}
+.hood-card .hood-badge{
+ font-size:.65rem;font-weight:700;color:#f97316;
+ background:#1e1e1e;padding:4px 10px;letter-spacing:.5px;
+}
+.hood-card .trade-links{display:flex;flex-wrap:wrap;gap:6px}
+.hood-card .trade-links a{
+ display:inline-flex;align-items:center;gap:4px;
+ padding:5px 11px;font-size:.75rem;font-weight:600;
+ text-decoration:none;background:#f8f8f8;color:#1e1e1e;
+ border:1px solid #e2e8f0;transition:all .15s;
+}
+.hood-card .trade-links a:hover{background:#f97316;color:#fff;border-color:#f97316}
+
+/* ===== WHO ATLAS IS FOR (light bg) ===== */
+.who-section{
+ background:#f7f7f7;padding:80px 24px;
+}
+.who-inner{max-width:1100px;margin:0 auto;text-align:center}
+.who-section .section-label{
+ font-size:.7rem;font-weight:700;letter-spacing:3px;
+ text-transform:uppercase;color:#f97316;margin-bottom:10px;display:block;
+}
+.who-section h2{
+ font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#1e1e1e;
+ margin-bottom:8px;
+}
+.who-section .section-sub{
+ color:#64748b;font-size:.95rem;line-height:1.6;margin-bottom:44px;
+ max-width:540px;margin-left:auto;margin-right:auto;
+}
+.who-grid{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;
+ text-align:left;
+}
+.who-card{
+ background:#fff;border:1px solid #e2e8f0;
+ padding:28px 24px;transition:all .2s;
+}
+.who-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-2px)}
+.who-card-icon{
+ width:40px;height:40px;background:#1e1e1e;color:#f97316;
+ display:flex;align-items:center;justify-content:center;
+ font-size:1rem;margin-bottom:16px;font-weight:700;
+}
+.who-card h3{font-size:.95rem;font-weight:800;color:#1e1e1e;margin-bottom:8px}
+.who-card p{font-size:.85rem;color:#64748b;line-height:1.6}
+
+/* ===== FULL NEIGHBORHOOD GRID (dark) ===== */
+.grid-section{
+ background:#1e1e1e;padding:80px 24px;
+}
+.grid-inner{max-width:1100px;margin:0 auto;text-align:center}
+.grid-section .section-label{
+ font-size:.7rem;font-weight:700;letter-spacing:3px;
+ text-transform:uppercase;color:#f97316;margin-bottom:10px;display:block;
+}
+.grid-section h2{
+ font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;
+ margin-bottom:8px;
+}
+.grid-section .section-sub{
+ color:#a7a8aa;font-size:.95rem;line-height:1.6;margin-bottom:44px;
+}
+.neighborhood-grid{
+ display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:20px;
+}
+.neighborhood-grid a,.neighborhood-grid span{
+ padding:10px 20px;font-size:.83rem;font-weight:600;
+ text-decoration:none;background:rgba(255,255,255,0.06);
+ color:#fff;border:1px solid rgba(255,255,255,0.12);
+ transition:all .2s;
+}
+.neighborhood-grid a:hover{background:#f97316;color:#fff;border-color:#f97316}
+
+/* ===== CTA SECTION (dark) ===== */
+.cta-section{
+ background:#1e1e1e;padding:0 24px 80px;
+}
+.cta-inner{
+ max-width:900px;margin:0 auto;
+ border-top:1px solid rgba(255,255,255,0.08);
+ padding-top:60px;text-align:center;
+}
+.cta-section .section-label{
+ font-size:.7rem;font-weight:700;letter-spacing:3px;
+ text-transform:uppercase;color:#f97316;margin-bottom:10px;display:block;
+}
+.cta-section h2{
+ font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;
+ margin-bottom:8px;
+}
+.cta-section .section-sub{
+ color:#a7a8aa;font-size:.95rem;line-height:1.6;margin-bottom:36px;
+ max-width:480px;margin-left:auto;margin-right:auto;
+}
+
+/* ===== FORM SECTION ===== */
+.form-section{background:#111;padding:0;overflow:hidden}
+.form-split{display:flex;max-width:1100px;margin:0 auto;min-height:500px}
+.form-brand{flex:1;padding:60px 40px;display:flex;flex-direction:column;justify-content:center}
+.form-brand .form-badge{display:inline-block;background:#f97316;color:#fff;padding:5px 16px;font-weight:800;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;width:fit-content}
+.form-brand h2{color:#fff;font-size:2rem;font-weight:900;margin-bottom:14px;line-height:1.2}
+.form-brand h2 span{color:#f97316}
+.form-brand p{color:#a7a8aa;font-size:0.95rem;line-height:1.7;margin-bottom:28px}
+.form-brand .form-guarantees{display:flex;flex-direction:column;gap:12px}
+.form-brand .form-guarantee{display:flex;align-items:center;gap:12px;color:#ccc;font-size:0.9rem;font-weight:600}
+.form-brand .form-guarantee .gcheck{width:28px;height:28px;background:#f97316;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.8rem;flex-shrink:0}
+.form-box{flex:1;padding:50px 40px;background:#1a1a1a;display:flex;flex-direction:column;justify-content:center}
+.form-box-header{background:#f97316;margin:-50px -40px 28px -40px;padding:24px 40px;text-align:center}
+.form-box-header h3{color:#fff;font-size:1.3rem;font-weight:900;margin:0;letter-spacing:-0.3px}
+.form-box-header .form-sub{color:rgba(255,255,255,0.85);font-size:.85rem;margin:6px 0 0 0}
+.form-box input,.form-box select,.form-box textarea{
+ width:100%;padding:14px 16px;border:1px solid #333;
+ background:#222;color:#fff;font-size:.92rem;
+ margin-bottom:12px;font-family:inherit;transition:border-color .2s;
+}
+.form-box input:focus,.form-box select:focus,.form-box textarea:focus{border-color:#f97316;outline:none}
+.form-box input::placeholder{color:#777}
+.form-box select{color:#999}
+.form-box select option{background:#222;color:#fff}
+.form-box button{
+ width:100%;background:#f97316;color:#fff;padding:16px;
+ font-weight:900;font-size:1rem;border:none;cursor:pointer;
+ letter-spacing:0.3px;transition:background .2s;border-radius:0;
+}
+.form-box button:hover{background:#e06610}
+
+/* ===== FOOTER (unchanged) ===== */
+.site-footer{background:#111;color:#ccc;padding:60px 20px 0;font-size:.85rem;line-height:1.7}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.footer-col h4{color:#FFDC00;font-size:.95rem;margin-bottom:14px;letter-spacing:1px}
+.footer-col p{margin-bottom:8px}
+.footer-phone{font-size:1.1rem;font-weight:700;color:#FFDC00}
+.footer-email{color:#d0d0d0}
+.footer-col ul{list-style:none;padding:0}
+.footer-col ul li{margin-bottom:6px}
+.footer-col ul a{color:#ccc;text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:#FFDC00}
+.footer-bottom{max-width:1100px;margin:40px auto 0;padding:20px 0;border-top:1px solid #333;text-align:center;color:#a0a0a0;font-size:.8rem}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
+
+/* ===== STICKY BAR ===== */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;z-index:998;height:56px}
+.sticky-bar a{display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:800;font-size:.95rem;height:100%}
+.sticky-bar a:first-child{background:#f97316;color:#fff}
+.sticky-bar a:last-child{background:#1e1e1e;color:#f97316}
+
+/* ===== MOBILE NAV ===== */
 @media(max-width:900px){
  nav{padding:0 20px;height:64px}
  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;width:100%;flex-direction:column;gap:0;background:#0a0a0a;padding:8px 0 0;border-top:1px solid rgba(255,255,255,0.08);z-index:999;overflow-y:auto}
@@ -492,59 +349,62 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .mobile-areas{display:none}
 .mobile-about{display:none}
 
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+ .sa-hero{padding:70px 20px 60px}
+ .sa-hero h1{font-size:2rem}
+ .sa-hero-btns a{flex:1;min-width:140px;padding:14px 20px;text-align:center}
+ .trust-bar-inner{gap:16px}
+ .trust-item{font-size:.78rem}
+ .trust-divider{display:none}
+ .trust-icon{width:26px;height:26px;font-size:.7rem}
+ .tier1-section{padding:50px 20px}
+ .hood-grid{grid-template-columns:1fr}
+ .hood-card{padding:20px 18px}
+ .who-section{padding:50px 20px}
+ .who-grid{grid-template-columns:1fr 1fr}
+ .grid-section{padding:50px 20px}
+ .neighborhood-grid a,.neighborhood-grid span{padding:8px 14px;font-size:.78rem}
+ .form-split{flex-direction:column}
+ .form-brand{padding:40px 24px 20px}
+ .form-brand h2{font-size:1.5rem}
+ .form-box{padding:40px 24px}
+ .form-box-header{margin:-40px -24px 28px -24px;padding:20px 24px}
+}
+@media(max-width:480px){
+ .who-grid{grid-template-columns:1fr}
+}
+
 /* Mobile footer accordions */
 @media(max-width:768px){
  .footer-col h4{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;margin-bottom:0;border-bottom:1px solid #333;user-select:none}
  .footer-col h4::after{content:'+';font-size:1.2rem;color:#FFDC00;font-weight:400;transition:transform .2s}
- .footer-col.fc-open h4::after{content:'−'}
+ .footer-col.fc-open h4::after{content:'\2212'}
  .footer-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0;padding:0}
  .footer-col.fc-open ul{max-height:400px;padding:8px 0 12px}
  .footer-col:first-child h4{cursor:default}
  .footer-col:first-child h4::after{display:none}
  .footer-col:first-child p,.footer-col:first-child .footer-phone,.footer-col:first-child .footer-email,.footer-col:first-child > div{display:block}
 }
-
-/* Featured Neighborhoods */
-.featured-hoods{padding:64px 20px;max-width:1100px;margin:0 auto}
-.featured-hoods .section-label{font-size:.7rem;font-weight:800;letter-spacing:3px;color:#FFDC00;text-transform:uppercase;margin-bottom:10px}
-.featured-hoods h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:#111;margin-bottom:10px}
-.featured-hoods h2 span{color:#FFDC00}
-.featured-hoods .section-sub{color:#555;font-size:.95rem;margin-bottom:40px;line-height:1.6;max-width:600px}
-.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-.hood-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:28px 24px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.hood-card:hover{border-color:#FFDC00;box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-3px)}
-.hood-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.hood-card h3{font-size:1.1rem;font-weight:800;color:#111;margin:0}
-.hood-card h3 a{color:#111;text-decoration:none}
-.hood-card h3 a:hover{color:#FFDC00}
-.hood-card .hood-badge{font-size:.7rem;font-weight:700;color:#FFDC00;background:#111;padding:4px 10px;border-radius:12px;letter-spacing:.5px}
-.hood-card .trade-links{display:flex;flex-wrap:wrap;gap:6px}
-.hood-card .trade-links a{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;background:#f5f5f5;color:#333;border:1px solid #e8e8e8;transition:all .15s}
-.hood-card .trade-links a:hover{background:#FFDC00;color:#111;border-color:#FFDC00}
-@media(max-width:768px){
- .hood-grid{grid-template-columns:1fr}
- .hood-card{padding:20px 18px}
-}
-
 </style>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Atlas Home Pro" />
-<meta property="og:title" content="Service Areas | Atlas Home Pro Los Angeles" />
-<meta property="og:description" content="Atlas Home Pro serves all of Los Angeles County. Beverly Hills, Santa Monica, Pasadena, Burbank & more. Call (213) 275-2210." />
+<meta property="og:title" content="Westside Los Angeles Service Areas | Atlas Home Pro" />
+<meta property="og:description" content="Atlas Home Pro serves 33 Westside LA neighborhoods with 7 licensed trades. Same-day service available. (213) 275-2210." />
 <meta property="og:url" content="https://atlashomepro.com/service-areas/" />
-<meta property="og:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
+<meta property="og:image" content="https://atlashomepro.com/images/service-areas/la-neighborhood.jpg" />
 <meta property="og:locale" content="en_US" />
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Service Areas | Atlas Home Pro Los Angeles" />
-<meta name="twitter:description" content="Atlas Home Pro serves all of Los Angeles County. Beverly Hills, Santa Monica, Pasadena, Burbank & more. Call (213) 275-2210." />
-<meta name="twitter:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
+<meta name="twitter:title" content="Westside Los Angeles Service Areas | Atlas Home Pro" />
+<meta name="twitter:description" content="Atlas Home Pro serves 33 Westside LA neighborhoods with 7 licensed trades. Same-day service available. (213) 275-2210." />
+<meta name="twitter:image" content="https://atlashomepro.com/images/service-areas/la-neighborhood.jpg" />
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin.woff2" crossorigin>
- <link rel="canonical" href="https://atlashomepro.com/service-areas/" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atlas Home Pro","url":"https://atlashomepro.com","telephone":"+1-213-275-2210","email":"David@AtlasHomePro.com","address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Bel Air"},{"@type":"City","name":"Beverly Hills"},{"@type":"City","name":"Brentwood"},{"@type":"City","name":"Burbank"},{"@type":"City","name":"Century City"},{"@type":"City","name":"Fairfax District"},{"@type":"City","name":"Glendale"},{"@type":"City","name":"Hancock Park"},{"@type":"City","name":"Pacific Palisades"},{"@type":"City","name":"Pasadena"},{"@type":"City","name":"Santa Monica"},{"@type":"City","name":"West Hollywood"},{"@type":"City","name":"Westwood"},{"@type":"City","name":"Koreatown"},{"@type":"City","name":"Windsor Square"},{"@type":"City","name":"Pico-Robertson"},{"@type":"City","name":"Park La Brea"},{"@type":"City","name":"Mid-City"},{"@type":"City","name":"Carthay"},{"@type":"City","name":"Larchmont"},{"@type":"City","name":"Beverly Grove"},{"@type":"City","name":"Miracle Mile"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Services in Los Angeles","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plumbing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HVAC Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Electrical Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Painting Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Restoration Services"}}]},"priceRange":"$$","image":"https://atlashomepro.com/van%20pics/atlas-van-new-phone.png","sameAs":["https://www.instagram.com/atlas_homepro/","https://nextdoor.com/page/atlas-home-pro/","https://www.yelp.com/biz/atlas-home-pro-los-angeles"]}</script>
+<link rel="canonical" href="https://atlashomepro.com/service-areas/" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Atlas Home Pro","url":"https://atlashomepro.com","telephone":"+1-213-275-2210","email":"David@AtlasHomePro.com","address":{"@type":"PostalAddress","streetAddress":"145 S Fairfax Ave, Suite 200","addressLocality":"Los Angeles","addressRegion":"CA","postalCode":"90036","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Bel Air"},{"@type":"City","name":"Beverly Hills"},{"@type":"City","name":"Beverly Grove"},{"@type":"City","name":"Beverlywood"},{"@type":"City","name":"Brentwood"},{"@type":"City","name":"Carthay"},{"@type":"City","name":"Century City"},{"@type":"City","name":"Cheviot Hills"},{"@type":"City","name":"Culver City"},{"@type":"City","name":"East Hollywood"},{"@type":"City","name":"Fairfax District"},{"@type":"City","name":"Hancock Park"},{"@type":"City","name":"Koreatown"},{"@type":"City","name":"Larchmont"},{"@type":"City","name":"Los Feliz"},{"@type":"City","name":"Mar Vista"},{"@type":"City","name":"Marina del Rey"},{"@type":"City","name":"Mid-City"},{"@type":"City","name":"Mid-Wilshire"},{"@type":"City","name":"Miracle Mile"},{"@type":"City","name":"Pacific Palisades"},{"@type":"City","name":"Palms"},{"@type":"City","name":"Park La Brea"},{"@type":"City","name":"Pico-Robertson"},{"@type":"City","name":"Playa Vista"},{"@type":"City","name":"Rancho Park"},{"@type":"City","name":"Santa Monica"},{"@type":"City","name":"Silver Lake"},{"@type":"City","name":"West Hollywood"},{"@type":"City","name":"West Los Angeles"},{"@type":"City","name":"Westwood"},{"@type":"City","name":"Windsor Square"},{"@type":"City","name":"Los Angeles"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Home Services in Los Angeles","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Plumbing Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HVAC Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Electrical Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Painting Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Restoration Services"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Gates & Garage Doors"}}]},"priceRange":"$$","image":"https://atlashomepro.com/images/service-areas/la-neighborhood.jpg","sameAs":["https://www.instagram.com/atlas_homepro/","https://nextdoor.com/page/atlas-home-pro/","https://www.yelp.com/biz/atlas-home-pro-los-angeles"]}</script>
 </head>
 <body>
 <nav>
@@ -634,9 +494,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <a href="/service-areas/westwood/"><span class="ms-icon">🎓</span> Westwood</a>
  <a href="/service-areas/hancock-park/"><span class="ms-icon">🏡</span> Hancock Park</a>
  <a href="/service-areas/fairfax-district/"><span class="ms-icon">🎭</span> Fairfax District</a>
- <a href="/service-areas/pasadena/"><span class="ms-icon">🌹</span> Pasadena</a>
- <a href="/service-areas/glendale/"><span class="ms-icon">🏘️</span> Glendale</a>
- <a href="/service-areas/burbank/"><span class="ms-icon">🎬</span> Burbank</a>
  <a href="/service-areas/"><span class="ms-icon">📍</span> All Areas</a>
  </div>
  </div>
@@ -647,7 +504,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <a href="/learn/hvac-cost-guide/">HVAC Cost Guide</a>
  <a href="/learn/plumbing-cost-guide/">Plumbing Cost Guide</a>
  <a href="/learn/electrical-cost-guide/">Electrical Cost Guide</a>
- 
  <a href="/learn/painting-cost-guide/">Painting Cost Guide</a>
  <a href="/learn/restoration-cost-guide/">Restoration Cost Guide</a>
  <a href="/learn/security-gate-cost-guide/">Gate &amp; Garage Door Cost Guide</a>
@@ -684,266 +540,339 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<section class="hero" id="home">
- <div class="hero-split">
- <div class="hero-text">
- <div class="hero-badge">📍 Service Areas</div>
- <h1>We Serve All of<br><span>Los Angeles</span></h1>
- <p class="hero-sub">From the Westside to the San Gabriel Valley — our licensed teams cover every corner of LA County.</p>
- <div class="hero-btns">
- <a href="tel:+12132752210" class="btn-primary">📞 Call Now</a>
- <a href="#book" class="btn-outline">📋 Book Online</a>
- </div>
- 
- </div>
- <div class="hero-van">
- <picture><source type="image/webp" srcset="/images/service-areas/la-neighborhood-mobile.webp 600w, /images/service-areas/la-neighborhood.webp 1200w" sizes="(max-width: 768px) 100vw, 600px"><img src="/images/service-areas/la-neighborhood.jpg" alt="Los Angeles residential neighborhood aerial view" loading="eager" width="1200" height="675"></picture>
+
+<!-- ===== HERO ===== -->
+<section class="sa-hero">
+ <div class="sa-hero-inner">
+ <div class="sa-hero-label">Service Areas</div>
+ <h1>Built for the Westside.</h1>
+ <p class="sa-hero-sub">7 licensed trades. 33 neighborhoods. One team dispatched from our Fairfax office to your door — same day when you need it.</p>
+ <div class="sa-hero-btns">
+ <a href="tel:+12132752210" class="btn-orange">Call (213) 275-2210</a>
+ <a href="#book" class="btn-ghost">Book Online</a>
  </div>
  </div>
 </section>
-<div class="proof-bar">
- <div class="proof-track">
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Maria in Beverly Hills rated us 5 stars — "They came same day and fixed everything!"</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">James in Pasadena just booked HVAC Repair</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">2,847+ jobs completed across Los Angeles</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Rosa in Glendale — "Best plumber we have ever had. Fast and honest."</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">David in Santa Monica just booked Electrical Service</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">Voted #1 Home Services Company in LA — 2026</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Carlos in Burbank rated us 5 stars — "Fixed our roof leak in one visit."</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Sandra in West Hollywood just booked Painting</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Licensed &amp; Insured</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Jennifer in Long Beach — "No service call fee and they showed up on time!"</span></div><div class="proof-divider"></div>
- 
- <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">A+ Rated by the Better Business Bureau</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Maria in Beverly Hills rated us 5 stars — "They came same day and fixed everything!"</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">James in Pasadena just booked HVAC Repair</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">2,847+ jobs completed across Los Angeles</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Rosa in Glendale — "Best plumber we have ever had. Fast and honest."</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">David in Santa Monica just booked Electrical Service</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">Voted #1 Home Services Company in LA — 2026</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Carlos in Burbank rated us 5 stars — "Fixed our roof leak in one visit."</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text">Sandra in West Hollywood just booked Painting</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">✅</span><span class="proof-text">Licensed &amp; Insured</span></div><div class="proof-divider"></div>
- <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Jennifer in Long Beach — "No service call fee and they showed up on time!"</span></div><div class="proof-divider"></div>
- 
- <div class="proof-item"><span class="proof-icon">🏆</span><span class="proof-text">A+ Rated by the Better Business Bureau</span></div><div class="proof-divider"></div>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+ <div class="trust-bar-inner">
+ <div class="trust-item">
+ <div class="trust-icon">CA</div>
+ Licensed &amp; Insured — CA CSLB
+ </div>
+ <div class="trust-divider"></div>
+ <div class="trust-item">
+ <div class="trust-icon">7</div>
+ 7 Trades Under One Roof
+ </div>
+ <div class="trust-divider"></div>
+ <div class="trust-item">
+ <div class="trust-icon">$0</div>
+ $0 Service Call Fees
+ </div>
+ <div class="trust-divider"></div>
+ <div class="trust-item">
+ <div class="trust-icon">6M</div>
+ 6-Month Warranty on All Work
+ </div>
+ <div class="trust-divider"></div>
+ <div class="trust-item">
+ <div class="trust-icon">1H</div>
+ Callback Within 1 Hour
+ </div>
  </div>
 </div>
-</div>
-</div>
 
-<div class="featured-hoods">
- <div class="section-label">FEATURED NEIGHBORHOODS</div>
- <h2>Explore Our <span>Tier 1 Service Areas</span></h2>
- <p class="section-sub">Full trade-specific pages for the 13 neighborhoods closest to our Fairfax office. Every page is customized for your neighborhood.</p>
+<!-- ===== TIER 1 NEIGHBORHOODS ===== -->
+<section class="tier1-section">
+ <div class="section-label">Featured Neighborhoods</div>
+ <h2>13 Neighborhoods. Dedicated Pages.</h2>
+ <p class="section-sub">Each Tier 1 area has its own landing page with trade-specific sub-pages customized for your neighborhood.</p>
  <div class="hood-grid">
- 
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/miracle-mile/">Miracle Mile</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/miracle-mile/hvac/">❄️ HVAC</a>
-<a href="/service-areas/miracle-mile/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/miracle-mile/electrical/">⚡ Electrical</a>
-<a href="/service-areas/miracle-mile/painting/">🎨 Painting</a>
-<a href="/service-areas/miracle-mile/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/miracle-mile/gates-welding/">🔩 Gates & Welding</a>
 
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/beverly-grove/">Beverly Grove</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/beverly-grove/hvac/">❄️ HVAC</a>
-<a href="/service-areas/beverly-grove/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/beverly-grove/electrical/">⚡ Electrical</a>
-<a href="/service-areas/beverly-grove/painting/">🎨 Painting</a>
-<a href="/service-areas/beverly-grove/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/beverly-grove/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/fairfax-district/">Fairfax District</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/fairfax-district/hvac/">❄️ HVAC</a>
-<a href="/service-areas/fairfax-district/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/fairfax-district/electrical/">⚡ Electrical</a>
-<a href="/service-areas/fairfax-district/painting/">🎨 Painting</a>
-<a href="/service-areas/fairfax-district/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/fairfax-district/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/hancock-park/">Hancock Park</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/hancock-park/hvac/">❄️ HVAC</a>
-<a href="/service-areas/hancock-park/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/hancock-park/electrical/">⚡ Electrical</a>
-<a href="/service-areas/hancock-park/painting/">🎨 Painting</a>
-<a href="/service-areas/hancock-park/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/hancock-park/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/larchmont/">Larchmont</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/larchmont/hvac/">❄️ HVAC</a>
-<a href="/service-areas/larchmont/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/larchmont/electrical/">⚡ Electrical</a>
-<a href="/service-areas/larchmont/painting/">🎨 Painting</a>
-<a href="/service-areas/larchmont/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/larchmont/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/carthay/">Carthay</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/carthay/hvac/">❄️ HVAC</a>
-<a href="/service-areas/carthay/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/carthay/electrical/">⚡ Electrical</a>
-<a href="/service-areas/carthay/painting/">🎨 Painting</a>
-<a href="/service-areas/carthay/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/carthay/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/mid-city/">Mid-City</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/mid-city/hvac/">❄️ HVAC</a>
-<a href="/service-areas/mid-city/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/mid-city/electrical/">⚡ Electrical</a>
-<a href="/service-areas/mid-city/painting/">🎨 Painting</a>
-<a href="/service-areas/mid-city/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/mid-city/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/west-hollywood/">West Hollywood</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/west-hollywood/hvac/">❄️ HVAC</a>
-<a href="/service-areas/west-hollywood/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/west-hollywood/electrical/">⚡ Electrical</a>
-<a href="/service-areas/west-hollywood/painting/">🎨 Painting</a>
-<a href="/service-areas/west-hollywood/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/west-hollywood/gates-welding/">🔩 Gates & Welding</a>
-
- </div>
- </div>
  <div class="hood-card">
  <div class="hood-card-header">
  <h3><a href="/service-areas/beverly-hills/">Beverly Hills</a></h3>
  <span class="hood-badge">7 TRADES</span>
  </div>
  <div class="trade-links">
- <a href="/service-areas/beverly-hills/hvac/">❄️ HVAC</a>
-<a href="/service-areas/beverly-hills/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/beverly-hills/electrical/">⚡ Electrical</a>
-<a href="/service-areas/beverly-hills/painting/">🎨 Painting</a>
-<a href="/service-areas/beverly-hills/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/beverly-hills/gates-welding/">🔩 Gates & Welding</a>
+ <a href="/service-areas/beverly-hills/hvac/">HVAC</a>
+ <a href="/service-areas/beverly-hills/plumbing/">Plumbing</a>
+ <a href="/service-areas/beverly-hills/electrical/">Electrical</a>
+ <a href="/service-areas/beverly-hills/painting/">Painting</a>
+ <a href="/service-areas/beverly-hills/water-restoration/">Restoration</a>
+ <a href="/service-areas/beverly-hills/gates-welding/">Gates</a>
+ </div>
+ </div>
 
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/bel-air/">Bel Air</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/bel-air/hvac/">HVAC</a>
+ <a href="/service-areas/bel-air/plumbing/">Plumbing</a>
+ <a href="/service-areas/bel-air/electrical/">Electrical</a>
+ <a href="/service-areas/bel-air/painting/">Painting</a>
+ <a href="/service-areas/bel-air/water-restoration/">Restoration</a>
+ <a href="/service-areas/bel-air/gates-welding/">Gates</a>
  </div>
  </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/brentwood/">Brentwood</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/brentwood/hvac/">HVAC</a>
+ <a href="/service-areas/brentwood/plumbing/">Plumbing</a>
+ <a href="/service-areas/brentwood/electrical/">Electrical</a>
+ <a href="/service-areas/brentwood/painting/">Painting</a>
+ <a href="/service-areas/brentwood/water-restoration/">Restoration</a>
+ <a href="/service-areas/brentwood/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/pacific-palisades/">Pacific Palisades</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/pacific-palisades/hvac/">HVAC</a>
+ <a href="/service-areas/pacific-palisades/plumbing/">Plumbing</a>
+ <a href="/service-areas/pacific-palisades/electrical/">Electrical</a>
+ <a href="/service-areas/pacific-palisades/painting/">Painting</a>
+ <a href="/service-areas/pacific-palisades/water-restoration/">Restoration</a>
+ <a href="/service-areas/pacific-palisades/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/santa-monica/">Santa Monica</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/santa-monica/hvac/">HVAC</a>
+ <a href="/service-areas/santa-monica/plumbing/">Plumbing</a>
+ <a href="/service-areas/santa-monica/electrical/">Electrical</a>
+ <a href="/service-areas/santa-monica/painting/">Painting</a>
+ <a href="/service-areas/santa-monica/water-restoration/">Restoration</a>
+ <a href="/service-areas/santa-monica/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/century-city/">Century City</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/century-city/hvac/">HVAC</a>
+ <a href="/service-areas/century-city/plumbing/">Plumbing</a>
+ <a href="/service-areas/century-city/electrical/">Electrical</a>
+ <a href="/service-areas/century-city/painting/">Painting</a>
+ <a href="/service-areas/century-city/water-restoration/">Restoration</a>
+ <a href="/service-areas/century-city/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/west-hollywood/">West Hollywood</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/west-hollywood/hvac/">HVAC</a>
+ <a href="/service-areas/west-hollywood/plumbing/">Plumbing</a>
+ <a href="/service-areas/west-hollywood/electrical/">Electrical</a>
+ <a href="/service-areas/west-hollywood/painting/">Painting</a>
+ <a href="/service-areas/west-hollywood/water-restoration/">Restoration</a>
+ <a href="/service-areas/west-hollywood/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/westwood/">Westwood</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/westwood/hvac/">HVAC</a>
+ <a href="/service-areas/westwood/plumbing/">Plumbing</a>
+ <a href="/service-areas/westwood/electrical/">Electrical</a>
+ <a href="/service-areas/westwood/painting/">Painting</a>
+ <a href="/service-areas/westwood/water-restoration/">Restoration</a>
+ <a href="/service-areas/westwood/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/hancock-park/">Hancock Park</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/hancock-park/hvac/">HVAC</a>
+ <a href="/service-areas/hancock-park/plumbing/">Plumbing</a>
+ <a href="/service-areas/hancock-park/electrical/">Electrical</a>
+ <a href="/service-areas/hancock-park/painting/">Painting</a>
+ <a href="/service-areas/hancock-park/water-restoration/">Restoration</a>
+ <a href="/service-areas/hancock-park/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/fairfax-district/">Fairfax District</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/fairfax-district/hvac/">HVAC</a>
+ <a href="/service-areas/fairfax-district/plumbing/">Plumbing</a>
+ <a href="/service-areas/fairfax-district/electrical/">Electrical</a>
+ <a href="/service-areas/fairfax-district/painting/">Painting</a>
+ <a href="/service-areas/fairfax-district/water-restoration/">Restoration</a>
+ <a href="/service-areas/fairfax-district/gates-welding/">Gates</a>
+ </div>
+ </div>
+
+ <div class="hood-card">
+ <div class="hood-card-header">
+ <h3><a href="/service-areas/miracle-mile/">Miracle Mile</a></h3>
+ <span class="hood-badge">7 TRADES</span>
+ </div>
+ <div class="trade-links">
+ <a href="/service-areas/miracle-mile/hvac/">HVAC</a>
+ <a href="/service-areas/miracle-mile/plumbing/">Plumbing</a>
+ <a href="/service-areas/miracle-mile/electrical/">Electrical</a>
+ <a href="/service-areas/miracle-mile/painting/">Painting</a>
+ <a href="/service-areas/miracle-mile/water-restoration/">Restoration</a>
+ <a href="/service-areas/miracle-mile/gates-welding/">Gates</a>
+ </div>
+ </div>
+
  <div class="hood-card">
  <div class="hood-card-header">
  <h3><a href="/service-areas/koreatown/">Koreatown</a></h3>
  <span class="hood-badge">7 TRADES</span>
  </div>
  <div class="trade-links">
- <a href="/service-areas/koreatown/hvac/">❄️ HVAC</a>
-<a href="/service-areas/koreatown/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/koreatown/electrical/">⚡ Electrical</a>
-<a href="/service-areas/koreatown/painting/">🎨 Painting</a>
-<a href="/service-areas/koreatown/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/koreatown/gates-welding/">🔩 Gates & Welding</a>
+ <a href="/service-areas/koreatown/hvac/">HVAC</a>
+ <a href="/service-areas/koreatown/plumbing/">Plumbing</a>
+ <a href="/service-areas/koreatown/electrical/">Electrical</a>
+ <a href="/service-areas/koreatown/painting/">Painting</a>
+ <a href="/service-areas/koreatown/water-restoration/">Restoration</a>
+ <a href="/service-areas/koreatown/gates-welding/">Gates</a>
+ </div>
+ </div>
 
- </div>
- </div>
  <div class="hood-card">
  <div class="hood-card-header">
- <h3><a href="/service-areas/park-la-brea/">Park La Brea</a></h3>
+ <h3><a href="/service-areas/larchmont/">Larchmont</a></h3>
  <span class="hood-badge">7 TRADES</span>
  </div>
  <div class="trade-links">
- <a href="/service-areas/park-la-brea/hvac/">❄️ HVAC</a>
-<a href="/service-areas/park-la-brea/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/park-la-brea/electrical/">⚡ Electrical</a>
-<a href="/service-areas/park-la-brea/painting/">🎨 Painting</a>
-<a href="/service-areas/park-la-brea/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/park-la-brea/gates-welding/">🔩 Gates & Welding</a>
+ <a href="/service-areas/larchmont/hvac/">HVAC</a>
+ <a href="/service-areas/larchmont/plumbing/">Plumbing</a>
+ <a href="/service-areas/larchmont/electrical/">Electrical</a>
+ <a href="/service-areas/larchmont/painting/">Painting</a>
+ <a href="/service-areas/larchmont/water-restoration/">Restoration</a>
+ <a href="/service-areas/larchmont/gates-welding/">Gates</a>
+ </div>
+ </div>
 
  </div>
- </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/pico-robertson/">Pico-Robertson</a></h3>
- <span class="hood-badge">7 TRADES</span>
- </div>
- <div class="trade-links">
- <a href="/service-areas/pico-robertson/hvac/">❄️ HVAC</a>
-<a href="/service-areas/pico-robertson/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/pico-robertson/electrical/">⚡ Electrical</a>
-<a href="/service-areas/pico-robertson/painting/">🎨 Painting</a>
-<a href="/service-areas/pico-robertson/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/pico-robertson/gates-welding/">🔩 Gates & Welding</a>
+</section>
 
+<!-- ===== WHO ATLAS IS FOR ===== -->
+<section class="who-section">
+ <div class="who-inner">
+ <div class="section-label">Who We Serve</div>
+ <h2>Who Atlas Is For</h2>
+ <p class="section-sub">Whether you own one home or manage fifty — we handle all 7 trades so you only need one call.</p>
+ <div class="who-grid">
+ <div class="who-card">
+ <div class="who-card-icon">H</div>
+ <h3>Homeowners</h3>
+ <p>Single-family and condo owners across the Westside. One call gets you a licensed tech for any trade — plumbing, HVAC, electrical, painting, gates, or restoration.</p>
+ </div>
+ <div class="who-card">
+ <div class="who-card-icon">PM</div>
+ <h3>Property Managers</h3>
+ <p>Managing multiple units means multiple problems at once. We consolidate your vendor list down to one company with priority scheduling and volume pricing.</p>
+ </div>
+ <div class="who-card">
+ <div class="who-card-icon">AO</div>
+ <h3>Apartment Owners</h3>
+ <p>Multi-unit buildings need a team that can handle tenant emergencies fast. Same-day dispatch, 6-month warranty, and one invoice for all trades.</p>
+ </div>
+ <div class="who-card">
+ <div class="who-card-icon">PP</div>
+ <h3>Pacific Palisades Recovery</h3>
+ <p>Fire damage restoration, structural assessment, and full rebuild coordination. We work with your insurance adjuster and handle the trades so you can focus on your family.</p>
  </div>
  </div>
- <div class="hood-card">
- <div class="hood-card-header">
- <h3><a href="/service-areas/windsor-square/">Windsor Square</a></h3>
- <span class="hood-badge">7 TRADES</span>
  </div>
- <div class="trade-links">
- <a href="/service-areas/windsor-square/hvac/">❄️ HVAC</a>
-<a href="/service-areas/windsor-square/plumbing/">🔧 Plumbing</a>
-<a href="/service-areas/windsor-square/electrical/">⚡ Electrical</a>
-<a href="/service-areas/windsor-square/painting/">🎨 Painting</a>
-<a href="/service-areas/windsor-square/water-restoration/">💧 Restoration</a>
-<a href="/service-areas/windsor-square/gates-welding/">🔩 Gates & Welding</a>
+</section>
 
+<!-- ===== FULL NEIGHBORHOOD GRID ===== -->
+<section class="grid-section">
+ <div class="grid-inner">
+ <div class="section-label">All Service Areas</div>
+ <h2>33 Neighborhoods We Serve</h2>
+ <p class="section-sub">If you're on the Westside or in greater LA — we're your team.</p>
+ <div class="neighborhood-grid">
+ <a href="/service-areas/bel-air/">Bel Air</a>
+ <a href="/service-areas/beverly-grove/">Beverly Grove</a>
+ <a href="/service-areas/beverly-hills/">Beverly Hills</a>
+ <span>Beverlywood</span>
+ <a href="/service-areas/brentwood/">Brentwood</a>
+ <a href="/service-areas/carthay/">Carthay</a>
+ <a href="/service-areas/century-city/">Century City</a>
+ <span>Cheviot Hills</span>
+ <a href="/service-areas/culver-city/">Culver City</a>
+ <a href="/service-areas/east-hollywood/">East Hollywood</a>
+ <a href="/service-areas/fairfax-district/">Fairfax District</a>
+ <a href="/service-areas/hancock-park/">Hancock Park</a>
+ <a href="/service-areas/koreatown/">Koreatown</a>
+ <a href="/service-areas/larchmont/">Larchmont</a>
+ <a href="/service-areas/los-feliz/">Los Feliz</a>
+ <a href="/service-areas/los-angeles/">Los Angeles</a>
+ <a href="/service-areas/mar-vista/">Mar Vista</a>
+ <a href="/service-areas/marina-del-rey/">Marina del Rey</a>
+ <a href="/service-areas/mid-city/">Mid-City</a>
+ <span>Mid-Wilshire</span>
+ <a href="/service-areas/miracle-mile/">Miracle Mile</a>
+ <a href="/service-areas/pacific-palisades/">Pacific Palisades</a>
+ <a href="/service-areas/palms/">Palms</a>
+ <a href="/service-areas/park-la-brea/">Park La Brea</a>
+ <a href="/service-areas/pico-robertson/">Pico-Robertson</a>
+ <a href="/service-areas/playa-vista/">Playa Vista</a>
+ <span>Rancho Park</span>
+ <a href="/service-areas/santa-monica/">Santa Monica</a>
+ <a href="/service-areas/silver-lake/">Silver Lake</a>
+ <a href="/service-areas/west-hollywood/">West Hollywood</a>
+ <a href="/service-areas/west-los-angeles/">West Los Angeles</a>
+ <a href="/service-areas/westwood/">Westwood</a>
+ <a href="/service-areas/windsor-square/">Windsor Square</a>
  </div>
  </div>
- </div>
-</div>
+</section>
 
-<div class="city-section">
- <div class="section-label">Where We Work</div>
- <h2>All LA <span>Neighborhoods</span></h2>
- <p class="section-sub">If you're in Los Angeles County, we're your team. Here are just some of the cities we serve:</p>
- <div class="city-grid">
- <a href="/service-areas/miracle-mile/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Miracle Mile</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/beverly-grove/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Beverly Grove</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/larchmont/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Larchmont</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/carthay/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Carthay</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/mid-city/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Mid-City</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/park-la-brea/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Park La Brea</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/pico-robertson/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Pico-Robertson</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/windsor-square/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Windsor Square</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/santa-monica/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Santa Monica</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Culver City</h3><p>Same-day available</p></div><a href="/service-areas/west-hollywood/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>West Hollywood</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/beverly-hills/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Beverly Hills</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/brentwood/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Brentwood</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/pacific-palisades/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Pacific Palisades</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Sherman Oaks</h3><p>Same-day available</p></div><a href="/service-areas/burbank/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Burbank</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><a href="/service-areas/glendale/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Glendale</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Inglewood</h3><p>Same-day available</p></div><div class="city-card"><h3>Los Feliz</h3><p>Same-day available</p></div><div class="city-card"><h3>Silver Lake</h3><p>Same-day available</p></div><div class="city-card"><h3>Echo Park</h3><p>Same-day available</p></div><div class="city-card"><h3>Highland Park</h3><p>Same-day available</p></div><a href="/service-areas/koreatown/" class="city-card" style="text-decoration:none;cursor:pointer"><h3>Koreatown</h3><p style="color:#FFDC00;font-weight:600">View Services →</p></a><div class="city-card"><h3>Westlake</h3><p>Same-day available</p></div><div class="city-card"><h3>Mar Vista</h3><p>Same-day available</p></div><div class="city-card"><h3>Westchester</h3><p>Same-day available</p></div><div class="city-card"><h3>Playa del Rey</h3><p>Same-day available</p></div><div class="city-card"><h3>Marina del Rey</h3><p>Same-day available</p></div><div class="city-card"><h3>Venice</h3><p>Same-day available</p></div><div class="city-card"><h3>Palms</h3><p>Same-day available</p></div><div class="city-card"><h3>Sawtelle</h3><p>Same-day available</p></div>
+<!-- ===== CTA + FORM ===== -->
+<section class="cta-section">
+ <div class="cta-inner">
+ <div class="section-label">Get Started</div>
+ <h2>Ready to Book?</h2>
+ <p class="section-sub">No service call fees. Callback within 1 hour. 6-month warranty on every job.</p>
  </div>
-</div>
+</section>
+
 <section class="form-section" id="book">
 <div class="form-split">
  <div class="form-brand">
@@ -965,8 +894,8 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <input type="email" placeholder="Email Address" name="email" required>
  <input type="text" placeholder="Address or City" name="address">
  <select aria-label="Select a service type" name="service"><option value="">Select Your Service</option><option>Repair</option><option>Installation / Replacement</option><option>Inspection / Assessment</option><option>Maintenance</option><option>Emergency</option></select>
- <select aria-label="Select preferred call-back time" name="callback_time"><option value="">Preferred Call-Back Time</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Evening (5pm–8pm)</option><option>ASAP — Urgent</option></select>
- <button type="submit">📋 Book Free Estimate →</button>
+ <select aria-label="Select preferred call-back time" name="callback_time"><option value="">Preferred Call-Back Time</option><option>Morning (8am-12pm)</option><option>Afternoon (12pm-5pm)</option><option>Evening (5pm-8pm)</option><option>ASAP - Urgent</option></select>
+ <button type="submit">Book Free Estimate</button>
  </form>
  </div>
 </div>
@@ -1001,7 +930,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <li><a href="/hvac/">HVAC</a></li>
  <li><a href="/plumbing/">Plumbing</a></li>
  <li><a href="/electrical/">Electrical</a></li>
- 
  <li><a href="/painting/">Painting</a></li>
  <li><a href="/restoration/">Restoration</a></li>
  <li><a href="/gates-garage-doors/">Gates &amp; Garage Doors</a></li>
@@ -1029,21 +957,21 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <ul>
  <li><a href="/service-areas/beverly-hills/">Beverly Hills</a></li>
  <li><a href="/service-areas/santa-monica/">Santa Monica</a></li>
- <li><a href="/service-areas/pasadena/">Pasadena</a></li>
- <li><a href="/service-areas/burbank/">Burbank</a></li>
- <li><a href="/service-areas/glendale/">Glendale</a></li>
  <li><a href="/service-areas/west-hollywood/">West Hollywood</a></li>
+ <li><a href="/service-areas/brentwood/">Brentwood</a></li>
+ <li><a href="/service-areas/pacific-palisades/">Pacific Palisades</a></li>
+ <li><a href="/service-areas/hancock-park/">Hancock Park</a></li>
  </ul>
  </div>
  </div>
  <div class="footer-bottom">
- <p>© 2026 Atlas Home Pro. All rights reserved. Licensed & Insured. Serving Los Angeles County.<br>145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
+ <p>&copy; 2026 Atlas Home Pro. All rights reserved. Licensed & Insured. Serving Los Angeles County.<br>145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
  </div>
  </footer>
 
  <div class="sticky-bar">
- <a href="tel:+12132752210">📞 Call Now</a>
- <a href="#book">📋 Book Online</a>
+ <a href="tel:+12132752210">Call (213) 275-2210</a>
+ <a href="#book">Book Online</a>
 </div>
 <script>
 // Mobile dropdown toggle
