@@ -411,6 +411,78 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
 .btn-az:hover { background: #131921; color: #FFB84D; }
 .badge-az-wins { background: #FF9900; color: #232F3E; font-weight: 800; }
 .big-price-lbl.lbl-az { color: #FF9900; }
+
+/* ── SUPPLIERS ── */
+.sup-filter-bar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+.sup-filter-btn {
+  font-family:'DM Sans',sans-serif; font-size:12px; font-weight:600;
+  padding:8px 16px; border-radius:20px; border:1.5px solid var(--gray-200);
+  background:var(--white); color:var(--gray-500); cursor:pointer;
+  transition:all 0.15s; white-space:nowrap;
+}
+.sup-filter-btn:hover { border-color:var(--gray-400); color:var(--gray-700); }
+.sup-filter-btn.active { background:var(--navy); color:var(--white); border-color:var(--navy); }
+.sup-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; }
+.sup-card {
+  background:var(--white); border-radius:var(--radius); padding:20px;
+  box-shadow:var(--shadow-sm); border:1px solid var(--gray-200);
+  display:flex; flex-direction:column; gap:10px; transition:box-shadow 0.15s;
+}
+.sup-card:hover { box-shadow:var(--shadow); }
+.sup-card-header { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.sup-name { font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; color:var(--gray-900); }
+.sup-badge {
+  font-size:10px; font-weight:700; padding:3px 8px; border-radius:4px;
+  text-transform:uppercase; letter-spacing:0.5px; line-height:1;
+}
+.sup-badge.pri { background:#D1FAE5; color:#065F46; }
+.sup-badge.sec { background:#FEF3C7; color:#92400E; }
+.sup-badge.bak { background:var(--gray-100); color:var(--gray-500); }
+.sup-badge.onl { background:#DBEAFE; color:#1E40AF; }
+.sup-trade-badge {
+  font-size:10px; font-weight:600; padding:3px 8px; border-radius:4px;
+  letter-spacing:0.3px; line-height:1;
+}
+.sup-trade-plumbing { background:#EBF5FF; color:#1D4ED8; }
+.sup-trade-hvac { background:#F0FDF4; color:#15803D; }
+.sup-trade-electrical { background:#FEF9C3; color:#A16207; }
+.sup-trade-gates { background:#FDF2F8; color:#BE185D; }
+.sup-trade-painting { background:#F5F3FF; color:#7C3AED; }
+.sup-trade-roofing { background:#FFF1F2; color:#BE123C; }
+.sup-trade-water { background:#ECFEFF; color:#0E7490; }
+.sup-trade-tile { background:#FFF7ED; color:#C2410C; }
+.sup-trade-appliance { background:#F0F9FF; color:#0369A1; }
+.sup-trade-landscaping { background:#F0FDF4; color:#166534; }
+.sup-detail { font-size:12.5px; color:var(--gray-500); line-height:1.5; }
+.sup-detail strong { color:var(--gray-700); font-weight:600; }
+.sup-notes { font-size:12px; color:var(--gray-400); line-height:1.5; font-style:italic; }
+.sup-actions { display:flex; gap:8px; margin-top:auto; padding-top:4px; }
+.sup-actions a {
+  font-size:12px; font-weight:600; padding:8px 14px; border-radius:var(--radius-sm);
+  text-decoration:none; text-align:center; transition:all 0.15s; flex:1;
+}
+.sup-btn-call { background:var(--green); color:var(--white); }
+.sup-btn-call:hover { background:#15803D; }
+.sup-btn-dir { background:var(--navy-light); color:var(--navy); }
+.sup-btn-dir:hover { background:#DCE2EF; }
+.sup-btn-web { background:var(--gray-100); color:var(--gray-700); }
+.sup-btn-web:hover { background:var(--gray-200); }
+.sup-stats-bar {
+  display:flex; gap:1px; background:var(--gray-200);
+  border-radius:var(--radius); overflow:hidden;
+  margin-bottom:24px; box-shadow:var(--shadow-sm);
+}
+.sup-stat-item {
+  flex:1; background:var(--white); padding:14px 16px; min-width:100px;
+  display:flex; flex-direction:column; gap:4px;
+}
+.sup-stat-item .sl { font-size:10px; color:var(--gray-400); text-transform:uppercase; font-weight:600; letter-spacing:0.5px; }
+.sup-stat-item .sv { font-size:20px; font-weight:700; color:var(--navy); font-family:'Bebas Neue',sans-serif; letter-spacing:1px; }
+@media(max-width:768px) {
+  .sup-grid { grid-template-columns:1fr; }
+  .sup-stats-bar { flex-wrap:wrap; }
+  .sup-stat-item { min-width:calc(50% - 1px); }
+}
 </style>
 </head>
 <body>
@@ -439,6 +511,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
       <button class="tab-btn" onclick="showTab('roadmap',this)">📋 Ops Roadmap</button>
       <button class="tab-btn" onclick="showTab('automation',this)">⚡ Automation</button>
       <button class="tab-btn" onclick="showTab('inventory',this)">📦 Inv. System</button>
+      <button class="tab-btn" onclick="showTab('suppliers',this)">🏭 Suppliers</button>
     </div>
   </div>
 </header>
@@ -917,6 +990,38 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
   <div id="inv-content"></div>
 </div>
 
+
+<div id="tab-suppliers" class="tab-panel">
+  <div class="page-title">
+    <h2>Supplier Directory</h2>
+    <p>All approved vendors across 10 trades · Sorted by priority · From 90036 HQ</p>
+  </div>
+
+  <div class="sup-stats-bar">
+    <div class="sup-stat-item"><span class="sl">Total Suppliers</span><span class="sv">67</span></div>
+    <div class="sup-stat-item"><span class="sl">Trades</span><span class="sv">10</span></div>
+    <div class="sup-stat-item"><span class="sl">Primary</span><span class="sv" style="color:var(--green)">29</span></div>
+    <div class="sup-stat-item"><span class="sl">Secondary</span><span class="sv" style="color:var(--amber)">23</span></div>
+    <div class="sup-stat-item"><span class="sl">Backup / Online</span><span class="sv" style="color:var(--gray-400)">15</span></div>
+  </div>
+
+  <div class="sup-filter-bar" id="sup-filters">
+    <button class="sup-filter-btn active" onclick="filterSup('All',this)">All</button>
+    <button class="sup-filter-btn" onclick="filterSup('Plumbing',this)">Plumbing</button>
+    <button class="sup-filter-btn" onclick="filterSup('HVAC',this)">HVAC</button>
+    <button class="sup-filter-btn" onclick="filterSup('Electrical',this)">Electrical</button>
+    <button class="sup-filter-btn" onclick="filterSup('Gates & Garage Doors',this)">Gates & Garage Doors</button>
+    <button class="sup-filter-btn" onclick="filterSup('Painting',this)">Painting</button>
+    <button class="sup-filter-btn" onclick="filterSup('Roofing',this)">Roofing</button>
+    <button class="sup-filter-btn" onclick="filterSup('Water Restoration',this)">Water Restoration</button>
+    <button class="sup-filter-btn" onclick="filterSup('Tile & Stone',this)">Tile & Stone</button>
+    <button class="sup-filter-btn" onclick="filterSup('Appliance Repair',this)">Appliance Repair</button>
+    <button class="sup-filter-btn" onclick="filterSup('Landscaping',this)">Landscaping</button>
+  </div>
+
+  <div class="sup-grid" id="sup-grid"></div>
+</div>
+
 </main>
 
 <script>
@@ -1209,6 +1314,135 @@ inv.forEach(s => {
   invHtml += `</div>`;
 });
 document.getElementById('inv-content').innerHTML = invHtml;
+
+// ── SUPPLIERS DATA + RENDERING ──
+const suppliers = [
+  {name:"Hirsch Pipe & Supply (Gower)",trade:"Plumbing",tier:"PRIMARY",addr:"1011 N Gower St, LA 90038",dist:"~1 mi",web:"hirsch.com",hours:"",notes:"Founded 1933. 30 SoCal branches. 25,000+ SKUs. Same-day delivery. 24/7 online ordering."},
+  {name:"Hirsch Pipe & Supply (Jefferson)",trade:"Plumbing",tier:"PRIMARY",addr:"3317 W Jefferson Blvd, LA 90018",dist:"~3 mi",web:"hirsch.com",hours:"",notes:"Second closest branch. Same inventory and contractor accounts."},
+  {name:"Ferguson Plumbing Supply",trade:"Plumbing",tier:"PRIMARY",addr:"Culver City + West Hollywood",dist:"~5–8 mi",web:"ferguson.com",hours:"",notes:"Plumbing + HVAC. Fixtures, fittings, water heaters. Showroom for client selections."},
+  {name:"HD Supply / Contractors Warehouse",trade:"Plumbing",tier:"SECONDARY",addr:"11407 S Western Ave, LA 90047",dist:"~7 mi",web:"hdsupply.com",hours:"",notes:"20,000+ MRO products. Next-day delivery. LA distribution center."},
+  {name:"Hajoca",trade:"Plumbing",tier:"SECONDARY",addr:"Los Angeles area",dist:"~10 mi",web:"hajoca.com",hours:"",notes:"Employee-owned. Strong on residential plumbing. Contractor accounts."},
+  {name:"SupplyHouse.com",trade:"Plumbing",tier:"BACKUP",addr:"Online",dist:"Online",web:"supplyhouse.com",hours:"",notes:"Massive online catalog. Good for obscure parts after-hours. Fast shipping."},
+  {name:"Home Depot",trade:"Plumbing",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",hours:"",notes:"Emergency/overflow. Common fittings in a pinch."},
+  {name:"Ferguson HVAC Supply",trade:"HVAC",tier:"PRIMARY",addr:"Culver City + West Hollywood",dist:"~5–8 mi",web:"ferguson.com",hours:"",notes:"Covers HVAC + plumbing. Samsung VRF training. Strong on equipment + parts."},
+  {name:"US Air Conditioning Distributors",trade:"HVAC",tier:"PRIMARY",addr:"Los Angeles (50 CA locations)",dist:"~10 mi",web:"us-ac.com",hours:"",notes:"World\'s largest private HVAC distributor. York, Samsung, QuietCool. Beats competitor prices."},
+  {name:"Johnstone Supply",trade:"HVAC",tier:"SECONDARY",addr:"Los Angeles branch",dist:"~8 mi",web:"johnstonesupply.com",hours:"",notes:"HVACR equipment, parts, supplies. Contractor-only. Strong on refrigerant."},
+  {name:"United Refrigeration (URI)",trade:"HVAC",tier:"SECONDARY",addr:"Los Angeles area",dist:"~10 mi",web:"uri.com",hours:"",notes:"One of the largest HVACR wholesale distributors nationally. Strong on commercial AC."},
+  {name:"Cold Air Central",trade:"HVAC",tier:"BACKUP",addr:"Online",dist:"Online",web:"coldaircentral.com",hours:"",notes:"Full HVAC parts catalog. Copper tubing, compressors, controls, filters. Same-day sourcing."},
+  {name:"David\'s Family Relationships",trade:"Electrical",tier:"PRIMARY",addr:"TBD",dist:"—",web:"",hours:"",notes:"Multiple electrical supply house relationships through family network. Primary sourcing channel."},
+  {name:"Walters Wholesale Electric",trade:"Electrical",tier:"SECONDARY",addr:"LAX / Culver City area",dist:"~8 mi",web:"walterswholesale.com",hours:"",notes:"Full-service electrical wholesale. Serves LA, Marina Del Rey, Culver City, Santa Monica."},
+  {name:"Hollywood Wholesale Electric",trade:"Electrical",tier:"SECONDARY",addr:"Hollywood / Los Angeles",dist:"~3 mi",web:"hollywoodwholesaleelectric.com",hours:"",notes:"Full electrical distributor in LA. Lutron dimmers, LED, landscape lighting."},
+  {name:"SupplyHouse.com Electrical",trade:"Electrical",tier:"ONLINE",addr:"Online",dist:"Online",web:"supplyhouse.com",hours:"",notes:"Rush shipping. Panels, conduit, controls, breakers, disconnect switches."},
+  {name:"Platt Electric Supply",trade:"Electrical",tier:"ONLINE",addr:"Online",dist:"Online",web:"platt.com",hours:"",notes:"Industrial + residential. Full online catalog. Contractor pricing."},
+  {name:"Master Halco",trade:"Gates & Garage Doors",tier:"PRIMARY",addr:"Los Angeles branch",dist:"~10 mi",web:"masterhalco.com",hours:"",notes:"Largest fence/gate manufacturer and wholesale distributor in North America. Chain link, ornamental, vinyl."},
+  {name:"Multi Sales",trade:"Gates & Garage Doors",tier:"PRIMARY",addr:"5600 Fresca Dr, La Palma CA 90623",dist:"~25 mi",web:"multisalesinc.com",hours:"",notes:"Wholesale-only garage door + gate operator distributor. 4,500+ products. Sectional doors, radio controls, access systems."},
+  {name:"Clopay LA Distribution Center",trade:"Gates & Garage Doors",tier:"PRIMARY",addr:"16701 Knott Ave, La Mirada CA 90638",dist:"~25 mi",web:"clopaydoor.com",hours:"",notes:"North America\'s largest garage door manufacturer. Corporate-owned DC serving LA County."},
+  {name:"LiftMaster (Chamberlain Group)",trade:"Gates & Garage Doors",tier:"PRIMARY",addr:"Dealer Program",dist:"N/A",web:"liftmaster.com",hours:"",notes:"Authorized dealer program. Tiered pricing, co-op funds, training, tech support. Garage door openers."},
+  {name:"Wayne Dalton Sales Center (Chatsworth)",trade:"Gates & Garage Doors",tier:"PRIMARY",addr:"8921 Quartz Ave, Northridge CA 91324",dist:"~30 mi",web:"wayne-dalton.com",hours:"",notes:"Full-service manufacturer sales center with delivery. Residential & commercial sectional doors."},
+  {name:"Globus Gates",trade:"Gates & Garage Doors",tier:"SECONDARY",addr:"Southern California",dist:"Direct",web:"globusgates.com",hours:"",notes:"Factory-direct aluminum gates, fences, pergolas, garage doors. 16+ years. Fire-resistant aluminum."},
+  {name:"CPSG (Controlled Products Systems Group)",trade:"Gates & Garage Doors",tier:"SECONDARY",addr:"Ships to LA",dist:"Ships",web:"cpsgonline.com",hours:"",notes:"Largest wholesale distributor of perimeter access control in US. Gate operators, access control."},
+  {name:"INSTOCK Garage Doors Supply",trade:"Gates & Garage Doors",tier:"SECONDARY",addr:"Greater Los Angeles",dist:"Within LA",web:"instockgaragedoors.com",hours:"",notes:"B2B only — no retail. Serves LA Basin contractors. Garage doors, parts, installation hardware."},
+  {name:"Cali Garage Door Parts",trade:"Gates & Garage Doors",tier:"SECONDARY",addr:"713 N Victory Blvd, Burbank CA 91502",dist:"~15 mi",web:"caligaragedoorparts.com",hours:"Mon–Sun 8am–5pm",notes:"Warehouse + counter pickup. Open 7 days. Torsion springs, cables, rollers, hinges."},
+  {name:"BD Garage Door & Gate Supply",trade:"Gates & Garage Doors",tier:"SECONDARY",addr:"15115 Califa St, Van Nuys CA",dist:"~20 mi",web:"bdgaragedoor.com",hours:"",notes:"Wholesale to contractors. Serves Greater LA. Garage doors, gates, openers, access control."},
+  {name:"Wayne Dalton (Santa Ana)",trade:"Gates & Garage Doors",tier:"BACKUP",addr:"1043 E 4th St, Santa Ana CA 92701",dist:"~40 mi",web:"wayne-dalton.com",hours:"",notes:"Backup DC location for south OC job sites."},
+  {name:"Action Direct",trade:"Gates & Garage Doors",tier:"BACKUP",addr:"Online",dist:"Online",web:"actiondirect.com",hours:"",notes:"Online wholesale for oddball repairs, legacy/discontinued parts, low-volume SKUs."},
+  {name:"Sherwin-Williams (La Cienega)",trade:"Painting",tier:"PRIMARY",addr:"1404 S La Cienega Blvd, LA 90035",dist:"~1 mi",web:"sherwin-williams.com",hours:"Opens 6am M–F",notes:"Closest to 90036. Pro Contractor program."},
+  {name:"Sherwin-Williams Commercial (Venice)",trade:"Painting",tier:"PRIMARY",addr:"1367 Venice Blvd, LA 90006",dist:"~3 mi",web:"sherwin-williams.com",hours:"Opens 6am M–Sa",notes:"Commercial-grade coatings. Better pricing for high-volume contractors."},
+  {name:"Dunn-Edwards",trade:"Painting",tier:"PRIMARY",addr:"2001 S Hoover St, LA 90007",dist:"~4 mi",web:"dunnedwards.com",hours:"",notes:"SoCal brand. Contractor accounts. Eco-friendly line. PaintCare recycling program."},
+  {name:"Home Depot",trade:"Painting",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",hours:"",notes:"Emergency/overflow. Behr, PPG, Glidden."},
+  {name:"Lowe\'s",trade:"Painting",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"lowes.com",hours:"",notes:"Valspar, HGTV Home. Good for sundries, drop cloths, tape."},
+  {name:"Beacon Building Products (LA)",trade:"Roofing",tier:"PRIMARY",addr:"3400 S Main St, LA 90037",dist:"~5 mi",web:"becn.com",hours:"",notes:"One of the largest roofing distributors in North America. GAF, CertainTeed, Carlisle."},
+  {name:"Beacon Building Products (Gardena)",trade:"Roofing",tier:"PRIMARY",addr:"185 W Rosecrans Ave, Gardena 90249",dist:"~12 mi",web:"becn.com",hours:"",notes:"Second Beacon location. Good fallback if LA branch is out of stock."},
+  {name:"ABC Supply",trade:"Roofing",tier:"PRIMARY",addr:"Los Angeles area",dist:"~10–15 mi",web:"abcsupply.com",hours:"",notes:"National roofing + building products wholesale. Shingles, tile, siding, windows. Contractor-only."},
+  {name:"HD Supply",trade:"Roofing",tier:"SECONDARY",addr:"11407 S Western Ave, LA 90047",dist:"~7 mi",web:"hdsupply.com",hours:"",notes:"Roofing accessories, fasteners, waterproofing. Useful for MRO roofing items."},
+  {name:"Home Depot Pro Desk",trade:"Roofing",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",hours:"",notes:"Emergency supplies. Tarps, underlayment, fasteners. Bulk contractor pricing."},
+  {name:"AlorAir / TheDryAir.com",trade:"Water Restoration",tier:"PRIMARY",addr:"Online",dist:"Online",web:"thedryair.com",hours:"",notes:"Best pricing on wholesale bundles. LGR dehumidifiers, air movers, HEPA air scrubbers. Free air mover with restoration combo."},
+  {name:"Dri-Eaz (Legend Brands)",trade:"Water Restoration",tier:"PRIMARY",addr:"Online / Distributors",dist:"Online",web:"legendbrands.com",hours:"",notes:"Industry gold standard. IICRC-recognized. Commercial dehumidifiers, air movers, structural drying systems."},
+  {name:"Jon-Don",trade:"Water Restoration",tier:"SECONDARY",addr:"National + local branches",dist:"~15 mi",web:"jondon.com",hours:"",notes:"Full-service restoration supply. Equipment + chemicals + IICRC training. Mold remediation supplies."},
+  {name:"Air Chaser / XPOWER",trade:"Water Restoration",tier:"BACKUP",addr:"Online",dist:"Online",web:"airchaser.com",hours:"",notes:"Flood restoration combo packages. Starter to expert pro packages. Good value for equipping first truck."},
+  {name:"Emser Tile",trade:"Tile & Stone",tier:"PRIMARY",addr:"8431 Santa Monica Blvd, West Hollywood CA 90069",dist:"~3 mi",web:"emser.com",hours:"Opens 7:30am M–F",notes:"HQ\'d in LA since 1968. Largest privately-held tile/stone designer in the US. Contractor accounts."},
+  {name:"Daltile (Culver City)",trade:"Tile & Stone",tier:"PRIMARY",addr:"Culver City Sales Service Center — 25,000 sq ft",dist:"~6 mi",web:"daltile.com",hours:"",notes:"Owned by Mohawk Industries. Massive contractor showroom. Bilingual staff. Delivery + pickup."},
+  {name:"Daltile / Marazzi (Los Angeles)",trade:"Tile & Stone",tier:"PRIMARY",addr:"Near Dodger Stadium — 26,000 sq ft",dist:"~8 mi",web:"marazziusa.com",hours:"",notes:"Same ownership as Daltile. Marazzi + American Olean + Daltile all under one roof. 35+ years."},
+  {name:"Bedrosians Tile & Stone",trade:"Tile & Stone",tier:"PRIMARY",addr:"Los Angeles + multiple SoCal locations",dist:"~8 mi",web:"bedrosians.com",hours:"",notes:"Founded 1948. One of the largest independent tile importers in US. 44 CA branches. Contractor wholesale."},
+  {name:"Porcelanosa",trade:"Tile & Stone",tier:"SECONDARY",addr:"Los Angeles area",dist:"~10 mi",web:"porcelanosa.com",hours:"",notes:"Spanish luxury brand. High-end porcelain, natural stone, kitchen, bath. Premium West LA residential."},
+  {name:"MSI Surfaces",trade:"Tile & Stone",tier:"SECONDARY",addr:"Los Angeles area",dist:"~10 mi",web:"msisurfaces.com",hours:"",notes:"Leading importer of flooring, countertops, backsplash tile, hardscaping. Contractor accounts."},
+  {name:"Arizona Tile",trade:"Tile & Stone",tier:"SECONDARY",addr:"Los Angeles / SoCal",dist:"~12 mi",web:"arizonatile.com",hours:"",notes:"40+ years. Tile, stone, quartz slabs. Large slab yard with online inventory."},
+  {name:"ProSource Wholesale",trade:"Tile & Stone",tier:"SECONDARY",addr:"Los Angeles showroom",dist:"~10 mi",web:"prosourcewholesale.com",hours:"",notes:"Trade-only. Contractor/designer accounts required. 50+ brands at wholesale pricing."},
+  {name:"Home Depot Tile Dept",trade:"Tile & Stone",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",hours:"",notes:"Emergency tile runs. MSI and select brands. Pro Desk contractor pricing."},
+  {name:"Floor & Decor",trade:"Tile & Stone",tier:"BACKUP",addr:"Multiple LA area",dist:"~10–15 mi",web:"flooranddecor.com",hours:"",notes:"Large warehouse format. Open to contractors. Good selection of in-stock floor tile, grout, setting materials."},
+  {name:"Coast Appliance Parts",trade:"Appliance Repair",tier:"PRIMARY",addr:"Los Angeles + So. El Monte",dist:"~8 mi",web:"coastparts.com",hours:"Will-call 8–5 M–F",notes:"In business since 1958. 13 CA locations. OEM authorized for Samsung, LG, GE, Whirlpool, Bosch, Thermador, Dacor."},
+  {name:"Marcone",trade:"Appliance Repair",tier:"PRIMARY",addr:"National, ships to LA",dist:"Ships",web:"marcone.com",hours:"",notes:"Largest OEM appliance parts distributor in the US. GE, Whirlpool, Electrolux, Samsung, LG, Bosch. AI-powered parts lookup."},
+  {name:"Encompass Parts",trade:"Appliance Repair",tier:"SECONDARY",addr:"Ships nationwide",dist:"Online",web:"encompass.com",hours:"",notes:"350+ brands. OEM genuine parts. Samsung, LG, Dacor, Whirlpool. B2B accounts."},
+  {name:"Reliable Parts",trade:"Appliance Repair",tier:"SECONDARY",addr:"Ships nationwide",dist:"Online",web:"reliableparts.com",hours:"",notes:"OEM parts for Whirlpool, Frigidaire, Samsung, Kenmore. Flat-rate shipping. Lookup by model number."},
+  {name:"SiteOne Landscape Supply",trade:"Landscaping",tier:"PRIMARY",addr:"Canoga Park + multiple SoCal",dist:"~15 mi",web:"siteone.com",hours:"",notes:"Largest national wholesale landscape distributor. 500+ branches. Irrigation, hardscape, nursery, lighting, turf."},
+  {name:"Devil Mountain Wholesale Nursery",trade:"Landscaping",tier:"PRIMARY",addr:"Multiple CA including SoCal",dist:"~15 mi",web:"devilmountainnursery.com",hours:"",notes:"Wholesale-only. Landscape trade accounts. Trees, shrubs, natives, succulents, drought-tolerant."},
+  {name:"Armstrong Growers",trade:"Landscaping",tier:"PRIMARY",addr:"Serves CA, AZ, NV, UT, NM",dist:"Regional",web:"armstronggrowers.com",hours:"",notes:"Employee-owned. 30+ years. Wide selection of healthy plants. Resorts, commercial, residential."},
+  {name:"C&S Nursery",trade:"Landscaping",tier:"PRIMARY",addr:"Los Angeles",dist:"Local",web:"csnursery.com",hours:"",notes:"LA-based wholesale nursery. Ornamental shrubs, grasses, tropical, annuals, perennials, native plants, succulents."},
+  {name:"Berylwood Tree Farm",trade:"Landscaping",tier:"SECONDARY",addr:"Ventura County — delivers to LA",dist:"~40 mi",web:"berylwoodtreefarm.com",hours:"",notes:"Founded 1969. Specimen trees, vines, shrubs, succulents. Getty Center vendor."},
+  {name:"Briggs Tree Company",trade:"Landscaping",tier:"SECONDARY",addr:"Vista, San Diego County — delivers to LA",dist:"~60 mi",web:"briggstree.com",hours:"",notes:"200-acre growing grounds. 45 years. Trees, palms, succulents, fruit trees. Delivery to LA County."},
+  {name:"Ricardo\'s Nursery",trade:"Landscaping",tier:"SECONDARY",addr:"Long Beach, CA",dist:"~20 mi",web:"ricardosnursery.com",hours:"7 days/week",notes:"Award-winning. 6-acre lot. Contractor + insurance company wholesale accounts. Drought-tolerant specialists."},
+  {name:"California Greenhouses",trade:"Landscaping",tier:"SECONDARY",addr:"Los Angeles",dist:"~10 mi",web:"calgreenhouses.com",hours:"",notes:"LA-based wholesale garden nursery. Interior + exterior plants. Landscape contractor accounts."},
+  {name:"Home Depot Garden Center",trade:"Landscaping",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"homedepot.com",hours:"",notes:"Emergency plant runs. Seasonal color, sod, basic shrubs, bags of soil/mulch. Pro Desk bulk pricing."},
+  {name:"Lowe\'s Garden Center",trade:"Landscaping",tier:"BACKUP",addr:"Multiple within 15 mi",dist:"Various",web:"lowes.com",hours:"",notes:"Backup for plants, soil, pavers, irrigation basics. Same-day fill-ins on smaller jobs."},
+];
+
+const tradeConfig = {
+  "Plumbing":{emoji:"🔧",cls:"plumbing"},
+  "HVAC":{emoji:"❄️",cls:"hvac"},
+  "Electrical":{emoji:"⚡",cls:"electrical"},
+  "Gates & Garage Doors":{emoji:"🚪",cls:"gates"},
+  "Painting":{emoji:"🎨",cls:"painting"},
+  "Roofing":{emoji:"🏠",cls:"roofing"},
+  "Water Restoration":{emoji:"💧",cls:"water"},
+  "Tile & Stone":{emoji:"🪨",cls:"tile"},
+  "Appliance Repair":{emoji:"🔌",cls:"appliance"},
+  "Landscaping":{emoji:"🌿",cls:"landscaping"},
+};
+const tierConfig = {
+  "PRIMARY":{label:"PRIMARY",cls:"pri"},
+  "SECONDARY":{label:"SECONDARY",cls:"sec"},
+  "BACKUP":{label:"BACKUP",cls:"bak"},
+  "ONLINE":{label:"ONLINE",cls:"onl"},
+};
+
+function supCard(s) {
+  const tc = tradeConfig[s.trade]||{emoji:"📦",cls:"other"};
+  const tl = tierConfig[s.tier]||{label:s.tier,cls:"bak"};
+  const webLink = s.web ? `<a href="https://${s.web}" target="_blank" class="sup-btn-web sup-actions-btn">🌐 Website</a>` : '';
+  const addrEnc = encodeURIComponent(s.addr);
+  const dirLink = s.addr && s.addr !== 'Online' && s.addr !== 'TBD' && s.addr !== 'Dealer Program' ?
+    `<a href="https://maps.google.com/?q=${addrEnc}" target="_blank" class="sup-btn-dir sup-actions-btn">📍 Directions</a>` : '';
+  const hoursLine = s.hours ? `<div class="sup-detail"><strong>🕐 Hours:</strong> ${s.hours}</div>` : '';
+
+  return `<div class="sup-card" data-trade="${s.trade}">
+    <div class="sup-card-header">
+      <span class="sup-name">${s.name}</span>
+      <span class="sup-badge ${tl.cls}">${tl.label}</span>
+      <span class="sup-trade-badge sup-trade-${tc.cls}">${tc.emoji} ${s.trade}</span>
+    </div>
+    <div class="sup-detail"><strong>📍</strong> ${s.addr}${s.dist && s.dist !== '—' ? ` · <strong>${s.dist}</strong>` : ''}</div>
+    ${hoursLine}
+    <div class="sup-notes">${s.notes}</div>
+    <div class="sup-actions">
+      ${webLink}
+      ${dirLink}
+    </div>
+  </div>`;
+}
+
+function renderSup(filter) {
+  const list = filter === 'All' ? suppliers : suppliers.filter(s => s.trade === filter);
+  document.getElementById('sup-grid').innerHTML = list.map(supCard).join('');
+}
+
+function filterSup(cat, btn) {
+  document.querySelectorAll('#sup-filters .sup-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSup(cat);
+}
+
+renderSup('All');
+
 </script>
 </body>
 </html>
