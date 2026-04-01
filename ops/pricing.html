@@ -3,569 +3,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Home Pro — Job Pricing Calculator</title>
+<title>Atlas Home Pro — Job Pricing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --red:#C0392B; --red-d:#A93226; --red-light:#FDECEA;
-  --navy:#1B2A47; --navy-d:#12203A;
-  --green:#16A34A; --green-light:#F0FDF4;
-  --amber:#D97706; --amber-light:#FFFBEB;
-  --orange:#F96302; --orange-light:#FFF4EE;
-  --gray-50:#F9FAFB; --gray-100:#F3F4F6; --gray-200:#E5E7EB;
-  --gray-300:#D1D5DB; --gray-400:#9CA3AF; --gray-500:#6B7280;
-  --gray-700:#374151; --gray-900:#111827; --white:#FFFFFF;
-}
+:root{--red:#C0392B;--red-light:#FDECEA;--navy:#1B2A47;--navy-d:#12203A;--green:#16A34A;--green-light:#F0FDF4;--amber:#D97706;--amber-light:#FFFBEB;--gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151;--gray-900:#111827;--white:#FFFFFF;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-900);min-height:100vh;-webkit-font-smoothing:antialiased;}
-
-/* HEADER */
-.header{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:50;}
-.header-logo{width:32px;height:32px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;}
-.header-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:white;letter-spacing:2px;}
-.header-sub{font-size:11px;color:rgba(255,255,255,0.45);margin-left:4px;}
-.back-btn{margin-left:auto;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-decoration:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;}
-.back-btn:hover{color:white;}
-
-/* MAIN */
-.main{max-width:900px;margin:0 auto;padding:24px 16px;}
-
-/* MODE TOGGLE */
-.mode-toggle{display:flex;gap:8px;margin-bottom:24px;}
-.mode-btn{flex:1;padding:12px;border:2px solid var(--gray-200);border-radius:10px;background:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all 0.15s;text-align:center;}
-.mode-btn.active{border-color:var(--navy);background:var(--navy);color:white;}
-
-/* SECTIONS */
-.section{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-
-/* JOB BUTTONS */
-.job-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;}
-.job-btn{padding:12px 10px;border:2px solid var(--gray-200);border-radius:8px;background:var(--gray-50);cursor:pointer;transition:all 0.15s;text-align:center;font-family:'DM Sans',sans-serif;}
-.job-btn:hover{border-color:var(--navy);background:var(--white);}
-.job-btn.active{border-color:var(--red);background:var(--red-light);}
-.job-btn .ji{font-size:22px;display:block;margin-bottom:4px;}
-.job-btn .jn{font-size:12px;font-weight:600;color:var(--gray-700);display:block;line-height:1.3;}
-.job-btn .jp{font-size:11px;color:var(--green);font-weight:700;display:block;margin-top:2px;}
-
-/* INPUTS */
-.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
-.input-row.triple{grid-template-columns:1fr 1fr 1fr;}
-@media(max-width:500px){.input-row,.input-row.triple{grid-template-columns:1fr;}}
-.field{display:flex;flex-direction:column;gap:5px;}
-.field label{font-size:11px;font-weight:700;color:var(--gray-500);letter-spacing:1px;text-transform:uppercase;}
-.field input,.field select{padding:10px 12px;border:2px solid var(--gray-200);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--gray-900);outline:none;transition:border-color 0.15s;background:var(--white);}
-.field input:focus,.field select:focus{border-color:var(--navy);}
-
-/* PARTS CHECKLIST */
-.parts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;}
-.part-check{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--gray-200);border-radius:7px;cursor:pointer;transition:background 0.1s;}
-.part-check:hover{background:var(--gray-50);}
-.part-check.checked{background:var(--green-light);border-color:#BBF7D0;}
-.part-check input[type=checkbox]{accent-color:var(--green);width:15px;height:15px;cursor:pointer;flex-shrink:0;}
-.part-check .pn{font-size:12px;font-weight:600;color:var(--gray-700);flex:1;}
-.part-check .pc{font-size:11px;color:var(--green);font-weight:700;white-space:nowrap;}
-
-/* RESULT BOX */
-.result-box{background:var(--navy);border-radius:12px;padding:24px;margin-top:16px;color:white;}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
-.result-row:last-of-type{border-bottom:none;}
-.result-label{font-size:13px;color:rgba(255,255,255,0.6);}
-.result-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;color:white;}
-.result-total{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:2px solid rgba(255,255,255,0.2);}
-.result-total-label{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:white;}
-.result-total-val{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#86EFAC;}
-
-/* MARGIN BAR */
-.margin-wrap{margin-top:16px;}
-.margin-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;display:flex;justify-content:space-between;}
-.margin-bar-bg{background:rgba(255,255,255,0.1);border-radius:20px;height:10px;overflow:hidden;}
-.margin-bar-fill{height:100%;border-radius:20px;transition:width 0.4s,background 0.4s;}
-.margin-note{font-size:12px;margin-top:8px;font-weight:600;}
-
-/* UPSELL BOX */
-.upsell-box{background:var(--amber-light);border:1px solid #FDE68A;border-radius:10px;padding:14px 16px;margin-top:16px;}
-.upsell-title{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
-.upsell-item{font-size:12px;color:var(--gray-700);padding:3px 0;display:flex;align-items:center;gap:6px;}
-.upsell-item::before{content:'💡';}
-
-/* QUICK CALC (simple mode) */
-.quick-jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
-.quick-card{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.15s;}
-.quick-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.1);border-color:var(--gray-300);}
-.quick-card .qi{font-size:28px;margin-bottom:8px;}
-.quick-card .qt{font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
-.quick-card .qp{font-size:11px;color:var(--gray-400);}
-.quick-card .qprice{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--green);margin-top:6px;}
-
-/* GENERATE QUOTE */
-.quote-output{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:16px;font-family:'DM Mono',monospace;font-size:12px;color:var(--gray-700);line-height:1.8;white-space:pre-wrap;margin-top:12px;display:none;}
-.btn{padding:12px 20px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.15s;}
-.btn-navy{background:var(--navy);color:white;}
-.btn-navy:hover{background:var(--navy-d);}
-.btn-green{background:var(--green);color:white;}
-.btn-green:hover{background:#15803D;}
-.btn-ghost{background:var(--gray-100);color:var(--gray-600);border:1px solid var(--gray-200);}
-.btn-ghost:hover{background:var(--gray-200);}
-.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-
-/* HIDDEN */
-.hidden{display:none!important;}
-
-/* NOTICE */
-.notice{background:var(--orange-light);border:1px solid #FED7AA;border-radius:8px;padding:10px 14px;font-size:12px;color:var(--gray-600);margin-bottom:16px;display:flex;gap:8px;align-items:flex-start;}
+.hdr{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:50;}
+.hdr-logo{width:32px;height:32px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.hdr-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:white;letter-spacing:2px;}
+.hdr-sub{font-size:11px;color:rgba(255,255,255,0.4);margin-left:4px;}
+.back{margin-left:auto;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-decoration:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;}
+.main{max-width:960px;margin:0 auto;padding:20px 16px;}
+.tabs{display:flex;gap:8px;margin-bottom:20px;}
+.tab{flex:1;padding:11px;border:2px solid var(--gray-200);border-radius:9px;background:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all 0.15s;text-align:center;}
+.tab.on{border-color:var(--navy);background:var(--navy);color:white;}
+.scale-bar{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:16px 20px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.scale-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px;}
+.scale-btns{display:flex;gap:6px;flex-wrap:wrap;}
+.sbtn{padding:7px 14px;border:1.5px solid var(--gray-200);border-radius:20px;background:var(--gray-50);font-size:11px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all 0.15s;white-space:nowrap;}
+.sbtn:hover{border-color:var(--gray-400);color:var(--gray-700);}
+.sbtn.on{border-color:var(--navy);background:var(--navy);color:white;}
+.snote{font-size:11px;color:var(--amber);margin-top:8px;font-style:italic;}
+.banner{background:var(--navy);border-radius:12px;padding:18px 22px;margin-bottom:18px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;}
+@media(max-width:580px){.banner{grid-template-columns:1fr 1fr;}}
+.bi-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:3px;}
+.bi-val{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:white;line-height:1;}
+.bi-val.g{color:#86EFAC;}.bi-val.a{color:#FCD34D;}.bi-val.r{color:#FCA5A5;}
+.bi-sub{font-size:10px;color:rgba(255,255,255,.35);margin-top:2px;}
+.card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.ctitle{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1.5px;color:var(--navy);margin-bottom:14px;}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;}
+.fld{display:flex;flex-direction:column;gap:4px;}
+.fld label{font-size:10px;font-weight:700;color:var(--gray-400);letter-spacing:1px;text-transform:uppercase;}
+.fld input,.fld select{padding:9px 11px;border:2px solid var(--gray-200);border-radius:7px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--gray-900);outline:none;transition:border-color 0.15s;background:var(--white);}
+.fld input:focus,.fld select:focus{border-color:var(--navy);}
+.fld .hint{font-size:10px;color:var(--gray-400);margin-top:2px;}
+.jgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:8px;}
+.jbtn{padding:10px 8px;border:2px solid var(--gray-200);border-radius:8px;background:var(--gray-50);cursor:pointer;transition:all 0.15s;text-align:center;font-family:'DM Sans',sans-serif;}
+.jbtn:hover{border-color:var(--navy);background:var(--white);}
+.jbtn.on{border-color:var(--red);background:var(--red-light);}
+.jbtn .ji{font-size:20px;display:block;margin-bottom:3px;}
+.jbtn .jn{font-size:11px;font-weight:600;color:var(--gray-700);display:block;line-height:1.3;}
+.jbtn .jp{font-size:11px;color:var(--green);font-weight:700;display:block;margin-top:2px;}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:5px;}
+.prow{display:flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--gray-200);border-radius:6px;cursor:pointer;transition:background 0.1s;}
+.prow:hover{background:var(--gray-50);}
+.prow.on{background:var(--green-light);border-color:#BBF7D0;}
+.prow input{accent-color:var(--green);width:14px;height:14px;cursor:pointer;flex-shrink:0;}
+.prow .pn{font-size:11px;font-weight:600;color:var(--gray-700);flex:1;}
+.prow .pc{font-size:11px;color:var(--green);font-weight:700;}
+.result{background:var(--navy);border-radius:12px;padding:22px;margin-top:14px;}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+@media(max-width:480px){.rgrid{grid-template-columns:1fr;}}
+.rline{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.rline:last-child{border-bottom:none;}
+.rl{font-size:12px;color:rgba(255,255,255,.5);}
+.rv{font-family:'DM Mono',monospace;font-size:13px;color:white;}
+.rbottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;padding-top:14px;border-top:2px solid rgba(255,255,255,.15);}
+.qlbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;}
+.qprice{font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:1px;color:#86EFAC;line-height:1;}
+.nblock{text-align:right;}
+.nlbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:3px;}
+.nval{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:#FCD34D;}
+.nsub{font-size:10px;color:rgba(255,255,255,.35);margin-top:2px;}
+.mwrap{margin-top:12px;}
+.mtop{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px;}
+.mbg{background:rgba(255,255,255,.08);border-radius:20px;height:8px;overflow:hidden;}
+.mfill{height:100%;border-radius:20px;transition:width .4s,background .4s;}
+.mnote{font-size:12px;font-weight:600;margin-top:6px;}
+.ubox{background:var(--amber-light);border:1px solid #FDE68A;border-radius:10px;padding:12px 14px;margin-top:12px;}
+.uhd{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:7px;}
+.urow{font-size:12px;color:var(--gray-700);padding:2px 0;}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:10px;}
+.qcard{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.qcard:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.qi{font-size:24px;margin-bottom:5px;}
+.qt{font-size:12px;font-weight:700;color:var(--gray-900);margin-bottom:2px;}
+.qfr{font-size:10px;color:var(--gray-400);}
+.qpr{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--green);margin-top:4px;}
+.qdet{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:18px;margin-top:14px;display:none;}
+.trow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;}
+.tier{border-radius:9px;padding:12px;text-align:center;}
+.tg{background:var(--gray-50);border:1px solid var(--gray-200);}
+.tb{background:var(--amber-light);border:1px solid #FDE68A;}
+.tbe{background:var(--green-light);border:1px solid #BBF7D0;}
+.tlbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;}
+.tp{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.5px;line-height:1;}
+.td{font-size:10px;color:var(--gray-500);margin-top:3px;}
+.btn{padding:10px 18px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.15s;}
+.btn-nv{background:var(--navy);color:white;}.btn-nv:hover{background:var(--navy-d);}
+.btn-gn{background:var(--green);color:white;}.btn-gn:hover{background:#15803D;}
+.btn-gh{background:var(--gray-100);color:var(--gray-600);border:1px solid var(--gray-200);}.btn-gh:hover{background:var(--gray-200);}
+.brow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.qout{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:7px;padding:14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-700);line-height:1.8;white-space:pre-wrap;margin-top:10px;display:none;}
+.gone{display:none!important;}
+.mfixed{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+.mvar{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+.tbl{width:100%;border-collapse:collapse;font-size:12px;}
+.tbl th{background:var(--navy);color:white;padding:9px 12px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.5px;}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--gray-100);}
+.tbl tr:hover td{background:var(--gray-50);}
+.tbl .tr{text-align:right;font-family:'DM Mono',monospace;}
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="header-logo">💰</div>
-  <div class="header-title">JOB PRICING</div>
-  <span class="header-sub">Atlas Home Pro · LA Market Rates</span>
-  <a href="index.html" class="back-btn">← Portal</a>
+<div class="hdr">
+  <div class="hdr-logo">💰</div>
+  <div class="hdr-title">JOB PRICING</div>
+  <span class="hdr-sub">Westside LA · Atlas Home Pro</span>
+  <a href="index.html" class="back">← Portal</a>
 </div>
-
 <div class="main">
 
-  <div class="notice">
-    ⚡ <span>Rates are based on Westside LA market pricing (90036 radius). Adjust your overhead % to match your actual costs. Target margin: <strong>50%+</strong> on all jobs.</span>
+  <div class="tabs">
+    <button class="tab on" onclick="setTab('quick',this)">⚡ Quick Reference</button>
+    <button class="tab" onclick="setTab('calc',this)">🧮 Full Calculator</button>
+    <button class="tab" onclick="setTab('model',this)">📊 Business Model</button>
   </div>
 
-  <!-- MODE TOGGLE -->
-  <div class="mode-toggle">
-    <button class="mode-btn active" onclick="setMode('quick')">⚡ Quick Reference</button>
-    <button class="mode-btn" onclick="setMode('calc')">🧮 Full Calculator</button>
-  </div>
-
-  <!-- ══ QUICK MODE ══ -->
-  <div id="mode-quick">
-    <div class="section">
-      <div class="section-title">🔧 Standard Service Rates — Westside LA</div>
-      <div class="quick-jobs" id="quick-grid"></div>
+  <!-- SCALE BAR -->
+  <div class="scale-bar">
+    <div class="scale-lbl">Current Scale — changes overhead + marketing cost assumptions</div>
+    <div class="scale-btns">
+      <button class="sbtn on" onclick="setScale(0,this)">🚐🚐 2 Vans — Launch</button>
+      <button class="sbtn" onclick="setScale(1,this)">🚐×5 5 Vans — Growing</button>
+      <button class="sbtn" onclick="setScale(2,this)">🚐×8 8 Vans — Scaling</button>
+      <button class="sbtn" onclick="setScale(3,this)">🚐×10 10 Vans — Target</button>
     </div>
-    <div class="section" id="quick-detail" style="display:none">
-      <div class="section-title" id="qd-title">Job Detail</div>
+    <div class="snote" id="snote">⚠ At 2 vans overhead is ~42%. This is normal. You're buying market share — focus on volume and reviews, not margin yet.</div>
+  </div>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <div><div class="bi-lbl">Overhead Rate</div><div class="bi-val a" id="b-oh">42%</div><div class="bi-sub">of revenue at this scale</div></div>
+    <div><div class="bi-lbl">Mktg Cost / Job Est.</div><div class="bi-val" id="b-cac">$350</div><div class="bi-sub">adjust as you learn CAC</div></div>
+    <div><div class="bi-lbl">Break Even / Van</div><div class="bi-val" id="b-bev">$19,200</div><div class="bi-sub">per month</div></div>
+    <div><div class="bi-lbl">20% NOI Target / Van</div><div class="bi-val g" id="b-noi">$28,000</div><div class="bi-sub">per month</div></div>
+  </div>
+
+  <!-- QUICK TAB -->
+  <div id="t-quick">
+    <div class="card">
+      <div class="ctitle">📋 Market Rates — Westside LA (What The Market Will Pay)</div>
+      <p style="font-size:12px;color:var(--gray-400);margin-bottom:14px">These are competitive rates. You price to the MARKET, not to your overhead. The calculator shows if you're making money.</p>
+      <div class="qgrid" id="qgrid"></div>
+    </div>
+    <div class="qdet" id="qdet">
+      <div class="ctitle" id="qd-title"></div>
       <div id="qd-body"></div>
     </div>
   </div>
 
-  <!-- ══ FULL CALC MODE ══ -->
-  <div id="mode-calc" class="hidden">
-
-    <!-- STEP 1: JOB TYPE -->
-    <div class="section">
-      <div class="section-title">① Select Job Type</div>
-      <div class="job-grid" id="job-grid"></div>
+  <!-- CALC TAB -->
+  <div id="t-calc" class="gone">
+    <div class="card">
+      <div class="ctitle">① Select Job Type</div>
+      <div class="jgrid" id="jgrid"></div>
     </div>
-
-    <!-- STEP 2: LABOR -->
-    <div class="section" id="step-labor" style="display:none">
-      <div class="section-title">② Labor</div>
-      <div class="input-row triple">
-        <div class="field">
-          <label>Tech Level</label>
-          <select id="tech-level" onchange="calculate()">
-            <option value="42">Lead Tech ($42/hr)</option>
-            <option value="30">Regular Tech ($30/hr)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Hours on Job</label>
-          <input type="number" id="hours" value="1" min="0.5" max="10" step="0.5" oninput="calculate()">
-        </div>
-        <div class="field">
-          <label>Overhead %</label>
-          <input type="number" id="overhead" value="25" min="0" max="60" step="5" oninput="calculate()">
-        </div>
-      </div>
-      <div class="input-row">
-        <div class="field">
-          <label>Emergency / After Hours?</label>
-          <select id="emergency" onchange="calculate()">
-            <option value="1">No — standard rate</option>
-            <option value="1.5">Yes — 50% surcharge</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Drive Time (mins)</label>
-          <input type="number" id="drive" value="20" min="0" max="90" step="5" oninput="calculate()">
-        </div>
+    <div class="card gone" id="s-labor">
+      <div class="ctitle">② Labor & Details</div>
+      <div class="igrid">
+        <div class="fld"><label>Tech Level</label><select id="trate" onchange="calc()"><option value="42">Lead Tech — $42/hr</option><option value="30">Regular Tech — $30/hr</option></select></div>
+        <div class="fld"><label>Hours on Job</label><input type="number" id="hrs" value="1" min="0.5" max="8" step="0.5" oninput="calc()"></div>
+        <div class="fld"><label>Drive Time (min)</label><input type="number" id="drv" value="20" min="0" max="90" step="5" oninput="calc()"><div class="hint">Added to labor</div></div>
+        <div class="fld"><label>Emergency / After Hours</label><select id="emg" onchange="calc()"><option value="1">No — standard</option><option value="1.5">Yes — +50%</option></select></div>
+        <div class="fld"><label>Mktg Cost This Job ($)</label><input type="number" id="cac" value="350" min="0" max="600" step="25" oninput="calc()"><div class="hint">Adjust when you know real CAC</div></div>
+        <div class="fld"><label>Parts Markup</label><select id="mku" onchange="calc()"><option value="1.5">50% markup (standard)</option><option value="1.75">75% markup</option><option value="2.0">100% markup</option></select></div>
       </div>
     </div>
-
-    <!-- STEP 3: PARTS -->
-    <div class="section" id="step-parts" style="display:none">
-      <div class="section-title">③ Parts Used <span style="font-size:12px;font-weight:400;color:var(--gray-400);letter-spacing:0">(check all that apply)</span></div>
-      <div class="parts-grid" id="parts-grid"></div>
-      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--gray-100);">
-        <div class="input-row">
-          <div class="field">
-            <label>Custom Part Name</label>
-            <input type="text" id="custom-part-name" placeholder="e.g. Pressure regulator">
+    <div class="card gone" id="s-parts">
+      <div class="ctitle">③ Parts Used</div>
+      <div class="pgrid" id="pgrid"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-100)">
+        <div class="fld"><label>Custom Part Name</label><input type="text" id="cpn" placeholder="e.g. Pressure regulator"></div>
+        <div class="fld"><label>Custom Part Cost ($)</label><input type="number" id="cpc" placeholder="0.00" oninput="calc()"></div>
+      </div>
+    </div>
+    <div id="r-wrap" class="gone">
+      <div class="result">
+        <div class="rgrid">
+          <div>
+            <div class="rline"><span class="rl">Parts (your cost)</span><span class="rv" id="r-parts">$0</span></div>
+            <div class="rline"><span class="rl">Parts Markup</span><span class="rv" id="r-pmu">$0</span></div>
+            <div class="rline"><span class="rl">Labor Cost</span><span class="rv" id="r-lab">$0</span></div>
           </div>
-          <div class="field">
-            <label>Custom Part Cost ($)</label>
-            <input type="number" id="custom-part-cost" placeholder="0.00" min="0" oninput="calculate()">
+          <div>
+            <div class="rline"><span class="rl">Overhead (scale-based)</span><span class="rv" id="r-oh">$0</span></div>
+            <div class="rline"><span class="rl">Marketing / This Job</span><span class="rv" id="r-cac">$0</span></div>
+            <div class="rline"><span class="rl">CC Processing (3%)</span><span class="rv" id="r-cc">$0</span></div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- RESULT -->
-    <div id="result-wrap" style="display:none">
-      <div class="result-box">
-        <div class="result-row"><span class="result-label">Parts Cost</span><span class="result-val" id="r-parts">$0.00</span></div>
-        <div class="result-row"><span class="result-label">Parts Markup (50%)</span><span class="result-val" id="r-markup">$0.00</span></div>
-        <div class="result-row"><span class="result-label">Labor Cost</span><span class="result-val" id="r-labor">$0.00</span></div>
-        <div class="result-row"><span class="result-label">Overhead</span><span class="result-val" id="r-overhead">$0.00</span></div>
-        <div class="result-row"><span class="result-label">Emergency Surcharge</span><span class="result-val" id="r-surge">—</span></div>
-        <div class="result-total">
-          <span class="result-total-label">Quote Customer</span>
-          <span class="result-total-val" id="r-total">$0</span>
-        </div>
-        <div class="margin-wrap">
-          <div class="margin-label">
-            <span>Gross Margin</span>
-            <span id="r-margin-pct">0%</span>
+        <div class="rbottom">
+          <div>
+            <div class="qlbl">Quote Customer</div>
+            <div class="qprice" id="r-tot">$0</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:3px">Rounded to nearest $5</div>
           </div>
-          <div class="margin-bar-bg"><div class="margin-bar-fill" id="r-margin-bar"></div></div>
-          <div class="margin-note" id="r-margin-note"></div>
+          <div class="nblock">
+            <div class="nlbl">Actual NOI</div>
+            <div class="nval" id="r-noi">0%</div>
+            <div class="nsub" id="r-noisub">Target: 20% at scale</div>
+            <div style="margin-top:6px;font-size:10px;color:rgba(255,255,255,.35)">Need for 20% NOI:</div>
+            <div style="font-family:'DM Mono',monospace;font-size:13px;color:#FCD34D" id="r-min">$0</div>
+          </div>
+        </div>
+        <div class="mwrap">
+          <div class="mtop"><span>Gross Margin</span><span id="r-gpct">0%</span></div>
+          <div class="mbg"><div class="mfill" id="r-mbar"></div></div>
+          <div class="mnote" id="r-mnote"></div>
         </div>
       </div>
-
-      <div class="upsell-box" id="upsell-wrap" style="display:none">
-        <div class="upsell-title">💡 Upsell Opportunities on This Job</div>
-        <div id="upsell-list"></div>
+      <div class="ubox" id="ubox" style="display:none">
+        <div class="uhd">💡 Upsell on This Job</div>
+        <div id="ulist"></div>
       </div>
-
-      <div class="btn-row">
-        <button class="btn btn-green" onclick="generateQuote()">📋 Generate Quote Text</button>
-        <button class="btn btn-ghost" onclick="resetCalc()">🔄 New Job</button>
+      <div class="brow">
+        <button class="btn btn-gn" onclick="genQ()">📋 Copy Quote</button>
+        <button class="btn btn-gh" onclick="resetC()">🔄 New Job</button>
       </div>
-      <div class="quote-output" id="quote-output"></div>
+      <div class="qout" id="qout"></div>
     </div>
-
   </div>
+
+  <!-- MODEL TAB -->
+  <div id="t-model" class="gone">
+    <div class="card">
+      <div class="ctitle">📊 Your Cost Structure Per Van / Month</div>
+      <p style="font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.6">
+        From your financial model. This is reality — not optimistic projections.
+        The key insight: <strong>your fixed costs are mostly the same whether you do 3 jobs/day or 8 jobs/day.</strong>
+        Every extra job above breakeven flows almost entirely to profit.
+      </p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px">Fixed Costs / Van / Month</div>
+          <div id="fclist"></div>
+          <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid var(--gray-200);margin-top:6px">
+            <span style="font-weight:700;font-size:13px">Total Fixed</span>
+            <span style="font-family:'DM Mono',monospace;font-weight:700;font-size:13px;color:var(--red)" id="tfixed">$0</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px">Variable (% of Revenue)</div>
+          <div id="vclist"></div>
+          <div style="background:var(--green-light);border:1px solid #BBF7D0;border-radius:8px;padding:12px;margin-top:12px;font-size:12px;color:var(--gray-700);line-height:1.8">
+            Break even: ~$19,200/van/mo<br>
+            5% NOI: ~$22,000/van/mo<br>
+            10% NOI: ~$24,500/van/mo<br>
+            <strong>20% NOI target: ~$28,000/van/mo</strong>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--navy);border-radius:10px;padding:16px 20px;color:white;margin-bottom:16px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px">Jobs/Day Per Van to Hit 20% NOI (at market rates)</div>
+        <div id="jneed" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px"></div>
+        <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:12px;line-height:1.6">
+          💡 1 water heater install ($1,150) = 9.7 drain calls in revenue<br>
+          💡 Marketing cost/job drops fast as volume grows — that's the whole scaling game<br>
+          💡 300 Google reviews = organic leads at $0 CAC. Priority #1.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ctitle">📣 Advertising Spend — What $5K/Van Actually Means</div>
+      <p style="font-size:13px;color:var(--gray-500);margin-bottom:14px;line-height:1.6">
+        Your $5K/van estimate is a reasonable starting point for Westside LA. Here's what your cost-per-acquired-job looks like at different spend levels and volumes. <strong>You won't know your real number until 90 days of CallRail data.</strong>
+      </p>
+      <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Ad Spend/Van/Mo</th><th class="tr">5 jobs/day</th><th class="tr">8 jobs/day</th><th class="tr">10 jobs/day</th><th>Verdict</th></tr></thead>
+          <tbody id="adtbl"></tbody>
+        </table>
+      </div>
+      <div style="margin-top:14px;background:var(--amber-light);border:1px solid #FDE68A;border-radius:8px;padding:12px;font-size:12px;color:var(--gray-700);line-height:1.6">
+        💡 <strong>Your best play right now:</strong> Maximize organic leads (Google reviews + referrals = $0 CAC) before scaling paid ads.
+        300 reviews + word-of-mouth in the 90036 radius can drive 30–40% of your volume at zero marketing cost.
+        That changes your unit economics dramatically.
+      </div>
+    </div>
+  </div>
+
 </div>
-
 <script>
-// ── DATA ──
-const JOBS = [
-  {id:'drain',icon:'🌀',name:'Drain Cleaning',baseMin:119,baseMax:199,hours:1,desc:'Sink, tub, or floor drain. Includes K9-12 flex shaft or drum auger.',
-   parts:['ptfe','compound'],
-   upsells:['Camera inspection (+$175)','Hydro jet upgrade (+$400)','Annual maintenance plan'],
-   quick:{good:119,better:169,best:249,goodDesc:'Snake drain',betterDesc:'Snake + camera',bestDesc:'Hydro jet + camera'}},
-  {id:'mainsewer',icon:'🌊',name:'Main Line Sewer',baseMin:225,baseMax:395,hours:1.5,desc:'Main sewer line snaking up to 100ft. Sectional machine.',
-   parts:['ptfe'],
-   upsells:['Camera inspection (+$175)','Hydro jet upgrade (+$550)','Root treatment'],
-   quick:{good:225,better:325,best:495,goodDesc:'Snake main line',betterDesc:'Snake + camera',bestDesc:'Hydro jet + camera'}},
-  {id:'hydro',icon:'💦',name:'Hydro Jetting',baseMin:850,baseMax:1400,hours:2,desc:'High-pressure water jetting 1.5"–4" lines. Grease, roots, buildup.',
-   parts:['ptfe'],
-   upsells:['Camera before + after (+$175)','Annual maintenance plan','Enzyme treatment'],
-   quick:{good:850,better:1100,best:1400,goodDesc:'Jetting only',betterDesc:'Jet + camera',bestDesc:'Jet + camera + report'}},
-  {id:'camera',icon:'📷',name:'Sewer Camera',baseMin:175,baseMax:300,hours:0.75,desc:'Camera inspection with locating. Full video documentation.',
-   parts:[],
-   upsells:['Hydro jet add-on (+$550)','Written report for insurance/sale','Root treatment estimate'],
-   quick:{good:175,better:225,best:300,goodDesc:'Camera only',betterDesc:'Camera + locate',bestDesc:'Camera + locate + report'}},
-  {id:'toilet',icon:'🚽',name:'Toilet Repair',baseMin:185,baseMax:350,hours:1,desc:'Fill valve, flapper, flush valve, or supply line replacement.',
-   parts:['fillvalve','flapper','waxring','supplyline','closetbolts'],
-   upsells:['Replace angle stop (+$85)','Caulk base (+$45)','Camera inspection add-on'],
-   quick:{good:185,better:265,best:350,goodDesc:'Fill valve/flapper',betterDesc:'Full rebuild',bestDesc:'Rebuild + new supply + stop'}},
-  {id:'faucet',icon:'🚰',name:'Faucet Repair',baseMin:225,baseMax:395,hours:1.25,desc:'Cartridge replacement, ball valve repair, or fixture swap.',
-   parts:['moen1225','moen1200','deltaRP','supplylines','aerator'],
-   upsells:['Replace supply lines (+$45)','Replace angle stop (+$85)','Aerator upgrade (+$45)'],
-   quick:{good:225,better:295,best:395,goodDesc:'Cartridge only',betterDesc:'Cartridge + lines',bestDesc:'Full fixture swap'}},
-  {id:'shower',icon:'🚿',name:'Shower Valve',baseMin:285,baseMax:495,hours:1.5,desc:'Shower/tub valve cartridge or pressure balancing valve repair.',
-   parts:['deltaRP','moen1225','ptfe'],
-   upsells:['New trim kit (+$125)','Test pressure (+$75)','Reroute supply'],
-   quick:{good:285,better:375,best:495,goodDesc:'Cartridge swap',betterDesc:'Cartridge + trim',bestDesc:'Full valve replace'}},
-  {id:'whrep',icon:'🔥',name:'Water Heater Repair',baseMin:285,baseMax:495,hours:1.5,desc:'T&P valve, anode rod, thermocouple, or expansion tank.',
-   parts:['tpvalve','anoderod','whflex','expantank','gasflexconn'],
-   upsells:['Full flush + inspect (+$125)','Anode rod replacement (+$95)','Expansion tank add (+$185)'],
-   quick:{good:285,better:375,best:495,goodDesc:'T&P valve only',betterDesc:'T&P + anode',bestDesc:'Full service'}},
-  {id:'whinst',icon:'♨️',name:'Water Heater Install',baseMin:895,baseMax:1495,hours:3,desc:'Remove old unit, install new 40-50 gal gas water heater.',
-   parts:['tpvalve','whflex','anoderod','expantank','seismicstrap','gasflexconn','dielectric'],
-   upsells:['Upgrade to 50-gal (+$125)','Expansion tank add (+$185)','Flush & service existing (+$125)'],
-   quick:{good:895,better:1150,best:1495,goodDesc:'Standard swap',betterDesc:'Swap + expansion tank',bestDesc:'Swap + all code items'}},
-  {id:'valves',icon:'🔴',name:'Stop Valve Replace',baseMin:185,baseMax:295,hours:1,desc:'Angle stop or straight stop replacement. Under sink or toilet.',
-   parts:['anglestop','supplyline','ptfe'],
-   upsells:['Replace all stops at location (+$65 each)','Supply line while here (+$45)','Check main shutoff'],
-   quick:{good:185,better:235,best:295,goodDesc:'1 valve',betterDesc:'2 valves',bestDesc:'All valves at location'}},
-  {id:'leak',icon:'💧',name:'Leak Repair',baseMin:195,baseMax:450,hours:1.5,desc:'Supply line, fitting, or pipe leak repair. Includes parts.',
-   parts:['sharkbite12','sharkbite34','repairclamp','ptfe','compound'],
-   upsells:['Camera to check for other leaks','Shut-off valve upgrade','Full under-sink inspection'],
-   quick:{good:195,better:295,best:450,goodDesc:'Minor leak (clamp)',betterDesc:'Fitting replacement',bestDesc:'Pipe section replace'}},
-  {id:'diagnostic',icon:'🔍',name:'Diagnostic / Service Call',baseMin:149,baseMax:149,hours:0.75,desc:'Inspection and diagnosis. Waived if repair is booked same visit.',
-   parts:[],
-   upsells:['Book repair same visit (waive fee)','Camera inspection add-on (+$175)'],
-   quick:{good:149,better:149,best:149,goodDesc:'Diagnostic fee',betterDesc:'Waived if repair booked',bestDesc:'Waived + camera'}},
+const JOBS=[
+  {id:'drain',icon:'🌀',name:'Drain Cleaning',h:1,pr:['ptfe','compound'],q:{g:119,b:169,be:249,gd:'Snake drain',bd:'Snake + camera',bed:'Hydro jet + camera'},ups:['Camera inspection (+$175)','Hydro jet upgrade (+$400)','Annual maintenance plan']},
+  {id:'sewer',icon:'🌊',name:'Main Line Sewer',h:1.5,pr:['ptfe'],q:{g:225,b:325,be:495,gd:'Snake mainline',bd:'Snake + camera',bed:'Hydro jet + camera'},ups:['Camera inspection (+$175)','Root treatment (+$250)','Hydro jet upgrade']},
+  {id:'hydro',icon:'💦',name:'Hydro Jetting',h:2,pr:['ptfe'],q:{g:850,b:1100,be:1400,gd:'Jetting only',bd:'Jet + camera',bed:'Jet + camera + report'},ups:['Camera before + after (+$175)','Annual maintenance plan','Enzyme treatment (+$85)']},
+  {id:'camera',icon:'📷',name:'Camera Inspection',h:0.75,pr:[],q:{g:175,b:225,be:300,gd:'Camera only',bd:'Camera + locate',bed:'Camera + locate + report'},ups:['Hydro jet add-on (+$550)','Written report for sale/insurance','Root treatment estimate']},
+  {id:'toilet',icon:'🚽',name:'Toilet Repair',h:1,pr:['fillvalve','flapper','waxring','supplyline','closetbolts'],q:{g:185,b:265,be:350,gd:'Fill valve / flapper',bd:'Full rebuild',bed:'Rebuild + stop + lines'},ups:['Replace angle stop (+$85)','Caulk base (+$45)','Full rebuild upsell']},
+  {id:'faucet',icon:'🚰',name:'Faucet Repair',h:1.25,pr:['moen1225','supplylines','aerator'],q:{g:225,b:295,be:395,gd:'Cartridge only',bd:'Cartridge + lines',bed:'Full fixture swap'},ups:['Replace supply lines (+$45)','Angle stop (+$85)','Aerator upgrade (+$45)']},
+  {id:'shower',icon:'🚿',name:'Shower Valve',h:1.5,pr:['moen1225','ptfe'],q:{g:285,b:375,be:495,gd:'Cartridge swap',bd:'Cartridge + trim',bed:'Full valve replace'},ups:['New trim kit (+$125)','Test water pressure (+$75)']},
+  {id:'whrep',icon:'🔧',name:'WH Repair',h:1.5,pr:['tpvalve','anoderod','whflex'],q:{g:285,b:375,be:495,gd:'T&P valve only',bd:'T&P + anode rod',bed:'Full service'},ups:['Flush + inspect (+$125)','Anode rod (+$95)','Expansion tank (+$185)']},
+  {id:'whinst',icon:'♨️',name:'WH Install',h:3,pr:['tpvalve','whflex','anoderod','expantank','seismicstrap','gasflexconn','dielectric'],q:{g:895,b:1150,be:1495,gd:'Standard swap',bd:'Swap + expansion tank',bed:'Swap + all code items'},ups:['Upgrade to 50-gal (+$125)','Flush existing (+$125)','Install expansion tank (+$185)']},
+  {id:'valve',icon:'🔴',name:'Stop Valve',h:1,pr:['anglestop','supplyline','ptfe'],q:{g:185,b:235,be:295,gd:'1 valve',bd:'2 valves',bed:'All valves at location'},ups:['All stops at location (+$65 ea)','Supply line (+$45)']},
+  {id:'leak',icon:'💧',name:'Leak Repair',h:1.5,pr:['sharkbite12','repairclamp','ptfe','compound'],q:{g:195,b:295,be:450,gd:'Minor (clamp)',bd:'Fitting replace',bed:'Pipe section replace'},ups:['Camera check (+$175)','Shutoff upgrade','Full under-sink inspect']},
+  {id:'diag',icon:'🔍',name:'Diagnostic',h:0.75,pr:[],q:{g:149,b:149,be:149,gd:'Diagnostic fee',bd:'Waived if repair booked',bed:'Waived + camera'},ups:['Book repair same visit — waive fee','Camera add-on (+$175)']},
 ];
-
-const PARTS_CATALOG = [
-  {id:'fillvalve',name:'Fluidmaster 400A Fill Valve',cost:7.50},
-  {id:'flapper',name:'Flapper Assortment',cost:3.50},
-  {id:'waxring',name:'Wax Ring + Bolts',cost:7.00},
-  {id:'supplyline',name:'Toilet Supply Line',cost:5.30},
-  {id:'closetbolts',name:'Closet Bolts + Shims',cost:2.50},
-  {id:'flushvalve',name:'Flush Valve (tower)',cost:18.00},
-  {id:'moen1225',name:'Moen 1225 Cartridge',cost:12.00},
-  {id:'moen1200',name:'Moen 1200 Cartridge',cost:8.50},
-  {id:'deltaRP',name:'Delta RP46074 Cartridge',cost:14.00},
-  {id:'supplylines',name:'Braided Supply Lines',cost:6.00},
-  {id:'aerator',name:'Aerator',cost:4.00},
-  {id:'anglestop',name:'Angle Stop Valve',cost:7.00},
-  {id:'sharkbite12',name:'SharkBite ½\" Fitting',cost:5.50},
-  {id:'sharkbite34',name:'SharkBite ¾\" Fitting',cost:7.50},
-  {id:'repairclamp',name:'Repair Clamp',cost:8.00},
-  {id:'tpvalve',name:'T&P Relief Valve',cost:22.00},
-  {id:'anoderod',name:'Anode Rod',cost:18.00},
-  {id:'whflex',name:'WH Flex Connectors (pr)',cost:11.00},
-  {id:'expantank',name:'Expansion Tank 2-gal',cost:34.42},
-  {id:'seismicstrap',name:'Seismic Strap Kit',cost:5.70},
-  {id:'gasflexconn',name:'Gas Flex Connector',cost:14.00},
-  {id:'dielectric',name:'Dielectric Union',cost:4.77},
-  {id:'ptfe',name:'PTFE Tape',cost:1.50},
-  {id:'compound',name:'Pipe Joint Compound',cost:4.76},
-  {id:'pvccement',name:'PVC Primer + Cement',cost:11.98},
-  {id:'solder',name:'Solder + Flux',cost:32.00},
+const PARTS=[
+  {id:'fillvalve',n:'Fluidmaster 400A Fill Valve',c:7.50},{id:'flapper',n:'Flapper Assortment',c:3.50},
+  {id:'waxring',n:'Wax Ring + Bolts',c:7.00},{id:'supplyline',n:'Toilet Supply Line',c:5.30},
+  {id:'closetbolts',n:'Closet Bolts + Shims',c:2.50},{id:'moen1225',n:'Moen 1225 Cartridge',c:12.00},
+  {id:'moen1200',n:'Moen 1200 Cartridge',c:8.50},{id:'deltaRP',n:'Delta RP46074 Cartridge',c:14.00},
+  {id:'supplylines',n:'Braided Supply Lines',c:6.00},{id:'aerator',n:'Aerator',c:4.00},
+  {id:'anglestop',n:'Angle Stop Valve',c:7.00},{id:'sharkbite12',n:'SharkBite ½" Fitting',c:5.50},
+  {id:'sharkbite34',n:'SharkBite ¾" Fitting',c:7.50},{id:'repairclamp',n:'Repair Clamp',c:8.00},
+  {id:'tpvalve',n:'T&P Relief Valve',c:22.00},{id:'anoderod',n:'Anode Rod',c:18.00},
+  {id:'whflex',n:'WH Flex Connectors (pr)',c:11.00},{id:'expantank',n:'Expansion Tank 2-gal',c:34.42},
+  {id:'seismicstrap',n:'Seismic Strap Kit',c:5.70},{id:'gasflexconn',n:'Gas Flex Connector',c:14.00},
+  {id:'dielectric',n:'Dielectric Union',c:4.77},{id:'ptfe',n:'PTFE Tape',c:1.50},
+  {id:'compound',n:'Pipe Joint Compound',c:4.76},{id:'pvccement',n:'PVC Primer + Cement',c:11.98},
+  {id:'solder',n:'Solder + Flux',c:32.00},
 ];
+const SCALES=[
+  {oh:.42,cac:350,note:'⚠ At 2 vans overhead is ~42%. Normal for launch. Focus on volume and reviews, not margin yet.'},
+  {oh:.28,cac:250,note:'✓ Overhead compressing. CAC improving as reviews drive organic leads.'},
+  {oh:.18,cac:150,note:'✓ Getting close to 20% NOI. Reviews should drive 40%+ of leads by now.'},
+  {oh:.15,cac:100,note:'✓ At target — 15% overhead as planned. 20% NOI achievable consistently.'},
+];
+let si=0,selJ=null,selP=new Set();
+function G(id){return document.getElementById(id);}
 
-let selectedJob = null;
-let selectedParts = new Set();
-let currentMode = 'quick';
-
-// ── MODE ──
-function setMode(m){
-  currentMode = m;
-  document.querySelectorAll('.mode-btn').forEach((b,i)=>{
-    b.classList.toggle('active', (i===0&&m==='quick')||(i===1&&m==='calc'));
-  });
-  document.getElementById('mode-quick').classList.toggle('hidden', m!=='quick');
-  document.getElementById('mode-calc').classList.toggle('hidden', m!=='calc');
+function setTab(t,btn){
+  ['quick','calc','model'].forEach(n=>G('t-'+n).classList.toggle('gone',n!==t));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
 }
 
-// ── QUICK MODE ──
-function buildQuickGrid(){
-  const g = document.getElementById('quick-grid');
-  g.innerHTML = JOBS.map(j=>`
-    <div class="quick-card" onclick="showQuickDetail('${j.id}')">
-      <div class="qi">${j.icon}</div>
-      <div class="qt">${j.name}</div>
-      <div class="qp">From</div>
-      <div class="qprice">$${j.baseMin}</div>
-    </div>`).join('');
+function setScale(i,btn){
+  si=i;
+  document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const s=SCALES[i];
+  G('snote').textContent=s.note;
+  G('b-oh').textContent=(s.oh*100).toFixed(0)+'%';
+  G('b-cac').textContent='$'+s.cac;
+  if(G('cac'))G('cac').value=s.cac;
+  calc();
 }
 
-function showQuickDetail(id){
-  const j = JOBS.find(x=>x.id===id);
-  if(!j) return;
-  document.getElementById('quick-detail').style.display='block';
-  document.getElementById('qd-title').textContent = j.icon+' '+j.name;
-  document.getElementById('qd-body').innerHTML = `
-    <p style="font-size:13px;color:var(--gray-500);margin-bottom:16px">${j.desc}</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px">
-      ${['good','better','best'].map((t,i)=>`
-        <div style="background:${i===0?'var(--gray-50)':i===1?'var(--amber-light)':'var(--green-light)'};
-             border:1px solid ${i===0?'var(--gray-200)':i===1?'#FDE68A':'#BBF7D0'};
-             border-radius:10px;padding:14px;text-align:center">
-          <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-               color:${i===0?'var(--gray-400)':i===1?'var(--amber)':'var(--green)'};margin-bottom:6px">
-               ${t.toUpperCase()}</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gray-900);letter-spacing:1px">$${j.quick[t]}</div>
-          <div style="font-size:11px;color:var(--gray-500);margin-top:4px">${j.quick[t+'Desc']}</div>
-        </div>`).join('')}
+// QUICK
+function buildQuick(){
+  G('qgrid').innerHTML=JOBS.map(j=>`<div class="qcard" onclick="showQD('${j.id}')"><div class="qi">${j.icon}</div><div class="qt">${j.name}</div><div class="qfr">From</div><div class="qpr">$${j.q.g}</div></div>`).join('');
+}
+function showQD(id){
+  const j=JOBS.find(x=>x.id===id);if(!j)return;
+  const det=G('qdet');det.style.display='block';
+  G('qd-title').textContent=j.icon+' '+j.name+' — Westside LA Rates';
+  G('qd-body').innerHTML=`
+    <div class="trow">
+      <div class="tier tg"><div class="tlbl" style="color:var(--gray-400)">Good</div><div class="tp">$${j.q.g}</div><div class="td">${j.q.gd}</div></div>
+      <div class="tier tb"><div class="tlbl" style="color:var(--amber)">Better</div><div class="tp">$${j.q.b}</div><div class="td">${j.q.bd}</div></div>
+      <div class="tier tbe"><div class="tlbl" style="color:var(--green)">Best</div><div class="tp">$${j.q.be}</div><div class="td">${j.q.bed}</div></div>
     </div>
-    <div style="background:var(--amber-light);border:1px solid #FDE68A;border-radius:8px;padding:12px 14px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">💡 Upsell Prompts</div>
-      ${j.upsells.map(u=>`<div style="font-size:12px;color:var(--gray-700);padding:3px 0">→ ${u}</div>`).join('')}
-    </div>
-    <button class="btn btn-navy" style="margin-top:12px;width:100%" onclick="setMode('calc');selectJob('${j.id}')">
-      Calculate Full Price →
-    </button>`;
-  document.getElementById('quick-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+    <div class="ubox"><div class="uhd">💡 Upsell Scripts</div>${j.ups.map(u=>`<div class="urow">→ ${u}</div>`).join('')}</div>
+    <button class="btn btn-nv" style="margin-top:12px" onclick="setTab('calc',document.querySelectorAll('.tab')[1]);selJ2('${j.id}')">Calculate Full Price →</button>`;
+  det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── CALC MODE ──
-function buildJobGrid(){
-  const g = document.getElementById('job-grid');
-  g.innerHTML = JOBS.map(j=>`
-    <div class="job-btn" id="jb-${j.id}" onclick="selectJob('${j.id}')">
-      <span class="ji">${j.icon}</span>
-      <span class="jn">${j.name}</span>
-      <span class="jp">From $${j.baseMin}</span>
-    </div>`).join('');
+// CALC
+function buildJobs(){
+  G('jgrid').innerHTML=JOBS.map(j=>`<div class="jbtn" id="jb-${j.id}" onclick="selJ2('${j.id}')"><span class="ji">${j.icon}</span><span class="jn">${j.name}</span><span class="jp">From $${j.q.g}</span></div>`).join('');
 }
-
-function selectJob(id){
-  selectedJob = JOBS.find(j=>j.id===id);
-  if(!selectedJob) return;
-  document.querySelectorAll('.job-btn').forEach(b=>b.classList.remove('active'));
-  const btn = document.getElementById('jb-'+id);
-  if(btn) btn.classList.add('active');
-
-  // Set default hours
-  document.getElementById('hours').value = selectedJob.hours;
-
-  // Show steps
-  document.getElementById('step-labor').style.display='block';
-  document.getElementById('step-parts').style.display='block';
-  document.getElementById('result-wrap').style.display='block';
-
-  // Build parts
-  buildPartsGrid(selectedJob.parts);
-  calculate();
-
-  document.getElementById('step-labor').scrollIntoView({behavior:'smooth',block:'nearest'});
+function selJ2(id){
+  selJ=JOBS.find(j=>j.id===id);if(!selJ)return;
+  document.querySelectorAll('.jbtn').forEach(b=>b.classList.remove('on'));
+  const btn=G('jb-'+id);if(btn)btn.classList.add('on');
+  G('hrs').value=selJ.h;
+  ['s-labor','s-parts','r-wrap'].forEach(i=>G(i).classList.remove('gone'));
+  buildParts(selJ.pr);calc();
+  G('s-labor').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-
-function buildPartsGrid(preselect){
-  selectedParts = new Set(preselect);
-  const g = document.getElementById('parts-grid');
-  g.innerHTML = PARTS_CATALOG.map(p=>`
-    <div class="part-check ${preselect.includes(p.id)?'checked':''}" id="pc-${p.id}" onclick="togglePart('${p.id}')">
-      <input type="checkbox" ${preselect.includes(p.id)?'checked':''} onchange="togglePart('${p.id}')" onclick="event.stopPropagation()">
-      <span class="pn">${p.name}</span>
-      <span class="pc">$${p.cost.toFixed(2)}</span>
-    </div>`).join('');
+function buildParts(pre){
+  selP=new Set(pre);
+  G('pgrid').innerHTML=PARTS.map(p=>`<div class="prow ${pre.includes(p.id)?'on':''}" id="pr-${p.id}" onclick="togP('${p.id}')"><input type="checkbox" ${pre.includes(p.id)?'checked':''} onchange="togP('${p.id}')" onclick="event.stopPropagation()"><span class="pn">${p.n}</span><span class="pc">$${p.c.toFixed(2)}</span></div>`).join('');
 }
-
-function togglePart(id){
-  if(selectedParts.has(id)) selectedParts.delete(id);
-  else selectedParts.add(id);
-  const el = document.getElementById('pc-'+id);
-  if(el){
-    el.classList.toggle('checked', selectedParts.has(id));
-    el.querySelector('input').checked = selectedParts.has(id);
-  }
-  calculate();
+function togP(id){
+  selP.has(id)?selP.delete(id):selP.add(id);
+  const el=G('pr-'+id);if(el){el.classList.toggle('on',selP.has(id));el.querySelector('input').checked=selP.has(id);}
+  calc();
 }
-
-function calculate(){
-  if(!selectedJob) return;
-
-  // Parts cost
-  let partsCost = 0;
-  selectedParts.forEach(id=>{
-    const p = PARTS_CATALOG.find(x=>x.id===id);
-    if(p) partsCost += p.cost;
-  });
-  const customCost = parseFloat(document.getElementById('custom-part-cost').value)||0;
-  partsCost += customCost;
-  const partsMarkedup = partsCost * 1.5;
-
-  // Labor
-  const rate = parseFloat(document.getElementById('tech-level').value)||42;
-  const hours = parseFloat(document.getElementById('hours').value)||1;
-  const driveMin = parseFloat(document.getElementById('drive').value)||0;
-  const totalHours = hours + (driveMin/60);
-  const laborCost = rate * totalHours;
-
-  // Overhead
-  const overheadPct = parseFloat(document.getElementById('overhead').value)||25;
-  const subtotal = partsMarkedup + laborCost;
-  const overheadAmt = subtotal * (overheadPct/100);
-
-  // Emergency
-  const emergMult = parseFloat(document.getElementById('emergency').value)||1;
-  const preTotal = (subtotal + overheadAmt) * emergMult;
-
-  // Round up to nearest $5
-  const total = Math.ceil(preTotal/5)*5;
-  const margin = total>0 ? ((total-partsCost-laborCost)/total)*100 : 0;
-
-  // Update UI
-  document.getElementById('r-parts').textContent = '$'+partsCost.toFixed(2);
-  document.getElementById('r-markup').textContent = '$'+(partsMarkedup-partsCost).toFixed(2);
-  document.getElementById('r-labor').textContent = '$'+laborCost.toFixed(2);
-  document.getElementById('r-overhead').textContent = '$'+overheadAmt.toFixed(2);
-  document.getElementById('r-surge').textContent = emergMult>1 ? '+'+((emergMult-1)*100).toFixed(0)+'%' : '—';
-  document.getElementById('r-total').textContent = '$'+total.toLocaleString();
-
-  // Margin bar
-  const marginEl = document.getElementById('r-margin-bar');
-  const marginPctEl = document.getElementById('r-margin-pct');
-  const marginNote = document.getElementById('r-margin-note');
-  const pct = Math.min(margin,100);
-  marginEl.style.width = pct+'%';
-  marginPctEl.textContent = margin.toFixed(0)+'%';
-  if(margin >= 50){
-    marginEl.style.background='#86EFAC';
-    marginNote.style.color='#86EFAC';
-    marginNote.textContent='✓ Strong margin — good to go';
-  } else if(margin >= 40){
-    marginEl.style.background='#FCD34D';
-    marginNote.style.color='#FCD34D';
-    marginNote.textContent='⚠ Acceptable — push for better or add upsell';
-  } else {
-    marginEl.style.background='#FCA5A5';
-    marginNote.style.color='#FCA5A5';
-    marginNote.textContent='✗ Below minimum — adjust price or reduce hours';
-  }
-
-  // Upsells
-  const uw = document.getElementById('upsell-wrap');
-  const ul = document.getElementById('upsell-list');
-  if(selectedJob.upsells && selectedJob.upsells.length){
-    uw.style.display='block';
-    ul.innerHTML = selectedJob.upsells.map(u=>`<div class="upsell-item">${u}</div>`).join('');
-  } else {
-    uw.style.display='none';
-  }
+function calc(){
+  if(!selJ)return;
+  const s=SCALES[si];
+  let parts=0;selP.forEach(id=>{const p=PARTS.find(x=>x.id===id);if(p)parts+=p.c;});
+  parts+=parseFloat(G('cpc')?.value)||0;
+  const mku=parseFloat(G('mku').value)||1.5;
+  const pch=parts*mku;
+  const rate=parseFloat(G('trate').value)||42;
+  const hrs=parseFloat(G('hrs').value)||1;
+  const drv=(parseFloat(G('drv').value)||0)/60;
+  const lab=rate*(hrs+drv);
+  const cac=parseFloat(G('cac').value)||s.cac;
+  const emg=parseFloat(G('emg').value)||1;
+  const sub=pch+lab;
+  const oh=sub*s.oh;
+  const pre=(sub+oh+cac)*emg;
+  const cc=pre*0.03;
+  const raw=pre+cc;
+  const tot=Math.ceil(raw/5)*5;
+  const gm=tot>0?((tot-parts-lab)/tot)*100:0;
+  const net=tot-parts-lab-oh-cac-cc;
+  const noi=tot>0?(net/tot)*100:0;
+  const min20=(parts+lab+oh+cac+cc)/0.80;
+  G('r-parts').textContent='$'+parts.toFixed(2);
+  G('r-pmu').textContent='$'+(pch-parts).toFixed(2);
+  G('r-lab').textContent='$'+lab.toFixed(2);
+  G('r-oh').textContent='$'+oh.toFixed(2);
+  G('r-cac').textContent='$'+cac.toFixed(2);
+  G('r-cc').textContent='$'+cc.toFixed(2);
+  G('r-tot').textContent='$'+tot.toLocaleString();
+  G('r-noi').textContent=noi.toFixed(0)+'%';
+  G('r-min').textContent='$'+Math.ceil(min20/5)*5;
+  G('r-noisub').textContent=noi>=20?'✓ Hits 20% NOI target':'Need more volume at this scale';
+  const gp=Math.min(gm,100);
+  G('r-mbar').style.width=gp+'%';G('r-gpct').textContent=gm.toFixed(0)+'%';
+  if(gm>=50){G('r-mbar').style.background='#86EFAC';G('r-mnote').style.color='#86EFAC';G('r-mnote').textContent='✓ Strong gross margin';}
+  else if(gm>=40){G('r-mbar').style.background='#FCD34D';G('r-mnote').style.color='#FCD34D';G('r-mnote').textContent='⚠ Acceptable — push for upsell';}
+  else{G('r-mbar').style.background='#FCA5A5';G('r-mnote').style.color='#FCA5A5';G('r-mnote').textContent='✗ Thin — check hours/markup';}
+  const ub=G('ubox');
+  if(selJ.ups?.length){ub.style.display='block';G('ulist').innerHTML=selJ.ups.map(u=>`<div class="urow">→ ${u}</div>`).join('');}
+  else ub.style.display='none';
 }
-
-function generateQuote(){
-  if(!selectedJob) return;
-  const total = document.getElementById('r-total').textContent;
-  const hours = document.getElementById('hours').value;
-  const techLevel = document.getElementById('tech-level').options[document.getElementById('tech-level').selectedIndex].text;
-  const parts = [...selectedParts].map(id=>PARTS_CATALOG.find(p=>p.id===id)?.name).filter(Boolean);
-  const customName = document.getElementById('custom-part-name').value;
-  if(customName) parts.push(customName);
-  const emerg = document.getElementById('emergency').value>1;
-  const date = new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-
-  const quote = `ATLAS HOME PRO — SERVICE ESTIMATE
-Date: ${date}
-Service: ${selectedJob.icon} ${selectedJob.name}
-${emerg?'⚡ EMERGENCY / AFTER-HOURS RATE\n':''}
-Labor: ${hours} hr${hours!=1?'s':''} · ${techLevel}
-Parts: ${parts.length ? parts.join(', ') : 'Consumables only'}
-
-TOTAL: ${total}
-
-Includes: 30-day labor warranty
-Atlas Home Pro · atlashomepro.com
-─────────────────────────────────`;
-
-  const out = document.getElementById('quote-output');
-  out.textContent = quote;
-  out.style.display='block';
-
-  // Copy to clipboard
-  navigator.clipboard?.writeText(quote).then(()=>{
-    const btn = document.querySelector('.btn-green');
-    const orig = btn.textContent;
-    btn.textContent = '✓ Copied to clipboard!';
-    setTimeout(()=>btn.textContent=orig, 2500);
-  });
+function genQ(){
+  if(!selJ)return;
+  const tot=G('r-tot').textContent;
+  const hrs=G('hrs').value;
+  const tl=G('trate').options[G('trate').selectedIndex].text;
+  const pn=[...selP].map(id=>PARTS.find(p=>p.id===id)?.n).filter(Boolean);
+  const cn=G('cpn').value;if(cn)pn.push(cn);
+  const em=G('emg').value>1;
+  const dt=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  const q=`ATLAS HOME PRO — ESTIMATE\n${dt}${em?'\n⚡ EMERGENCY / AFTER-HOURS':''}\n\nService: ${selJ.icon} ${selJ.name}\nLabor: ${hrs}hr · ${tl}\nParts: ${pn.length?pn.join(', '):'Consumables only'}\n\nTOTAL: ${tot}\n30-day labor warranty\nAtlas Home Pro · atlashomepro.com`;
+  const out=G('qout');out.textContent=q;out.style.display='block';
+  navigator.clipboard?.writeText(q).then(()=>{const b=document.querySelector('.btn-gn');const o=b.textContent;b.textContent='✓ Copied!';setTimeout(()=>b.textContent=o,2500);});
 }
-
-function resetCalc(){
-  selectedJob = null;
-  selectedParts = new Set();
-  document.querySelectorAll('.job-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('step-labor').style.display='none';
-  document.getElementById('step-parts').style.display='none';
-  document.getElementById('result-wrap').style.display='none';
-  document.getElementById('quote-output').style.display='none';
-  document.getElementById('parts-grid').innerHTML='';
+function resetC(){
+  selJ=null;selP=new Set();
+  document.querySelectorAll('.jbtn').forEach(b=>b.classList.remove('on'));
+  ['s-labor','s-parts','r-wrap'].forEach(i=>G(i).classList.add('gone'));
+  G('qout').style.display='none';G('pgrid').innerHTML='';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── INIT ──
-buildQuickGrid();
-buildJobGrid();
+// MODEL
+function buildModel(){
+  const fc=[
+    {n:'Van Lease',v:1000},{n:'Parking',v:250},{n:'Fuel',v:700},{n:'Fleet Insurance',v:400},
+    {n:'Maintenance Reserve',v:200},{n:'HouseCall Pro (share)',v:150},{n:'GL Insurance (share)',v:200},
+    {n:'Advertising (starting estimate)',v:5000},{n:'CSR/Admin — Avoca + VA (share)',v:1750},
+    {n:'Misc / Software',v:250},
+  ];
+  const tf=fc.reduce((s,x)=>s+x.v,0);
+  G('fclist').innerHTML=fc.map(f=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--gray-100);font-size:12px"><span style="color:var(--gray-500)">${f.n}</span><span style="font-family:'DM Mono',monospace">$${f.v.toLocaleString()}</span></div>`).join('');
+  G('tfixed').textContent='$'+tf.toLocaleString();
+  G('vclist').innerHTML=[
+    {n:'Materials / Parts',v:'20% of revenue'},{n:'Tech Labor (loaded)',v:'~18–22%'},
+    {n:'Commission (above $25K)',v:'5% of revenue'},{n:'CC Processing',v:'3% of revenue'},
+  ].map(v=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--gray-100);font-size:12px"><span style="color:var(--gray-500)">${v.n}</span><span style="font-family:'DM Mono',monospace;color:var(--gray-700)">${v.v}</span></div>`).join('');
+  const tkts=[{n:'Drain ($119)',p:119},{n:'Faucet ($225)',p:225},{n:'WH Repair ($285)',p:285},{n:'WH Install ($1,150)',p:1150},{n:'Hydro Jet ($850)',p:850}];
+  G('jneed').innerHTML=tkts.map(t=>{const jmo=Math.ceil(28000/t.p);return`<div style="background:rgba(255,255,255,.06);border-radius:8px;padding:11px;text-align:center"><div style="font-size:10px;color:rgba(255,255,255,.4);margin-bottom:3px">${t.n}</div><div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#86EFAC;letter-spacing:1px">${jmo}</div><div style="font-size:10px;color:rgba(255,255,255,.3)">/mo = ${(jmo/22).toFixed(1)}/day</div></div>`;}).join('');
+  const ads=[3000,5000,7500,10000];
+  G('adtbl').innerHTML=ads.map((ad,i)=>`<tr style="${i%2===0?'background:var(--gray-50)':''}"><td style="padding:8px 12px;font-weight:600">$${ad.toLocaleString()}/mo</td>${[5,8,10].map(j=>{const c=Math.round(ad/(j*22));const col=c<200?'var(--green)':c<350?'var(--amber)':'var(--red)';return`<td class="tr" style="padding:8px 12px;color:${col}">$${c}/job</td>`;}).join('')}<td style="padding:8px 12px;font-size:11px;color:var(--gray-500)">${ad<=3000?'Best — if reviews drive volume':ad<=5000?'Good starting point':ad<=7500?'OK at 8+ jobs/day':'Only works at 10+ jobs/day'}</td></tr>`).join('');
+}
+
+buildQuick();buildJobs();buildModel();
+setScale(0,document.querySelector('.sbtn.on'));
 </script>
 </body>
 </html>
