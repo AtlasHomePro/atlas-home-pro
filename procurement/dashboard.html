@@ -1,3 +1,14 @@
+<script>
+(function(){
+  const PASS = 'Atlas2026';
+  const key = 'atlas_procurement_auth';
+  if(sessionStorage.getItem(key) !== PASS){
+    const p = prompt('Atlas Home Pro — Enter password:');
+    if(p !== PASS){ document.body.innerHTML = '<div style="font-family:sans-serif;text-align:center;padding:80px;"><h2>Access Denied</h2><p>Contact David for access.</p></div>'; throw new Error('blocked'); }
+    sessionStorage.setItem(key, PASS);
+  }
+})();
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
