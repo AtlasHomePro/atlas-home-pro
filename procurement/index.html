@@ -303,10 +303,10 @@ document.getElementById("form").addEventListener("submit",async e=>{
 
     const totalItems = items.length;
     let successCount = 0;
-    let photosFailed = 0;
     let firstRecordId = null;
+    const savedPhotos = [...photos]; // snapshot before reset
 
-    // Phase 1: Submit text fields as JSON (no photos — tiny payload, always works)
+    // Submit text fields as JSON (no photos — tiny payload, always works)
     for (let i = 0; i < items.length; i++) {
       btn.innerHTML = totalItems > 1
         ? `<span class="spin"></span>Submitting ${i+1} of ${totalItems}...`
@@ -323,23 +323,7 @@ document.getElementById("form").addEventListener("submit",async e=>{
       if (i === 0) firstRecordId = data.id;
     }
 
-    // Phase 2: Compress and upload photos one at a time as raw binary
-    if (photos.length > 0 && firstRecordId) {
-      for (let p = 0; p < photos.length; p++) {
-        btn.innerHTML = `<span class="spin"></span>Uploading photo ${p+1} of ${photos.length}...`;
-        try {
-          const compressed = await compressPhoto(photos[p]);
-          const pr = await fetch(`/api/requests/${firstRecordId}/photo`, {
-            method: "POST",
-            headers: { "Content-Type": "image/jpeg" },
-            body: compressed,
-          });
-          if (!pr.ok) { photosFailed++; }
-        } catch(e) { console.error("Photo upload error:", e); photosFailed++; }
-      }
-    }
-
-    // Show success
+    // Show success IMMEDIATELY — don't wait for photos
     document.getElementById("form").style.display="none";
     document.getElementById("success").style.display="block";
     const successEl = document.getElementById("success");
@@ -350,9 +334,37 @@ document.getElementById("form").addEventListener("submit",async e=>{
       successEl.querySelector("h2").textContent = "Request Submitted";
       successEl.querySelector("p").textContent = "The AI is processing your request now. Your coordinator will have a complete procurement card with supplier recommendations within minutes.";
     }
-    if (photosFailed > 0) {
-      successEl.querySelector("p").textContent += ` Note: ${photosFailed} photo(s) could not be uploaded.`;
+    btn.disabled=false;
+    btn.textContent="Submit Request";
+
+    // Upload photos in background AFTER showing success
+    if (savedPhotos.length > 0 && firstRecordId) {
+      successEl.querySelector("p").textContent += ` Uploading ${savedPhotos.length} photo(s)...`;
+      let uploaded = 0;
+      for (const photo of savedPhotos) {
+        try {
+          const compressed = await compressPhoto(photo);
+          const pr = await fetch(`/api/requests/${firstRecordId}/photo`, {
+            method: "POST",
+            headers: { "Content-Type": "image/jpeg" },
+            body: compressed,
+          });
+          if (pr.ok) uploaded++;
+        } catch(e) { console.error("Photo upload error:", e); }
+      }
+      // Update success message with photo result
+      const base = totalItems > 1
+        ? `All ${successCount} items submitted.`
+        : "Request submitted.";
+      if (uploaded === savedPhotos.length) {
+        successEl.querySelector("p").textContent = `${base} ${uploaded} photo(s) attached.`;
+      } else if (uploaded > 0) {
+        successEl.querySelector("p").textContent = `${base} ${uploaded} of ${savedPhotos.length} photos attached.`;
+      } else {
+        successEl.querySelector("p").textContent = `${base} Photos could not be uploaded — please share them with your coordinator.`;
+      }
     }
+    return; // skip the finally block's button reset since we already did it
   }catch(err){
     console.error(err);
     toast("Failed: "+err.message,"error");
