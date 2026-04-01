@@ -1450,6 +1450,14 @@ function filterSup(cat, btn) {
 
 renderSup('All');
 
+// ── HASH ROUTING ── (e.g. #suppliers opens Suppliers tab)
+if(window.location.hash) {
+  const tab = window.location.hash.slice(1);
+  const panel = document.getElementById('tab-' + tab);
+  const btn = document.querySelector('.tab-btn[onclick*="' + tab + '"]');
+  if(panel && btn) { showTab(tab, btn); }
+}
+
 </script>
 </body>
 </html>
