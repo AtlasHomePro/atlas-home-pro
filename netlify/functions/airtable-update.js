@@ -1,10 +1,13 @@
 // Temporary function to proxy Airtable record updates
 // Will be removed after data fixes are applied
-const AIRTABLE_PAT = process.env.AIRTABLE_PAT;
-const BASE_ID = "appgB6l8O3dxXFVIM";
-const TABLE_ID = "tblQ7CbY7NgtTSv6W";
+const TOKEN = process.env.AIRTABLE_TOKEN;
+const BASE = "appgB6l8O3dxXFVIM";
+const TABLE = "tblQ7CbY7NgtTSv6W";
 
 exports.handler = async (event) => {
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST,OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } };
+  }
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method not allowed" };
   }
@@ -16,11 +19,11 @@ exports.handler = async (event) => {
     }
 
     const res = await fetch(
-      `https://api.airtable.com/v0/${BASE_ID}/${TABLE_ID}/${recordId}`,
+      `https://api.airtable.com/v0/${BASE}/${TABLE}/${recordId}`,
       {
         method: "PATCH",
         headers: {
-          Authorization: `Bearer ${AIRTABLE_PAT}`,
+          Authorization: `Bearer ${TOKEN}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ fields }),
@@ -30,7 +33,7 @@ exports.handler = async (event) => {
     const data = await res.json();
     return {
       statusCode: res.ok ? 200 : res.status,
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify(data),
     };
   } catch (err) {
