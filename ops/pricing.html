@@ -1,762 +1,1109 @@
+<script>if(!sessionStorage.getItem('ops_auth')&&!window.location.search.includes('auth=ok')){window.location.href='/ops/?redirect='+encodeURIComponent(window.location.pathname)}if(window.location.search.includes('auth=ok'))sessionStorage.setItem('ops_auth','1');</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Home Pro — Job Pricing</title>
+<title>Atlas Home Pro — Job Pricing v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-:root{--red:#C0392B;--red-light:#FDECEA;--navy:#1B2A47;--navy-d:#12203A;--green:#16A34A;--green-light:#F0FDF4;--amber:#D97706;--amber-light:#FFFBEB;--blue:#2563EB;--blue-light:#EFF6FF;--gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-700:#374151;--gray-900:#111827;--white:#FFFFFF;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-900);min-height:100vh;-webkit-font-smoothing:antialiased;}
-.hdr{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.2);}
-.hdr-logo{width:32px;height:32px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;}
-.hdr-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:white;letter-spacing:2px;}
-.hdr-sub{font-size:11px;color:rgba(255,255,255,.4);margin-left:4px;}
-.back{margin-left:auto;font-size:12px;font-weight:600;color:rgba(255,255,255,.5);text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:5px 12px;}
-.main{max-width:1000px;margin:0 auto;padding:20px 16px;}
-
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--navy:#1B2A47;--navy-light:#243352;--navy-dark:#141f36;
+--green:#16A34A;--red:#DC2626;--blue:#2563EB;--amber:#D97706;
+--bg:#F8F9FB;--card:#FFFFFF;--border:#E5E7EB;--text:#1F2937;--text-light:#6B7280;--text-lighter:#9CA3AF;
+--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.06);
+--shadow-md:0 4px 6px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.06);
+--shadow-lg:0 10px 15px rgba(0,0,0,0.1),0 4px 6px rgba(0,0,0,0.05);
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+/* HEADER */
+.header{background:var(--navy);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-size:18px;font-weight:700;letter-spacing:-0.3px;white-space:nowrap}
+.logo span{color:#4db8ff;font-weight:300}
 /* TABS */
-.tabs{display:flex;gap:8px;margin-bottom:18px;}
-.tab{flex:1;padding:11px;border:2px solid var(--gray-200);border-radius:9px;background:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all .15s;text-align:center;}
-.tab.on{border-color:var(--navy);background:var(--navy);color:white;}
-
-/* SCALE BAR */
-.scale-bar{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:16px 20px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
-.scale-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px;}
-.scale-btns{display:flex;gap:6px;flex-wrap:wrap;}
-.sbtn{padding:7px 14px;border:1.5px solid var(--gray-200);border-radius:20px;background:var(--gray-50);font-size:11px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all .15s;white-space:nowrap;}
-.sbtn.on{border-color:var(--navy);background:var(--navy);color:white;}
-.snote{font-size:11px;color:var(--amber);margin-top:8px;font-style:italic;}
-
-/* BANNER */
-.banner{background:var(--navy);border-radius:12px;padding:18px 22px;margin-bottom:18px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:14px;}
-@media(max-width:620px){.banner{grid-template-columns:1fr 1fr;}}
-.bi-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:3px;}
-.bi-val{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:white;line-height:1;}
-.bi-val.g{color:#86EFAC;}.bi-val.a{color:#FCD34D;}.bi-val.r{color:#FCA5A5;}
-.bi-sub{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
-
-/* CARDS */
-.card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:18px 20px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
-.ctitle{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1.5px;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-
-/* QUICK GRID */
-.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;}
-.qcard{background:var(--white);border:1.5px solid var(--gray-200);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all .15s;box-shadow:0 1px 3px rgba(0,0,0,.05);}
-.qcard:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--gray-300);}
-.qcard.new{border-color:#BFDBFE;background:var(--blue-light);}
-.qcard.new:hover{border-color:var(--blue);}
-.qi{font-size:22px;margin-bottom:5px;}
-.qt{font-size:11px;font-weight:700;color:var(--gray-900);margin-bottom:2px;line-height:1.3;}
-.qfr{font-size:10px;color:var(--gray-400);}
-.qpr{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--green);margin-top:4px;}
-.qnew{font-size:9px;font-weight:700;background:var(--blue);color:white;border-radius:4px;padding:1px 5px;display:inline-block;margin-top:3px;letter-spacing:.5px;}
-
-/* QUICK DETAIL */
-.qdet{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:18px;margin-top:14px;display:none;}
-.trow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;}
-.tier{border-radius:9px;padding:12px;text-align:center;}
-.tg{background:var(--gray-50);border:1px solid var(--gray-200);}
-.tb{background:var(--amber-light);border:1px solid #FDE68A;}
-.tbe{background:var(--green-light);border:1px solid #BBF7D0;}
-.tlbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px;}
-.tp{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.5px;line-height:1;}
-.td{font-size:10px;color:var(--gray-500);margin-top:3px;}
-
-/* COMP INTEL */
-.comp-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--gray-100);font-size:12px;}
-.comp-row:last-child{border:none;}
-.comp-name{color:var(--gray-500);}
-.comp-price{font-family:'DM Mono',monospace;font-weight:600;}
-.comp-price.lower{color:var(--red);}
-.comp-price.same{color:var(--amber);}
-.comp-price.higher{color:var(--green);}
-.atlas-price{font-family:'DM Mono',monospace;font-weight:700;color:var(--navy);}
-
-/* CALC INPUTS */
-.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;}
-.fld{display:flex;flex-direction:column;gap:4px;}
-.fld label{font-size:10px;font-weight:700;color:var(--gray-400);letter-spacing:1px;text-transform:uppercase;}
-.fld input,.fld select{padding:9px 11px;border:2px solid var(--gray-200);border-radius:7px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--gray-900);outline:none;transition:border-color .15s;background:var(--white);}
-.fld input:focus,.fld select:focus{border-color:var(--navy);}
-.fld .hint{font-size:10px;color:var(--gray-400);margin-top:2px;}
-
-/* JOB GRID */
-.jgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:8px;}
-.jbtn{padding:10px 8px;border:2px solid var(--gray-200);border-radius:8px;background:var(--gray-50);cursor:pointer;transition:all .15s;text-align:center;font-family:'DM Sans',sans-serif;}
-.jbtn:hover{border-color:var(--navy);background:var(--white);}
-.jbtn.on{border-color:var(--red);background:var(--red-light);}
-.jbtn.jnew{border-color:#BFDBFE;background:var(--blue-light);}
-.jbtn.jnew.on{border-color:var(--blue);background:#DBEAFE;}
-.jbtn .ji{font-size:18px;display:block;margin-bottom:3px;}
-.jbtn .jn{font-size:11px;font-weight:600;color:var(--gray-700);display:block;line-height:1.3;}
-.jbtn .jp{font-size:10px;color:var(--green);font-weight:700;display:block;margin-top:2px;}
-
-/* PARTS */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:5px;}
-.prow{display:flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--gray-200);border-radius:6px;cursor:pointer;transition:background .1s;}
-.prow:hover{background:var(--gray-50);}
-.prow.on{background:var(--green-light);border-color:#BBF7D0;}
-.prow input{accent-color:var(--green);width:14px;height:14px;cursor:pointer;flex-shrink:0;}
-.prow .pn{font-size:11px;font-weight:600;color:var(--gray-700);flex:1;}
-.prow .pc{font-size:11px;color:var(--green);font-weight:700;}
-
-/* RESULT */
-.result{background:var(--navy);border-radius:12px;padding:22px;margin-top:14px;}
-.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
-@media(max-width:480px){.rgrid{grid-template-columns:1fr;}}
-.rline{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07);}
-.rline:last-child{border:none;}
-.rl{font-size:12px;color:rgba(255,255,255,.5);}
-.rv{font-family:'DM Mono',monospace;font-size:13px;color:white;}
-.rv.good{color:#86EFAC;}
-.rbottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;padding-top:14px;border-top:2px solid rgba(255,255,255,.15);}
-.qlbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;}
-.qprice{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:1px;color:#86EFAC;line-height:1;}
-.nblock{text-align:right;}
-.nlbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:3px;}
-.nval{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;}
-.nsub{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
-
-/* MARGIN BAR */
-.mwrap{margin-top:12px;}
-.mtop{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px;}
-.mbg{background:rgba(255,255,255,.08);border-radius:20px;height:8px;overflow:hidden;}
-.mfill{height:100%;border-radius:20px;transition:width .4s,background .4s;}
-.mnote{font-size:12px;font-weight:600;margin-top:6px;}
-
-/* 50% GUIDE */
-.margin-guide{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px;margin-top:12px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-.mg-item{text-align:center;}
-.mg-lbl{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px;}
-.mg-val{font-family:'DM Mono',monospace;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);}
-.mg-min{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
-
-/* UPSELL */
-.ubox{background:var(--amber-light);border:1px solid #FDE68A;border-radius:10px;padding:12px 14px;margin-top:12px;}
-.uhd{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:7px;}
-.urow{font-size:12px;color:var(--gray-700);padding:2px 0;}
-
-/* BTNS */
-.btn{padding:10px 18px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;}
-.btn-gn{background:var(--green);color:white;}.btn-gn:hover{background:#15803D;}
-.btn-gh{background:var(--gray-100);color:var(--gray-600);border:1px solid var(--gray-200);}
-.btn-nv{background:var(--navy);color:white;}.btn-nv:hover{background:var(--navy-d);}
-.brow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-.qout{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:7px;padding:14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-700);line-height:1.8;white-space:pre-wrap;margin-top:10px;display:none;}
-.gone{display:none!important;}
-
-/* MODEL TAB */
-.tbl{width:100%;border-collapse:collapse;font-size:12px;}
-.tbl th{background:var(--navy);color:white;padding:9px 12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-align:left;}
-.tbl th.tr{text-align:right;}
-.tbl td{padding:8px 12px;border-bottom:1px solid var(--gray-100);}
-.tbl td.tr{text-align:right;font-family:'DM Mono',monospace;}
-.tbl tr:hover td{background:var(--gray-50);}
-.tbl tr.tot td{background:var(--navy)!important;color:white;font-weight:700;}
-
-/* NEW SERVICE BADGE */
-.new-badge{font-size:9px;font-weight:700;background:var(--blue);color:white;border-radius:4px;padding:1px 5px;letter-spacing:.5px;margin-left:6px;vertical-align:middle;}
+.tabs{display:flex;gap:4px;overflow-x:auto;flex:1;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 0}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:none;padding:8px 14px;border-radius:var(--radius-sm);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.tab-btn:hover{background:rgba(255,255,255,0.15);color:#fff}
+.tab-btn.active{background:#fff;color:var(--navy)}
+/* TAB CONTENT */
+.tab-content{display:none;max-width:1400px;margin:0 auto;padding:20px 16px}
+.tab-content.active{display:block}
+/* UTILITY */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px}
+.badge-new{background:#DBEAFE;color:var(--blue);border:1px solid #93C5FD}
+.badge-existing{background:#F3F4F6;color:var(--text-light)}
+.badge-high{background:#D1FAE5;color:#065F46}
+.badge-medium{background:#FEF3C7;color:#92400E}
+.badge-low{background:#FEE2E2;color:#991B1B}
+.badge-published{background:#D1FAE5;color:#065F46}
+.badge-promo{background:#DBEAFE;color:var(--blue)}
+.badge-review{background:#FEF3C7;color:#92400E}
+.badge-benchmark{background:#F3F4F6;color:var(--text-light)}
+h2{font-size:20px;font-weight:700;margin-bottom:16px;color:var(--navy)}
+h3{font-size:16px;font-weight:700;margin-bottom:12px}
+h4{font-size:14px;font-weight:600;margin-bottom:8px}
+.section{margin-bottom:32px}
+/* SCALE SELECTOR */
+.scale-bar{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.scale-btn{padding:8px 16px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--card);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.scale-btn.active{border-color:var(--navy);background:var(--navy);color:#fff}
+/* KPI CARDS */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+.kpi-value{font-size:22px;font-weight:700;color:var(--navy)}
+.kpi-label{font-size:11px;color:var(--text-light);margin-top:2px;font-weight:500}
+/* SERVICE GRID */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:32px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all 0.2s;position:relative}
+.service-card:hover{box-shadow:var(--shadow-md);border-color:#CBD5E1}
+.service-card .sc-icon{font-size:24px;margin-bottom:6px}
+.service-card .sc-name{font-size:13px;font-weight:600;margin-bottom:4px}
+.service-card .sc-price{font-size:18px;font-weight:700;color:var(--navy)}
+.service-card .sc-badge{position:absolute;top:10px;right:10px}
+.service-detail{display:none;background:#F8FAFC;border-top:1px solid var(--border);margin:-16px -16px -16px;padding:16px;margin-top:12px;border-radius:0 0 var(--radius) var(--radius);font-size:12px;line-height:1.6}
+.service-card.expanded .service-detail{display:block}
+.service-card.expanded{grid-column:1/-1}
+@media(min-width:768px){.service-card.expanded{grid-column:span 2}}
+.detail-section{margin-bottom:10px}
+.detail-section strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-light);margin-bottom:3px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.detail-tier{background:var(--card);padding:10px;border-radius:var(--radius-sm);border:1px solid var(--border)}
+.detail-tier .tier-name{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text-light);margin-bottom:2px}
+.detail-tier .tier-price{font-size:16px;font-weight:700;color:var(--navy)}
+.detail-tier .tier-desc{font-size:11px;color:var(--text-light);margin-top:2px}
+/* AFTER HOURS BOX */
+.after-hours-box{background:linear-gradient(135deg,#1B2A47,#2D3E5F);color:#fff;border-radius:var(--radius);padding:24px;margin-top:24px}
+.after-hours-box h3{color:#fff}
+.ah-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:12px}
+.ah-item{background:rgba(255,255,255,0.1);border-radius:var(--radius-sm);padding:14px}
+.ah-mult{font-size:24px;font-weight:700;color:#4db8ff}
+.ah-label{font-size:12px;opacity:0.8;margin-top:2px}
+.ah-example{font-size:11px;opacity:0.6;margin-top:6px}
+/* CALCULATOR */
+.calc-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.calc-layout{grid-template-columns:1fr}}
+.calc-input-group{margin-bottom:16px}
+.calc-input-group label{display:block;font-size:12px;font-weight:600;color:var(--text-light);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.calc-input-group select,.calc-input-group input[type="number"]{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-family:inherit;font-size:14px;background:var(--card)}
+.calc-input-group select:focus,.calc-input-group input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.1)}
+.toggle-group{display:flex;gap:4px}
+.toggle-btn{flex:1;padding:8px 12px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--card);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;text-align:center;transition:all 0.2s}
+.toggle-btn.active{border-color:var(--navy);background:var(--navy);color:#fff}
+.calc-output{background:#F0F4FF;border:2px solid #C7D2FE;border-radius:var(--radius);padding:20px}
+.calc-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;border-bottom:1px solid rgba(0,0,0,0.05)}
+.calc-row:last-child{border:none}
+.calc-row.total{font-size:16px;font-weight:700;color:var(--navy);border-top:2px solid var(--navy);padding-top:12px;margin-top:8px}
+.calc-row .label{color:var(--text-light)}
+.margin-meter{height:12px;background:#E5E7EB;border-radius:6px;overflow:hidden;margin-top:8px}
+.margin-fill{height:100%;border-radius:6px;transition:width 0.3s,background 0.3s}
+.quote-box{background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px;margin-top:16px;text-align:center}
+.quote-price{font-size:32px;font-weight:700}
+.quote-label{font-size:12px;opacity:0.7;margin-bottom:4px}
+/* WH TAB */
+.wh-type-bar{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.wh-type-btn{padding:10px 18px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--card);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.wh-type-btn.active{border-color:var(--blue);background:var(--blue);color:#fff}
+.wh-size-bar{display:flex;gap:6px;margin-bottom:16px}
+.wh-size-btn{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:var(--card);font-family:inherit;font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s}
+.wh-size-btn.active{border-color:var(--navy);background:var(--navy);color:#fff}
+.tier-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px}
+.tier-card{background:var(--card);border:2px solid var(--border);border-radius:var(--radius);padding:20px;position:relative}
+.tier-card.recommended{border-color:var(--green)}
+.tier-card .tier-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px}
+.tier-card .tier-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.tier-card .tier-starting{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.tier-card .tier-range{font-size:12px;color:var(--text-light)}
+.tier-card ul{font-size:12px;margin-top:12px;padding-left:16px;color:var(--text-light)}
+.tier-card ul li{margin-bottom:4px}
+.recommended-badge{position:absolute;top:-10px;right:16px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px}
+/* ADDON CHECKLIST */
+.addon-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;margin-bottom:20px}
+.addon-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.15s;font-size:13px}
+.addon-item:hover{border-color:#CBD5E1}
+.addon-item.checked{border-color:var(--green);background:#F0FDF4}
+.addon-item input{accent-color:var(--green);width:16px;height:16px}
+.addon-price{margin-left:auto;font-weight:600;color:var(--navy);white-space:nowrap}
+.addon-total{font-size:20px;font-weight:700;color:var(--navy);text-align:right;padding:12px}
+/* TABLES */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--navy);color:#fff;padding:10px 12px;text-align:left;font-weight:600;white-space:nowrap;position:sticky;top:0}
+td{padding:8px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
+tr:hover td{background:#F8FAFC}
+.cell-green{background:#D1FAE5;color:#065F46}
+.cell-red{background:#FEE2E2;color:#991B1B}
+.cell-blue{background:#DBEAFE;color:#1E40AF}
+.cell-amber{background:#FEF3C7;color:#92400E}
+/* COMPETITOR CARDS */
+.comp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:24px}
+.comp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.comp-card .comp-name{font-size:15px;font-weight:700;margin-bottom:4px}
+.comp-card .comp-meta{font-size:12px;color:var(--text-light);margin-bottom:8px}
+.comp-card .comp-detail{font-size:12px;line-height:1.6}
+.threat-high{border-left:4px solid var(--red)}
+.threat-medium{border-left:4px solid var(--amber)}
+.threat-low{border-left:4px solid var(--green)}
+/* SERVICE GUIDES */
+.guide-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden}
+.guide-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:14px}
+.guide-header:hover{background:#F8FAFC}
+.guide-body{display:none;padding:0 20px 20px;font-size:13px;line-height:1.7}
+.guide-card.open .guide-body{display:block}
+.guide-card.open .guide-chevron{transform:rotate(180deg)}
+.guide-chevron{transition:transform 0.2s}
+.guide-field{margin-bottom:12px}
+.guide-field-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-light);margin-bottom:4px}
+/* FILTER CHIPS */
+.filter-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.filter-chip{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:var(--card);font-family:inherit;font-size:12px;cursor:pointer;transition:all 0.2s}
+.filter-chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+/* PARTS TAB */
+.parts-section{margin-bottom:24px}
+.parts-header{padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-weight:600;font-size:14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.parts-header:hover{background:#F8FAFC}
+.parts-body{display:none;background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);padding:16px;margin-top:-2px}
+.parts-section.open .parts-body{display:block}
+.parts-section.open .parts-chevron{transform:rotate(180deg)}
+/* PRINT */
+@media print{
+.header,.tabs,.back-btn,.scale-bar{display:none!important}
+.tab-content{display:block!important;padding:10px}
+.service-card.expanded .service-detail{display:block}
+body{background:#fff}
+}
+/* MOBILE */
+@media(max-width:600px){
+.header-inner{gap:10px}
+.logo{font-size:15px}
+.tab-btn{font-size:11px;padding:6px 10px}
+.kpi-row{grid-template-columns:repeat(2,1fr)}
+.service-grid{grid-template-columns:1fr 1fr}
+.detail-grid{grid-template-columns:1fr}
+.tier-cards{grid-template-columns:1fr}
+h2{font-size:17px}
+}
 </style>
 </head>
 <body>
-<div class="hdr">
-  <div class="hdr-logo">💰</div>
-  <div class="hdr-title">JOB PRICING</div>
-  <span class="hdr-sub">Westside LA · Atlas Home Pro · Updated w/ Competitor Intel</span>
-  <a href="index.html" class="back">← Portal</a>
+<div style="position:fixed;top:12px;left:12px;z-index:9999;"><a href="index.html" style="display:flex;align-items:center;gap:6px;background:#1B2A47;color:white;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:8px 14px;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.25);opacity:0.9;">← Ops Portal</a></div>
+
+<div class="header">
+<div class="header-inner">
+<div class="logo">Atlas <span>Home Pro</span> — Job Pricing v2</div>
+<div class="tabs" id="tabBar">
+<button class="tab-btn active" data-tab="quick-reference">⚡ Quick Ref</button>
+<button class="tab-btn" data-tab="calculator">🔧 Calculator</button>
+<button class="tab-btn" data-tab="water-heaters">🏠 Water Heaters</button>
+<button class="tab-btn" data-tab="competitor-intel">🔍 Competitor Intel</button>
+<button class="tab-btn" data-tab="service-guides">📋 Service Guides</button>
+<button class="tab-btn" data-tab="business-model">💰 Business Model</button>
+<button class="tab-btn" data-tab="parts-sourcing">📖 Parts & Sourcing</button>
 </div>
-<div class="main">
-
-  <div class="tabs">
-    <button class="tab on" onclick="setTab('quick',this)">⚡ Quick Reference</button>
-    <button class="tab" onclick="setTab('calc',this)">🧮 Full Calculator</button>
-    <button class="tab" onclick="setTab('comp',this)">🔍 Competitor Intel</button>
-    <button class="tab" onclick="setTab('model',this)">📊 Business Model</button>
-  </div>
-
-  <!-- SCALE BAR -->
-  <div class="scale-bar">
-    <div class="scale-lbl">Current Scale — drives overhead % and marketing cost per job</div>
-    <div class="scale-btns">
-      <button class="sbtn on" onclick="setScale(0,this)">🚐🚐 2 Vans — Launch</button>
-      <button class="sbtn" onclick="setScale(1,this)">🚐×5 5 Vans</button>
-      <button class="sbtn" onclick="setScale(2,this)">🚐×8 8 Vans</button>
-      <button class="sbtn" onclick="setScale(3,this)">🚐×10 10 Vans — Target</button>
-    </div>
-    <div class="snote" id="snote">⚠ At 2 vans overhead is ~42%. Normal for launch. Goal: 15% at 10 vans → 20-25% NOI.</div>
-  </div>
-
-  <!-- BANNER -->
-  <div class="banner">
-    <div><div class="bi-lbl">Overhead</div><div class="bi-val a" id="b-oh">42%</div><div class="bi-sub">of revenue</div></div>
-    <div><div class="bi-lbl">Mktg/Job Est.</div><div class="bi-val" id="b-cac">$350</div><div class="bi-sub">adjust w/ CallRail data</div></div>
-    <div><div class="bi-lbl">Break Even/Van</div><div class="bi-val" id="b-bev">$19,200</div><div class="bi-sub">per month</div></div>
-    <div><div class="bi-lbl">20% NOI/Van</div><div class="bi-val g" id="b-noi">$28,000</div><div class="bi-sub">per month target</div></div>
-    <div><div class="bi-lbl">Gross Margin Target</div><div class="bi-val g">50%</div><div class="bi-sub">after parts + labor</div></div>
-  </div>
-
-  <!-- ═══ QUICK TAB ═══ -->
-  <div id="t-quick">
-    <div class="card">
-      <div class="ctitle">📋 All Services — Westside LA Market Rates <span class="new-badge">16 SERVICES</span></div>
-      <p style="font-size:11px;color:var(--gray-400);margin-bottom:14px">Priced to hit 50% gross margin. Blue cards = newly added services. Tap any card for Good/Better/Best breakdown + upsell scripts.</p>
-      <div class="qgrid" id="qgrid"></div>
-    </div>
-    <div class="qdet" id="qdet">
-      <div class="ctitle" id="qd-title"></div>
-      <div id="qd-body"></div>
-    </div>
-  </div>
-
-  <!-- ═══ CALC TAB ═══ -->
-  <div id="t-calc" class="gone">
-    <div class="card">
-      <div class="ctitle">① Select Job Type</div>
-      <div class="jgrid" id="jgrid"></div>
-    </div>
-    <div class="card gone" id="s-labor">
-      <div class="ctitle">② Labor & Details</div>
-      <div class="igrid">
-        <div class="fld"><label>Tech Level</label><select id="trate" onchange="calc()"><option value="42">Lead Tech — $42/hr</option><option value="30">Regular Tech — $30/hr</option></select></div>
-        <div class="fld"><label>Hours on Job</label><input type="number" id="hrs" value="1" min="0.5" max="8" step="0.5" oninput="calc()"></div>
-        <div class="fld"><label>Drive Time (min)</label><input type="number" id="drv" value="20" min="0" max="90" step="5" oninput="calc()"><div class="hint">Included in labor</div></div>
-        <div class="fld"><label>Time of Service</label><select id="timemult" onchange="calc()"><option value="1">Regular — Mon–Fri 7am–5pm</option><option value="1.5">After Hours / Saturday</option><option value="2">Sunday / Holiday</option></select></div>
-        <div class="fld"><label>Mktg Cost This Job ($)</label><input type="number" id="cac" value="350" min="0" max="600" step="25" oninput="calc()"><div class="hint">Adjust when you know real CAC</div></div>
-        <div class="fld"><label>Parts Markup</label><select id="mku" onchange="calc()"><option value="1.5">50% markup (standard)</option><option value="1.75">75% markup</option><option value="2.0">100% markup</option></select></div>
-      </div>
-    </div>
-    <div class="card gone" id="s-parts">
-      <div class="ctitle">③ Parts Used</div>
-      <div class="pgrid" id="pgrid"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-100)">
-        <div class="fld"><label>Custom Part Name</label><input type="text" id="cpn" placeholder="e.g. Pressure regulator"></div>
-        <div class="fld"><label>Custom Part Cost ($)</label><input type="number" id="cpc" placeholder="0.00" oninput="calc()"></div>
-      </div>
-    </div>
-    <div id="r-wrap" class="gone">
-      <div class="result">
-        <div class="rgrid">
-          <div>
-            <div class="rline"><span class="rl">Parts (your cost)</span><span class="rv" id="r-parts">$0</span></div>
-            <div class="rline"><span class="rl">Parts Revenue (marked up)</span><span class="rv good" id="r-pmu">$0</span></div>
-            <div class="rline"><span class="rl">Labor Cost</span><span class="rv" id="r-lab">$0</span></div>
-            <div class="rline"><span class="rl">After-Hours Multiplier</span><span class="rv" id="r-time">—</span></div>
-          </div>
-          <div>
-            <div class="rline"><span class="rl">Overhead (scale-adjusted)</span><span class="rv" id="r-oh">$0</span></div>
-            <div class="rline"><span class="rl">Marketing / This Job</span><span class="rv" id="r-cac">$0</span></div>
-            <div class="rline"><span class="rl">CC Processing (3%)</span><span class="rv" id="r-cc">$0</span></div>
-            <div class="rline"><span class="rl">Gross Margin</span><span class="rv" id="r-gm">0%</span></div>
-          </div>
-        </div>
-        <div class="margin-guide">
-          <div class="mg-item"><div class="mg-lbl">Market Rate</div><div class="mg-val" id="mg-mkt">—</div><div class="mg-min">competitor range</div></div>
-          <div class="mg-item"><div class="mg-lbl">Min for 50% GM</div><div class="mg-val" id="mg-50">$0</div><div class="mg-min">gross margin target</div></div>
-          <div class="mg-item"><div class="mg-lbl">Min for 20% NOI</div><div class="mg-val" id="mg-noi">$0</div><div class="mg-min">net target at scale</div></div>
-        </div>
-        <div class="rbottom">
-          <div>
-            <div class="qlbl">Quote Customer</div>
-            <div class="qprice" id="r-tot">$0</div>
-            <div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:3px">Rounded to nearest $5</div>
-          </div>
-          <div class="nblock">
-            <div class="nlbl">Actual NOI</div>
-            <div class="nval" id="r-noi" style="color:#FCD34D">0%</div>
-            <div class="nsub" id="r-noisub">Target: 20% at scale</div>
-          </div>
-        </div>
-        <div class="mwrap">
-          <div class="mtop"><span>Gross Margin — Target: 50%+</span><span id="r-gpct">0%</span></div>
-          <div class="mbg"><div class="mfill" id="r-mbar"></div></div>
-          <div class="mnote" id="r-mnote"></div>
-        </div>
-      </div>
-      <div class="ubox" id="ubox" style="display:none"><div class="uhd">💡 Upsell on This Job</div><div id="ulist"></div></div>
-      <div class="brow">
-        <button class="btn btn-gn" onclick="genQ()">📋 Copy Quote</button>
-        <button class="btn btn-gh" onclick="resetC()">🔄 New Job</button>
-      </div>
-      <div class="qout" id="qout"></div>
-    </div>
-  </div>
-
-  <!-- ═══ COMPETITOR TAB ═══ -->
-  <div id="t-comp" class="gone">
-    <div class="card">
-      <div class="ctitle">🔍 Competitor Intelligence — 90036 Westside LA</div>
-      <p style="font-size:12px;color:var(--gray-500);margin-bottom:16px;line-height:1.6">
-        Based on live research: Yelp reviews (price mentions), Western Rooter published price sheet, Flood Brothers ads, mystery shop intelligence. 
-        <strong>Most competitors don't publish prices</strong> — these are sourced from reviews and confirmed market data.
-      </p>
-      <div id="comp-table"></div>
-    </div>
-    <div class="card">
-      <div class="ctitle">📊 Competitor Profiles</div>
-      <div id="comp-profiles"></div>
-    </div>
-    <div class="card">
-      <div class="ctitle">💡 Pricing Strategy Recommendations</div>
-      <div id="strategy"></div>
-    </div>
-  </div>
-
-  <!-- ═══ MODEL TAB ═══ -->
-  <div id="t-model" class="gone">
-    <div class="card">
-      <div class="ctitle">📊 Cost Structure Per Van / Month</div>
-      <p style="font-size:13px;color:var(--gray-500);margin-bottom:16px;line-height:1.6">
-        Your actual financial model. <strong>The goal:</strong> 50% gross margin on every job, 15% overhead at 10 vans, 20-25% NOI. These numbers compound — getting to 8 jobs/day per van is the whole game.
-      </p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
-        <div>
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px">Fixed Costs / Van / Month</div>
-          <div id="fclist"></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid var(--gray-200);margin-top:6px">
-            <span style="font-weight:700;font-size:13px">Total Fixed</span>
-            <span style="font-family:'DM Mono',monospace;font-weight:700;font-size:13px;color:var(--red)" id="tfixed"></span>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin-bottom:10px">Variable (% of Revenue)</div>
-          <div id="vclist"></div>
-          <div style="background:var(--green-light);border:1px solid #BBF7D0;border-radius:8px;padding:12px;margin-top:12px;font-size:12px;color:var(--gray-700);line-height:1.9">
-            Break even: ~$19,200/van/mo<br>
-            5% NOI: ~$22,000/van/mo<br>
-            10% NOI: ~$24,500/van/mo<br>
-            <strong>20% NOI: ~$28,000/van/mo</strong><br>
-            <strong>25% NOI: ~$31,000/van/mo</strong>
-          </div>
-        </div>
-      </div>
-      <div style="background:var(--navy);border-radius:10px;padding:16px 20px;color:white;margin-bottom:16px">
-        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px">Jobs/Day Per Van to Hit 20% NOI — at 50% Gross Margin</div>
-        <div id="jneed" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px"></div>
-        <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:12px;line-height:1.6">
-          💡 After-hours pricing (1.5–2x) dramatically improves NOI on weekend calls without adding volume<br>
-          💡 Earthquake valve ($395) + WH flush ($299) = $694 add-on with near-zero parts cost<br>
-          💡 Every organic Google review lead = $0 CAC. 300 reviews could cut your ad spend 30–40%
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ctitle">📣 Advertising Spend vs. CAC — What Each Dollar Buys</div>
-      <div style="overflow-x:auto"><table class="tbl" id="adtbl-wrap"></table></div>
-      <div style="margin-top:12px;background:var(--amber-light);border:1px solid #FDE68A;border-radius:8px;padding:12px;font-size:12px;color:var(--gray-700);line-height:1.6">
-        💡 At $5K/van/10 jobs/day = <strong>$23/job in marketing cost</strong> — that's the target. Get there with volume + reviews.
-      </div>
-    </div>
-  </div>
-
 </div>
+</div>
+
+<!-- ═══════════════════ TAB 1: QUICK REFERENCE ═══════════════════ -->
+<div class="tab-content active" id="quick-reference">
+<div class="section">
+<h2>⚡ Quick Reference — Service Pricing</h2>
+<div class="scale-bar" id="scaleBar">
+<button class="scale-btn active" data-vans="2">2 Vans Launch</button>
+<button class="scale-btn" data-vans="5">5 Vans</button>
+<button class="scale-btn" data-vans="8">8 Vans</button>
+<button class="scale-btn" data-vans="10">10 Vans Target</button>
+</div>
+<div class="kpi-row" id="kpiRow"></div>
+</div>
+<div class="section">
+<h3>Service Cards</h3>
+<div class="service-grid" id="serviceGrid"></div>
+</div>
+<div class="after-hours-box">
+<h3>After-Hours Multipliers</h3>
+<p style="font-size:13px;opacity:0.8;margin-bottom:12px">Published, transparent pricing — follow the Western Rooter model</p>
+<div class="ah-grid">
+<div class="ah-item"><div class="ah-mult">1.0x</div><div class="ah-label">M–F 7am–6pm</div><div class="ah-example">Drain Clean: $119</div></div>
+<div class="ah-item"><div class="ah-mult">1.5x</div><div class="ah-label">Sat / Evenings after 5pm</div><div class="ah-example">Drain Clean: $179</div></div>
+<div class="ah-item"><div class="ah-mult">2.0x</div><div class="ah-label">Sun / Holidays / After 10pm</div><div class="ah-example">Drain Clean: $238</div></div>
+<div class="ah-item"><div class="ah-mult">+$95</div><div class="ah-label">Emergency Dispatch Fee</div><div class="ah-example">Same-day priority</div></div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════ TAB 2: CALCULATOR ═══════════════════ -->
+<div class="tab-content" id="calculator">
+<h2>🔧 Full Job Pricing Calculator</h2>
+<div class="calc-layout">
+<div class="card">
+<h3>Job Inputs</h3>
+<div class="calc-input-group"><label>Service Type</label><select id="calcService"></select></div>
+<div class="calc-input-group"><label>Repair vs Replace</label><div class="toggle-group" id="calcRepairReplace"><button class="toggle-btn active" data-val="repair">Repair</button><button class="toggle-btn" data-val="replace">Replace</button></div></div>
+<div class="calc-input-group"><label>Access Difficulty</label><div class="toggle-group" id="calcAccess"><button class="toggle-btn" data-val="1.0">Easy (1.0x)</button><button class="toggle-btn active" data-val="1.0">Standard (1.0x)</button><button class="toggle-btn" data-val="1.3">Difficult (1.3x)</button></div></div>
+<div class="calc-input-group"><label>Material Tier</label><div class="toggle-group" id="calcTier"><button class="toggle-btn active" data-val="standard">Standard</button><button class="toggle-btn" data-val="better">Better</button><button class="toggle-btn" data-val="premium">Premium</button></div></div>
+<div class="calc-input-group"><label>Labor Hours</label><input type="number" id="calcLabor" value="1.5" step="0.25" min="0.25" max="12"></div>
+<div class="calc-input-group"><label>Parts Cost ($)</label><input type="number" id="calcParts" value="30" step="5" min="0"></div>
+<div class="calc-input-group"><label>After-Hours</label><div class="toggle-group" id="calcAfterHours"><button class="toggle-btn active" data-val="1.0">Regular</button><button class="toggle-btn" data-val="1.5">Sat/Eve (1.5x)</button><button class="toggle-btn" data-val="2.0">Sun/Hol (2.0x)</button></div></div>
+<div class="calc-input-group"><label>Permit Required?</label><div class="toggle-group" id="calcPermit"><button class="toggle-btn active" data-val="0">No</button><button class="toggle-btn" data-val="200">Yes (+$200)</button></div></div>
+</div>
+<div>
+<div class="calc-output" id="calcOutput"></div>
+<div class="quote-box" id="quoteBox"><div class="quote-label">Quote Customer</div><div class="quote-price" id="quotePrice">$0</div></div>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════ TAB 3: WATER HEATERS ═══════════════════ -->
+<div class="tab-content" id="water-heaters">
+<h2>🏠 Water Heater Pricing Tool</h2>
+<div class="wh-type-bar" id="whTypeBar">
+<button class="wh-type-btn active" data-type="tank-gas">Tank Gas</button>
+<button class="wh-type-btn" data-type="tank-electric">Tank Electric</button>
+<button class="wh-type-btn" data-type="tankless-gas">Tankless Gas</button>
+<button class="wh-type-btn" data-type="tankless-electric">Tankless Electric</button>
+<button class="wh-type-btn" data-type="heat-pump">Heat Pump</button>
+</div>
+<div class="wh-size-bar" id="whSizeBar">
+<button class="wh-size-btn active" data-size="30-40">30–40 gal</button>
+<button class="wh-size-btn" data-size="50">50 gal</button>
+<button class="wh-size-btn" data-size="75-80">75–80 gal</button>
+</div>
+<div id="whTierCards" class="tier-cards"></div>
+
+<div class="section">
+<h3>Unit Cost Table — Contractor Pricing</h3>
+<div class="table-wrap" id="whUnitTable"></div>
+</div>
+
+<div class="section">
+<h3>CA Code Requirements</h3>
+<div class="table-wrap" id="whCodeTable"></div>
+</div>
+
+<div class="section">
+<h3>Add-On Line Items</h3>
+<div class="addon-list" id="whAddons"></div>
+<div class="addon-total">Running Total: <span id="whAddonTotal">$0</span></div>
+</div>
+
+<div class="section">
+<h3>Repricing Triggers</h3>
+<div class="table-wrap" id="whTriggers"></div>
+</div>
+
+<div class="section">
+<h3>Rebates & Incentives</h3>
+<div class="card" style="background:#F0FDF4;border-color:#86EFAC">
+<h4 style="color:#065F46">Federal 30% Tax Credit (IRS §25C)</h4>
+<p style="font-size:13px;margin-bottom:8px">Up to $2,000/year for heat pump water heaters with UEF ≥ 2.0</p>
+<h4 style="color:#065F46;margin-top:12px">SoCalGas Rebate</h4>
+<p style="font-size:13px;margin-bottom:8px">Up to $1,000 for high-efficiency gas or heat pump WH</p>
+<h4 style="color:#065F46;margin-top:12px">LADWP / SCE Rebate</h4>
+<p style="font-size:13px;margin-bottom:8px">Varies by program — heat pump WH eligible</p>
+<h4 style="color:#065F46;margin-top:12px">CA Go Zero</h4>
+<p style="font-size:13px">Additional rebates for income-qualified households</p>
+<p style="font-size:12px;color:#065F46;margin-top:12px;font-weight:600">Net customer cost for Heat Pump WH: as low as $1,199 after all rebates (from $2,199 starting)</p>
+</div>
+</div>
+</div>
+
+<!-- ═══════════════════ TAB 4: COMPETITOR INTEL ═══════════════════ -->
+<div class="tab-content" id="competitor-intel">
+<h2>🔍 Competitor Intel</h2>
+<div class="filter-chips" id="compFilterChips"></div>
+<div class="section"><h3>Service × Competitor Pricing Matrix</h3><div class="table-wrap" id="compMatrix"></div></div>
+<div class="section"><h3>Competitor Profiles</h3><div class="comp-cards" id="compProfiles"></div></div>
+<div class="section"><h3>Loss-Leader & Promo Pricing</h3><div class="table-wrap" id="compPromos"></div></div>
+<div class="section"><h3>After-Hours Comparison</h3><div class="table-wrap" id="compAfterHours"></div></div>
+</div>
+
+<!-- ═══════════════════ TAB 5: SERVICE GUIDES ═══════════════════ -->
+<div class="tab-content" id="service-guides">
+<h2>📋 CSR/Dispatch Service Guides</h2>
+<p style="font-size:13px;color:var(--text-light);margin-bottom:20px">Tap a service to expand the full quick-reference card for phone quoting</p>
+<div id="guideList"></div>
+</div>
+
+<!-- ═══════════════════ TAB 6: BUSINESS MODEL ═══════════════════ -->
+<div class="tab-content" id="business-model">
+<h2>💰 Business Model & Unit Economics</h2>
+<div class="section"><h3>Fixed Cost Structure Per Van Per Month</h3><div class="table-wrap" id="bmFixedCosts"></div></div>
+<div class="section"><h3>Variable Costs</h3><div class="table-wrap" id="bmVarCosts"></div></div>
+<div class="section"><h3>Breakeven & NOI Targets</h3><div class="table-wrap" id="bmNOI"></div></div>
+<div class="section"><h3>Jobs/Day to Hit 20% NOI at 50% GM</h3><div class="table-wrap" id="bmJobs"></div></div>
+<div class="section"><h3>Ad Spend vs CAC</h3><div class="table-wrap" id="bmCAC"></div></div>
+<div class="section"><h3>After-Hours Revenue Model</h3><div class="card" id="bmAfterHours"></div></div>
+<div class="section"><h3>Service Mix Optimizer — Daily Target</h3><div class="card" id="bmServiceMix"></div></div>
+</div>
+
+<!-- ═══════════════════ TAB 7: PARTS & SOURCING ═══════════════════ -->
+<div class="tab-content" id="parts-sourcing">
+<h2>📖 Parts & Sourcing Reference</h2>
+<div class="section"><h3>Sourcing Channels</h3><div class="table-wrap" id="psChannels"></div></div>
+<div class="section"><h3>Top Parts By Service</h3><div id="psPartsList"></div></div>
+<div class="section"><h3>Truck Stock Checklist</h3><div class="table-wrap" id="psTruckStock"></div></div>
+</div>
+
 <script>
-const JOBS=[
-  // CORE PLUMBING
-  {id:'drain',icon:'🌀',name:'Drain Cleaning',h:1,isNew:false,
-   mkt:'$88–$176 (Western Rooter)',atlas:119,
-   pr:['ptfe','compound'],
-   q:{g:119,b:169,be:249,gd:'Snake drain',bd:'Snake + camera',bed:'Hydro jet + camera'},
-   ups:['Camera inspection (+$175)','Hydro jet upgrade (+$400)','Annual maintenance plan — $299/yr']},
-  {id:'sewer',icon:'🌊',name:'Main Line Sewer',h:1.5,isNew:false,
-   mkt:'$100–$200 (Western Rooter)',atlas:225,
-   pr:['ptfe'],
-   q:{g:225,b:325,be:495,gd:'Snake mainline',bd:'Snake + camera',bed:'Hydro jet + camera'},
-   ups:['Camera inspection (+$175)','Root treatment (+$250)','Hydro jet upgrade']},
-  {id:'hydro',icon:'💦',name:'Hydro Jetting',h:2,isNew:false,
-   mkt:'$325–$585 (Western Rooter)',atlas:450,
-   pr:['ptfe'],
-   q:{g:450,b:650,be:950,gd:'Jetting 2" lines only',bd:'Jet 3–4" + camera',bed:'Jet + camera + report'},
-   ups:['Camera before + after (+$175)','Annual maintenance plan','Enzyme treatment (+$85)']},
-  {id:'camera',icon:'📷',name:'Camera Inspection',h:0.75,isNew:false,
-   mkt:'$175–$275 (Western Rooter)',atlas:175,
-   pr:[],
-   q:{g:175,b:225,be:300,gd:'Camera only',bd:'Camera + locate',bed:'Camera + locate + report'},
-   ups:['Hydro jet add-on (+$550)','Written report for sale/insurance','Root treatment estimate']},
-  {id:'toilet',icon:'🚽',name:'Toilet Repair',h:1,isNew:false,
-   mkt:'$185–$350 market',atlas:185,
-   pr:['fillvalve','flapper','waxring','supplyline','closetbolts'],
-   q:{g:185,b:265,be:350,gd:'Fill valve / flapper',bd:'Full rebuild',bed:'Rebuild + stop + lines'},
-   ups:['Replace angle stop (+$85)','Caulk base (+$45)','Full rebuild upsell']},
-  {id:'faucet',icon:'🚰',name:'Faucet Repair',h:1.25,isNew:false,
-   mkt:'$225–$395 market',atlas:225,
-   pr:['moen1225','supplylines','aerator'],
-   q:{g:225,b:295,be:395,gd:'Cartridge only',bd:'Cartridge + lines',bed:'Full fixture swap'},
-   ups:['Replace supply lines (+$45)','Angle stop (+$85)','Aerator upgrade (+$45)']},
-  {id:'shower',icon:'🚿',name:'Shower Valve',h:1.5,isNew:false,
-   mkt:'$285–$495 market',atlas:285,
-   pr:['moen1225','ptfe'],
-   q:{g:285,b:375,be:495,gd:'Cartridge swap',bd:'Cartridge + trim',bed:'Full valve replace'},
-   ups:['New trim kit (+$125)','Test water pressure (+$75)']},
-  {id:'whrep',icon:'🔧',name:'WH Repair',h:1.5,isNew:false,
-   mkt:'$285–$495 market',atlas:285,
-   pr:['tpvalve','anoderod','whflex'],
-   q:{g:285,b:375,be:495,gd:'T&P valve only',bd:'T&P + anode rod',bed:'Full service'},
-   ups:['Flush + inspect (+$299)','Expansion tank (+$185)','Anode rod (+$95)']},
-  {id:'whinst',icon:'♨️',name:'WH Install',h:3,isNew:false,
-   mkt:'$895–$1,495 market',atlas:1095,
-   pr:['tpvalve','whflex','anoderod','expantank','seismicstrap','gasflexconn','dielectric'],
-   q:{g:1095,b:1295,be:1595,gd:'Standard swap',bd:'Swap + expansion tank',bed:'Swap + all code items'},
-   ups:['Upgrade to 50-gal (+$150)','Flush existing (+$299)','Install expansion tank (+$185)']},
-  {id:'valve',icon:'🔴',name:'Stop Valve',h:1,isNew:false,
-   mkt:'$185–$295 market',atlas:185,
-   pr:['anglestop','supplyline','ptfe'],
-   q:{g:185,b:235,be:295,gd:'1 valve',bd:'2 valves',bed:'All valves at location'},
-   ups:['All stops at location (+$65 ea)','Supply line (+$45)']},
-  {id:'leak',icon:'💧',name:'Leak Repair',h:1.5,isNew:false,
-   mkt:'$195–$450 market',atlas:195,
-   pr:['sharkbite12','repairclamp','ptfe','compound'],
-   q:{g:195,b:295,be:450,gd:'Minor (clamp)',bd:'Fitting replace',bed:'Pipe section replace'},
-   ups:['Camera check (+$175)','Shutoff upgrade','Full under-sink inspect']},
-  {id:'diag',icon:'🔍',name:'Diagnostic',h:0.75,isNew:false,
-   mkt:'$125/hr (Western Rooter)',atlas:149,
-   pr:[],
-   q:{g:149,b:149,be:149,gd:'Diagnostic fee',bd:'Waived if repair booked',bed:'Waived + camera'},
-   ups:['Book repair same visit — waive fee','Camera add-on (+$175)']},
-  // NEW SERVICES
-  {id:'eqvalve',icon:'🔒',name:'Earthquake Valve',h:1,isNew:true,
-   mkt:'$395–$593 (Western Rooter)',atlas:395,
-   pr:['gasflexconn'],
-   q:{g:395,b:450,be:550,gd:'Standard install',bd:'Install + pressure test',bed:'Install + test + cert'},
-   ups:['Multi-unit discount (HOA/apt)','+Gas shutoff inspection','Document for insurance']},
-  {id:'whflush',icon:'🧼',name:'WH Flush / Service',h:1,isNew:true,
-   mkt:'$299–$449 (Western Rooter)',atlas:299,
-   pr:['anoderod'],
-   q:{g:299,b:349,be:449,gd:'Flush + inspect',bd:'Flush + anode rod check',bed:'Flush + full service + report'},
-   ups:['Replace anode rod (+$95)','Add expansion tank (+$185)','Annual maintenance plan — $299/yr']},
-  {id:'gasleak',icon:'⚠️',name:'Gas Leak Detection',h:1,isNew:true,
-   mkt:'$375–$563 (Western Rooter)',atlas:375,
-   pr:['ptfe'],
-   q:{g:375,b:450,be:595,gd:'Pressure test + locate',bd:'Test + locate + repair',bed:'Full gas line inspection'},
-   ups:['Earthquake valve add-on (+$395)','Gas flex connector replacement (+$85)','Full gas line report']},
-  {id:'backflow',icon:'🔄',name:'Backflow Testing',h:0.75,isNew:true,
-   mkt:'$103–$155 (Western Rooter)',atlas:149,
-   pr:[],
-   q:{g:149,b:149,be:199,gd:'Test + certificate',bd:'Test + cert + report',bed:'Test + cert + repair minor'},
-   ups:['Schedule annual — offer discount','Multi-unit volume pricing','Cross-sell camera inspection']},
+// ════════════════════════════════════════════════
+// DATA — ALL PRICING EMBEDDED
+// ════════════════════════════════════════════════
+const SCALE_DATA = {
+  2: {overhead:42,mktgPerJob:350,breakEvenVan:19200,noi20Van:28000,gmTarget:50},
+  5: {overhead:25,mktgPerJob:280,breakEvenVan:17500,noi20Van:25000,gmTarget:50},
+  8: {overhead:18,mktgPerJob:220,breakEvenVan:16000,noi20Van:23000,gmTarget:50},
+  10:{overhead:15,mktgPerJob:180,breakEvenVan:15000,noi20Van:22000,gmTarget:50}
+};
+
+const SERVICES = [
+  {id:1,name:'Drain Cleaning',icon:'🚿',from:119,isNew:false,labor:1.25,parts:15,cat:'drain',
+   tiers:{good:{price:119,desc:'Cable clearing, single drain, 30-day warranty'},better:{price:249,desc:'Cable + camera inspection, video report'},best:{price:549,desc:'Hydro jetting + camera, 6-month warranty'}},
+   phoneRange:'$119–$249',partsRange:'$5–$25',redFlags:'Multiple drains = main line ($225+). Roof vent access ($395+). Roots on camera. Cast iron pre-1960.',upsells:'Camera +$149, Hydro jetting +$425, Maintenance plan $199/yr',confidence:'High'},
+  {id:2,name:'Main Line Sewer',icon:'🔧',from:225,isNew:false,labor:1.75,parts:20,cat:'drain',
+   tiers:{good:{price:225,desc:'Ground-level cleanout, 30-day warranty'},better:{price:350,desc:'Camera + locate from cleanout'},best:{price:495,desc:'Pull toilet + snake + camera + reset'}},
+   phoneRange:'$225–$395',partsRange:'$10–$30',redFlags:'Roof vent access 2-man job. Pull toilet adds $100+.',upsells:'Camera +$125, Hydro jetting +$200',confidence:'High'},
+  {id:3,name:'Hydro Jetting',icon:'💦',from:450,isNew:false,labor:2,parts:50,cat:'drain',
+   tiers:{good:{price:425,desc:'2″ branch line hydro jet'},better:{price:595,desc:'Hydro jet + camera bundle'},best:{price:695,desc:'Warthog nozzle + camera'}},
+   phoneRange:'$425–$695',partsRange:'$22–$90',redFlags:'Line size differentiation. Root intrusion severity.',upsells:'Camera included in Better, Annual maintenance',confidence:'High'},
+  {id:4,name:'Camera Inspection',icon:'📹',from:175,isNew:false,labor:0.75,parts:5,cat:'diagnostic',
+   tiers:{good:{price:149,desc:'Video inspection, written report'},better:{price:199,desc:'Multi-segment + locate service'},best:{price:349,desc:'Full system survey, USB recording'}},
+   phoneRange:'$149–$225',partsRange:'Near zero',redFlags:'Often a loss-leader. Real money in what camera finds.',upsells:'Hydro jetting, Sewer repair, Pipe lining',confidence:'High'},
+  {id:5,name:'Toilet Repair',icon:'🚽',from:185,isNew:false,labor:1,parts:36,cat:'fixture',
+   tiers:{good:{price:185,desc:'Single component (flapper OR fill valve)'},better:{price:285,desc:'Complete rebuild + supply line'},best:{price:395,desc:'Full rebuild + wax ring + angle stop check'}},
+   phoneRange:'$185–$395',partsRange:'$20–$65',redFlags:'Water on floor = cracked bowl. Rocking = broken flange. Age >25 yrs.',upsells:'Angle stop $185, Toilet replacement if >15yrs',confidence:'High'},
+  {id:6,name:'Toilet Replacement',icon:'🚽',from:450,isNew:true,labor:2,parts:380,cat:'fixture',
+   tiers:{good:{price:395,desc:'Install customer-supplied toilet, wax ring, bolts'},better:{price:595,desc:'Atlas-supplied American Standard Cadet'},best:{price:895,desc:'TOTO Drake upgrade + all accessories'}},
+   phoneRange:'$395–$650',partsRange:'$270–$450',redFlags:'Broken flange repair adder. Non-standard rough-in.',upsells:'Second toilet -$100, Angle stops $295/pair',confidence:'Medium'},
+  {id:7,name:'Faucet Repair',icon:'🔩',from:225,isNew:false,labor:1,parts:24,cat:'fixture',
+   tiers:{good:{price:195,desc:'Cartridge or component, single faucet'},better:{price:295,desc:'Cartridge + aerator + supply lines'},best:{price:425,desc:'Full faucet replacement with fixture'}},
+   phoneRange:'$195–$325',partsRange:'$14–$80',redFlags:'Unknown brand = hard to source cartridge. Corroded valve body.',upsells:'Faucet replacement $275+, Angle stops, 2nd faucet -$50',confidence:'High'},
+  {id:8,name:'Faucet Replacement',icon:'🔩',from:325,isNew:true,labor:1.5,parts:85,cat:'fixture',
+   tiers:{good:{price:275,desc:'Install customer-supplied faucet'},better:{price:395,desc:'Atlas-supplied standard faucet'},best:{price:595,desc:'Pull-down kitchen faucet upgrade'}},
+   phoneRange:'$275–$450',partsRange:'$42–$190',redFlags:'Under-sink blocked by disposal. Old shutoff valves.',upsells:'Angle stop pair $295, Disposal install $295',confidence:'Medium'},
+  {id:9,name:'Shower Valve',icon:'🚿',from:285,isNew:false,labor:1.25,parts:30,cat:'fixture',
+   tiers:{good:{price:285,desc:'Cartridge replacement, 90-day warranty'},better:{price:595,desc:'Full valve body + chrome trim, 1-yr warranty'},best:{price:895,desc:'Full valve + premium trim + access panel, 2-yr'}},
+   phoneRange:'$285–$895',partsRange:'$20–$270',redFlags:'Tile surround +$100–300. Galvanized pipe. 3-handle valve. Water damage.',upsells:'Matching tub spout +$150, 2nd bathroom discount, PRV check',confidence:'Medium'},
+  {id:10,name:'WH Repair',icon:'🔥',from:285,isNew:false,labor:1.5,parts:12,cat:'equipment',
+   tiers:{good:{price:285,desc:'Diagnostic + thermocouple or T&P valve'},better:{price:425,desc:'Gas valve replacement'},best:{price:595,desc:'Full service: gas valve + thermocouple + T&P + flush'}},
+   phoneRange:'$285–$595',partsRange:'$8–$275',redFlags:'Unit >12 yrs = may not be worth repairing. Obsolete gas valve. Tank leaking.',upsells:'WH replacement if >10yrs, WH flush $249, Expansion tank $295',confidence:'Medium'},
+  {id:11,name:'WH Install — Tank',icon:'🏠',from:1499,isNew:true,labor:3,parts:560,cat:'equipment',
+   tiers:{good:{price:1799,desc:'Rheem 50-gal 6-yr, all CA code, permit, haul-away'},better:{price:2195,desc:'Bradford White contractor-grade, 2-yr labor warranty'},best:{price:2795,desc:'Rheem Platinum 12-yr, full code, 3-yr warranty'}},
+   phoneRange:'$1,799–$2,795',partsRange:'$450–$720 unit + $95–$240 accessories',redFlags:'All repricing triggers apply. Undersized gas line. Relocation. Access.',upsells:'Earthquake valve +$395, Recirc pump +$995, PRV +$425',confidence:'High'},
+  {id:12,name:'WH Install — Tankless',icon:'⚡',from:2499,isNew:true,labor:5,parts:1200,cat:'equipment',
+   tiers:{good:{price:3499,desc:'Rinnai/Noritz condensing, venting, permit'},better:{price:4495,desc:'Premium unit + gas line assessment'},best:{price:5999,desc:'Navien premium + recirc pump'}},
+   phoneRange:'$3,499–$5,999',partsRange:'$1,050–$1,900 unit',redFlags:'Gas line upgrade $300–$1,200. New gas meter $500–$1,500+. Complex venting.',upsells:'Recirc pump +$995',confidence:'Medium'},
+  {id:13,name:'WH Install — Heat Pump',icon:'♻️',from:2199,isNew:true,labor:4,parts:1300,cat:'equipment',
+   tiers:{good:{price:2199,desc:'AO Smith/Rheem HP, all code, permit'},better:{price:2895,desc:'Premium HP + 240V circuit'},best:{price:3995,desc:'Full electrical + premium unit'}},
+   phoneRange:'$2,199–$3,995',partsRange:'$960–$1,500 unit',redFlags:'240V circuit needed. Panel upgrade $850–$1,700. Space requirements.',upsells:'Rebate concierge included. Net as low as $1,199.',confidence:'Medium'},
+  {id:14,name:'Stop Valve',icon:'🔧',from:185,isNew:false,labor:0.75,parts:16,cat:'fixture',
+   tiers:{good:{price:185,desc:'Single 1/4-turn ball valve + supply line'},better:{price:295,desc:'Pair (hot+cold) + supply lines'},best:{price:425,desc:'All stops in one room (3–4 valves)'}},
+   phoneRange:'$185–$425',partsRange:'$8–$33',redFlags:'Galvanized pipe may crumble. Soldered-on valve. Tight cabinet.',upsells:'Second room, Faucet replacement, Toilet rebuild',confidence:'High'},
+  {id:15,name:'Angle Stop Pair',icon:'🔧',from:295,isNew:true,labor:1,parts:32,cat:'fixture',
+   tiers:{good:{price:295,desc:'Pair (hot+cold) with supply lines'},better:{price:385,desc:'Pair + premium supply lines'},best:{price:425,desc:'Kitchen set (3–4 valves)'}},
+   phoneRange:'$295–$425',partsRange:'$16–$60',redFlags:'Old galvanized pipe. Access issues under cabinet.',upsells:'Faucet replacement, Disposal install',confidence:'High'},
+  {id:16,name:'Leak Repair',icon:'💧',from:195,isNew:false,labor:1.5,parts:16,cat:'pipe',
+   tiers:{good:{price:195,desc:'Exposed pipe repair, accessible location'},better:{price:395,desc:'In-wall repair with access cut'},best:{price:695,desc:'Multiple leak repair + pressure test'}},
+   phoneRange:'$195–$695',partsRange:'$6–$80',redFlags:'Slab leak $2K–$5K+. Multiple pinholes = repipe. Poly/galvanized pipe.',upsells:'Repipe quote, PRV $425, Leak detection $275',confidence:'Low'},
+  {id:17,name:'Leak Detection',icon:'🔎',from:275,isNew:true,labor:2,parts:10,cat:'diagnostic',
+   tiers:{good:{price:275,desc:'Electronic detection, first 2 hrs, written report'},better:{price:450,desc:'Detection + minor repair'},best:{price:695,desc:'Full property survey + repairs'}},
+   phoneRange:'$275–$500',partsRange:'Near zero (equipment)',redFlags:'Slab leak requires specialized equipment. Multiple locations.',upsells:'Repair services, PRV, Annual inspection',confidence:'Medium'},
+  {id:18,name:'Diagnostic',icon:'🔍',from:149,isNew:false,labor:1,parts:0,cat:'diagnostic',
+   tiers:{good:{price:149,desc:'On-site assessment, written report. Credited toward same-day repair.'},better:{price:249,desc:'Diagnostic + immediate repair at standard rates'},best:{price:349,desc:'Full plumbing health check + prioritized recommendations'}},
+   phoneRange:'$149 (credited)',partsRange:'None',redFlags:'Multiple issues. Pre-1960 home. Previous plumber failed.',upsells:'Whatever diagnosis reveals — ultimate door-opener',confidence:'High'},
+  {id:19,name:'Earthquake Valve',icon:'🌍',from:395,isNew:false,labor:1.5,parts:250,cat:'specialty',
+   tiers:{good:{price:395,desc:'Pacific Seismic valve, install, gas test'},better:{price:495,desc:'BH/Culver City permit areas (+$100)'},best:{price:595,desc:'Premium valve + gas line inspection'}},
+   phoneRange:'$395–$495',partsRange:'$195–$325',redFlags:'City-specific permit adders. Gas line size.',upsells:'Gas line full inspection +$175',confidence:'High'},
+  {id:20,name:'WH Flush/Service',icon:'🔥',from:299,isNew:false,labor:1.25,parts:15,cat:'maintenance',
+   tiers:{good:{price:249,desc:'Full drain + flush, sediment removal, inspection'},better:{price:399,desc:'Two-unit service (tankless descale)'},best:{price:495,desc:'Flush + anode replacement + expansion tank check'}},
+   phoneRange:'$249–$399',partsRange:'Near zero (tank) / $15–$30 (tankless descale)',redFlags:'Unit >12 yrs may not be worth servicing. Rusted drain valve.',upsells:'Anode rod +$75, Replacement quote if old',confidence:'High'},
+  {id:21,name:'Gas Leak Detection',icon:'⚠️',from:375,isNew:false,labor:1.5,parts:25,cat:'specialty',
+   tiers:{good:{price:375,desc:'Electronic detection, pressure test, first hour, report'},better:{price:525,desc:'Detection + single fitting repair'},best:{price:795,desc:'Detection + up to 3 fittings + SoCalGas coordination'}},
+   phoneRange:'$375–$795',partsRange:'$10–$75',redFlags:'Multiple leaks on old piping. CSST bonding. Underground leak.',upsells:'Earthquake valve +$395, Gas flex all appliances +$95/ea',confidence:'Medium'},
+  {id:22,name:'Backflow Testing',icon:'✅',from:149,isNew:false,labor:0.75,parts:0,cat:'maintenance',
+   tiers:{good:{price:129,desc:'Certified test, written report'},better:{price:199,desc:'Test + minor valve service'},best:{price:295,desc:'Test + full backflow valve rebuild'}},
+   phoneRange:'$129',partsRange:'Near zero',redFlags:'Failed test requires rebuild or replacement.',upsells:'Irrigation system check',confidence:'High'},
+  {id:23,name:'Garbage Disposal',icon:'🗑️',from:295,isNew:true,labor:1,parts:120,cat:'fixture',
+   tiers:{good:{price:295,desc:'ISE Badger 5 (1/2 HP) with install'},better:{price:425,desc:'ISE Evolution 3/4 HP upgrade'},best:{price:595,desc:'ISE 1 HP + new wiring if needed'}},
+   phoneRange:'$295–$450',partsRange:'$105–$275',redFlags:'Existing wiring condition. Dishwasher knockout. P-trap alignment.',upsells:'Kitchen faucet upgrade, Angle stops',confidence:'High'},
+  {id:24,name:'Pressure Regulator',icon:'📊',from:395,isNew:true,labor:1.5,parts:165,cat:'specialty',
+   tiers:{good:{price:425,desc:'Watts PRV replacement, pressure test'},better:{price:575,desc:'PRV + expansion tank'},best:{price:695,desc:'PRV + expansion tank + stop valves'}},
+   phoneRange:'$425–$595',partsRange:'$135–$290',redFlags:'Galvanized pipe. Hillside home high pressure 80–120 psi.',upsells:'Expansion tank, WH inspection',confidence:'High'},
+  {id:25,name:'Recirculation Pump',icon:'♨️',from:895,isNew:true,labor:2.5,parts:345,cat:'specialty',
+   tiers:{good:{price:995,desc:'Grundfos comfort system, no return line'},better:{price:1295,desc:'With timer + 2nd valve'},best:{price:1595,desc:'Dedicated return line system'}},
+   phoneRange:'$995–$1,595',partsRange:'$300–$480',redFlags:'Existing return line availability. Electrical requirements.',upsells:'WH installation bundle, Timer upgrade',confidence:'Medium'}
 ];
 
-const PARTS=[
-  {id:'fillvalve',n:'Fluidmaster 400A Fill Valve',c:7.50},{id:'flapper',n:'Flapper Assortment',c:3.50},
-  {id:'waxring',n:'Wax Ring + Bolts',c:7.00},{id:'supplyline',n:'Toilet Supply Line',c:5.30},
-  {id:'closetbolts',n:'Closet Bolts + Shims',c:2.50},{id:'moen1225',n:'Moen 1225 Cartridge',c:12.00},
-  {id:'moen1200',n:'Moen 1200 Cartridge',c:8.50},{id:'deltaRP',n:'Delta RP46074 Cartridge',c:14.00},
-  {id:'supplylines',n:'Braided Supply Lines',c:6.00},{id:'aerator',n:'Aerator',c:4.00},
-  {id:'anglestop',n:'Angle Stop Valve',c:7.00},{id:'sharkbite12',n:'SharkBite ½" Fitting',c:5.50},
-  {id:'sharkbite34',n:'SharkBite ¾" Fitting',c:7.50},{id:'repairclamp',n:'Repair Clamp',c:8.00},
-  {id:'tpvalve',n:'T&P Relief Valve',c:22.00},{id:'anoderod',n:'Anode Rod',c:18.00},
-  {id:'whflex',n:'WH Flex Connectors (pr)',c:11.00},{id:'expantank',n:'Expansion Tank 2-gal',c:34.42},
-  {id:'seismicstrap',n:'Seismic Strap Kit',c:5.70},{id:'gasflexconn',n:'Gas Flex Connector',c:14.00},
-  {id:'dielectric',n:'Dielectric Union',c:4.77},{id:'ptfe',n:'PTFE Tape',c:1.50},
-  {id:'compound',n:'Pipe Joint Compound',c:4.76},{id:'pvccement',n:'PVC Primer + Cement',c:11.98},
-  {id:'solder',n:'Solder + Flux',c:32.00},
+const COMPETITORS = [
+  {name:'Western Rooter',location:'Arcadia (3 locs)',rating:4.8,reviews:1500,threat:'HIGH',svcFee:'$125/hr',afterHours:'1.5x Sat / 2x Night+Sun',warranty:'Yes',quote:'Only LA plumber with full published pricing — Atlas\'s primary benchmark'},
+  {name:'Flood Brothers',location:'Serves Westside',rating:4.9,reviews:349,threat:'HIGH',svcFee:'Undisclosed',afterHours:'24/7; surcharge implied',warranty:'Not stated',quote:'$79 drain cleaning is the most aggressive promo in the market'},
+  {name:'Mike Diamond',location:'Culver City',rating:1.7,reviews:134,threat:'MEDIUM',svcFee:'$76 / $260 emerg.',afterHours:'$260 non-refundable emergency',warranty:'Not stated',quote:'$580 for a single angle stop — premium pricing without premium service'},
+  {name:'Right Price Rooter',location:'Glendale (serves LA)',rating:4.9,reviews:308,threat:'MEDIUM',svcFee:'Free',afterHours:'No overtime 24/7',warranty:'Work commitment',quote:'$99 drain "It Drains or It\'s Free" — strong guarantee play'},
+  {name:'Roto-Rooter',location:'S. San Vicente',rating:1.5,reviews:926,threat:'LOW',svcFee:'$0',afterHours:'No extra 24/7/365',warranty:'Written guarantee',quote:'National brand recognition but 1.5-star rating. $350–$500 drain cleaning.'},
+  {name:'Mr. Speedy',location:'West Hollywood',rating:4.8,reviews:196,threat:'MEDIUM',svcFee:'Not published',afterHours:'No extra weekends',warranty:'Parts + labor',quote:'No weekend upcharge. Owner-operated. Bradford White & Rheem WH installs.'},
+  {name:'Monkey Wrench',location:'Beverly Blvd',rating:3.6,reviews:280,threat:'LOW',svcFee:'$89',afterHours:'Closed Sun',warranty:'Parts + labor',quote:'$6,000 for tankless install. Aggressive upselling damages reviews.'},
+  {name:'Nautilus',location:'Aloha St',rating:4.6,reviews:181,threat:'LOW',svcFee:'$180',afterHours:'Limited Sun 8a–2p',warranty:'90-day parts',quote:'$180 diagnostic fee — above market. Limited hours.'}
 ];
 
-const SCALES=[
-  {oh:.42,cac:350,note:'⚠ At 2 vans overhead is ~42%. Normal for launch. Focus on volume + reviews, not margin yet. Goal: 15% at 10 vans.'},
-  {oh:.28,cac:250,note:'✓ Overhead compressing to 28%. CAC improving as reviews drive organic leads. Push for 50% gross margin on every job.'},
-  {oh:.18,cac:150,note:'✓ Overhead at 18%. Getting close to 20% NOI territory on good months. Reviews driving 30-40% of leads.'},
-  {oh:.15,cac:100,note:'✓ At target — 15% overhead as planned. 20-25% NOI achievable. Organic leads at $0 CAC are the lever.'},
+const COMP_MATRIX = [
+  {service:'Drain Clean (branch)',westernRooter:'$125 (P)',floodBros:'$79 (PR)',mikeDiamond:'$99 (P)',rotoRooter:'$350–500 (B)',marketLow:'$79',marketTyp:'$100–200',marketHigh:'$500',atlas:'$119'},
+  {service:'Drain Clean (main)',westernRooter:'$100 (P)',floodBros:'—',mikeDiamond:'$99 (P)',rotoRooter:'$400–600 (B)',marketLow:'$99',marketTyp:'$150–350',marketHigh:'$600',atlas:'$225'},
+  {service:'Hydro Jetting',westernRooter:'$325–585 (P)',floodBros:'$250 (PR)',mikeDiamond:'—',rotoRooter:'$600–1200 (B)',marketLow:'$250',marketTyp:'$350–650',marketHigh:'$1,200',atlas:'$450'},
+  {service:'Camera Inspection',westernRooter:'$175 (P)',floodBros:'$99 (PR)',mikeDiamond:'—',rotoRooter:'$295–350 (B)',marketLow:'Free',marketTyp:'$99–250',marketHigh:'$500',atlas:'$149'},
+  {service:'Toilet Repair',westernRooter:'—',floodBros:'—',mikeDiamond:'—',rotoRooter:'$300–450 (B)',marketLow:'$125',marketTyp:'$150–350',marketHigh:'$500',atlas:'$185'},
+  {service:'Toilet Replace',westernRooter:'$225 pull (P)',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$350',marketTyp:'$350–600',marketHigh:'$900',atlas:'$395'},
+  {service:'Faucet Repair',westernRooter:'—',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$100',marketTyp:'$150–250',marketHigh:'$400',atlas:'$195'},
+  {service:'Faucet Replace',westernRooter:'—',floodBros:'—',mikeDiamond:'$364 (R)',rotoRooter:'—',marketLow:'$200',marketTyp:'$200–400',marketHigh:'$600',atlas:'$275'},
+  {service:'Shower Valve',westernRooter:'—',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$240',marketTyp:'$400–700',marketHigh:'$1,200',atlas:'$285'},
+  {service:'Stop Valve',westernRooter:'—',floodBros:'—',mikeDiamond:'$580 (R)',rotoRooter:'—',marketLow:'$75',marketTyp:'$100–200',marketHigh:'$580',atlas:'$185'},
+  {service:'Leak Detection',westernRooter:'$275+ (P)',floodBros:'Incl. (P)',mikeDiamond:'—',rotoRooter:'—',marketLow:'$175',marketTyp:'$200–500',marketHigh:'$1,000',atlas:'$275'},
+  {service:'WH Repair',westernRooter:'—',floodBros:'—',mikeDiamond:'—',rotoRooter:'$220–1K (B)',marketLow:'$150',marketTyp:'$200–600',marketHigh:'$1,000',atlas:'$285'},
+  {service:'WH Install (Tank)',westernRooter:'Free est. (P)',floodBros:'Free est.',mikeDiamond:'—',rotoRooter:'$1.8–3.5K (B)',marketLow:'$1,800',marketTyp:'$1,800–2,500',marketHigh:'$3,200',atlas:'$1,799'},
+  {service:'WH Install (Tankless)',westernRooter:'Free est. (P)',floodBros:'—',mikeDiamond:'$6,900 (R)',rotoRooter:'—',marketLow:'$3,500',marketTyp:'$3,500–5,500',marketHigh:'$9,500',atlas:'$3,499'},
+  {service:'WH Flush (Tank)',westernRooter:'$299 (P)',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$150',marketTyp:'$180–280',marketHigh:'$580',atlas:'$249'},
+  {service:'Earthquake Valve',westernRooter:'$395+ (P)',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$350',marketTyp:'$400–550',marketHigh:'$1,200',atlas:'$395'},
+  {service:'Gas Leak Detection',westernRooter:'$375+ (P)',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$100',marketTyp:'$300–700',marketHigh:'$1,500',atlas:'$375'},
+  {service:'Backflow Testing',westernRooter:'$103 (P)',floodBros:'—',mikeDiamond:'—',rotoRooter:'—',marketLow:'$103',marketTyp:'$100–200',marketHigh:'$206',atlas:'$129'},
+  {service:'Garbage Disposal',westernRooter:'—',floodBros:'—',mikeDiamond:'$200+ (R)',rotoRooter:'—',marketLow:'$200',marketTyp:'$250–450',marketHigh:'$600',atlas:'$295'},
+  {service:'PRV Replacement',westernRooter:'$300–650 (P)',floodBros:'—',mikeDiamond:'$950 (R)',rotoRooter:'—',marketLow:'$300',marketTyp:'$350–550',marketHigh:'$950',atlas:'$425'},
+  {service:'Diagnostic',westernRooter:'$125/hr (P)',floodBros:'—',mikeDiamond:'$76/$260 (P)',rotoRooter:'$0 (P)',marketLow:'$0',marketTyp:'$75–150',marketHigh:'$260',atlas:'$149'}
 ];
 
-const COMP_DATA=[
-  {service:'Drain (sink/tub)',wr:'$88–$125',fb:'$79 special',vic:'Est. $100–$150',atlas:119,notes:'Flood Brothers loss leader at $79. Your $119 is correct — don\'t chase the bottom.'},
-  {service:'Main Sewer Line',wr:'$100–$200',fb:'n/a',vic:'Est. $200–$300',atlas:225,notes:'Western Rooter starts at $100 — but they\'re East LA. Westside market supports $225+.'},
-  {service:'Hydro Jetting',wr:'$325–$585',fb:'n/a',vic:'Est. $500–$800',atlas:450,notes:'Your old $850 was too high. New $450 starting price matches market entry. Upsell to $950 with camera.'},
-  {service:'Camera Inspection',wr:'$175–$225',fb:'Free w/ hydro',vic:'Est. $175–$250',atlas:175,notes:'Perfectly matched. Offer free camera with hydro jet to close upsells.'},
-  {service:'Water Heater Install',wr:'Free estimates',fb:'Free estimates',vic:'Est. $900–$1,500',atlas:1095,notes:'Your $1,095 is solid middle market. Premium positioning allows $1,295–$1,595 with all code items.'},
-  {service:'Earthquake Valve',wr:'$395–$593',fb:'Offered',vic:'Likely offered',atlas:395,notes:'NEW SERVICE. Every LA homeowner needs this. ~$0 parts cost. Near-100% gross margin.'},
-  {service:'WH Flush / Service',wr:'$299–$449',fb:'n/a',vic:'Likely offered',atlas:299,notes:'NEW SERVICE. Recurring maintenance revenue. Upsell on every WH repair or install.'},
-  {service:'Gas Leak Detection',wr:'$375–$563',fb:'Offered',vic:'Offered',atlas:375,notes:'NEW SERVICE. You already carry the gas detector. High margin, fast job, safety urgency.'},
-  {service:'Backflow Testing',wr:'$103–$155',fb:'n/a',vic:'n/a',atlas:149,notes:'NEW SERVICE. Commercial/HOA recurring. Property managers pay annually. Fast, easy job.'},
-  {service:'After-Hours (2x)',wr:'Double time',fb:'Same price',vic:'n/a',atlas:'2x',notes:'Western Rooter charges 2x after 5pm and Sundays. Flood Brothers advertises same-price nights — their differentiator. Your call.'},
+const PROMO_DATA = [
+  {promo:'Drain Cleaning',competitor:'Flood Brothers',price:'$79',market:'~$125–150',discount:'-37% to -47%'},
+  {promo:'Drain Cleaning',competitor:'Mike Diamond',price:'$99 (+$20 fuel)',market:'~$125–150',discount:'-21%'},
+  {promo:'Drain Cleaning',competitor:'Right Price Rooter',price:'$99',market:'~$125–150',discount:'-34%'},
+  {promo:'Camera Inspection',competitor:'Flood Brothers',price:'$99',market:'~$175',discount:'-43%'},
+  {promo:'Camera Inspection',competitor:'Victor\'s Rooter',price:'Free w/ drain',market:'~$175',discount:'-100%'},
+  {promo:'Hydro Jetting',competitor:'Flood Brothers',price:'$250',market:'~$350–650',discount:'-29% to -62%'},
+  {promo:'WH Install',competitor:'Pacific Plumbing',price:'$200 off',market:'~$1,800+',discount:'~-11%'},
+  {promo:'Any Service',competitor:'Roto-Rooter',price:'$55 off',market:'—',discount:'—'},
+  {promo:'Online Booking',competitor:'Monkey Wrench',price:'10% off',market:'—',discount:'—'}
 ];
 
-const COMP_PROFILES=[
-  {name:'Mr. Speedy Plumbing',stars:'4.8',reviews:'205',loc:'7905 Beverly Blvd, WeHo — 0.5 mi',threat:'HIGH',notes:'Your #1 direct competitor. Same ZIP, same customer base. Known for fair pricing and honesty. They saved one customer from an $8,500 quote — charged $750 instead. Reputation-first. Open 7am–10pm 7 days. Match their response time and professionalism.'},
-  {name:'Charlie\'s Sewer & Drain',stars:'4.8',reviews:'1,200+',loc:'LA 90026 — 2 mi',threat:'HIGH',notes:'Highest review volume near you. 35+ years. "Price up front, complete the work." Full service including sewer replacement and water restoration. Volume leader. Hard to beat on reviews — match on service quality.'},
-  {name:'Victor\'s Rooter',stars:'4.9',reviews:'647',loc:'Beverly Hills — 2 mi',threat:'MEDIUM',notes:'24/7, highly personal service, Victor himself often shows up. Reputation for extreme honesty. Beverly Hills clientele — same as yours. "Fairly priced, does fantastic work." Not a price leader.'},
-  {name:'Flood Brothers',stars:'4.7',reviews:'350+',loc:'WeHo/LA — 1 mi',threat:'HIGH',notes:'$79 drain special is a loss leader — they convert to camera + hydro for real revenue. ALSO does water restoration — same as your model. Family-owned, third-generation, strong brand. Biggest marketing spender near you. Watch their Google Ads.'},
-  {name:'Right Price Rooter',stars:'4.6',reviews:'400+',loc:'Glendale — 8 mi',threat:'LOW',notes:'Free phone estimates 24/7, no overtime charges. Positioned as "fair price" brand. Serves LA + OC. Their guarantee of no hidden fees is their differentiator. Less of a Westside focus.'},
-  {name:'Roto-Rooter',stars:'3.9',reviews:'2,000+',loc:'Multiple',threat:'LOW',notes:'National brand, premium pricing, negative reviews for overcharging. "Roto Rooter took advantage of my situation." Reviews say they use chart pricing that customers hate. Opportunity: position Atlas as the honest local alternative to Roto-Rooter.'},
+const WH_TIERS = {
+  'tank-gas':{'30-40':{t1:{start:1499,range:'$1,499–$2,000'},t2:{start:1799,range:'$1,799–$2,700'},t3:{start:2499,range:'$2,499–$5,500'}},'50':{t1:{start:1699,range:'$1,699–$2,325'},t2:{start:1999,range:'$1,999–$2,875'},t3:{start:2699,range:'$2,699–$6,500'}},'75-80':{t1:{start:2495,range:'$2,200–$3,500'},t2:{start:2895,range:'$2,500–$4,200'},t3:{start:3995,range:'$3,500–$7,500'}}},
+  'tank-electric':{'30-40':{t1:{start:1199,range:'$1,080–$1,800'},t2:{start:1399,range:'$1,230–$2,200'},t3:{start:1999,range:'$2,000–$5,000'}},'50':{t1:{start:1299,range:'$1,080–$2,040'},t2:{start:1499,range:'$1,230–$2,440'},t3:{start:2199,range:'$2,000–$5,500'}},'75-80':{t1:{start:1995,range:'$1,800–$2,800'},t2:{start:2295,range:'$2,100–$3,400'},t3:{start:3195,range:'$3,000–$6,000'}}},
+  'tankless-gas':{'30-40':{t1:{start:2499,range:'$2,600–$3,500'},t2:{start:3499,range:'$3,800–$5,500'},t3:{start:5499,range:'$5,500–$9,500+'}},'50':{t1:{start:2499,range:'$2,600–$3,500'},t2:{start:3499,range:'$3,800–$5,500'},t3:{start:5499,range:'$5,500–$9,500+'}},'75-80':{t1:{start:2499,range:'$2,600–$3,500'},t2:{start:3499,range:'$3,800–$5,500'},t3:{start:5499,range:'$5,500–$9,500+'}}},
+  'tankless-electric':{'30-40':{t1:{start:1999,range:'$1,800–$3,000'},t2:{start:2799,range:'$2,500–$4,000'},t3:{start:3999,range:'$3,500–$6,000'}},'50':{t1:{start:1999,range:'$1,800–$3,000'},t2:{start:2799,range:'$2,500–$4,000'},t3:{start:3999,range:'$3,500–$6,000'}},'75-80':{t1:{start:1999,range:'$1,800–$3,000'},t2:{start:2799,range:'$2,500–$4,000'},t3:{start:3999,range:'$3,500–$6,000'}}},
+  'heat-pump':{'30-40':{t1:{start:2199,range:'$2,200–$3,200'},t2:{start:2699,range:'$2,800–$4,000'},t3:{start:3499,range:'$3,500–$6,500'}},'50':{t1:{start:2199,range:'$2,200–$3,200'},t2:{start:2699,range:'$2,800–$4,000'},t3:{start:3499,range:'$3,500–$6,500'}},'75-80':{t1:{start:2499,range:'$2,500–$3,800'},t2:{start:2999,range:'$3,000–$4,500'},t3:{start:3999,range:'$3,800–$7,000'}}}
+};
+
+const WH_UNIT_COSTS = [
+  {brand:'Rheem Performance (6-yr)',size:'40 gal',fuel:'Gas',warranty:'6-yr',retail:'$559–$679',contractor:'$450–$550'},
+  {brand:'Rheem Performance Plus (9-yr)',size:'40 gal',fuel:'Gas',warranty:'9-yr',retail:'$679',contractor:'$540–$610'},
+  {brand:'Rheem Performance Platinum (12-yr)',size:'40 gal',fuel:'Gas',warranty:'12-yr',retail:'$779',contractor:'$620–$660'},
+  {brand:'Rheem Performance (6-yr)',size:'50 gal',fuel:'Gas',warranty:'6-yr',retail:'$699',contractor:'$560–$620'},
+  {brand:'Rheem Performance (6-yr)',size:'50 gal',fuel:'Electric',warranty:'6-yr',retail:'~$559',contractor:'$450–$500'},
+  {brand:'Rheem ProTerra Hybrid HP',size:'50 gal',fuel:'Electric HP',warranty:'10-yr',retail:'$1,629–$1,819',contractor:'$1,300–$1,500'},
+  {brand:'AO Smith Signature 100 (6-yr)',size:'50 gal',fuel:'Gas',warranty:'6-yr',retail:'$649–$749',contractor:'$520–$600'},
+  {brand:'AO Smith Signature 900 HP',size:'50 gal',fuel:'Electric HP',warranty:'10-yr',retail:'$1,199–$1,399',contractor:'$960–$1,120'},
+  {brand:'Bradford White RG240T6N',size:'40 gal',fuel:'Gas',warranty:'6-yr',retail:'N/A (contractor)',contractor:'$480–$620'},
+  {brand:'Bradford White RG250T6N',size:'50 gal',fuel:'Gas',warranty:'6-yr',retail:'N/A (contractor)',contractor:'$560–$720'},
+  {brand:'Rinnai RE199iN (non-cond.)',size:'9.8 GPM',fuel:'Gas TL',warranty:'—',retail:'$1,280–$1,391',contractor:'$1,050–$1,200'},
+  {brand:'Rinnai Sensei RX199iN (cond.)',size:'11 GPM',fuel:'Gas TL',warranty:'—',retail:'$1,703',contractor:'$1,400–$1,530'},
+  {brand:'Navien NPE-240A2 (cond.)',size:'8.4–11.2 GPM',fuel:'Gas TL',warranty:'—',retail:'$1,720–$2,200',contractor:'$1,500–$1,900'},
+  {brand:'Noritz NRC98DV-NG (cond.)',size:'9.8 GPM',fuel:'Gas TL',warranty:'—',retail:'$1,873',contractor:'$1,550–$1,700'}
 ];
 
-let si=0,selJ=null,selP=new Set();
-function G(id){return document.getElementById(id);}
+const WH_CODE_REQS = [
+  {item:'Seismic Straps (2 sets)',detail:'Dual-strap anchoring, connect to structural elements',cost:'$50–$150',authority:'CA Plumbing Code §507.2'},
+  {item:'Flex Gas Connector w/ Excess Flow Valve',detail:'Seismic excess flow valve on gas WH connections',cost:'$60–$150',authority:'CA 2024 Code Update'},
+  {item:'Expansion Tank',detail:'Mandatory for closed systems (PRV, backflow preventer)',cost:'$180–$450 installed',authority:'CPC §608.2/608.3'},
+  {item:'T&P Valve Discharge to Exterior',detail:'Drain line must terminate outside building',cost:'$75–$250',authority:'CPC §608.5'},
+  {item:'Drain Pan',detail:'Required for indoor installs (garage, closet, attic)',cost:'$75–$150',authority:'CA Plumbing Code'},
+  {item:'Low-NOx Burner',detail:'Required in SoCal Air Basin (SCAQMD)',cost:'+$30–$100 on unit',authority:'SCAQMD Rule 1146.2'},
+  {item:'Unions Within 12" of WH',detail:'Water connections must have unions within 12 inches',cost:'$80–$180',authority:'CA WH Checklist'},
+  {item:'Full-Way Shutoff Valve',detail:'Required on cold water inlet line',cost:'$75–$200',authority:'CA WH Checklist'},
+  {item:'Permit + Inspection',detail:'Required for all WH replacements',cost:'$75–$300',authority:'LADBS / City'}
+];
 
-function setTab(t,btn){
-  ['quick','calc','comp','model'].forEach(n=>G('t-'+n).classList.toggle('gone',n!==t));
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
+const WH_ADDONS = [
+  {name:'Expansion Tank',price:250,priceLabel:'+$250'},
+  {name:'Drain Pan',price:85,priceLabel:'+$85'},
+  {name:'Seismic Straps',price:75,priceLabel:'+$75'},
+  {name:'T&P Valve + Drain',price:125,priceLabel:'+$125'},
+  {name:'Flex Gas Connector',price:65,priceLabel:'+$65'},
+  {name:'Gas Line Upgrade',price:700,priceLabel:'+$500–900'},
+  {name:'Venting Changes',price:550,priceLabel:'+$300–800'},
+  {name:'Electrical Upgrade',price:650,priceLabel:'+$400–900'},
+  {name:'Haul Away',price:100,priceLabel:'+$100'},
+  {name:'Permit',price:200,priceLabel:'+$200'},
+  {name:'Recirculation Pump',price:950,priceLabel:'+$700–1,200'}
+];
+
+const WH_TRIGGERS = [
+  {trigger:'No expansion tank',impact:'+$180–$450',freq:'Very High'},
+  {trigger:'No drain pan',impact:'+$75–$150',freq:'High'},
+  {trigger:'T&P drains to floor/pan',impact:'+$75–$250',freq:'High'},
+  {trigger:'Old/corroded flex connector',impact:'+$60–$150',freq:'High'},
+  {trigger:'Undersized gas line',impact:'+$300–$1,200',freq:'Very High (tankless)'},
+  {trigger:'Power vent conversion',impact:'+$300–$1,100',freq:'Moderate'},
+  {trigger:'No shutoff valve on cold inlet',impact:'+$75–$200',freq:'High'},
+  {trigger:'No dielectric unions',impact:'+$80–$180',freq:'High'},
+  {trigger:'Relocation (even 5–10 ft)',impact:'+$300–$3,000',freq:'Moderate'},
+  {trigger:'2nd story / attic / tight space',impact:'+$200–$600',freq:'Moderate'},
+  {trigger:'Old PRV needs replacement',impact:'+$250–$600',freq:'Moderate'},
+  {trigger:'Emergency / same-day',impact:'+$150–$400',freq:'Frequent'},
+  {trigger:'Panel / circuit inadequate',impact:'+$250–$1,700',freq:'High (electric/HP)'},
+  {trigger:'New gas meter required',impact:'+$500–$1,500+',freq:'Low'},
+  {trigger:'Seismic shutoff switch (electric)',impact:'+$75–$150',freq:'Standard (CA)'},
+  {trigger:'Code compliance misc',impact:'+$75–$200',freq:'Standard'}
+];
+
+const SERVICE_GUIDES = [
+  {name:'Drain Cleaning',icon:'🚿',customerSays:'"My kitchen sink is draining slow." "The bathtub won\'t drain." "Water backing up in my sink."',diagnosis:'Hair/soap clog (bath 40%), grease/food buildup (kitchen 30%), tree root intrusion (main line 15%), foreign object (10%), structural pipe issue (5%)',parts:'Cable wear: $5–$15/call. Cutter heads: $20–$55 amortized. Chemical treatment: $10–$20. All STOCK.',labor:'0.75–1.5 hrs branch line; 1–2 hrs main line',good:'$119 — Cable clearing, single drain, 30-day warranty',better:'$249 — Cable clearing + camera inspection, video report',best:'$549 — Hydro jetting + camera, full pipe scouring, 6-month warranty',redFlags:'Multiple drains = main line ($225+). Roof-vent-only access ($395+). Roots visible on camera. Cast iron pipe in pre-1960 home. Previous failed clearing.',upsells:'Camera inspection (+$149), Hydro jetting (+$425), Annual maintenance ($199/yr)',dontQuote:'Sewage backing up through multiple fixtures. Home older than 1960. Previous plumber failed.',confidence:'High'},
+  {name:'Toilet Repair',icon:'🚽',customerSays:'"Toilet runs constantly." "Won\'t flush." "Water on the floor around the toilet." "Handle is loose."',diagnosis:'Running: flapper or fill valve (80%). Won\'t flush: clog or broken mechanism (15%). Water on floor: wax ring or cracked base (5%).',parts:'Fill valve $8–$14. Flapper $4–$9. Wax ring $7–$15. Supply line $3–$11. Complete kit $13–$27. All STOCK.',labor:'0.5–1.5 hrs',good:'$185 — Single component replacement (flapper OR fill valve)',better:'$285 — Complete internal rebuild (fill valve + flapper + supply line)',best:'$395 — Complete rebuild + wax ring reseat + angle stop check',redFlags:'Water on floor = possible cracked bowl/tank (replacement $395+). Rocking = broken flange ($50–$150 adder). Pre-1960 cast iron flange.',upsells:'Angle stop $185/$295 pair. Toilet replacement if >15 yrs. Second bathroom discount.',dontQuote:'"Water pouring from the bottom" — could be cracked porcelain, broken flange, or supply line. Needs on-site.',confidence:'High'},
+  {name:'Faucet Repair',icon:'🔩',customerSays:'"Kitchen faucet dripping." "Bathroom faucet handle is hard." "Low water pressure at faucet."',diagnosis:'Dripping: worn cartridge or seats/springs (90%). Hard handle: corroded cartridge. Low pressure: clogged aerator or failed cartridge.',parts:'Moen 1225B: $14–$28. Delta RP46074: $55–$80. Delta ball kit: $7–$22. Aerator: $2–$10. All STOCK.',labor:'0.5–1.5 hrs',good:'$195 — Cartridge or component replacement, single faucet',better:'$295 — Cartridge + new aerator + supply line replacement',best:'$425 — Full faucet replacement with contractor-grade fixture',redFlags:'Corroded valve body (may need replacement). Under-sink blocked by disposal. Sprayer hose failure. Unknown brand.',upsells:'Faucet replacement if >10 yrs ($275+). Angle stop ($185). Second faucet -$100.',dontQuote:'Customer can\'t identify brand/model. Water damage visible under sink.',confidence:'High'},
+  {name:'Shower Valve Replacement',icon:'🚿',customerSays:'"No hot water in shower." "Handle is stuck." "Temperature keeps changing." "Leaking behind the wall."',diagnosis:'Failed cartridge (70%), failed valve body (20%), defective pressure-balance mechanism (10%).',parts:'Moen 1222: $20–$44. Moen 2520 body: $68–$105. Trim: $42–$130. Delta R10000: $36–$62.',labor:'1–1.5 hrs (cartridge); 2.5–4 hrs (full valve body)',good:'$285 — Cartridge replacement only',better:'$595 — Full valve body + standard chrome trim, 1-yr warranty',best:'$895 — Full valve body + premium trim + access panel, 2-yr warranty',redFlags:'Tile surround with no access (+$100–$300). Galvanized/polybutylene pipe. 3-handle valve. Water damage = mold risk.',upsells:'Matching tub spout + showerhead ($150–$250). Second bathroom discount. PRV check (free).',dontQuote:'Always quote as a range: "$285 for cartridge, up to $595–$895 for full replacement."',confidence:'Medium'},
+  {name:'Stop Valve Replacement',icon:'🔧',customerSays:'"Shutoff valve under sink is leaking." "Can\'t turn off water to toilet." "Valve handle broke."',diagnosis:'Corroded/seized gate valve (older homes) or failed compression valve. Replace with 1/4-turn ball valve.',parts:'BrassCraft angle stop: $5–$14. Supply line: $3–$16. Teflon: $0.50–$2.50. All STOCK.',labor:'0.5–1 hr per valve',good:'$185 — Single angle stop + supply line',better:'$295 — Pair (hot + cold) with new supply lines',best:'$425 — All angle stops in one room (3–4 valves)',redFlags:'Galvanized pipe (may crumble). Soldered-on valve (requires cutting). Tight cabinet space.',upsells:'Second room. Faucet replacement. Toilet rebuild.',dontQuote:'Active leak — emergency dispatch, price on-site.',confidence:'High'},
+  {name:'Water Heater Repair',icon:'🔥',customerSays:'"Pilot light won\'t stay on." "No hot water." "Making noise." "Not hot enough."',diagnosis:'Pilot out: thermocouple (80%), gas valve (15%). No hot water (electric): element/thermostat. Noise: sediment.',parts:'Thermocouple: $8–$18. T&P valve: $13–$38. Gas valve: $135–$275. Element: $10–$28.',labor:'0.5–1 hr (thermocouple); 1.5–2.5 hrs (gas valve); 1–2 hrs (element)',good:'$285 — Diagnostic + thermocouple or T&P valve',better:'$425 — Gas valve replacement',best:'$595 — Full service (gas valve + thermocouple + T&P + flush + anode check)',redFlags:'Unit >12 yrs — repair may not be worth it. Obsolete gas valve. Tank leaking (not repairable).',upsells:'WH replacement quote if >10 yrs. WH flush ($249). Expansion tank ($295). Earthquake valve ($395).',dontQuote:'Water leaking from tank bottom — replacement conversation, not repair.',confidence:'Medium'},
+  {name:'Water Heater Install (Tank)',icon:'🏠',customerSays:'"Water heater is leaking." "15 years old, want to replace." "Home inspector flagged it."',diagnosis:'Tank failure (leaking), age-related, or inspection-triggered.',parts:'Unit $450–$720; accessories $95–$240; permit $75–$200.',labor:'2–3 hrs (standard); 3–5 hrs (code upgrades); 4–8 hrs (complex)',good:'$1,799 — Rheem 50-gal 6-yr, all CA code items, permit, haul-away',better:'$2,195 — Bradford White 9-yr, full code, 2-yr labor warranty',best:'$2,795 — Rheem Platinum 12-yr, full code, 3-yr warranty',redFlags:'All repricing triggers: expansion tank, drain pan, gas line upgrade, relocation, access difficulty.',upsells:'Earthquake valve +$395. Recirc pump +$995. PRV +$425. Tankless consultation.',dontQuote:'Tankless conversion (needs in-home assessment). Unusual location. Pre-1960 home.',confidence:'High'},
+  {name:'Leak Repair',icon:'💧',customerSays:'"Water on ceiling." "Wet spot on wall." "Water bill suddenly high." "Hear running water."',diagnosis:'Pinhole leak in copper (most common in older LA homes), fitting failure, supply line burst.',parts:'SharkBite couplings $5.50–$14; copper couplings $0.80–$5; solder + flux $16–$44. All STOCK.',labor:'1–2 hrs (exposed); 2–4 hrs (in-wall); 4–8+ hrs (slab)',good:'$195 — Exposed pipe repair, accessible location',better:'$395 — In-wall repair including access cut',best:'$695 — Multiple leak repair or section replacement + pressure test',redFlags:'Slab leak ($2,000–$5,000+). Multiple pinholes = systemic failure (repipe). Water damage/mold. Polybutylene pipe.',upsells:'Repipe quote. PRV replacement ($425). Leak detection other areas ($275+).',dontQuote:'Water through slab/foundation. Water bill doubled. Ceiling bulging.',confidence:'Low'},
+  {name:'Gas Leak Detection',icon:'⚠️',customerSays:'"Smell gas in house." "SoCalGas shut off my gas." "Failed gas pressure test."',diagnosis:'Loose fitting at appliance connector (most common), corroded nipple, failed appliance gas valve.',parts:'Black iron fittings $2–$13 each; gas flex $14–$33; PTFE tape $1.50–$4; pipe dope $6.50–$13. All STOCK.',labor:'1 hr (detection); 1–3 hrs (detection + minor repair)',good:'$375 — Detection with electronic equipment, first hour, written report',better:'$525 — Detection + single fitting/connector repair',best:'$795 — Detection + up to 3 fittings + pressure test + SoCalGas coordination',redFlags:'Multiple leaks on old piping (full repipe). CSST requiring bonding. Underground/in-slab leak.',upsells:'Earthquake valve ($395). Gas flex replacement all appliances ($95/ea). Full gas line inspection (+$175).',dontQuote:'NEVER quote gas leak repair remotely. Always: "$375 detection fee. Repair priced on-site."',confidence:'Medium'},
+  {name:'Diagnostic Call',icon:'🔍',customerSays:'"Not sure what\'s wrong." "Can you come look?" "I have a plumbing issue."',diagnosis:'Unknown — that\'s why it\'s a diagnostic. Common outcomes: WH issue (25%), leak (20%), drain (20%), fixture (15%), other (20%).',parts:'None for diagnostic itself.',labor:'0.75–1.5 hrs',good:'$149 — On-site diagnostic + written assessment. Fee credited toward same-day repair.',better:'$149 + service pricing — Diagnostic + immediate repair (fee credited)',best:'$149 + comprehensive assessment — Full plumbing health check, written report',redFlags:'Multiple issues. Pre-1960 home. Previous plumber "couldn\'t figure it out."',upsells:'Whatever diagnosis reveals. Train techs to identify ALL visible issues.',dontQuote:'The diagnostic call IS the "don\'t quote remotely" option.',confidence:'High'}
+];
+
+const SOURCING_CHANNELS = [
+  {channel:'Home Depot / Lowe\'s',bestFor:'Emergency same-day, commodity parts',savings:'Baseline (0%)',leadTime:'Immediate',account:'No (contractor card saves 2–5%)'},
+  {channel:'Ferguson (Burbank, Commerce)',bestFor:'Toilets, faucets, valves, WH, PRVs',savings:'15–30%',leadTime:'Same day to 1–3 days',account:'Yes — contractor account'},
+  {channel:'SupplyHouse.com',bestFor:'Specialty: PRVs, recirc pumps, SharkBite, Watts',savings:'10–25%',leadTime:'2–5 day shipping',account:'No'},
+  {channel:'Core & Main (Vernon, Chatsworth)',bestFor:'Drain cables, RIDGID parts, pipe',savings:'15–25%',leadTime:'Same day (LA yards)',account:'Yes — contractor account'},
+  {channel:'Gresco Utility Supply (LA)',bestFor:'Gas fittings, black iron, specialty valves',savings:'10–20%',leadTime:'Same day',account:'Yes'},
+  {channel:'Amazon',bestFor:'Camera batteries, aerators, small consumables',savings:'5–20%',leadTime:'1–2 days (Prime)',account:'No'},
+  {channel:'EPA Sales / Sewer Shop',bestFor:'Hydro jetting nozzles and hose',savings:'20–35%',leadTime:'2–5 days',account:'No'},
+  {channel:'Wholesale Water Heater',bestFor:'Earthquake valves, specialty WH parts',savings:'15–25%',leadTime:'2–3 days',account:'No'}
+];
+
+const PARTS_BY_SERVICE = [
+  {category:'Drain Cleaning',parts:[
+    {name:'RIDGID C-32IW cable 3/8"×75ft',hd:'$120–150',amz:'$110–140',trade:'$95–120',cls:'COMMON'},
+    {name:'Replacement cutter head set',hd:'$25–50',amz:'$20–45',trade:'$20–40',cls:'STOCK'},
+    {name:'Toilet auger 3ft',hd:'$25–35',amz:'$20–30',trade:'$18–28',cls:'STOCK'},
+    {name:'Thrift T-600 chemical treatment',hd:'$12–18',amz:'$10–15',trade:'$10–14',cls:'STOCK'}
+  ]},
+  {category:'Toilet Repair',parts:[
+    {name:'Fluidmaster 400A fill valve',hd:'$9.98',amz:'$9–11',trade:'$7–9 (3-pack)',cls:'STOCK'},
+    {name:'Fluidmaster 502 flapper',hd:'$6.48',amz:'$5–8',trade:'$4–6',cls:'STOCK'},
+    {name:'Wax ring w/ flange & bolts',hd:'$10–14',amz:'$8–12',trade:'$7–10',cls:'STOCK'},
+    {name:'Supply line 12" braided SS',hd:'$5–9',amz:'$4–8',trade:'$3–6',cls:'STOCK'}
+  ]},
+  {category:'Faucet Repair',parts:[
+    {name:'Moen 1225B cartridge',hd:'$18–25',amz:'$16–22',trade:'$14–20',cls:'STOCK'},
+    {name:'Delta RP46074 cartridge',hd:'$71',amz:'$65–76',trade:'$55–68',cls:'STOCK'},
+    {name:'Delta ball repair kit',hd:'$12–20',amz:'$8–15',trade:'$7–13',cls:'STOCK'},
+    {name:'Aerator replacement',hd:'$3–8',amz:'$2–6',trade:'$2–5',cls:'STOCK'}
+  ]},
+  {category:'Shower Valve',parts:[
+    {name:'Moen 2520 valve body',hd:'$95',amz:'$85–100',trade:'$72–85',cls:'STOCK'},
+    {name:'Moen 1222 Posi-Temp cartridge',hd:'$25–40',amz:'$22–35',trade:'$20–30',cls:'STOCK'},
+    {name:'Delta R10000-UNBX valve body',hd:'$52.90',amz:'$47–58',trade:'$38–50',cls:'STOCK'},
+    {name:'Trim kit (varies)',hd:'$60–200',amz:'$55–180',trade:'$48–160',cls:'SPECIAL'}
+  ]},
+  {category:'Stop Valve / Angle Stop',parts:[
+    {name:'BrassCraft 1/4-turn angle stop',hd:'$9.73',amz:'$8–12',trade:'$6–9',cls:'STOCK'},
+    {name:'Supply line braided SS',hd:'$5–14',amz:'$4–12',trade:'$3–9',cls:'STOCK'},
+    {name:'Teflon tape',hd:'$1–2',amz:'$1–2',trade:'$0.50–1',cls:'STOCK'}
+  ]},
+  {category:'Water Heater Repair',parts:[
+    {name:'Thermocouple universal 36"',hd:'$12.98',amz:'$10–14',trade:'$8–12',cls:'STOCK'},
+    {name:'Honeywell WT8840A gas valve',hd:'$160–200',amz:'$150–200',trade:'$140–180',cls:'COMMON'},
+    {name:'T&P relief valve 3/4"',hd:'$18–28',amz:'$15–24',trade:'$13–20',cls:'STOCK'},
+    {name:'Electric element 4500W',hd:'$15–25',amz:'$12–20',trade:'$10–18',cls:'COMMON'}
+  ]},
+  {category:'WH Installation Materials',parts:[
+    {name:'Flex connector 3/4"×18" (water pair)',hd:'$28–44',amz:'$24–36',trade:'$20–32',cls:'STOCK'},
+    {name:'Gas flex connector 3/4"×24"',hd:'$20–30',amz:'$18–26',trade:'$15–22',cls:'STOCK'},
+    {name:'Expansion tank 2-gal',hd:'$35–60',amz:'$30–55',trade:'$28–48',cls:'STOCK'},
+    {name:'Seismic strap kit',hd:'$18–28',amz:'$15–24',trade:'$13–20',cls:'STOCK'},
+    {name:'Drain pan 20–22"',hd:'$18–28',amz:'$15–24',trade:'$12–20',cls:'STOCK'},
+    {name:'Dielectric unions pair',hd:'$10–18',amz:'$8–15',trade:'$7–13',cls:'STOCK'}
+  ]},
+  {category:'Leak Repair',parts:[
+    {name:'SharkBite 1/2" coupling',hd:'$7.93/ea',amz:'$7–9',trade:'$6–8',cls:'STOCK'},
+    {name:'SharkBite 3/4" coupling',hd:'$10.52',amz:'$9–12',trade:'$8–10',cls:'STOCK'},
+    {name:'Copper coupling 1/2" (sweat)',hd:'$1.50–3',amz:'$1–2.50',trade:'$0.80–1.80',cls:'STOCK'},
+    {name:'Solder 1 lb + flux',hd:'$24–40',amz:'$20–34',trade:'$18–29',cls:'STOCK'}
+  ]},
+  {category:'Garbage Disposal',parts:[
+    {name:'ISE Badger 5 w/ cord',hd:'$138',amz:'$125–145',trade:'$108–128',cls:'STOCK'},
+    {name:'ISE Evolution Compact 3/4HP',hd:'$258',amz:'$240–270',trade:'$200–235',cls:'COMMON'},
+    {name:'Discharge tube kit',hd:'$8–14',amz:'$6–12',trade:'$6–10',cls:'STOCK'}
+  ]},
+  {category:'Pressure Regulator (PRV)',parts:[
+    {name:'Watts LF25AUB-Z3 3/4" PRV',hd:'$196',amz:'$180–210',trade:'$140–175',cls:'COMMON'},
+    {name:'Zurn Wilkins 3/4" PRV',hd:'$90–140',amz:'$85–130',trade:'$70–110',cls:'COMMON'},
+    {name:'PRV union fittings (pair)',hd:'$18–30',amz:'$15–26',trade:'$12–20',cls:'COMMON'}
+  ]},
+  {category:'Recirculation Pump',parts:[
+    {name:'Grundfos UP15-10SU7P/TLC',hd:'$385–420',amz:'$340–390',trade:'$310–360',cls:'SPECIAL'},
+    {name:'Watts Premier recirc pump',hd:'$180–250',amz:'$160–230',trade:'$145–200',cls:'SPECIAL'},
+    {name:'Comfort valve / check valve kit',hd:'$25–45',amz:'$20–38',trade:'$18–32',cls:'SPECIAL'}
+  ]},
+  {category:'Gas Leak Repair',parts:[
+    {name:'Black iron nipple 3/4"×3"',hd:'$3–6',amz:'—',trade:'$2.50–5',cls:'STOCK'},
+    {name:'Gas flex connector 3/4"×24"',hd:'$20–30',amz:'$18–26',trade:'$15–24',cls:'STOCK'},
+    {name:'Yellow gas PTFE tape',hd:'$1.72',amz:'—',trade:'$1.20–1.60',cls:'STOCK'},
+    {name:'TU-555 pipe dope 4oz',hd:'$8–10',amz:'—',trade:'$7–9',cls:'STOCK'}
+  ]},
+  {category:'Earthquake Valve',parts:[
+    {name:'Pacific Seismic 300 3/4" horiz.',hd:'—',amz:'—',trade:'$170–260',cls:'SPECIAL'},
+    {name:'Pacific Seismic 301 1" vert.',hd:'—',amz:'—',trade:'$190–280',cls:'SPECIAL'},
+    {name:'Gas union 3/4"',hd:'$8–15',amz:'—',trade:'$7–11',cls:'COMMON'}
+  ]}
+];
+
+const TRUCK_STOCK = [
+  {cat:'Toilet repair',item:'Fluidmaster 400A fill valve (3-packs)',qty:6,cost:'~$8.33',total:'$50'},
+  {cat:'Toilet repair',item:'Fluidmaster 502 flapper',qty:6,cost:'~$6',total:'$36'},
+  {cat:'Toilet repair',item:'Wax rings (standard + w/ flange)',qty:6,cost:'~$8',total:'$48'},
+  {cat:'Toilet repair',item:'Closet bolt sets',qty:4,cost:'~$4',total:'$16'},
+  {cat:'Toilet repair',item:'Supply lines 12" & 16"',qty:8,cost:'~$6',total:'$48'},
+  {cat:'Angle stops',item:'BrassCraft 1/4-turn assorted',qty:25,cost:'~$7',total:'$175'},
+  {cat:'Supply lines',item:'Faucet supply lines 20" & 24"',qty:8,cost:'~$9',total:'$72'},
+  {cat:'Cartridges',item:'Moen 1225B',qty:3,cost:'~$19',total:'$57'},
+  {cat:'Cartridges',item:'Moen 1222 Posi-Temp',qty:2,cost:'~$30',total:'$60'},
+  {cat:'Cartridges',item:'Delta RP46074',qty:2,cost:'~$68',total:'$136'},
+  {cat:'Cartridges',item:'Delta ball repair kit',qty:2,cost:'~$13',total:'$26'},
+  {cat:'WH repair',item:'Thermocouple 36" and 48"',qty:6,cost:'~$13',total:'$78'},
+  {cat:'WH repair',item:'T&P relief valve 3/4"',qty:2,cost:'~$25',total:'$50'},
+  {cat:'WH install',item:'Seismic strap kits',qty:2,cost:'~$20',total:'$40'},
+  {cat:'WH install',item:'Flex connectors 3/4"×18" (pairs)',qty:2,cost:'~$32',total:'$64'},
+  {cat:'WH install',item:'Gas flex connector 3/4"×24"',qty:2,cost:'~$22',total:'$44'},
+  {cat:'WH install',item:'Drain pan 20–22"',qty:1,cost:'~$20',total:'$20'},
+  {cat:'WH install',item:'Expansion tank 2-gal',qty:1,cost:'~$42',total:'$42'},
+  {cat:'Disposal',item:'ISE Badger 5 with cord',qty:1,cost:'~$120',total:'$120'},
+  {cat:'Leak repair',item:'SharkBite 1/2" couplings',qty:6,cost:'~$7.50',total:'$45'},
+  {cat:'Leak repair',item:'SharkBite 3/4" couplings',qty:4,cost:'~$9.50',total:'$38'},
+  {cat:'Leak repair',item:'Copper couplings 1/2" & 3/4"',qty:12,cost:'~$2',total:'$24'},
+  {cat:'Leak repair',item:'Solder 1 lb + flux',qty:1,cost:'~$25',total:'$25'},
+  {cat:'Gas repair',item:'Black iron nipple assortment',qty:10,cost:'~$4',total:'$40'},
+  {cat:'Gas repair',item:'Yellow gas PTFE tape',qty:3,cost:'~$2',total:'$6'},
+  {cat:'Misc',item:'Teflon tape white',qty:5,cost:'~$1',total:'$5'},
+  {cat:'Misc',item:'Drain cutter set replacement',qty:1,cost:'~$35',total:'$35'},
+  {cat:'Misc',item:'Toilet auger',qty:1,cost:'~$28',total:'$28'}
+];
+
+// ════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ════════════════════════════════════════════════
+
+let currentScale = 2;
+
+function renderKPIs() {
+  const d = SCALE_DATA[currentScale];
+  document.getElementById('kpiRow').innerHTML = `
+    <div class="kpi"><div class="kpi-value">${d.overhead}%</div><div class="kpi-label">Overhead %</div></div>
+    <div class="kpi"><div class="kpi-value">$${d.mktgPerJob}</div><div class="kpi-label">Mktg/Job Est</div></div>
+    <div class="kpi"><div class="kpi-value">$${(d.breakEvenVan/1000).toFixed(1)}K</div><div class="kpi-label">Break Even/Van</div></div>
+    <div class="kpi"><div class="kpi-value">$${(d.noi20Van/1000).toFixed(0)}K</div><div class="kpi-label">20% NOI/Van</div></div>
+    <div class="kpi"><div class="kpi-value">${d.gmTarget}%</div><div class="kpi-label">Gross Margin Target</div></div>`;
 }
 
-function setScale(i,btn){
-  si=i;
-  document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  const s=SCALES[i];
-  G('snote').textContent=s.note;
-  G('b-oh').textContent=(s.oh*100).toFixed(0)+'%';
-  G('b-cac').textContent='$'+s.cac;
-  if(G('cac'))G('cac').value=s.cac;
-  calc();
-}
-
-// QUICK
-function buildQuick(){
-  G('qgrid').innerHTML=JOBS.map(j=>`
-    <div class="qcard ${j.isNew?'new':''}" onclick="showQD('${j.id}')">
-      <div class="qi">${j.icon}</div>
-      <div class="qt">${j.name}</div>
-      <div class="qfr">From</div>
-      <div class="qpr">$${j.q.g}</div>
-      ${j.isNew?'<div class="qnew">NEW</div>':''}
+function renderServiceGrid() {
+  const grid = document.getElementById('serviceGrid');
+  grid.innerHTML = SERVICES.map(s => `
+    <div class="service-card" data-id="${s.id}" onclick="toggleService(this)">
+      <div class="sc-badge">${s.isNew ? '<span class="badge badge-new">NEW</span>' : ''}</div>
+      <div class="sc-icon">${s.icon}</div>
+      <div class="sc-name">${s.name}</div>
+      <div class="sc-price">From $${s.from.toLocaleString()}</div>
+      <div class="service-detail">
+        <div class="detail-section"><strong>Three-Layer Pricing</strong>
+          <div style="font-size:12px;margin-bottom:6px">Website: From $${s.from.toLocaleString()} | Phone: ${s.phoneRange} | On-site: See tiers below</div>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-tier"><div class="tier-name">Good</div><div class="tier-price">$${s.tiers.good.price.toLocaleString()}</div><div class="tier-desc">${s.tiers.good.desc}</div></div>
+          <div class="detail-tier"><div class="tier-name">Better</div><div class="tier-price">$${s.tiers.better.price.toLocaleString()}</div><div class="tier-desc">${s.tiers.better.desc}</div></div>
+          <div class="detail-tier"><div class="tier-name">Best</div><div class="tier-price">$${s.tiers.best.price.toLocaleString()}</div><div class="tier-desc">${s.tiers.best.desc}</div></div>
+        </div>
+        <div class="detail-section"><strong>Parts Range</strong>${s.partsRange}</div>
+        <div class="detail-section"><strong>Top Upsells</strong>${s.upsells}</div>
+        <div class="detail-section"><strong style="color:var(--red)">⚠️ Red Flags / Price Swing Triggers</strong>${s.redFlags}</div>
+        <div class="detail-section"><strong>Confidence</strong><span class="badge badge-${s.confidence.toLowerCase()}">${s.confidence}</span></div>
+      </div>
     </div>`).join('');
 }
 
-function showQD(id){
-  const j=JOBS.find(x=>x.id===id);if(!j)return;
-  const det=G('qdet');det.style.display='block';
-  G('qd-title').innerHTML=j.icon+' '+j.name+(j.isNew?'<span class="new-badge">NEW SERVICE</span>':'');
-  G('qd-body').innerHTML=`
-    <p style="font-size:12px;color:var(--gray-400);margin-bottom:12px">Market rate: <strong>${j.mkt}</strong> · Atlas price: <strong>$${j.atlas}</strong></p>
-    <div class="trow">
-      <div class="tier tg"><div class="tlbl" style="color:var(--gray-400)">Good</div><div class="tp">$${j.q.g}</div><div class="td">${j.q.gd}</div></div>
-      <div class="tier tb"><div class="tlbl" style="color:var(--amber)">Better</div><div class="tp">$${j.q.b}</div><div class="td">${j.q.bd}</div></div>
-      <div class="tier tbe"><div class="tlbl" style="color:var(--green)">Best</div><div class="tp">$${j.q.be}</div><div class="td">${j.q.bed}</div></div>
+function toggleService(el) {
+  const wasExpanded = el.classList.contains('expanded');
+  document.querySelectorAll('.service-card').forEach(c => c.classList.remove('expanded'));
+  if (!wasExpanded) el.classList.add('expanded');
+}
+
+// CALCULATOR
+function initCalc() {
+  const sel = document.getElementById('calcService');
+  sel.innerHTML = SERVICES.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+  sel.addEventListener('change', () => {
+    const svc = SERVICES.find(s => s.id === +sel.value);
+    if (svc) {
+      document.getElementById('calcLabor').value = svc.labor;
+      document.getElementById('calcParts').value = svc.parts;
+    }
+    updateCalc();
+  });
+  document.querySelectorAll('#calculator .toggle-group').forEach(g => {
+    g.querySelectorAll('.toggle-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        g.querySelectorAll('.toggle-btn').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        updateCalc();
+      });
+    });
+  });
+  document.getElementById('calcLabor').addEventListener('input', updateCalc);
+  document.getElementById('calcParts').addEventListener('input', updateCalc);
+  sel.dispatchEvent(new Event('change'));
+}
+
+function getToggleVal(groupId) {
+  const active = document.querySelector(`#${groupId} .toggle-btn.active`);
+  return active ? active.dataset.val : '1.0';
+}
+
+function updateCalc() {
+  const svc = SERVICES.find(s => s.id === +document.getElementById('calcService').value);
+  const laborHrs = parseFloat(document.getElementById('calcLabor').value) || 1;
+  const partsCost = parseFloat(document.getElementById('calcParts').value) || 0;
+  const accessMult = parseFloat(getToggleVal('calcAccess'));
+  const afterMult = parseFloat(getToggleVal('calcAfterHours'));
+  const permitCost = parseFloat(getToggleVal('calcPermit'));
+  const d = SCALE_DATA[currentScale];
+  const laborRate = 150;
+  const partsMarkup = 2.5;
+  const partsRevenue = partsCost * partsMarkup;
+  const laborCost = laborHrs * laborRate * accessMult;
+  const afterAdj = (partsRevenue + laborCost) * (afterMult - 1);
+  const subtotal = partsRevenue + laborCost + afterAdj + permitCost;
+  const overhead = subtotal * (d.overhead / 100);
+  const mktg = d.mktgPerJob;
+  const ccFee = subtotal * 0.03;
+  const totalCost = partsCost + (laborHrs * 55) + (overhead * 0.3) + mktg * 0.15;
+  const totalRevenue = subtotal;
+  const gm = totalRevenue > 0 ? ((totalRevenue - totalCost) / totalRevenue * 100) : 0;
+  const minFor50 = totalCost / (1 - 0.50);
+  const minFor20NOI = totalCost / (1 - 0.35);
+  const quotePrice = Math.ceil(subtotal / 5) * 5;
+  const gmColor = gm < 40 ? 'var(--red)' : gm < 50 ? 'var(--amber)' : 'var(--green)';
+  const gmWidth = Math.min(Math.max(gm, 0), 100);
+
+  document.getElementById('calcOutput').innerHTML = `
+    <h4 style="margin-bottom:12px">Cost Breakdown</h4>
+    <div class="calc-row"><span class="label">Parts Revenue (${partsCost} × 2.5x markup)</span><span>$${partsRevenue.toFixed(0)}</span></div>
+    <div class="calc-row"><span class="label">Labor Cost (${laborHrs}h × $${laborRate} × ${accessMult}x access)</span><span>$${laborCost.toFixed(0)}</span></div>
+    ${afterMult > 1 ? `<div class="calc-row"><span class="label">After-Hours Adjustment (${afterMult}x)</span><span style="color:var(--amber)">+$${afterAdj.toFixed(0)}</span></div>` : ''}
+    ${permitCost > 0 ? `<div class="calc-row"><span class="label">Permit</span><span>+$${permitCost}</span></div>` : ''}
+    <div class="calc-row"><span class="label">Overhead Est. (${d.overhead}% at ${currentScale} vans)</span><span style="color:var(--text-light)">~$${overhead.toFixed(0)}</span></div>
+    <div class="calc-row"><span class="label">Mktg/Job</span><span style="color:var(--text-light)">~$${mktg}</span></div>
+    <div class="calc-row"><span class="label">CC Processing (3%)</span><span style="color:var(--text-light)">~$${ccFee.toFixed(0)}</span></div>
+    <div class="calc-row total"><span>Total Revenue</span><span>$${totalRevenue.toFixed(0)}</span></div>
+    <div style="margin-top:12px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600"><span>Gross Margin</span><span style="color:${gmColor}">${gm.toFixed(1)}%</span></div>
+      <div class="margin-meter"><div class="margin-fill" style="width:${gmWidth}%;background:${gmColor}"></div></div>
     </div>
-    <div class="ubox"><div class="uhd">💡 Upsell Scripts</div>${j.ups.map(u=>`<div class="urow">→ ${u}</div>`).join('')}</div>
-    <button class="btn btn-nv" style="margin-top:12px" onclick="setTab('calc',document.querySelectorAll('.tab')[1]);selJ2('${j.id}')">Calculate Full Price →</button>`;
-  det.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-// CALC
-function buildJobs(){
-  G('jgrid').innerHTML=JOBS.map(j=>`
-    <div class="jbtn ${j.isNew?'jnew':''}" id="jb-${j.id}" onclick="selJ2('${j.id}')">
-      <span class="ji">${j.icon}</span>
-      <span class="jn">${j.name}${j.isNew?' ★':''}</span>
-      <span class="jp">From $${j.q.g}</span>
-    </div>`).join('');
-}
-
-function selJ2(id){
-  selJ=JOBS.find(j=>j.id===id);if(!selJ)return;
-  document.querySelectorAll('.jbtn').forEach(b=>b.classList.remove('on'));
-  const btn=G('jb-'+id);if(btn)btn.classList.add('on');
-  G('hrs').value=selJ.h;
-  ['s-labor','s-parts','r-wrap'].forEach(i=>G(i).classList.remove('gone'));
-  buildParts(selJ.pr);calc();
-  G('s-labor').scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-function buildParts(pre){
-  selP=new Set(pre);
-  G('pgrid').innerHTML=PARTS.map(p=>`
-    <div class="prow ${pre.includes(p.id)?'on':''}" id="pr-${p.id}" onclick="togP('${p.id}')">
-      <input type="checkbox" ${pre.includes(p.id)?'checked':''} onchange="togP('${p.id}')" onclick="event.stopPropagation()">
-      <span class="pn">${p.n}</span><span class="pc">$${p.c.toFixed(2)}</span>
-    </div>`).join('');
-}
-
-function togP(id){
-  selP.has(id)?selP.delete(id):selP.add(id);
-  const el=G('pr-'+id);if(el){el.classList.toggle('on',selP.has(id));el.querySelector('input').checked=selP.has(id);}
-  calc();
-}
-
-function calc(){
-  if(!selJ)return;
-  const s=SCALES[si];
-  let parts=0;selP.forEach(id=>{const p=PARTS.find(x=>x.id===id);if(p)parts+=p.c;});
-  parts+=parseFloat(G('cpc')?.value)||0;
-  const mku=parseFloat(G('mku').value)||1.5;
-  const pch=parts*mku;
-  const rate=parseFloat(G('trate').value)||42;
-  const hrs=parseFloat(G('hrs').value)||1;
-  const drv=(parseFloat(G('drv').value)||0)/60;
-  const lab=rate*(hrs+drv);
-  const tm=parseFloat(G('timemult').value)||1;
-  const cac=parseFloat(G('cac').value)||s.cac;
-  const sub=(pch+lab)*tm;
-  const oh=sub*s.oh;
-  const preTotal=sub+oh+cac;
-  const cc=preTotal*0.03;
-  const raw=preTotal+cc;
-  const tot=Math.ceil(raw/5)*5;
-  const grossRev=pch+lab;
-  const gm=tot>0?((tot-parts-lab)/tot)*100:0;
-  const net=tot-parts-lab-oh-cac-cc;
-  const noi=tot>0?(net/tot)*100:0;
-  // Min for 50% GM: price where (price - parts - labor) / price = 0.5 → price = (parts+labor)/0.5
-  const min50=Math.ceil((parts+lab)/0.50/5)*5;
-  // Min for 20% NOI
-  const min20=Math.ceil((parts+lab+oh+cac+cc)/0.80/5)*5;
-
-  G('r-parts').textContent='$'+parts.toFixed(2);
-  G('r-pmu').textContent='$'+(pch-parts).toFixed(2);
-  G('r-lab').textContent='$'+lab.toFixed(2);
-  G('r-time').textContent=tm>1?tm+'x after-hours':'Standard rate';
-  G('r-oh').textContent='$'+oh.toFixed(2);
-  G('r-cac').textContent='$'+cac.toFixed(2);
-  G('r-cc').textContent='$'+cc.toFixed(2);
-  G('r-gm').textContent=gm.toFixed(0)+'%';
-  G('r-gm').style.color=gm>=50?'#86EFAC':gm>=40?'#FCD34D':'#FCA5A5';
-  G('r-tot').textContent='$'+tot.toLocaleString();
-  G('r-noi').textContent=noi.toFixed(0)+'%';
-  G('r-noi').style.color=noi>=20?'#86EFAC':noi>=10?'#FCD34D':'#FCA5A5';
-  G('r-noisub').textContent=noi>=20?'✓ Hits 20% NOI target':'Target: 20% at scale';
-  G('mg-mkt').textContent=selJ.mkt.split(' ')[0];
-  G('mg-50').textContent='$'+min50.toLocaleString();
-  G('mg-noi').textContent='$'+min20.toLocaleString();
-
-  const gp=Math.min(gm,100);
-  G('r-mbar').style.width=gp+'%';G('r-gpct').textContent=gm.toFixed(0)+'%';
-  if(gm>=50){G('r-mbar').style.background='#86EFAC';G('r-mnote').style.color='#86EFAC';G('r-mnote').textContent='✓ Hits 50% gross margin target — great job';}
-  else if(gm>=40){G('r-mbar').style.background='#FCD34D';G('r-mnote').style.color='#FCD34D';G('r-mnote').textContent='⚠ Below 50% target — push for upsell or higher tier';}
-  else{G('r-mbar').style.background='#FCA5A5';G('r-mnote').style.color='#FCA5A5';G('r-mnote').textContent='✗ Under 40% — check hours, markup, or add service tier';}
-
-  const ub=G('ubox');
-  if(selJ.ups?.length){ub.style.display='block';G('ulist').innerHTML=selJ.ups.map(u=>`<div class="urow">→ ${u}</div>`).join('');}
-  else ub.style.display='none';
-}
-
-function genQ(){
-  if(!selJ)return;
-  const tot=G('r-tot').textContent;const hrs=G('hrs').value;
-  const tl=G('trate').options[G('trate').selectedIndex].text;
-  const tm=G('timemult').options[G('timemult').selectedIndex].text;
-  const pn=[...selP].map(id=>PARTS.find(p=>p.id===id)?.n).filter(Boolean);
-  const cn=G('cpn').value;if(cn)pn.push(cn);
-  const dt=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-  const q=`ATLAS HOME PRO — ESTIMATE\n${dt}\n${tm.includes('After')||tm.includes('Sunday')?'⚡ '+tm.toUpperCase()+' RATE\n':''}\nService: ${selJ.icon} ${selJ.name}\nLabor: ${hrs}hr · ${tl}\nParts: ${pn.length?pn.join(', '):'Consumables only'}\n\nTOTAL: ${tot}\n30-day labor warranty · Licensed & Insured\nAtlas Home Pro · atlashomepro.com`;
-  const out=G('qout');out.textContent=q;out.style.display='block';
-  navigator.clipboard?.writeText(q).then(()=>{const b=document.querySelector('.btn-gn');const o=b.textContent;b.textContent='✓ Copied!';setTimeout(()=>b.textContent=o,2500);});
-}
-
-function resetC(){
-  selJ=null;selP=new Set();
-  document.querySelectorAll('.jbtn').forEach(b=>b.classList.remove('on'));
-  ['s-labor','s-parts','r-wrap'].forEach(i=>G(i).classList.add('gone'));
-  G('qout').style.display='none';G('pgrid').innerHTML='';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// COMPETITOR TAB
-function buildComp(){
-  const threatColor={HIGH:'var(--red)',MEDIUM:'var(--amber)',LOW:'var(--green)'};
-  G('comp-table').innerHTML=`
-    <div style="overflow-x:auto;margin-bottom:16px">
-    <table class="tbl">
-    <thead><tr>
-      <th>Service</th>
-      <th class="tr">Western Rooter<br><span style="font-size:9px;opacity:.7">Published prices</span></th>
-      <th class="tr">Flood Brothers<br><span style="font-size:9px;opacity:.7">Advertised</span></th>
-      <th class="tr">Victor's / Charlie's<br><span style="font-size:9px;opacity:.7">Estimated from reviews</span></th>
-      <th class="tr">Atlas Price<br><span style="font-size:9px;opacity:.7">Your price</span></th>
-      <th>Notes</th>
-    </tr></thead>
-    <tbody>
-    ${COMP_DATA.map((r,i)=>`<tr style="${i%2===0?'':'background:var(--gray-50)'}">
-      <td style="font-weight:600">${r.service}${r.service.includes('After')?'':''}</td>
-      <td class="tr" style="color:var(--gray-500)">${r.wr}</td>
-      <td class="tr" style="color:var(--gray-500)">${r.fb}</td>
-      <td class="tr" style="color:var(--gray-500)">${r.vic}</td>
-      <td class="tr" style="font-weight:700;color:var(--navy)">${typeof r.atlas==='number'?'$'+r.atlas:r.atlas}</td>
-      <td style="font-size:11px;color:var(--gray-500)">${r.notes}</td>
-    </tr>`).join('')}
-    </tbody></table></div>`;
-
-  G('comp-profiles').innerHTML=COMP_PROFILES.map(p=>`
-    <div style="border:1px solid var(--gray-200);border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div style="font-weight:700;font-size:14px">${p.name}</div>
-        <div style="font-size:11px;color:var(--amber)">★ ${p.stars}</div>
-        <div style="font-size:11px;color:var(--gray-400)">${p.reviews} reviews</div>
-        <div style="margin-left:auto;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${p.threat==='HIGH'?'var(--red-light)':p.threat==='MEDIUM'?'var(--amber-light)':'var(--green-light)'};color:${p.threat==='HIGH'?'var(--red)':p.threat==='MEDIUM'?'var(--amber)':'var(--green)'}">
-          ${p.threat} THREAT
-        </div>
-      </div>
-      <div style="font-size:11px;color:var(--gray-400);margin-bottom:6px">📍 ${p.loc}</div>
-      <div style="font-size:12px;color:var(--gray-700);line-height:1.6">${p.notes}</div>
-    </div>`).join('');
-
-  G('strategy').innerHTML=`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div style="background:var(--green-light);border:1px solid #BBF7D0;border-radius:10px;padding:14px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:8px">✓ DO — Pricing Strategy</div>
-        <div style="font-size:12px;color:var(--gray-700);line-height:1.8">
-          → Keep drain at $119 — don't chase Flood Brothers' $79<br>
-          → Price hydro jetting at $450 entry (was $850 — too high)<br>
-          → After-hours: charge 1.5x on Saturdays and evenings<br>
-          → Sunday/Holiday: charge 2x — you're taking time for them<br>
-          → Lead with "Good" tier, always present "Best" option<br>
-          → Add earthquake valve ($395) to EVERY WH install quote
-        </div>
-      </div>
-      <div style="background:var(--red-light);border:1px solid #FECACA;border-radius:10px;padding:14px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:8px">✗ AVOID — Mistakes to Sidestep</div>
-        <div style="font-size:12px;color:var(--gray-700);line-height:1.8">
-          → Don't match Flood Brothers' $79 drain — they lose on it<br>
-          → Don't skip the diagnostic fee — Roto-Rooter's complaints are about surprise charges<br>
-          → Don't quote WH without including all code items (seismic strap, T&P valve, expansion tank)<br>
-          → Don't price below 50% gross margin — scale won't save you<br>
-          → Don't let techs quote verbally — use this calculator every time
-        </div>
-      </div>
+    <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+      <div><strong>Min for 50% GM:</strong> $${minFor50.toFixed(0)}</div>
+      <div><strong>Min for 20% NOI:</strong> $${minFor20NOI.toFixed(0)}</div>
     </div>
-    <div style="background:var(--navy);border-radius:10px;padding:14px 16px;color:white;margin-top:12px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px">🎯 Your Biggest Pricing Opportunity</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
-        <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:12px;text-align:center">
-          <div style="font-size:22px;margin-bottom:4px">🔒</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#FCD34D">$395</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px">Earthquake valve<br>~0 parts cost · 15 min job</div>
-        </div>
-        <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:12px;text-align:center">
-          <div style="font-size:22px;margin-bottom:4px">🧼</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#86EFAC">$299</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px">WH flush service<br>upsell on every WH call</div>
-        </div>
-        <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:12px;text-align:center">
-          <div style="font-size:22px;margin-bottom:4px">⚠️</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#FCA5A5">$375</div>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px">Gas leak detection<br>safety urgency = no push-back</div>
-        </div>
-      </div>
-    </div>`;
+    ${svc ? `<div style="margin-top:12px;font-size:12px"><strong>Market Rate:</strong> ${svc.phoneRange}</div>` : ''}
+    ${svc ? `<div style="margin-top:8px;font-size:12px"><strong>G/B/B:</strong> $${svc.tiers.good.price.toLocaleString()} / $${svc.tiers.better.price.toLocaleString()} / $${svc.tiers.best.price.toLocaleString()}</div>` : ''}
+  `;
+  document.getElementById('quotePrice').textContent = `$${quotePrice.toLocaleString()}`;
 }
 
-// MODEL TAB
-function buildModel(){
-  const fc=[
-    {n:'Van Lease',v:1000},{n:'Parking',v:250},{n:'Fuel',v:700},{n:'Fleet Insurance',v:400},
-    {n:'Maintenance Reserve',v:200},{n:'HouseCall Pro (share)',v:150},{n:'GL Insurance (share)',v:200},
-    {n:'Advertising (starting estimate)',v:5000},{n:'CSR/Admin — Avoca + VA (share)',v:1750},{n:'Misc / Software',v:250},
-  ];
-  const tf=fc.reduce((s,x)=>s+x.v,0);
-  G('fclist').innerHTML=fc.map(f=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--gray-100);font-size:12px"><span style="color:var(--gray-500)">${f.n}</span><span style="font-family:'DM Mono',monospace">$${f.v.toLocaleString()}</span></div>`).join('');
-  G('tfixed').textContent='$'+tf.toLocaleString();
-  G('vclist').innerHTML=[
-    {n:'Materials / Parts',v:'20% of revenue'},{n:'Tech Labor (loaded)',v:'~18–22%'},
-    {n:'Commission (above $25K)',v:'5% of revenue'},{n:'CC Processing',v:'3% of revenue'},
-  ].map(v=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--gray-100);font-size:12px"><span style="color:var(--gray-500)">${v.n}</span><span style="font-family:'DM Mono',monospace;color:var(--gray-700)">${v.v}</span></div>`).join('');
+// WATER HEATERS
+let whType = 'tank-gas', whSize = '50';
 
-  // Jobs needed at 50% GM target
-  const tkts=[{n:'Drain ($119)',p:119},{n:'Faucet ($225)',p:225},{n:'EQ Valve ($395)',p:395},{n:'WH Install ($1,095)',p:1095},{n:'Hydro Jet ($450)',p:450}];
-  G('jneed').innerHTML=tkts.map(t=>{const jmo=Math.ceil(28000/t.p);return`<div style="background:rgba(255,255,255,.06);border-radius:8px;padding:11px;text-align:center"><div style="font-size:10px;color:rgba(255,255,255,.4);margin-bottom:3px">${t.n}</div><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#86EFAC;letter-spacing:1px">${jmo}</div><div style="font-size:10px;color:rgba(255,255,255,.3)">/mo = ${(jmo/22).toFixed(1)}/day</div></div>`;}).join('');
+function renderWHTiers() {
+  const data = WH_TIERS[whType]?.[whSize];
+  if (!data) return;
+  const showSize = !['tankless-gas','tankless-electric','heat-pump'].includes(whType);
+  document.getElementById('whSizeBar').style.display = showSize ? 'flex' : 'none';
+  document.getElementById('whTierCards').innerHTML = `
+    <div class="tier-card"><div class="tier-label">Tier 1</div><div class="tier-title">Same-Location Swap</div><div class="tier-starting">$${data.t1.start.toLocaleString()}</div><div class="tier-range">Range: ${data.t1.range}</div><ul><li>Same fuel, same location, same size</li><li>Minimal code work</li><li>Existing infrastructure compatible</li><li>Permit + haul-away included</li></ul></div>
+    <div class="tier-card recommended"><div class="recommended-badge">MOST COMMON</div><div class="tier-label">Tier 2</div><div class="tier-title">Standard + Code Items</div><div class="tier-starting">$${data.t2.start.toLocaleString()}</div><div class="tier-range">Range: ${data.t2.range}</div><ul><li>All Tier 1 items</li><li>Expansion tank</li><li>Seismic straps</li><li>Drain pan</li><li>T&P drain to exterior</li><li>Flex connectors + unions</li><li>Permit + inspection</li></ul></div>
+    <div class="tier-card"><div class="tier-label">Tier 3</div><div class="tier-title">Complex Install</div><div class="tier-starting">$${data.t3.start.toLocaleString()}</div><div class="tier-range">Range: ${data.t3.range}</div><ul><li>All Tier 2 items</li><li>Gas line upgrade</li><li>Venting changes</li><li>Relocation</li><li>Electrical upgrade</li><li>Fuel conversion</li></ul></div>`;
+}
 
-  const ads=[3000,5000,7500,10000];
-  G('adtbl-wrap').innerHTML=`<thead><tr><th>Ad Spend/Van/Mo</th><th class="tr">5 jobs/day</th><th class="tr">8 jobs/day</th><th class="tr">10 jobs/day</th><th>Verdict</th></tr></thead><tbody>${
-    ads.map((ad,i)=>`<tr style="${i%2===0?'':'background:var(--gray-50)'}"><td style="font-weight:600">$${ad.toLocaleString()}/mo</td>${[5,8,10].map(j=>{const c=Math.round(ad/(j*22));const col=c<150?'var(--green)':c<300?'var(--amber)':'var(--red)';return`<td class="tr" style="color:${col}">$${c}/job</td>`;}).join('')}<td style="font-size:11px;color:var(--gray-500)">${ad<=3000?'Best — reviews driving volume':ad<=5000?'Target — good starting point':ad<=7500?'OK at 8+ jobs/day':'Needs 10+ jobs/day to justify'}</td></tr>`).join('')
-  }</tbody>`;
+function renderWHUnitTable() {
+  document.getElementById('whUnitTable').innerHTML = `<table><thead><tr><th>Brand / Model</th><th>Size</th><th>Fuel</th><th>Warranty</th><th>Retail</th><th>Contractor Est.</th></tr></thead><tbody>${WH_UNIT_COSTS.map(u => `<tr><td>${u.brand}</td><td>${u.size}</td><td>${u.fuel}</td><td>${u.warranty}</td><td>${u.retail}</td><td style="font-weight:600;color:var(--navy)">${u.contractor}</td></tr>`).join('')}</tbody></table>`;
+}
+
+function renderWHCodeTable() {
+  document.getElementById('whCodeTable').innerHTML = `<table><thead><tr><th>Requirement</th><th>Detail</th><th>Installed Cost</th><th>Authority</th></tr></thead><tbody>${WH_CODE_REQS.map(c => `<tr><td style="font-weight:600">${c.item}</td><td>${c.detail}</td><td>${c.cost}</td><td style="font-size:11px">${c.authority}</td></tr>`).join('')}</tbody></table>`;
+}
+
+function renderWHAddons() {
+  const list = document.getElementById('whAddons');
+  list.innerHTML = WH_ADDONS.map((a,i) => `<label class="addon-item" data-price="${a.price}"><input type="checkbox" onchange="updateAddonTotal()"> ${a.name} <span class="addon-price">${a.priceLabel}</span></label>`).join('');
+}
+
+function updateAddonTotal() {
+  let total = 0;
+  document.querySelectorAll('#whAddons .addon-item input:checked').forEach(cb => {
+    const item = cb.closest('.addon-item');
+    total += parseInt(item.dataset.price);
+    item.classList.add('checked');
+  });
+  document.querySelectorAll('#whAddons .addon-item input:not(:checked)').forEach(cb => cb.closest('.addon-item').classList.remove('checked'));
+  document.getElementById('whAddonTotal').textContent = `$${total.toLocaleString()}`;
+}
+
+function renderWHTriggers() {
+  document.getElementById('whTriggers').innerHTML = `<table><thead><tr><th>Trigger</th><th>Price Impact</th><th>Frequency in LA</th></tr></thead><tbody>${WH_TRIGGERS.map(t => {
+    const freqColor = t.freq.includes('Very High') || t.freq.includes('High') ? 'cell-red' : t.freq.includes('Moderate') ? 'cell-amber' : '';
+    return `<tr><td style="font-weight:600">${t.trigger}</td><td style="color:var(--red);font-weight:600">${t.impact}</td><td class="${freqColor}">${t.freq}</td></tr>`;
+  }).join('')}</tbody></table>`;
+}
+
+// COMPETITOR INTEL
+function renderCompMatrix() {
+  const cats = [...new Set(COMP_MATRIX.map(r => {
+    if (r.service.includes('Drain')) return 'Drain';
+    if (r.service.includes('WH') || r.service.includes('Flush')) return 'Water Heater';
+    if (r.service.includes('Toilet') || r.service.includes('Faucet') || r.service.includes('Shower') || r.service.includes('Stop') || r.service.includes('Disposal')) return 'Fixture';
+    return 'Specialty';
+  }))];
+  document.getElementById('compFilterChips').innerHTML = `<button class="filter-chip active" data-filter="all">All Services</button>` + cats.map(c => `<button class="filter-chip" data-filter="${c}">${c}</button>`).join('');
+
+  function renderMatrix(filter) {
+    const rows = filter === 'all' ? COMP_MATRIX : COMP_MATRIX.filter(r => {
+      if (filter === 'Drain') return r.service.includes('Drain') || r.service.includes('Hydro') || r.service.includes('Camera');
+      if (filter === 'Water Heater') return r.service.includes('WH') || r.service.includes('Flush');
+      if (filter === 'Fixture') return r.service.includes('Toilet') || r.service.includes('Faucet') || r.service.includes('Shower') || r.service.includes('Stop') || r.service.includes('Disposal');
+      return !r.service.includes('Drain') && !r.service.includes('Hydro') && !r.service.includes('Camera') && !r.service.includes('WH') && !r.service.includes('Flush') && !r.service.includes('Toilet') && !r.service.includes('Faucet') && !r.service.includes('Shower') && !r.service.includes('Stop') && !r.service.includes('Disposal');
+    });
+    document.getElementById('compMatrix').innerHTML = `<table><thead><tr><th>Service</th><th>Western Rooter</th><th>Flood Bros</th><th>Mike Diamond</th><th>Roto-Rooter</th><th>Market Low</th><th>Market Typical</th><th>Market High</th><th style="background:var(--blue)">Atlas Price</th></tr></thead><tbody>${rows.map(r => `<tr><td style="font-weight:600">${r.service}</td><td>${r.westernRooter}</td><td>${r.floodBros}</td><td>${r.mikeDiamond}</td><td>${r.rotoRooter}</td><td>${r.marketLow}</td><td>${r.marketTyp}</td><td>${r.marketHigh}</td><td style="font-weight:700;color:var(--blue)">${r.atlas}</td></tr>`).join('')}</tbody></table>`;
+  }
+  renderMatrix('all');
+  document.querySelectorAll('#compFilterChips .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#compFilterChips .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      renderMatrix(chip.dataset.filter);
+    });
+  });
+}
+
+function renderCompProfiles() {
+  document.getElementById('compProfiles').innerHTML = COMPETITORS.map(c => {
+    const tc = c.threat === 'HIGH' ? 'threat-high' : c.threat === 'MEDIUM' ? 'threat-medium' : 'threat-low';
+    return `<div class="comp-card ${tc}">
+      <div class="comp-name">${c.name} <span class="badge badge-${c.threat.toLowerCase() === 'high' ? 'low' : c.threat.toLowerCase() === 'low' ? 'high' : 'medium'}" style="margin-left:6px">${c.threat} THREAT</span></div>
+      <div class="comp-meta">${c.location} · ⭐ ${c.rating} · ${c.reviews.toLocaleString()} reviews</div>
+      <div class="comp-detail">
+        <div><strong>Svc Call:</strong> ${c.svcFee}</div>
+        <div><strong>After-Hours:</strong> ${c.afterHours}</div>
+        <div><strong>Warranty:</strong> ${c.warranty}</div>
+        <div style="margin-top:6px;font-style:italic;color:var(--text-light)">"${c.quote}"</div>
+      </div></div>`;
+  }).join('');
+}
+
+function renderCompPromos() {
+  document.getElementById('compPromos').innerHTML = `<table><thead><tr><th>Promo Service</th><th>Competitor</th><th>Promo Price</th><th>Market Rate</th><th>Discount</th></tr></thead><tbody>${PROMO_DATA.map(p => `<tr><td style="font-weight:600">${p.promo}</td><td>${p.competitor}</td><td style="color:var(--red);font-weight:600">${p.price}</td><td>${p.market}</td><td>${p.discount}</td></tr>`).join('')}</tbody></table>`;
+}
+
+function renderCompAfterHours() {
+  document.getElementById('compAfterHours').innerHTML = `<table><thead><tr><th>Policy</th><th>Competitors</th><th>Pros</th><th>Cons</th></tr></thead><tbody>
+    <tr><td style="font-weight:600">Published tiered (1.5x/2x)</td><td>Western Rooter</td><td class="cell-green">Transparent, profitable</td><td>May deter some callers</td></tr>
+    <tr><td style="font-weight:600">No extra charge</td><td>Roto-Rooter, Right Price, Mr. Speedy, Pacific</td><td class="cell-green">Customer-friendly</td><td class="cell-red">Unsustainable for small company</td></tr>
+    <tr><td style="font-weight:600">Flat emergency fee</td><td>Mike Diamond ($260)</td><td>Profitable</td><td class="cell-red">Generates negative reviews</td></tr>
+    <tr><td style="font-weight:600">Implied surcharge</td><td>Flood Brothers, Nautilus</td><td>Flexible</td><td class="cell-amber">Surprise = bad reviews</td></tr>
+    <tr><td style="font-weight:700;color:var(--blue)">Atlas Recommended</td><td style="font-weight:600;color:var(--blue)">1.5x Sat/Eve · 2.0x Night/Sun/Holiday</td><td class="cell-green">Transparent, moderate, profitable</td><td>—</td></tr>
+  </tbody></table>`;
+}
+
+// SERVICE GUIDES
+function renderGuides() {
+  document.getElementById('guideList').innerHTML = SERVICE_GUIDES.map((g,i) => `
+    <div class="guide-card" onclick="this.classList.toggle('open')">
+      <div class="guide-header"><span>${g.icon} ${g.name}</span><span class="badge badge-${g.confidence.toLowerCase()}" style="margin-right:8px">${g.confidence}</span><span class="guide-chevron">▼</span></div>
+      <div class="guide-body">
+        <div class="guide-field"><div class="guide-field-label">📞 What Customer Says</div>${g.customerSays}</div>
+        <div class="guide-field"><div class="guide-field-label">🔍 Most Likely Diagnosis</div>${g.diagnosis}</div>
+        <div class="guide-field"><div class="guide-field-label">🔧 Common Parts Needed</div>${g.parts}</div>
+        <div class="guide-field"><div class="guide-field-label">⏱ Typical Labor</div>${g.labor}</div>
+        <div class="guide-field"><div class="guide-field-label">💰 Good / Better / Best</div>
+          <div style="display:grid;grid-template-columns:1fr;gap:6px;margin-top:4px">
+            <div style="padding:8px;background:#F0FDF4;border-radius:6px;border:1px solid #BBF7D0"><strong style="color:#065F46">Good:</strong> ${g.good}</div>
+            <div style="padding:8px;background:#DBEAFE;border-radius:6px;border:1px solid #93C5FD"><strong style="color:#1E40AF">Better:</strong> ${g.better}</div>
+            <div style="padding:8px;background:#FEF3C7;border-radius:6px;border:1px solid #FCD34D"><strong style="color:#92400E">Best:</strong> ${g.best}</div>
+          </div>
+        </div>
+        <div class="guide-field"><div class="guide-field-label" style="color:var(--red)">⚠️ Red Flags</div>${g.redFlags}</div>
+        <div class="guide-field"><div class="guide-field-label">⬆️ Best Upsells</div>${g.upsells}</div>
+        <div class="guide-field"><div class="guide-field-label">🚫 When NOT to Quote Remotely</div>${g.dontQuote}</div>
+      </div>
+    </div>`).join('');
+}
+
+// BUSINESS MODEL
+function renderBusinessModel() {
+  document.getElementById('bmFixedCosts').innerHTML = `<table><thead><tr><th>Item</th><th>Monthly Cost</th></tr></thead><tbody>
+    <tr><td>Vehicle Payment + Insurance</td><td>$1,800</td></tr>
+    <tr><td>Tech Salary (base)</td><td>$4,200</td></tr>
+    <tr><td>Workers Comp + Benefits</td><td>$1,200</td></tr>
+    <tr><td>Phone + Software + GPS</td><td>$400</td></tr>
+    <tr><td>Equipment Depreciation</td><td>$500</td></tr>
+    <tr><td>Fuel + Maintenance</td><td>$600</td></tr>
+    <tr><td>Insurance (GL/Umbrella share)</td><td>$700</td></tr>
+    <tr><td>Licensing / Continuing Ed</td><td>$200</td></tr>
+    <tr><td>Uniforms + Consumables</td><td>$300</td></tr>
+    <tr style="font-weight:700;background:#F0F4FF"><td>TOTAL Per Van Per Month</td><td style="color:var(--navy)">$9,900</td></tr>
+  </tbody></table>`;
+
+  document.getElementById('bmVarCosts').innerHTML = `<table><thead><tr><th>Variable Cost</th><th>% of Revenue</th></tr></thead><tbody>
+    <tr><td>Materials / Parts</td><td>20%</td></tr>
+    <tr><td>Tech Labor (loaded)</td><td>18–22%</td></tr>
+    <tr><td>Commission (above $25K/van)</td><td>5%</td></tr>
+    <tr><td>CC Processing</td><td>3%</td></tr>
+  </tbody></table>`;
+
+  document.getElementById('bmNOI').innerHTML = `<table><thead><tr><th>Target</th><th>Revenue/Van/Mo</th><th>Revenue/Van/Yr</th></tr></thead><tbody>
+    <tr><td>Break Even (0% NOI)</td><td style="font-weight:600">~$19,200</td><td>$230,400</td></tr>
+    <tr><td>5% NOI</td><td>~$22,000</td><td>$264,000</td></tr>
+    <tr><td>10% NOI</td><td>~$24,500</td><td>$294,000</td></tr>
+    <tr style="background:#D1FAE5"><td style="font-weight:700">20% NOI (Target)</td><td style="font-weight:700;color:var(--green)">~$28,000</td><td style="font-weight:700">$336,000</td></tr>
+    <tr><td>25% NOI</td><td>~$31,000</td><td>$372,000</td></tr>
+  </tbody></table>`;
+
+  document.getElementById('bmJobs').innerHTML = `<table><thead><tr><th>Service Type</th><th>Avg Ticket</th><th>Jobs/Day for $28K/mo</th><th>Revenue/Truck-Hr</th></tr></thead><tbody>
+    <tr><td>WH Install (Tank)</td><td>$2,200</td><td style="color:var(--green);font-weight:700">0.6 jobs</td><td>$733/hr</td></tr>
+    <tr><td>WH Install (Tankless)</td><td>$4,500</td><td style="color:var(--green);font-weight:700">0.3 jobs</td><td>$750/hr</td></tr>
+    <tr><td>Hydro Jetting + Camera</td><td>$595</td><td>2.2 jobs</td><td>$298/hr</td></tr>
+    <tr><td>Drain Cleaning (avg ticket)</td><td>$305</td><td>4.2 jobs</td><td>$203/hr</td></tr>
+    <tr><td>Toilet/Faucet Repair (avg)</td><td>$240</td><td>5.3 jobs</td><td>$240/hr</td></tr>
+    <tr><td>Stop Valve (Pair)</td><td>$295</td><td>4.3 jobs</td><td>$295/hr</td></tr>
+    <tr><td>Gas Leak Detection</td><td>$525</td><td>2.4 jobs</td><td>$263/hr</td></tr>
+    <tr><td>Diagnostic (converts 65%)</td><td>$149 → ~$350</td><td>3.6 jobs</td><td>$149–350/hr</td></tr>
+  </tbody></table>`;
+
+  document.getElementById('bmCAC').innerHTML = `<table><thead><tr><th>Channel</th><th>Monthly Spend</th><th>Est. Leads</th><th>Conversion</th><th>Jobs</th><th>CAC</th></tr></thead><tbody>
+    <tr><td>Google Local Services (LSA)</td><td>$2,000</td><td>50–70</td><td>30%</td><td>15–21</td><td>$95–$133</td></tr>
+    <tr><td>Google Ads (Search)</td><td>$2,500</td><td>40–60</td><td>25%</td><td>10–15</td><td>$167–$250</td></tr>
+    <tr><td>Yelp Ads</td><td>$1,500</td><td>25–40</td><td>20%</td><td>5–8</td><td>$188–$300</td></tr>
+    <tr><td>Referral / Repeat</td><td>$0</td><td>20–30</td><td>60%</td><td>12–18</td><td>$0</td></tr>
+    <tr><td>Nextdoor / Organic</td><td>$200</td><td>10–15</td><td>25%</td><td>2–4</td><td>$50–$100</td></tr>
+    <tr style="font-weight:700;background:#F0F4FF"><td>TOTAL (2 vans)</td><td>$6,200</td><td>145–215</td><td>—</td><td>44–66</td><td style="color:var(--navy)">$94–$141</td></tr>
+  </tbody></table>`;
+
+  document.getElementById('bmAfterHours').innerHTML = `
+    <h4>After-Hours Revenue Impact</h4>
+    <p style="font-size:13px;color:var(--text-light);margin-bottom:12px">Assuming 10% of calls happen after hours (industry average)</p>
+    <div class="table-wrap"><table><thead><tr><th>Metric</th><th>Current (no premium)</th><th>Recommended (1.25x/1.5x + $95)</th></tr></thead><tbody>
+      <tr><td>Monthly after-hours calls</td><td>22 (10% of ~220/mo)</td><td>22</td></tr>
+      <tr><td>Average ticket (regular hrs)</td><td>$300</td><td>$300</td></tr>
+      <tr><td>Average after-hours ticket</td><td>$300</td><td style="color:var(--green);font-weight:600">$405 (1.35x avg + dispatch)</td></tr>
+      <tr><td>Monthly after-hours revenue</td><td>$6,600</td><td>$8,910</td></tr>
+      <tr style="font-weight:700;background:#D1FAE5"><td>Monthly Uplift</td><td>—</td><td style="color:var(--green)">+$2,310/month</td></tr>
+      <tr style="font-weight:700"><td>Annual Uplift</td><td>—</td><td style="color:var(--green)">+$27,720/year</td></tr>
+    </tbody></table></div>
+    <p style="font-size:12px;color:var(--text-light)">This is pure margin improvement — cost structure doesn't change for after-hours work.</p>`;
+
+  document.getElementById('bmServiceMix').innerHTML = `
+    <h4>Ideal Daily Service Mix (1 Van, Targeting $1,275/day = $28K/mo)</h4>
+    <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>Slot</th><th>Service</th><th>Revenue</th><th>Time</th><th>Margin</th></tr></thead><tbody>
+      <tr><td>AM 1</td><td>Drain Cleaning → Camera → Hydro Jet</td><td style="font-weight:600">$549</td><td>2 hrs</td><td>60%</td></tr>
+      <tr><td>AM 2</td><td>Faucet Repair (Better tier)</td><td style="font-weight:600">$295</td><td>1 hr</td><td>60%</td></tr>
+      <tr><td>PM 1</td><td>Toilet Repair + Angle Stop Pair</td><td style="font-weight:600">$480</td><td>1.5 hrs</td><td>58%</td></tr>
+      <tr style="font-weight:700;background:#D1FAE5"><td colspan="2">DAILY TOTAL</td><td style="color:var(--green)">$1,324</td><td>4.5 hrs</td><td>~59%</td></tr>
+    </tbody></table></div>
+    <p style="font-size:12px;color:var(--text-light);margin-top:8px">Alternative high-ticket day: 1 WH Install ($2,195) = exceeds daily target in one job, 3 hrs</p>`;
+}
+
+// PARTS & SOURCING
+function renderParts() {
+  document.getElementById('psChannels').innerHTML = `<table><thead><tr><th>Channel</th><th>Best For</th><th>Savings vs HD</th><th>Lead Time</th><th>Account?</th></tr></thead><tbody>${SOURCING_CHANNELS.map(c => `<tr><td style="font-weight:600">${c.channel}</td><td>${c.bestFor}</td><td style="color:var(--green);font-weight:600">${c.savings}</td><td>${c.leadTime}</td><td>${c.account}</td></tr>`).join('')}</tbody></table>`;
+
+  document.getElementById('psPartsList').innerHTML = PARTS_BY_SERVICE.map(cat => `
+    <div class="parts-section" onclick="this.classList.toggle('open')">
+      <div class="parts-header"><span>${cat.category}</span><span class="parts-chevron">▼</span></div>
+      <div class="parts-body">
+        <table><thead><tr><th>Part</th><th>Home Depot</th><th>Amazon</th><th>Trade/Contractor</th><th>Stock</th></tr></thead><tbody>
+          ${cat.parts.map(p => `<tr><td style="font-weight:500">${p.name}</td><td>${p.hd}</td><td>${p.amz}</td><td style="color:var(--green);font-weight:600">${p.trade}</td><td><span class="badge badge-${p.cls==='STOCK'?'high':p.cls==='COMMON'?'medium':'low'}">${p.cls}</span></td></tr>`).join('')}
+        </tbody></table>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('psTruckStock').innerHTML = `<table><thead><tr><th>Category</th><th>Item</th><th>Qty</th><th>Unit Cost</th><th>Total</th></tr></thead><tbody>${TRUCK_STOCK.map(t => `<tr><td>${t.cat}</td><td style="font-weight:500">${t.item}</td><td>${t.qty}</td><td>${t.cost}</td><td style="font-weight:600">${t.total}</td></tr>`).join('')}<tr style="font-weight:700;background:#F0F4FF"><td colspan="4">TOTAL TRUCK STOCK INVESTMENT</td><td style="color:var(--navy)">~$1,599</td></tr></tbody></table>`;
+}
+
+// ════════════════════════════════════════════════
+// INIT & EVENT HANDLERS
+// ════════════════════════════════════════════════
+
+// Tab navigation
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.location.hash = btn.dataset.tab;
+  });
+});
+
+// Scale selector
+document.querySelectorAll('#scaleBar .scale-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#scaleBar .scale-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentScale = +btn.dataset.vans;
+    renderKPIs();
+    updateCalc();
+  });
+});
+
+// WH type selector
+document.querySelectorAll('#whTypeBar .wh-type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#whTypeBar .wh-type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    whType = btn.dataset.type;
+    renderWHTiers();
+  });
+});
+document.querySelectorAll('#whSizeBar .wh-size-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#whSizeBar .wh-size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    whSize = btn.dataset.size;
+    renderWHTiers();
+  });
+});
+
+// Hash navigation
+function loadFromHash() {
+  const hash = window.location.hash.replace('#','');
+  if (hash) {
+    const btn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
+    if (btn) btn.click();
+  }
 }
 
 // INIT
-buildQuick();buildJobs();buildComp();buildModel();
-setScale(0,document.querySelector('.sbtn.on'));
+renderKPIs();
+renderServiceGrid();
+initCalc();
+renderWHTiers();
+renderWHUnitTable();
+renderWHCodeTable();
+renderWHAddons();
+renderWHTriggers();
+renderCompMatrix();
+renderCompProfiles();
+renderCompPromos();
+renderCompAfterHours();
+renderGuides();
+renderBusinessModel();
+renderParts();
+loadFromHash();
+window.addEventListener('hashchange', loadFromHash);
 </script>
 </body>
 </html>
