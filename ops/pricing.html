@@ -1,4 +1,10 @@
-<script>if(!sessionStorage.getItem('ops_auth')&&!window.location.search.includes('auth=ok')){window.location.href='/ops/?redirect='+encodeURIComponent(window.location.pathname)}if(window.location.search.includes('auth=ok'))sessionStorage.setItem('ops_auth','1');</script>
+<script>
+(function(){
+  if(!sessionStorage.getItem('atlas_role')){
+    window.location.replace('index.html');
+  }
+})();
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
