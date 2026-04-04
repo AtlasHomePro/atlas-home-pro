@@ -464,6 +464,7 @@
   }
   .btn-hd { background: var(--hd); color: #fff; }
   .btn-amazon { background: var(--amazon); color: #FF9900; }
+  .btn-walmart { background: #0071CE; color: #fff; }
   .btn-default { background: var(--navy); color: #fff; }
 
   /* ── Empty State ── */
@@ -650,6 +651,8 @@ function vendorBtn(url, vendor) {
     cls = 'btn-hd'; label = '🏠 Home Depot';
   } else if (v.includes('amazon')) {
     cls = 'btn-amazon'; label = '📦 Amazon';
+  } else if (v.includes('walmart')) {
+    cls = 'btn-walmart'; label = '🛒 Walmart';
   } else {
     cls = 'btn-default'; label = vendor || 'View Product';
   }
