@@ -15,6 +15,7 @@
   .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
   .pill-green { background: #dcfce7; color: #15803d; }
   .pill-slate { background: #f1f5f9; color: #475569; }
+  .pill-amber { background: #fef3c7; color: #92400e; }
 
   .page { max-width: 1140px; margin: 0 auto; padding: 28px 40px 60px; }
 
@@ -27,6 +28,14 @@
   /* SECTION LABEL */
   .section-label { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; margin-top: 36px; display: flex; align-items: center; gap: 8px; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
+
+  /* PHASE BANNER */
+  .phase-banner { border-radius: 10px; padding: 18px 22px; margin-bottom: 20px; }
+  .phase-now { background: #0f172a; color: #fff; }
+  .phase-live { background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0; }
+  .phase-banner h3 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+  .phase-banner p { font-size: 12px; color: #94a3b8; }
+  .phase-live p { color: #64748b; }
 
   /* PILLAR CARDS */
   .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
@@ -45,7 +54,7 @@
   .owner-david { background: #f3e8ff; color: #7c3aed; }
 
   /* TASK TABLE */
-  .task-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; font-size: 13px; }
+  .task-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 24px; font-size: 13px; }
   .task-table thead tr { background: #f8fafc; }
   .task-table th { padding: 11px 16px; text-align: left; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; }
   .task-table td { padding: 11px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #334155; }
@@ -56,14 +65,16 @@
   .tag-todo { background: #fee2e2; color: #b91c1c; }
   .tag-done { background: #dcfce7; color: #15803d; }
   .tag-running { background: #dbeafe; color: #1d4ed8; }
+  .tag-waiting { background: #f1f5f9; color: #64748b; }
 
-  /* MANUAL DUTIES BOX */
-  .duties-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
+  /* DUTIES BOX */
+  .duties-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
   .duties-box h3 { font-size: 14px; font-weight: 700; color: #0f172a; padding: 18px 22px 0; margin-bottom: 4px; }
   .duties-box .duties-sub { font-size: 12px; color: #64748b; padding: 0 22px 14px; }
   .duty-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 22px; border-top: 1px solid #f1f5f9; }
   .duty-item:last-child { padding-bottom: 18px; }
   .duty-icon { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 1px; background: #fef9c3; color: #92400e; font-weight: 700; }
+  .duty-icon-d { background: #f3e8ff; color: #7c3aed; }
   .duty-text { font-size: 13px; color: #1e293b; font-weight: 500; }
   .duty-note { font-size: 11px; color: #94a3b8; margin-top: 2px; }
 
@@ -72,15 +83,7 @@
   .rule-box h4 { font-size: 13px; font-weight: 700; color: #92400e; margin-bottom: 8px; }
   .rule-box ul { list-style: none; }
   .rule-box ul li { font-size: 13px; color: #78350f; padding: 3px 0 3px 16px; position: relative; }
-  .rule-box ul li::before { content: "✗"; position: absolute; left: 0; color: #dc2626; font-weight: 700; font-size: 11px; }
-
-  /* PRIORITY LIST */
-  .priority-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
-  .pri-item { display: flex; gap: 14px; padding: 14px 22px; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
-  .pri-item:last-child { border-bottom: none; }
-  .pri-num { width: 28px; height: 28px; border-radius: 50%; background: #0f172a; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .pri-text { font-size: 13px; color: #1e293b; font-weight: 600; }
-  .pri-who { font-size: 11px; color: #64748b; margin-top: 2px; }
+  .rule-box ul li::before { content: "\2717"; position: absolute; left: 0; color: #dc2626; font-weight: 700; font-size: 11px; }
 
   .footer { font-size: 11px; color: #cbd5e1; text-align: center; padding-top: 20px; border-top: 1px solid #e2e8f0; }
 
@@ -99,7 +102,7 @@
     <p>Based on the Local Dominance Blueprint (Fischer / Mello) · Updated April 2026</p>
   </div>
   <div class="header-right">
-    <span class="pill pill-green">✓ Active</span>
+    <span class="pill pill-amber">Pre-Launch</span>
     <span class="pill pill-slate">HQ: 145 S Fairfax · 90036</span>
   </div>
 </div>
@@ -109,7 +112,7 @@
   <!-- BANNER -->
   <div class="banner">
     <h2>The Core Idea</h2>
-    <p>Every completed job produces a <strong>geo-tagged, service-specific content asset</strong> that publishes to the website AND Google Business Profile. Real jobs → real content → real rankings. Generic SEO content is dead. The algorithm now rewards <strong>operational reality over manipulated text</strong>.</p>
+    <p>Every completed job produces a <strong>geo-tagged, service-specific content asset</strong> that publishes to the website AND Google Business Profile. Real jobs, real content, real rankings. The algorithm rewards <strong>operational reality over manipulated text</strong>. Pre-launch priority: <strong>harvest reviews from tenants already served and build the foundation so the flywheel runs from Job #1.</strong></p>
   </div>
 
   <!-- THREE PILLARS -->
@@ -128,7 +131,7 @@
     <div class="pillar-card pc-3">
       <div class="pc-num">Pillar 3</div>
       <h3>Proof-Based Content Flywheel</h3>
-      <div class="pc-desc">Every job triggers: tech captures photos → system applies geo-metadata and tags service type → content auto-publishes to geo-page on site AND as a GBP post.</div>
+      <div class="pc-desc">Every job triggers: tech captures photos, system applies geo-metadata and tags service type, content auto-publishes to geo-page on site AND as a GBP post.</div>
     </div>
   </div>
 
@@ -143,228 +146,207 @@
     </ul>
   </div>
 
-  <!-- TECH / FIELD CREW DUTIES -->
-  <div class="section-label">What Techs Do on Every Job (Manual — Cannot Be Automated)</div>
-  <div class="duties-box">
-    <h3>Field Crew Duties</h3>
-    <div class="duties-sub">This is the raw material that powers the entire flywheel. No photos = no content = no rankings.</div>
-    <div class="duty-item">
-      <div class="duty-icon">1</div>
-      <div>
-        <div class="duty-text">Take before/after photos + short client video at every job</div>
-        <div class="duty-note">This is non-negotiable. Tie it to technician incentives.</div>
-      </div>
-    </div>
-    <div class="duty-item">
-      <div class="duty-icon">2</div>
-      <div>
-        <div class="duty-text">Log the job in Airtable: neighborhood, service type, short description</div>
-        <div class="duty-note">If it's not logged, it doesn't exist in the content pipeline.</div>
-      </div>
-    </div>
-    <div class="duty-item">
-      <div class="duty-icon">3</div>
-      <div>
-        <div class="duty-text">Ask the customer for a review in person before leaving</div>
-        <div class="duty-note">In-person ask converts 10x higher than automated follow-up. Automation handles the reminder after.</div>
-      </div>
-    </div>
+  <!-- ============================================ -->
+  <!-- PHASE 1: PRE-LAUNCH (NOW) -->
+  <!-- ============================================ -->
+  <div class="section-label">Phase 1 — Pre-Launch (Now through Go-Live)</div>
+  <div class="phase-banner phase-now">
+    <h3>Phase 1: Build the Foundation + Harvest Reviews</h3>
+    <p>HouseCall Pro is not live yet. Focus on getting reviews from tenants already served, building the site infrastructure, and knowing the competitive landscape before spending a dollar on ads.</p>
   </div>
 
-  <!-- DAVID'S MANUAL TASKS -->
-  <div class="section-label">David's Manual Tasks (One-Time or Periodic)</div>
+  <!-- PHASE 1: COMPUTER TASKS -->
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th style="width:28%">Task</th>
+        <th style="width:10%">Owner</th>
+        <th style="width:10%">Status</th>
+        <th>What Gets Done</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Technical site audit + schema fixes</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>Audit atlashomepro.com for schema, speed, mobile, meta tags, interlinking. Fix and push via GitHub.</td>
+      </tr>
+      <tr>
+        <td><strong>Possum Filter competitor check</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>Map entrenched competitors within 200 yards of 145 S Fairfax for each service category. Confirm no algorithmic overlap.</td>
+      </tr>
+      <tr>
+        <td><strong>Geo-page matrix (100 pages)</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>20 neighborhoods x 5 services. Each page with LocalBusiness schema, geo-metadata, internal linking. Deploy via GitHub so pages are indexed before go-live.</td>
+      </tr>
+      <tr>
+        <td><strong>Google Ads keyword research</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>High-intent local keywords for all services + neighborhoods. Competition levels and bid estimates. Ready to launch campaigns on day one.</td>
+      </tr>
+      <tr>
+        <td><strong>Competitor landscape + review baseline</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>Research top competitors per service per neighborhood. Review counts, ratings, velocity. Logged to Google Sheet.</td>
+      </tr>
+      <tr>
+        <td><strong>GBP review monitor + Slack alerts</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>Daily check for new reviews. Slack alert + drafted reply for approval. Start now to catch reviews from tenant outreach.</td>
+      </tr>
+      <tr>
+        <td><strong>NAP consistency audit</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>Check Name/Address/Phone across all claimed directory profiles. Flag mismatches.</td>
+      </tr>
+      <tr>
+        <td><strong>Draft tenant review outreach messages</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-todo">To Do</span></td>
+        <td>Write SMS and email templates for asking past tenants for Google + Yelp reviews. Personalized by service type.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PHASE 1: DAVID'S TASKS -->
   <div class="duties-box">
-    <h3>Owner Tasks</h3>
-    <div class="duties-sub">Things only you can do — accounts, budgets, vendor decisions.</div>
+    <h3>David's Tasks — Phase 1</h3>
+    <div class="duties-sub">Things only you can do right now.</div>
     <div class="duty-item">
-      <div class="duty-icon">D</div>
+      <div class="duty-icon duty-icon-d">D</div>
+      <div>
+        <div class="duty-text">Collect a list of every tenant already serviced (name, service, neighborhood)</div>
+        <div class="duty-note">This is the review pipeline. Computer drafts the messages, you send them.</div>
+      </div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon duty-icon-d">D</div>
+      <div>
+        <div class="duty-text">Send review requests to past tenants (text + email)</div>
+        <div class="duty-note">Target: 10-20 Google reviews + 10-20 Yelp reviews minimum before go-live.</div>
+      </div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon duty-icon-d">D</div>
       <div>
         <div class="duty-text">Claim top 10-20 directory profiles: Yelp, Thumbtack, Angi, BBB, HomeAdvisor</div>
         <div class="duty-note">Only high-traffic directories. Not hundreds of low-quality citations.</div>
       </div>
     </div>
     <div class="duty-item">
-      <div class="duty-icon">D</div>
+      <div class="duty-icon duty-icon-d">D</div>
       <div>
         <div class="duty-text">Sign up for a geogrid tool (Local Falcon or Local Viking)</div>
-        <div class="duty-note">~$40-80/mo. Visualizes where you rank #1 vs. where you're invisible.</div>
+        <div class="duty-note">~$40-80/mo. See where you rank #1 vs. where you're invisible.</div>
       </div>
     </div>
     <div class="duty-item">
-      <div class="duty-icon">D</div>
+      <div class="duty-icon duty-icon-d">D</div>
       <div>
-        <div class="duty-text">Set up and fund Google LSA (requires license verification)</div>
-        <div class="duty-note">LSA = top of page above PPC. Google Guaranteed badge. Pays per lead not per click.</div>
+        <div class="duty-text">Set up Google LSA (requires license verification)</div>
+        <div class="duty-note">LSA = top of page. Google Guaranteed badge. Pays per lead not per click.</div>
       </div>
     </div>
     <div class="duty-item">
-      <div class="duty-icon">D</div>
+      <div class="duty-icon duty-icon-d">D</div>
       <div>
-        <div class="duty-text">Set up and fund Google PPC campaigns</div>
-        <div class="duty-note">Target neighborhoods where organic/GBP rank is weak (red zones on geogrid).</div>
-      </div>
-    </div>
-    <div class="duty-item">
-      <div class="duty-icon">D</div>
-      <div>
-        <div class="duty-text">Create technician review incentive program (bonus per review, leaderboard)</div>
-        <div class="duty-note">Review generation must be a top-down, incentivized first principle of training.</div>
+        <div class="duty-text">Design technician review incentive program</div>
+        <div class="duty-note">Bonus per review, leaderboard. Have it ready before the first tech is in a van.</div>
       </div>
     </div>
   </div>
 
-  <!-- AUTOMATED SYSTEMS TABLE -->
-  <div class="section-label">Automated Systems (Perplexity Computer + Pipedream + APIs)</div>
+  <!-- ============================================ -->
+  <!-- PHASE 2: GO-LIVE (HCP ACTIVE) -->
+  <!-- ============================================ -->
+  <div class="section-label">Phase 2 — Go-Live (When HouseCall Pro is Active)</div>
+  <div class="phase-banner phase-live">
+    <h3>Phase 2: Activate the Flywheel</h3>
+    <p>HouseCall Pro is live. Techs are closing jobs. Every completed job now feeds the content pipeline automatically. CRM is the single source of truth.</p>
+  </div>
+
+  <!-- PHASE 2: COMPUTER TASKS -->
   <table class="task-table">
     <thead>
       <tr>
-        <th style="width:30%">System</th>
-        <th style="width:12%">Status</th>
+        <th style="width:28%">System</th>
+        <th style="width:10%">Owner</th>
+        <th style="width:10%">Status</th>
         <th>What It Does</th>
-        <th style="width:14%">Runs On</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>GBP Review Monitor + Slack Alerts</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Checks for new Google reviews daily. Alerts Slack. Drafts a reply for approval.</td>
-        <td>Recurring cron</td>
+        <td><strong>HouseCall Pro &rarr; content pipeline</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-waiting">Phase 2</span></td>
+        <td>HCP job close triggers: pull job data + photos &rarr; geo-tag photos &rarr; generate GBP post + geo-page update + review request. One trigger, three outputs.</td>
       </tr>
       <tr>
-        <td><strong>Competitor Review Velocity Tracker</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Tracks top 5-10 competitors' review counts and ratings weekly. Logs to Google Sheet.</td>
-        <td>Weekly cron</td>
+        <td><strong>GBP post automation</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-waiting">Phase 2</span></td>
+        <td>Completed job &rarr; auto-generated GBP post with real photo, service type, neighborhood. Queued for approval or auto-posted.</td>
       </tr>
       <tr>
-        <td><strong>Review Request Automation</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Job closes in Airtable → timed SMS/email with direct GBP review link. 4-5 star → Google; below 4 → internal feedback form.</td>
-        <td>Pipedream trigger</td>
+        <td><strong>Review request automation</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-waiting">Phase 2</span></td>
+        <td>HCP job close &rarr; timed SMS/email with GBP review link. 4-5 star &rarr; Google; below 4 &rarr; internal feedback form.</td>
       </tr>
       <tr>
-        <td><strong>GBP Post Publisher</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Pulls recent completed jobs from Airtable → generates a GBP post with real job photo + service details → posts with approval.</td>
-        <td>GBP API + cron</td>
+        <td><strong>Photo EXIF / geo-tag injection</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-waiting">Phase 2</span></td>
+        <td>GPS coords from job address + company name + service keywords injected into photo metadata before any upload.</td>
       </tr>
       <tr>
-        <td><strong>Geo-Page Generator</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>20 neighborhoods x 5 services = 100 hyper-local pages. Each with LocalBusiness schema, geo-metadata, internal linking. Deployed via GitHub → Netlify.</td>
-        <td>One-time build</td>
+        <td><strong>Revenue attribution dashboard</strong></td>
+        <td><span class="owner owner-auto">Computer</span></td>
+        <td><span class="tag tag-waiting">Phase 2</span></td>
+        <td>Google Sheet merging Ads spend with HCP job revenue. CPA by channel. Replaces vanity metrics with closed revenue.</td>
       </tr>
       <tr>
-        <td><strong>Photo EXIF / Geo-Tag Injection</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Writes GPS coords from job address + company name + service keywords into photo metadata before upload.</td>
-        <td>Pipedream script</td>
-      </tr>
-      <tr>
-        <td><strong>Site Schema + Technical Audit</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Full audit of atlashomepro.com: schema markup, speed, mobile, meta tags, interlinking. Fix and push via GitHub.</td>
-        <td>One-time audit</td>
-      </tr>
-      <tr>
-        <td><strong>NAP Consistency Audit</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Check Name/Address/Phone across all claimed directory profiles. Flag mismatches.</td>
-        <td>One-time audit</td>
-      </tr>
-      <tr>
-        <td><strong>Google Ads Keyword Research</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>High-intent local keywords for all services + neighborhoods. Competition levels and bid estimates.</td>
-        <td>Google Ads API</td>
-      </tr>
-      <tr>
-        <td><strong>Revenue Attribution Dashboard</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Google Sheet merging Ads spend data with Airtable job revenue. Tracks CPA by channel. Replaces vanity metrics with actual closed revenue.</td>
-        <td>Google Sheets</td>
-      </tr>
-      <tr>
-        <td><strong>Possum Filter Competitor Check</strong></td>
-        <td><span class="tag tag-todo">To Build</span></td>
-        <td>Map entrenched competitors within 200 yards of 145 S Fairfax for each service category. Verify no algorithmic overlap.</td>
-        <td>One-time research</td>
+        <td><strong>Google PPC campaigns</strong></td>
+        <td><span class="owner owner-david">David</span></td>
+        <td><span class="tag tag-waiting">Phase 2</span></td>
+        <td>Fund and launch PPC targeting neighborhoods where organic rank is weak (red zones on geogrid).</td>
       </tr>
     </tbody>
   </table>
 
-  <!-- BUILD ORDER -->
-  <div class="section-label">Build Order — What to Do First</div>
-  <div class="priority-list">
-    <div class="pri-item">
-      <div class="pri-num">1</div>
+  <!-- PHASE 2: FIELD CREW DUTIES -->
+  <div class="duties-box">
+    <h3>Field Crew Duties — Every Job (Phase 2)</h3>
+    <div class="duties-sub">This is the raw material that powers the flywheel. No photos = no content = no rankings.</div>
+    <div class="duty-item">
+      <div class="duty-icon">1</div>
       <div>
-        <div class="pri-text">Technical site audit + schema fixes</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Foundation everything else depends on</div>
+        <div class="duty-text">Take before/after photos + short client video at every job</div>
+        <div class="duty-note">Upload directly into HouseCall Pro on the job record.</div>
       </div>
     </div>
-    <div class="pri-item">
-      <div class="pri-num">2</div>
+    <div class="duty-item">
+      <div class="duty-icon">2</div>
       <div>
-        <div class="pri-text">Possum Filter competitor check around 145 S Fairfax</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Know if your HQ location is clean before investing further</div>
+        <div class="duty-text">Close the job in HouseCall Pro with complete details</div>
+        <div class="duty-note">This triggers the entire content pipeline. If it's not closed in HCP, it doesn't exist.</div>
       </div>
     </div>
-    <div class="pri-item">
-      <div class="pri-num">3</div>
+    <div class="duty-item">
+      <div class="duty-icon">3</div>
       <div>
-        <div class="pri-text">GBP review monitoring + Slack alerts + auto-drafted replies</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Free, immediate ranking signal, sets up the feedback loop</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">4</div>
-      <div>
-        <div class="pri-text">Claim Yelp, Thumbtack, Angi, BBB profiles</div>
-        <div class="pri-who"><span class="owner owner-david">DAVID</span> Only top 10-20 directories. Not hundreds.</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">5</div>
-      <div>
-        <div class="pri-text">Competitor review velocity tracker → Google Sheet</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Weekly tracking of who's gaining ground</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">6</div>
-      <div>
-        <div class="pri-text">Review request automation (Airtable → SMS/email)</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Builds on the Pipedream pipeline you already have</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">7</div>
-      <div>
-        <div class="pri-text">Geo-page matrix (100 pages: 20 neighborhoods x 5 services)</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Generates + deploys via GitHub → Netlify</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">8</div>
-      <div>
-        <div class="pri-text">GBP post automation from completed job data</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Real jobs → real posts → Map Pack visibility</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">9</div>
-      <div>
-        <div class="pri-text">Google Ads keyword research + revenue dashboard</div>
-        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Via connected Google Ads + Sheets</div>
-      </div>
-    </div>
-    <div class="pri-item">
-      <div class="pri-num">10</div>
-      <div>
-        <div class="pri-text">Sign up for geogrid tool + Google LSA</div>
-        <div class="pri-who"><span class="owner owner-david">DAVID</span> Requires account creation + license verification</div>
+        <div class="duty-text">Ask the customer for a review in person before leaving</div>
+        <div class="duty-note">In-person ask converts 10x higher than automated follow-up. Automation handles the reminder.</div>
       </div>
     </div>
   </div>
