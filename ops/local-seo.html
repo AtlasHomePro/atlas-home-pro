@@ -3,142 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Home Pro — Local SEO Build Plan</title>
+<title>Atlas Home Pro — Local SEO Playbook</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; font-size: 14px; }
 
-  /* HEADER */
   .header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
   .header-left h1 { font-size: 20px; font-weight: 700; color: #0f172a; letter-spacing: -0.3px; }
   .header-left p { font-size: 13px; color: #64748b; margin-top: 3px; }
   .header-right { display: flex; gap: 10px; }
   .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
   .pill-green { background: #dcfce7; color: #15803d; }
-  .pill-blue { background: #dbeafe; color: #1d4ed8; }
-  .pill-orange { background: #fff7ed; color: #c2410c; }
+  .pill-slate { background: #f1f5f9; color: #475569; }
 
-  /* LAYOUT */
   .page { max-width: 1140px; margin: 0 auto; padding: 28px 40px 60px; }
 
-  /* VERDICT BANNER */
-  .verdict { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 12px; padding: 24px 28px; margin-bottom: 28px; display: flex; align-items: center; gap: 24px; }
-  .verdict-icon { font-size: 36px; flex-shrink: 0; }
-  .verdict h2 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
-  .verdict p { font-size: 13px; color: #94a3b8; max-width: 820px; }
-  .verdict strong { color: #38bdf8; }
+  /* BANNER */
+  .banner { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 12px; padding: 24px 28px; margin-bottom: 28px; }
+  .banner h2 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .banner p { font-size: 13px; color: #94a3b8; max-width: 860px; }
+  .banner strong { color: #fbbf24; }
 
   /* SECTION LABEL */
-  .section-label { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; margin-top: 32px; display: flex; align-items: center; gap: 8px; }
+  .section-label { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; margin-top: 36px; display: flex; align-items: center; gap: 8px; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
 
-  /* STAT CARDS */
-  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
-  .stat-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
-  .stat-card .label { font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-  .stat-card .value { font-size: 26px; font-weight: 700; line-height: 1; margin-bottom: 5px; }
-  .stat-card .sub { font-size: 12px; color: #64748b; }
-  .v-green { color: #16a34a; }
-  .v-red { color: #dc2626; }
-  .v-blue { color: #2563eb; }
-  .v-slate { color: #475569; }
+  /* PILLAR CARDS */
+  .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+  .pillar-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; border-top: 4px solid transparent; }
+  .pc-1 { border-top-color: #475569; }
+  .pc-2 { border-top-color: #f59e0b; }
+  .pc-3 { border-top-color: #22c55e; }
+  .pillar-card .pc-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+  .pillar-card h3 { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+  .pillar-card .pc-desc { font-size: 12px; color: #64748b; }
 
-  /* TWO COL */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  /* OWNER TAGS */
+  .owner { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle; }
+  .owner-team { background: #fef9c3; color: #92400e; }
+  .owner-auto { background: #dbeafe; color: #1d4ed8; }
+  .owner-david { background: #f3e8ff; color: #7c3aed; }
 
-  /* CARDS */
-  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 22px; }
-  .card h3 { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .card-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
-  .dot-g { background: #22c55e; }
-  .dot-r { background: #ef4444; }
-  .dot-y { background: #f59e0b; }
+  /* TASK TABLE */
+  .task-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; font-size: 13px; }
+  .task-table thead tr { background: #f8fafc; }
+  .task-table th { padding: 11px 16px; text-align: left; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; }
+  .task-table td { padding: 11px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #334155; }
+  .task-table tr:last-child td { border-bottom: none; }
+  .task-table tr:hover td { background: #f8fafc; }
 
-  /* CHECK ITEMS */
-  .check-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f1f5f9; }
-  .check-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .ci-icon { width: 20px; height: 20px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .ci-done { background: #dcfce7; color: #16a34a; }
-  .ci-miss { background: #fee2e2; color: #dc2626; }
-  .ci-half { background: #fef9c3; color: #92400e; }
-  .ci-label { font-size: 13px; color: #1e293b; font-weight: 500; }
-  .ci-note { font-size: 11px; color: #94a3b8; margin-top: 2px; }
-
-  /* MASTER TABLE */
-  .master-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; font-size: 13px; }
-  .master-table thead tr { background: #f8fafc; }
-  .master-table th { padding: 11px 16px; text-align: left; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; }
-  .master-table td { padding: 11px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: top; color: #334155; }
-  .master-table tr:last-child td { border-bottom: none; }
-  .master-table tr:hover td { background: #f8fafc; }
   .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+  .tag-todo { background: #fee2e2; color: #b91c1c; }
   .tag-done { background: #dcfce7; color: #15803d; }
-  .tag-miss { background: #fee2e2; color: #b91c1c; }
-  .tag-partial { background: #fef9c3; color: #92400e; }
-  .tag-easy { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
-  .tag-med { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-  .tag-hard { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+  .tag-running { background: #dbeafe; color: #1d4ed8; }
 
-  /* PRIORITY BUILD CARDS */
-  .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
-  .build-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; border-top: 3px solid transparent; }
-  .bc-p1 { border-top-color: #ef4444; }
-  .bc-p2 { border-top-color: #f59e0b; }
-  .bc-p3 { border-top-color: #94a3b8; }
-  .build-card .prio-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .pl-1 { color: #ef4444; }
-  .pl-2 { color: #f59e0b; }
-  .pl-3 { color: #94a3b8; }
-  .build-card h4 { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
-  .build-card .bc-meta { font-size: 12px; color: #94a3b8; margin-bottom: 12px; }
-  .build-card ul { list-style: none; }
-  .build-card ul li { font-size: 12px; color: #475569; padding: 3px 0 3px 14px; position: relative; }
-  .build-card ul li::before { content: "→"; position: absolute; left: 0; color: #3b82f6; font-size: 11px; }
+  /* MANUAL DUTIES BOX */
+  .duties-box { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
+  .duties-box h3 { font-size: 14px; font-weight: 700; color: #0f172a; padding: 18px 22px 0; margin-bottom: 4px; }
+  .duties-box .duties-sub { font-size: 12px; color: #64748b; padding: 0 22px 14px; }
+  .duty-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 22px; border-top: 1px solid #f1f5f9; }
+  .duty-item:last-child { padding-bottom: 18px; }
+  .duty-icon { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; margin-top: 1px; background: #fef9c3; color: #92400e; font-weight: 700; }
+  .duty-text { font-size: 13px; color: #1e293b; font-weight: 500; }
+  .duty-note { font-size: 11px; color: #94a3b8; margin-top: 2px; }
 
-  /* COST TABLE */
-  .cost-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
-  .cost-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; text-align: center; }
-  .cost-card .c-label { font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
-  .cost-card .c-value { font-size: 30px; font-weight: 800; margin-bottom: 6px; }
-  .cost-card .c-sub { font-size: 12px; color: #64748b; }
-  .cv-red { color: #dc2626; }
-  .cv-blue { color: #2563eb; }
-  .cv-green { color: #16a34a; }
+  /* RULE BOX */
+  .rule-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 10px; padding: 18px 22px; margin-bottom: 28px; }
+  .rule-box h4 { font-size: 13px; font-weight: 700; color: #92400e; margin-bottom: 8px; }
+  .rule-box ul { list-style: none; }
+  .rule-box ul li { font-size: 13px; color: #78350f; padding: 3px 0 3px 16px; position: relative; }
+  .rule-box ul li::before { content: "✗"; position: absolute; left: 0; color: #dc2626; font-weight: 700; font-size: 11px; }
 
-  /* ADVANTAGE LIST */
-  .adv-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
-  .adv-item { display: flex; gap: 16px; padding: 16px 22px; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
-  .adv-item:last-child { border-bottom: none; }
-  .adv-num { width: 30px; height: 30px; border-radius: 50%; background: #0f172a; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .adv-text h5 { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 3px; }
-  .adv-text p { font-size: 13px; color: #64748b; }
+  /* PRIORITY LIST */
+  .priority-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
+  .pri-item { display: flex; gap: 14px; padding: 14px 22px; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+  .pri-item:last-child { border-bottom: none; }
+  .pri-num { width: 28px; height: 28px; border-radius: 50%; background: #0f172a; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pri-text { font-size: 13px; color: #1e293b; font-weight: 600; }
+  .pri-who { font-size: 11px; color: #64748b; margin-top: 2px; }
 
-  /* WARNING BOX */
-  .warn-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 10px; padding: 16px 20px; margin-bottom: 28px; }
-  .warn-box .w-label { font-size: 11px; font-weight: 700; color: #92400e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .warn-box p { font-size: 13px; color: #78350f; }
-
-  /* CHECKBOX PROGRESS */
-  .progress-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px 22px; }
-  .progress-card h3 { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 16px; }
-  .prog-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-  .prog-label { font-size: 13px; color: #334155; }
-  .prog-bar-wrap { width: 180px; background: #f1f5f9; border-radius: 99px; height: 7px; }
-  .prog-bar { height: 7px; border-radius: 99px; }
-  .pb-green { background: #22c55e; }
-  .pb-red { background: #ef4444; }
-  .pb-yellow { background: #f59e0b; }
-
-  /* FOOTER */
   .footer { font-size: 11px; color: #cbd5e1; text-align: center; padding-top: 20px; border-top: 1px solid #e2e8f0; }
 
   @media (max-width: 860px) {
     .page { padding: 20px; }
-    .stat-row, .build-grid, .cost-grid, .two-col { grid-template-columns: 1fr 1fr; }
+    .pillar-grid { grid-template-columns: 1fr; }
     .header { flex-direction: column; align-items: flex-start; gap: 12px; }
-  }
-  @media (max-width: 560px) {
-    .stat-row, .build-grid, .cost-grid, .two-col { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -146,362 +95,281 @@
 
 <div class="header">
   <div class="header-left">
-    <h1>Atlas Home Pro — Local SEO Automation Dashboard</h1>
-    <p>LocalOptics competitive gap analysis & build plan · April 2026</p>
+    <h1>Local SEO Playbook</h1>
+    <p>Based on the Local Dominance Blueprint (Fischer / Mello) · Updated April 2026</p>
   </div>
   <div class="header-right">
-    <span class="pill pill-green">✓ Build It</span>
-    <span class="pill pill-blue">3–4 Week Build</span>
-    <span class="pill pill-orange">Launch: Aug 1</span>
+    <span class="pill pill-green">✓ Active</span>
+    <span class="pill pill-slate">HQ: 145 S Fairfax · 90036</span>
   </div>
 </div>
 
 <div class="page">
 
-  <!-- VERDICT -->
-  <div class="verdict">
-    <div class="verdict-icon">⚡</div>
-    <div>
-      <h2>Verdict: Build It In-House. Do Not Hire LocalOptics.</h2>
-      <p>Everything they sell is replicable with <strong>Make.com + Claude API + HouseCall Pro + Google APIs</strong> — tools already in your stack. One-time build cost ~$3–5K in labor. Ongoing marginal cost &lt;$100/month per client vs. their $500–$2,000/month retainer. You own the IP, the data, and the competitive moat. Building pre-launch is the right window — no live operations to disrupt.</p>
+  <!-- BANNER -->
+  <div class="banner">
+    <h2>The Core Idea</h2>
+    <p>Every completed job produces a <strong>geo-tagged, service-specific content asset</strong> that publishes to the website AND Google Business Profile. Real jobs → real content → real rankings. Generic SEO content is dead. The algorithm now rewards <strong>operational reality over manipulated text</strong>.</p>
+  </div>
+
+  <!-- THREE PILLARS -->
+  <div class="section-label">The 3 Pillars</div>
+  <div class="pillar-grid">
+    <div class="pillar-card pc-1">
+      <div class="pc-num">Pillar 1</div>
+      <h3>Algorithmic Real Estate</h3>
+      <div class="pc-desc">Your physical office location dictates your digital ceiling. Never share a radius with an entrenched competitor. Never use a residential address. Target affluent demographics.</div>
+    </div>
+    <div class="pillar-card pc-2">
+      <div class="pc-num">Pillar 2</div>
+      <h3>Reputation Engine</h3>
+      <div class="pc-desc">Google evaluates trust across the entire web. A great Google profile with a bad Yelp profile = algorithmic trust issue. Minimum 10-20 reviews on BOTH platforms just to register.</div>
+    </div>
+    <div class="pillar-card pc-3">
+      <div class="pc-num">Pillar 3</div>
+      <h3>Proof-Based Content Flywheel</h3>
+      <div class="pc-desc">Every job triggers: tech captures photos → system applies geo-metadata and tags service type → content auto-publishes to geo-page on site AND as a GBP post.</div>
     </div>
   </div>
 
-  <!-- STATS -->
-  <div class="stat-row">
-    <div class="stat-card">
-      <div class="label">LocalOptics Services</div>
-      <div class="value v-slate">13</div>
-      <div class="sub">Total services they offer</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">Already Done at Atlas</div>
-      <div class="value v-green">3</div>
-      <div class="sub">Fully in place today</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">Gaps to Close</div>
-      <div class="value v-red">10</div>
-      <div class="sub">Need to build or automate</div>
-    </div>
-    <div class="stat-card">
-      <div class="label">Build Timeline</div>
-      <div class="value v-blue">3–4 wks</div>
-      <div class="sub">AI Ops hire + Make.com</div>
-    </div>
+  <!-- POSSUM FILTER RULES -->
+  <div class="rule-box">
+    <h4>Possum Filter Rules — Do Not Violate</h4>
+    <ul>
+      <li>Never share a radius with an entrenched competitor in the same service category</li>
+      <li>Never use a residential or apartment address for GBP (guarantees suspension)</li>
+      <li>Never open a second location within 200 yards of a dominant competitor</li>
+      <li>Never rely on GBP alone — PPC + LSA + Organic must run together</li>
+    </ul>
   </div>
 
-  <!-- WHAT YOU HAVE / WHAT'S MISSING -->
-  <div class="section-label">Current State</div>
-  <div class="two-col">
-    <div class="card">
-      <h3><span class="card-dot dot-g"></span>What Atlas Already Has</h3>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">HouseCall Pro (CRM) — confirmed in stack</div><div class="ci-note">LocalOptics' #1 integration target. You already have the pipe.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">Make.com — confirmed automation platform</div><div class="ci-note">Exact tool needed to build all 22 workflows.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">GBP verified & optimized (primary: Plumber, Westside)</div><div class="ci-note">Live target for daily automated post publishing.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">250-page site on Netlify/GitHub with schema markup</div><div class="ci-note">Container for job content is already built and indexed.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">Sitemap, robots.txt, canonical tags — technical SEO solid</div><div class="ci-note">New job pages will index properly from Day 1.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">Chiirp in stack (SMS/email follow-up)</div><div class="ci-note">Review request outreach channel already wired.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-done">✓</div>
-        <div><div class="ci-label">CallRail (call tracking)</div><div class="ci-note">Attribution data feeds performance reporting.</div></div>
+  <!-- TECH / FIELD CREW DUTIES -->
+  <div class="section-label">What Techs Do on Every Job (Manual — Cannot Be Automated)</div>
+  <div class="duties-box">
+    <h3>Field Crew Duties</h3>
+    <div class="duties-sub">This is the raw material that powers the entire flywheel. No photos = no content = no rankings.</div>
+    <div class="duty-item">
+      <div class="duty-icon">1</div>
+      <div>
+        <div class="duty-text">Take before/after photos + short client video at every job</div>
+        <div class="duty-note">This is non-negotiable. Tie it to technician incentives.</div>
       </div>
     </div>
-
-    <div class="card">
-      <h3><span class="card-dot dot-r"></span>What Needs to Be Built</h3>
-      <div class="check-item">
-        <div class="ci-icon ci-miss">✗</div>
-        <div><div class="ci-label">CRM → content pipeline (job completion webhook)</div><div class="ci-note">The engine everything else runs on. Most critical gap.</div></div>
+    <div class="duty-item">
+      <div class="duty-icon">2</div>
+      <div>
+        <div class="duty-text">Log the job in Airtable: neighborhood, service type, short description</div>
+        <div class="duty-note">If it's not logged, it doesn't exist in the content pipeline.</div>
       </div>
-      <div class="check-item">
-        <div class="ci-icon ci-miss">✗</div>
-        <div><div class="ci-label">Daily automated GBP photo/post publishing</div><div class="ci-note">Their core Map Pack growth driver. Currently zero.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-miss">✗</div>
-        <div><div class="ci-label">EXIF/geo-tag injection on job photos</div><div class="ci-note">Python + ExifTool. Technical SEO signal most competitors skip.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-miss">✗</div>
-        <div><div class="ci-label">Auto-publishing job entries to website (daily portfolio)</div><div class="ci-note">Site is currently static — no live job content flowing.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-miss">✗</div>
-        <div><div class="ci-label">AI content generation (GBP posts, job entries, review asks)</div><div class="ci-note">Zero AI in current publishing flow.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-miss">✗</div>
-        <div><div class="ci-label">Automated post-job review request sequence</div><div class="ci-note">300-review pre-launch target still manual.</div></div>
-      </div>
-      <div class="check-item">
-        <div class="ci-icon ci-half">~</div>
-        <div><div class="ci-label">GeoGrid / Map Pack rank tracking</div><div class="ci-note">No visibility into where you rank across the Westside grid.</div></div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon">3</div>
+      <div>
+        <div class="duty-text">Ask the customer for a review in person before leaving</div>
+        <div class="duty-note">In-person ask converts 10x higher than automated follow-up. Automation handles the reminder after.</div>
       </div>
     </div>
   </div>
 
-  <!-- MASTER SERVICE MAP TABLE -->
-  <div class="section-label">LocalOptics 13 Services — Build Assessment</div>
-  <table class="master-table">
+  <!-- DAVID'S MANUAL TASKS -->
+  <div class="section-label">David's Manual Tasks (One-Time or Periodic)</div>
+  <div class="duties-box">
+    <h3>Owner Tasks</h3>
+    <div class="duties-sub">Things only you can do — accounts, budgets, vendor decisions.</div>
+    <div class="duty-item">
+      <div class="duty-icon">D</div>
+      <div>
+        <div class="duty-text">Claim top 10-20 directory profiles: Yelp, Thumbtack, Angi, BBB, HomeAdvisor</div>
+        <div class="duty-note">Only high-traffic directories. Not hundreds of low-quality citations.</div>
+      </div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon">D</div>
+      <div>
+        <div class="duty-text">Sign up for a geogrid tool (Local Falcon or Local Viking)</div>
+        <div class="duty-note">~$40-80/mo. Visualizes where you rank #1 vs. where you're invisible.</div>
+      </div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon">D</div>
+      <div>
+        <div class="duty-text">Set up and fund Google LSA (requires license verification)</div>
+        <div class="duty-note">LSA = top of page above PPC. Google Guaranteed badge. Pays per lead not per click.</div>
+      </div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon">D</div>
+      <div>
+        <div class="duty-text">Set up and fund Google PPC campaigns</div>
+        <div class="duty-note">Target neighborhoods where organic/GBP rank is weak (red zones on geogrid).</div>
+      </div>
+    </div>
+    <div class="duty-item">
+      <div class="duty-icon">D</div>
+      <div>
+        <div class="duty-text">Create technician review incentive program (bonus per review, leaderboard)</div>
+        <div class="duty-note">Review generation must be a top-down, incentivized first principle of training.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTOMATED SYSTEMS TABLE -->
+  <div class="section-label">Automated Systems (Perplexity Computer + Pipedream + APIs)</div>
+  <table class="task-table">
     <thead>
       <tr>
-        <th style="width:28%">Service</th>
-        <th style="width:13%">Atlas Status</th>
-        <th style="width:12%">Difficulty</th>
-        <th>How to Build It</th>
-        <th style="width:10%">Est. Time</th>
+        <th style="width:30%">System</th>
+        <th style="width:12%">Status</th>
+        <th>What It Does</th>
+        <th style="width:14%">Runs On</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>CRM Photo Integration & Sync</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-med">Medium</span></td>
-        <td>Make.com webhook on HCP job close → pull photos → store in Google Drive or S3. HCP has a documented API.</td>
-        <td>2–3 days</td>
+        <td><strong>GBP Review Monitor + Slack Alerts</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Checks for new Google reviews daily. Alerts Slack. Drafts a reply for approval.</td>
+        <td>Recurring cron</td>
       </tr>
       <tr>
-        <td><strong>Automated Daily GBP Posting</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-med">Medium</span></td>
-        <td>Google Business Profile API (OAuth) + Make.com scheduler. Manage posting frequency to stay inside Google guidelines.</td>
-        <td>1–2 days</td>
-      </tr>
-      <tr>
-        <td><strong>Automated Website Content Updates</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-med">Medium</span></td>
-        <td>Add a JSON-fed "Recent Work" section to the Netlify site that Make.com pushes new job entries into after each job closes.</td>
-        <td>2–3 days</td>
-      </tr>
-      <tr>
-        <td><strong>Photo EXIF / Geo-Tag Optimization</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Python script using ExifTool — write GPS coords from job address, company name, service keywords into metadata before upload.</td>
-        <td>1 day</td>
-      </tr>
-      <tr>
-        <td><strong>On-Site Schema for Completed Jobs</strong></td>
-        <td><span class="tag tag-partial">Partial</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Site-wide schema exists. Job-specific LocalBusiness/Service JSON-LD auto-injected per job entry via Make.com template.</td>
-        <td>0.5 day</td>
-      </tr>
-      <tr>
-        <td><strong>Daily Content Scheduling & Queue</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Make.com data store as a content queue. If 5 jobs close Monday, drip them Tue–Sat. Simple scheduler workflow.</td>
-        <td>0.5 day</td>
-      </tr>
-      <tr>
-        <td><strong>AI-Generated Social Proof Content</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Claude API prompt: job type + neighborhood + customer initial → GBP post + job entry narrative. Make.com passes data, returns copy.</td>
-        <td>1 day</td>
-      </tr>
-      <tr>
-        <td><strong>Job Check-In Display Widget (Website)</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>"Recent Jobs" HTML component fed by a JSON file. Make.com appends a new entry after each job close. Zero CMS required.</td>
-        <td>1 day</td>
+        <td><strong>Competitor Review Velocity Tracker</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Tracks top 5-10 competitors' review counts and ratings weekly. Logs to Google Sheet.</td>
+        <td>Weekly cron</td>
       </tr>
       <tr>
         <td><strong>Review Request Automation</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Chiirp SMS/email sequence triggered X hours post-job. Smart funnel: 4–5★ → Google link; below 4★ → internal feedback form.</td>
-        <td>1–2 days</td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Job closes in Airtable → timed SMS/email with direct GBP review link. 4-5 star → Google; below 4 → internal feedback form.</td>
+        <td>Pipedream trigger</td>
       </tr>
       <tr>
-        <td><strong>Review Response Generator (AI)</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Google Reviews API pulls new reviews → Claude API drafts personalized response → queue for approval or auto-post.</td>
-        <td>1 day</td>
+        <td><strong>GBP Post Publisher</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Pulls recent completed jobs from Airtable → generates a GBP post with real job photo + service details → posts with approval.</td>
+        <td>GBP API + cron</td>
       </tr>
       <tr>
-        <td><strong>Performance Monitoring Dashboard</strong></td>
-        <td><span class="tag tag-partial">Partial</span></td>
-        <td><span class="tag tag-med">Medium</span></td>
-        <td>Looker Studio (free) connecting GBP Insights + GA4 + Search Console + CallRail. Make.com generates AI-written weekly summary.</td>
-        <td>2–3 days</td>
+        <td><strong>Geo-Page Generator</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>20 neighborhoods x 5 services = 100 hyper-local pages. Each with LocalBusiness schema, geo-metadata, internal linking. Deployed via GitHub → Netlify.</td>
+        <td>One-time build</td>
       </tr>
       <tr>
-        <td><strong>GeoGrid / Map Pack Rank Tracking</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-hard">Hard*</span></td>
-        <td>Use Local Falcon API (~$40–80/mo) — don't build from scratch. Wrap in Looker Studio heat map visualization. *Hard if built custom; easy if you wrap Local Falcon.</td>
-        <td>1–2 days</td>
+        <td><strong>Photo EXIF / Geo-Tag Injection</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Writes GPS coords from job address + company name + service keywords into photo metadata before upload.</td>
+        <td>Pipedream script</td>
       </tr>
       <tr>
-        <td><strong>SEO Filename & Alt Text Generation</strong></td>
-        <td><span class="tag tag-miss">Missing</span></td>
-        <td><span class="tag tag-easy">Easy</span></td>
-        <td>Falls out of the AI content engine naturally. Job type + location + company name → "plumber-leak-repair-silver-lake-atlas.jpg"</td>
-        <td>Included above</td>
+        <td><strong>Site Schema + Technical Audit</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Full audit of atlashomepro.com: schema markup, speed, mobile, meta tags, interlinking. Fix and push via GitHub.</td>
+        <td>One-time audit</td>
+      </tr>
+      <tr>
+        <td><strong>NAP Consistency Audit</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Check Name/Address/Phone across all claimed directory profiles. Flag mismatches.</td>
+        <td>One-time audit</td>
+      </tr>
+      <tr>
+        <td><strong>Google Ads Keyword Research</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>High-intent local keywords for all services + neighborhoods. Competition levels and bid estimates.</td>
+        <td>Google Ads API</td>
+      </tr>
+      <tr>
+        <td><strong>Revenue Attribution Dashboard</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Google Sheet merging Ads spend data with Airtable job revenue. Tracks CPA by channel. Replaces vanity metrics with actual closed revenue.</td>
+        <td>Google Sheets</td>
+      </tr>
+      <tr>
+        <td><strong>Possum Filter Competitor Check</strong></td>
+        <td><span class="tag tag-todo">To Build</span></td>
+        <td>Map entrenched competitors within 200 yards of 145 S Fairfax for each service category. Verify no algorithmic overlap.</td>
+        <td>One-time research</td>
       </tr>
     </tbody>
   </table>
 
-  <!-- COST COMPARISON -->
-  <div class="section-label">Cost Comparison</div>
-  <div class="cost-grid">
-    <div class="cost-card">
-      <div class="c-label">LocalOptics Monthly Fee</div>
-      <div class="c-value cv-red">$500–$2K</div>
-      <div class="c-sub">Per client, per month, forever. They own the IP. They can take a Westside competitor.</div>
-    </div>
-    <div class="cost-card">
-      <div class="c-label">One-Time Build Cost</div>
-      <div class="c-value cv-blue">~$3–5K</div>
-      <div class="c-sub">3–4 weeks of AI Ops hire labor. Stack add-ons: Local Falcon ~$60/mo, Claude API ~$20/mo.</div>
-    </div>
-    <div class="cost-card">
-      <div class="c-label">Marginal Cost per Client</div>
-      <div class="c-value cv-green">&lt;$100/mo</div>
-      <div class="c-sub">API calls + AI tokens + rank tracking. No per-seat platform fees. You keep the IP and the data.</div>
-    </div>
-  </div>
-
-  <!-- PRIORITY BUILD PLAN -->
-  <div class="section-label">Recommended Build Order (Pre-Launch Priority)</div>
-  <div class="build-grid">
-    <div class="build-card bc-p1">
-      <div class="prio-label pl-1">🔴 Priority 1 — Build First (Week 1)</div>
-      <h4>System 1: CRM Pipeline</h4>
-      <div class="bc-meta">2–3 days · HouseCall Pro API + Make.com</div>
-      <ul>
-        <li>Job completion webhook listener</li>
-        <li>Photo ingestion to Google Drive/S3</li>
-        <li>Data normalization (zip → neighborhood)</li>
-        <li>Foundation for all downstream systems</li>
-      </ul>
-    </div>
-    <div class="build-card bc-p1">
-      <div class="prio-label pl-1">🔴 Priority 1 — Build First (Week 1)</div>
-      <h4>System 3: AI Content Engine</h4>
-      <div class="bc-meta">2–3 days · Claude API + Make.com</div>
-      <ul>
-        <li>GBP post generator (150–300 words)</li>
-        <li>Website job entry narrative generator</li>
-        <li>AI-personalized review request messages</li>
-        <li>Your quality edge over LocalOptics</li>
-      </ul>
-    </div>
-    <div class="build-card bc-p1">
-      <div class="prio-label pl-1">🔴 Priority 1 — Build First (Week 1)</div>
-      <h4>System 4: Publishing Engine</h4>
-      <div class="bc-meta">2–3 days · GBP API + Netlify</div>
-      <ul>
-        <li>GBP auto-publisher (daily, geo-tagged photos)</li>
-        <li>Website "Recent Jobs" auto-publisher</li>
-        <li>Content drip queue scheduler</li>
-        <li>Immediate Map Pack visibility lift</li>
-      </ul>
-    </div>
-    <div class="build-card bc-p2">
-      <div class="prio-label pl-2">🟡 Priority 2 — Week 2</div>
-      <h4>System 2: Photo Optimization</h4>
-      <div class="bc-meta">1–2 days · Python ExifTool + Make.com</div>
-      <ul>
-        <li>GPS/EXIF injection on every job photo</li>
-        <li>SEO filenames & AI-generated alt text</li>
-        <li>Auto-resize for GBP + web formats</li>
-      </ul>
-    </div>
-    <div class="build-card bc-p2">
-      <div class="prio-label pl-2">🟡 Priority 2 — Week 2</div>
-      <h4>System 5: Review Automation</h4>
-      <div class="bc-meta">1–2 days · Chiirp + Google Reviews API</div>
-      <ul>
-        <li>Post-job review request SMS/email sequence</li>
-        <li>Smart funnel: 4–5★ → Google; lower → form</li>
-        <li>AI-drafted review response queue</li>
-      </ul>
-    </div>
-    <div class="build-card bc-p3">
-      <div class="prio-label pl-3">⚪ Priority 3 — Post-Launch (Week 4+)</div>
-      <h4>System 7: GeoGrid Rank Tracking</h4>
-      <div class="bc-meta">1–2 days · Local Falcon API + Looker Studio</div>
-      <ul>
-        <li>Map Pack rank heat map across Westside</li>
-        <li>Weekly AI-written performance narrative</li>
-        <li>Visual ROI proof — makes service sticky</li>
-        <li>Use Local Falcon API, not a custom build</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- YOUR ADVANTAGES -->
-  <div class="section-label">Why Atlas Beats LocalOptics at Their Own Game</div>
-  <div class="adv-list">
-    <div class="adv-item">
-      <div class="adv-num">1</div>
-      <div class="adv-text">
-        <h5>You Own the Stack</h5>
-        <p>No vendor lock-in, no platform fee, no risk of them selling to your Westside competition. You iterate on prompts and workflows without waiting on their product roadmap.</p>
+  <!-- BUILD ORDER -->
+  <div class="section-label">Build Order — What to Do First</div>
+  <div class="priority-list">
+    <div class="pri-item">
+      <div class="pri-num">1</div>
+      <div>
+        <div class="pri-text">Technical site audit + schema fixes</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Foundation everything else depends on</div>
       </div>
     </div>
-    <div class="adv-item">
-      <div class="adv-num">2</div>
-      <div class="adv-text">
-        <h5>Superior AI Content Quality</h5>
-        <p>Their examples read like the same paragraph with variable substitution. With well-engineered prompts, Atlas content will reference specific neighborhoods (Hancock Park, Silver Lake, Beverlywood), vary meaningfully job to job, and feel human-written.</p>
+    <div class="pri-item">
+      <div class="pri-num">2</div>
+      <div>
+        <div class="pri-text">Possum Filter competitor check around 145 S Fairfax</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Know if your HQ location is clean before investing further</div>
       </div>
     </div>
-    <div class="adv-item">
-      <div class="adv-num">3</div>
-      <div class="adv-text">
-        <h5>First-Party Data Compound Effect</h5>
-        <p>Every job builds your dataset — job types by neighborhood, seasonal patterns, upsell triggers. LocalOptics clients don't own that intelligence; it lives on LocalOptics' servers.</p>
+    <div class="pri-item">
+      <div class="pri-num">3</div>
+      <div>
+        <div class="pri-text">GBP review monitoring + Slack alerts + auto-drafted replies</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Free, immediate ranking signal, sets up the feedback loop</div>
       </div>
     </div>
-    <div class="adv-item">
-      <div class="adv-num">4</div>
-      <div class="adv-text">
-        <h5>Pre-Launch Window is the Right Time to Build</h5>
-        <p>No live operations to disrupt. Build now so the automation runs from the very first job closed on August 1 — not retrofitted after you're already juggling 6 vans.</p>
+    <div class="pri-item">
+      <div class="pri-num">4</div>
+      <div>
+        <div class="pri-text">Claim Yelp, Thumbtack, Angi, BBB profiles</div>
+        <div class="pri-who"><span class="owner owner-david">DAVID</span> Only top 10-20 directories. Not hundreds.</div>
       </div>
     </div>
-    <div class="adv-item">
-      <div class="adv-num">5</div>
-      <div class="adv-text">
-        <h5>Make.com + HouseCall Pro = You're Already 80% There</h5>
-        <p>LocalOptics' entire pitch is "we plug into your CRM." You have the CRM and the automation platform. You are one webhook away from the foundation of their product.</p>
+    <div class="pri-item">
+      <div class="pri-num">5</div>
+      <div>
+        <div class="pri-text">Competitor review velocity tracker → Google Sheet</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Weekly tracking of who's gaining ground</div>
+      </div>
+    </div>
+    <div class="pri-item">
+      <div class="pri-num">6</div>
+      <div>
+        <div class="pri-text">Review request automation (Airtable → SMS/email)</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Builds on the Pipedream pipeline you already have</div>
+      </div>
+    </div>
+    <div class="pri-item">
+      <div class="pri-num">7</div>
+      <div>
+        <div class="pri-text">Geo-page matrix (100 pages: 20 neighborhoods x 5 services)</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Generates + deploys via GitHub → Netlify</div>
+      </div>
+    </div>
+    <div class="pri-item">
+      <div class="pri-num">8</div>
+      <div>
+        <div class="pri-text">GBP post automation from completed job data</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Real jobs → real posts → Map Pack visibility</div>
+      </div>
+    </div>
+    <div class="pri-item">
+      <div class="pri-num">9</div>
+      <div>
+        <div class="pri-text">Google Ads keyword research + revenue dashboard</div>
+        <div class="pri-who"><span class="owner owner-auto">COMPUTER</span> Via connected Google Ads + Sheets</div>
+      </div>
+    </div>
+    <div class="pri-item">
+      <div class="pri-num">10</div>
+      <div>
+        <div class="pri-text">Sign up for geogrid tool + Google LSA</div>
+        <div class="pri-who"><span class="owner owner-david">DAVID</span> Requires account creation + license verification</div>
       </div>
     </div>
   </div>
 
-  <!-- WARNING / ONLY EXCEPTION -->
-  <div class="warn-box">
-    <div class="w-label">⚠ The Only Case to Hire LocalOptics</div>
-    <p>If the AI Ops hire doesn't land before August 1 and you're rolling vans with zero content pipeline, a short-term quarterly LocalOptics engagement buys time while you build. Their territorial exclusivity also means locking them in before a Westside competitor does — but only as a short-term defensive play, not a long-term strategy.</p>
-  </div>
-
-  <div class="footer">Atlas Home Pro · Internal Strategy Dashboard · April 2026</div>
+  <div class="footer">Atlas Home Pro · Local SEO Playbook · April 2026 · Source: Local Dominance Blueprint (Fischer / Mello)</div>
 
 </div>
 </body>
