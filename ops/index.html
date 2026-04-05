@@ -218,6 +218,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
 .qa-btn.primary { background: var(--red); color: white; border-color: var(--red); }
 .qa-btn.primary:hover { background: var(--red-d); }
 
+/* QUICK CARD LABELS */
+.qc-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
+
 /* HIDDEN */
 .hidden { display: none !important; }
 
@@ -302,10 +305,28 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
 
 
     <div class="notice">
-      <div class="notice-icon">📌</div>
-      <div class="notice-body">
-        <h3>Priority This Week</h3>
-        <p>Open Ferguson account (310-559-0101) · Confirm van source with Enrique at Ford Downtown LA · Post ops admin role with recruiter · Class B exam scheduling. <a href="roadmap.html">View full Ops Roadmap →</a></p>
+      <div style="flex:1">
+<div class="qc-label">🏛️ Our Mission</div>
+<div style="font-size:13px;color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:14px;font-style:italic;">
+  "Build a great company — one that treats people right, 
+  delivers exceptional work, earns trust in every home, 
+  and creates a place where great techs want to build 
+  a career. Everything else follows from that."
+  <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:6px;">— David Safai, Founder</div>
+</div>
+<div class="qc-label" style="margin-top:4px">📌 Priority This Week</div>
+<div style="font-size:12px;color:rgba(255,255,255,.65);line-height:2.2;">
+  Open Ferguson account (310-559-0101) ·
+  AutoTrader + Financing for van fleet ·
+  Post AI Ops Admin role with recruiter ·
+  Class B exam scheduling ·
+  <span style="color:#86EFAC;font-weight:700">
+  Target: August 1 launch 🚐🚐
+  </span>
+</div>
+<a href="roadmap.html" style="display:inline-block;margin-top:12px;
+  font-size:11px;font-weight:700;color:rgba(255,255,255,.4);
+  text-decoration:none;">View full Ops Roadmap →</a>
       </div>
     </div>
 
@@ -339,8 +360,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
         <div><div class="tool-name">Job Pricing Calculator</div><div class="tool-desc">Real-time job pricing by service type. Calculates labor + parts + margin. Ensures every job hits target margins. Tech-facing for upsell decisions.</div></div>
         <div class="tool-footer"><span class="tool-who">David + Lead Techs</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="onboarding.html" class="tool-card coming-soon" style="--accent:#7C3AED">
-        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-soon">Coming Soon</span></div>
+      <a href="onboarding.html" class="tool-card" style="--accent:#7C3AED">
+        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-live">Live</span></div>
         <div><div class="tool-name">Tech Onboarding + Training</div><div class="tool-desc">New tech orientation, van walkthrough SOPs, safety protocols, HouseCall Pro setup, Power Selling Pros training links, and certification tracking.</div></div>
         <div class="tool-footer"><span class="tool-who">Lead Techs</span><span class="tool-arrow">→</span></div>
       </a>
@@ -416,11 +437,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
           <span class="tool-arrow">→</span>
         </div>
       </a>
-      <div class="tool-card coming-soon" style="--accent:var(--gray-300)">
+      <a href="/ops/fleet" class="tool-card coming-soon" style="--accent:var(--gray-300)">
         <div class="tool-card-head"><div class="tool-icon">📊</div><span class="tool-badge badge-soon">Coming Soon</span></div>
         <div><div class="tool-name">Fleet + KPI Dashboard</div><div class="tool-desc">Live Samsara fleet data, HouseCall Pro job metrics, parts cost as % of revenue, first-call resolution rate by van and tech.</div></div>
         <div class="tool-footer"><span class="tool-who">David</span><span class="tool-arrow">→</span></div>
-      </div>
+      </a>
     </div>
 
     <div class="vendor-bar">
@@ -569,8 +590,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--gray-50); color: va
         <div><div class="tool-name">Job Pricing Calculator</div><div class="tool-desc">Enter service type + parts used → get the right price to quote. Includes upsell prompts for every job type.</div></div>
         <div class="tool-footer"><span class="tool-who">On every job</span><span class="tool-arrow">→</span></div>
       </a>
-      <a href="onboarding.html" class="tool-card coming-soon" style="--accent:#7C3AED">
-        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-soon">Coming Soon</span></div>
+      <a href="onboarding.html" class="tool-card" style="--accent:#7C3AED">
+        <div class="tool-card-head"><div class="tool-icon">🎓</div><span class="tool-badge badge-live">Live</span></div>
         <div><div class="tool-name">Tech Onboarding + Training</div><div class="tool-desc">Van SOPs, HouseCall Pro setup, safety protocols, Power Selling Pros training, and certification requirements.</div></div>
         <div class="tool-footer"><span class="tool-who">New techs</span><span class="tool-arrow">→</span></div>
       </a>
