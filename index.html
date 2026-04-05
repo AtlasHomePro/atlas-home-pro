@@ -19,7 +19,7 @@ window.addEventListener('load',function(){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preload" as="image" type="image/webp" imagesrcset="/van%20pics/atlas-home-pro-van-mobile.webp 600w, /van%20pics/atlas-home-pro-van.webp 1200w" imagesizes="(max-width: 768px) 100vw, 50vw">
 <title>Atlas Home Pro | One Call. Every Home Service. Los Angeles</title>
-<meta name="description" content="Atlas Home Pro — LA's trusted home services company. Plumbing, HVAC, electrical, painting, gates & garage doors & restoration. Same-day service across Los Angeles. Call (213) 275-2210.">
+<meta name="description" content="Atlas Home Pro — LA's trusted home services company. HVAC, plumbing, electrical, painting, gates & restoration. Same-day service. Call (213) 275-2210.">
 <style>
 .hero{
  position:relative;
@@ -676,7 +676,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  "@type": "HomeAndConstructionBusiness",
  "@id": "https://atlashomepro.com/#business",
  "name": "Atlas Home Pro",
- "alternateName": "Atlas Home Builders Inc.",
  "url": "https://atlashomepro.com",
  "logo": "https://atlashomepro.com/van%20pics/atlas-van-new-phone.png",
  "image": "https://atlashomepro.com/van%20pics/atlas-van-new-phone.png",
@@ -684,10 +683,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  "telephone": "+12132752210",
  "email": "hello@atlashomepro.com",
  "foundingDate": "2024",
- "priceRange": "670",
+ "priceRange": "$$",
  "address": {
  "@type": "PostalAddress",
- "streetAddress": "145 S Fairfax Ave Suite 200",
+ "streetAddress": "145 S Fairfax Ave, Suite 200",
  "addressLocality": "Los Angeles",
  "addressRegion": "CA",
  "postalCode": "90036",
@@ -701,9 +700,15 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  "openingHoursSpecification": [
  {
  "@type": "OpeningHoursSpecification",
- "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+ "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
  "opens": "08:00",
  "closes": "20:00"
+ },
+ {
+ "@type": "OpeningHoursSpecification",
+ "dayOfWeek": ["Sunday"],
+ "opens": "09:00",
+ "closes": "17:00"
  }
  ],
  "areaServed": [
@@ -742,12 +747,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  "@id": "https://atlashomepro.com/#website",
  "url": "https://atlashomepro.com",
  "name": "Atlas Home Pro",
- "publisher": {"@id": "https://atlashomepro.com/#business"},
- "potentialAction": {
- "@type": "SearchAction",
- "target": "https://atlashomepro.com/?s={search_term_string}",
- "query-input": "required name=search_term_string"
- }
+ "publisher": {"@id": "https://atlashomepro.com/#business"}
  }
  ]
 }
@@ -757,7 +757,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Atlas Home Pro" />
 <meta property="og:title" content="Atlas Home Pro | One Call. Every Home Service. Los Angeles" />
-<meta property="og:description" content="Atlas Home Pro — LA's trusted home services company. Plumbing, HVAC, electrical, painting, gates & garage doors & restoration. Same-day service across Los Angeles. Call (213) 275-2210." />
+<meta property="og:description" content="Atlas Home Pro — LA's trusted home services company. HVAC, plumbing, electrical, painting, gates & restoration. Same-day service. Call (213) 275-2210." />
 <meta property="og:url" content="https://atlashomepro.com/" />
 <meta property="og:image" content="https://atlashomepro.com/van%20pics/atlas-van-new-phone.png" />
 <meta property="og:locale" content="en_US" />
@@ -984,7 +984,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <div class="services-grid">
 
  <a class='service-card' href='/hvac/'>
- <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-hvac-technician-los-angeles-mobile.webp 320w, /images/atlas-home-pro-hvac-technician-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-hvac-technician-los-angeles.png" alt="HVAC repair technician Los Angeles - Atlas Home Pro" loading="lazy" width="320" height="200"></picture></div>
+ <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-hvac-technician-los-angeles-mobile.webp 320w, /images/atlas-home-pro-hvac-technician-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://atlashomepro.com/images/atlas-home-pro-hvac-technician-los-angeles.png" alt="HVAC repair technician Los Angeles - Atlas Home Pro" loading="lazy" width="320" height="200"></picture></div>
  <div class="card-body">
  <h3>HVAC</h3>
  <p>AC repair, heating, installation &amp; commercial HVAC. Same-day service across all of LA.</p>
@@ -993,7 +993,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </a>
 
  <a class='service-card' href='/plumbing/'>
- <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-plumbing-technician-los-angeles-mobile.webp 320w, /images/atlas-home-pro-plumbing-technician-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-plumbing-technician-los-angeles.png" alt="Licensed plumber Los Angeles - Atlas Home Pro plumbing services" loading="lazy" width="320" height="200"></picture></div>
+ <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-plumbing-technician-los-angeles-mobile.webp 320w, /images/atlas-home-pro-plumbing-technician-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://atlashomepro.com/images/atlas-home-pro-plumbing-technician-los-angeles.png" alt="Licensed plumber Los Angeles - Atlas Home Pro plumbing services" loading="lazy" width="320" height="200"></picture></div>
  <div class="card-body">
  <h3>Plumbing</h3>
  <p>Leak repair, drain cleaning, water heaters, pipe replacement &amp; more.</p>
@@ -1002,7 +1002,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </a>
 
  <a class='service-card' href='/electrical/'>
- <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-electrician-los-angeles-mobile.webp 320w, /images/atlas-home-pro-electrician-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-electrician-los-angeles.png" alt="Licensed electrician Los Angeles - Atlas Home Pro electrical services" loading="lazy" width="320" height="200"></picture></div>
+ <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-electrician-los-angeles-mobile.webp 320w, /images/atlas-home-pro-electrician-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://atlashomepro.com/images/atlas-home-pro-electrician-los-angeles.png" alt="Licensed electrician Los Angeles - Atlas Home Pro electrical services" loading="lazy" width="320" height="200"></picture></div>
  <div class="card-body">
  <h3>Electrical</h3>
  <p>Panel upgrades, outlet installs, EV chargers, lighting &amp; whole-home electrical.</p>
@@ -1010,7 +1010,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  </a>
 <a class="service-card" href="/painting/">
- <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-house-painter-los-angeles-mobile.webp 320w, /images/atlas-home-pro-house-painter-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-house-painter-los-angeles.png" alt="Professional house painter Los Angeles - Atlas Home Pro painting services" loading="lazy" width="320" height="200"></picture></div>
+ <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-house-painter-los-angeles-mobile.webp 320w, /images/atlas-home-pro-house-painter-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://atlashomepro.com/images/atlas-home-pro-house-painter-los-angeles.png" alt="Professional house painter Los Angeles - Atlas Home Pro painting services" loading="lazy" width="320" height="200"></picture></div>
  <div class="card-body">
  <h3>Painting</h3>
  <p>Interior &amp; exterior painting, cabinet refinishing &amp; color consultation. Premium finishes.</p>
@@ -1018,7 +1018,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  </a>
 <a class="service-card" href="/restoration/">
- <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-water-damage-restoration-los-angeles-mobile.webp 320w, /images/atlas-home-pro-water-damage-restoration-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://69ad1e2b8dc1ec36ed1094f3--atlashomepro.netlify.app/images/atlas-home-pro-water-damage-restoration-los-angeles.png" alt="Water damage restoration Los Angeles - Atlas Home Pro emergency services" loading="lazy" width="320" height="200"></picture></div>
+ <div class="card-img"><picture><source type="image/webp" srcset="/images/atlas-home-pro-water-damage-restoration-los-angeles-mobile.webp 320w, /images/atlas-home-pro-water-damage-restoration-los-angeles.webp 640w" sizes="(max-width: 768px) 100vw, 320px"><img src="https://atlashomepro.com/images/atlas-home-pro-water-damage-restoration-los-angeles.png" alt="Water damage restoration Los Angeles - Atlas Home Pro emergency services" loading="lazy" width="320" height="200"></picture></div>
  <div class="card-body">
  <h3>Water Restoration</h3>
  <p>24/7 emergency water damage, flood cleanup, mold remediation &amp; structural drying.</p>
