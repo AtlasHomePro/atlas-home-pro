@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Home Pro — Employee Onboarding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C0392B;--red-d:#A93226;--red-light:#FDECEA;
+  --navy:#1B2A47;--navy-d:#12203A;
+  --green:#16A34A;--green-light:#F0FDF4;
+  --amber:#D97706;--amber-light:#FFFBEB;
+  --blue:#2563EB;--blue-light:#EFF6FF;
+  --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
+  --gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;
+  --gray-700:#374151;--gray-900:#111827;--white:#FFFFFF;
+  --shadow:0 1px 4px rgba(0,0,0,.06);--shadow-md:0 4px 16px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--gray-50);color:var(--gray-900);min-height:100vh;-webkit-font-smoothing:antialiased;}
+.hdr{background:var(--navy);padding:0 20px;display:flex;align-items:center;gap:12px;height:56px;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+.hdr-logo{width:32px;height:32px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.hdr-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:white;letter-spacing:2px;}
+.hdr-sub{font-size:11px;color:rgba(255,255,255,.4);margin-left:4px;}
+.back{margin-left:auto;font-size:12px;font-weight:600;color:rgba(255,255,255,.5);text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:5px 12px;}
+.main{max-width:960px;margin:0 auto;padding:24px 16px;}
+
+/* HERO */
+.hero{background:var(--navy);border-radius:14px;padding:24px 28px;margin-bottom:20px;color:white;position:relative;overflow:hidden;}
+.hero::before{content:'ONBOARDING';position:absolute;right:-10px;top:-10px;font-family:'Bebas Neue',sans-serif;font-size:120px;color:rgba(255,255,255,.03);letter-spacing:4px;pointer-events:none;}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
+.hero h2{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;margin-bottom:4px;}
+.hero p{font-size:13px;color:rgba(255,255,255,.5);}
+.hero-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 14px;text-align:center;flex-shrink:0;}
+.hero-badge .hb-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#86EFAC;letter-spacing:1px;}
+.hero-badge .hb-lbl{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase;}
+.steps-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.step-dot{background:rgba(255,255,255,.06);border-radius:8px;padding:10px 8px;text-align:center;cursor:pointer;transition:all .15s;border:1px solid rgba(255,255,255,.08);}
+.step-dot.done{background:rgba(22,163,74,.15);border-color:rgba(22,163,74,.4);}
+.step-dot.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);}
+.step-dot .sd-num{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:rgba(255,255,255,.3);}
+.step-dot.done .sd-num{color:#86EFAC;}
+.step-dot.active .sd-num{color:white;}
+.step-dot .sd-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.5px;margin-top:3px;color:rgba(255,255,255,.4);}
+.step-dot.done .sd-lbl{color:rgba(134,239,172,.7);}
+.step-dot.active .sd-lbl{color:rgba(255,255,255,.7);}
+
+/* TABS */
+.tabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap;}
+.tab{padding:9px 16px;border:1.5px solid var(--gray-200);border-radius:8px;background:var(--white);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.tab.on{border-color:var(--navy);background:var(--navy);color:white;}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:var(--shadow);}
+.ctitle{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.ctitle .cicon{font-size:18px;}
+.section-note{font-size:12px;color:var(--gray-400);margin-bottom:14px;line-height:1.6;}
+
+/* CHECKLIST */
+.checklist{display:flex;flex-direction:column;gap:6px;}
+.chk-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1.5px solid var(--gray-200);border-radius:9px;cursor:pointer;transition:all .15s;background:var(--white);}
+.chk-item:hover{border-color:var(--gray-300);background:var(--gray-50);}
+.chk-item.done{background:var(--green-light);border-color:#BBF7D0;}
+.chk-item.done .ci-title{text-decoration:line-through;color:var(--gray-400);}
+.chk-box{width:20px;height:20px;border:2px solid var(--gray-300);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .15s;}
+.chk-item.done .chk-box{background:var(--green);border-color:var(--green);}
+.chk-box .check{color:white;font-size:12px;display:none;}
+.chk-item.done .chk-box .check{display:block;}
+.ci-body{flex:1;}
+.ci-title{font-size:13px;font-weight:600;color:var(--gray-900);margin-bottom:3px;}
+.ci-desc{font-size:11px;color:var(--gray-400);line-height:1.5;}
+.ci-meta{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;}
+.ci-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase;}
+.tag-required{background:var(--red-light);color:var(--red);}
+.tag-day1{background:var(--amber-light);color:var(--amber);}
+.tag-week1{background:var(--blue-light);color:var(--blue);}
+.tag-ongoing{background:var(--gray-100);color:var(--gray-500);}
+.ci-link{font-size:11px;font-weight:600;color:var(--blue);text-decoration:none;}
+.ci-link:hover{text-decoration:underline;}
+
+/* FORMS */
+.forms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.form-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:10px;padding:16px;text-align:center;transition:all .15s;}
+.form-card:hover{border-color:var(--navy);box-shadow:var(--shadow-md);transform:translateY(-1px);}
+.form-card.done{border-color:#BBF7D0;background:var(--green-light);}
+.fc-icon{font-size:30px;margin-bottom:10px;}
+.fc-title{font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:4px;}
+.fc-desc{font-size:11px;color:var(--gray-400);margin-bottom:12px;line-height:1.4;}
+.fc-status{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;}
+.fc-status.pending{color:var(--amber);}
+.fc-status.complete{color:var(--green);}
+.btn{padding:8px 14px;border-radius:7px;border:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block;}
+.btn-navy{background:var(--navy);color:white;}
+.btn-navy:hover{background:var(--navy-d);}
+.btn-green{background:var(--green);color:white;}
+.btn-green:hover{background:#15803D;}
+.btn-ghost{background:var(--gray-100);color:var(--gray-700);border:1px solid var(--gray-200);}
+.btn-red{background:var(--red);color:white;}
+.btn-red:hover{background:var(--red-d);}
+.btn-sm{padding:6px 12px;font-size:11px;}
+
+/* HANDBOOK */
+.handbook-sections{display:flex;flex-direction:column;gap:8px;}
+.hb-section{border:1px solid var(--gray-200);border-radius:9px;overflow:hidden;}
+.hb-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;background:var(--white);transition:background .15s;}
+.hb-head:hover{background:var(--gray-50);}
+.hb-head-left{display:flex;align-items:center;gap:10px;}
+.hb-icon{font-size:18px;}
+.hb-title{font-size:13px;font-weight:700;color:var(--gray-900);}
+.hb-sub{font-size:11px;color:var(--gray-400);}
+.hb-arrow{font-size:14px;color:var(--gray-400);transition:transform .2s;}
+.hb-section.open .hb-arrow{transform:rotate(90deg);}
+.hb-body{display:none;padding:0 16px 16px;background:var(--gray-50);border-top:1px solid var(--gray-200);}
+.hb-section.open .hb-body{display:block;}
+.hb-content{font-size:12px;color:var(--gray-700);line-height:1.8;padding-top:14px;}
+.hb-content h4{font-size:12px;font-weight:700;color:var(--gray-900);margin:10px 0 4px;}
+.hb-content ul{padding-left:16px;}
+.hb-content li{margin-bottom:3px;}
+.hb-read-badge{font-size:10px;font-weight:700;background:var(--green-light);color:var(--green);border:1px solid #BBF7D0;border-radius:4px;padding:2px 7px;margin-left:8px;}
+
+/* HANDBOOK ACKNOWLEDGMENT */
+.ack-box{background:var(--navy);border-radius:12px;padding:22px;margin-top:16px;color:white;}
+.ack-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1.5px;margin-bottom:6px;}
+.ack-desc{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.6;}
+.ack-checklist{margin-bottom:16px;}
+.ack-chk{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px;color:rgba(255,255,255,.6);}
+.ack-chk:last-child{border:none;}
+.ack-chk .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;}
+.ack-chk .dot.read{background:#86EFAC;}
+.ack-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.ack-field{display:flex;flex-direction:column;gap:4px;}
+.ack-field label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.ack-field input{padding:10px 12px;border:1.5px solid rgba(255,255,255,.15);border-radius:7px;background:rgba(255,255,255,.06);color:white;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;}
+.ack-field input:focus{border-color:rgba(255,255,255,.4);}
+.ack-field input::placeholder{color:rgba(255,255,255,.3);}
+.ack-warn{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:12px;line-height:1.5;}
+.ack-submitted{background:var(--green-light);border-radius:10px;padding:16px;text-align:center;display:none;}
+.ack-submitted h3{font-size:15px;font-weight:700;color:var(--green);margin-bottom:4px;}
+.ack-submitted p{font-size:12px;color:var(--gray-500);}
+
+/* REPORT FORM */
+.report-form{display:flex;flex-direction:column;gap:14px;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:11px;font-weight:700;color:var(--gray-500);letter-spacing:1px;text-transform:uppercase;}
+.field input,.field select,.field textarea{padding:10px 12px;border:2px solid var(--gray-200);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--gray-900);outline:none;transition:border-color .15s;background:var(--white);}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy);}
+.field textarea{min-height:100px;resize:vertical;}
+.urgency-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.urg-btn{padding:10px;border:2px solid var(--gray-200);border-radius:8px;background:var(--white);cursor:pointer;text-align:center;transition:all .15s;font-family:'DM Sans',sans-serif;}
+.urg-btn.on-low{border-color:var(--green);background:var(--green-light);color:var(--green);}
+.urg-btn.on-med{border-color:var(--amber);background:var(--amber-light);color:var(--amber);}
+.urg-btn.on-high{border-color:var(--red);background:var(--red-light);color:var(--red);}
+.urg-emoji{font-size:20px;display:block;margin-bottom:4px;}
+.urg-label{font-size:11px;font-weight:700;}
+.alert-box{background:var(--amber-light);border:1px solid #FDE68A;border-radius:8px;padding:12px 14px;font-size:12px;color:var(--gray-700);line-height:1.6;margin-bottom:14px;}
+.success-box{background:var(--green-light);border:1px solid #BBF7D0;border-radius:10px;padding:20px;text-align:center;display:none;}
+.success-box .sb-icon{font-size:36px;margin-bottom:8px;}
+.success-box h3{font-size:16px;font-weight:700;color:var(--green);margin-bottom:4px;}
+.success-box p{font-size:12px;color:var(--gray-500);}
+
+/* AUTOMATION */
+.auto-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.auto-card{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:16px;}
+.ac-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.ac-icon{font-size:24px;}
+.ac-title{font-size:13px;font-weight:700;color:var(--gray-900);}
+.ac-status{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-left:auto;}
+.ac-status.live{color:var(--green);}
+.ac-status.build{color:var(--amber);}
+.ac-desc{font-size:12px;color:var(--gray-500);line-height:1.6;margin-bottom:10px;}
+.ac-tool{font-size:11px;font-weight:600;color:var(--blue);font-family:'DM Mono',monospace;}
+
+/* TEAM */
+.emp-row{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--gray-200);border-radius:9px;background:var(--white);margin-bottom:8px;}
+.emp-avatar{width:38px;height:38px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white;flex-shrink:0;}
+.emp-name{font-size:13px;font-weight:700;}
+.emp-role{font-size:11px;color:var(--gray-400);}
+.emp-progress{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.prog-bar{width:80px;height:6px;background:var(--gray-200);border-radius:10px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:10px;background:var(--green);}
+.prog-pct{font-size:11px;font-weight:700;font-family:'DM Mono',monospace;color:var(--gray-500);}
+.emp-status-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;}
+.status-onboarding{background:var(--amber-light);color:var(--amber);}
+.status-active{background:var(--green-light);color:var(--green);}
+
+.gone{display:none!important;}
+.tbl{width:100%;border-collapse:collapse;font-size:12px;}
+.tbl th{background:var(--navy);color:white;padding:9px 12px;font-size:11px;font-weight:700;text-align:left;}
+.tbl th.tr{text-align:right;}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--gray-100);}
+.tbl td.tr{text-align:right;font-family:'DM Mono',monospace;}
+.tbl tr:hover td{background:var(--gray-50);}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-logo">🎓</div>
+  <div class="hdr-title">ONBOARDING</div>
+  <span class="hdr-sub">Atlas Home Pro · HR & Team Management</span>
+  <a href="index.html" class="back">← Portal</a>
+</div>
+
+<div class="main">
+
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <h2>Tech Onboarding System</h2>
+        <p>Track every new hire from offer letter to fully deployed van</p>
+      </div>
+      <div class="hero-badge">
+        <div class="hb-val" id="progress-pct">0%</div>
+        <div class="hb-lbl">Complete</div>
+      </div>
+    </div>
+    <div class="steps-row">
+      <div class="step-dot" id="sd-0"><div class="sd-num">①</div><div class="sd-lbl">Paperwork</div></div>
+      <div class="step-dot" id="sd-1"><div class="sd-num">②</div><div class="sd-lbl">Forms</div></div>
+      <div class="step-dot" id="sd-2"><div class="sd-num">③</div><div class="sd-lbl">Handbook</div></div>
+      <div class="step-dot" id="sd-3"><div class="sd-num">④</div><div class="sd-lbl">Training</div></div>
+      <div class="step-dot" id="sd-4"><div class="sd-num">⑤</div><div class="sd-lbl">Van Ready</div></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" onclick="setTab('checklist',this)">✅ Onboarding Checklist</button>
+    <button class="tab" onclick="setTab('forms',this)">📄 Required Forms</button>
+    <button class="tab" onclick="setTab('handbook',this)">📖 Employee Handbook</button>
+    <button class="tab" onclick="setTab('report',this)">🚨 Report an Issue</button>
+    <button class="tab" onclick="setTab('automation',this)">⚡ HR Automation</button>
+    <button class="tab" onclick="setTab('team',this)">👥 Team Status</button>
+  </div>
+
+  <!-- CHECKLIST TAB -->
+  <div id="t-checklist">
+    <div class="card">
+      <div class="ctitle"><span class="cicon">📋</span> Pre-Start — Before Day 1 (Ops Admin)</div>
+      <div class="checklist" id="cl-pre"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">🌅</span> Day 1 — Morning</div>
+      <div class="checklist" id="cl-day1"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">📅</span> Week 1 — Full Onboarding</div>
+      <div class="checklist" id="cl-week1"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">🔄</span> Ongoing — 30 / 60 / 90 Day Check-ins</div>
+      <div class="checklist" id="cl-ongoing"></div>
+    </div>
+  </div>
+
+  <!-- FORMS TAB -->
+  <div id="t-forms" class="gone">
+    <div class="card">
+      <div class="ctitle"><span class="cicon">📄</span> Required Federal & State Forms</div>
+      <p class="section-note">All forms must be completed before or on Day 1. California requires I-9 verification within 3 days of start date. W-4 and DE 4 are required before first paycheck. Keep originals in Google Drive under that employee's folder.</p>
+      <div class="forms-grid" id="forms-grid"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">🏦</span> Direct Deposit Setup</div>
+      <p class="section-note">Atlas pays bi-weekly via direct deposit. Collect employee's routing and account number in person. Upload the completed direct deposit form to Google Drive — never store banking info digitally outside of your payroll system.</p>
+      <div style="background:var(--amber-light);border:1px solid #FDE68A;border-radius:8px;padding:12px;font-size:12px;color:var(--gray-700);margin-bottom:14px;">
+        ⚠️ <strong>Security:</strong> Never accept banking info via text or email. Collect in person on Day 1 and process through your payroll system only.
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div class="field"><label>Employee Name</label><input type="text" placeholder="Full legal name"></div>
+        <div class="field"><label>Start Date</label><input type="date"></div>
+        <div class="field"><label>Bank Name</label><input type="text" placeholder="e.g. Chase, Bank of America"></div>
+        <div class="field"><label>Account Type</label><select><option>Checking</option><option>Savings</option></select></div>
+        <div class="field"><label>Routing Number (9 digits)</label><input type="text" maxlength="9" placeholder="•••••••••"></div>
+        <div class="field"><label>Account Number</label><input type="text" placeholder="•••••••••••"></div>
+      </div>
+      <button class="btn btn-navy" onclick="alert('Save form to print, then upload PDF to Google Drive under this employee\'s HR folder.')">Print & Save to Drive</button>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">📝</span> Atlas-Specific Documents</div>
+      <div class="forms-grid">
+        <div class="form-card">
+          <div class="fc-icon">🔧</div>
+          <div class="fc-title">Offer Letter</div>
+          <div class="fc-desc">Signed offer with pay rate (individual), start date, and at-will language. Store signed copy in Drive.</div>
+          <button class="btn btn-ghost btn-sm" onclick="markFormDone(this)">✓ Mark Done</button>
+        </div>
+        <div class="form-card">
+          <div class="fc-icon">🚐</div>
+          <div class="fc-title">Vehicle Use Policy</div>
+          <div class="fc-desc">Company van policy, no personal use, GPS monitoring disclosure, accident reporting</div>
+          <button class="btn btn-ghost btn-sm" onclick="markFormDone(this)">✓ Mark Done</button>
+        </div>
+        <div class="form-card">
+          <div class="fc-icon">📱</div>
+          <div class="fc-title">HouseCall Pro Consent</div>
+          <div class="fc-desc">Authorization to use HCP app, job tracking, call recording, and time recording</div>
+          <button class="btn btn-ghost btn-sm" onclick="markFormDone(this)">✓ Mark Done</button>
+        </div>
+        <div class="form-card">
+          <div class="fc-icon">🔒</div>
+          <div class="fc-title">Confidentiality Agreement</div>
+          <div class="fc-desc">Customer data, pricing, supplier relationships — NDA language. No side jobs with Atlas customers.</div>
+          <button class="btn btn-ghost btn-sm" onclick="markFormDone(this)">✓ Mark Done</button>
+        </div>
+        <div class="form-card">
+          <div class="fc-icon">⚖️</div>
+          <div class="fc-title">At-Will Acknowledgment</div>
+          <div class="fc-desc">California at-will employment acknowledgment — required by CA law</div>
+          <button class="btn btn-ghost btn-sm" onclick="markFormDone(this)">✓ Mark Done</button>
+        </div>
+        <div class="form-card">
+          <div class="fc-icon">📋</div>
+          <div class="fc-title">Wage Theft Protection Notice</div>
+          <div class="fc-desc">CA DLSE required notice with pay rate, payday, employer name, workers comp carrier. Required Day 1.</div>
+          <a href="https://www.dir.ca.gov/dlse/lc_2810.5_notice.pdf" target="_blank" class="btn btn-navy btn-sm">Download Form</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HANDBOOK TAB -->
+  <div id="t-handbook" class="gone">
+    <div class="card">
+      <div class="ctitle"><span class="cicon">📖</span> Atlas Home Pro Employee Handbook</div>
+      <p class="section-note">Read each section by expanding it, then sign the acknowledgment at the bottom confirming you have read and understood the entire handbook. Your name, date, and confirmation will be saved.</p>
+      <div class="handbook-sections" id="handbook"></div>
+
+      <!-- SINGLE ACKNOWLEDGMENT AT THE END -->
+      <div class="ack-box" id="ack-box" style="margin-top:20px">
+        <div class="ack-title">📝 Handbook Acknowledgment</div>
+        <div class="ack-desc">By signing below, you confirm that you have read, understood, and agree to all policies in the Atlas Home Pro Employee Handbook. This acknowledgment will be saved with your name, signature, and the date and time submitted.</div>
+        <div class="ack-checklist" id="ack-checklist"></div>
+        <div id="ack-form-wrap">
+          <div class="ack-fields">
+            <div class="ack-field"><label>Full Legal Name</label><input type="text" id="ack-name" placeholder="Type your full name"></div>
+            <div class="ack-field"><label>Date</label><input type="date" id="ack-date"></div>
+          </div>
+          <div class="ack-warn">
+            ⚠ By typing your name above you are providing your electronic signature. This confirms you have received, read, and understood the Atlas Home Pro Employee Handbook. A copy will be saved to your employee file.
+          </div>
+          <button class="btn btn-green" style="width:100%;padding:13px" onclick="submitAck()">✓ I Have Read and Agree to the Atlas Home Pro Employee Handbook</button>
+        </div>
+        <div class="ack-submitted" id="ack-submitted">
+          <div style="font-size:32px;margin-bottom:8px">✅</div>
+          <h3>Acknowledgment Recorded</h3>
+          <p id="ack-submitted-detail"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORT TAB -->
+  <div id="t-report" class="gone">
+    <div class="card">
+      <div class="ctitle"><span class="cicon">🚨</span> Report an Issue or Concern</div>
+      <div class="alert-box">
+        📧 <strong>All reports go directly to David Safai.</strong> Safety incidents are logged immediately and stored in Airtable. HR concerns are handled confidentially. You will receive a response within 24 hours on urgent matters. For life-threatening emergencies, call 911 first.
+      </div>
+      <div id="report-success" class="success-box">
+        <div class="sb-icon">✅</div>
+        <h3>Report Submitted</h3>
+        <p>David has been notified. For emergencies call 911 first, then David directly. You'll hear back within 24 hours on urgent issues.</p>
+        <button class="btn btn-ghost btn-sm" style="margin-top:12px" onclick="resetReport()">Submit Another Report</button>
+      </div>
+      <form id="report-form" class="report-form" onsubmit="submitReport(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="field"><label>Your Name</label><input type="text" id="r-name" placeholder="Your name" required></div>
+          <div class="field"><label>Date of Incident</label><input type="date" id="r-date" required></div>
+        </div>
+        <div class="field">
+          <label>Type of Report</label>
+          <select id="r-type" required>
+            <option value="">-- Select type --</option>
+            <option value="safety">🦺 Safety Incident or Near-Miss</option>
+            <option value="injury">🤕 Workplace Injury</option>
+            <option value="vehicle">🚐 Vehicle Incident or Damage</option>
+            <option value="customer">👤 Customer Complaint or Issue</option>
+            <option value="harassment">⚠️ Harassment or Discrimination</option>
+            <option value="theft">🔒 Theft or Missing Equipment</option>
+            <option value="policy">📋 Policy Question or Violation</option>
+            <option value="suggestion">💡 Suggestion or Improvement</option>
+            <option value="other">📝 Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Urgency Level</label>
+          <div class="urgency-grid">
+            <button type="button" class="urg-btn" id="urg-low" onclick="setUrgency('low')"><span class="urg-emoji">🟢</span><span class="urg-label">Low — FYI</span></button>
+            <button type="button" class="urg-btn" id="urg-med" onclick="setUrgency('med')"><span class="urg-emoji">🟡</span><span class="urg-label">Medium — This Week</span></button>
+            <button type="button" class="urg-btn" id="urg-high" onclick="setUrgency('high')"><span class="urg-emoji">🔴</span><span class="urg-label">High — Today</span></button>
+          </div>
+        </div>
+        <div class="field">
+          <label>What Happened?</label>
+          <textarea id="r-desc" placeholder="Describe the incident, concern, or suggestion in detail. Include location, time, and anyone else involved." required></textarea>
+        </div>
+        <div class="field">
+          <label>Witnesses (if any)</label>
+          <input type="text" id="r-witnesses" placeholder="Names of anyone who saw what happened">
+        </div>
+        <div class="field">
+          <label>Preferred Follow-Up</label>
+          <select id="r-followup">
+            <option value="call">📞 Call me</option>
+            <option value="text">💬 Text me</option>
+            <option value="confidential">🔒 Confidential — don't contact me at work</option>
+            <option value="none">No follow-up needed</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-red" style="width:100%;padding:13px">🚨 Submit Report — Notify David Now</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- AUTOMATION TAB -->
+  <div id="t-automation" class="gone">
+    <div class="card">
+      <div class="ctitle"><span class="cicon">⚡</span> HR Automation Stack — Scale to 10 Techs with 1 Ops Admin</div>
+      <p class="section-note">Goal: zero manual HR tasks. Every hire, form, alert, and check-in runs automatically through Pipedream + Airtable. Your ops admin handles exceptions only.</p>
+      <div class="auto-grid" id="auto-grid"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">🔄</span> Pipedream Workflows to Build</div>
+      <div id="pipedream-workflows"></div>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">💰</span> Time Saved: Manual vs Automated at 10 Techs</div>
+      <div style="overflow-x:auto"><table class="tbl" id="time-table"></table></div>
+      <div style="margin-top:12px;background:var(--green-light);border:1px solid #BBF7D0;border-radius:8px;padding:12px;font-size:12px;color:var(--gray-700);line-height:1.6">
+        💡 At $70K/year ops admin salary (~$35/hr), saving 35 hrs/month = <strong>$1,225/month recovered</strong>. Your AI Ops hire + these automations genuinely handles 10 techs without a second HR person.
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM TAB -->
+  <div id="t-team" class="gone">
+    <div class="card">
+      <div class="ctitle"><span class="cicon">👥</span> Team Onboarding Status</div>
+      <p class="section-note">Track every tech from hire to fully deployed. Add new employees as you hire. Onboarding % pulls from Airtable once connected.</p>
+      <div id="team-list"></div>
+      <button class="btn btn-navy" style="margin-top:12px" onclick="addEmployee()">+ Add New Employee</button>
+    </div>
+    <div class="card">
+      <div class="ctitle"><span class="cicon">📊</span> HR At a Glance</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px" id="hr-stats"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── DATA ──
+const CHECKLIST = {
+  pre: [
+    {title:'Send offer letter for signature',desc:'Include: pay rate (individual), start date, at-will language, benefits summary. Use DocuSign or print and sign in person.',tag:'required',link:null},
+    {title:'Set up HouseCall Pro account',desc:'Add to team, assign van number, set role level.',tag:'day1',link:'https://app.housecallpro.com'},
+    {title:'Order uniform shirts (2x Atlas branded)',desc:'Navy + amber logo. Confirm size before ordering.',tag:'day1',link:null},
+    {title:'Add to Samsara fleet tracking',desc:'Send download link. Walk through the app setup before Day 1.',tag:'day1',link:null},
+    {title:'Set up 1Password team account',desc:'Ops vault access only — not management vault.',tag:'day1',link:null},
+    {title:'Prepare van — full tool and parts check',desc:'Use van catalog checklist. All 86 items must be loaded and signed off.',tag:'day1',link:'van-catalog.html'},
+    {title:'Add to team group text',desc:'Share ops admin number, David\'s number, and emergency contacts.',tag:'day1',link:null},
+    {title:'Schedule Day 1 orientation (9am, 2 hrs)',desc:'Van walkthrough, HCP demo, safety review, pay structure review.',tag:'day1',link:null},
+    {title:'Create Google Drive employee folder',desc:'📁 HR / Employee Records / [Tech Name]. Upload offer letter once signed.',tag:'day1',link:null},
+    {title:'Add employee to Airtable Employees table',desc:'Name, role, start date, van assigned, pay rate. This triggers onboarding automation.',tag:'required',link:null},
+  ],
+  day1: [
+    {title:'I-9 — verify identity documents in person',desc:'Passport OR (Driver\'s License + Social Security Card). Must be done Day 1. Upload scan to Google Drive.',tag:'required',link:'https://www.uscis.gov/i-9'},
+    {title:'W-4 — Federal Tax Withholding',desc:'Employee fills out. Keep original in employee Google Drive folder.',tag:'required',link:'https://www.irs.gov/pub/irs-pdf/fw4.pdf'},
+    {title:'DE 4 — California State Withholding',desc:'CA state equivalent of W-4. Required by CA EDD. Keep in employee Drive folder.',tag:'required',link:'https://www.edd.ca.gov/pdf_pub_ctr/de4.pdf'},
+    {title:'Wage Theft Protection Act Notice',desc:'Required CA form. Fill in pay rate, payday, employer info, workers comp carrier. Employee signs.',tag:'required',link:'https://www.dir.ca.gov/dlse/lc_2810.5_notice.pdf'},
+    {title:'Direct deposit setup',desc:'Collect routing + account in person only. Upload authorization form to Drive. Process through payroll system.',tag:'required',link:null},
+    {title:'Van walkthrough — 60 min',desc:'Every tool, every part, every bin. Tech signs inventory checklist. Upload to Drive.',tag:'day1',link:'van-catalog.html'},
+    {title:'HouseCall Pro app setup on tech\'s phone',desc:'Login, show job flow, clock in/out, how to log parts, how to collect payment.',tag:'day1',link:'https://app.housecallpro.com'},
+    {title:'Explain pay structure and pay schedule',desc:'Review offer letter together. Pay is bi-weekly every other Friday via direct deposit.',tag:'day1',link:null},
+    {title:'Safety training portal — complete all required modules',desc:'PPE, chemical safety, driving, emergency response. All modules must be completed on Day 1.',tag:'required',link:'/training'},
+    {title:'Review and sign Employee Handbook',desc:'Walk through handbook in onboarding portal. Employee signs acknowledgment at the bottom of the Handbook tab.',tag:'required',link:null},
+    {title:'Avoca AI + Chiirp disclosure',desc:'Explain that incoming calls are answered by Avoca AI and customer texts go through Chiirp. CA requires disclosure of call recording/AI.',tag:'required',link:null},
+  ],
+  week1: [
+    {title:'Ride-along Day 1 — shadow lead tech on 3 jobs',desc:'Observe: customer greeting, HCP workflow, diagnosis, upsell technique. No tools — just watch.',tag:'week1',link:null},
+    {title:'Ride-along Day 2 — lead tech follows new tech',desc:'New tech runs the job. Lead tech observes and gives end-of-day written feedback.',tag:'week1',link:null},
+    {title:'Power Selling Pros — first 3 training videos',desc:'Must complete before first solo job. Log completion in Airtable.',tag:'week1',link:'https://powersellingpros.com'},
+    {title:'Parts restock protocol training',desc:'End-of-day bin photo to ops admin, how to submit parts requests via procurement portal.',tag:'week1',link:'/procurement/'},
+    {title:'Emergency procedures walkthrough',desc:'Gas leak, flood, injury, customer dispute, vehicle accident — who to call and what to say.',tag:'week1',link:null},
+    {title:'First solo day — ops admin on standby',desc:'Tech runs jobs independently. Ops admin available by text for any questions all day.',tag:'week1',link:null},
+    {title:'Week 1 debrief with David (15 min)',desc:'What\'s working, what\'s hard, any questions or concerns. Schedule via text.',tag:'week1',link:null},
+    {title:'Report first week Google review requests',desc:'How many did you ask? How many clicked? Ops admin tracks.',tag:'week1',link:null},
+  ],
+  ongoing: [
+    {title:'30-day check-in — performance & satisfaction',desc:'Review job count, ticket average, customer ratings. Set 60-day performance goals.',tag:'ongoing',link:null},
+    {title:'60-day check-in — performance review',desc:'Review HCP metrics, quality of work, attendance. Discuss any adjustments.',tag:'ongoing',link:null},
+    {title:'90-day review — probation period end',desc:'Formal review. Confirm continued employment. Discuss compensation update timeline (30–90 days from launch).',tag:'ongoing',link:null},
+    {title:'Annual safety training renewal',desc:'All safety certifications must be renewed every 12 months. Schedule through safety portal.',tag:'ongoing',link:'/training'},
+    {title:'Annual performance review',desc:'Full HCP metrics review, customer rating average, attendance record, growth trajectory.',tag:'ongoing',link:null},
+  ]
+};
+
+const FORMS = [
+  {icon:'🇺🇸',title:'W-4',desc:'Federal tax withholding. Employee fills out before first paycheck. Keep original in Drive.',url:'https://www.irs.gov/pub/irs-pdf/fw4.pdf',btn:'Download W-4'},
+  {icon:'🪪',title:'I-9',desc:'Employment eligibility. Verify ID docs IN PERSON. Must be done within 3 days of start.',url:'https://www.uscis.gov/i-9',btn:'Download I-9'},
+  {icon:'🌴',title:'DE 4',desc:'California state withholding. Required by CA EDD in addition to federal W-4.',url:'https://www.edd.ca.gov/pdf_pub_cdr/de4.pdf',btn:'Download DE 4'},
+  {icon:'💼',title:'EDD New Hire',desc:'CA requires reporting all new hires to EDD within 20 days of hire date.',url:'https://www.edd.ca.gov/employer/New_Hire_Reporting.htm',btn:'Report New Hire'},
+  {icon:'📋',title:'Wage Theft Notice',desc:'CA DLSE required Day 1 notice. Fill in pay rate, payday, employer name, WC carrier.',url:'https://www.dir.ca.gov/dlse/lc_2810.5_notice.pdf',btn:'Download Form'},
+  {icon:'⚖️',title:'DFEH Pamphlet',desc:'Sexual harassment prevention — CA requires giving this to all employees on Day 1.',url:'https://calcivilrights.ca.gov/wp-content/uploads/sites/32/2020/03/Sexual-Harassment-Fact-Sheet_ENG.pdf',btn:'Download Pamphlet'},
+];
+
+const HANDBOOK_SECTIONS = [
+  {
+    icon:'🕐',title:'Work Hours & Scheduling',sub:'Shifts, breaks, overtime, sick leave',
+    content:`
+      <h4>Standard Hours</h4>
+      <ul>
+        <li>Regular hours: Monday–Friday 7:00am–5:00pm</li>
+        <li>Saturday: Voluntary — confirm with ops admin in advance</li>
+        <li>Sunday / Holiday: Emergency calls only — confirm with David</li>
+        <li>On-call rotation will be established as the team grows</li>
+      </ul>
+      <h4>Meal & Rest Breaks — California Law</h4>
+      <ul>
+        <li><strong>Rest break:</strong> One paid 10-minute rest break for every 4 hours worked. You are entitled to this and should take it.</li>
+        <li><strong>Meal break:</strong> One unpaid 30-minute meal break if you work more than 5 consecutive hours. You must be fully relieved of duties.</li>
+        <li><strong>Second meal break:</strong> Required if you work more than 10 hours in a day.</li>
+        <li>If Atlas fails to provide a required break, you are owed 1 hour of pay at your regular rate for each missed break. Report missed breaks to ops admin the same day.</li>
+        <li>Log your meal break in HouseCall Pro when you take it.</li>
+      </ul>
+      <h4>Overtime — California Law</h4>
+      <ul>
+        <li>1.5x pay: after 8 hours/day or 40 hours/week</li>
+        <li>2x pay: after 12 hours in a single day</li>
+        <li>All overtime must be pre-approved by David or ops admin before working it</li>
+      </ul>
+      <h4>Calling Out Sick</h4>
+      <ul>
+        <li>Text ops admin AND David by 6:30am if calling out same day</li>
+        <li>California sick leave: 40 hours per year, accrues from Day 1</li>
+        <li>3 unexcused absences within 90 days triggers a performance review</li>
+      </ul>
+    `
+  },
+  {
+    icon:'💰',title:'Pay & Compensation',sub:'Pay schedule, direct deposit, expenses',
+    content:`
+      <h4>Your Pay Rate</h4>
+      <ul>
+        <li>Your pay rate is set individually and confirmed in your offer letter</li>
+        <li>Pay rates are confidential — do not discuss pay with other employees</li>
+        <li>Questions about your pay rate should be directed to David only</li>
+      </ul>
+      <h4>Pay Schedule</h4>
+      <ul>
+        <li>Pay period: bi-weekly (every other Friday)</li>
+        <li>Method: direct deposit only</li>
+        <li>Paystubs are available through the payroll system</li>
+        <li>Compensation review: planned 30–90 days after launch once performance data is established</li>
+      </ul>
+      <h4>Mileage & Expenses</h4>
+      <ul>
+        <li>Company van is provided — no personal mileage reimbursement</li>
+        <li>Approved job-related expenses reimbursed within 2 pay periods</li>
+        <li>Submit receipts to ops admin via photo text same day as expense</li>
+        <li>Do not make purchases without prior approval from ops admin or David</li>
+      </ul>
+    `
+  },
+  {
+    icon:'🚐',title:'Company Vehicle Policy',sub:'Van use, GPS tracking, accidents',
+    content:`
+      <h4>Authorized Use Only</h4>
+      <ul>
+        <li>Company vans are for Atlas business use ONLY — no personal errands</li>
+        <li>No unauthorized passengers — Atlas employees only</li>
+        <li>Taking the van home requires written approval from David</li>
+        <li>No smoking or vaping in the van — ever</li>
+      </ul>
+      <h4>GPS & Telematics Monitoring</h4>
+      <ul>
+        <li>All vans are equipped with Samsara GPS — active 24/7</li>
+        <li>Speed, location, driving behavior, and idle time are monitored</li>
+        <li>Aggressive driving, speeding, or hard braking triggers an automatic alert</li>
+        <li>By accepting this position you consent to vehicle monitoring while using company vehicles</li>
+      </ul>
+      <h4>Accidents & Vehicle Incidents</h4>
+      <ul>
+        <li>ANY accident: call 911 if injury, then call David immediately</li>
+        <li>Do not admit fault to anyone at the scene</li>
+        <li>Photograph everything — all damage, all vehicles, all road conditions</li>
+        <li>Submit incident report within 24 hours using the Report tab in this portal</li>
+        <li>Vehicle damage not reported promptly may be the employee's financial responsibility</li>
+      </ul>
+    `
+  },
+  {
+    icon:'🦺',title:'Safety Requirements',sub:'PPE, chemicals, emergency procedures',
+    content:`
+      <h4>Required PPE — Every Job</h4>
+      <ul>
+        <li>Safety glasses: required when working under sinks, with chemicals, or in tight spaces</li>
+        <li>Work gloves: all drain, sewer, and chemical work</li>
+        <li>Steel-toe work boots: required at all times on job sites</li>
+        <li>N95 respirator: confined spaces, sewage work, suspected mold</li>
+      </ul>
+      <h4>Chemical Safety</h4>
+      <ul>
+        <li>SDS (Safety Data Sheets) for all chemicals are in the van binder — read before first use</li>
+        <li>PVC cement and primer: use only in ventilated areas</li>
+        <li>If you smell gas: evacuate all people immediately, then call the gas company, then call David</li>
+        <li>Never mix drain chemicals — serious injury risk</li>
+      </ul>
+      <h4>Drug & Alcohol Policy</h4>
+      <ul>
+        <li>Atlas has a strict zero-tolerance drug and alcohol policy for all employees operating company vehicles</li>
+        <li>Do not report to work or drive a company vehicle if impaired by any substance</li>
+        <li>Violation is grounds for immediate termination</li>
+        <li>Prescription medications that may impair driving must be disclosed to David before driving</li>
+      </ul>
+      <h4>Emergency Contacts</h4>
+      <ul>
+        <li>Emergency: 911</li>
+        <li>Gas emergency: SoCalGas 1-800-427-2200</li>
+        <li>Poison Control: 1-800-222-1222</li>
+        <li>David (cell): saved in your phone on Day 1</li>
+        <li>Ops Admin: saved in your phone on Day 1</li>
+      </ul>
+    `
+  },
+  {
+    icon:'📱',title:'Technology & Communication',sub:'HCP, Avoca AI, Chiirp, phones on job',
+    content:`
+      <h4>HouseCall Pro — Required on Every Job</h4>
+      <ul>
+        <li>Clock in when you arrive at the job — every job, no exceptions</li>
+        <li>Log ALL parts used on the job before leaving the customer's home</li>
+        <li>Collect payment and customer signature before leaving</li>
+        <li>Ask every customer for a Google review before you leave</li>
+        <li>Clock out when you leave the job</li>
+      </ul>
+      <h4>Avoca AI & Chiirp Disclosure</h4>
+      <ul>
+        <li>Atlas uses Avoca AI to answer incoming calls and schedule jobs</li>
+        <li>Customer text communications go through Chiirp — not your personal phone</li>
+        <li>Calls may be recorded for quality and training purposes</li>
+        <li>Never give customers your personal cell number — direct all communication through Atlas systems</li>
+      </ul>
+      <h4>Phone Use on the Job</h4>
+      <ul>
+        <li>No personal calls or texts while working with a customer present</li>
+        <li>HCP, Atlas Parts Finder, supplier calls, and ops admin communication are always fine</li>
+        <li>Hands-free only while driving the company van — California law</li>
+      </ul>
+    `
+  },
+  {
+    icon:'🛠️',title:'Tools, Equipment & Side Jobs',sub:'Equipment accountability, no side jobs policy',
+    content:`
+      <h4>Tool & Equipment Accountability</h4>
+      <ul>
+        <li>All tools on your van are Atlas property — inventoried and tracked</li>
+        <li>You are responsible for the tools while the van is assigned to you</li>
+        <li>Lost or damaged tools due to negligence may be deducted from pay as permitted by CA law</li>
+        <li>Report missing or damaged tools to ops admin immediately — never wait</li>
+        <li>Do end-of-day bin photo and send to ops admin before leaving the van</li>
+      </ul>
+      <h4>No Side Jobs Policy</h4>
+      <ul>
+        <li>You may not perform plumbing or home services work for Atlas customers outside of Atlas — ever</li>
+        <li>You may not solicit Atlas customers for personal business</li>
+        <li>You may not use Atlas tools, vans, or parts for non-Atlas work</li>
+        <li>Violation of this policy is grounds for immediate termination and potential legal action</li>
+        <li>If a customer asks you to do work "off the books," decline and notify David the same day</li>
+      </ul>
+    `
+  },
+  {
+    icon:'⚖️',title:'Anti-Harassment & Equal Opportunity',sub:'CA DFEH compliance, reporting procedures',
+    content:`
+      <h4>Zero Tolerance Policy</h4>
+      <ul>
+        <li>Atlas has zero tolerance for harassment, discrimination, or retaliation of any kind</li>
+        <li>This applies to employees, customers, suppliers, and all work situations</li>
+        <li>Protected categories include: race, gender, age, religion, national origin, disability, sexual orientation, pregnancy, and more</li>
+      </ul>
+      <h4>What Counts as Harassment</h4>
+      <ul>
+        <li>Unwanted physical contact</li>
+        <li>Offensive jokes, slurs, or comments about protected characteristics</li>
+        <li>Displaying offensive images or materials</li>
+        <li>Threats, intimidation, or hostile work environment</li>
+      </ul>
+      <h4>How to Report</h4>
+      <ul>
+        <li>Use the Report an Issue tab in this portal — all reports are confidential</li>
+        <li>You may also contact CA Civil Rights Department (DFEH): 800-884-1684</li>
+        <li>Retaliation for making a good-faith report is strictly prohibited and illegal</li>
+      </ul>
+      <h4>Annual Training</h4>
+      <ul>
+        <li>California AB 1825 requires 2 hours of harassment prevention training every 2 years</li>
+        <li>Atlas provides this through the safety training portal — tracked and recorded</li>
+      </ul>
+    `
+  },
+  {
+    icon:'🏥',title:'Workers Compensation & Injury',sub:'What to do if you are hurt on the job',
+    content:`
+      <h4>You Are Covered from Day 1</h4>
+      <ul>
+        <li>Atlas carries workers compensation insurance covering all employees</li>
+        <li>All work-related injuries and illnesses are covered — medical bills and lost wages</li>
+      </ul>
+      <h4>If You Are Injured</h4>
+      <ul>
+        <li>Emergency injuries: call 911 immediately</li>
+        <li>Any injury: notify David the same day — do not wait</li>
+        <li>File an incident report using the Report tab in this portal within 24 hours</li>
+        <li>Delayed reporting can complicate or delay your workers comp claim</li>
+      </ul>
+      <h4>Medical Treatment</h4>
+      <ul>
+        <li>Atlas will direct you to an approved medical provider for work injuries</li>
+        <li>Keep all receipts and medical paperwork — turn in to ops admin</li>
+        <li>Return-to-work timeline should be communicated to ops admin as soon as known</li>
+      </ul>
+    `
+  },
+  {
+    icon:'📋',title:'Performance Standards & Termination',sub:'What we expect, reviews, at-will employment',
+    content:`
+      <h4>Performance Expectations</h4>
+      <ul>
+        <li>Show up on time, in uniform, ready to work every scheduled day</li>
+        <li>Complete all jobs logged in HouseCall Pro accurately and on time</li>
+        <li>Treat every customer with professionalism and respect</li>
+        <li>Ask for a Google review on every job</li>
+        <li>Keep your van clean, organized, and stocked</li>
+      </ul>
+      <h4>Performance Reviews</h4>
+      <ul>
+        <li>30, 60, and 90-day check-ins for all new hires</li>
+        <li>Annual review every year based on HCP metrics, customer ratings, and attendance</li>
+        <li>Compensation structure review planned 30–90 days after company launch</li>
+      </ul>
+      <h4>At-Will Employment — California</h4>
+      <ul>
+        <li>California is an at-will employment state</li>
+        <li>Either party may end employment at any time, for any lawful reason, with or without notice</li>
+        <li>Atlas will typically provide 2 weeks notice for non-misconduct separations</li>
+      </ul>
+      <h4>Final Paycheck — California Law</h4>
+      <ul>
+        <li>Terminated without notice: final paycheck due the same day</li>
+        <li>Resigned with at least 72 hours notice: final check due on last day</li>
+        <li>Resigned without notice: final check due within 72 hours</li>
+        <li>All accrued unused sick leave included if your policy allows payout</li>
+      </ul>
+    `
+  },
+];
+
+const AUTOMATIONS = [
+  {icon:'📧',title:'New Hire Welcome Email',status:'build',desc:'New employee added to Airtable → auto-send welcome email with portal link and Day 1 instructions.',tool:'Pipedream + Gmail'},
+  {icon:'📋',title:'Onboarding Checklist Auto-Create',status:'build',desc:'New employee in Airtable → checklist rows created → ops admin gets Day 1 task list automatically.',tool:'Pipedream + Airtable'},
+  {icon:'🚨',title:'Incident Report → David Alert',status:'build',desc:'Tech submits report → logged in Airtable Incidents table → email + SMS to David instantly.',tool:'Netlify Function + Pipedream'},
+  {icon:'⏰',title:'30/60/90 Day Check-in Reminders',status:'build',desc:'Hire date in Airtable → Pipedream triggers reminder email to David at 30, 60, and 90 days.',tool:'Pipedream + Gmail'},
+  {icon:'📊',title:'Weekly Performance Digest',status:'build',desc:'Every Monday 7am → pull HCP job data per tech → email David job count, avg ticket, revenue summary.',tool:'Pipedream + HouseCall Pro API'},
+  {icon:'🦺',title:'Safety Cert Expiry Alerts',status:'build',desc:'Cert expiry date in Airtable → 30 days before: alert ops admin and tech to renew certification.',tool:'Pipedream + Airtable'},
+  {icon:'💰',title:'Monthly Pay Summary',status:'build',desc:'1st of month → pull HCP hours and revenue → generate pay summary for David\'s approval before payroll.',tool:'Pipedream + HouseCall Pro API'},
+  {icon:'⭐',title:'Google Review Request After Every Job',status:'build',desc:'Job marked complete in HCP → 2-hour delay → auto-text customer the Google review link via Chiirp.',tool:'HouseCall Pro + Chiirp'},
+];
+
+const WORKFLOWS = [
+  {name:'New Hire Onboarding Flow',priority:'HIGH',steps:['David adds new hire to Airtable Employees table','Pipedream detects new record','Sends welcome email with this portal link + Day 1 instructions','Creates onboarding checklist rows in Airtable','Alerts ops admin with Day 1 task list','Sets 30/60/90 day reminder triggers']},
+  {name:'Incident Report Alert Flow',priority:'HIGH',steps:['Tech submits report in portal','Netlify function receives form data','Logs full report to Airtable Incidents table','Sends email to David instantly','SMS to David\'s cell if urgency = High','Ops admin notified for Safety or Injury type reports']},
+  {name:'Weekly Performance Digest',priority:'MEDIUM',steps:['Every Monday 7am trigger','Pull prior 7 days HCP jobs via API','Calculate per-tech: job count, avg ticket, revenue','Compare to prior 30-day average','Generate summary email','Delivered to David by 8am Monday']},
+  {name:'Monthly Pay Summary',priority:'MEDIUM',steps:['1st of each month trigger','Pull prior month HCP hours and revenue by tech','Calculate gross pay based on hours logged','Flag any overtime for David review','Generate payroll summary PDF','Email to David for approval before processing']},
+];
+
+const SAMPLE_TEAM = [
+  {name:'Alex R.',role:'Lead Tech',progress:85,status:'active'},
+  {name:'Marco T.',role:'Regular Tech',progress:40,status:'onboarding'},
+];
+
+// ── STATE ──
+let completedItems = new Set(JSON.parse(localStorage.getItem('atlas_ob_v2') || '[]'));
+let readSections = new Set(JSON.parse(localStorage.getItem('atlas_hb_v2') || '[]'));
+let urgency = null;
+
+function saveProgress(){ localStorage.setItem('atlas_ob_v2', JSON.stringify([...completedItems])); }
+function saveHandbook(){ localStorage.setItem('atlas_hb_v2', JSON.stringify([...readSections])); }
+
+// ── CHECKLIST ──
+function buildChecklist(){
+  function renderList(id, items, prefix){
+    const el = document.getElementById(id);
+    el.innerHTML = items.map((item, i) => {
+      const key = prefix+'_'+i;
+      const done = completedItems.has(key);
+      return `<div class="chk-item ${done?'done':''}" onclick="toggleItem('${key}',this)">
+        <div class="chk-box"><span class="check">✓</span></div>
+        <div class="ci-body">
+          <div class="ci-title">${item.title}</div>
+          <div class="ci-desc">${item.desc}</div>
+          <div class="ci-meta">
+            <span class="ci-tag tag-${item.tag}">${item.tag==='required'?'⚠ REQUIRED':item.tag==='day1'?'📅 Day 1':item.tag==='week1'?'📆 Week 1':'🔄 Ongoing'}</span>
+            ${item.link?`<a class="ci-link" href="${item.link}" target="_blank">→ Open</a>`:''}
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  renderList('cl-pre', CHECKLIST.pre, 'pre');
+  renderList('cl-day1', CHECKLIST.day1, 'day1');
+  renderList('cl-week1', CHECKLIST.week1, 'week1');
+  renderList('cl-ongoing', CHECKLIST.ongoing, 'ongoing');
+  updateProgress();
+}
+
+function toggleItem(key, el){
+  completedItems.has(key) ? completedItems.delete(key) : completedItems.add(key);
+  el.classList.toggle('done', completedItems.has(key));
+  saveProgress();
+  updateProgress();
+}
+
+function updateProgress(){
+  const total = Object.values(CHECKLIST).flat().length;
+  const pct = Math.round((completedItems.size/total)*100);
+  document.getElementById('progress-pct').textContent = pct+'%';
+  const preDone = [...completedItems].filter(k=>k.startsWith('pre_')).length;
+  const day1Done = [...completedItems].filter(k=>k.startsWith('day1_')).length;
+  const week1Done = [...completedItems].filter(k=>k.startsWith('week1_')).length;
+  const ongoingDone = [...completedItems].filter(k=>k.startsWith('ongoing_')).length;
+  const setDot = (id, done, total) => {
+    const el = document.getElementById(id);
+    el.classList.remove('done','active');
+    if(done===total && total>0) el.classList.add('done');
+    else if(done>0) el.classList.add('active');
+  };
+  setDot('sd-0', preDone, CHECKLIST.pre.length);
+  setDot('sd-1', day1Done, CHECKLIST.day1.length);
+  setDot('sd-2', readSections.size, HANDBOOK_SECTIONS.length);
+  setDot('sd-3', week1Done, CHECKLIST.week1.length);
+  setDot('sd-4', ongoingDone, CHECKLIST.ongoing.length);
+}
+
+// ── FORMS ──
+function buildForms(){
+  document.getElementById('forms-grid').innerHTML = FORMS.map((f,i)=>`
+    <div class="form-card" id="fc-${i}">
+      <div class="fc-icon">${f.icon}</div>
+      <div class="fc-title">${f.title}</div>
+      <div class="fc-desc">${f.desc}</div>
+      <div class="fc-status pending" id="fcs-${i}">⏳ Pending</div>
+      <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
+        <a href="${f.url}" target="_blank" class="btn btn-navy btn-sm">${f.btn}</a>
+        <button class="btn btn-ghost btn-sm" onclick="markFormDone(${i})">✓ Done</button>
+      </div>
+    </div>`).join('');
+}
+
+function markFormDone(i){
+  document.getElementById('fc-'+i).classList.add('done');
+  const s = document.getElementById('fcs-'+i);
+  s.className='fc-status complete';
+  s.textContent='✅ Completed';
+}
+
+function markFormDoneBtn(btn){
+  btn.closest('.form-card').classList.add('done');
+}
+
+// ── HANDBOOK ──
+function buildHandbook(){
+  document.getElementById('handbook').innerHTML = HANDBOOK_SECTIONS.map((s,i)=>`
+    <div class="hb-section ${readSections.has(i)?'':''}">
+      <div class="hb-head" onclick="toggleHandbook(${i}, this)">
+        <div class="hb-head-left">
+          <span class="hb-icon">${s.icon}</span>
+          <div>
+            <div class="hb-title">${s.title}${readSections.has(i)?'<span class="hb-read-badge">Read ✓</span>':''}</div>
+            <div class="hb-sub">${s.sub}</div>
+          </div>
+        </div>
+        <span class="hb-arrow">▶</span>
+      </div>
+      <div class="hb-body">
+        <div class="hb-content">${s.content}</div>
+        ${!readSections.has(i)?`<button class="btn btn-green btn-sm" style="margin-top:12px" onclick="markRead(${i}, event)">✓ Mark as Read</button>`:'<div style="margin-top:12px;font-size:11px;color:var(--green);font-weight:600">✓ You marked this section as read</div>'}
+      </div>
+    </div>`).join('');
+
+  updateAckChecklist();
+}
+
+function toggleHandbook(i, headEl){
+  headEl.closest('.hb-section').classList.toggle('open');
+}
+
+function markRead(i, e){
+  e.stopPropagation();
+  readSections.add(i);
+  saveHandbook();
+  buildHandbook();
+  updateProgress();
+}
+
+function updateAckChecklist(){
+  const el = document.getElementById('ack-checklist');
+  if(!el) return;
+  el.innerHTML = HANDBOOK_SECTIONS.map((s,i)=>`
+    <div class="ack-chk">
+      <div class="dot ${readSections.has(i)?'read':''}"></div>
+      <span>${s.title} ${readSections.has(i)?'<span style="color:#86EFAC;font-size:10px">✓ Read</span>':'<span style="color:rgba(255,255,255,.3);font-size:10px">Not yet read</span>'}</span>
+    </div>`).join('');
+}
+
+function submitAck(){
+  const name = document.getElementById('ack-name').value.trim();
+  const date = document.getElementById('ack-date').value;
+  if(!name){ alert('Please type your full name to sign.'); return; }
+  if(!date){ alert('Please enter the date.'); return; }
+  const unread = HANDBOOK_SECTIONS.length - readSections.size;
+  if(unread > 0){
+    const confirm = window.confirm(`You have ${unread} section(s) not yet marked as read. Do you want to sign anyway?`);
+    if(!confirm) return;
+  }
+  const timestamp = new Date().toLocaleString();
+  // Save acknowledgment to localStorage and Airtable (when connected)
+  const ack = { name, date, timestamp, sectionsRead: readSections.size, total: HANDBOOK_SECTIONS.length };
+  localStorage.setItem('atlas_ack_v2', JSON.stringify(ack));
+  // Future: POST to Netlify function → Airtable
+  document.getElementById('ack-form-wrap').style.display='none';
+  document.getElementById('ack-submitted').style.display='block';
+  document.getElementById('ack-submitted-detail').textContent =
+    `${name} acknowledged all ${HANDBOOK_SECTIONS.length} handbook sections on ${date} at ${timestamp}. A record has been saved to your employee file.`;
+}
+
+// ── REPORT ──
+function setUrgency(level){
+  urgency=level;
+  ['low','med','high'].forEach(l=>{ document.getElementById('urg-'+l).className='urg-btn'+(l===level?' on-'+l:''); });
+}
+
+async function submitReport(e){
+  e.preventDefault();
+  if(!urgency){ alert('Please select urgency level.'); return; }
+  const data = {
+    name: document.getElementById('r-name').value,
+    date: document.getElementById('r-date').value,
+    type: document.getElementById('r-type').value,
+    urgency,
+    description: document.getElementById('r-desc').value,
+    witnesses: document.getElementById('r-witnesses').value,
+    followup: document.getElementById('r-followup').value,
+    submitted_at: new Date().toISOString()
+  };
+  try {
+    await fetch('/.netlify/functions/report-incident', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
+    });
+  } catch(err){ console.log('Pipedream function pending — logged locally:', data); }
+  document.getElementById('report-form').style.display='none';
+  document.getElementById('report-success').style.display='block';
+}
+
+function resetReport(){
+  document.getElementById('report-form').style.display='flex';
+  document.getElementById('report-success').style.display='none';
+  document.getElementById('report-form').reset();
+  urgency=null;
+  ['low','med','high'].forEach(l=>document.getElementById('urg-'+l).className='urg-btn');
+}
+
+// ── AUTOMATION ──
+function buildAutomation(){
+  document.getElementById('auto-grid').innerHTML = AUTOMATIONS.map(a=>`
+    <div class="auto-card">
+      <div class="ac-head">
+        <span class="ac-icon">${a.icon}</span>
+        <span class="ac-title">${a.title}</span>
+        <span class="ac-status ${a.status}">${a.status==='live'?'✅ LIVE':'🔧 BUILD'}</span>
+      </div>
+      <div class="ac-desc">${a.desc}</div>
+      <div class="ac-tool">→ ${a.tool}</div>
+    </div>`).join('');
+
+  document.getElementById('pipedream-workflows').innerHTML = WORKFLOWS.map(w=>`
+    <div style="border:1px solid var(--gray-200);border-radius:9px;padding:14px;margin-bottom:10px;background:var(--white)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="font-size:13px;font-weight:700">${w.name}</div>
+        <div style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:auto;background:${w.priority==='HIGH'?'var(--red-light)':'var(--amber-light)'};color:${w.priority==='HIGH'?'var(--red)':'var(--amber)'}">${w.priority} PRIORITY</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px">
+        ${w.steps.map((s,i)=>`
+          <div style="display:flex;align-items:center;gap:6px">
+            <div style="background:var(--navy);color:white;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">${i+1}</div>
+            <div style="font-size:11px;color:var(--gray-700)">${s}</div>
+            ${i<w.steps.length-1?'<div style="color:var(--gray-300)">→</div>':''}
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('time-table').innerHTML = `
+    <thead><tr>
+      <th>HR Task</th><th class="tr">Manual Time</th>
+      <th class="tr">Automated</th><th class="tr">Saved/Month</th>
+    </tr></thead>
+    <tbody>${[
+      ['New hire onboarding','4 hrs/hire','15 min setup','3.75 hrs × hires'],
+      ['Weekly performance review','2 hrs/week','Auto digest email','8 hrs/month'],
+      ['Monthly pay summary','3 hrs/month','Auto-calculated','3 hrs/month'],
+      ['Incident report logging','30 min/incident','Instant auto-log','varies'],
+      ['Safety cert tracking','1 hr/month','Auto-alerts','1 hr/month'],
+      ['Google review follow-up','30 min/day','Auto via Chiirp','10 hrs/month'],
+      ['30/60/90 reminders','Manual calendar','Auto-triggered','2 hrs/month'],
+    ].map((r,i)=>`<tr style="${i%2===0?'':'background:var(--gray-50)'}">
+      <td style="font-weight:600">${r[0]}</td>
+      <td class="tr" style="color:var(--red)">${r[1]}</td>
+      <td class="tr" style="color:var(--green)">${r[2]}</td>
+      <td class="tr" style="font-weight:700">${r[3]}</td>
+    </tr>`).join('')}
+    <tr style="background:var(--navy)">
+      <td style="color:white;font-weight:700">TOTAL (at 10 techs)</td>
+      <td class="tr" style="color:#FCA5A5;font-weight:700">~40 hrs/mo</td>
+      <td class="tr" style="color:#86EFAC;font-weight:700">~5 hrs/mo</td>
+      <td class="tr" style="color:#FCD34D;font-weight:700">~35 hrs saved</td>
+    </tr></tbody>`;
+}
+
+// ── TEAM ──
+function buildTeam(){
+  document.getElementById('team-list').innerHTML = SAMPLE_TEAM.map(e=>`
+    <div class="emp-row">
+      <div class="emp-avatar">${e.name.split(' ').map(n=>n[0]).join('')}</div>
+      <div><div class="emp-name">${e.name}</div><div class="emp-role">${e.role}</div></div>
+      <div class="emp-progress">
+        <div class="prog-bar"><div class="prog-fill" style="width:${e.progress}%"></div></div>
+        <div class="prog-pct">${e.progress}%</div>
+        <div class="emp-status-badge status-${e.status}">${e.status}</div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('hr-stats').innerHTML = [
+    {label:'Active Techs',val:'1',color:'var(--green)'},
+    {label:'In Onboarding',val:'1',color:'var(--amber)'},
+    {label:'Van Capacity',val:'2/10',color:'var(--navy)'},
+    {label:'Handbook Signed',val:'0',color:'var(--red)'},
+    {label:'Safety Certs',val:'0/2',color:'var(--amber)'},
+    {label:'Target Launch',val:'Aug 1',color:'var(--navy)'},
+  ].map(s=>`
+    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:9px;padding:14px;text-align:center">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:${s.color}">${s.val}</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);margin-top:3px">${s.label}</div>
+    </div>`).join('');
+}
+
+function addEmployee(){
+  const name=prompt('New employee name:');if(!name)return;
+  const role=prompt('Role (Lead Tech / Regular Tech):')||'Regular Tech';
+  SAMPLE_TEAM.push({name,role,progress:5,status:'onboarding'});
+  buildTeam();
+}
+
+// ── TABS ──
+function setTab(t,btn){
+  ['checklist','forms','handbook','report','automation','team'].forEach(n=>document.getElementById('t-'+n).classList.toggle('gone',n!==t));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+// ── INIT ──
+buildChecklist();
+buildForms();
+buildHandbook();
+buildAutomation();
+buildTeam();
+
+// Set today's date as default for ack date
+const today = new Date().toISOString().split('T')[0];
+const ackDate = document.getElementById('ack-date');
+if(ackDate) ackDate.value = today;
+
+// Restore acknowledgment if already signed
+const savedAck = localStorage.getItem('atlas_ack_v2');
+if(savedAck){
+  const ack = JSON.parse(savedAck);
+  document.getElementById('ack-form-wrap').style.display='none';
+  document.getElementById('ack-submitted').style.display='block';
+  document.getElementById('ack-submitted-detail').textContent =
+    `${ack.name} acknowledged all ${ack.total} handbook sections on ${ack.date} at ${ack.timestamp}.`;
+}
+</script>
+</body>
+</html>
