@@ -21,25 +21,54 @@ window.addEventListener('load',function(){
 <!-- JSON-LD Schema -->
 <script type="application/ld+json">
 {
- "@context":"https://schema.org",
- "@type":"LocalBusiness",
- "name":"Atlas Home Pro — Gates &amp; Garage Doors in Beverly Grove",
- "description":"Gate installation &amp; welding in Beverly Grove — security gates, driveway gates, iron fencing. $0 service call fees. Call (213) 275-2210.",
- "url":"https://atlashomepro.com/service-areas/beverly-grove/gates-garage-doors/",
- "telephone":"(213) 275-2210",
- "address":{
- "@type":"PostalAddress",
- "streetAddress":"145 S Fairfax Ave Suite 200",
- "addressLocality":"Los Angeles",
- "addressRegion":"CA",
- "postalCode":"90036",
- "addressCountry":"US"
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "Atlas Home Pro — Gates &amp; Garage Doors in Beverly Grove",
+ "description": "Gate installation &amp; welding in Beverly Grove — security gates, driveway gates, iron fencing. $0 service call fees. Call (213) 275-2210.",
+ "url": "https://atlashomepro.com/service-areas/beverly-grove/gates-garage-doors/",
+ "telephone": "+12132752210",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "145 S Fairfax Ave, Suite 200",
+  "addressLocality": "Los Angeles",
+  "addressRegion": "CA",
+  "postalCode": "90036",
+  "addressCountry": "US"
  },
- "areaServed":{
- "@type":"Place",
- "name":"Beverly Grove, Los Angeles, CA"
+ "areaServed": {
+  "@type": "Place",
+  "name": "Beverly Grove, Los Angeles, CA"
  },
- "image":"https://atlashomepro.com/images/atlas-van.webp"
+ "image": "https://atlashomepro.com/images/atlas-van.webp",
+ "@id": "https://atlashomepro.com/service-areas/beverly-grove/gates-garage-doors/#localbusiness",
+ "geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 34.0739,
+  "longitude": -118.3615
+ },
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+   ],
+   "opens": "08:00",
+   "closes": "20:00"
+  },
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Sunday"
+   ],
+   "opens": "09:00",
+   "closes": "17:00"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
