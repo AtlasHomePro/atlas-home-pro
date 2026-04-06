@@ -102,11 +102,6 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .dropdown a{display:block;padding:10px 24px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.3px;text-transform:none;white-space:nowrap;transition:all .15s}
 .dropdown a:hover{color:#fff;background:rgba(255,220,0,.04);padding-left:28px}
 .dropdown a:first-child{color:rgba(255,255,255,0.9);font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:12px;margin-bottom:4px}
-.mega-dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);padding:28px 32px;z-index:1000;box-shadow:0 16px 48px rgba(0,0,0,.6);border-radius:0 0 10px 10px;min-width:680px;animation:dropIn .2s ease}
-.nav-item.has-mega:hover .mega-dropdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 32px}
-.mega-dropdown a{display:block;padding:7px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .15s}
-.mega-dropdown a:hover{color:#fff}
-.mega-dropdown a:first-child{border:none;padding-bottom:7px;margin-bottom:0;color:rgba(255,255,255,0.55);font-weight:500}
 .mobile-services{display:none}
 .mobile-areas{display:none}
 .mobile-about{display:none}
@@ -345,6 +340,25 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  .ct-quick-card a{font-size:.8rem!important}
  .ct-quick-card p{font-size:.7rem!important}
 }
+/* Enhanced mega menu */
+.mega-dropdown{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#0a0a0a;border:1px solid rgba(255,255,255,0.08);padding:0;z-index:1000;box-shadow:0 20px 60px rgba(0,0,0,.7);border-radius:0 0 12px 12px;min-width:880px;animation:dropIn .2s ease}
+.nav-item.has-mega:hover .mega-dropdown{display:flex;flex-direction:row}
+.mega-panel{padding:22px 24px;display:flex;flex-direction:column;gap:2px;border-right:1px solid rgba(255,255,255,.06)}
+.mega-panel:last-child{border-right:none}
+.mega-panel-title{color:#FFDC00;font-weight:700;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;padding:0 0 8px;margin:0;display:block;text-decoration:none}
+.mega-panel-title:hover{color:#FFDC00}
+.mega-link{display:flex;align-items:flex-start;gap:10px;padding:5px 8px;margin:0 -8px;border-radius:6px;text-decoration:none;transition:background .15s}
+.mega-link:hover{background:rgba(255,220,0,.08)}
+.mega-link-icon{font-size:.85rem;flex-shrink:0;width:18px;text-align:center;line-height:1.5}
+.mega-link-text{display:flex;flex-direction:column}
+.mega-link-name{color:rgba(255,255,255,.85);font-size:.76rem;font-weight:600;line-height:1.3}
+.mega-link:hover .mega-link-name{color:#fff}
+.mega-link-desc{color:rgba(255,255,255,.32);font-size:.65rem;line-height:1.35;margin-top:1px}
+.mega-simple a{display:block;padding:5px 0;color:rgba(255,255,255,0.55);text-decoration:none;font-size:.76rem;font-weight:500;transition:color .15s}
+.mega-simple a:hover{color:#fff}
+.mega-divider{height:1px;background:rgba(255,255,255,.06);margin:6px 0}
+.mega-tag{display:inline-block;background:rgba(255,220,0,.15);color:#FFDC00;font-size:.55rem;font-weight:700;padding:1px 5px;border-radius:3px;letter-spacing:.5px;margin-left:4px;vertical-align:middle}
+@media(max-width:900px){.mega-dropdown{display:none!important}}
 </style>
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Atlas Home Pro" />
@@ -362,61 +376,81 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <div class="nav-item has-dropdown has-mega">
  <a href="#">Services</a>
  <div class="mega-dropdown">
- <div class="mega-col">
- <a href="/plumbing/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Plumbing</a>
- <a href="/plumbing/drain-cleaning/">Drain Cleaning</a>
- <a href="/plumbing/water-heater/">Water Heater</a>
- <a href="/plumbing/repiping/">Repiping &amp; Repair</a>
- <a href="/plumbing/leak-detection/">Leak Detection</a>
- <a href="/plumbing/sewer-line/">Sewer Line</a>
- <a href="/plumbing/emergency/">Emergency</a>
- <a href="/plumbing/fixtures/">Fixtures</a>
+ <div class="mega-panel" style="flex:1.4">
+  <a href="/plumbing/" class="mega-panel-title">Plumbing</a>
+  <a href="/plumbing/drain-cleaning/" class="mega-link"><span class="mega-link-icon">🔧</span><span class="mega-link-text"><span class="mega-link-name">Drain Cleaning</span><span class="mega-link-desc">Snaking &amp; hydro jetting</span></span></a>
+  <a href="/plumbing/water-heater/" class="mega-link"><span class="mega-link-icon">🔥</span><span class="mega-link-text"><span class="mega-link-name">Water Heater</span><span class="mega-link-desc">Tank &amp; tankless install</span></span></a>
+  <a href="/plumbing/repiping/" class="mega-link"><span class="mega-link-icon">🔩</span><span class="mega-link-text"><span class="mega-link-name">Repiping &amp; Repair</span><span class="mega-link-desc">Whole-home PEX &amp; copper</span></span></a>
+  <a href="/plumbing/leak-detection/" class="mega-link"><span class="mega-link-icon">💧</span><span class="mega-link-text"><span class="mega-link-name">Leak Detection</span><span class="mega-link-desc">Electronic &amp; acoustic</span></span></a>
+  <a href="/plumbing/sewer-line/" class="mega-link"><span class="mega-link-icon">🎥</span><span class="mega-link-text"><span class="mega-link-name">Sewer Line</span><span class="mega-link-desc">Camera inspection &amp; repair</span></span></a>
+  <a href="/plumbing/emergency/" class="mega-link"><span class="mega-link-icon">🚨</span><span class="mega-link-text"><span class="mega-link-name">Emergency 24/7</span><span class="mega-link-desc">Same-day dispatch</span></span></a>
+  <a href="/plumbing/fixtures/" class="mega-link"><span class="mega-link-icon">🚿</span><span class="mega-link-text"><span class="mega-link-name">Fixtures</span><span class="mega-link-desc">Faucets, toilets, disposals</span></span></a>
+  <div class="mega-divider"></div>
+  <a href="/plumbing/cost-estimator/" class="mega-link"><span class="mega-link-icon">📊</span><span class="mega-link-text"><span class="mega-link-name">Cost Estimator<span class="mega-tag">NEW</span></span><span class="mega-link-desc">Instant price ranges</span></span></a>
+  <a href="/guides/plumbing-cost-guide-westside-la-2026/" class="mega-link"><span class="mega-link-icon">📖</span><span class="mega-link-text"><span class="mega-link-name">Cost Guide 2026</span><span class="mega-link-desc">Full pricing breakdown</span></span></a>
  </div>
- <div class="mega-col">
- <a href="/hvac/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">HVAC</a>
- <a href="/hvac/ac-repair/">AC Repair</a>
- <a href="/hvac/ac-installation/">AC Installation</a>
- <a href="/hvac/heating/">Heating</a>
- <a href="/hvac/tune-up/">Tune-Up</a>
- <a href="/hvac/thermostat/">Thermostat</a>
- <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
+ <div class="mega-panel" style="flex:1">
+  <a href="/hvac/" class="mega-panel-title">HVAC</a>
+  <div class="mega-simple">
+  <a href="/hvac/ac-repair/">AC Repair</a>
+  <a href="/hvac/ac-installation/">AC Installation</a>
+  <a href="/hvac/heating/">Heating</a>
+  <a href="/hvac/tune-up/">Tune-Up</a>
+  <a href="/hvac/thermostat/">Thermostat</a>
+  <a href="/hvac/duct-cleaning/">Duct Cleaning</a>
+  </div>
+  <div class="mega-divider"></div>
+  <a href="/electrical/" class="mega-panel-title">Electrical</a>
+  <div class="mega-simple">
+  <a href="/electrical/panel-upgrades/">Panel Upgrades</a>
+  <a href="/electrical/ev-chargers/">EV Chargers</a>
+  <a href="/electrical/whole-home-rewiring/">Rewiring</a>
+  <a href="/electrical/lighting/">Lighting</a>
+  <a href="/electrical/generators/">Generators</a>
+  <a href="/electrical/smart-home/">Smart Home</a>
+  </div>
  </div>
- <div class="mega-col">
- <a href="/electrical/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Electrical</a>
- <a href="/electrical/panel-upgrades/">Panel Upgrades</a>
- <a href="/electrical/ev-chargers/">EV Chargers</a>
- <a href="/electrical/whole-home-rewiring/">Whole-Home Rewiring</a>
- <a href="/electrical/lighting/">Lighting</a>
- <a href="/electrical/generators/">Generators</a>
- <a href="/electrical/smart-home/">Smart Home</a>
- <a href="/electrical/solar-wiring/">Solar Wiring</a>
- <a href="/gates-garage-doors/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Gates &amp; Garage Doors</a>
- <a href="/gates-garage-doors/garage-door-repair/">Garage Door Repair</a>
- <a href="/gates-garage-doors/electric-gate-repair/">Electric Gate Repair</a>
- <a href="/gates-garage-doors/custom-gate-installation/">Custom Gates</a>
+ <div class="mega-panel" style="flex:1">
+  <a href="/painting/" class="mega-panel-title">Painting</a>
+  <div class="mega-simple">
+  <a href="/painting/interior/">Interior</a>
+  <a href="/painting/exterior/">Exterior</a>
+  <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
+  <a href="/painting/drywall-repair/">Drywall Repair</a>
+  <a href="/painting/color-consultation/">Color Consultation</a>
+  <a href="/painting/specialty-finishes/">Specialty Finishes</a>
+  </div>
+  <div class="mega-divider"></div>
+  <a href="/gates-garage-doors/" class="mega-panel-title">Gates &amp; Garage Doors</a>
+  <div class="mega-simple">
+  <a href="/gates-garage-doors/garage-door-repair/">Garage Door Repair</a>
+  <a href="/gates-garage-doors/electric-gate-repair/">Electric Gate Repair</a>
+  <a href="/gates-garage-doors/custom-gate-installation/">Custom Gates</a>
+  </div>
+  <div class="mega-divider"></div>
+  <a href="/restoration/" class="mega-panel-title">Restoration</a>
+  <div class="mega-simple">
+  <a href="/restoration/">Water Damage</a>
+  </div>
  </div>
- <div class="mega-col">
- <a href="/painting/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:10px;margin-bottom:2px">Painting</a>
- <a href="/painting/interior/">Interior</a>
- <a href="/painting/exterior/">Exterior</a>
- <a href="/painting/cabinet-refinishing/">Cabinet Refinishing</a>
- <a href="/painting/drywall-repair/">Drywall Repair</a>
- <a href="/painting/color-consultation/">Color Consultation</a>
- <a href="/painting/specialty-finishes/">Specialty Finishes</a>
- <a href="/restoration/" style="color:#FFDC00;font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding-top:14px;padding-bottom:10px;margin-bottom:2px">Restoration</a>
- <a href="/restoration/">Water Damage Restoration</a>
- </div>
- </div>
+</div>
  <div class="mobile-services">
  <a href="/plumbing/"><span class="ms-icon">🔧</span> Plumbing</a>
+ <a href="/plumbing/drain-cleaning/"><span class="ms-icon">🔧</span> Drain Cleaning</a>
+ <a href="/plumbing/water-heater/"><span class="ms-icon">🔥</span> Water Heater</a>
+ <a href="/plumbing/repiping/"><span class="ms-icon">🔩</span> Repiping</a>
+ <a href="/plumbing/leak-detection/"><span class="ms-icon">💧</span> Leak Detection</a>
+ <a href="/plumbing/sewer-line/"><span class="ms-icon">🎥</span> Sewer Line</a>
+ <a href="/plumbing/emergency/"><span class="ms-icon">🚨</span> Emergency 24/7</a>
+ <a href="/plumbing/fixtures/"><span class="ms-icon">🚿</span> Fixtures</a>
+ <a href="/plumbing/cost-estimator/"><span class="ms-icon">📊</span> Cost Estimator</a>
  <a href="/hvac/"><span class="ms-icon">❄️</span> HVAC</a>
  <a href="/electrical/"><span class="ms-icon">⚡</span> Electrical</a>
  <a href="/painting/"><span class="ms-icon">🎨</span> Painting</a>
  <a href="/restoration/"><span class="ms-icon">💧</span> Restoration</a>
  <a href="/gates-garage-doors/"><span class="ms-icon">🚪</span> Gates &amp; Garage Doors</a>
- <a href="/gates-garage-doors/"><span class="ms-icon">🚪</span> Gates &amp; Garage Doors</a>
  <a href="/offers/"><span class="ms-icon">🏷️</span> Current Offers</a>
- </div>
+</div>
  </div>
  <div class="nav-item has-dropdown">
  <a href="/service-areas/">Areas</a>
