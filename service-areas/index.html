@@ -285,6 +285,29 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 .mega-divider{height:1px;background:rgba(255,255,255,.06);margin:6px 0}
 .mega-tag{display:inline-block;background:rgba(255,220,0,.15);color:#FFDC00;font-size:.55rem;font-weight:700;padding:1px 5px;border-radius:3px;letter-spacing:.5px;margin-left:4px;vertical-align:middle}
 @media(max-width:900px){.mega-dropdown{display:none!important}}
+
+/* ===== CARD HOVER — clickable cards ===== */
+a[href*="service-areas"] .hood-card,
+a[href*="service-areas"].hood-card {
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+a[href*="service-areas"]:hover .hood-card,
+a[href*="service-areas"]:hover.hood-card {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+a[href*="service-areas"]:hover .hood-card {
+  border-top: 3px solid #FFDC00;
+}
+.mini-card, [class*="area-mini"], [class*="service-grid"] a {
+  transition: background 0.15s ease;
+  cursor: pointer;
+}
+.mini-card:hover, [class*="area-mini"]:hover,
+[class*="service-grid"] a:hover {
+  background: #f0f4f8;
+}
 </style>
 
 <!-- Open Graph -->
@@ -478,7 +501,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  </div>
  <div class="hero-img">
- <picture><source type="image/webp" srcset="/images/service-areas/neighborhoods/beverly-hills-hero.webp"><img src="/images/service-areas/neighborhoods/beverly-hills-hero.webp" alt="Westside Los Angeles neighborhoods — Atlas Home Pro" loading="eager" width="1200" height="600" style="width:100%;height:auto;display:block;border-radius:8px"></picture>
+ <img src="/van%20pics/atlas-home-pro-van.png" alt="Atlas Home Pro service van — Westside Los Angeles" loading="eager" width="1200" height="600" style="width:100%;max-height:400px;object-fit:contain;object-position:center;background:#1B2A4A;border-radius:8px">
  </div>
  </div>
 </section>
@@ -539,10 +562,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <div class="hood-grid">
 
  
- <div class="hood-card">
+ <a href="/service-areas/beverly-hills/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/beverly-hills-thumb.webp" alt="Beverly Hills home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/beverly-hills/">Beverly Hills</a></h3>
+   <h3>Beverly Hills</h3>
    <span class="hood-badge">PREMIUM · 10 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">Estate repiping, water heater replacement, earthquake shutoff valves, and gate systems for one of LA's most demanding neighborhoods. We know what 90210 expects.</p>
@@ -551,10 +574,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/bel-air/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/bel-air-thumb.webp" alt="Bel Air home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/bel-air/">Bel Air</a></h3>
+   <h3>Bel Air</h3>
    <span class="hood-badge">PREMIUM · 12 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">Hillside estate specialists. Slab leak detection, whole-home repiping, and sewer camera inspection for estates with mature trees and long sewer laterals.</p>
@@ -563,10 +586,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/brentwood/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/brentwood-thumb.webp" alt="Brentwood home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/brentwood/">Brentwood</a></h3>
+   <h3>Brentwood</h3>
    <span class="hood-badge">PREMIUM · 18 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">1950s–70s ranch homes with galvanized pipes, Jacaranda root intrusion, and aging water heaters. Most common calls: repiping, hydro jetting, tankless upgrades.</p>
@@ -575,10 +598,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/pacific-palisades/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/pacific-palisades-thumb.webp" alt="Pacific Palisades home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/pacific-palisades/">Pacific Palisades</a></h3>
+   <h3>Pacific Palisades</h3>
    <span class="hood-badge">FIRE RECOVERY ZONE · 22 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">Serving homeowners through the rebuild — plumbing, electrical, restoration, and insurance coordination. One team, all trades.</p>
@@ -587,10 +610,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/santa-monica/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/santa-monica-thumb.webp" alt="Santa Monica home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/santa-monica/">Santa Monica</a></h3>
+   <h3>Santa Monica</h3>
    <span class="hood-badge">COASTAL · 20 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">Ocean proximity accelerates water heater and pipe corrosion. Tankless water heaters, corrosion repair, and property management plumbing for the coast.</p>
@@ -599,10 +622,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/century-city/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/century-city-thumb.webp" alt="Century City home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/century-city/">Century City</a></h3>
+   <h3>Century City</h3>
    <span class="hood-badge">HIGH-RISE · 8 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">High-rise condo plumbing, HOA coordination, and commercial service. Unit isolation, stack issues, tight mechanical room water heater swaps.</p>
@@ -611,10 +634,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/west-hollywood/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/west-hollywood-thumb.webp" alt="West Hollywood home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/west-hollywood/">West Hollywood</a></h3>
+   <h3>West Hollywood</h3>
    <span class="hood-badge">HOME TERRITORY · 5 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">Our closest major market. Dense apartments, 1940s bungalows, 24/7 emergency response, and active property management accounts. Fastest dispatch in WeHo.</p>
@@ -623,10 +646,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/westwood/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/westwood-thumb.webp" alt="Westwood home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/westwood/">Westwood</a></h3>
+   <h3>Westwood</h3>
    <span class="hood-badge">RESIDENTIAL · 15 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">UCLA-area rentals and established south Westwood estates. Drain cleaning, water heater upgrades, and tenant emergency plumbing for property managers.</p>
@@ -635,10 +658,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/hancock-park/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/hancock-park-thumb.webp" alt="Hancock Park home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/hancock-park/">Hancock Park</a></h3>
+   <h3>Hancock Park</h3>
    <span class="hood-badge">HISTORIC · 8 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">1920s–40s Tudor and Spanish Colonial estates with original cast iron drains and galvanized supply lines. Specialty: whole-home repiping.</p>
@@ -647,10 +670,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/fairfax-district/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/fairfax-district-thumb.webp" alt="Fairfax District home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/fairfax-district/">Fairfax District</a></h3>
+   <h3>Fairfax District</h3>
    <span class="hood-badge">HOME BASE · 0–3 MIN DISPATCH</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">We're based here. Fastest dispatch in all of LA. Mid-century homes, apartments, and retail corridor. Same-day always.</p>
@@ -659,10 +682,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/miracle-mile/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/miracle-mile-thumb.webp" alt="Miracle Mile home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/miracle-mile/">Miracle Mile</a></h3>
+   <h3>Miracle Mile</h3>
    <span class="hood-badge">RESIDENTIAL · 5 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">Art Deco and mid-century buildings with aging infrastructure. Dense apartment inventory and active HOA plumbing needs.</p>
@@ -671,10 +694,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/koreatown/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/koreatown-thumb.webp" alt="Koreatown home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/koreatown/">Koreatown</a></h3>
+   <h3>Koreatown</h3>
    <span class="hood-badge">HIGH VOLUME · 8 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">High-density apartments and mixed-use buildings. One of our highest-volume markets — aging infrastructure, frequent drain service, property management accounts.</p>
@@ -683,10 +706,10 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- <div class="hood-card">
+</a> <a href="/service-areas/larchmont/" style="text-decoration:none;color:inherit;display:block"><div class="hood-card">
   <img src="/images/service-areas/neighborhoods/larchmont-thumb.webp" alt="Larchmont Village home services — Atlas Home Pro" style="width:100%;height:160px;object-fit:cover;border-radius:8px 8px 0 0;display:block;margin-bottom:12px">
   <div class="hood-card-header">
-   <h3><a href="/service-areas/larchmont/">Larchmont Village</a></h3>
+   <h3>Larchmont Village</h3>
    <span class="hood-badge">HISTORIC · 6 MIN FROM FAIRFAX</span>
   </div>
   <p style="font-size:.88rem;color:#555;line-height:1.6;padding:0 20px 12px;margin:0">1920s–30s bungalows with original clay sewer pipe and galvanized water lines. Common calls: sewer camera, hydro jetting, and repiping consultations.</p>
@@ -695,7 +718,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
   </div>
  </div>
 
- </div>
+</a> </div>
 </div>
 
 <!-- ===== WHO ATLAS IS FOR ===== -->
@@ -760,7 +783,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
    <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><a href="/service-areas/park-la-brea/" style="color:#111;text-decoration:none;font-weight:700;font-size:.95rem">Park La Brea</a><span style="color:#999;font-size:.78rem">8 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">High-density complex, HOA service, scale issues</div></div>
    <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><a href="/service-areas/pico-robertson/" style="color:#111;text-decoration:none;font-weight:700;font-size:.95rem">Pico-Robertson</a><span style="color:#999;font-size:.78rem">10 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">Mix of SFR and apartments, active PM market</div></div>
    <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><a href="/service-areas/playa-vista/" style="color:#111;text-decoration:none;font-weight:700;font-size:.95rem">Playa Vista</a><span style="color:#999;font-size:.78rem">28 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">New construction, fixture upgrades, smart home</div></div>
-   <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-weight:700;font-size:.95rem;color:#111">Rancho Park</span><span style="color:#999;font-size:.78rem">15 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">1950s SFR, galvanized and copper supply lines</div></div>
+   <a href="/service-areas/" style="text-decoration:none;color:inherit;display:block"><div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee;transition:background .15s;cursor:pointer"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-weight:700;font-size:.95rem;color:#111">Rancho Park</span><span style="color:#999;font-size:.78rem">15 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">1950s SFR, galvanized and copper supply lines</div></div></a>
    <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><a href="/service-areas/santa-monica/" style="color:#111;text-decoration:none;font-weight:700;font-size:.95rem">Santa Monica</a><span style="color:#999;font-size:.78rem">20 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">Coastal, condos, tankless, PM accounts</div></div>
    <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><a href="/service-areas/silver-lake/" style="color:#111;text-decoration:none;font-weight:700;font-size:.95rem">Silver Lake</a><span style="color:#999;font-size:.78rem">12 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">1920s–40s, clay sewer, cast iron, oldest stock</div></div>
    <div style="padding:16px 18px;background:#fff;border-radius:8px;border:1px solid #eee"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><a href="/service-areas/west-hollywood/" style="color:#111;text-decoration:none;font-weight:700;font-size:.95rem">West Hollywood</a><span style="color:#999;font-size:.78rem">5 min</span></div><div style="font-size:.8rem;color:#666;line-height:1.5">Fastest outside Fairfax, dense, apartments</div></div>
