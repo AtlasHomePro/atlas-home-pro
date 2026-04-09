@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas Home Pro — Water Restoration Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1B2A47;--teal:#0891B2;--green:#16A34A;--red:#DC2626;--blue:#2563EB;--amber:#D97706;--purple:#7C3AED;--bg:#F8F9FB;--card:#FFFFFF;--border:#E5E7EB;--text:#1F2937;--text-light:#6B7280;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding-bottom:80px}
+.header{background:var(--navy);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.h-badge{background:var(--teal);color:#fff;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px}
+.trade-nav{display:flex;gap:6px;flex-wrap:wrap}
+.tn{padding:6px 14px;border-radius:var(--radius-sm);font-size:12px;font-weight:500;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;text-decoration:none;transition:all .15s}
+.tn:hover{background:rgba(255,255,255,.18)}
+.tn.active{background:#fff;color:var(--navy);border-color:#fff}
+.tn.dim{opacity:.4}
+.h-back{color:rgba(255,255,255,.7);font-size:12px;text-decoration:none}
+.h-back:hover{color:#fff}
+.tab-bar{background:var(--card);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:4px;overflow-x:auto;position:sticky;top:52px;z-index:99}
+.tab-btn{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text-light);border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:600}
+.tc{display:none;padding:20px;max-width:1200px;margin:0 auto}
+.tc.active{display:block}
+.sec-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--text-light);margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.kpi-num{font-size:24px;font-weight:700;color:var(--navy)}
+.kpi-lbl{font-size:11px;color:var(--text-light);margin-top:2px}
+label.fl{font-size:11px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
+input[type=number],select{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;background:#fff;color:var(--text)}
+input[type=number]:focus,select:focus{outline:none;border-color:var(--teal)}
+.tog-g{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tog{padding:7px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text);transition:all .12s}
+.tog.sel{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tier-card{border:2px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .15s;background:#fff}
+.tier-card.sel-good{border-color:var(--green);background:#F0FDF4}
+.tier-card.sel-better{border-color:var(--blue);background:#EFF6FF}
+.tier-card.sel-best{border-color:var(--purple);background:#F5F3FF}
+.t-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.t-label.g{color:var(--green)}.t-label.b{color:var(--blue)}.t-label.p{color:var(--purple)}
+.t-price{font-size:22px;font-weight:700}
+.t-price.g{color:#15803d}.t-price.b{color:#1d4ed8}.t-price.p{color:#6d28d9}
+.t-desc{font-size:11px;margin-top:6px;line-height:1.5}
+.t-desc.g{color:#166534}.t-desc.b{color:#1e40af}.t-desc.p{color:#5b21b6}
+.quote-card{background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px;margin-top:16px}
+.q-label{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:4px}
+.q-price{font-size:40px;font-weight:700;letter-spacing:-1px}
+.q-range{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px}
+.q-tier-desc{font-size:13px;color:rgba(255,255,255,.85);margin-top:8px;padding:8px 12px;background:rgba(255,255,255,.1);border-radius:8px}
+.bd-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:13px}
+.bd-row:last-child{border-bottom:none;font-weight:600}
+.mbadge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-top:8px}
+.mg{background:rgba(22,163,74,.25);color:#4ade80}.ma{background:rgba(217,119,6,.25);color:#fbbf24}.mr{background:rgba(220,38,38,.25);color:#f87171}
+.alert-box{border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;margin-top:8px;line-height:1.6}
+.rf{background:#FEF3C7;border-left:3px solid var(--amber);color:#78350f}
+.us{background:#DCFCE7;border-left:3px solid var(--green);color:#14532d}
+.info{background:#EFF6FF;border-left:3px solid var(--blue);color:#1e40af}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.3px}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:#F9FAFB}
+tr:last-child td{border-bottom:none}
+td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}td.p{color:var(--purple);font-weight:600}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.bg{background:#DCFCE7;color:#14532d}.ba{background:#FEF3C7;color:#78350f}.br{background:#FEE2E2;color:#991b1b}
+.note{font-size:11px;color:var(--text-light);margin-top:8px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div><div style="font-size:15px;font-weight:700;color:#fff">💧 Water Restoration Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro — Ops Portal</div></div>
+    <span class="h-badge">Internal Use Only</span>
+  </div>
+  <div class="trade-nav">
+    <a href="/ops/pricing.html" class="tn">🔧 Plumbing</a>
+    <a href="/ops/hvac-pricing.html" class="tn">❄️ HVAC</a>
+    <a href="/ops/restoration-pricing.html" class="tn active">💧 Restoration</a>
+    <a href="/ops/gates-pricing.html" class="tn">🚪 Gates</a>
+    <a href="/ops/painting-pricing.html" class="tn">🎨 Painting</a>
+  </div>
+  <a href="/ops/" class="h-back">← Ops Portal</a>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="calc">⚡ Job Calculator</button>
+  <button class="tab-btn" data-tab="quickref">📋 Quick Reference</button>
+  <button class="tab-btn" data-tab="insurance">🏦 Insurance Guide</button>
+  <button class="tab-btn" data-tab="process">📋 8-Step Process</button>
+  <button class="tab-btn" data-tab="guides">📖 Service Guides</button>
+</div>
+
+<!-- CALCULATOR -->
+<div class="tc active" id="tab-calc">
+  <div class="sec-title">💧 Water Restoration Job Pricing Calculator</div>
+  <div class="sec-sub">Select category → service → tier → apply modifiers → quote</div>
+  <div class="card" style="margin-bottom:16px">
+    <div class="grid2">
+      <div>
+        <label class="fl">Service Category</label>
+        <select id="svcCat" onchange="onCatChange()">
+          <option value="">— Pick category —</option>
+          <option value="emergency">🚨 Emergency Response</option>
+          <option value="drying">🌬️ Structural Drying</option>
+          <option value="mold">🧫 Mold Remediation</option>
+          <option value="restoration">🏠 Full Restoration</option>
+          <option value="contents">📦 Contents & Pack-Out</option>
+        </select>
+      </div>
+      <div>
+        <label class="fl">Specific Service</label>
+        <select id="svcId" onchange="onSvcChange()"><option value="">— Pick category first —</option></select>
+      </div>
+    </div>
+  </div>
+  <div id="calcBody" style="display:none">
+    <div class="card" style="margin-bottom:16px">
+      <label class="fl">Service Tier</label>
+      <div class="grid3" style="margin-top:8px">
+        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">—</div><div class="t-desc g" id="tGoodDesc">—</div></div>
+        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">—</div><div class="t-desc b" id="tBetterDesc">—</div></div>
+        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">—</div><div class="t-desc p" id="tBestDesc">—</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <label class="fl">Job Modifiers</label>
+      <div class="grid3" style="margin-top:8px">
+        <div>
+          <label class="fl" style="margin-bottom:4px">Water Category</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('water','cat1',this)">Cat 1 — Clean</button>
+            <button class="tog" onclick="setMod('water','cat2',this)">Cat 2 — Gray 1.2×</button>
+            <button class="tog" onclick="setMod('water','cat3',this)">Cat 3 — Black 1.8×</button>
+          </div>
+        </div>
+        <div>
+          <label class="fl" style="margin-bottom:4px">Response Time</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('time','std',this)">Standard</button>
+            <button class="tog" onclick="setMod('time','emg',this)">Emergency 1.5×</button>
+          </div>
+        </div>
+        <div>
+          <label class="fl" style="margin-bottom:4px">Insurance Job</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('ins','no',this)">Direct Pay</button>
+            <button class="tog" onclick="setMod('ins','yes',this)">Insurance — Xactimate</button>
+          </div>
+        </div>
+      </div>
+      <div class="grid3" style="margin-top:12px">
+        <div>
+          <label class="fl" style="margin-bottom:4px">Affected Area</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('area','small',this)">&lt;500 sq ft</button>
+            <button class="tog" onclick="setMod('area','med',this)">500–1,500 sq ft 1.5×</button>
+            <button class="tog" onclick="setMod('area','large',this)">&gt;1,500 sq ft 2.5×</button>
+          </div>
+        </div>
+        <div><label class="fl">Days on Site <span style="font-weight:400">(0=auto)</span></label><input type="number" id="daysOvr" value="0" min="0" step="1" oninput="calcQuote()"></div>
+        <div><label class="fl">Parts/Equipment Override <span style="font-weight:400">($0=auto)</span></label><input type="number" id="partsOvr" value="0" min="0" oninput="calcQuote()"></div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="q-label" id="qLabel">—</div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">—</div></div>
+        <div style="text-align:right"><span class="mbadge" id="mBadge">—</span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">—</div></div>
+      </div>
+      <div class="q-tier-desc" id="qTierDesc"></div>
+      <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px" id="qBreakdown"></div>
+    </div>
+    <div class="grid4" style="margin-top:12px">
+      <div class="kpi"><div class="kpi-num" id="kLabor">$0</div><div class="kpi-lbl">Labor cost</div></div>
+      <div class="kpi"><div class="kpi-num" id="kEquip">$0</div><div class="kpi-lbl">Equipment/parts</div></div>
+      <div class="kpi"><div class="kpi-num" id="kGross">$0</div><div class="kpi-lbl">Gross profit</div></div>
+      <div class="kpi"><div class="kpi-num" id="kMargin">0%</div><div class="kpi-lbl">Gross margin</div></div>
+    </div>
+    <div id="rfBox" class="alert-box rf" style="display:none;margin-top:12px"></div>
+    <div id="usBox" class="alert-box us" style="display:none;margin-top:6px"></div>
+    <div id="insBox" class="alert-box info" style="display:none;margin-top:6px">📋 <strong>Insurance job:</strong> Document everything with Xactimate. Photo every affected area before extraction. Daily moisture logs required. Submit direct to adjuster — do not let homeowner negotiate alone.</div>
+  </div>
+</div>
+
+<!-- QUICK REF -->
+<div class="tc" id="tab-quickref">
+  <div class="sec-title">📋 Quick Reference — All Restoration Services</div>
+  <div class="sec-sub">Good / Better / Best pricing. Category 1 clean water base rates.</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Emergency Water Extraction</strong></td><td class="g">$600</td><td class="b">$1,200</td><td class="p">$2,500</td><td style="font-size:11px">Cat 2 ×1.2, Cat 3 ×1.8. Emergency dispatch ×1.5. Per job, not per day.</td></tr>
+        <tr><td><strong>Structural Drying (per day)</strong></td><td class="g">$300/day</td><td class="b">$550/day</td><td class="p">$800/day</td><td style="font-size:11px">3–5 day average. Equipment rental included in Better/Best. Daily moisture readings.</td></tr>
+        <tr><td><strong>Mold Remediation — Small</strong></td><td class="g">$1,500</td><td class="b">$2,800</td><td class="p">$4,500</td><td style="font-size:11px">Under 10 sq ft. Containment, removal, HEPA, antimicrobial, clearance test.</td></tr>
+        <tr><td><strong>Mold Remediation — Large</strong></td><td class="g">$5,000</td><td class="b">$9,000</td><td class="p">$15,000+</td><td style="font-size:11px">Over 10 sq ft. AMRT certification. Full containment, air scrubbers, clearance testing.</td></tr>
+        <tr><td><strong>Full Restoration — Minor</strong></td><td class="g">$600</td><td class="b">$1,100</td><td class="p">$1,500</td><td style="font-size:11px">Small area, caught fast. Extraction + drying + basic repairs.</td></tr>
+        <tr><td><strong>Full Restoration — Moderate</strong></td><td class="g">$1,500</td><td class="b">$3,200</td><td class="p">$5,000</td><td style="font-size:11px">1–2 rooms. Wet drywall, flooring. Extraction + drying + drywall + paint.</td></tr>
+        <tr><td><strong>Full Restoration — Significant</strong></td><td class="g">$5,000</td><td class="b">$8,500</td><td class="p">$12,000</td><td style="font-size:11px">Multiple rooms, gray/black water. Full scope + Xactimate documentation.</td></tr>
+        <tr><td><strong>Full Restoration — Major</strong></td><td class="g">$12,000</td><td class="b">$28,000</td><td class="p">$50,000+</td><td style="font-size:11px">Whole home, sewage, structural. Always insurance. Reconstruction included.</td></tr>
+        <tr><td><strong>Contents Pack-Out</strong></td><td class="g">$800</td><td class="b">$1,800</td><td class="p">$3,500</td><td style="font-size:11px">Remove, catalog, store, return. Inventory list required. Insurance line item.</td></tr>
+        <tr><td><strong>Smoke & Fire Damage</strong></td><td class="g">$2,500</td><td class="b">$8,000</td><td class="p">$25,000+</td><td style="font-size:11px">Always insurance. HEPA air scrubbers, thermal fogging, ozone treatment.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert-box rf" style="margin-top:12px">Cat 2 (gray water): ×1.2 multiplier on all services. Cat 3 (black water/sewage): ×1.8 multiplier. Emergency dispatch (after-hours): ×1.5. Combinations stack — a Cat 3 emergency is ×2.7× base rate.</div>
+</div>
+
+<!-- INSURANCE GUIDE -->
+<div class="tc" id="tab-insurance">
+  <div class="sec-title">🏦 Insurance Claims Guide</div>
+  <div class="sec-sub">Xactimate documentation, adjuster strategy, and homeowner rights. This is where the real money is.</div>
+  <div class="grid2" style="margin-bottom:16px">
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">The Atlas Insurance Advantage</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>We work for the homeowner, not the insurer.</strong><br>
+        SERVPRO is a State Farm preferred vendor — they serve the insurer. Atlas serves the homeowner.<br><br>
+        <strong>Preferred vendor programs minimize scope. We maximize legitimate scope.</strong><br>
+        Independent contractors typically document 2–4× more legitimate damage than preferred vendors.<br><br>
+        <strong>California law:</strong> Homeowners are NOT required to use an insurer's preferred vendor. We lead with this every time.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">Average Payout Reference</div>
+      <table>
+        <thead><tr><th>Scenario</th><th>Avg CA Payout</th></tr></thead>
+        <tbody>
+          <tr><td>Water damage (all types)</td><td style="font-weight:600">$11,000–$14,000</td></tr>
+          <tr><td>Burst pipe — minor</td><td>$3,000–$6,000</td></tr>
+          <tr><td>Burst pipe — major</td><td>$8,000–$20,000</td></tr>
+          <tr><td>Sewage backup</td><td>$7,000–$15,000</td></tr>
+          <tr><td>Roof leak (secondary)</td><td>$5,000–$12,000</td></tr>
+          <tr><td>Mold + water</td><td>$15,000–$35,000</td></tr>
+          <tr><td>Fire + water (hose damage)</td><td>$25,000–$80,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">Xactimate Documentation Checklist</div>
+    <table>
+      <thead><tr><th>Step</th><th>What to Document</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Arrival</strong></td><td style="font-size:11px">Time-stamped photos of all affected areas before ANY work. Moisture readings in every room. Sketch floor plan.</td><td style="font-size:11px">Establishes baseline. Adjusters will try to minimize scope later — this prevents it.</td></tr>
+        <tr><td><strong>Extraction</strong></td><td style="font-size:11px">Volume of water extracted (gallons). Equipment used and placement. Time in/out.</td><td style="font-size:11px">Every gallon and hour is a billable line item in Xactimate.</td></tr>
+        <tr><td><strong>Daily drying</strong></td><td style="font-size:11px">Daily moisture readings with grain readings at each location. Equipment count and placement. Temperature/humidity logs.</td><td style="font-size:11px">Required to justify drying days. Insurance pays per day with documentation.</td></tr>
+        <tr><td><strong>Demolition</strong></td><td style="font-size:11px">Before + after photos of all removed materials. Square footage of drywall, flooring, insulation. Weight of debris removed.</td><td style="font-size:11px">Every material removed is a separate line item. Document or lose it.</td></tr>
+        <tr><td><strong>Final</strong></td><td style="font-size:11px">Clearance moisture readings proving dry standard. Photos of completed work. Air quality test if mold present.</td><td style="font-size:11px">Required for insurance closeout. Also protects Atlas from future mold liability.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 8-STEP PROCESS -->
+<div class="tc" id="tab-process">
+  <div class="sec-title">📋 The Atlas 8-Step Process</div>
+  <div class="sec-sub">Standard operating procedure for every water restoration job. Deviation requires David approval.</div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">1</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Emergency Response — Within 60 minutes</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">24/7, 365. Tech dispatched within 60 minutes. Call back in 5 minutes or less. Customer gets tech name and ETA by text.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">2</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Leak Source Identification</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">Licensed plumber locates and stops the water source while restoration crew sets up equipment. Never start drying until source is confirmed stopped.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">3</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Water Extraction</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">Industrial-grade truck-mounted extraction removes all standing water. Document volume extracted. Log time in/out. Photo before and after.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">4</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Structural Drying</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">IICRC-calibrated air movers and LGR dehumidifiers placed per S500 standard. Daily moisture readings logged at each measurement point until IICRC dry standard reached.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">5</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Mold Prevention</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">Anti-microbial treatment applied to all affected surfaces. Free mold testing included on every job. Mold found = AMRT protocol, full containment, air scrubbers.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">6</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Insurance Documentation</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">Complete Xactimate estimate prepared and submitted directly to adjuster. We handle all adjuster communication. Homeowner does not negotiate — we do.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:var(--navy);color:#fff;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0">7</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Reconstruction</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">Drywall, flooring, paint, fixtures — rebuilt to code and permitted where required. This is the Atlas differentiator. We don't hand off — we finish the job.</div></div>
+    </div>
+    <div class="card" style="display:flex;gap:16px;align-items:flex-start">
+      <div style="background:#FFDC00;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;color:var(--navy)">8</div>
+      <div><div style="font-weight:600;font-size:14px;color:var(--navy)">Final Walkthrough</div><div style="font-size:12px;color:var(--text-light);margin-top:4px">We don't call the job complete until the customer does. Provide written moisture clearance document, warranty, and Xactimate summary for their records.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE GUIDES -->
+<div class="tc" id="tab-guides">
+  <div class="sec-title">📖 Service Guides — Tech Reference</div>
+  <div class="sec-sub">What to look for, what to document, and what to pitch on every restoration job.</div>
+  <div class="grid2">
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">💧 Water Category Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Category 1 — Clean Water:</strong> Burst pipe, supply line, appliance overflow. Standard rates. Low health risk.<br>
+        <strong>Category 2 — Gray Water:</strong> Dishwasher, washing machine, aquarium, toilet overflow (no feces). ×1.2 rate. Protective equipment required.<br>
+        <strong>Category 3 — Black Water:</strong> Sewage, toilet with feces, floodwater, groundwater. ×1.8 rate. Full PPE. Biohazard disposal. Always Cat 3 if over 24 hours regardless of original category.<br><br>
+        <strong>Key rule:</strong> Clean water becomes gray water after 24 hours. Gray water becomes black water after 48 hours. Document discovery time.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🧫 Mold Identification Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Visible mold:</strong> Stop drying setup. Containment first before any air movers. AMRT protocol.<br>
+        <strong>Musty smell without visible mold:</strong> Check wall cavities, subflooring, attic space. Probe walls with moisture meter.<br>
+        <strong>IICRC S520 standard:</strong> Any mold over 10 sq ft = full remediation protocol. Under 10 sq ft = limited remediation.<br>
+        <strong>Testing:</strong> Air and surface sampling. Free for customer — we document for insurance.<br>
+        <strong>Clearance:</strong> Post-remediation testing required before reconstruction. Don't skip this.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">⏱️ Response Time → Cost Table</div>
+      <table>
+        <thead><tr><th>Response Time</th><th>Typical Cost Impact</th></tr></thead>
+        <tbody>
+          <tr><td>Within 1 hour</td><td style="color:var(--green);font-weight:600">$1,200–$2,500</td></tr>
+          <tr><td>1–24 hours</td><td style="color:var(--amber);font-weight:600">$3,000–$8,000</td></tr>
+          <tr><td>24–48 hours</td><td style="color:var(--red);font-weight:600">$10,000–$25,000+</td></tr>
+          <tr><td>48+ hours (mold onset)</td><td style="color:var(--red);font-weight:700">$50,000–$100,000+</td></tr>
+        </tbody>
+      </table>
+      <div class="note">Use this table with every customer. Every hour of delay allows water to migrate deeper into walls, subfloor, and structural materials.</div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔧 Required Equipment Checklist</div>
+      <div style="font-size:12px;line-height:1.8">
+        ☐ Truck-mounted extractor (minimum 200 CFM)<br>
+        ☐ LGR dehumidifiers (at least 2 for standard job)<br>
+        ☐ Air movers / axial fans (1 per 50 sq ft affected)<br>
+        ☐ Moisture meters — pin and pinless<br>
+        ☐ Thermal/infrared camera<br>
+        ☐ Air scrubber with HEPA filter<br>
+        ☐ Antimicrobial spray (EPA-registered)<br>
+        ☐ Full PPE for Cat 2/3 (Tyvek, gloves, N95+)<br>
+        ☐ Moisture log sheets and camera
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SVCS = {
+emergency:[
+  {id:'extraction',name:'Emergency Water Extraction',tiers:{good:{price:600,desc:'Standard extraction, small area, clean water, basic documentation'},better:{price:1200,desc:'Full extraction, thorough documentation, moisture mapping, equipment setup'},best:{price:2500,desc:'Priority emergency extraction, full moisture mapping, Xactimate start, equipment setup'}},labor:4,parts:200,days:0,phoneRange:'$600–$2,500',redFlags:'Cat 2 water = PPE required, ×1.2 rate. Cat 3/sewage = full biohazard protocol, ×1.8 rate. Never start drying until source is confirmed stopped.',upsells:'Full drying setup, Mold prevention treatment, Insurance documentation'},
+  {id:'packout',name:'Contents Pack-Out & Storage',tiers:{good:{price:800,desc:'Basic inventory, protective wrap, local storage'},better:{price:1800,desc:'Full inventory catalog, professional packing, climate storage, photo documentation'},best:{price:3500,desc:'Full contents restoration service — catalog, pack, store, clean, return'}},labor:6,parts:150,days:0,phoneRange:'$800–$3,500',redFlags:'Create detailed inventory before touching anything. Insurance requires itemized list. Damaged items = document before disposal.',upsells:'Contents cleaning and restoration, Long-term storage if reconstruction is extended'},
+],
+drying:[
+  {id:'struct_dry',name:'Structural Drying (per day)',tiers:{good:{price:300,desc:'Standard drying equipment, daily moisture readings, basic log'},better:{price:550,desc:'LGR dehumidifiers + air movers, full daily moisture logs, tech on-site check'},best:{price:800,desc:'Premium equipment setup, twice-daily readings, full S500 documentation package'}},labor:2,parts:80,days:4,phoneRange:'$300–$800/day (avg 3–5 days)',redFlags:'Average job: 3–5 days for Cat 1, 5–7 days for Cat 2, 7–14 days for Cat 3. Never pull equipment before IICRC dry standard is reached.',upsells:'Mold prevention treatment, Air quality testing, Antimicrobial application'},
+  {id:'demo_dry',name:'Demolition + Drying (wet drywall)',tiers:{good:{price:1200,desc:'Remove wet drywall, extract, set up drying, daily logs'},better:{price:2200,desc:'Demo + extraction + full drying setup + daily documentation + disposal'},best:{price:3800,desc:'Full demo + extraction + premium drying + full Xactimate documentation + disposal'}},labor:8,parts:300,days:5,phoneRange:'$1,200–$3,800',redFlags:'Check for asbestos in pre-1980 homes before any demo. Asbestos testing required. Photo before and after all demo.',upsells:'Mold testing after demo, Antimicrobial treatment, Insurance documentation package'},
+],
+mold:[
+  {id:'mold_small',name:'Mold Remediation — Small (under 10 sq ft)',tiers:{good:{price:1500,desc:'Containment, HEPA removal, antimicrobial, clearance test'},better:{price:2800,desc:'Full containment, HEPA air scrubber, removal, antimicrobial, clearance test + report'},best:{price:4500,desc:'Full AMRT protocol, negative air pressure containment, full remediation, post-clearance report, warranty'}},labor:8,parts:400,days:0,phoneRange:'$1,500–$4,500',redFlags:'Always do clearance testing after remediation — no exceptions. If mold is in HVAC system, that is a separate specialist job.',upsells:'Full drying if moisture source active, Air quality testing, Annual mold inspection'},
+  {id:'mold_large',name:'Mold Remediation — Large (over 10 sq ft)',tiers:{good:{price:5000,desc:'AMRT protocol, full containment, remediation, clearance test'},better:{price:9000,desc:'Full AMRT, negative pressure containment, air scrubbers, full remediation, certified clearance'},best:{price:15000,desc:'Comprehensive AMRT remediation, multiple zones, structural assessment, full documentation package, warranty'}},labor:24,parts:1800,days:0,phoneRange:'$5,000–$15,000+',redFlags:'AMRT certification required. Over 10 sq ft = IICRC S520 full protocol. Document air quality before and after. Always separate clearance test.',upsells:'Reconstruction after remediation, Air quality monitoring, Insurance claim documentation'},
+],
+restoration:[
+  {id:'rest_minor',name:'Full Restoration — Minor Loss',tiers:{good:{price:600,desc:'Small area, extraction, basic drying, minor repairs'},better:{price:1100,desc:'Extraction + full drying + patch drywall + paint'},best:{price:1500,desc:'Extraction + full drying + drywall + paint + flooring + Xactimate doc'}},labor:8,parts:400,days:0,phoneRange:'$600–$1,500',redFlags:'Even minor jobs need Xactimate documentation for insurance. Do not skip the paperwork.',upsells:'Upgrade to Better/Best — always show what full restoration includes vs. patch job'},
+  {id:'rest_moderate',name:'Full Restoration — Moderate (1–2 rooms)',tiers:{good:{price:1500,desc:'Extraction + drying + basic drywall repair + paint'},better:{price:3200,desc:'Full extraction + drying + drywall + flooring + paint + Xactimate'},best:{price:5000,desc:'Complete restoration — extraction, drying, demo, rebuild, Xactimate, insurance coordination'}},labor:20,parts:1500,days:0,phoneRange:'$1,500–$5,000',redFlags:'Cat 2 or higher = always recommend Best tier with full documentation. Insurance typically covers this range fully.',upsells:'Insurance coordination, GetHearth financing for deductible, Mold prevention warranty'},
+  {id:'rest_significant',name:'Full Restoration — Significant (multiple rooms)',tiers:{good:{price:5000,desc:'Multi-room extraction + drying + basic reconstruction'},better:{price:8500,desc:'Full multi-room restoration + Xactimate + insurance coordination'},best:{price:12000,desc:'Complete restoration, full Xactimate documentation, direct adjuster communication, all trades'}},labor:40,parts:4000,days:0,phoneRange:'$5,000–$12,000',redFlags:'Always insurance at this level. Get authorization before starting reconstruction. Document everything before demo.',upsells:'This is the upsell — full reconstruction, not just mitigation. Show the difference clearly.'},
+  {id:'rest_major',name:'Full Restoration — Major / Whole Home',tiers:{good:{price:12000,desc:'Mitigation + basic reconstruction, partial scope'},better:{price:28000,desc:'Full scope restoration, all rooms, Xactimate, insurance coordination'},best:{price:50000,desc:'Complete whole-home restoration, structural work, full trades coordination, premium finishes'}},labor:80,parts:15000,days:0,phoneRange:'$12,000–$50,000+',redFlags:'Always insurance. Get advance payment authorization. May require temporary housing for family. Sub out structural if needed.',upsells:'Multi-trade coordination is the Atlas advantage — we handle plumbing, drywall, painting, flooring under one contract.'},
+],
+contents:[
+  {id:'smoke_fire',name:'Smoke & Fire Damage Restoration',tiers:{good:{price:2500,desc:'HEPA air scrubbers, ozone treatment, basic cleaning'},better:{price:8000,desc:'Full smoke remediation, thermal fogging, contents cleaning, Xactimate'},best:{price:25000,desc:'Comprehensive fire+smoke+water restoration, full trades, Xactimate, insurance coordination'}},labor:20,parts:2000,days:0,phoneRange:'$2,500–$25,000+',redFlags:'Always insurance. Water damage from hose is a separate line item on top of fire damage. Do not combine pricing.',upsells:'Full reconstruction, contents pack-out, temporary board-up and tarping'},
+]
+};
+
+const LABOR_RATE=45;
+let mods={time:'std',water:'cat1',ins:'no',area:'small'};
+let curSvc=null,curTier='good';
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+function onCatChange(){
+  const cat=document.getElementById('svcCat').value;
+  const sel=document.getElementById('svcId');
+  sel.innerHTML='<option value="">— Select service —</option>';
+  document.getElementById('calcBody').style.display='none';
+  if(!cat||!SVCS[cat])return;
+  SVCS[cat].forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.name;sel.appendChild(o);});
+}
+function onSvcChange(){
+  const id=document.getElementById('svcId').value;
+  const cat=document.getElementById('svcCat').value;
+  if(!id||!cat)return;
+  curSvc=SVCS[cat].find(s=>s.id===id);
+  if(!curSvc)return;
+  document.getElementById('calcBody').style.display='block';
+  const t=curSvc.tiers;
+  document.getElementById('tGoodPrice').textContent='$'+t.good.price.toLocaleString();
+  document.getElementById('tGoodDesc').textContent=t.good.desc;
+  document.getElementById('tBetterPrice').textContent='$'+t.better.price.toLocaleString();
+  document.getElementById('tBetterDesc').textContent=t.better.desc;
+  document.getElementById('tBestPrice').textContent='$'+t.best.price.toLocaleString();
+  document.getElementById('tBestDesc').textContent=t.best.desc;
+  selTier('good');
+}
+function selTier(tier){
+  curTier=tier;
+  const cfg={good:{card:'tcGood',cls:'sel-good'},better:{card:'tcBetter',cls:'sel-better'},best:{card:'tcBest',cls:'sel-best'}};
+  ['good','better','best'].forEach(t=>{const el=document.getElementById(cfg[t].card);el.className='tier-card';if(t===tier)el.classList.add(cfg[t].cls);});
+  calcQuote();
+}
+function setMod(key,val,btn){mods[key]=val;btn.parentElement.querySelectorAll('.tog').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');calcQuote();}
+function calcQuote(){
+  if(!curSvc)return;
+  const td=curSvc.tiers[curTier];
+  const partsOvr=parseFloat(document.getElementById('partsOvr').value)||0;
+  const daysOvr=parseFloat(document.getElementById('daysOvr').value)||0;
+  const parts=partsOvr>0?partsOvr:curSvc.parts;
+  const days=daysOvr>0?daysOvr:curSvc.days;
+  const wm=mods.water==='cat3'?1.8:mods.water==='cat2'?1.2:1.0;
+  const tm=mods.time==='emg'?1.5:1.0;
+  const am=mods.area==='large'?2.5:mods.area==='med'?1.5:1.0;
+  const laborCost=Math.round(curSvc.labor*LABOR_RATE);
+  const dryingCost=Math.round(days*td.price*0.3);
+  const totalCost=laborCost+parts+dryingCost;
+  const price=Math.round(td.price*wm*tm*am+(days>0?days*td.price*0.5:0));
+  const gross=price-totalCost;
+  const margin=price>0?Math.round((gross/price)*100):0;
+  document.getElementById('qLabel').textContent=curSvc.name+' — '+curTier.toUpperCase()+' tier';
+  document.getElementById('qPrice').textContent='$'+price.toLocaleString();
+  document.getElementById('qRange').textContent='Market range: '+curSvc.phoneRange;
+  document.getElementById('qTierDesc').textContent=td.desc;
+  const bd=document.getElementById('qBreakdown');
+  bd.innerHTML='<div class="bd-row"><span>Labor</span><span>$'+laborCost.toLocaleString()+'</span></div>'+
+    '<div class="bd-row"><span>Equipment / Materials</span><span>$'+parts.toLocaleString()+'</span></div>'+
+    (wm!==1?'<div class="bd-row"><span>Water category multiplier (×'+wm+')</span><span style="color:#fbbf24">applied</span></div>':'')+
+    (tm!==1?'<div class="bd-row"><span>Emergency dispatch (×'+tm+')</span><span style="color:#fbbf24">applied</span></div>':'')+
+    (am!==1?'<div class="bd-row"><span>Area size multiplier (×'+am+')</span><span style="color:#fbbf24">applied</span></div>':'')+
+    '<div class="bd-row"><span>Total cost</span><span>$'+totalCost.toLocaleString()+'</span></div>'+
+    '<div class="bd-row"><span>Gross profit</span><span style="color:'+(gross>=0?'#4ade80':'#f87171')+'">$'+gross.toLocaleString()+'</span></div>';
+  const mb=document.getElementById('mBadge');
+  mb.className='mbadge '+(margin>=55?'mg':margin>=35?'ma':'mr');
+  mb.textContent=margin+'% margin';
+  document.getElementById('mLabel').textContent=margin>=55?'Strong margin':margin>=35?'Acceptable':'Tight — review';
+  document.getElementById('kLabor').textContent='$'+laborCost.toLocaleString();
+  document.getElementById('kEquip').textContent='$'+parts.toLocaleString();
+  document.getElementById('kGross').textContent='$'+gross.toLocaleString();
+  document.getElementById('kMargin').textContent=margin+'%';
+  const rf=document.getElementById('rfBox');
+  if(curSvc.redFlags){rf.style.display='block';rf.innerHTML='<strong>🚩 Red Flags:</strong> '+curSvc.redFlags;}else rf.style.display='none';
+  const us=document.getElementById('usBox');
+  if(curSvc.upsells){us.style.display='block';us.innerHTML='<strong>⬆️ Upsells:</strong> '+curSvc.upsells;}else us.style.display='none';
+  const insBox=document.getElementById('insBox');
+  insBox.style.display=mods.ins==='yes'?'block':'none';
+}
+</script>
+</body>
+</html>

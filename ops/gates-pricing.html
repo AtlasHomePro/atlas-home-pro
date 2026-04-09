@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas Home Pro — Gates & Garage Doors Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1B2A47;--teal:#0891B2;--green:#16A34A;--red:#DC2626;--blue:#2563EB;--amber:#D97706;--purple:#7C3AED;--bg:#F8F9FB;--card:#FFFFFF;--border:#E5E7EB;--text:#1F2937;--text-light:#6B7280;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding-bottom:80px}
+.header{background:var(--navy);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.h-badge{background:var(--teal);color:#fff;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px}
+.trade-nav{display:flex;gap:6px;flex-wrap:wrap}
+.tn{padding:6px 14px;border-radius:var(--radius-sm);font-size:12px;font-weight:500;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;text-decoration:none;transition:all .15s}
+.tn:hover{background:rgba(255,255,255,.18)}
+.tn.active{background:#fff;color:var(--navy);border-color:#fff}
+.tn.dim{opacity:.4}
+.h-back{color:rgba(255,255,255,.7);font-size:12px;text-decoration:none}
+.tab-bar{background:var(--card);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:4px;overflow-x:auto;position:sticky;top:52px;z-index:99}
+.tab-btn{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text-light);border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:#D97706;border-bottom-color:#D97706;font-weight:600}
+.tc{display:none;padding:20px;max-width:1200px;margin:0 auto}
+.tc.active{display:block}
+.sec-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--text-light);margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.kpi-num{font-size:24px;font-weight:700;color:var(--navy)}
+.kpi-lbl{font-size:11px;color:var(--text-light);margin-top:2px}
+label.fl{font-size:11px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
+input[type=number],select{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;background:#fff;color:var(--text)}
+input[type=number]:focus,select:focus{outline:none;border-color:#D97706}
+.tog-g{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tog{padding:7px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text);transition:all .12s}
+.tog.sel{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tier-card{border:2px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .15s;background:#fff}
+.tier-card.sel-good{border-color:var(--green);background:#F0FDF4}
+.tier-card.sel-better{border-color:var(--blue);background:#EFF6FF}
+.tier-card.sel-best{border-color:var(--purple);background:#F5F3FF}
+.t-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.t-label.g{color:var(--green)}.t-label.b{color:var(--blue)}.t-label.p{color:var(--purple)}
+.t-price{font-size:22px;font-weight:700}
+.t-price.g{color:#15803d}.t-price.b{color:#1d4ed8}.t-price.p{color:#6d28d9}
+.t-desc{font-size:11px;margin-top:6px;line-height:1.5}
+.t-desc.g{color:#166534}.t-desc.b{color:#1e40af}.t-desc.p{color:#5b21b6}
+.quote-card{background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px;margin-top:16px}
+.q-label{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:4px}
+.q-price{font-size:40px;font-weight:700;letter-spacing:-1px}
+.q-range{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px}
+.q-tier-desc{font-size:13px;color:rgba(255,255,255,.85);margin-top:8px;padding:8px 12px;background:rgba(255,255,255,.1);border-radius:8px}
+.bd-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:13px}
+.bd-row:last-child{border-bottom:none;font-weight:600}
+.mbadge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-top:8px}
+.mg{background:rgba(22,163,74,.25);color:#4ade80}.ma{background:rgba(217,119,6,.25);color:#fbbf24}.mr{background:rgba(220,38,38,.25);color:#f87171}
+.alert-box{border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;margin-top:8px;line-height:1.6}
+.rf{background:#FEF3C7;border-left:3px solid var(--amber);color:#78350f}
+.us{background:#DCFCE7;border-left:3px solid var(--green);color:#14532d}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.3px}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:#F9FAFB}
+tr:last-child td{border-bottom:none}
+td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}td.p{color:var(--purple);font-weight:600}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.bg{background:#DCFCE7;color:#14532d}.ba{background:#FEF3C7;color:#78350f}.br{background:#FEE2E2;color:#991b1b}
+.note{font-size:11px;color:var(--text-light);margin-top:8px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div><div style="font-size:15px;font-weight:700;color:#fff">🚪 Gates & Garage Door Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro — Ops Portal</div></div>
+    <span class="h-badge">Internal Use Only</span>
+  </div>
+  <div class="trade-nav">
+    <a href="/ops/pricing.html" class="tn">🔧 Plumbing</a>
+    <a href="/ops/hvac-pricing.html" class="tn">❄️ HVAC</a>
+    <a href="/ops/restoration-pricing.html" class="tn">💧 Restoration</a>
+    <a href="/ops/gates-pricing.html" class="tn active">🚪 Gates</a>
+    <a href="/ops/painting-pricing.html" class="tn">🎨 Painting</a>
+  </div>
+  <a href="/ops/" class="h-back">← Ops Portal</a>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="calc">⚡ Job Calculator</button>
+  <button class="tab-btn" data-tab="quickref">📋 Quick Reference</button>
+  <button class="tab-btn" data-tab="guides">📖 Service Guides</button>
+</div>
+
+<!-- CALCULATOR -->
+<div class="tc active" id="tab-calc">
+  <div class="sec-title">🚪 Gates & Garage Door Pricing Calculator</div>
+  <div class="sec-sub">Select category → service → tier → apply modifiers → quote</div>
+  <div class="card" style="margin-bottom:16px">
+    <div class="grid2">
+      <div>
+        <label class="fl">Service Category</label>
+        <select id="svcCat" onchange="onCatChange()">
+          <option value="">— Pick category —</option>
+          <option value="garage_repair">🚗 Garage Door Repair</option>
+          <option value="garage_install">🔧 Garage Door Installation</option>
+          <option value="gate_repair">🚪 Electric Gate Repair</option>
+          <option value="gate_install">⚙️ Gate Installation & Automation</option>
+          <option value="access">🔐 Access Control</option>
+        </select>
+      </div>
+      <div>
+        <label class="fl">Specific Service</label>
+        <select id="svcId" onchange="onSvcChange()"><option value="">— Pick category first —</option></select>
+      </div>
+    </div>
+  </div>
+  <div id="calcBody" style="display:none">
+    <div class="card" style="margin-bottom:16px">
+      <label class="fl">Service Tier</label>
+      <div class="grid3" style="margin-top:8px">
+        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">—</div><div class="t-desc g" id="tGoodDesc">—</div></div>
+        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">—</div><div class="t-desc b" id="tBetterDesc">—</div></div>
+        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">—</div><div class="t-desc p" id="tBestDesc">—</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <label class="fl">Job Modifiers</label>
+      <div class="grid3" style="margin-top:8px">
+        <div>
+          <label class="fl" style="margin-bottom:4px">Time of Service</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('time','std',this)">Standard</button>
+            <button class="tog" onclick="setMod('time','eve',this)">Eve/Sat 1.5×</button>
+            <button class="tog" onclick="setMod('time','emg',this)">Emergency 2×</button>
+          </div>
+        </div>
+        <div>
+          <label class="fl" style="margin-bottom:4px">Property Type</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('prop','std',this)">Standard</button>
+            <button class="tog" onclick="setMod('prop','luxury',this)">Luxury/Estate +20%</button>
+          </div>
+        </div>
+        <div>
+          <label class="fl" style="margin-bottom:4px">Parts Override ($0=auto)</label>
+          <input type="number" id="partsOvr" value="0" min="0" oninput="calcQuote()">
+        </div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="q-label" id="qLabel">—</div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">—</div></div>
+        <div style="text-align:right"><span class="mbadge" id="mBadge">—</span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">—</div></div>
+      </div>
+      <div class="q-tier-desc" id="qTierDesc"></div>
+      <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px" id="qBreakdown"></div>
+    </div>
+    <div class="grid4" style="margin-top:12px">
+      <div class="kpi"><div class="kpi-num" id="kLabor">$0</div><div class="kpi-lbl">Labor cost</div></div>
+      <div class="kpi"><div class="kpi-num" id="kParts">$0</div><div class="kpi-lbl">Parts cost</div></div>
+      <div class="kpi"><div class="kpi-num" id="kGross">$0</div><div class="kpi-lbl">Gross profit</div></div>
+      <div class="kpi"><div class="kpi-num" id="kMargin">0%</div><div class="kpi-lbl">Gross margin</div></div>
+    </div>
+    <div id="rfBox" class="alert-box rf" style="display:none;margin-top:12px"></div>
+    <div id="usBox" class="alert-box us" style="display:none;margin-top:6px"></div>
+  </div>
+</div>
+
+<!-- QUICK REF -->
+<div class="tc" id="tab-quickref">
+  <div class="sec-title">📋 Quick Reference — All Gate & Garage Services</div>
+  <div class="sec-sub">Good / Better / Best at a glance. Emergency rates 2× standard labor.</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Margin</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Spring Repair (1 spring)</strong></td><td class="g">$195</td><td class="b">$275</td><td class="p">$375</td><td><span class="badge bg">72%</span></td><td style="font-size:11px">Replace both springs while there — always recommend. Lifetime warranty on Best tier.</td></tr>
+        <tr><td><strong>Spring Repair (both springs)</strong></td><td class="g">$295</td><td class="b">$395</td><td class="p">$495</td><td><span class="badge bg">70%</span></td><td style="font-size:11px">Best value — one spring failing means the other is close. Standard pitch on every spring job.</td></tr>
+        <tr><td><strong>Opener Repair</strong></td><td class="g">$225</td><td class="b">$325</td><td class="p">$425</td><td><span class="badge bg">75%</span></td><td style="font-size:11px">Diagnose board vs. drive vs. motor. Board replacement = often cheaper to replace opener.</td></tr>
+        <tr><td><strong>Opener Replacement</strong></td><td class="g">$395</td><td class="b">$545</td><td class="p">$795</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Liftmaster preferred. Wi-Fi enabled = Good standard. Battery backup = Better/Best. Good upsell.</td></tr>
+        <tr><td><strong>Cable Repair</strong></td><td class="g">$185</td><td class="b">$265</td><td class="p">$345</td><td><span class="badge bg">74%</span></td><td style="font-size:11px">Replace both cables while there. Check drums and springs when cable is off.</td></tr>
+        <tr><td><strong>Off-Track Repair</strong></td><td class="g">$175</td><td class="b">$275</td><td class="p">$395</td><td><span class="badge bg">73%</span></td><td style="font-size:11px">Diagnose cause before realigning. Bent track = replace section, not just reset.</td></tr>
+        <tr><td><strong>Panel Replacement</strong></td><td class="g">$275</td><td class="b">$450</td><td class="p">$695</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Match existing panels. Multiple panels = full door replacement often better value.</td></tr>
+        <tr><td><strong>Remote Programming</strong></td><td class="g">$95</td><td class="b">$125</td><td class="p">$195</td><td><span class="badge bg">88%</span></td><td style="font-size:11px">High margin. Add keypad programming to every opener job. Quick upsell.</td></tr>
+        <tr><td><strong>Annual Tune-Up</strong></td><td class="g">$125</td><td class="b">$175</td><td class="p">$249</td><td><span class="badge bg">80%</span></td><td style="font-size:11px">Lubrication, balance test, safety test, hardware tighten, opener force test. Pitch annual plan.</td></tr>
+        <tr><td><strong>Electric Gate Repair</strong></td><td class="g">$275</td><td class="b">$450</td><td class="p">$750</td><td><span class="badge ba">65%</span></td><td style="font-size:11px">Diagnose motor vs. control board vs. sensor vs. intercom. Board = expensive — get part cost first.</td></tr>
+        <tr><td><strong>Gate Motor Replacement</strong></td><td class="g">$895</td><td class="b">$1,295</td><td class="p">$1,895</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">LiftMaster or Viking preferred. Match existing if replacement. Always 2-year warranty on motor.</td></tr>
+        <tr><td><strong>Custom Gate Install</strong></td><td class="g">$3,500</td><td class="b">$6,500</td><td class="p">$12,000+</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">Always site assess first. Beverly Hills = always Best tier minimum. Permit required.</td></tr>
+        <tr><td><strong>Access Control Install</strong></td><td class="g">$495</td><td class="b">$895</td><td class="p">$1,895</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Keypad vs intercom vs camera+app integration. Beverly Hills = camera + app standard.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SERVICE GUIDES -->
+<div class="tc" id="tab-guides">
+  <div class="sec-title">📖 Service Guides — Tech Reference</div>
+  <div class="sec-sub">What to check, what to say, what to upsell on every gate and garage job.</div>
+  <div class="grid2">
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔧 Garage Door Spring Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Torsion springs (above door):</strong> Most common in LA. One or two springs. ALWAYS replace both when one breaks — the other is at end of life.<br>
+        <strong>Extension springs (sides):</strong> Older homes. Replace with torsion if possible — safer and lasts longer. Upgrade pitch.<br>
+        <strong>Cycle ratings:</strong> Standard = 10,000 cycles. Heavy duty = 25,000. High-cycle = 50,000 (estate/commercial). Always quote heavy duty or high-cycle on Best tier.<br>
+        <strong>Safety cable:</strong> Extension springs MUST have safety cables. If missing, add to every quote.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚪 Garage Door Opener Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Drive types:</strong> Chain (noisy, cheap), Belt (quiet, mid), Direct drive (quietest, premium). Beverly Hills = always belt or direct drive.<br>
+        <strong>Horsepower:</strong> 1/2 HP for standard, 3/4 HP for heavy or insulated doors, 1 HP+ for commercial.<br>
+        <strong>LiftMaster is preferred brand:</strong> myQ app integration, battery backup option, safety sensors standard.<br>
+        <strong>Battery backup:</strong> $50 part, $30 labor — always include in Better/Best. LA power outages = stranded cars without it.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚪 Electric Gate Diagnosis Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Motor not running:</strong> Check power first, then capacitor, then motor windings, then control board. Board replacement is expensive — get part cost before quoting repair.<br>
+        <strong>Gate moves slow/jerky:</strong> Check battery backup if solar, lubricate drive mechanism, check limit switches.<br>
+        <strong>Gate won't close fully:</strong> Limit switch or obstruction sensor. Often a 10-minute fix — quote accordingly.<br>
+        <strong>Safety sensors:</strong> Mandatory on all electric gates. If missing or damaged = always replace as part of any repair.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🏰 Beverly Hills / Estate Standards</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Always Best tier minimum</strong> for BH, Bel Air, Brentwood estate work.<br>
+        <strong>Custom gates:</strong> Always site assess. Iron/steel vs. aluminum vs. wood. HOA approval may be needed.<br>
+        <strong>Access control:</strong> Intercom with camera + smartphone app is the standard. Ring or DoorBird preferred.<br>
+        <strong>Permit:</strong> Required for new gate installation in LA. Add $200–$300 to quote.<br>
+        <strong>Lubrication type:</strong> Use white lithium grease on springs and hinges. Silicone spray on rubber seals. Never WD-40 — it attracts dirt.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SVCS={
+garage_repair:[
+  {id:'spring1',name:'Spring Repair — 1 Spring',tiers:{good:{price:195,desc:'Single spring replacement, standard torsion, 1-year warranty'},better:{price:275,desc:'Single spring, heavy duty, cable check, balance test, 3-year warranty'},best:{price:375,desc:'Single spring, high-cycle, cable check, balance test, safety inspection, lifetime warranty'}},labor:1,parts:65,phoneRange:'$195–$375',redFlags:'Always recommend replacing both springs — if one breaks the other is close. Show customer the cost of one vs. two.',upsells:'Both springs +$100, Annual tune-up +$125, Opener check'},
+  {id:'spring2',name:'Spring Repair — Both Springs',tiers:{good:{price:295,desc:'Both springs replaced, standard torsion, 1-year warranty'},better:{price:395,desc:'Both springs, heavy duty, cables, balance test, 3-year warranty'},best:{price:495,desc:'Both springs, high-cycle, cables, full safety inspection, lifetime warranty'}},labor:1.25,parts:110,phoneRange:'$295–$495',redFlags:'Check cables while springs are off — if frayed, add to quote. Drums often need replacement with older springs.',upsells:'Cable replacement if frayed, Annual tune-up, Opener check'},
+  {id:'opener_rep',name:'Opener Repair',tiers:{good:{price:225,desc:'Diagnose and repair — board, drive, or sensors'},better:{price:325,desc:'Diagnose + repair + force calibration + safety test'},best:{price:425,desc:'Diagnose + repair + full tune-up + remote programming + safety test'}},labor:1.25,parts:75,phoneRange:'$225–$425',redFlags:'Control board replacement = $150–$300 part cost. Often cheaper to replace full opener. Present both options.',upsells:'Opener replacement if board cost is over 50% of new opener, Remote programming, Battery backup'},
+  {id:'opener_rep2',name:'Opener Replacement',tiers:{good:{price:395,desc:'LiftMaster 1/2 HP belt drive, wi-fi enabled, standard install'},better:{price:545,desc:'LiftMaster 3/4 HP belt drive, wi-fi + battery backup, keypad included'},best:{price:795,desc:'LiftMaster direct drive or 1 HP, battery backup, camera, keypad, full myQ setup'}},labor:1.5,parts:225,phoneRange:'$395–$795',redFlags:'Check door weight and balance before spec-ing opener HP. Heavy insulated doors need 3/4 HP minimum.',upsells:'Battery backup, myQ camera, Remote keypad, Annual tune-up plan'},
+  {id:'cable',name:'Cable Repair',tiers:{good:{price:185,desc:'Replace broken cable, standard access, 90-day warranty'},better:{price:265,desc:'Replace both cables, drum check, 1-year warranty'},best:{price:345,desc:'Replace both cables, drums if worn, balance test, 2-year warranty'}},labor:1,parts:45,phoneRange:'$185–$345',redFlags:'Always replace both cables at once — matching wear. Check drums and springs while cable is off.',upsells:'Both springs if near end of life, Annual tune-up, Opener check'},
+  {id:'offtrack',name:'Off-Track Repair',tiers:{good:{price:175,desc:'Realign door, standard access, verbal inspection'},better:{price:275,desc:'Realign, inspect rollers and tracks, replace if needed, written report'},best:{price:395,desc:'Full track repair or replace section, new rollers, balance test, 1-year warranty'}},labor:1,parts:35,phoneRange:'$175–$395',redFlags:'Diagnose cause of off-track BEFORE realigning — bent track, broken roller, cable issue. Realigning without fixing cause = it comes off again.',upsells:'Track replacement if bent, Roller upgrade to nylon, Annual tune-up'},
+  {id:'panel',name:'Panel Replacement',tiers:{good:{price:275,desc:'Matching panel sourced and installed'},better:{price:450,desc:'Matching or closest panel, hardware, 1-year warranty'},best:{price:695,desc:'Panel replacement with paint match, weather seal, 2-year warranty'}},labor:1.5,parts:150,phoneRange:'$275–$695',redFlags:'Match existing panel style and color. Multiple damaged panels = full door replacement is often better value. Present comparison quote.',upsells:'Full door replacement if 3+ panels damaged, Weather seal upgrade, Opener check'},
+  {id:'remote',name:'Remote Programming',tiers:{good:{price:95,desc:'Program up to 2 remotes, standard openers'},better:{price:125,desc:'Program remotes + exterior keypad + app setup'},best:{price:195,desc:'Full setup — remotes, keypad, myQ app, camera integration, HomeLink programming'}},labor:0.5,parts:10,phoneRange:'$95–$195',redFlags:'Check opener brand compatibility before arriving. LiftMaster, Chamberlain, Craftsman = myQ compatible. Others may need universal remote.',upsells:'Exterior keypad +$95, myQ camera, Battery backup'},
+  {id:'tune',name:'Annual Tune-Up',tiers:{good:{price:125,desc:'Lubrication, hardware tighten, balance test, safety test'},better:{price:175,desc:'Full tune-up + roller inspection + opener force calibration + written report'},best:{price:249,desc:'Comprehensive service + roller upgrade + weather seal + full safety inspection + 1-year service guarantee'}},labor:0.75,parts:15,phoneRange:'$125–$249',redFlags:'Inspect springs, cables, drums while doing tune-up. Find issues and quote — this is the foot in the door.',upsells:'Annual maintenance plan, Spring replacement if worn, Roller upgrade to nylon'},
+],
+garage_install:[
+  {id:'door_single',name:'Garage Door Replacement — Single',tiers:{good:{price:895,desc:'Standard steel door, basic insulation, standard install, permit'},better:{price:1450,desc:'Insulated steel or carriage style, standard install, permit, 5-year warranty'},best:{price:2200,desc:'Premium door (Wayne Dalton, Clopay), R-18 insulation, permit, 10-year warranty'}},labor:3,parts:550,phoneRange:'$895–$2,200',redFlags:'Measure opening carefully — non-standard sizes add 20-30% to door cost. Check header space for opener mounting.',upsells:'Opener replacement, Keypad, myQ camera, Annual tune-up plan'},
+  {id:'door_double',name:'Garage Door Replacement — Double',tiers:{good:{price:1495,desc:'Standard steel 16ft double door, basic insulation, permit'},better:{price:2200,desc:'Insulated steel or carriage style double, permit, 5-year warranty'},best:{price:3800,desc:'Premium double door, R-18 insulation, decorative hardware, permit, 10-year warranty'}},labor:4,parts:950,phoneRange:'$1,495–$3,800',redFlags:'Structural header check required for double doors. Check springs — double doors need 2 springs minimum.',upsells:'Premium opener for double door weight, Decorative hardware, Annual plan'},
+],
+gate_repair:[
+  {id:'gate_rep',name:'Electric Gate Repair',tiers:{good:{price:275,desc:'Diagnose and repair — sensor, limit switch, or simple electrical'},better:{price:450,desc:'Repair + full diagnostic + force test + safety sensor check'},best:{price:750,desc:'Full repair + replacement parts + system test + 1-year warranty'}},labor:2,parts:95,phoneRange:'$275–$750',redFlags:'Control board diagnosis first — board replacement is expensive. Get part cost before committing to repair vs. replace.',upsells:'Motor replacement if board/motor both failing, Access control upgrade, Annual maintenance'},
+  {id:'motor_rep',name:'Gate Motor Replacement',tiers:{good:{price:895,desc:'LiftMaster or Viking motor, standard install, 1-year warranty'},better:{price:1295,desc:'Premium motor, installation, force calibration, safety test, 2-year warranty'},best:{price:1895,desc:'Top-tier motor, installation, app integration, access control, full system test, 3-year warranty'}},labor:3,parts:450,phoneRange:'$895–$1,895',redFlags:'Match gate weight and width to motor specs. Sliding vs. swing gate = different motor type. Measure gate before ordering.',upsells:'Access control upgrade, Camera/intercom, App integration, Annual plan'},
+],
+gate_install:[
+  {id:'gate_auto',name:'Gate Automation — Existing Gate',tiers:{good:{price:1200,desc:'Add motor and controls to existing manual gate, standard'},better:{price:1895,desc:'Motor + keypad + safety sensors + wiring, 2-year warranty'},best:{price:2800,desc:'Motor + keypad + intercom + camera + app integration, 3-year warranty'}},labor:5,parts:550,phoneRange:'$1,200–$2,800',redFlags:'Assess gate weight and condition before automating — old or damaged gate may need repair/replace first.',upsells:'Intercom upgrade, Camera + app, Full custom gate replacement'},
+  {id:'gate_custom',name:'Custom Gate Installation',tiers:{good:{price:3500,desc:'Basic wrought iron or aluminum gate, motor, standard access, permit'},better:{price:6500,desc:'Custom iron gate, motor, keypad, intercom, permit, 3-year warranty'},best:{price:12000,desc:'Premium custom gate design + fabrication, smart access, camera, app, permit, 5-year warranty'}},labor:16,parts:2000,phoneRange:'$3,500–$12,000+',redFlags:'ALWAYS site assess first. HOA approval check. Permit required. Beverly Hills = Best tier minimum. Grade change or column work adds cost.',upsells:'Smart access control, Camera/intercom, Full driveway treatment'},
+],
+access:[
+  {id:'keypad',name:'Keypad Installation',tiers:{good:{price:195,desc:'Standard keypad for garage or gate, programmed, weatherproof'},better:{price:295,desc:'Commercial-grade keypad, multiple codes, illuminated, programmed'},best:{price:450,desc:'Smart keypad with app control, unlimited codes, audit log, 2-year warranty'}},labor:1,parts:95,phoneRange:'$195–$450',redFlags:'Check power source before ordering. Hardwired vs. battery vs. solar. Match to existing opener brand where possible.',upsells:'Camera upgrade, Intercom, myQ app integration'},
+  {id:'intercom',name:'Intercom & Camera Install',tiers:{good:{price:495,desc:'Video intercom, standard install, wired or Wi-Fi'},better:{price:895,desc:'Premium intercom + HD camera + app integration, 2-year warranty'},best:{price:1895,desc:'Full smart access — intercom, camera, app, door release integration, 3-year warranty'}},labor:2.5,parts:300,phoneRange:'$495–$1,895',redFlags:'Check existing wiring before committing to wired system. Beverly Hills = always app-enabled at minimum. DoorBird or Aiphone preferred.',upsells:'Full gate automation, Additional cameras, Smart lock integration'},
+]
+};
+
+const LABOR_RATE=38;
+let mods={time:'std',prop:'std'};
+let curSvc=null,curTier='good';
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+function onCatChange(){
+  const cat=document.getElementById('svcCat').value;
+  const sel=document.getElementById('svcId');
+  sel.innerHTML='<option value="">— Select service —</option>';
+  document.getElementById('calcBody').style.display='none';
+  if(!cat||!SVCS[cat])return;
+  SVCS[cat].forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.name;sel.appendChild(o);});
+}
+function onSvcChange(){
+  const id=document.getElementById('svcId').value;
+  const cat=document.getElementById('svcCat').value;
+  if(!id||!cat)return;
+  curSvc=SVCS[cat].find(s=>s.id===id);
+  if(!curSvc)return;
+  document.getElementById('calcBody').style.display='block';
+  const t=curSvc.tiers;
+  document.getElementById('tGoodPrice').textContent='$'+t.good.price.toLocaleString();
+  document.getElementById('tGoodDesc').textContent=t.good.desc;
+  document.getElementById('tBetterPrice').textContent='$'+t.better.price.toLocaleString();
+  document.getElementById('tBetterDesc').textContent=t.better.desc;
+  document.getElementById('tBestPrice').textContent='$'+t.best.price.toLocaleString();
+  document.getElementById('tBestDesc').textContent=t.best.desc;
+  selTier('good');
+}
+function selTier(tier){
+  curTier=tier;
+  const cfg={good:{card:'tcGood',cls:'sel-good'},better:{card:'tcBetter',cls:'sel-better'},best:{card:'tcBest',cls:'sel-best'}};
+  ['good','better','best'].forEach(t=>{const el=document.getElementById(cfg[t].card);el.className='tier-card';if(t===tier)el.classList.add(cfg[t].cls);});
+  calcQuote();
+}
+function setMod(key,val,btn){mods[key]=val;btn.parentElement.querySelectorAll('.tog').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');calcQuote();}
+function calcQuote(){
+  if(!curSvc)return;
+  const td=curSvc.tiers[curTier];
+  const partsOvr=parseFloat(document.getElementById('partsOvr').value)||0;
+  const parts=partsOvr>0?partsOvr:curSvc.parts;
+  const tm=mods.time==='emg'?2.0:mods.time==='eve'?1.5:1.0;
+  const pm=mods.prop==='luxury'?1.2:1.0;
+  const lc=Math.round(curSvc.labor*LABOR_RATE);
+  const tc2=lc+parts;
+  const price=Math.round(td.price*tm*pm);
+  const gross=price-tc2;
+  const margin=price>0?Math.round((gross/price)*100):0;
+  document.getElementById('qLabel').textContent=curSvc.name+' — '+curTier.toUpperCase()+' tier';
+  document.getElementById('qPrice').textContent='$'+price.toLocaleString();
+  document.getElementById('qRange').textContent='Market range: '+curSvc.phoneRange;
+  document.getElementById('qTierDesc').textContent=td.desc;
+  const bd=document.getElementById('qBreakdown');
+  bd.innerHTML='<div class="bd-row"><span>Labor ('+curSvc.labor+'h × $'+LABOR_RATE+'/hr)</span><span>$'+lc.toLocaleString()+'</span></div>'+
+    '<div class="bd-row"><span>Parts / Materials</span><span>$'+parts.toLocaleString()+'</span></div>'+
+    (tm!==1?'<div class="bd-row"><span>Time multiplier (×'+tm+')</span><span style="color:#fbbf24">applied</span></div>':'')+
+    (pm!==1?'<div class="bd-row"><span>Luxury/estate (+20%)</span><span style="color:#fbbf24">applied</span></div>':'')+
+    '<div class="bd-row"><span>Total cost</span><span>$'+tc2.toLocaleString()+'</span></div>'+
+    '<div class="bd-row"><span>Gross profit</span><span style="color:'+(gross>=0?'#4ade80':'#f87171')+'">$'+gross.toLocaleString()+'</span></div>';
+  const mb=document.getElementById('mBadge');
+  mb.className='mbadge '+(margin>=60?'mg':margin>=40?'ma':'mr');
+  mb.textContent=margin+'% margin';
+  document.getElementById('mLabel').textContent=margin>=60?'Strong margin':margin>=40?'Acceptable':'Tight — review';
+  document.getElementById('kLabor').textContent='$'+lc.toLocaleString();
+  document.getElementById('kParts').textContent='$'+parts.toLocaleString();
+  document.getElementById('kGross').textContent='$'+gross.toLocaleString();
+  document.getElementById('kMargin').textContent=margin+'%';
+  const rf=document.getElementById('rfBox');
+  if(curSvc.redFlags){rf.style.display='block';rf.innerHTML='<strong>🚩 Red Flags:</strong> '+curSvc.redFlags;}else rf.style.display='none';
+  const us=document.getElementById('usBox');
+  if(curSvc.upsells){us.style.display='block';us.innerHTML='<strong>⬆️ Upsells:</strong> '+curSvc.upsells;}else us.style.display='none';
+}
+</script>
+</body>
+</html>

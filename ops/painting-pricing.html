@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlas Home Pro — Painting Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1B2A47;--teal:#0891B2;--green:#16A34A;--red:#DC2626;--blue:#2563EB;--amber:#D97706;--purple:#7C3AED;--pink:#DB2777;--bg:#F8F9FB;--card:#FFFFFF;--border:#E5E7EB;--text:#1F2937;--text-light:#6B7280;--radius:12px;--radius-sm:8px;--shadow:0 1px 3px rgba(0,0,0,0.08)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding-bottom:80px}
+.header{background:var(--navy);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.h-badge{background:var(--pink);color:#fff;font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px}
+.trade-nav{display:flex;gap:6px;flex-wrap:wrap}
+.tn{padding:6px 14px;border-radius:var(--radius-sm);font-size:12px;font-weight:500;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;text-decoration:none;transition:all .15s}
+.tn:hover{background:rgba(255,255,255,.18)}
+.tn.active{background:#fff;color:var(--navy);border-color:#fff}
+.h-back{color:rgba(255,255,255,.7);font-size:12px;text-decoration:none}
+.tab-bar{background:var(--card);border-bottom:1px solid var(--border);padding:0 20px;display:flex;gap:4px;overflow-x:auto;position:sticky;top:52px;z-index:99}
+.tab-btn{padding:12px 16px;font-size:13px;font-weight:500;color:var(--text-light);border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--pink);border-bottom-color:var(--pink);font-weight:600}
+.tc{display:none;padding:20px;max-width:1200px;margin:0 auto}
+.tc.active{display:block}
+.sec-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--text-light);margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;text-align:center}
+.kpi-num{font-size:24px;font-weight:700;color:var(--navy)}
+.kpi-lbl{font-size:11px;color:var(--text-light);margin-top:2px}
+label.fl{font-size:11px;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
+input[type=number],select{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;background:#fff;color:var(--text)}
+input[type=number]:focus,select:focus{outline:none;border-color:var(--pink)}
+.tog-g{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tog{padding:7px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-weight:500;cursor:pointer;background:#fff;color:var(--text);transition:all .12s}
+.tog.sel{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tier-card{border:2px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .15s;background:#fff}
+.tier-card.sel-good{border-color:var(--green);background:#F0FDF4}
+.tier-card.sel-better{border-color:var(--blue);background:#EFF6FF}
+.tier-card.sel-best{border-color:var(--purple);background:#F5F3FF}
+.t-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.t-label.g{color:var(--green)}.t-label.b{color:var(--blue)}.t-label.p{color:var(--purple)}
+.t-price{font-size:22px;font-weight:700}
+.t-price.g{color:#15803d}.t-price.b{color:#1d4ed8}.t-price.p{color:#6d28d9}
+.t-desc{font-size:11px;margin-top:6px;line-height:1.5}
+.t-desc.g{color:#166534}.t-desc.b{color:#1e40af}.t-desc.p{color:#5b21b6}
+.quote-card{background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px;margin-top:16px}
+.q-label{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:4px}
+.q-price{font-size:40px;font-weight:700;letter-spacing:-1px}
+.q-range{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px}
+.q-tier-desc{font-size:13px;color:rgba(255,255,255,.85);margin-top:8px;padding:8px 12px;background:rgba(255,255,255,.1);border-radius:8px}
+.bd-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:13px}
+.bd-row:last-child{border-bottom:none;font-weight:600}
+.mbadge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-top:8px}
+.mg{background:rgba(22,163,74,.25);color:#4ade80}.ma{background:rgba(217,119,6,.25);color:#fbbf24}.mr{background:rgba(220,38,38,.25);color:#f87171}
+.alert-box{border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;margin-top:8px;line-height:1.6}
+.rf{background:#FEF3C7;border-left:3px solid var(--amber);color:#78350f}
+.us{background:#DCFCE7;border-left:3px solid var(--green);color:#14532d}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.3px}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:#F9FAFB}
+tr:last-child td{border-bottom:none}
+td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}td.p{color:var(--purple);font-weight:600}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.bg{background:#DCFCE7;color:#14532d}.ba{background:#FEF3C7;color:#78350f}.br{background:#FEE2E2;color:#991b1b}
+.note{font-size:11px;color:var(--text-light);margin-top:8px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="header">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div><div style="font-size:15px;font-weight:700;color:#fff">🎨 Painting Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro — Ops Portal</div></div>
+    <span class="h-badge">Internal Use Only</span>
+  </div>
+  <div class="trade-nav">
+    <a href="/ops/pricing.html" class="tn">🔧 Plumbing</a>
+    <a href="/ops/hvac-pricing.html" class="tn">❄️ HVAC</a>
+    <a href="/ops/restoration-pricing.html" class="tn">💧 Restoration</a>
+    <a href="/ops/gates-pricing.html" class="tn">🚪 Gates</a>
+    <a href="/ops/painting-pricing.html" class="tn active">🎨 Painting</a>
+  </div>
+  <a href="/ops/" class="h-back">← Ops Portal</a>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="calc">⚡ Job Calculator</button>
+  <button class="tab-btn" data-tab="quickref">📋 Quick Reference</button>
+  <button class="tab-btn" data-tab="guides">📖 Service Guides</button>
+</div>
+
+<!-- CALCULATOR -->
+<div class="tc active" id="tab-calc">
+  <div class="sec-title">🎨 Painting Job Pricing Calculator</div>
+  <div class="sec-sub">Select category → service → tier → apply modifiers → quote. Minimum project: $2,500.</div>
+  <div class="card" style="margin-bottom:16px">
+    <div class="grid2">
+      <div>
+        <label class="fl">Service Category</label>
+        <select id="svcCat" onchange="onCatChange()">
+          <option value="">— Pick category —</option>
+          <option value="interior">🏠 Interior Painting</option>
+          <option value="exterior">🌤️ Exterior Painting</option>
+          <option value="cabinets">🗄️ Cabinet Refinishing</option>
+          <option value="specialty">✨ Specialty & Drywall</option>
+        </select>
+      </div>
+      <div>
+        <label class="fl">Specific Service</label>
+        <select id="svcId" onchange="onSvcChange()"><option value="">— Pick category first —</option></select>
+      </div>
+    </div>
+  </div>
+  <div id="calcBody" style="display:none">
+    <div class="card" style="margin-bottom:16px">
+      <label class="fl">Service Tier</label>
+      <div class="grid3" style="margin-top:8px">
+        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">—</div><div class="t-desc g" id="tGoodDesc">—</div></div>
+        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">—</div><div class="t-desc b" id="tBetterDesc">—</div></div>
+        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">—</div><div class="t-desc p" id="tBestDesc">—</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <label class="fl">Job Modifiers</label>
+      <div class="grid3" style="margin-top:8px">
+        <div>
+          <label class="fl" style="margin-bottom:4px">Condition / Prep</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('cond','good',this)">Good — minimal prep</button>
+            <button class="tog" onclick="setMod('cond','fair',this)">Fair — moderate prep +15%</button>
+            <button class="tog" onclick="setMod('cond','poor',this)">Poor — heavy prep +35%</button>
+          </div>
+        </div>
+        <div>
+          <label class="fl" style="margin-bottom:4px">Property Tier</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('prop','std',this)">Standard</button>
+            <button class="tog" onclick="setMod('prop','luxury',this)">Luxury/Estate +25%</button>
+          </div>
+        </div>
+        <div>
+          <label class="fl" style="margin-bottom:4px">Color Changes</label>
+          <div class="tog-g">
+            <button class="tog sel" onclick="setMod('color','same',this)">Same/similar</button>
+            <button class="tog" onclick="setMod('color','change',this)">Dark to light +10%</button>
+          </div>
+        </div>
+      </div>
+      <div class="grid3" style="margin-top:12px">
+        <div>
+          <label class="fl">Square Footage <span style="font-weight:400">(0=use tier price)</span></label>
+          <input type="number" id="sqftOvr" value="0" min="0" step="50" oninput="calcQuote()">
+        </div>
+        <div>
+          <label class="fl">Labor Hours <span style="font-weight:400">(0=auto)</span></label>
+          <input type="number" id="laborOvr" value="0" min="0" step="1" oninput="calcQuote()">
+        </div>
+        <div>
+          <label class="fl">Materials Override <span style="font-weight:400">($0=auto)</span></label>
+          <input type="number" id="partsOvr" value="0" min="0" oninput="calcQuote()">
+        </div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div><div class="q-label" id="qLabel">—</div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">—</div></div>
+        <div style="text-align:right"><span class="mbadge" id="mBadge">—</span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">—</div></div>
+      </div>
+      <div class="q-tier-desc" id="qTierDesc"></div>
+      <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px" id="qBreakdown"></div>
+    </div>
+    <div class="grid4" style="margin-top:12px">
+      <div class="kpi"><div class="kpi-num" id="kLabor">$0</div><div class="kpi-lbl">Labor cost</div></div>
+      <div class="kpi"><div class="kpi-num" id="kMats">$0</div><div class="kpi-lbl">Materials</div></div>
+      <div class="kpi"><div class="kpi-num" id="kGross">$0</div><div class="kpi-lbl">Gross profit</div></div>
+      <div class="kpi"><div class="kpi-num" id="kMargin">0%</div><div class="kpi-lbl">Gross margin</div></div>
+    </div>
+    <div id="rfBox" class="alert-box rf" style="display:none;margin-top:12px"></div>
+    <div id="usBox" class="alert-box us" style="display:none;margin-top:6px"></div>
+  </div>
+</div>
+
+<!-- QUICK REF -->
+<div class="tc" id="tab-quickref">
+  <div class="sec-title">📋 Quick Reference — All Painting Services</div>
+  <div class="sec-sub">Good / Better / Best pricing. Minimum project $2,500. All include surface prep, primer, 2 finish coats.</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Margin</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Interior — Single Room</strong></td><td class="g">$400</td><td class="b">$600</td><td class="p">$800</td><td><span class="badge bg">62%</span></td><td style="font-size:11px">Walls + ceiling. Good = 1 coat paint. Better/Best = 2 coat finish coat. Minimum $2,500/job regardless.</td></tr>
+        <tr><td><strong>Interior — 3-4 Rooms</strong></td><td class="g">$1,800</td><td class="b">$2,800</td><td class="p">$3,800</td><td><span class="badge bg">60%</span></td><td style="font-size:11px">Walls + ceilings + trim. Good = standard paint. Better = Sherwin Williams SuperPaint. Best = premium paint + color consultation.</td></tr>
+        <tr><td><strong>Interior — Whole Home (1,500–2,500 sq ft)</strong></td><td class="g">$3,500</td><td class="b">$5,500</td><td class="p">$8,000</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Full home including trim, doors, ceilings. Best includes color consultation. GetHearth for larger projects.</td></tr>
+        <tr><td><strong>Interior — Whole Home (2,500–4,000 sq ft)</strong></td><td class="g">$5,500</td><td class="b">$8,500</td><td class="p">$12,000</td><td><span class="badge ba">56%</span></td><td style="font-size:11px">Beverly Hills standard. Always quote Better or Best. Multiple crews, precise color work.</td></tr>
+        <tr><td><strong>Exterior — Standard Home</strong></td><td class="g">$4,000</td><td class="b">$6,500</td><td class="p">$9,000</td><td><span class="badge ba">55%</span></td><td style="font-size:11px">Power wash, prep, prime, 2 coats body + trim. Good = 1 body color. Best = body + trim + accents + premium paint.</td></tr>
+        <tr><td><strong>Exterior — Large Home/Estate</strong></td><td class="g">$7,500</td><td class="b">$12,000</td><td class="p">$18,000+</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">BH/Bel Air estates. Scaffolding often needed. Best includes wood repair, caulk, premium elastomeric paint.</td></tr>
+        <tr><td><strong>Cabinet Refinishing — Kitchen</strong></td><td class="g">$1,500</td><td class="b">$2,800</td><td class="p">$4,500</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Good = spray paint in place. Better = remove doors, spray, reinstall. Best = sand, prime, spray, new hardware.</td></tr>
+        <tr><td><strong>Cabinet Refinishing — Full Custom</strong></td><td class="g">$3,500</td><td class="b">$6,000</td><td class="p">$9,500</td><td><span class="badge ba">56%</span></td><td style="font-size:11px">High-end kitchen remodel level. Remove all, spray, reinstall. Best includes new hinges and soft-close hardware.</td></tr>
+        <tr><td><strong>Drywall Repair — Small</strong></td><td class="g">$250</td><td class="b">$395</td><td class="p">$595</td><td><span class="badge bg">68%</span></td><td style="font-size:11px">Holes, cracks, dings under 6 inches. Patch, texture match, prime, paint. Minimum $2,500 if standalone.</td></tr>
+        <tr><td><strong>Drywall Repair — Section</strong></td><td class="g">$650</td><td class="b">$1,100</td><td class="p">$1,800</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Large section replacement, texture match, prime, paint. Water damage repair = restoration first.</td></tr>
+        <tr><td><strong>Accent Wall</strong></td><td class="g">$350</td><td class="b">$550</td><td class="p">$850</td><td><span class="badge bg">65%</span></td><td style="font-size:11px">Single wall, often dark or bold color. Good = 2 coats. Best includes color consultation and custom finish.</td></tr>
+        <tr><td><strong>Color Consultation</strong></td><td class="g">$150</td><td class="b">$295</td><td class="p">$495</td><td><span class="badge bg">85%</span></td><td style="font-size:11px">Applied as credit toward project. Best = full board with swatches, digital mockup, follow-up.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert-box rf" style="margin-top:12px">Minimum project: $2,500 — no exceptions. Poor condition surfaces add 15–35% to any quote. Luxury/estate tier adds 25%. Always power wash exterior before quoting — condition changes pricing significantly.</div>
+</div>
+
+<!-- SERVICE GUIDES -->
+<div class="tc" id="tab-guides">
+  <div class="sec-title">📖 Service Guides — Painting Tech Reference</div>
+  <div class="sec-sub">What separates a $3,500 job from an $8,000 job. Paint quality, prep work, and customer expectations.</div>
+  <div class="grid2">
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🎨 Paint Quality Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Good tier paints:</strong> Behr Premium Plus, PPG Timeless — solid coverage, 10-year warranty.<br>
+        <strong>Better tier paints:</strong> Sherwin Williams SuperPaint, Duration — better hide, washable, 15-year.<br>
+        <strong>Best tier paints:</strong> Benjamin Moore Aura, Sherwin Williams Emerald — designer quality, 25-year, premium sheen options. Beverly Hills standard.<br><br>
+        <strong>Key rule:</strong> Never quote a color change from dark to light without 2 coats minimum. Some dark reds and blues need 3 coats. Factor into quote.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔧 Prep Work Is Everything</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Interior prep checklist:</strong> Fill all holes, sand smooth, prime bare drywall, tape all edges, cover floors and furniture, remove outlet covers.<br>
+        <strong>Exterior prep checklist:</strong> Power wash 48 hours before paint, scrape loose paint, caulk all gaps, prime bare wood, sand rough areas, protect plants and hardscape.<br>
+        <strong>The Atlas standard:</strong> "Professional painters who actually care about prep work." This is the quote from our brand. Every job must back it up. Never skip prep. Never.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🗄️ Cabinet Refinishing Guide</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Good tier (spray in place):</strong> Tape and plastic everything. Spray paint doors in place. Quick but visible overspray risk. Only for small budgets.<br>
+        <strong>Better tier (remove and spray):</strong> Remove all doors and hardware. Spray in controlled environment. Re-hang. Much better finish.<br>
+        <strong>Best tier (full refinish):</strong> Remove, degloss, sand, prime, 2 spray coats, new hardware. Kitchen looks new.<br>
+        <strong>Key question to ask:</strong> "Is the wood in good condition or is it damaged?" Damaged wood = repair first = add to quote.
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🏰 Beverly Hills Painting Standards</div>
+      <div style="font-size:12px;line-height:1.9">
+        <strong>Always Benjamin Moore Aura or Sherwin Emerald</strong> — homeowners know the brand names and expect premium.<br>
+        <strong>Color consultation is standard</strong> — not optional. Include in every BH quote.<br>
+        <strong>No roller marks</strong> — spray only for ceilings and large surfaces. Roller is for tight areas only.<br>
+        <strong>Furniture protection</strong> — professional floor and furniture protection, not drop cloth corners. This is a luxury home.<br>
+        <strong>Daily cleanup</strong> — no paint cans left overnight, no tape marks, crew picks up every day.<br>
+        <strong>Minimum project $2,500</strong> — enforce this. Single room jobs below $2,500 are not worth the logistics.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SVCS={
+interior:[
+  {id:'room_single',name:'Interior — Single Room',tiers:{good:{price:400,desc:'Walls + ceiling, 1 coat finish, standard prep, 1 color'},better:{price:600,desc:'Walls + ceiling + trim, 2 coat finish, Sherwin Williams SuperPaint'},best:{price:800,desc:'Walls + ceiling + trim + doors, 2 coat premium paint, color consultation'}},labor:4,parts:80,sqftRate:0,phoneRange:'$400–$800 (minimum $2,500/job)',redFlags:'Minimum $2,500 per job regardless of room count. Poor condition walls = add prep time and cost.',upsells:'Whole room package (multiple rooms), Accent wall, Color consultation'},
+  {id:'rooms_34',name:'Interior — 3 to 4 Rooms',tiers:{good:{price:1800,desc:'Walls + ceilings, standard prep, standard paint, 2 coats'},better:{price:2800,desc:'Walls + ceilings + trim, Sherwin Williams SuperPaint, 2 coats, light prep'},best:{price:3800,desc:'Walls + ceilings + trim + doors, premium paint, thorough prep, color consultation'}},labor:18,parts:450,sqftRate:0,phoneRange:'$1,800–$3,800',redFlags:'Always check baseboard and crown condition. If damaged = repair first, add to quote.',upsells:'Whole-home package, Exterior painting, Cabinet refinishing'},
+  {id:'whole_med',name:'Interior — Whole Home (1,500–2,500 sq ft)',tiers:{good:{price:3500,desc:'All rooms, walls + ceilings, standard prep and paint'},better:{price:5500,desc:'All rooms, walls + ceilings + trim, Sherwin Williams premium, thorough prep'},best:{price:8000,desc:'Full home, all surfaces, premium paint, color consultation, white glove prep, 2-year warranty'}},labor:40,parts:1200,sqftRate:1.8,phoneRange:'$3,500–$8,000',redFlags:'Walk entire home before quoting. Water stains = restoration issue first. Cracked drywall = drywall repair added.',upsells:'GetHearth financing, Exterior painting package, Cabinet refinishing'},
+  {id:'whole_large',name:'Interior — Whole Home (2,500–4,000 sq ft)',tiers:{good:{price:5500,desc:'Full home, walls + ceilings, standard prep and paint'},better:{price:8500,desc:'Full home, all surfaces + trim, premium paint, multi-crew, thorough prep'},best:{price:12000,desc:'Estate interior, premium paint, color consultation, multiple colors, designer finishes, 2-year warranty'}},labor:60,parts:2200,sqftRate:2.2,phoneRange:'$5,500–$12,000',redFlags:'Beverly Hills standard. Always quote Better or Best. Multiple paint colors and finishes require more material and time.',upsells:'GetHearth financing, Exterior package, Cabinet refinishing, Specialty finishes'},
+  {id:'accent',name:'Accent Wall',tiers:{good:{price:350,desc:'Single wall, 2 coats, standard paint'},better:{price:550,desc:'Single wall, 2 coats, premium paint, perfect edges'},best:{price:850,desc:'Single wall, premium paint, possible specialty finish, color consultation'}},labor:3,parts:60,sqftRate:0,phoneRange:'$350–$850',redFlags:'Dark or bold colors often need 3 coats. Quote accordingly. Texture work = add labor.',upsells:'Full room painting, Texture or specialty finish upgrade'},
+],
+exterior:[
+  {id:'ext_std',name:'Exterior — Standard Home (1,500–2,500 sq ft)',tiers:{good:{price:4000,desc:'Power wash, prep, prime bare areas, 1 body color, 2 coats'},better:{price:6500,desc:'Power wash, full prep, prime, 2 body colors + trim, 2 coats, caulk all gaps'},best:{price:9000,desc:'Full power wash, thorough prep, prime, body + trim + accents, premium elastomeric, 5-year warranty'}},labor:35,parts:1500,sqftRate:0,phoneRange:'$4,000–$9,000',redFlags:'Always power wash 48 hours before painting. Check for rot, cracked caulk, and peeling. These add cost.',upsells:'Premium elastomeric paint upgrade, Wood rot repair, Color consultation'},
+  {id:'ext_large',name:'Exterior — Large Home / Estate (3,000–6,000 sq ft)',tiers:{good:{price:7500,desc:'Power wash, prep, prime, 2 body colors, 2 coats exterior'},better:{price:12000,desc:'Full prep, prime, body + trim + accents, premium paint, scaffolding if needed'},best:{price:18000,desc:'White-glove exterior restoration — full prep, wood repair, caulk, premium elastomeric, multiple colors, 5-year warranty'}},labor:70,parts:3500,sqftRate:0,phoneRange:'$7,500–$18,000+',redFlags:'Scaffolding adds $500–$2,000. Check HOA color restrictions. Stucco vs. wood vs. composite = different prep needs.',upsells:'GetHearth financing, Interior painting package, Deck and fence staining'},
+],
+cabinets:[
+  {id:'cab_kitchen',name:'Cabinet Refinishing — Standard Kitchen',tiers:{good:{price:1500,desc:'Spray paint in place, tape and protect, 2 coats, same color family'},better:{price:2800,desc:'Remove doors, spray in controlled environment, 2 coats, new color option, re-hang'},best:{price:4500,desc:'Remove all, degloss, sand, prime, 2 spray coats, new hardware, 3-year warranty'}},labor:20,parts:600,sqftRate:0,phoneRange:'$1,500–$4,500',redFlags:'Check wood condition first — damaged or water-stained cabinets need repair. Laminate = degloss required before paint.',upsells:'New hardware upgrade, Pantry or laundry room cabinets, Interior painting'},
+  {id:'cab_custom',name:'Cabinet Refinishing — Full Custom/Large',tiers:{good:{price:3500,desc:'Full kitchen remove and spray, 2 coats, standard colors'},better:{price:6000,desc:'Full kitchen remove, degloss, sand, prime, 2 spray coats, new hinges, re-hang'},best:{price:9500,desc:'Premium refinish — degloss, sand, prime, 2+ coats, soft-close hardware, color consultation, 5-year warranty'}},labor:40,parts:1800,sqftRate:0,phoneRange:'$3,500–$9,500',redFlags:'Island = separate price if different color. Glass cabinet doors = specialty work. Very large or intricate = quote increases.',upsells:'GetHearth financing, Interior painting package, New hardware upgrade'},
+],
+specialty:[
+  {id:'drywall_sm',name:'Drywall Repair — Small',tiers:{good:{price:250,desc:'Patch, texture match, prime, 1 coat paint'},better:{price:395,desc:'Patch, texture match, prime, 2 coat paint, blended finish'},best:{price:595,desc:'Repair, perfect texture match, prime, 2 coat premium, seamless blend'}},labor:2.5,parts:45,sqftRate:0,phoneRange:'$250–$595 (minimum $2,500 standalone)',redFlags:'Water stain = fix source first. Multiple small repairs = quote as whole-room repaint.',upsells:'Full room repaint, Ceiling repaint, Interior package'},
+  {id:'drywall_section',name:'Drywall Repair — Section',tiers:{good:{price:650,desc:'Replace drywall section, texture, prime, 1 coat'},better:{price:1100,desc:'Replace, texture match, prime, 2 coat, full room blend'},best:{price:1800,desc:'Replace, skim coat, premium texture match, 2 coat premium, perfect blend'}},labor:10,parts:300,sqftRate:0,phoneRange:'$650–$1,800',redFlags:'Water damage = restoration first, then painting. Check for mold before closing wall.',upsells:'Full room repaint, Interior package'},
+  {id:'color_consult',name:'Color Consultation',tiers:{good:{price:150,desc:'30-min consultation, 3 color recommendations, applied to project'},better:{price:295,desc:'1-hour consultation, 5 options, paint samples provided, applied to project'},best:{price:495,desc:'Full consultation, digital mockup, follow-up, samples, applied to project'}},labor:2,parts:50,sqftRate:0,phoneRange:'$150–$495 (applied toward project)',redFlags:'Always apply consultation fee toward the painting project. Never charge separately without project.',upsells:'Full interior or exterior project'},
+]
+};
+
+const LABOR_RATE=38;
+let mods={cond:'good',prop:'std',color:'same'};
+let curSvc=null,curTier='good';
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+function onCatChange(){
+  const cat=document.getElementById('svcCat').value;
+  const sel=document.getElementById('svcId');
+  sel.innerHTML='<option value="">— Select service —</option>';
+  document.getElementById('calcBody').style.display='none';
+  if(!cat||!SVCS[cat])return;
+  SVCS[cat].forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.name;sel.appendChild(o);});
+}
+function onSvcChange(){
+  const id=document.getElementById('svcId').value;
+  const cat=document.getElementById('svcCat').value;
+  if(!id||!cat)return;
+  curSvc=SVCS[cat].find(s=>s.id===id);
+  if(!curSvc)return;
+  document.getElementById('calcBody').style.display='block';
+  const t=curSvc.tiers;
+  document.getElementById('tGoodPrice').textContent='$'+t.good.price.toLocaleString();
+  document.getElementById('tGoodDesc').textContent=t.good.desc;
+  document.getElementById('tBetterPrice').textContent='$'+t.better.price.toLocaleString();
+  document.getElementById('tBetterDesc').textContent=t.better.desc;
+  document.getElementById('tBestPrice').textContent='$'+t.best.price.toLocaleString();
+  document.getElementById('tBestDesc').textContent=t.best.desc;
+  selTier('good');
+}
+function selTier(tier){
+  curTier=tier;
+  const cfg={good:{card:'tcGood',cls:'sel-good'},better:{card:'tcBetter',cls:'sel-better'},best:{card:'tcBest',cls:'sel-best'}};
+  ['good','better','best'].forEach(t=>{const el=document.getElementById(cfg[t].card);el.className='tier-card';if(t===tier)el.classList.add(cfg[t].cls);});
+  calcQuote();
+}
+function setMod(key,val,btn){mods[key]=val;btn.parentElement.querySelectorAll('.tog').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');calcQuote();}
+function calcQuote(){
+  if(!curSvc)return;
+  const td=curSvc.tiers[curTier];
+  const partsOvr=parseFloat(document.getElementById('partsOvr').value)||0;
+  const laborOvr=parseFloat(document.getElementById('laborOvr').value)||0;
+  const sqft=parseFloat(document.getElementById('sqftOvr').value)||0;
+  const parts=partsOvr>0?partsOvr:curSvc.parts;
+  const hrs=laborOvr>0?laborOvr:curSvc.labor;
+  const condM=mods.cond==='poor'?1.35:mods.cond==='fair'?1.15:1.0;
+  const propM=mods.prop==='luxury'?1.25:1.0;
+  const colorM=mods.color==='change'?1.10:1.0;
+  const lc=Math.round(hrs*LABOR_RATE);
+  const tc2=lc+parts;
+  let base=td.price;
+  if(sqft>0&&curSvc.sqftRate>0)base=sqft*curSvc.sqftRate*condM*propM*colorM;
+  else base=Math.round(td.price*condM*propM*colorM);
+  const price=Math.max(base,2500);
+  const gross=price-tc2;
+  const margin=price>0?Math.round((gross/price)*100):0;
+  document.getElementById('qLabel').textContent=curSvc.name+' — '+curTier.toUpperCase()+' tier';
+  document.getElementById('qPrice').textContent='$'+price.toLocaleString();
+  document.getElementById('qRange').textContent='Market range: '+curSvc.phoneRange;
+  document.getElementById('qTierDesc').textContent=td.desc;
+  const bd=document.getElementById('qBreakdown');
+  bd.innerHTML='<div class="bd-row"><span>Labor ('+hrs+'h × $'+LABOR_RATE+'/hr)</span><span>$'+lc.toLocaleString()+'</span></div>'+
+    '<div class="bd-row"><span>Materials / Paint</span><span>$'+parts.toLocaleString()+'</span></div>'+
+    (condM!==1?'<div class="bd-row"><span>Prep/condition (×'+condM.toFixed(2)+')</span><span style="color:#fbbf24">applied</span></div>':'')+
+    (propM!==1?'<div class="bd-row"><span>Luxury/estate (+25%)</span><span style="color:#fbbf24">applied</span></div>':'')+
+    (colorM!==1?'<div class="bd-row"><span>Color change premium (+10%)</span><span style="color:#fbbf24">applied</span></div>':'')+
+    '<div class="bd-row"><span>Total cost</span><span>$'+tc2.toLocaleString()+'</span></div>'+
+    '<div class="bd-row"><span>Gross profit</span><span style="color:'+(gross>=0?'#4ade80':'#f87171')+'">$'+gross.toLocaleString()+'</span></div>';
+  const mb=document.getElementById('mBadge');
+  mb.className='mbadge '+(margin>=55?'mg':margin>=35?'ma':'mr');
+  mb.textContent=margin+'% margin';
+  document.getElementById('mLabel').textContent=margin>=55?'Strong margin':margin>=35?'Acceptable':'Tight — review';
+  document.getElementById('kLabor').textContent='$'+lc.toLocaleString();
+  document.getElementById('kMats').textContent='$'+parts.toLocaleString();
+  document.getElementById('kGross').textContent='$'+gross.toLocaleString();
+  document.getElementById('kMargin').textContent=margin+'%';
+  const rf=document.getElementById('rfBox');
+  if(curSvc.redFlags){rf.style.display='block';rf.innerHTML='<strong>🚩 Red Flags:</strong> '+curSvc.redFlags;}else rf.style.display='none';
+  const us=document.getElementById('usBox');
+  if(curSvc.upsells){us.style.display='block';us.innerHTML='<strong>⬆️ Upsells:</strong> '+curSvc.upsells;}else us.style.display='none';
+}
+</script>
+</body>
+</html>
