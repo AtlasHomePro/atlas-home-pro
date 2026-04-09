@@ -497,7 +497,7 @@ a[href*="service-areas"]:hover .hood-card {
  <p class="hero-sub">7 licensed trades. 33 neighborhoods. One team dispatched from our Fairfax office to your door — same day when you need it.</p>
  <div class="hero-btns">
  <a href="tel:+12132752210">📞 Call (213) 275-2210</a>
- <a href="#book">📋 Book Online</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()">📋 Book Online</a>
  </div>
  <div class="hero-pills">
  <span>✓ Licensed &amp; Insured</span>
@@ -897,7 +897,7 @@ a[href*="service-areas"]:hover .hood-card {
 
  <div class="sticky-bar">
  <a href="tel:+12132752210">📞 Call Now</a>
- <a href="#book">📋 Book Online</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()">📋 Book Online</a>
 </div>
 <script>
 // Mobile dropdown toggle
@@ -928,5 +928,7 @@ document.querySelectorAll('.footer-col h4').forEach(h4 => {
  }
  });
 });</script>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=33ad3f3cde4d4eae923a0c8346ebf9c6&orgName=Atlas-Home-Pro"></script>
 </body>
 </html>

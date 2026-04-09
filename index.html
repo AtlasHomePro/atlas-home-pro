@@ -959,7 +959,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  <div class="hero-btns">
  <a href="tel:+12132752210" class="btn-primary">📞 Call (213) 275-2210</a>
- <a href="#book" class="btn-outline">📋 Book a Free Estimate</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()" class="btn-outline">📋 Book a Free Estimate</a>
  <a href="/pricing/" style="display:inline-block;padding:12px 24px;border:2px solid rgba(255,255,255,.6);border-radius:6px;color:#fff;font-weight:700;font-size:14px;text-decoration:none;margin-top:8px">📋 See All Published Prices →</a>
  </div>
  <div class="hero-pills">
@@ -1367,7 +1367,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <div class="review-stars">★★★★★</div>
 <div class="review-text" style="font-style:normal">"Real Reviews — August 2026 Launch. No placeholders. No fabricated quotes. Real reviews from real customers starting August 2026 — sourced from our professional network and early customers."</div>
 <div class="review-name" style="color:#FFDC00;font-weight:700;font-size:.85rem;margin-top:10px">LAUNCHING AUGUST 2026</div>
-<a href="#book" style="display:inline-block;background:#FFDC00;color:#111;padding:10px 24px;font-weight:700;font-size:.85rem;text-decoration:none;border-radius:6px;margin-top:12px">Be Among Our First Customers →</a>
+<a href="#" onclick="event.preventDefault();HCPWidget.openModal()" style="display:inline-block;background:#FFDC00;color:#111;padding:10px 24px;font-weight:700;font-size:.85rem;text-decoration:none;border-radius:6px;margin-top:12px">Be Among Our First Customers →</a>
 </div>
 </div>
 </section>
@@ -1459,7 +1459,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
  </footer>
 <div class="sticky-bar">
  <a href="tel:+12132752210">📞 Call Now</a>
- <a href="#book">📋 Book Online</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()">📋 Book Online</a>
 </div>
 <script>
 // Footer accordions on mobile
@@ -1520,5 +1520,7 @@ document.querySelectorAll('.footer-col h3').forEach(h4 => {
   ]
 }
 </script>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=33ad3f3cde4d4eae923a0c8346ebf9c6&orgName=Atlas-Home-Pro"></script>
 </body>
 </html><!-- form-trigger -->

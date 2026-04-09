@@ -822,7 +822,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <h1>Gates &amp; Garage Doors —<span>Los Angeles</span></h1>
 <p class="hero-sub">Premium gate and garage door services for Los Angeles homes and businesses. From broken springs and off-track doors to custom gate fabrication and smart access control — our licensed technicians deliver expert diagnostics, quality repairs, and reliable installations.</p>
 <div class="hero-btns">
-<a href="#book">GET AN ESTIMATE</a>
+<a href="#" onclick="event.preventDefault();HCPWidget.openModal()">GET AN ESTIMATE</a>
 <a href="tel:2132752210">CALL (213) 275-2210</a>
 </div>
 <div class="hero-pills">
@@ -944,7 +944,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <div class="stat"><div class="stat-number">All LA</div><div class="stat-label">Service Area</div></div>
 <div class="stat"><div class="stat-number">13+</div><div class="stat-label">Gate &amp; Door Services</div></div>
 </div>
-<a href="#book" class="why-cta-btn">SCHEDULE SERVICE</a>
+<a href="#" onclick="event.preventDefault();HCPWidget.openModal()" class="why-cta-btn">SCHEDULE SERVICE</a>
 <a href="tel:2132752210" class="why-cta-link">(213) 275-2210</a>
 </div>
 </div>
@@ -1301,7 +1301,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <p>&copy; 2026 Atlas Home Pro. All rights reserved. Licensed &amp; Insured. Serving Los Angeles County.<br>145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
  </div>
 </footer>
-<div style="position:fixed;bottom:0;left:0;right:0;background:#0A0A0A;padding:12px 5%;display:flex;justify-content:center;gap:12px;z-index:999"><a href="tel:2132752210" style="flex:1;max-width:200px;text-align:center;background:#FFDC00;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">CALL NOW</a><a href="#book" style="flex:1;max-width:200px;text-align:center;background:#fff;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">BOOK ONLINE</a></div>
+<div style="position:fixed;bottom:0;left:0;right:0;background:#0A0A0A;padding:12px 5%;display:flex;justify-content:center;gap:12px;z-index:999"><a href="tel:2132752210" style="flex:1;max-width:200px;text-align:center;background:#FFDC00;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">CALL NOW</a><a href="#" onclick="event.preventDefault();HCPWidget.openModal()" style="flex:1;max-width:200px;text-align:center;background:#fff;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">BOOK ONLINE</a></div>
 <script>
 document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
  item.addEventListener('click', e => {
@@ -1329,5 +1329,7 @@ document.querySelectorAll('.footer-col h4').forEach(h4 => {
  }
  });
 });</script>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=33ad3f3cde4d4eae923a0c8346ebf9c6&orgName=Atlas-Home-Pro"></script>
 </body>
 </html>

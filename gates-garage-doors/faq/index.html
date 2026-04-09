@@ -793,7 +793,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 <p style="color:#555;margin-bottom:24px">Call us or book online — our team is ready to help.</p>
 <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
 <a href="tel:+12132752210" style="background:#FFDC00;color:#000;padding:14px 28px;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:6px">📞 Call (213) 275-2210</a>
-<a href="#book" style="background:#111;color:#FFDC00;padding:14px 28px;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:6px">📋 Book Online</a>
+<a href="#" onclick="event.preventDefault();HCPWidget.openModal()" style="background:#111;color:#FFDC00;padding:14px 28px;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:6px">📋 Book Online</a>
 </div>
 </section>
 
@@ -953,7 +953,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <p>&copy; 2026 Atlas Home Pro. All rights reserved. Licensed &amp; Insured. Serving Los Angeles County.<br>145 S Fairfax Ave Suite 200, Los Angeles, CA 90036</p>
  </div>
 </footer>
-<div style="position:fixed;bottom:0;left:0;right:0;background:#0A0A0A;padding:12px 5%;display:flex;justify-content:center;gap:12px;z-index:999"><a href="tel:2132752210" style="flex:1;max-width:200px;text-align:center;background:#FFDC00;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">CALL NOW</a><a href="#book" style="flex:1;max-width:200px;text-align:center;background:#fff;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">BOOK ONLINE</a></div>
+<div style="position:fixed;bottom:0;left:0;right:0;background:#0A0A0A;padding:12px 5%;display:flex;justify-content:center;gap:12px;z-index:999"><a href="tel:2132752210" style="flex:1;max-width:200px;text-align:center;background:#FFDC00;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">CALL NOW</a><a href="#" onclick="event.preventDefault();HCPWidget.openModal()" style="flex:1;max-width:200px;text-align:center;background:#fff;color:#000;padding:12px;font-weight:700;font-size:.85rem;text-transform:uppercase;text-decoration:none">BOOK ONLINE</a></div>
 <script>
 document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').forEach(item => {
  item.addEventListener('click', e => {
@@ -981,4 +981,6 @@ document.querySelectorAll('.footer-col h4').forEach(h4 => {
  }
  });
 });</script>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=33ad3f3cde4d4eae923a0c8346ebf9c6&orgName=Atlas-Home-Pro"></script>
 </body></html>

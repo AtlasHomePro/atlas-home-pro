@@ -844,7 +844,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <p class="hero-sub">Panel upgrades, EV charger installs, outlet work, lighting, and whole-home electrical — licensed electricians serving all of LA.</p>
  <div class="hero-btns">
  <a href="tel:+12132752210" class="btn-primary">📞 Call Now</a>
- <a href="#book" class="btn-outline">📋 Free Estimate</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()" class="btn-outline">📋 Free Estimate</a>
  </div>
  <div class="hero-pills">
  <span class="hero-pill">✓ Licensed Electricians</span>
@@ -1230,7 +1230,7 @@ document.querySelectorAll('.nav-item.has-dropdown > a, .nav-item.has-mega > a').
  </footer>
 <div class="sticky-bar">
  <a href="tel:+12132752210">📞 Call Now</a>
- <a href="#book">📋 Book Online</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()">📋 Book Online</a>
 </div>
 <script>
 // Footer accordions on mobile
@@ -1243,5 +1243,7 @@ document.querySelectorAll('.footer-col h4').forEach(h4 => {
  }
  });
 });</script>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=33ad3f3cde4d4eae923a0c8346ebf9c6&orgName=Atlas-Home-Pro"></script>
 </body>
 </html>

@@ -291,7 +291,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  </div>
  </div>
  <a href="tel:2132752210" class="nav-mobile-phone">Call (213) 275-2210</a>
- <a href="#book" class="nav-cta nav-mobile-cta">Get a Quote</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()" class="nav-cta nav-mobile-cta">Get a Quote</a>
  </div>
  <div class="nav-right">
  <a href="tel:2132752210" class="nav-phone">
@@ -299,7 +299,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  (213) 275-2210
  </a>
  <div class="nav-divider"></div>
- <a href="#book" class="nav-cta">Get a Quote</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()" class="nav-cta">Get a Quote</a>
  </div>
  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -344,7 +344,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
  <div style="display:inline-block;background:#FFDC00;padding:4px 14px;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px">ADJUSTER COORDINATION</div>
  <h1 style="font-family:'Playfair Display',serif;font-size:2.8rem;line-height:1.15;margin:0 0 16px">Water Damage Insurance Claims <span style="color:#FFDC00;font-style:italic">Los Angeles</span></h1>
  <p style="font-size:1.05rem;color:#444;line-height:1.7;margin:0 0 28px">Navigating an insurance claim during a home disaster is overwhelming. Atlas Home Pro handles the documentation, adjuster coordination, and direct billing — so you can focus on your family, not on paperwork. We've worked with every major California carrier and know exactly what documentation it takes to get claims approved and paid.</p>
- <a href="#book" style="display:inline-block;background:#FFDC00;color:#000;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;margin-right:12px">GET HELP NOW</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()" style="display:inline-block;background:#FFDC00;color:#000;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;margin-right:12px">GET HELP NOW</a>
  <a href="tel:2132752210" style="display:inline-block;background:#111;color:#FFDC00;padding:16px 36px;font-weight:700;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none">CALL NOW</a>
  <div style="margin-top:20px">
  <span style="display:inline-block;padding:6px 14px;border:1px solid rgba(0,0,0,.12);font-size:.8rem;margin:0 8px 8px 0">&#10003; Direct Insurance Billing</span>
@@ -647,7 +647,7 @@ nav{background:#0a0a0a;padding:0 40px;display:flex;align-items:center;justify-co
 
 <div class="sticky-bar">
  <a href="tel:2132752210">&#x1F4DE; Call Now</a>
- <a href="#book">Get a Quote</a>
+ <a href="#" onclick="event.preventDefault();HCPWidget.openModal()">Get a Quote</a>
 </div>
 
 <script>
@@ -665,5 +665,7 @@ document.querySelectorAll('.footer-col h4').forEach(function(h4){
  });
 });
 </script>
+
+<script async src="https://online-booking.housecallpro.com/script.js?token=33ad3f3cde4d4eae923a0c8346ebf9c6&orgName=Atlas-Home-Pro"></script>
 </body>
 </html>
