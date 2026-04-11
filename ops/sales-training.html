@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Home Pro — 8-Step Sales Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A3A70;
+    --blue: #1A56B0;
+    --midblue: #2E6EC8;
+    --lightblue: #D6E4F7;
+    --offwhite: #F4F7FB;
+    --white: #FFFFFF;
+    --border: #D0DCF0;
+    --dark: #0F1A2E;
+    --text: #1E2F4A;
+    --muted: #5A7090;
+    --red: #C62828;
+    --lightred: #FFEBEE;
+    --green: #1B5E20;
+    --lightgreen: #E8F5E9;
+    --gold: #C8960C;
+    --lightgold: #FFF8E1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--offwhite);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(155deg, var(--navy) 0%, #0D2255 55%, #071430 100%);
+    color: white;
+    padding: 72px 48px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 20px,
+      rgba(255,255,255,0.012) 20px, rgba(255,255,255,0.012) 21px
+    );
+  }
+  .cover-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .cover h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .cover h1 .accent { color: #6AABFF; }
+  .cover-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px;
+    max-width: 500px;
+    letter-spacing: 0.5px;
+  }
+  .cover-stats {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #6AABFF;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* LAYOUT */
+  .shell {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: #0A1828;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 24px 0 40px;
+  }
+  .sidebar-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    padding: 0 20px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 8px;
+  }
+  .nav-item {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .nav-item:hover, .nav-item.active {
+    background: rgba(255,255,255,0.05);
+    border-left-color: var(--blue);
+  }
+  .nav-step {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .nav-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+  }
+  .nav-item.active .nav-step { color: var(--blue); }
+  .nav-item.active .nav-name { color: white; }
+  .sidebar-divider {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 16px 0;
+  }
+  .sidebar-extra {
+    padding: 0 20px;
+  }
+  .sidebar-extra a {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .sidebar-extra a:hover { color: rgba(255,255,255,0.7); }
+
+  /* MAIN CONTENT */
+  .main { overflow-y: auto; }
+
+  /* STEP PANELS */
+  .step-panel {
+    display: none;
+    padding: 0 0 60px;
+  }
+  .step-panel.visible { display: block; }
+
+  .step-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 36px 48px;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .step-icon-box {
+    width: 72px;
+    height: 72px;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+  .step-hero-text {}
+  .step-meta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .step-tagline {
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+  }
+
+  .step-body { padding: 36px 48px; }
+
+  /* SIMPLE BOX */
+  .simple-box {
+    background: var(--lightblue);
+    border-left: 4px solid var(--blue);
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    border-radius: 0 4px 4px 0;
+  }
+  .simple-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .simple-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  /* SECTION LABEL */
+  .sec-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+
+  /* WHY BOX */
+  .why-text {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+
+  /* SCRIPTS */
+  .script-item { margin-bottom: 16px; }
+  .script-item-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .script-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .script-box.spoken { font-style: italic; }
+
+  /* KEY PHRASE */
+  .key-phrase {
+    background: var(--dark);
+    color: white;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .key-icon { font-size: 24px; flex-shrink: 0; }
+  .key-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .key-text { font-style: italic; font-size: 16px; color: white; line-height: 1.5; }
+
+  /* DONTS */
+  .dont-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+    align-items: flex-start;
+  }
+  .dont-x { color: var(--red); font-weight: 700; flex-shrink: 0; font-size: 16px; }
+
+  /* ROLEPLAY */
+  .roleplay-box {
+    background: #F0F5FF;
+    border: 1px dashed var(--border);
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin-top: 24px;
+  }
+  .roleplay-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--midblue);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .roleplay-text { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* NAV BUTTONS */
+  .step-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 48px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .btn-prev { background: transparent; border-color: var(--border); color: var(--muted); }
+  .btn-prev:hover { background: var(--gray); border-color: var(--muted); }
+  .btn-next { background: var(--blue); border-color: var(--blue); color: white; }
+  .btn-next:hover { background: var(--navy); border-color: var(--navy); }
+  .btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+  /* OBJECTIONS PAGE */
+  .objection-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  .obj-q {
+    background: var(--navy);
+    color: white;
+    padding: 16px 22px;
+    font-size: 16px;
+    font-style: italic;
+  }
+  .obj-a {
+    padding: 16px 22px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+    font-style: italic;
+    border-left: 4px solid var(--blue);
+    background: #FAFCFF;
+  }
+  .obj-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-style: normal;
+  }
+
+  /* FLASH CARD PAGE */
+  .flash-page { background: var(--dark); min-height: 100%; }
+  .flash-header {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    padding: 32px 48px;
+    text-align: center;
+    color: white;
+  }
+  .flash-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+  }
+  .flash-header h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+  .flash-body { padding: 32px 48px; }
+  .flash-rules {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .flash-rule {
+    background: var(--blue);
+    padding: 20px;
+    border-radius: 6px;
+    color: white;
+  }
+  .flash-rule-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .flash-rule-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .flash-steps {}
+  .flash-step {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-start;
+  }
+  .flash-num {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--blue);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .flash-step-content {}
+  .flash-step-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .flash-step-action {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .flash-step-phrase {
+    font-size: 12px;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+  }
+  .flash-close {
+    margin-top: 28px;
+    background: var(--offwhite);
+    border: 2px solid var(--blue);
+    border-radius: 6px;
+    padding: 28px;
+    text-align: center;
+  }
+  .flash-close-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .flash-close-line {
+    font-size: 20px;
+    font-style: italic;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .flash-close-warning {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .flash-after {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 20px 24px;
+  }
+  .flash-after-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .flash-after-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 7px 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .flash-after-dot {
+    width: 6px; height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* TAB SWITCHER */
+  .mode-bar {
+    background: #0A1828;
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mode-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.3);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+    font-weight: 700;
+  }
+  .mode-btn:hover { color: rgba(255,255,255,0.65); }
+  .mode-btn.active { color: white; border-bottom-color: var(--blue); }
+
+  /* MODE VIEWS */
+  .mode-view { display: none; }
+  .mode-view.active { display: block; }
+
+  @media (max-width: 768px) {
+    .shell { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; }
+    .step-body { padding: 24px; }
+    .step-hero { padding: 24px; }
+    .step-nav { padding: 20px 24px; }
+    .flash-rules { grid-template-columns: 1fr; }
+    .flash-body { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">Atlas Home Pro · Internal Training · Based on Tommy Mello's System</div>
+  <h1>8-STEP<br><span class="accent">SALES</span><br>MASTERY</h1>
+  <div class="cover-desc">The complete field tech sales system — from first phone call to 5-star review.</div>
+  <div class="cover-stats">
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Steps</div></div>
+    <div class="stat"><div class="stat-num">2–4hr</div><div class="stat-label">Training Time</div></div>
+    <div class="stat"><div class="stat-num">62%</div><div class="stat-label">A1 Close Rate</div></div>
+    <div class="stat"><div class="stat-num">5min</div><div class="stat-label">Pre-Call Review</div></div>
+  </div>
+</div>
+
+<!-- MODE BAR -->
+<div class="mode-bar">
+  <button class="mode-btn active" onclick="switchMode('training')">📋 Training Modules</button>
+  <button class="mode-btn" onclick="switchMode('objections')">⚡ Objection Handling</button>
+  <button class="mode-btn" onclick="switchMode('flash')">🚪 Pre-Call Flash Card</button>
+</div>
+
+<!-- TRAINING MODE -->
+<div id="mode-training" class="mode-view active">
+  <div class="shell">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <div class="sidebar-label">Modules</div>
+      <a class="nav-item active" onclick="showStep(0)">
+        <div class="nav-step">Step 01 · 15 min</div>
+        <div class="nav-name">Contact</div>
+      </a>
+      <a class="nav-item" onclick="showStep(1)">
+        <div class="nav-step">Step 02 · 15 min</div>
+        <div class="nav-name">Arrival</div>
+      </a>
+      <a class="nav-item" onclick="showStep(2)">
+        <div class="nav-step">Step 03 · 15 min</div>
+        <div class="nav-name">Assessment</div>
+      </a>
+      <a class="nav-item" onclick="showStep(3)">
+        <div class="nav-step">Step 04 · 15 min</div>
+        <div class="nav-name">Pitch</div>
+      </a>
+      <a class="nav-item" onclick="showStep(4)">
+        <div class="nav-step">Step 05 · 20 min</div>
+        <div class="nav-name">Checklist</div>
+      </a>
+      <a class="nav-item" onclick="showStep(5)">
+        <div class="nav-step">Step 06 · 20 min</div>
+        <div class="nav-name">Pricing</div>
+      </a>
+      <a class="nav-item" onclick="showStep(6)">
+        <div class="nav-step">Step 07 · 15 min</div>
+        <div class="nav-name">Backup</div>
+      </a>
+      <a class="nav-item" onclick="showStep(7)">
+        <div class="nav-step">Step 08 · 20 min</div>
+        <div class="nav-name">Close</div>
+      </a>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-extra">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.15);text-transform:uppercase;margin-bottom:8px;">Total</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--blue);">2–4 hrs</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);margin-top:4px;">8 modules + role play</div>
+      </div>
+    </nav>
+
+    <!-- MAIN STEPS -->
+    <div class="main" id="step-container">
+
+      <!-- STEP 1: CONTACT -->
+      <div class="step-panel visible" id="step-0">
+        <div class="step-hero">
+          <div class="step-icon-box">📞</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 01 · 15 Minutes</div>
+            <div class="step-title">Contact</div>
+            <div class="step-tagline">Win before you walk in.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Call 30 minutes out. Build rapport on the phone. Show up looking like a pro.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">The sale starts before you ring the doorbell. A warm call 30 min before arrival sets the tone — it's the difference between a customer who's ready to trust you and one who's guarded. First impressions start on the phone, not at the door.</div>
+          <div class="sec-label">What to Say & Do</div>
+          <div class="script-item">
+            <div class="script-item-label">30-Min Pre-Arrival Call</div>
+            <div class="script-box spoken">"Hey [Name], this is [Your Name] from Atlas Home Pro. Just calling to let you know I'm about 30 minutes away. I'm really looking forward to helping you out today — can you confirm the best door to come to?"</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Truck Check (Before You Step Out)</div>
+            <div class="script-box">Shirt tucked. Clean hands. Breath spray. No sunglasses on your head. Look in the mirror. You are the expert — look like one. Park on the street, never in the driveway.</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"I'm looking forward to helping you out today."</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't call and just say "I'm on my way" — use the call to BUILD rapport, not just notify</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't park in the driveway — it blocks the owner's access and starts the visit wrong</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't walk up with coffee in your hand or sunglasses on your head</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Partner A plays the customer answering the pre-arrival call. Partner B is the tech. Record it. Play it back. Did it feel warm and genuine or robotic and transactional? Run it 3 times. Switch roles.</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" disabled>← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(1)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: ARRIVAL -->
+      <div class="step-panel" id="step-1">
+        <div class="step-hero">
+          <div class="step-icon-box">🚪</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 02 · 15 Minutes</div>
+            <div class="step-title">Arrival</div>
+            <div class="step-tagline">Confidence + Humility = Trust.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Park on the street. Walk up confident. Make them feel smart for calling you.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">The first 60 seconds at the door are worth more than 60 minutes of selling inside. The customer is judging everything. They need to feel they made the right call hiring Atlas — before you've touched a single tool.</div>
+          <div class="sec-label">What to Say & Do</div>
+          <div class="script-item">
+            <div class="script-item-label">At the Door</div>
+            <div class="script-box spoken">"Hi [Name], I'm [Your Name] from Atlas Home Pro. It's great to meet you. [Hand business card.] I've got your work order right here — before I grab my tools, do you mind if I ask you a few quick questions so I can make sure I take care of everything for you today?"</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Body Language</div>
+            <div class="script-box">Firm handshake. Eye contact. Smile. Don't look around the house or let your eyes wander. Your entire focus is on this person. Confident and humble is the combination — not arrogant.</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"I want to make sure I take care of EVERYTHING for you today."</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't say anything that makes the customer feel dumb for not knowing — ever</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't go straight to the problem without connecting with the person first</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't be arrogant — confidence without humility kills trust instantly</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Walk up to a door, knock, and deliver your arrival intro. Partner plays a skeptical homeowner who has had bad experiences before. Film it. Watch your body language. Did you seem approachable? Did you smile naturally?</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(0)">← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(2)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: ASSESSMENT -->
+      <div class="step-panel" id="step-2">
+        <div class="step-hero">
+          <div class="step-icon-box">📋</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 03 · 15 Minutes</div>
+            <div class="step-title">Assessment</div>
+            <div class="step-tagline">Ask first. Diagnose second. Never assume.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Ask 3 questions before touching anything. Listen more than you talk. Your toolbox stays closed.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">Customers don't buy fixes — they buy someone who understands their situation. Questions build trust faster than any sales tactic. Silence after a question is golden — let them fill it. You learn more and they feel heard.</div>
+          <div class="sec-label">The 3 Questions — Ask Every Time</div>
+          <div class="script-item">
+            <div class="script-item-label">Question 1 — Rapport</div>
+            <div class="script-box spoken">"This is a beautiful home — how long have you lived here?"</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;">This is rapport, not small talk. A 20-year homeowner cares differently than a 2-year owner. You learn their attachment to the property.</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Question 2 — The Problem</div>
+            <div class="script-box spoken">"Tell me exactly what's been happening — walk me through it."</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;">Let them talk. Don't interrupt. Take notes. The more they talk, the more they trust you.</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Question 3 — History</div>
+            <div class="script-box spoken">"Has this happened before, or is this the first time?"</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;">This tells you if it's a symptom of something bigger — and sets up the checklist inspection naturally.</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"Tell me exactly what's been happening — walk me through it."</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't start diagnosing while they're still talking — wait until they fully finish</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't ask questions and then answer them yourself</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't open your toolbox before you've asked all 3 questions</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Partner plays a homeowner with a leaky pipe under the kitchen sink. Tech must ask only questions for 3 full minutes before suggesting anything — no diagnosing, no solutions. Just questions and listening. Switch roles and debrief.</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(1)">← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(3)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: PITCH -->
+      <div class="step-panel" id="step-3">
+        <div class="step-hero">
+          <div class="step-icon-box">🔧</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 04 · 15 Minutes</div>
+            <div class="step-title">Pitch</div>
+            <div class="step-tagline">Fix what they called for. Then look for more.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Solve the minimum first. Earn trust. Then and only then look for additional issues.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">If you go straight for upsells before fixing the reason they called, you look like a salesman, not an expert. Fix what they called for. Do it right. Now they trust you. Now they'll listen to everything else you found.</div>
+          <div class="sec-label">What to Say & Do</div>
+          <div class="script-item">
+            <div class="script-item-label">Present the Minimum Fix First</div>
+            <div class="script-box spoken">"Based on what you've told me and what I'm seeing, here's what's causing your issue today..." [Explain clearly in plain English. Zero jargon. Speak like a smart friend, not a textbook.]</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Transition to the Inspection</div>
+            <div class="script-box spoken">"While I'm here, I always like to do a quick check of everything related so we don't have to come back out. Would that be okay with you?"</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;">Always get a yes before you start inspecting. Never expand scope without permission.</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"While I'm here, I always like to do a quick check — would that be okay?"</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't push upsells before fixing the reason they called — you'll lose trust immediately</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't use technical jargon — speak like a knowledgeable friend, not an instruction manual</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't expand scope without asking — "While I'm here" is not permission</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Present the minimum fix on a plumbing issue without mentioning anything else. Then transition naturally into "while I'm here." Partner tries to say no to the inspection. Tech must respond without pressure — why it benefits the customer, not the company.</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(2)">← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(4)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: CHECKLIST -->
+      <div class="step-panel" id="step-4">
+        <div class="step-hero">
+          <div class="step-icon-box">✅</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 05 · 20 Minutes</div>
+            <div class="step-title">Checklist Inspection</div>
+            <div class="step-tagline">Same process every time. No exceptions.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Run your checklist. Pass/fail every item. Take photos. Walk the customer through failures in plain English.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">The checklist does two things: it finds real problems that generate revenue, and it proves to the customer you are thorough. Photos are everything — they remove doubt and justify the price. A tech who skips the checklist is leaving money on the table every single job.</div>
+          <div class="sec-label">What to Say & Do</div>
+          <div class="script-item">
+            <div class="script-item-label">During Inspection</div>
+            <div class="script-box">Work through your printed checklist item by item. Mark each pass or fail. Photograph every fail with your phone before touching anything. The photo is your documentation AND your sales tool.</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Presenting a Failed Item</div>
+            <div class="script-box spoken">"I want to show you what I found. This right here [show photo on your phone] — this is your [item name]. What's happening is [plain English explanation]. It's not an emergency today, but here's what happens if we leave it..."</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Framing Urgency — Honestly</div>
+            <div class="script-box spoken">"If there's a safety concern, I'll tell you clearly. If it's something that can wait, I'll tell you that too. I want to be completely honest with you."</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"I want to show you what I found — here's the photo."</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't skip the checklist because you're busy — it's the primary revenue generator</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't show photos without explaining what the customer is looking at in plain language</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't manufacture urgency — real problems sell themselves. Fake urgency destroys trust.</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Partner hides 3 "problems" in a mock setup. Tech must find them using only the checklist, photograph them, then explain each one to a 10-year-old in plain English. Time it — should take under 8 minutes per problem.</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(3)">← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(5)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: PACKAGE PRICING -->
+      <div class="step-panel" id="step-5">
+        <div class="step-hero">
+          <div class="step-icon-box">📊</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 06 · 20 Minutes</div>
+            <div class="step-title">Package Pricing</div>
+            <div class="step-tagline">Good. Better. Best. Always present all three.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Present 3 options in writing. Start with the best. Walk down. Let them choose.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">People buy on emotion and justify with logic. Three options give the customer control — they feel like they're choosing, not being sold. Starting with the best anchors their expectations high. Most customers land in the middle. One price = a yes or no. Three prices = which one.</div>
+          <div class="sec-label">What to Say & Do</div>
+          <div class="script-item">
+            <div class="script-item-label">Setup Line</div>
+            <div class="script-box spoken">"Based on everything I found today, I put together three options for you. I always like to show you all three so you can decide what makes the most sense for your home and budget. Okay?"</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Present Best Option First (Gold)</div>
+            <div class="script-box spoken">"This is our Atlas Complete solution — it addresses the immediate issue plus everything I found today, with a 2-year warranty on all parts and labor. This is what I would do if it were my home. The investment is $[X]."</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Present Middle Option (Silver)</div>
+            <div class="script-box spoken">"This is our Atlas Standard — it fixes the main issue plus the two most critical items I found. One-year warranty. Investment is $[X]."</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Present Minimum (Bronze)</div>
+            <div class="script-box spoken">"This is the minimum repair for what you called about today. Gets you back up and running. Investment is $[X]. I want to be honest though — the other items I found will still need attention."</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"This is what I would do if it were my home."</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't present only one price — you'll lose on price every single time</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't start with the cheap option — always anchor high first</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't rush through the presentation — let each option land before moving to the next</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't apologize for any price — present it confidently or the customer won't trust the value</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Present all three written options to a partner. Partner plays a price-conscious customer who immediately challenges the Gold option price. Tech must present without apologizing for any price and without immediately dropping to the cheap option. Run 5 rounds.</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(4)">← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(6)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: BACKUP -->
+      <div class="step-panel" id="step-6">
+        <div class="step-hero">
+          <div class="step-icon-box">📲</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 07 · 15 Minutes</div>
+            <div class="step-title">Backup</div>
+            <div class="step-tagline">Stuck? Call reinforcements. Zero ego.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">If the customer pushes back hard or you can't close — call your manager. Right now. No shame in it.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">The manager call is one of the most powerful tools in sales. It's not weakness — it's strategy. The customer hears that the company stands behind the tech. It changes the entire dynamic. A fresh voice often closes what a great presentation couldn't.</div>
+          <div class="sec-label">When to Trigger the Backup Call</div>
+          <div class="script-item">
+            <div class="script-item-label">Triggers</div>
+            <div class="script-box">Customer says: "That's too much." / "I need to think about it." / "I want to get other quotes." / Customer seems frustrated or upset. → Pick up the phone. Don't try to muscle through alone.</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">How to Set Up the Call</div>
+            <div class="script-box spoken">"You know what, let me do this — I want to make sure we take care of you right. Let me get my manager on the phone for just a second. He loves to talk to customers directly when I have someone this important." [Call manager. Hand phone to customer.]</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">If Offering a Discount</div>
+            <div class="script-box spoken">"I might be able to work something out for you, but I'd need something in return. If we do that, would you be willing to leave us a 5-star Google review? That's how Atlas grows — one happy customer at a time."</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">Memorize This Line</div>
+              <div class="key-text">"Let me get my manager on the phone — he loves talking to customers directly."</div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't drop the price without asking for something in return — a review, a referral, or a yard sign</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't argue with a frustrated customer — that's what backup is for</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't let ego stop you from picking up the phone — pride costs you the sale</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Customer says "I want to get 3 quotes first." Tech must use the backup call strategy. Manager (second partner) must get on the phone and close. Debrief: what did the manager say that the tech couldn't? What's transferable?</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(5)">← Prev Step</button>
+          <button class="btn btn-next" onclick="showStep(7)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- STEP 8: CLOSE -->
+      <div class="step-panel" id="step-7">
+        <div class="step-hero">
+          <div class="step-icon-box">🤝</div>
+          <div class="step-hero-text">
+            <div class="step-meta">Step 08 · 20 Minutes</div>
+            <div class="step-title">Close the Sale</div>
+            <div class="step-tagline">Ask for the business. Then shut up.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="simple-box">
+            <div class="simple-label">The Simple Version</div>
+            <div class="simple-text">Use Tommy's exact closing line. Then say nothing. The next person to talk loses.</div>
+          </div>
+          <div class="sec-label">Why This Step Matters</div>
+          <div class="why-text">Most techs do everything right and then don't ask for the sale. You MUST ask. And then you MUST be quiet. Silence is pressure. The customer will fill it — and most of the time, they'll say yes. The tech who keeps talking after asking gives the customer an easy out.</div>
+          <div class="sec-label">What to Say & Do</div>
+          <div class="script-item">
+            <div class="script-item-label">The One Close — Use It Every Time</div>
+            <div class="script-box spoken">"[Name], what is it going to take to earn your business today? The reason I ask is — Atlas has grown over 40% this year because of referrals. Once we do this for you, I'm sure you're going to tell your friends and neighbors about us."</div>
+            <div style="font-size:13px;font-weight:700;color:var(--red);margin-top:8px;font-style:italic;">→ STOP TALKING. Do not fill the silence. Count to 15 in your head if you have to. The next person to speak loses.</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">After Yes</div>
+            <div class="script-box spoken">"Perfect. Let me get the paperwork started. We're going to take great care of you."</div>
+          </div>
+          <div class="script-item">
+            <div class="script-item-label">Secure the Relationship — Before You Leave</div>
+            <div class="script-box">After the job: walk the customer through everything you did. Explain all warranties. Leave the space cleaner than when you arrived. Ask: "Do you have any questions about anything we did today?" Then: ask for the Google review out loud. Don't just send a text — ask in person.</div>
+          </div>
+          <div class="key-phrase">
+            <div class="key-icon">🔑</div>
+            <div>
+              <div class="key-label">The Only Close You Need</div>
+              <div class="key-text">"What is it going to take to earn your business today?"<br><span style="font-size:13px;color:rgba(255,255,255,0.45);font-style:normal;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-weight:700;">THEN SHUT UP.</span></div>
+            </div>
+          </div>
+          <div class="sec-label">Common Mistakes — Don't Do These</div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't ask and then keep talking — silence is the close, not more selling</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't leave without walking through all completed work — buyer's remorse kills reviews</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't forget to ask for the Google review before you walk out</span></div>
+          <div class="dont-item"><span class="dont-x">✗</span><span>Don't leave if the space is messier than when you arrived — presentation is part of the 5-star review</span></div>
+          <div class="roleplay-box">
+            <div class="roleplay-label">🎬 Role Play Exercise</div>
+            <div class="roleplay-text">Deliver the full close line, then count to 15 seconds in your head. Do not speak. Partner must resist saying yes for as long as possible. Debrief: who cracked first? How did the silence feel? Run it 5 times until silence feels natural, not uncomfortable.</div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-prev" onclick="showStep(6)">← Prev Step</button>
+          <button class="btn btn-next" disabled>Complete ✓</button>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /shell -->
+</div><!-- /training mode -->
+
+<!-- OBJECTIONS MODE -->
+<div id="mode-objections" class="mode-view">
+  <div style="max-width:800px;margin:0 auto;padding:40px 32px;">
+    <div style="margin-bottom:28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;color:var(--blue);text-transform:uppercase;margin-bottom:8px;">Module 9 — Memorize These</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:800;color:var(--navy);">Objection Handling</div>
+      <p style="margin-top:10px;color:var(--muted);">These are the 5 objections your techs will hear every single day. The first objection is almost never the real one — always ask a follow-up question to find what's actually behind it.</p>
+    </div>
+    <div class="callout" style="margin-bottom:28px;"><strong>Golden Rule:</strong> The first objection is almost never the real objection. Ask a follow-up question first. Find the underlying concern. Then handle it.</div>
+
+    <div class="objection-item">
+      <div class="obj-q">"That's too expensive."</div>
+      <div class="obj-a">
+        <div class="obj-label">Your Response</div>
+        "I completely understand. Can I ask — too expensive compared to what? Because what I want to make sure is that you understand exactly what you're getting. This isn't just a repair, it's a [X]-year warranty, done right the first time. What part of the price is the biggest concern?"
+      </div>
+    </div>
+
+    <div class="objection-item">
+      <div class="obj-q">"I need to think about it."</div>
+      <div class="obj-a">
+        <div class="obj-label">Your Response</div>
+        "Totally fair. Can I ask what specifically you want to think through? Because I'm right here — I'd rather answer any questions now than have you make a decision without all the information."
+      </div>
+    </div>
+
+    <div class="objection-item">
+      <div class="obj-q">"I want to get other quotes."</div>
+      <div class="obj-a">
+        <div class="obj-label">Your Response</div>
+        "That's smart — you should always know your options. Let me get my manager on the phone real quick. He can answer any questions and I want to make sure you feel completely confident before I leave."
+      </div>
+    </div>
+
+    <div class="objection-item">
+      <div class="obj-q">"My spouse needs to decide."</div>
+      <div class="obj-a">
+        <div class="obj-label">Your Response</div>
+        "No problem at all. Is your spouse available right now? I can wait, or we can do a quick call together. I'd hate for them to make this decision without seeing what I found today."
+      </div>
+    </div>
+
+    <div class="objection-item">
+      <div class="obj-q">"Can you just give me a price over the phone?"</div>
+      <div class="obj-a">
+        <div class="obj-label">Your Response</div>
+        "I wish I could give you an accurate number without seeing it — but honestly if I quote you without looking, I might be way off and waste your time. What I can do is get out there fast and give you an exact number with no obligation. When works best?"
+      </div>
+    </div>
+
+    <div class="roleplay-box" style="margin-top:28px;">
+      <div class="roleplay-label">🎬 Objection Role Play</div>
+      <div class="roleplay-text">Partner A delivers all 5 objections in random order. Partner B responds from memory — no reading. Run 3 rounds. Switch. Film it. Goal: responses feel natural and conversational, not scripted. Time: 30 minutes total.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FLASH CARD MODE -->
+<div id="mode-flash" class="mode-view">
+  <div class="flash-page">
+    <div class="flash-header">
+      <h2>5-Minute Pre-Call Review</h2>
+      <h1>Read This Before Every Job</h1>
+      <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;">IN THE TRUCK · BEFORE YOU CALL AHEAD · EVERY SINGLE TIME</p>
+    </div>
+    <div class="flash-body">
+      <div class="flash-rules">
+        <div class="flash-rule">
+          <div class="flash-rule-num">1</div>
+          <div class="flash-rule-text">You are the expert. Act like it.</div>
+        </div>
+        <div class="flash-rule">
+          <div class="flash-rule-num">2</div>
+          <div class="flash-rule-text">Ask questions. Listen more than you talk.</div>
+        </div>
+        <div class="flash-rule">
+          <div class="flash-rule-num">3</div>
+          <div class="flash-rule-text">Never leave without asking for the business.</div>
+        </div>
+      </div>
+
+      <div class="flash-steps">
+        <div class="flash-step">
+          <div class="flash-num">1</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Contact</div>
+            <div class="flash-step-action">Call 30 min out. Build rapport. Look sharp. Park on the street.</div>
+            <div class="flash-step-phrase">"I'm looking forward to helping you out today."</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">2</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Arrival</div>
+            <div class="flash-step-action">Confident, humble, eye contact. Make them feel smart for calling you.</div>
+            <div class="flash-step-phrase">"I want to make sure I take care of EVERYTHING for you today."</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">3</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Assessment</div>
+            <div class="flash-step-action">Ask 3 questions before opening your toolbox. Take notes. Listen.</div>
+            <div class="flash-step-phrase">"Tell me exactly what's been happening — walk me through it."</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">4</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Pitch</div>
+            <div class="flash-step-action">Fix the minimum first. Earn trust. Get permission to inspect further.</div>
+            <div class="flash-step-phrase">"While I'm here, can I do a quick check — would that be okay?"</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">5</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Checklist</div>
+            <div class="flash-step-action">Run every item. Photo every fail. Explain in plain English.</div>
+            <div class="flash-step-phrase">"I want to show you what I found — here's the photo."</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">6</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Package Pricing</div>
+            <div class="flash-step-action">3 written options. Start best. Anchor high. Let them choose.</div>
+            <div class="flash-step-phrase">"This is what I would do if it were my home."</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">7</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Backup</div>
+            <div class="flash-step-action">Stuck or they're pushing back? Call your manager. No ego.</div>
+            <div class="flash-step-phrase">"Let me get my manager on — he loves talking to customers directly."</div>
+          </div>
+        </div>
+        <div class="flash-step">
+          <div class="flash-num">8</div>
+          <div class="flash-step-content">
+            <div class="flash-step-name">Close</div>
+            <div class="flash-step-action">Ask for the business. Then SHUT UP. Do not speak first.</div>
+            <div class="flash-step-phrase">"What is it going to take to earn your business today?"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flash-close">
+        <div class="flash-close-label">The Only Close You Need</div>
+        <div class="flash-close-line">"What is it going to take to earn your business today?"</div>
+        <div class="flash-close-warning">Then shut up. Do not speak first. Count to 15.</div>
+      </div>
+
+      <div class="flash-after">
+        <div class="flash-after-label">Before You Leave the Job</div>
+        <div class="flash-after-item"><div class="flash-after-dot"></div>Walk them through everything you did</div>
+        <div class="flash-after-item"><div class="flash-after-dot"></div>Explain the warranty clearly</div>
+        <div class="flash-after-item"><div class="flash-after-dot"></div>Leave the space cleaner than you found it</div>
+        <div class="flash-after-item"><div class="flash-after-dot"></div>Ask for the Google review out loud — don't just text it</div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.15);">
+        ATLAS HOME PRO · INTERNAL USE ONLY · WEST LOS ANGELES
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentStep = 0;
+
+  function showStep(n) {
+    document.querySelectorAll('.step-panel').forEach((p, i) => {
+      p.classList.toggle('visible', i === n);
+    });
+    document.querySelectorAll('.nav-item').forEach((a, i) => {
+      a.classList.toggle('active', i === n);
+    });
+    currentStep = n;
+    document.getElementById('step-container').scrollTop = 0;
+  }
+
+  function switchMode(mode) {
+    document.querySelectorAll('.mode-view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('mode-' + mode).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
