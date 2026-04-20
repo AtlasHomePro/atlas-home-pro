@@ -1811,7 +1811,7 @@ body {
 <!-- ============= CATEGORY BAR ============= -->
 <div class="cat-bar">
   <div class="cat-bar-inner">
-    <div class="count">42 entries · Full archive below</div>
+    <div class="count"><a href="#articles" style="color:inherit;text-decoration:none">42 entries · Full archive below</a></div>
     <ul class="cat-list" id="catList">
       <li><button class="active" data-cat="all">All</button></li>
       <li><button data-cat="Market Commentary">Market</button></li>
@@ -1845,7 +1845,7 @@ body {
 
       <!-- CENTER COL: Lead story -->
       <article class="front-col">
-        <div class="lead-cat">Market Commentary · Cover Story</div>
+        <div id="articles" class="lead-cat">Market Commentary · Cover Story</div>
         <h2 class="lead-h"><a href="/atlas-brief/">The LA Cost Ceiling Didn't Break. It Just <em>Moved.</em></a></h2>
         <p class="lead-deck">Hard-cost inflation in multifamily has not reverted. It has rotated — from lumber and metals into labor, soft costs, and the slow tax of municipal delay. Five active jobs, five honest invoices, one conclusion the trade press is missing.</p>
         <div class="lead-byline">By <b>David Safai</b> · Editor &amp; Publisher · Apr. 9, 2026 · 14 min read</div>
@@ -2079,4 +2079,17 @@ body {
 
 
 
+
+<script>
+// Category filter buttons
+document.querySelectorAll('[data-cat]').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    // Scroll to the editorial section
+    const editorial = document.querySelector('.editorial') || document.querySelector('.lead-h');
+    if (editorial) editorial.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
 </body></html>
