@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=1440"/>
+<title>Areas — Atlas Home Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/atlas-v2.css">
+<style>
+.page-head{padding:48px 0 32px;border-bottom:1px solid var(--line)}
+.page-head .eyebrow{display:inline-block}
+.page-head h1{font-family:var(--serif-display);font-weight:500;font-size:160px;line-height:.94;letter-spacing:-0.03em;margin-top:14px}
+.page-head .deck{font-family:var(--serif-text);font-size:19px;line-height:1.5;max-width:56ch;margin-top:20px;color:var(--ink-mute);font-style:italic}
+
+/* Primary coverage — 3col serif list */
+.cov-grid{display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:start}
+.cov-list{columns:3;column-gap:48px;column-rule:1px solid var(--line)}
+.cov-list .n{font-family:var(--serif-display);font-weight:400;font-size:28px;line-height:1.28;letter-spacing:-0.015em;break-inside:avoid;padding:4px 0;color:var(--ink)}
+.cov-list .n .z{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-mute);margin-top:1px}
+
+/* Map slot */
+.map-wrap{margin-top:28px}
+.map-slot{aspect-ratio:21/9;background:var(--paper-2);border:1px solid var(--line);position:relative;overflow:hidden}
+.map-slot::before{content:"";position:absolute;inset:0;background-image:linear-gradient(135deg,transparent 49.5%,rgba(26,26,26,.05) 49.5% 50.5%,transparent 50.5%),linear-gradient(45deg,transparent 49.5%,rgba(26,26,26,.05) 49.5% 50.5%,transparent 50.5%);opacity:.7}
+.map-slot .fn{position:absolute;top:16px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-mute);background:var(--paper);padding:4px 8px;border:1px solid var(--line)}
+.map-slot .cap{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-mute);background:var(--paper);padding:5px 8px;border:1px solid var(--line)}
+.map-slot .mid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-mute);text-transform:uppercase}
+
+/* Where we've worked */
+.worked-list{border-top:1px solid var(--line);margin-top:28px}
+.w-row{display:grid;grid-template-columns:60px 1fr 220px 120px;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.w-row .n{font-family:var(--mono);font-size:10.5px;color:var(--ink-mute);letter-spacing:.1em;padding-top:4px}
+.w-row .t{font-family:var(--serif-display);font-size:22px;letter-spacing:-0.012em;line-height:1.22;font-weight:400}
+.w-row .t .k{display:block;font-family:var(--serif-text);font-size:14px;color:var(--ink-mute);font-style:italic;margin-top:3px}
+.w-row .hood{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.w-row .yr{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-mute);text-align:right}
+
+/* Outside radius */
+.outside{display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:start}
+.outside .body{max-width:62ch}
+.outside p{font-family:var(--serif-text);font-size:19px;line-height:1.55}
+.outside .lk{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--accent);padding-bottom:2px}
+</style></head><body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a>
+    <nav class="nav-center"><a href="/capabilities/">Capabilities</a><a href="/atlas-brief/">Atlas Brief</a><a href="#" style="color:var(--ink)">Areas</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+    <div class="nav-right"><a class="nav-phone" href="tel:+12132752210">(213) 275&nbsp;·&nbsp;2210</a><a class="btn" href="/contact/">Contact Atlas</a></div>
+  </div>
+</header>
+
+<div class="wrap page-head">
+  <span class="eyebrow">Service Area</span>
+  <h1>Service area.</h1>
+  <p class="deck">Fifteen-mile radius from <span class="accent-anchor" style="font-style:normal">Fairfax</span>. The Westside and the neighborhoods you actually own in.</p>
+</div>
+
+<!-- PRIMARY COVERAGE -->
+<section style="border-top:0">
+  <div class="wrap">
+    <div class="sh"><div class="n">Primary Coverage</div><div class="t">Twenty-three neighborhoods, one radius.</div></div>
+    <div class="cov-grid">
+      <div></div>
+      <div class="cov-list">
+        <div class="n">Fairfax<span class="z">90036</span></div>
+        <div class="n">Hancock Park<span class="z">90004</span></div>
+        <div class="n">Beverly Hills<span class="z">90210</span></div>
+        <div class="n">West Hollywood<span class="z">90069</span></div>
+        <div class="n">Koreatown<span class="z">90005</span></div>
+        <div class="n">Miracle Mile<span class="z">90036</span></div>
+        <div class="n">Mid-Wilshire<span class="z">90019</span></div>
+        <div class="n">Larchmont<span class="z">90004</span></div>
+        <div class="n">Windsor Square<span class="z">90020</span></div>
+        <div class="n">Hollywood<span class="z">90028</span></div>
+        <div class="n">Melrose<span class="z">90046</span></div>
+        <div class="n">Park La Brea<span class="z">90036</span></div>
+        <div class="n">Carthay<span class="z">90048</span></div>
+        <div class="n">Beverly Grove<span class="z">90048</span></div>
+        <div class="n">La Brea<span class="z">90036</span></div>
+        <div class="n">Pico-Robertson<span class="z">90035</span></div>
+        <div class="n">Westwood<span class="z">90024</span></div>
+        <div class="n">Century City<span class="z">90067</span></div>
+        <div class="n">Brentwood<span class="z">90049</span></div>
+        <div class="n">Santa Monica<span class="z">90403</span></div>
+        <div class="n">Culver City<span class="z">90232</span></div>
+        <div class="n">Palms<span class="z">90034</span></div>
+        <div class="n">Mar Vista<span class="z">90066</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">Coverage Map</div><div class="t">A drawn map of the service radius.</div></div>
+    <div class="map-wrap">
+      <div class="map-slot">
+        <span class="fn">MAP 01</span>
+        <span class="cap">15-mile service radius · Illustration to be added</span>
+        <div class="mid">ILLUSTRATED MAP · PENDING</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE'VE WORKED -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">Where We've Worked</div><div class="t">Selected projects, keyed to neighborhood.</div></div>
+    <div class="worked-list">
+      <div class="w-row"><span class="n">01</span><div class="t">Felix on Fairfax<span class="k">Ground-up multifamily.</span></div><span class="hood">Fairfax</span><span class="yr">2019</span></div>
+      <div class="w-row"><span class="n">02</span><div class="t">Olympic Towers<span class="k">Ground-up development.</span></div><span class="hood">Koreatown</span><span class="yr">2018</span></div>
+      <div class="w-row"><span class="n">03</span><div class="t">Hancock Park residence<span class="k">Full-gut whole-home renovation.</span></div><span class="hood">Hancock Park</span><span class="yr">2025</span></div>
+      <div class="w-row"><span class="n">04</span><div class="t">Building-wide repipe<span class="k">Fourteen-unit copper repipe, occupied.</span></div><span class="hood">Mid-Wilshire</span><span class="yr">2025</span></div>
+      <div class="w-row"><span class="n">05</span><div class="t">Norton Avenue Twelve<span class="k">Common-area renovation and repaint.</span></div><span class="hood">West Hollywood</span><span class="yr">2024</span></div>
+      <div class="w-row"><span class="n">06</span><div class="t">Wilshire-adjacent duplex<span class="k">Duplex repositioning and mechanical rebuild.</span></div><span class="hood">Beverly Hills</span><span class="yr">2023</span></div>
+      <div class="w-row"><span class="n">07</span><div class="t">Serrano Sixteen<span class="k">Interior rehab across sixteen units.</span></div><span class="hood">Koreatown</span><span class="yr">2025</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTSIDE RADIUS -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">Outside the Radius</div><div class="t">For buildings beyond Westside LA.</div></div>
+    <div class="outside">
+      <div></div>
+      <div class="body">
+        <p>For projects beyond our primary service area, Atlas considers engagements case-by-case — usually for owners we already work with on Westside property, or for larger general-contracting scopes where the travel is justified by the job. We don't pretend to serve everywhere; we serve the neighborhoods we know.</p>
+        <a class="lk" href="/contact/">Start a conversation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col"><a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a><p style="font-size:13.5px;color:var(--ink-mute);margin-top:12px;max-width:34ch;line-height:1.55">A Los Angeles general contractor and home services arm, built and operated by multifamily owner-operators.</p></div>
+      <div class="foot-col"><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/plumbing/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li>Los Angeles, California</li><li>(213) 275 · 2210</li><li>hello@atlashomepro.com</li></ul></div>
+    </div>
+    <div class="foot-legal"><div>Atlas Home Pro is a division of Atlas Home Builders, Inc.<br/>CA Class B General Contractor. Headquartered in Los Angeles, California.</div><div class="copy">© 2026 Atlas Home Builders, Inc.</div></div>
+  </div>
+</footer>
+</body></html>

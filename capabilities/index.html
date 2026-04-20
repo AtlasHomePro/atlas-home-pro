@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=1440"/>
+<title>Capabilities — Atlas Home Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/atlas-v2.css">
+<style>
+.page-head{padding:48px 0 32px;border-bottom:1px solid var(--line)}
+.page-head .eyebrow{display:inline-block}
+.page-head h1{font-family:var(--serif-display);font-weight:500;font-size:128px;line-height:.94;letter-spacing:-0.03em;margin-top:14px;max-width:14ch}
+.page-head .deck{font-family:var(--serif-text);font-size:19px;line-height:1.5;max-width:52ch;margin-top:20px;color:var(--ink-mute);font-style:italic}
+
+/* Model — editorial lede */
+.model-inner{display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:start}
+.model-body{max-width:62ch;display:flex;flex-direction:column;gap:18px}
+.model-body p{font-family:var(--serif-text);font-size:19px;line-height:1.55;color:var(--ink)}
+.model-body p:first-child{font-size:22px;line-height:1.45}
+
+/* Seven — card grid */
+.seven-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-right:0;border-bottom:0;margin-top:28px}
+.trade-card{padding:26px 26px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-height:300px;background:var(--paper);transition:background .2s}
+.trade-card:hover{background:var(--paper-2)}
+.trade-card.lead{background:var(--paper-2)}
+.trade-card .n{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-mute);font-weight:500}
+.trade-card h3{font-family:var(--serif-display);font-weight:500;font-size:26px;letter-spacing:-0.015em;line-height:1.08}
+.trade-card.lead h3{font-size:30px}
+.trade-card .scope{font-family:var(--serif-text);font-size:14.5px;line-height:1.5;color:var(--ink-mute);margin-top:4px}
+.trade-card ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
+.trade-card li{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink);padding-left:14px;position:relative;line-height:1.5}
+.trade-card li::before{content:"·";position:absolute;left:4px;top:-1px;color:var(--accent);font-weight:700}
+.trade-card .read{margin-top:auto;padding-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--accent)}
+
+/* Who we serve */
+.serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);margin-top:28px}
+.serve-col{padding:28px 28px 28px 0;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.serve-col:last-child{border-right:0}
+.serve-col:not(:first-child){padding-left:28px}
+.serve-col .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--accent);font-weight:500}
+.serve-col h3{font-family:var(--serif-display);font-weight:500;font-size:24px;letter-spacing:-0.012em;margin-top:2px}
+.serve-col p{font-family:var(--serif-text);font-size:15.5px;line-height:1.55;color:var(--ink-mute);margin-top:4px}
+
+/* How we engage */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:28px}
+.step{padding:28px 24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-height:180px}
+.step:last-child{border-right:0}
+.step .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--accent);font-weight:500}
+.step .num{font-family:var(--serif-display);font-weight:500;font-size:36px;line-height:1;letter-spacing:-0.02em;margin-top:2px}
+.step h3{font-family:var(--serif-display);font-weight:500;font-size:20px;letter-spacing:-0.01em;margin-top:6px}
+.step p{font-family:var(--serif-text);font-size:14px;line-height:1.5;color:var(--ink-mute)}
+
+/* Contact CTA */
+.cta-foot{padding:80px 0;border-top:1px solid var(--line);text-align:center}
+.cta-foot .eyebrow{display:inline-block;margin-bottom:14px}
+.cta-foot h2{font-family:var(--serif-display);font-weight:400;font-size:52px;line-height:1.02;letter-spacing:-0.02em;max-width:20ch;margin:0 auto}
+.cta-foot p{font-family:var(--serif-text);font-size:17px;color:var(--ink-mute);margin-top:18px;max-width:44ch;margin-left:auto;margin-right:auto;font-style:italic}
+.cta-foot .btn{margin-top:28px}
+</style></head><body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a>
+    <nav class="nav-center"><a href="#" style="color:var(--ink)">Capabilities</a><a href="/atlas-brief/">Atlas Brief</a><a href="/areas/">Areas</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+    <div class="nav-right"><a class="nav-phone" href="tel:+12132752210">(213) 275&nbsp;·&nbsp;2210</a><a class="btn" href="/contact/">Contact Atlas</a></div>
+  </div>
+</header>
+
+<!-- PAGE HEAD -->
+<div class="wrap page-head">
+  <span class="eyebrow">Capabilities</span>
+  <h1>Seven trades under one license.</h1>
+  <p class="deck">General contracting in <span class="accent-anchor" style="font-style:normal">Los Angeles.</span> One point of accountability, from the first phone call to the final walkthrough.</p>
+</div>
+
+<!-- THE MODEL -->
+<section style="border-top:0">
+  <div class="wrap">
+    <div class="sh"><div class="n">The Model</div><div class="t">Why Atlas runs its trades under one roof.</div></div>
+    <div class="model-inner">
+      <div></div>
+      <div class="model-body">
+        <p>Most home-service companies specialize in one trade. Most general contractors subcontract everything. Atlas does neither. We operate seven trades in-house or through long-standing partners, all under a single CA Class B general contractor's license.</p>
+        <p>That model exists for a reason. When a plumbing repair uncovers a rot issue that needs carpentry and paint, you don't want to hire three companies and coordinate their schedules. When a multifamily turnover needs HVAC service, a repaint, and a water heater swap before the tenant moves in Friday, you don't want four invoices from four trades pointing at each other over what went wrong.</p>
+        <p>You want one contractor who quoted the whole thing, scheduled the whole thing, and owns the result. That's what Atlas is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SEVEN -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">The Seven</div><div class="t">Trades offered, under one license.</div></div>
+    <div class="seven-grid">
+      <div class="trade-card lead">
+        <span class="n">00 · Keystone</span>
+        <h3>General Contracting</h3>
+        <p class="scope">Whole-project oversight, permits, scheduling, and sign-off. The work that holds the other six together.</p>
+        <ul><li>Full gut renovations</li><li>Additions &amp; ADUs</li><li>Multifamily turnovers</li><li>Permit &amp; inspection management</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+      <div class="trade-card">
+        <span class="n">01 · Trade</span>
+        <h3>HVAC</h3>
+        <p class="scope">Residential and light-commercial heating and cooling, from mini-split retrofits to building-wide systems.</p>
+        <ul><li>Install &amp; replacement</li><li>Service &amp; diagnostics</li><li>Mini-split &amp; heat pump</li><li>Building-wide rebuilds</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+      <div class="trade-card">
+        <span class="n">02 · Trade</span>
+        <h3>Plumbing</h3>
+        <p class="scope">Repairs, repipes, drains, water heaters, and gas fixtures across single-family and multifamily buildings.</p>
+        <ul><li>Copper &amp; PEX repipes</li><li>Drain clearing &amp; camera</li><li>Water heater replacement</li><li>Gas line work (licensed)</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+      <div class="trade-card">
+        <span class="n">03 · Trade</span>
+        <h3>Electrical</h3>
+        <p class="scope">Panels, rewires, lighting, EV circuits, and turnover-ready unit work, coordinated through licensed partners.</p>
+        <ul><li>Panel upgrades &amp; rewires</li><li>Lighting &amp; fixtures</li><li>EV charger circuits</li><li>Turnover electrical</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+      <div class="trade-card">
+        <span class="n">04 · Trade</span>
+        <h3>Painting</h3>
+        <p class="scope">Interior and exterior, occupied buildings, unit turnovers, and full repaints with matched trim work.</p>
+        <ul><li>Interior &amp; exterior</li><li>Unit turnover paint</li><li>Common-area repaint</li><li>Trim &amp; cabinetry</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+      <div class="trade-card">
+        <span class="n">05 · Trade</span>
+        <h3>Water Restoration</h3>
+        <p class="scope">Mitigation, dry-out, and rebuild for water events. Answered twenty-four hours, seven days a week.</p>
+        <ul><li>Emergency mitigation</li><li>Structural dry-out</li><li>Mold remediation</li><li>Rebuild to finish</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+      <div class="trade-card">
+        <span class="n">06 · Trade</span>
+        <h3>Gates &amp; Garage Doors</h3>
+        <p class="scope">Repair and replacement of residential and multifamily access systems. Openers, panels, springs, and controllers.</p>
+        <ul><li>Garage door service</li><li>Driveway &amp; pedestrian gates</li><li>Opener &amp; controller replacement</li><li>Access control retrofits</li></ul>
+        <span class="read">Read the full brief →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">Who We Serve</div><div class="t">Three kinds of owners, one standard of work.</div></div>
+    <div class="serve-grid">
+      <div class="serve-col">
+        <span class="n">01</span>
+        <h3>Multifamily owners</h3>
+        <p>Owner-operators running small and mid-sized apartment buildings across the Westside. Unit turnovers, common-area work, building-wide repipes and repaints, capital improvements on pre-1978 stock. We own buildings like yours, which is why we know how to work on them.</p>
+      </div>
+      <div class="serve-col">
+        <span class="n">02</span>
+        <h3>Property managers</h3>
+        <p>Third-party managers handling portfolios across Los Angeles. Scheduled maintenance, tenant work orders routed through a single contractor, after-hours water events. One invoice, one scheduler, one number to call.</p>
+      </div>
+      <div class="serve-col">
+        <span class="n">03</span>
+        <h3>Family offices</h3>
+        <p>Private owners with personal residences and small portfolios who want a contractor they don't have to manage. Whole-home renovations, deferred-maintenance programs, and standing arrangements for anything that breaks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE ENGAGE -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">How We Engage</div><div class="t">Four steps, in this order.</div></div>
+    <div class="process">
+      <div class="step">
+        <span class="n">Step 01</span>
+        <div class="num">01</div>
+        <h3>Scope call</h3>
+        <p>Fifteen minutes on the phone. We ask what the project is, what the building is, and what you've been told by anyone else.</p>
+      </div>
+      <div class="step">
+        <span class="n">Step 02</span>
+        <div class="num">02</div>
+        <h3>Site walk</h3>
+        <p>We come out to the property, usually within a week. No salespeople — the general contractor who would run the job walks the job.</p>
+      </div>
+      <div class="step">
+        <span class="n">Step 03</span>
+        <div class="num">03</div>
+        <h3>Written estimate</h3>
+        <p>A line-item number, in writing, within seven days of the walk. The figure we quote is the figure we hold.</p>
+      </div>
+      <div class="step">
+        <span class="n">Step 04</span>
+        <div class="num">04</div>
+        <h3>Scheduled work</h3>
+        <p>Once you sign, we schedule. You know who's on site, what they're doing, and when they'll be done — every day of the project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-foot">
+  <div class="wrap">
+    <span class="eyebrow">Next Step</span>
+    <h2>Tell us about the project. We'll walk it within the week.</h2>
+    <p>No salespeople. No stall. One scope call, one site walk, one honest estimate.</p>
+    <div><a class="btn" href="/contact/">Start a project</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col"><a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a><p style="font-size:13.5px;color:var(--ink-mute);margin-top:12px;max-width:34ch;line-height:1.55">A Los Angeles general contractor and home services arm, built and operated by multifamily owner-operators.</p></div>
+      <div class="foot-col"><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/plumbing/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li>Los Angeles, California</li><li>(213) 275 · 2210</li><li>hello@atlashomepro.com</li></ul></div>
+    </div>
+    <div class="foot-legal"><div>Atlas Home Pro is a division of Atlas Home Builders, Inc.<br/>CA Class B General Contractor. Headquartered in Los Angeles, California.</div><div class="copy">© 2026 Atlas Home Builders, Inc.</div></div>
+  </div>
+</footer>
+</body></html>

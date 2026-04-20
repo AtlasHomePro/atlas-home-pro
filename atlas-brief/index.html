@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=1440"/>
+<title>Atlas Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/atlas-v2.css">
+<style>
+/* Brief masthead — smaller than the Home masthead, same grammar */
+.b-mast{padding:28px 0 0}
+.b-top{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-mute);padding-bottom:12px;border-bottom:1px solid var(--line)}
+.b-title{font-family:var(--serif-display);font-weight:700;font-size:148px;line-height:.82;letter-spacing:-0.045em;padding:20px 0 14px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.b-title .est{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-mute);white-space:nowrap;padding-bottom:16px;font-weight:400}
+.rule-ink{height:1px;background:var(--ink)}
+.rule-acc{height:1px;background:var(--accent);margin-top:1px}
+.b-tag{padding:18px 0 24px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);gap:24px}
+.b-tag .t{font-family:var(--serif-text);font-size:18px;font-style:italic;color:var(--ink);max-width:62ch;line-height:1.5}
+.b-tag .byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+.b-tag .byline span{color:var(--accent)}
+
+/* From this issue */
+.issue{padding:56px 0}
+.issue-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:48px}
+.lead .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;font-weight:500}
+.lead h2{font-family:var(--serif-display);font-weight:400;font-size:64px;line-height:1;letter-spacing:-0.024em;margin-top:10px;max-width:18ch}
+.lead .dek{font-family:var(--serif-text);font-size:19px;line-height:1.5;margin-top:18px;max-width:52ch}
+.lead .meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-mute);margin-top:20px;display:flex;gap:18px;align-items:center}
+.lead .read{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;font-weight:500;display:inline-block;margin-top:14px;border-bottom:1px solid var(--accent);padding-bottom:2px}
+.sec{border-left:1px solid var(--line);padding-left:28px;display:flex;flex-direction:column;gap:28px}
+.sec article .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;font-weight:500}
+.sec article h3{font-family:var(--serif-display);font-weight:400;font-size:22px;line-height:1.18;letter-spacing:-0.01em;margin-top:5px}
+.sec article .dek{font-family:var(--serif-text);font-size:14.5px;line-height:1.5;margin-top:8px;color:var(--ink-mute)}
+.sec article .meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-mute);margin-top:10px}
+
+/* Categories 3x3 */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-right:0;border-bottom:0;margin-top:28px}
+.cat{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-height:120px;transition:background .2s}
+.cat:hover{background:var(--paper-2)}
+.cat .n{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-mute)}
+.cat h3{font-family:var(--serif-display);font-weight:500;font-size:22px;letter-spacing:-0.012em}
+.cat .c{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-mute);margin-top:4px}
+.cat .br{margin-top:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+
+/* Archive */
+.arc-list{border-top:1px solid var(--line);margin-top:28px}
+.arc-row{display:grid;grid-template-columns:100px 160px 1fr 80px;gap:24px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:background .2s}
+.arc-row:hover{background:var(--paper-2)}
+.arc-row .d{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-mute);padding-top:2px}
+.arc-row .c{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;padding-top:2px}
+.arc-row .h{font-family:var(--serif-display);font-size:19px;line-height:1.25;letter-spacing:-0.008em}
+.arc-row .h .dek{display:block;font-family:var(--serif-text);font-size:14px;color:var(--ink-mute);line-height:1.5;margin-top:3px;font-style:italic}
+.arc-row .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-mute);text-align:right}
+
+/* Subscribe */
+.sub{padding:72px 0;border-top:1px solid var(--line);text-align:center}
+.sub .eyebrow{display:inline-block;margin-bottom:14px}
+.sub h2{font-family:var(--serif-display);font-weight:400;font-size:52px;line-height:1.02;letter-spacing:-0.022em;max-width:22ch;margin:0 auto}
+.sub-form{display:flex;gap:10px;max-width:520px;margin:28px auto 12px;justify-content:center}
+.sub-form input{flex:1;padding:12px 14px;border:1px solid var(--ink);background:var(--paper);font:inherit;font-size:14px;border-radius:0}
+.sub-form input:focus{outline:none;border-color:var(--accent)}
+.sub .note{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-mute);text-transform:uppercase;margin-top:8px}
+</style></head><body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a>
+    <nav class="nav-center"><a href="/capabilities/">Capabilities</a><a href="#" style="color:var(--ink)">Atlas Brief</a><a href="/areas/">Areas</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+    <div class="nav-right"><a class="nav-phone" href="tel:+12132752210">(213) 275&nbsp;·&nbsp;2210</a><a class="btn" href="/contact/">Contact Atlas</a></div>
+  </div>
+</header>
+
+<div class="wrap b-mast">
+  <div class="b-top"><span>LOS ANGELES</span><span>VOL. I — ISSUE 47</span><span>APRIL 19, 2026 — ATLASHOMEPRO.COM/BRIEF</span></div>
+  <div class="b-title"><span>ATLAS BRIEF</span><span class="est">A PUBLICATION OF ATLAS HOME PRO</span></div>
+  <div class="rule-ink"></div><div class="rule-acc"></div>
+  <div class="b-tag">
+    <div class="t">Market intelligence for LA owners and operators. Written by <span class="accent-anchor" style="font-style:normal">David Safai</span> — delivered weekly, free.</div>
+    <div class="byline">BY <span>DAVID SAFAI</span></div>
+  </div>
+</div>
+
+<!-- FROM THIS ISSUE -->
+<section class="issue" style="border-top:0;padding-top:48px">
+  <div class="wrap">
+    <div class="sh"><div class="n">From This Issue</div><div class="t">April 19 · on the desk.</div></div>
+    <div class="issue-grid">
+      <article class="lead">
+        <span class="tag">The Owner's Take</span>
+        <h2>Why we're still buying in Hancock Park at a 5.4 cap.</h2>
+        <p class="dek">Every spreadsheet tells us to wait. Three decades on the Westside tell us to move. The case for durable rent growth in rent-stabilized pre-1978 product, with a walk-through of the math on the last two we closed.</p>
+        <div class="meta"><span>DAVID SAFAI</span><span>APR 19, 2026</span><span>11 MIN READ</span></div>
+        <a class="read" href="#">Read the full piece →</a>
+      </article>
+      <aside class="sec">
+        <article>
+          <span class="tag">Construction Costs</span>
+          <h3>The Westside repipe economy — what PEX is actually costing in 2026.</h3>
+          <p class="dek">Three recent repipes on our own buildings, broken out line by line.</p>
+          <div class="meta">APR 12 · 7 MIN READ</div>
+        </article>
+        <article>
+          <span class="tag">Development Watch</span>
+          <h3>What's actually getting entitled along the La Brea corridor.</h3>
+          <p class="dek">Nineteen active projects. Five will trade before they break ground.</p>
+          <div class="meta">APR 8 · 9 MIN READ</div>
+        </article>
+        <article>
+          <span class="tag">Policy</span>
+          <h3>ED-1 at eighteen months: a candid operator's scorecard.</h3>
+          <p class="dek">Where the streamlined pathway actually worked, and where it didn't.</p>
+          <div class="meta">APR 2 · 10 MIN READ</div>
+        </article>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">Categories</div><div class="t">Nine desks. Browse by topic.</div></div>
+    <div class="cats">
+      <div class="cat"><span class="n">01</span><h3>Comps</h3><span class="c">22 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">02</span><h3>Construction Costs</h3><span class="c">18 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">03</span><h3>Development Watch</h3><span class="c">26 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">04</span><h3>Broker Activity</h3><span class="c">14 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">05</span><h3>Market Intelligence</h3><span class="c">31 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">06</span><h3>Opportunities</h3><span class="c">9 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">07</span><h3>Policy</h3><span class="c">16 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">08</span><h3>Operator Guides</h3><span class="c">12 articles</span><span class="br">Browse →</span></div>
+      <div class="cat"><span class="n">09</span><h3>The Owner's Take</h3><span class="c">21 articles</span><span class="br">Browse →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="n">The Archive</div><div class="t">Every issue, in order.</div></div>
+    <div class="arc-list">
+      <div class="arc-row"><span class="d">APR 19, 2026</span><span class="c">Owner's Take</span><div class="h">Why we're still buying in Hancock Park at a 5.4 cap<span class="dek">The case for durable rent growth in rent-stabilized pre-1978 product.</span></div><span class="r">11 MIN</span></div>
+      <div class="arc-row"><span class="d">APR 12, 2026</span><span class="c">Construction Costs</span><div class="h">The Westside repipe economy — what PEX is actually costing in 2026<span class="dek">Materials are down eleven percent year-over-year; labor is not.</span></div><span class="r">7 MIN</span></div>
+      <div class="arc-row"><span class="d">APR 8, 2026</span><span class="c">Development Watch</span><div class="h">What's actually getting entitled along the La Brea corridor<span class="dek">Nineteen active projects, one desk review at a time.</span></div><span class="r">9 MIN</span></div>
+      <div class="arc-row"><span class="d">APR 2, 2026</span><span class="c">Policy</span><div class="h">ED-1 at eighteen months: a candid operator's scorecard<span class="dek">Where the streamlined pathway worked, and where it didn't.</span></div><span class="r">10 MIN</span></div>
+      <div class="arc-row"><span class="d">MAR 28, 2026</span><span class="c">Operator Guides</span><div class="h">Turnover math: what a clean unit actually costs in 2026<span class="dek">Paint, floors, fixtures, cleaning, and the week you lose to the schedule.</span></div><span class="r">8 MIN</span></div>
+      <div class="arc-row"><span class="d">MAR 21, 2026</span><span class="c">Market Intelligence</span><div class="h">Rent growth in Koreatown has quietly broken trend<span class="dek">Three quarters of outperformance, explained.</span></div><span class="r">6 MIN</span></div>
+      <div class="arc-row"><span class="d">MAR 14, 2026</span><span class="c">Comps</span><div class="h">Four Westside trades, read alongside the financing<span class="dek">Price-per-unit tells part of the story; the debt stack tells the rest.</span></div><span class="r">9 MIN</span></div>
+      <div class="arc-row"><span class="d">MAR 7, 2026</span><span class="c">Broker Activity</span><div class="h">Who's shopping on the Westside right now, and what they're willing to sign<span class="dek">Twelve active buyers, mapped by mandate and check size.</span></div><span class="r">7 MIN</span></div>
+      <div class="arc-row"><span class="d">FEB 28, 2026</span><span class="c">Opportunities</span><div class="h">Three properties we considered and passed on, and why<span class="dek">The yes is easy to write up. The no is where the thinking lives.</span></div><span class="r">10 MIN</span></div>
+      <div class="arc-row"><span class="d">FEB 21, 2026</span><span class="c">Owner's Take</span><div class="h">What thirty years of ownership taught us about contractor relationships<span class="dek">The lessons that eventually became Atlas.</span></div><span class="r">12 MIN</span></div>
+      <div class="arc-row"><span class="d">FEB 14, 2026</span><span class="c">Construction Costs</span><div class="h">HVAC retrofits in occupied buildings — what they actually cost<span class="dek">Seven recent jobs, priced honestly.</span></div><span class="r">8 MIN</span></div>
+      <div class="arc-row"><span class="d">FEB 7, 2026</span><span class="c">Development Watch</span><div class="h">The small infill projects quietly reshaping Mid-Wilshire<span class="dek">A walking tour, with permit numbers.</span></div><span class="r">9 MIN</span></div>
+      <div class="arc-row"><span class="d">JAN 31, 2026</span><span class="c">Operator Guides</span><div class="h">How we write a scope of work an owner can actually hold us to<span class="dek">Template, with commentary.</span></div><span class="r">11 MIN</span></div>
+      <div class="arc-row"><span class="d">JAN 24, 2026</span><span class="c">Market Intelligence</span><div class="h">Why the Westside broke from the rest of LA this cycle<span class="dek">Two charts and one argument.</span></div><span class="r">7 MIN</span></div>
+      <div class="arc-row"><span class="d">JAN 17, 2026</span><span class="c">Policy</span><div class="h">What the 2026 LA ordinance changes mean for small owners<span class="dek">A plain-language summary, section by section.</span></div><span class="r">9 MIN</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="sub">
+  <div class="wrap">
+    <span class="eyebrow">Subscribe</span>
+    <h2>Weekly market intelligence, written by an owner.</h2>
+    <form class="sub-form" onsubmit="event.preventDefault()">
+      <input type="email" placeholder="you@domain.com"/>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+    <div class="note">Weekly · Free · Unsubscribe anytime.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col"><a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a><p style="font-size:13.5px;color:var(--ink-mute);margin-top:12px;max-width:34ch;line-height:1.55">A Los Angeles general contractor and home services arm, built and operated by multifamily owner-operators.</p></div>
+      <div class="foot-col"><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/plumbing/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li>Los Angeles, California</li><li>(213) 275 · 2210</li><li>hello@atlashomepro.com</li></ul></div>
+    </div>
+    <div class="foot-legal"><div>Atlas Home Pro is a division of Atlas Home Builders, Inc.<br/>CA Class B General Contractor. Headquartered in Los Angeles, California.</div><div class="copy">© 2026 Atlas Home Builders, Inc.</div></div>
+  </div>
+</footer>
+</body></html>
