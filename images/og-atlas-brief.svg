@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <rect width="1200" height="630" fill="#FAFAF8"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#1A1A1A"/>
+  <rect x="0" y="626" width="1200" height="4" fill="#1A1A1A"/>
+  <text x="600" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="96" font-weight="bold" fill="#1A1A1A">Atlas</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="80" font-style="italic" fill="#9A6B3F">Brief</text>
+  <line x1="350" y1="380" x2="850" y2="380" stroke="#1A1A1A" stroke-width="1.5"/>
+  <text x="600" y="430" text-anchor="middle" font-family="monospace" font-size="14" letter-spacing="4" fill="#6B6B68">A JOURNAL OF RECORD</text>
+  <text x="600" y="470" text-anchor="middle" font-family="monospace" font-size="12" letter-spacing="3" fill="#6B6B68">REAL ESTATE · DEVELOPMENT · CONSTRUCTION · POLICY</text>
+  <text x="600" y="540" text-anchor="middle" font-family="monospace" font-size="11" letter-spacing="2" fill="#9A6B3F">LOS ANGELES · BY DAVID SAFAI</text>
+</svg>
