@@ -83,3 +83,96 @@ footer{border-top:1px solid var(--line);padding:48px 0 32px}
 .slot .frame-n{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-mute);background:var(--paper);padding:4px 8px;border:1px solid var(--line)}
 .slot .cap{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-mute);background:var(--paper);padding:5px 8px;border:1px solid var(--line)}
 .slot .mid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-mute);text-align:center;padding:20px}
+
+/* ========================================
+   MOBILE RESPONSIVE — added 2026-04-19
+   ======================================== */
+
+/* Hamburger menu */
+.hamburger{display:none;background:none;border:0;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .3s ease}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile nav overlay */
+.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--paper);z-index:49;padding:24px var(--gutter);flex-direction:column;gap:0;border-top:1px solid var(--line);overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav a{display:block;padding:16px 0;border-bottom:1px solid var(--line-soft);font-size:15px;color:var(--ink)}
+.mobile-nav .nav-phone-mobile{margin-top:auto;padding:20px 0;text-align:center}
+.mobile-nav .nav-phone-mobile a{border-bottom:0;font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.08em}
+.mobile-nav .mobile-cta{display:block;margin-top:16px;text-align:center}
+.mobile-nav .mobile-cta .btn{width:100%;justify-content:center;padding:16px 24px}
+
+/* ---- TABLET (< 1024px) ---- */
+@media(max-width:1024px){
+  .nav-inner{grid-template-columns:1fr auto}
+  .nav-center{display:none}
+  .nav-right .nav-phone{display:none}
+  .hamburger{display:flex}
+
+  .sh{grid-template-columns:1fr;gap:8px}
+  .feature{grid-template-columns:1fr}
+  .feat-side{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:22px;margin-top:8px}
+  .spread{grid-template-columns:1fr;gap:24px}
+  .spread.flip{direction:ltr}
+  .who{grid-template-columns:1fr}
+  .areas{grid-template-columns:1fr}
+  .news-inner{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .foot-legal{grid-template-columns:1fr;gap:12px}
+  .foot-legal .copy{text-align:left}
+  .caps-grid{grid-template-columns:repeat(2,1fr)}
+  .contents{grid-template-columns:1fr;gap:16px}
+  .contents .lbl{padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .c-item{border-right:0;padding-right:0;border-bottom:1px solid var(--line-soft);padding-bottom:12px}
+  .c-item:last-child{border-bottom:0}
+  .ed-row{grid-template-columns:1fr;gap:24px}
+  .ed-row .side{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:16px}
+  .quotes{column-count:1}
+}
+
+/* ---- MOBILE (< 640px) ---- */
+@media(max-width:640px){
+  :root{--gutter:16px}
+
+  .mast-title{font-size:clamp(56px,14vw,140px);flex-direction:column;align-items:flex-start;gap:8px}
+  .mast-title .est{padding-bottom:0;font-size:9px}
+
+  .editorial h1{font-size:clamp(42px,11vw,100px)}
+  .editorial .sub{font-size:15px}
+
+  .caps-grid{grid-template-columns:1fr}
+  .cap-card{min-height:auto;padding:16px}
+
+  .feat-main h2{font-size:clamp(28px,7vw,48px)}
+  .story h3{font-size:17px}
+
+  .spread-meta h3{font-size:clamp(24px,6vw,34px)}
+
+  .who p{font-size:22px}
+
+  .sh .t{font-size:clamp(28px,6.5vw,42px)}
+
+  .area-list{column-count:1}
+  .foot-grid{grid-template-columns:1fr;gap:24px}
+
+  .news h2{font-size:clamp(24px,6vw,36px)}
+  .news-form{flex-direction:column;border-bottom:0;gap:12px;padding-bottom:0}
+  .news-form input{border-bottom:1px solid var(--ink);padding:12px 0}
+  .news-form button{align-self:flex-start;padding:12px 0}
+
+  section{padding:44px 0}
+  .lede p{font-size:18px}
+
+  .nav-inner{height:56px}
+  .mobile-nav{top:56px}
+  .nav-right .btn{padding:8px 16px;font-size:12px}
+}
+
+/* ---- Small phones (< 400px) ---- */
+@media(max-width:400px){
+  .mast-title{font-size:clamp(44px,12vw,80px)}
+  .editorial h1{font-size:clamp(36px,10vw,60px)}
+  .mast-top{flex-direction:column;gap:4px}
+}

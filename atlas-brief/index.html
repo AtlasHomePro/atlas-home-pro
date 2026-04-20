@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=1440"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Atlas Brief</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -59,6 +59,16 @@
 .sub-form input{flex:1;padding:12px 14px;border:1px solid var(--ink);background:var(--paper);font:inherit;font-size:14px;border-radius:0}
 .sub-form input:focus{outline:none;border-color:var(--accent)}
 .sub .note{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-mute);text-transform:uppercase;margin-top:8px}
+
+/* Mobile responsive */
+@media(max-width:1024px){
+  [style*="grid-template-columns"]{grid-template-columns:1fr!important}
+}
+@media(max-width:640px){
+  .page-hero h1,.page-hero .hero-title{font-size:clamp(28px,7vw,48px)!important}
+  .page-hero p{font-size:15px!important}
+  section{padding:40px 0!important}
+}
 </style></head><body>
 
 <header class="nav">
@@ -66,8 +76,19 @@
     <a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a>
     <nav class="nav-center"><a href="/capabilities/">Capabilities</a><a href="#" style="color:var(--ink)">Atlas Brief</a><a href="/areas/">Areas</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
     <div class="nav-right"><a class="nav-phone" href="tel:+12132752210">(213) 275&nbsp;·&nbsp;2210</a><a class="btn" href="/contact/">Contact Atlas</a></div>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="mobile-nav">
+<a href="/">Home</a>
+<a href="/capabilities/">Capabilities</a>
+<a href="/atlas-brief/">Atlas Brief</a>
+<a href="/areas/">Areas</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<div class="nav-phone-mobile"><a href="tel:+12132752210">(213) 275 · 2210</a></div>
+<div class="mobile-cta"><a class="btn" href="/contact/">Contact Atlas</a></div>
+</div>
 
 <div class="wrap b-mast">
   <div class="b-top"><span>LOS ANGELES</span><span>VOL. I — ISSUE 47</span><span>APRIL 19, 2026 — ATLASHOMEPRO.COM/BRIEF</span></div>
@@ -176,7 +197,7 @@
       <div class="foot-col"><a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a><p style="font-size:13.5px;color:var(--ink-mute);margin-top:12px;max-width:34ch;line-height:1.55">A Los Angeles general contractor and home services arm, built and operated by multifamily owner-operators.</p></div>
       <div class="foot-col"><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/plumbing/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
       <div class="foot-col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
-      <div class="foot-col"><h5>Contact</h5><ul><li>Los Angeles, California</li><li>(213) 275 · 2210</li><li>hello@atlashomepro.com</li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li>Los Angeles, California</li><li>(213) 275 · 2210</li><li>David@AtlasHomePro.com</li></ul></div>
     </div>
     <div class="foot-legal"><div>Atlas Home Pro is a division of Atlas Home Builders, Inc.<br/>CA Class B General Contractor. Headquartered in Los Angeles, California.</div><div class="copy">© 2026 Atlas Home Builders, Inc.</div></div>
   </div>
