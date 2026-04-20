@@ -1,194 +1,155 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contact — Atlas Home Pro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/atlas-v2.css">
+<link rel="stylesheet" href="atlas-v2.css"/>
 <style>
-.page-head{padding:48px 0 32px;border-bottom:1px solid var(--line)}
-.page-head .eyebrow{display:inline-block}
-.page-head h1{font-family:var(--serif-display);font-weight:500;font-size:160px;line-height:.94;letter-spacing:-0.03em;margin-top:14px}
-.page-head .deck{font-family:var(--serif-text);font-size:19px;line-height:1.5;max-width:56ch;margin-top:20px;color:var(--ink-mute);font-style:italic}
+.c-hero{padding:clamp(64px,9vw,140px) 0 clamp(40px,5vw,72px);border-bottom:1px solid var(--ink)}
+.c-hero .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.c-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(48px,8vw,128px);line-height:.92;letter-spacing:-.035em;margin:0 0 32px;max-width:14ch}
+.c-hero h1 em{font-style:italic;color:var(--ink-soft)}
+.c-hero p{font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);line-height:1.5;color:var(--ink-soft);max-width:50ch;font-weight:300;margin:0}
 
-.contact-wrap{padding:64px 0;border-top:0}
-.c-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:start}
+.c-main{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-bottom:1px solid var(--ink)}
+.c-form{padding:clamp(56px,7vw,96px) 48px clamp(56px,7vw,96px) var(--pad-x);border-right:1px solid var(--ink)}
+.c-form .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.c-form h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4vw,52px);line-height:1;letter-spacing:-.025em;margin:0 0 32px;font-style:italic}
+form.c-fields{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
+.fld{display:flex;flex-direction:column;gap:8px}
+.fld.full{grid-column:1 / -1}
+.fld label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fld label b{color:var(--accent);font-weight:500;margin-left:4px}
+.fld input,.fld select,.fld textarea{background:transparent;border:0;border-bottom:1px solid var(--rule);padding:10px 0;font-family:var(--serif);font-size:20px;letter-spacing:-.005em;color:var(--ink);outline:none;transition:border-color .15s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--accent)}
+.fld textarea{resize:vertical;min-height:120px;line-height:1.5;font-size:18px}
+.fld .hint{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted-2)}
+.c-form button{margin-top:24px;padding:16px 22px;background:var(--ink);color:var(--bg);border:1px solid var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;transition:background .15s,color .15s;grid-column:1 / -1;justify-self:start}
+.c-form button:hover{background:transparent;color:var(--ink)}
+.c-form .consent{grid-column:1 / -1;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);line-height:1.6}
 
-/* Form */
-.form{border:1px solid var(--line);padding:36px 36px 32px;background:var(--paper)}
-.form .eyebrow{display:inline-block;margin-bottom:14px}
-.form h2{font-family:var(--serif-display);font-weight:400;font-size:34px;letter-spacing:-0.018em;line-height:1.02}
-.form .helper{font-family:var(--serif-text);font-size:15px;color:var(--ink-mute);margin-top:10px;font-style:italic}
-.field{margin-top:22px}
-.field label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px;font-weight:500}
-.field input, .field select, .field textarea{width:100%;padding:10px 12px;border:1px solid var(--line);background:var(--paper);font:inherit;font-size:14px;color:var(--ink);border-radius:0;transition:border-color .2s}
-.field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--ink)}
-.field textarea{min-height:110px;resize:vertical;font-family:var(--serif-text);font-size:15px;line-height:1.5}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.row3{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 20px;margin-top:6px}
-.checks label{display:flex;gap:8px;font-family:var(--sans);font-size:13.5px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:400;align-items:center;cursor:pointer}
-.checks input{width:14px;height:14px;margin:0;accent-color:var(--accent)}
-.submit-row{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px}
-.submit-row .note{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-mute);text-transform:uppercase}
+.c-side{padding:clamp(56px,7vw,96px) var(--pad-x) clamp(56px,7vw,96px) 48px;background:var(--bg-alt)}
+.c-side .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.c-side h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,2.8vw,36px);line-height:1.1;letter-spacing:-.015em;margin:0 0 28px;font-style:italic}
+.c-side dl{margin:0;display:flex;flex-direction:column;gap:24px;padding-top:24px;border-top:1px solid var(--ink)}
+.c-side dl > div{display:grid;grid-template-columns:120px 1fr;gap:24px;padding-bottom:22px;border-bottom:1px dotted var(--rule);align-items:baseline}
+.c-side dl > div:last-child{border-bottom:0}
+.c-side dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.c-side dd{margin:0;font-family:var(--serif);font-size:19px;line-height:1.4;letter-spacing:-.005em}
+.c-side dd a{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
 
-/* Right column — editorial */
-.right .block{margin-bottom:40px}
-.right .block:last-child{margin-bottom:0}
-.right .block .eyebrow{display:inline-block;margin-bottom:10px}
-.right .block h3{font-family:var(--serif-display);font-weight:500;font-size:28px;letter-spacing:-0.016em;line-height:1.1}
-.right .block p{font-family:var(--serif-text);font-size:16px;line-height:1.55;margin-top:14px;color:var(--ink)}
-.right .block p + p{margin-top:12px}
-.direct{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0}
-.direct dl{display:grid;grid-template-columns:120px 1fr;gap:10px 20px;margin:0}
-.direct dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);padding-top:3px}
-.direct dd{margin:0;font-family:var(--serif-display);font-size:20px;letter-spacing:-0.01em;line-height:1.25}
-.direct dd .sub{display:block;font-family:var(--serif-text);font-size:14px;color:var(--ink-mute);font-style:italic;margin-top:2px}
+@media(max-width:1024px){.c-main{grid-template-columns:1fr} .c-form{border-right:0;border-bottom:1px solid var(--ink);padding:56px var(--pad-x)} .c-side{padding:56px var(--pad-x)} form.c-fields{grid-template-columns:1fr}}
 
-.urgent{background:var(--paper-2);padding:18px 20px;border:1px solid var(--line)}
-.urgent .eyebrow{color:var(--accent);display:inline-block;margin-bottom:6px}
-.urgent p{font-family:var(--serif-text);font-size:14.5px;line-height:1.5;color:var(--ink);margin:0}
-.urgent strong{font-family:var(--sans);font-weight:600;letter-spacing:.02em}
-
-/* Mobile responsive */
-@media(max-width:1024px){
-  [style*="grid-template-columns"]{grid-template-columns:1fr!important}
-}
-@media(max-width:640px){
-  .page-hero h1,.page-hero .hero-title{font-size:clamp(28px,7vw,48px)!important}
-  .page-hero p{font-size:15px!important}
-  section{padding:40px 0!important}
-}
+.hours{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
+.hours-inner{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+.hours .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hours h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.5vw,48px);line-height:1;letter-spacing:-.02em;margin:0 0 32px;font-style:italic}
+.hours ul{list-style:none;padding:0;margin:0;border-top:1px solid var(--ink)}
+.hours li{display:grid;grid-template-columns:160px 1fr auto;gap:24px;padding:16px 0;border-bottom:1px dotted var(--rule);align-items:baseline}
+.hours li .d{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hours li .w{font-family:var(--serif);font-size:18px;letter-spacing:-.005em}
+.hours li .h{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink)}
+@media(max-width:1024px){.hours-inner{grid-template-columns:1fr;gap:20px} .hours li{grid-template-columns:100px 1fr;gap:16px} .hours li .h{grid-column:2}}
 </style>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Atlas Home Pro — Licensed General Contractor, Los Angeles">
-<meta property="og:description" content="Real estate, development, construction, and policy — Los Angeles. By David Safai.">
+
 <meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
-<meta property="og:site_name" content="Atlas Home Pro">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
 <link rel="icon" type="image/png" href="/apple-touch-icon.png">
-</head><body>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas Home Pro</a>
+    <ul class="nav-links"><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/" class="active">Contact</a></li></ul>
+    <div class="nav-right"><span class="nav-phone">(213) 275-2210</span><a href="/contact/" class="nav-cta">Contact Atlas</a><button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div>
+  <div class="mobile-menu" id="mm"><ul><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul><div class="mm-meta"><span>(213) 275-2210</span><span>David@AtlasHomePro.com</span></div></div>
+</nav>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a>
-    <nav class="nav-center"><a href="/capabilities/">Capabilities</a><a href="/atlas-brief/">Atlas Brief</a><a href="/areas/">Areas</a><a href="/about/">About</a><a href="#" style="color:var(--ink)">Contact</a></nav>
-    <div class="nav-right"><a class="nav-phone" href="tel:+12132752210">(213) 275&nbsp;·&nbsp;2210</a><a class="btn" href="/contact/">Contact Atlas</a></div>
-  <button class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+<header class="c-hero">
+  <div class="wrap">
+    <div class="k">§ Contact Atlas · Begin a project</div>
+    <h1>Write the <em>first line.</em></h1>
+    <p>The principal reads the inbox. Expect a reply within one business day. For active emergencies, call the office number — it forwards.</p>
   </div>
 </header>
-<div class="mobile-nav">
-<a href="/">Home</a>
-<a href="/capabilities/">Capabilities</a>
-<a href="/atlas-brief/">Atlas Brief</a>
-<a href="/areas/">Areas</a>
-<a href="/about/">About</a>
-<a href="/contact/">Contact</a>
-<div class="nav-phone-mobile"><a href="tel:+12132752210">(213) 275 · 2210</a></div>
-<div class="mobile-cta"><a class="btn" href="/contact/">Contact Atlas</a></div>
-</div>
 
-<div class="wrap page-head">
-  <span class="eyebrow">Contact</span>
-  <h1>Start a project.</h1>
-  <p class="deck">Scope call, site walk, <span class="accent-anchor" style="font-style:normal">written estimate</span>. In that order. No salespeople, no stall.</p>
-</div>
-
-<div class="wrap contact-wrap">
-  <div class="c-grid">
-    <!-- LEFT: FORM -->
-    <form class="form" onsubmit="event.preventDefault()">
-      <span class="eyebrow">Request Form</span>
-      <h2>Tell us about the project.</h2>
-      <p class="helper">Ten fields. Two minutes. Someone on our end reads every one.</p>
-
-      <div class="row2">
-        <div class="field"><label>Name</label><input type="text" placeholder="Full name"/></div>
-        <div class="field"><label>Phone</label><input type="tel" placeholder="(000) 000 · 0000"/></div>
+<section class="c-main">
+  <div class="c-form">
+    <div class="k">Form · 01</div>
+    <h2>Tell us what you're building, or what's&nbsp;failing.</h2>
+    <form class="c-fields" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we'll reply within one business day.';this.querySelectorAll('input,textarea,select').forEach(i=>i.disabled=true);">
+      <div class="fld"><label>Name <b>*</b></label><input type="text" required placeholder="Your full name"/></div>
+      <div class="fld"><label>Email <b>*</b></label><input type="email" required placeholder="you@domain.com"/></div>
+      <div class="fld"><label>Phone</label><input type="tel" placeholder="(___) ___-____"/></div>
+      <div class="fld"><label>Project Type <b>*</b></label>
+        <select required>
+          <option value="">Select one —</option>
+          <option>Multifamily development</option>
+          <option>Ground-up residential</option>
+          <option>Gut renovation</option>
+          <option>HVAC</option>
+          <option>Plumbing / repipe</option>
+          <option>Electrical</option>
+          <option>Painting</option>
+          <option>Water restoration</option>
+          <option>Gates &amp; garage doors</option>
+          <option>Editorial / press</option>
+        </select>
       </div>
-      <div class="field"><label>Email</label><input type="email" placeholder="you@domain.com"/></div>
-      <div class="field"><label>Property address</label><input type="text" placeholder="Street · City · ZIP"/></div>
-
-      <div class="row2">
-        <div class="field"><label>Property type</label><select>
-          <option>Select one</option>
-          <option>Single-family</option>
-          <option>Duplex</option>
-          <option>Small multifamily · 2–4 units</option>
-          <option>Mid multifamily · 5–20 units</option>
-          <option>Large multifamily · 20+ units</option>
-          <option>Commercial</option>
-          <option>Other</option>
-        </select></div>
-        <div class="field"><label>How did you hear about us <span style="color:var(--ink-mute);text-transform:none;letter-spacing:0">(optional)</span></label><input type="text" placeholder="Referral · brief · search · other"/></div>
-      </div>
-
-      <div class="field">
-        <label>Trade needed</label>
-        <div class="checks">
-          <label><input type="checkbox"/> General Contracting</label>
-          <label><input type="checkbox"/> HVAC</label>
-          <label><input type="checkbox"/> Plumbing</label>
-          <label><input type="checkbox"/> Electrical</label>
-          <label><input type="checkbox"/> Painting</label>
-          <label><input type="checkbox"/> Water Restoration</label>
-          <label><input type="checkbox"/> Gates &amp; Garage Doors</label>
-          <label><input type="checkbox"/> Not sure yet</label>
-        </div>
-      </div>
-
-      <div class="field"><label>Brief description</label><textarea placeholder="What's going on, what you've been told so far, and anything you've already ruled in or out."></textarea></div>
-
-      <div class="submit-row">
-        <span class="note">One business day · Reply by phone</span>
-        <button class="btn" type="submit">Request a scope call</button>
-      </div>
+      <div class="fld full"><label>Project Address or Neighborhood</label><input type="text" placeholder="Street address, or neighborhood if confidential"/></div>
+      <div class="fld full"><label>Project Description <b>*</b></label><textarea required placeholder="Scope, timeline, existing drawings, anything the principal should see before the first walk."></textarea><span class="hint">Plain English is welcome. Drawings can be sent in a follow-up.</span></div>
+      <p class="consent">By submitting, you agree that Atlas Home Builders, Inc. may contact you regarding your project. We do not share submissions and we do not run retargeting.</p>
+      <button type="submit">Send to the principal →</button>
     </form>
+  </div>
 
-    <!-- RIGHT: EDITORIAL -->
-    <div class="right">
-      <div class="block">
-        <span class="eyebrow">The Process</span>
-        <h3>Three steps, a week apart.</h3>
-        <p>We call you within one business day of receiving the form. Fifteen minutes on the phone — what the project is, what the building is, what you've already been told by anyone else.</p>
-        <p>Within a week of that call, we walk the property. No salespeople, no junior staff — the general contractor who would run the job is the one walking it.</p>
-        <p>Within seven days of the walk, you have a written, line-item estimate. The figure we quote is the figure we hold. Change orders exist only when the scope does.</p>
-      </div>
+  <aside class="c-side">
+    <div class="k">Direct lines</div>
+    <h3>For the people who still pick up the phone.</h3>
+    <dl>
+      <div><dt>Office</dt><dd>145 S Fairfax Avenue<br/>Suite 200<br/>Los Angeles, CA 90036</dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+12132752210">(213) 275-2210</a></dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:David@AtlasHomePro.com">David@AtlasHomePro.com</a></dd></div>
+      <div><dt>Editor</dt><dd>David Safai<br/><span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">Principal · Atlas Brief</span></dd></div>
+      <div><dt>License</dt><dd>California Class B<br/><span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">Atlas Home Builders, Inc.</span></dd></div>
+    </dl>
+  </aside>
+</section>
 
-      <div class="block">
-        <span class="eyebrow">Direct Contact</span>
-        <div class="direct">
-          <dl>
-            <dt>Phone</dt>
-            <dd>(213) 275 · 2210<span class="sub">Answered by a human, weekdays 8–6.</span></dd>
-            <dt>Email</dt>
-            <dd>David@AtlasHomePro.com<span class="sub">Read every morning.</span></dd>
-            <dt>Office</dt>
-            <dd>Los Angeles, California<span class="sub">Visits by appointment.</span></dd>
-          </dl>
-        </div>
-      </div>
-
-      <div class="block">
-        <div class="urgent">
-          <span class="eyebrow">For Urgent Water Damage</span>
-          <p>Twenty-four-hour line for active water events — pipe bursts, failed heaters, roof intrusion. Call <strong>(213) 275 · 2210</strong> and say "water" when the line picks up. Mitigation crews dispatch the same day.</p>
-        </div>
+<section class="hours">
+  <div class="wrap">
+    <div class="hours-inner">
+      <div class="num">§ Hours of Operation</div>
+      <div>
+        <h2>Office hours, for the office.</h2>
+        <ul>
+          <li><span class="d">Monday</span><span class="w">Principal in office</span><span class="h">8 AM — 6 PM</span></li>
+          <li><span class="d">Tuesday</span><span class="w">Principal on site</span><span class="h">8 AM — 6 PM</span></li>
+          <li><span class="d">Wednesday</span><span class="w">Principal in office</span><span class="h">8 AM — 6 PM</span></li>
+          <li><span class="d">Thursday</span><span class="w">Principal on site</span><span class="h">8 AM — 6 PM</span></li>
+          <li><span class="d">Friday</span><span class="w">Principal in office</span><span class="h">8 AM — 4 PM</span></li>
+          <li><span class="d">Saturday</span><span class="w">By appointment</span><span class="h">—</span></li>
+          <li><span class="d">Sunday</span><span class="w">Closed — emergencies forward</span><span class="h">—</span></li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<footer>
+<footer class="footer">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-col"><a class="logo" href="/"><span class="mark"></span><span class="atlas">ATLAS</span><span class="hp">HOME PRO</span></a><p style="font-size:13.5px;color:var(--ink-mute);margin-top:12px;max-width:34ch;line-height:1.55">A Los Angeles general contractor and home services arm, built and operated by multifamily owner-operators.</p></div>
-      <div class="foot-col"><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/plumbing/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
-      <div class="foot-col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
-      <div class="foot-col"><h5>Contact</h5><ul><li>Los Angeles, California</li><li>(213) 275 · 2210</li><li>David@AtlasHomePro.com</li></ul></div>
+    <div class="footer-top">
+      <div><div class="footer-logo">Atlas<br/>Home Pro.</div><p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p></div>
+      <div><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/capabilities/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
+      <div><h5>The Company</h5><ul><li><a href="/about/">About David Safai</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Service Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="footer-contact"><h5>Office</h5><p>145 S Fairfax Avenue, Suite 200</p><p>Los Angeles, California 90036</p><p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p><p class="m">(213) 275-2210</p></div>
     </div>
-    <div class="foot-legal"><div>Atlas Home Pro is a division of Atlas Home Builders, Inc.<br/>CA Class B General Contractor. Headquartered in Los Angeles, California.</div><div class="copy">© 2026 Atlas Home Builders, Inc.</div></div>
+    <div class="footer-legal"><span>© MMXXVI Atlas Home Builders, Inc.</span><span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span></div>
   </div>
 </footer>
-</body></html>
+<script>const b=document.getElementById('burger'),m=document.getElementById('mm');b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');});</script>
+</body>
+</html>

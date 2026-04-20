@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The LA Cost Ceiling Didn't Break. It Just Moved. — Atlas Brief</title>
+<link rel="stylesheet" href="atlas-v2.css"/>
+<style>
+.art-top{padding:clamp(48px,6vw,96px) 0 clamp(32px,4vw,56px);border-bottom:1px solid var(--ink)}
+.crumb{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+.crumb a{color:var(--muted);border-bottom:1px solid transparent}
+.crumb a:hover{color:var(--ink);border-color:var(--accent)}
+.crumb .sep{color:var(--muted-2)}
+.art-top .cat{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:block}
+.art-top h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,112px);line-height:.95;letter-spacing:-.03em;margin:0 0 32px;max-width:20ch}
+.art-top h1 em{font-style:italic;color:var(--ink-soft)}
+.art-top .deck{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.45;color:var(--ink-soft);max-width:52ch;margin:0 0 48px}
+.byl{display:grid;grid-template-columns:repeat(4,auto) 1fr;gap:48px;padding-top:24px;border-top:var(--tick);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.byl b{color:var(--ink);display:block;margin-bottom:4px}
+@media(max-width:1024px){.byl{grid-template-columns:1fr 1fr;gap:20px 32px}}
+
+.art-lead{padding:clamp(32px,4vw,56px) 0;border-bottom:1px solid var(--ink)}
+.art-lead .frame{aspect-ratio:16/8}
+
+.art-body{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
+.body-grid{display:grid;grid-template-columns:220px minmax(0,680px) 1fr;gap:48px}
+.body-grid aside{position:sticky;top:88px;align-self:start}
+.body-grid aside .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.body-grid aside ol{list-style:none;counter-reset:toc;padding:0;margin:0;border-top:var(--tick)}
+.body-grid aside li{counter-increment:toc;padding:10px 0;border-bottom:var(--tick-soft);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:grid;grid-template-columns:28px 1fr;gap:8px}
+.body-grid aside li::before{content:counter(toc, decimal-leading-zero);color:var(--accent)}
+.body-grid aside a{color:inherit}
+.body-grid aside a:hover{color:var(--ink)}
+
+article.prose{font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--ink-soft);letter-spacing:-.003em}
+article.prose p{margin:0 0 1.2em}
+article.prose h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin:2.2em 0 .6em}
+article.prose h2::before{content:"§ "counter(sec, upper-roman)" — ";counter-increment:sec;font-family:var(--mono);font-size:14px;letter-spacing:.14em;color:var(--accent);display:inline}
+article.prose{counter-reset:sec}
+article.prose h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:22px;color:var(--ink);margin:1.8em 0 .4em}
+article.prose .drop::first-letter{font-family:var(--serif);font-size:5em;float:left;line-height:.85;padding:6px 10px 0 0;font-weight:500;color:var(--ink)}
+article.prose blockquote{margin:2em 0;padding:32px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.25;letter-spacing:-.015em;color:var(--ink);max-width:22ch}
+article.prose blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:18px}
+article.prose figure{margin:2em 0}
+article.prose figure .frame{aspect-ratio:16/9}
+article.prose figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding-top:12px;border-top:1px dotted var(--rule);margin-top:14px}
+article.prose .table-fig{margin:2em 0;padding-top:20px;border-top:1px solid var(--ink)}
+article.prose .table-fig .cap{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+article.prose table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+article.prose table th,article.prose table td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px dotted var(--rule);letter-spacing:.02em}
+article.prose table th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+article.prose table td.n{text-align:right}
+article.prose table th.n{text-align:right}
+article.prose table tr.total td{border-top:1px solid var(--ink);border-bottom:0;font-weight:600;color:var(--ink);padding-top:14px}
+article.prose a.link{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
+
+.marg{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);line-height:1.55;padding-left:16px;border-left:1px solid var(--accent);margin-top:88px}
+.marg b{display:block;color:var(--ink);letter-spacing:.14em;text-transform:uppercase;font-size:10px;margin-bottom:8px}
+
+@media(max-width:1024px){
+  .body-grid{grid-template-columns:1fr;gap:40px}
+  .body-grid aside{position:static;order:2}
+  .body-grid article{order:1}
+  .marg{display:none}
+}
+
+.author{padding:clamp(48px,6vw,80px) 0;background:var(--bg-alt);border-bottom:1px solid var(--ink)}
+.author-in{display:grid;grid-template-columns:180px 1fr auto;gap:48px;align-items:start}
+.author-in .pic{aspect-ratio:1/1;width:180px;background:var(--bg-alt);border:1px solid var(--rule);position:relative}
+.author-in .pic::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,var(--rule) 14px,var(--rule) 15px)}
+.author-in .pic span{position:absolute;bottom:10px;left:10px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--bg-alt);padding:4px 6px;border:1px solid var(--rule)}
+.author-in .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.author-in h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+.author-in p{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:52ch;margin:0}
+.author-in .btns{display:flex;flex-direction:column;gap:10px;white-space:nowrap}
+.author-in .btns a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--ink)}
+.author-in .btns a:first-child{background:var(--ink);color:var(--bg)}
+@media(max-width:1024px){.author-in{grid-template-columns:1fr;gap:24px} .author-in .btns{flex-direction:row}}
+
+.more{padding:clamp(56px,7vw,96px) 0}
+.more-head{padding-bottom:24px;border-bottom:1px solid var(--ink);margin-bottom:40px;display:grid;grid-template-columns:200px 1fr auto;gap:32px;align-items:end}
+.more-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.more-head h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em;margin:0;font-style:italic}
+.more-head a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:3px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:var(--tick)}
+.more-grid .m{padding:28px 24px 28px 0;border-right:var(--tick);border-bottom:var(--tick);display:flex;flex-direction:column;gap:14px;transition:background .15s}
+.more-grid .m:hover{background:rgba(154,107,63,.03)}
+.more-grid .m:nth-child(3n){border-right:0;padding-right:0}
+.more-grid .m:not(:nth-child(3n+1)){padding-left:24px}
+.more-grid .cat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.more-grid h4{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.015em;line-height:1.15;margin:0}
+.more-grid footer{margin-top:auto;padding-top:14px;border-top:var(--tick-soft);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.more-grid footer b{color:var(--ink)}
+@media(max-width:1024px){.more-head{grid-template-columns:1fr;gap:10px;align-items:start} .more-grid{grid-template-columns:1fr} .more-grid .m{border-right:0!important;padding:28px 0!important}}
+</style>
+
+<meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
+<link rel="icon" type="image/png" href="/apple-touch-icon.png">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas Home Pro</a>
+    <ul class="nav-links"><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/" class="active">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-right"><span class="nav-phone">(213) 275-2210</span><a href="/contact/" class="nav-cta">Contact Atlas</a><button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div>
+  <div class="mobile-menu" id="mm"><ul><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul><div class="mm-meta"><span>(213) 275-2210</span><span>David@AtlasHomePro.com</span></div></div>
+</nav>
+
+<header class="art-top">
+  <div class="wrap">
+    <nav class="crumb"><a href="/">Atlas Home Pro</a><span class="sep">/</span><a href="/atlas-brief/">Atlas Brief</a><span class="sep">/</span><a href="/atlas-brief/">Market Commentary</a><span class="sep">/</span><span>Entry № 042</span></nav>
+    <span class="cat">Market Commentary · Entry № 042</span>
+    <h1>The LA Cost Ceiling Didn't Break. It Just&nbsp;<em>Moved.</em></h1>
+    <p class="deck">Hard-cost inflation in multifamily has not reverted. It has rotated — from lumber and metals into labor, soft costs, and the slow tax of municipal delay. Five active jobs, one conclusion.</p>
+    <div class="byl">
+      <div><b>David Safai</b>Editor · Publisher</div>
+      <div><b>Published</b>April 9, 2026</div>
+      <div><b>Read time</b>14 minutes · 3,240 words</div>
+      <div><b>Dateline</b>Los Angeles, CA</div>
+    </div>
+  </div>
+</header>
+
+<section class="art-lead">
+  <div class="wrap">
+    <div class="frame frame-ratio-16-9">
+      <div class="frame-corner"></div>
+      <div class="frame-label">Fig. 00 — LEAD · Cost per gross SF, five active LA multifamily projects, 2019–2026</div>
+    </div>
+  </div>
+</section>
+
+<section class="art-body">
+  <div class="wrap">
+    <div class="body-grid">
+      <aside>
+        <div class="k">§ In this entry</div>
+        <ol>
+          <li><a href="#s1">The ceiling that didn't break</a></li>
+          <li><a href="#s2">Where the money went</a></li>
+          <li><a href="#s3">Labor, and the honesty of a W-2</a></li>
+          <li><a href="#s4">Soft costs, and the tax of delay</a></li>
+          <li><a href="#s5">What owners should do this year</a></li>
+        </ol>
+      </aside>
+
+      <article class="prose">
+        <p class="drop">For the last three years, every trade publication and every lender's quarterly letter has been waiting for LA construction costs to come down. They have not come down. They have rotated. That distinction matters, because the investors and operators who keep underwriting a 2027 reset are, in effect, underwriting a reversion to a market that no longer exists.</p>
+
+        <p>I can only write what I can see from my own desk, and my desk sees five active jobs: a forty-three-unit ground-up on Fairfax, a twelve-unit repositioning in Mid-Wilshire, two gut renovations in Hancock Park, and a structural retrofit on an older courtyard building in Beverly Grove. What follows is the ledger those five jobs hand me, read honestly.</p>
+
+        <h2 id="s1">The ceiling that didn't break.</h2>
+
+        <p>In early 2023, the trade press was near-unanimous that LA multifamily hard costs had hit a ceiling. Lumber had come off its pandemic peak, metals had softened, and the freight index was finally behaving. A reversion to pre-2020 unit economics, so the argument went, was a matter of twelve to eighteen months.</p>
+
+        <p>Three years later, on my own book, the per-gross-SF number on a new ground-up is not materially different from where it was in 2023 — it has moved roughly four percent in nominal terms, which, against the cost of capital we are all now paying, is a decline in real terms of essentially zero. The ceiling did not break. The composition underneath it changed.</p>
+
+        <blockquote>If your 2026 pro forma is premised on a cost reset, you are underwriting a market that, from where I sit, is not coming.<cite>— Field note, March 2026</cite></blockquote>
+
+        <h2 id="s2">Where the money went.</h2>
+
+        <p>The easiest way to see the rotation is to put four years of my own buckets next to each other. The numbers below are a blended average across the five projects, normalized to a gross-square-foot basis and held to the same cost code structure. I am not in the business of publishing line-item data for my jobs, but the directional story is the only thing that matters here.</p>
+
+        <div class="table-fig">
+          <div class="cap">Fig. 01 — Composition of hard &amp; soft costs, blended $/GSF · 2019 = 100 index</div>
+          <table>
+            <thead><tr><th>Bucket</th><th class="n">2019</th><th class="n">2022</th><th class="n">2024</th><th class="n">2026</th></tr></thead>
+            <tbody>
+              <tr><td>Framing &amp; materials</td><td class="n">100</td><td class="n">164</td><td class="n">141</td><td class="n">132</td></tr>
+              <tr><td>MEP trades</td><td class="n">100</td><td class="n">118</td><td class="n">139</td><td class="n">157</td></tr>
+              <tr><td>Labor (self-perform)</td><td class="n">100</td><td class="n">112</td><td class="n">134</td><td class="n">152</td></tr>
+              <tr><td>Soft costs &amp; permitting</td><td class="n">100</td><td class="n">109</td><td class="n">128</td><td class="n">151</td></tr>
+              <tr><td>Carry &amp; insurance</td><td class="n">100</td><td class="n">114</td><td class="n">148</td><td class="n">172</td></tr>
+              <tr class="total"><td>All-in $/GSF</td><td class="n">100</td><td class="n">128</td><td class="n">138</td><td class="n">144</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Read that table honestly and the rotation becomes obvious. The bucket that gets all the press — framing and raw materials — is, in fact, down significantly from its 2022 peak. Everything else is up, and some of it is up a lot. Labor, MEP, carry, and soft costs together now account for a larger share of a new multifamily project in Los Angeles than they have at any point in my thirty-year career.</p>
+
+        <figure>
+          <div class="frame frame-ratio-16-9"><div class="frame-corner"></div><div class="frame-label">Fig. 02 — Composition chart · index-to-2019, by bucket</div></div>
+          <figcaption>Fig. 02 — Each bucket's index against a 2019 base of 100, across the five projects.</figcaption>
+        </figure>
+
+        <h2 id="s3">Labor, and the honesty of a W-2.</h2>
+
+        <p>Of all the buckets above, labor is the one that deserves the most careful treatment, because it is the bucket where the industry is least honest with itself. What I pay a journeyman electrician, on a W-2, with full burden, is not what the published prevailing-wage table says. It is meaningfully more. It has been meaningfully more for three years. And it is going to stay meaningfully more, because the pipeline behind it — the apprenticeship enrollment, the trade-school throughput, the immigration flows that filled the gap for twenty years — has not kept pace.</p>
+
+        <p>The operators I respect most have already adjusted. They have moved their MEP in-house, they have taken on a formal apprenticeship commitment, and they have stopped pretending that a subcontractor quote from 2019 is a useful anchor for a 2026 bid. The rest are still reading the old tables.</p>
+
+        <h3>A brief digression on self-performance.</h3>
+
+        <p>Running your own trades is unfashionable. I am aware. The prevailing academic and private-equity view is that a general contractor should be a manager of subcontracts, full stop — that self-performance introduces risk, ties up capital, and distracts from the GC's core competency. I disagree, but I want to be honest about why.</p>
+
+        <p>I self-perform because the alternative, in 2026 Los Angeles, is paying a subcontractor to manage a labor problem I am better positioned to manage myself. The arithmetic is simpler than the MBA case studies make it. If I can keep an electrician, a plumber, and an HVAC mechanic productive for forty-eight weeks a year across a portfolio of active jobs, I pay them more than a subcontractor would, and it still costs me less than the subcontractor's bid. That is the whole calculation. <a href="/atlas-brief/article/" class="link">I have written about it before</a>.</p>
+
+        <h2 id="s4">Soft costs, and the tax of delay.</h2>
+
+        <p>The last rotation in the table is the one I am angriest about, and the one owners have the least control over: soft costs and permitting. Four years ago, a reasonably clean multifamily permit ran us somewhere between seven and ten months in LADBS. Today, the same package, with arguably cleaner drawings and a more cooperative expeditor, is running fourteen to nineteen.</p>
+
+        <p>Every additional month of municipal delay is not just a month of higher carry. It is a month in which the labor pool re-rates, in which material escalators re-set, in which the insurance carrier rewrites your builder's-risk policy. The tax of delay compounds. Our own delay cost, per unit, has roughly tripled against a 2019 baseline — and almost none of that is visible on the hard-cost table.</p>
+
+        <figure>
+          <div class="frame frame-ratio-4-3"><div class="frame-corner"></div><div class="frame-label">Fig. 03 — Median LADBS review cycle, Atlas projects, 2019–2026</div></div>
+          <figcaption>Fig. 03 — Months from intake to first plan check, across ten Atlas projects.</figcaption>
+        </figure>
+
+        <h2 id="s5">What owners should do this year.</h2>
+
+        <p>I am not in the business of writing prescriptions for other people's projects. Every site is different, every capital stack is different, and the honest truth is that most of what matters in a job is unknowable until we walk it. But if I had to pick three dispositions that the composition above should push an owner toward, they would be these.</p>
+
+        <p><b>First,</b> stop anchoring to 2019. The reset the trade press keeps anticipating is not coming, and the operators who will look good in 2028 are the ones who underwrote 2026 costs against 2026 reality, with no implicit reversion baked in.</p>
+
+        <p><b>Second,</b> put a real number on delay. If your pro forma does not have a line item called "municipal risk," or whatever you want to call it, you are leaving out the bucket that is moving fastest. Our jobs budget six to nine months of soft-cost carry above the nominal schedule, and we have rarely found ourselves with too much.</p>
+
+        <p><b>Third,</b> be honest about what the trades are costing you. A W-2 journeyman is what the number actually is. Bid against that, not against what the union hall quoted in 2021. The operators who are solving this problem instead of complaining about it are the ones who will still be in business in 2030.</p>
+
+        <p>The ceiling didn't break. It moved. The sooner the rest of the industry says so out loud, the sooner we can all go back to doing the work.</p>
+
+        <p style="margin-top:3em;padding-top:24px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">— End of Entry № 042 · Los Angeles, April 9, 2026</p>
+      </article>
+
+      <div class="marg">
+        <b>Margin notes</b>
+        Figures drawn from five active Atlas projects, 2019–2026. Indexed to a 2019 base of 100. Cost codes normalized across jobs.<br/><br/>
+        <b style="margin-top:24px">Filed under</b>
+        Market Commentary · Construction Costs · LA Multifamily<br/><br/>
+        <b style="margin-top:24px">Share</b>
+        davidsafai@atlashomepro.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="author">
+  <div class="wrap">
+    <div class="author-in">
+      <div class="pic"><span>Author portrait</span></div>
+      <div>
+        <div class="k">About the Editor</div>
+        <h3>David Safai</h3>
+        <p>Thirty years of operating real estate in Los Angeles — multifamily ground-up, condominium development, and the full back-of-house of a general contracting practice. Developer of The Felix on Fairfax (43 units) and Olympic Towers (12 condos). Principal of Atlas Home Builders, Inc., California Class B.</p>
+      </div>
+      <div class="btns">
+        <a href="/atlas-brief/">All entries →</a>
+        <a href="/contact/">Write to the editor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="more">
+  <div class="wrap">
+    <div class="more-head">
+      <div class="num">§ More from Atlas Brief</div>
+      <h3>Read next.</h3>
+      <a href="/atlas-brief/">The full archive →</a>
+    </div>
+    <div class="more-grid">
+      <a href="/atlas-brief/article/" class="m"><span class="cat">Development Journal</span><h4>The Felix on Fairfax: what a pro forma won't tell you about year four.</h4><footer><b>David Safai</b><span>11 min · Apr 2</span></footer></a>
+      <a href="/atlas-brief/article/" class="m"><span class="cat">Owner's Perspective</span><h4>Merchant-builder, owner-operator: the gulf is wider than the trade press admits.</h4><footer><b>David Safai</b><span>8 min · Mar 26</span></footer></a>
+      <a href="/atlas-brief/article/" class="m"><span class="cat">Policy</span><h4>ED1, TOC, and the quiet repricing of a thousand LA parcels.</h4><footer><b>David Safai</b><span>12 min · Mar 11</span></footer></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><div class="footer-logo">Atlas<br/>Home Pro.</div><p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p></div>
+      <div><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/capabilities/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
+      <div><h5>The Company</h5><ul><li><a href="/about/">About David Safai</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Service Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="footer-contact"><h5>Office</h5><p>145 S Fairfax Avenue, Suite 200</p><p>Los Angeles, California 90036</p><p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p><p class="m">(213) 275-2210</p></div>
+    </div>
+    <div class="footer-legal"><span>© MMXXVI Atlas Home Builders, Inc.</span><span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span></div>
+  </div>
+</footer>
+<script>const b=document.getElementById('burger'),m=document.getElementById('mm');b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');});</script>
+</body>
+</html>
