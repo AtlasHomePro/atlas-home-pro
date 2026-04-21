@@ -255,6 +255,68 @@ body {
   padding-bottom: 56px;
   border-bottom: var(--tick);
 }
+.footer-sections {
+  padding: 8px 0 40px;
+  margin-bottom: 40px;
+  border-bottom: var(--tick);
+}
+.footer-sections .fs-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+.footer-sections .fs-k {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.footer-sections .fs-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer-sections .fs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px 32px;
+}
+.footer-sections .fs-grid a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+.footer-sections .fs-grid a:hover {
+  color: var(--accent-ink);
+}
+.footer-sections .fs-grid a .n {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+@media (max-width: 900px) {
+  .footer-sections .fs-grid { grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+}
+@media (max-width: 480px) {
+  .footer-sections .fs-grid { grid-template-columns: 1fr; }
+}
 .footer-logo {
   font-family: var(--serif);
   font-size: 28px;

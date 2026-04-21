@@ -932,6 +932,26 @@
 <!-- ============= FOOTER ============= -->
 <footer class="footer">
   <div class="wrap">
+        <div class="footer-sections">
+      <div class="fs-head">
+        <div class="fs-k">Atlas Brief · Sections</div>
+        <div class="fs-note">11 sections · Filter the archive</div>
+      </div>
+      <div class="fs-grid">
+        <a href="/atlas-brief/?cat=Market%20Commentary"><span>Market Commentary</span><span class="n">01</span></a>
+        <a href="/atlas-brief/?cat=Owner%27s%20Desk"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
+        <a href="/atlas-brief/?cat=Development%20Journal"><span>Development Journal</span><span class="n">03</span></a>
+        <a href="/atlas-brief/?cat=Construction%20Costs"><span>Construction Costs</span><span class="n">04</span></a>
+        <a href="/atlas-brief/?cat=Policy"><span>Policy</span><span class="n">05</span></a>
+        <a href="/atlas-brief/?cat=Comps"><span>Comps</span><span class="n">06</span></a>
+        <a href="/atlas-brief/?cat=Broker%20Activity"><span>Broker Activity</span><span class="n">07</span></a>
+        <a href="/atlas-brief/?cat=Operator%20Guides"><span>Operator Guides</span><span class="n">08</span></a>
+        <a href="/atlas-brief/?cat=Opportunities"><span>Opportunities</span><span class="n">09</span></a>
+        <a href="/atlas-brief/?cat=Investing%20Philosophy"><span>Investing Philosophy</span><span class="n">10</span></a>
+        <a href="/atlas-brief/?cat=Great%20Books"><span>Great Books</span><span class="n">11</span></a>
+      </div>
+    </div>
+
     <div class="footer-top">
       <div>
         <div class="footer-logo">Atlas<br/>Home Pro.</div>
@@ -979,15 +999,27 @@
   b.addEventListener('click', () => { b.classList.toggle('open'); m.classList.toggle('open'); });
 
   const btns = document.querySelectorAll('#catList button');
-  const cards = document.querySelectorAll('#grid .story');
-  btns.forEach(btn => btn.addEventListener('click', () => {
-    btns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.cat;
+  const cards = document.querySelectorAll('.story[data-cat]');
+  function applyFilter(cat){
+    btns.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
     cards.forEach(c => {
       c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
     });
+  }
+  btns.forEach(btn => btn.addEventListener('click', () => {
+    applyFilter(btn.dataset.cat);
+    history.replaceState(null, '', btn.dataset.cat === 'all' ? location.pathname : '?cat=' + encodeURIComponent(btn.dataset.cat));
   }));
+  // Read ?cat= on load and scroll to category bar
+  const params = new URLSearchParams(location.search);
+  const initialCat = params.get('cat');
+  if (initialCat) {
+    const match = Array.from(btns).find(b => b.dataset.cat === initialCat);
+    if (match) {
+      applyFilter(initialCat);
+      setTimeout(() => document.querySelector('.cat-bar').scrollIntoView({behavior:'smooth', block:'start'}), 100);
+    }
+  }
 </script>
 
 </body>
