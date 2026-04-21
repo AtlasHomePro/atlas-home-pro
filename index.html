@@ -387,6 +387,9 @@
   line-height: 1; letter-spacing: -0.02em; margin: 0;
 }
 .project .f-wrap { margin-top: 20px; }
+.p-photo { margin: 20px 0 0; border: 1px solid var(--ink); overflow: hidden; background: var(--bg-alt); }
+.p-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; }
+.p-cap { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-top: 1px dotted var(--rule); background: var(--bg); }
 .project dl {
   margin: 24px 0 0;
   padding-top: 20px;
@@ -912,10 +915,10 @@
           <h3>The Felix on Fairfax</h3>
           <span class="cat">Multifamily · Ground-up</span>
         </header>
-        <div class="f-wrap frame frame-ratio-3-2">
-          <div class="frame-corner"></div>
-          <div class="frame-label">Exterior — south elevation, Fairfax Avenue</div>
-        </div>
+        <figure class="p-photo">
+          <img src="/images/projects/felix-fairfax-1200.jpg" alt="The Felix on Fairfax — a five-story grey-and-white multifamily building at 731 N Fairfax Avenue, Los Angeles." loading="lazy" width="1200" height="675" />
+          <figcaption class="p-cap">Exterior — south elevation · 731 N Fairfax Avenue</figcaption>
+        </figure>
         <dl>
           <div><dt>Units</dt><dd>43</dd></div>
           <div><dt>Stories</dt><dd>5</dd></div>
@@ -931,10 +934,10 @@
           <h3>Olympic Towers</h3>
           <span class="cat">Condominium · Twelve Homes</span>
         </header>
-        <div class="f-wrap frame frame-ratio-3-2">
-          <div class="frame-corner"></div>
-          <div class="frame-label">Exterior — corner elevation, Olympic Boulevard</div>
-        </div>
+        <figure class="p-photo">
+          <img src="/images/projects/olympic-towers-1200.jpg" alt="Olympic Towers — a four-story white multifamily building with orange accent bands and cantilevered balconies, Mid-City West." loading="lazy" width="1200" height="675" />
+          <figcaption class="p-cap">Exterior — corner elevation · Olympic Boulevard</figcaption>
+        </figure>
         <dl>
           <div><dt>Units</dt><dd>12</dd></div>
           <div><dt>Type</dt><dd>Condo</dd></div>
