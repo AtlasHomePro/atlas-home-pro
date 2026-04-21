@@ -17,7 +17,8 @@
 .crumb a{color:var(--muted);border-bottom:1px solid transparent}
 .crumb a:hover{color:var(--ink);border-color:var(--accent)}
 .crumb .sep{color:var(--muted-2)}
-.art-top .cat{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:block}
+.art-top .cat{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.art-top .cat .badge-sold{background:#B3261E;color:#FFFFFF;padding:4px 10px;font-size:10px;letter-spacing:.2em;font-weight:700}
 .art-top h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,112px);line-height:.95;letter-spacing:-.03em;margin:0 0 32px;max-width:20ch}
 .art-top h1 em{font-style:italic;color:var(--ink-soft)}
 .art-top .deck{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.45;color:var(--ink-soft);max-width:52ch;margin:0 0 48px}
@@ -149,7 +150,7 @@ article.prose table tr.total td{border-top:1px solid var(--ink);border-bottom:0;
 <header class="art-top">
   <div class="wrap">
     <nav class="crumb"><a href="/">Atlas <span style="color:var(--accent)">Home Pro</span></a><span class="sep">/</span><a href="/atlas-brief/">Atlas Brief</a><span class="sep">/</span><a href="/atlas-brief/sections/comps/">Comps</a><span class="sep">/</span><span>Entry № 01</span></nav>
-    <span class="cat">Comps · Entry № 01</span>
+    <div class="cat"><span class="badge-sold">Sold</span> <span>Comps · Entry № 01</span></div>
     <h1>1825 N Gramercy: A 27-Door Hollywood Trade at <em>$187K a Unit.</em></h1>
     <p class="deck">A 1968 Hollywood multifamily just closed at $5.05M, 9.3 GRM, $174/SF, priced below the ULA line. One of the BEST numbers I have seen trade in LA this year, and the kind of deal where disciplined leverage, operating patience, and sensible policy reform can produce a 17% IRR over a decade.</p>
     <div class="byl">
