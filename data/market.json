@@ -1,0 +1,14 @@
+{
+  "updated": "2026-04-20T14:00:00-07:00",
+  "updated_display": "Apr 20 · 2:00 PM PT",
+  "tickers": [
+    { "sym": "HG",  "name": "Copper",      "val": "$6.05",   "chg": "+1.4%",  "dir": "up" },
+    { "sym": "LB",  "name": "Lumber",      "val": "$585.50", "chg": "+2.1%",  "dir": "up" },
+    { "sym": "AVB", "name": "AvalonBay",   "val": "$176.36", "chg": "-0.3%",  "dir": "dn" },
+    { "sym": "DEI", "name": "Douglas Em.", "val": "$16.42",  "chg": "-0.6%",  "dir": "dn" },
+    { "sym": "ESS", "name": "Essex Prop.", "val": "$284.10", "chg": "+0.4%",  "dir": "up" },
+    { "sym": "KRC", "name": "Kilroy",      "val": "$38.15",  "chg": "-0.2%",  "dir": "dn" },
+    { "sym": "XHB", "name": "Homebuilders","val": "$109.40", "chg": "+0.8%",  "dir": "up" },
+    { "sym": "IYR", "name": "US Real Est.","val": "$103.23", "chg": "+0.5%",  "dir": "up" }
+  ]
+}

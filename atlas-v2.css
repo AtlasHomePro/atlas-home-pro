@@ -232,10 +232,51 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .nav-inner { grid-template-columns: 1fr auto; height: 60px; }
-  .nav-links, .nav-right .nav-phone { display: none; }
-  .nav-burger { display: block; }
-  .nav-right .nav-cta { display: none; }
+  /* WSJ-style mobile header: burger left, wordmark centered, right side minimal */
+  .nav-inner {
+    grid-template-columns: 44px 1fr 44px;
+    height: 56px;
+    gap: 8px;
+    padding: 0 16px;
+    position: relative;
+  }
+  .nav-logo {
+    grid-column: 2;
+    justify-content: center;
+    justify-self: center;
+    font-size: 19px;
+    letter-spacing: 0;
+    gap: 7px;
+  }
+  .nav-logo .mark { width: 7px; height: 7px; }
+  .nav-links { display: none; }
+  .nav-right {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0;
+  }
+  .nav-right .nav-phone, .nav-right .nav-cta { display: none; }
+  .nav-burger {
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .nav-burger span { left: 6px; right: 6px; height: 1.5px; background: var(--ink); }
+  .nav-burger span:nth-child(1) { top: 12px; }
+  .nav-burger span:nth-child(2) { top: 17px; }
+  .nav-burger span:nth-child(3) { top: 22px; }
+  .nav { border-bottom: 1px solid rgba(0,0,0,0.08); }
+}
+@media (max-width: 480px) {
+  .nav-logo { font-size: 17px; }
+  .nav-inner { grid-template-columns: 40px 1fr 40px; padding: 0 12px; }
 }
 
 /* ============================================================
@@ -513,3 +554,88 @@ body {
 @media (max-width: 400px) {
   .page-hero .meta { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   ATLAS TICKER — CNBC-style live market ribbon
+   ============================================================ */
+#atlas-ticker { background: #0E1116; border-bottom: 1px solid #1C2128; overflow: hidden; }
+#atlas-ticker:empty { display: none; }
+.tk-row { display: flex; align-items: center; gap: 0; padding: 0; max-width: 100%; }
+.tk-track { flex: 1; overflow: hidden; position: relative; min-width: 0; }
+.tk-track::after,
+.tk-track::before {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 28px; z-index: 2; pointer-events: none;
+}
+.tk-track::before { left: 0;  background: linear-gradient(to right, #0E1116, rgba(14,17,22,0)); }
+.tk-track::after  { right: 0; background: linear-gradient(to left,  #0E1116, rgba(14,17,22,0)); }
+.tk-lane {
+  display: inline-flex; align-items: center; gap: 0;
+  padding: 10px 0;
+  white-space: nowrap;
+  animation: tk-scroll 48s linear infinite;
+  will-change: transform;
+}
+@keyframes tk-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.tk-track:hover .tk-lane { animation-play-state: paused; }
+.tk-item {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  padding: 0 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #E8EAED;
+  letter-spacing: 0.02em;
+}
+.tk-sym { font-weight: 700; color: #FFFFFF; letter-spacing: 0.04em; }
+.tk-val { color: #B8BCC4; font-weight: 500; }
+.tk-chg { font-weight: 600; }
+.tk-chg.up { color: #4AE087; }
+.tk-chg.dn { color: #FF5C5C; }
+.tk-chg.flat { color: #8892A0; }
+.tk-sep {
+  display: inline-block;
+  width: 1px; height: 11px;
+  background: #2A2F38;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.tk-meta {
+  flex-shrink: 0;
+  padding: 0 14px 0 16px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6B7280;
+  border-left: 1px solid #1C2128;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .tk-item { padding: 0 14px; font-size: 11.5px; }
+  .tk-meta { font-size: 9px; padding: 0 10px 0 12px; }
+  .tk-lane { padding: 8px 0; animation-duration: 40s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tk-lane { animation: none; }
+  .tk-track { overflow-x: auto; }
+}
+
+/* Inline ticker tags inside article cards (CNBC-style "AAPL* -1.76 (-0.64%)") */
+.inline-tickers {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+}
+.inline-tickers .it {
+  display: inline-flex; align-items: baseline; gap: 6px;
+}
+.inline-tickers .it-sym { color: var(--ink); font-weight: 700; }
+.inline-tickers .it-chg.up  { color: #0B5D1E; font-weight: 600; }
+.inline-tickers .it-chg.dn  { color: #B3261E; font-weight: 600; }
+.inline-tickers .it-chg.flat { color: var(--muted); font-weight: 600; }

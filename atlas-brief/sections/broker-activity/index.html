@@ -244,24 +244,25 @@
 }
 .le-time .date { color: var(--muted-2); font-size: 9px; }
 
-/* Status badges */
+/* Status badges — WSJ/real-estate listing board style */
 .badge {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 3px 7px;
+  padding: 4px 9px;
   border-radius: 1px;
   white-space: nowrap;
 }
-.badge-new      { background: #1A1A1A; color: #FAFAF8; }
-.badge-price    { background: #9A6B3F; color: #FAFAF8; }
-.badge-contract { background: #2E5A2E; color: #E8F4E8; }
-.badge-offmkt   { background: #5A2E2E; color: #F4E8E8; }
-.badge-sold     { background: #3A3A3A; color: #C8C8C8; }
-.badge-back     { background: #4A4A4A; color: #FAFAF8; }
+.badge-forsale  { background: #0B5D1E; color: #FFFFFF; }
+.badge-sold     { background: #B3261E; color: #FFFFFF; }
+.badge-contract { background: #C87A2C; color: #FFFFFF; }
+.badge-price    { background: #6B4D2B; color: #FFFFFF; }
+.badge-new      { background: #0B5D1E; color: #FFFFFF; }
+.badge-offmkt   { background: #4A4A4A; color: #FFFFFF; }
+.badge-back     { background: #3A3A3A; color: #FFFFFF; }
 
 .le-addr {
   flex-direction: column;
@@ -760,6 +761,9 @@
   </div>
 </nav>
 
+<!-- Live market ticker -->
+<div id="atlas-ticker"></div>
+
 <!-- ============= TERMINAL STRAP ============= -->
 <div class="term-strap">
   <span class="ts-live"><span class="ts-dot"></span> Live Feed · LA Multifamily Brokerage Activity</span>
@@ -773,12 +777,12 @@
     <div>
       <div class="cat-eyebrow">Atlas Brief · Section 07</div>
       <h1>Broker<br/><em>Activity</em></h1>
-      <p class="cat-dek">A running marketplace log of LA multifamily brokerage — new listings, price reductions, contract signings, and off-market moves. Broker dossiers and essays on the mechanics of the deal floor.</p>
+      <p class="cat-dek">A running listings board for LA multifamily — what's for sale, what just sold, and what an operator thinks of the number. Broker dossiers tracked; deal sheets welcome at <a href="mailto:David@AtlasHomePro.com" style="color:var(--accent);border-bottom:1px solid var(--accent);">David@AtlasHomePro.com</a>.</p>
       <div class="cat-meta">
-        <span>1 Real Closed Trade</span>
-        <span>15 Placeholder Log Entries</span>
-        <span>4 Broker Dossiers</span>
-        <span>Updated Continuously</span>
+        <span>1 Sold</span>
+        <span>0 For Sale</span>
+        <span>2 Brokers Tracked</span>
+        <span>Updated Weekly</span>
       </div>
     </div>
     <div class="cat-hero-img">
@@ -797,7 +801,7 @@
     <!-- FEATURED CLOSED TRADE (REAL) -->
     <div class="featured-trade">
       <div class="ft-header">
-        <span class="ft-badge">Featured · Closed</span>
+        <span class="ft-badge">Featured · Sold</span>
         <span class="ft-date">April 10, 2026</span>
       </div>
       <a href="/atlas-brief/1825-gramercy-hollywood-trade/" class="ft-link">
@@ -845,8 +849,8 @@
 
     <div class="section-label">
       <span class="sl-num">LOG</span>
-      <span class="sl-title">Marketplace Activity Feed</span>
-      <span class="sl-count">1 Real · 15 Placeholder · Rolling</span>
+      <span class="sl-title">Listings Board &mdash; For Sale &amp; Sold</span>
+      <span class="sl-count">Rolling &middot; Updated weekly</span>
     </div>
 
     <div class="activity-log">
@@ -865,7 +869,7 @@
           <span>Apr 10</span>
           <span class="date">2026</span>
         </div>
-        <div><span class="badge badge-sold">Closed</span></div>
+        <div><span class="badge badge-sold">Sold</span></div>
         <div class="le-addr">
           <span class="addr-main"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy Pl</a></span>
           <span class="addr-sub">Hollywood · 27-unit · 29,085 SF · 1968 Build</span>
@@ -883,383 +887,11 @@
         </div>
       </div>
 
-      <!-- Entry 02 — NEW LISTING (placeholder) -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>09:14</span>
-          <span class="date">Jun 9</span>
-        </div>
-        <div><span class="badge badge-new">New Listing</span></div>
-        <div class="le-addr">
-          <span class="addr-main">3842 W 6th St</span>
-          <span class="addr-sub">Koreatown · 14-unit · 1962 Build</span>
-        </div>
-        <div class="le-note">
-          Hard-corner lot, alley access, <span class="note-highlight">RTI permit pending</span> for two ADUs. 
-          Seller is an estate; priced to move before probate complication.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$4,200,000</span>
-          <span class="price-ppu">$300K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">R. Calvo</span>
-          <span>Marcus &amp; Millichap</span>
-        </div>
-      </div>
-
-      <!-- Entry 02 — CONTRACT -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>16:42</span>
-          <span class="date">Jun 8</span>
-        </div>
-        <div><span class="badge badge-contract">Contract</span></div>
-        <div class="le-addr">
-          <span class="addr-main">1147 S Serrano Ave</span>
-          <span class="addr-sub">Koreatown · 8-unit · 1958 Build</span>
-        </div>
-        <div class="le-note">
-          Listed 22 days. Multiple offers. <span class="note-highlight">Went over ask</span> after best-and-final round. 
-          Buyer is a local 1031 exchange from SFV.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$2,650,000</span>
-          <span class="price-ppu">$331K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">T. Nakamura</span>
-          <span>CBRE Multifamily</span>
-        </div>
-      </div>
-
-      <!-- Entry 03 — PRICE CHANGE -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>11:05</span>
-          <span class="date">Jun 7</span>
-        </div>
-        <div><span class="badge badge-price">Price Chg</span></div>
-        <div class="le-addr">
-          <span class="addr-main">7718 Fountain Ave</span>
-          <span class="addr-sub">Hollywood · 10-unit · 1971 Build</span>
-        </div>
-        <div class="le-note">
-          Reduced after <span class="note-highlight">47 DOM with no contract</span>. Inspector flagged lateral sewer — buyer pool spooked. 
-          Current ask presumes a full relining.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$3,480,000</span>
-          <span class="price-ppu">$348K/unit</span>
-          <span class="price-change price-dn">▼ $220K from ask</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">D. Whitmore</span>
-          <span>Newmark</span>
-        </div>
-      </div>
-
-      <!-- Entry 04 — OFF MARKET -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>08:30</span>
-          <span class="date">Jun 6</span>
-        </div>
-        <div><span class="badge badge-offmkt">Off Market</span></div>
-        <div class="le-addr">
-          <span class="addr-main">4455 Hawthorn Ave</span>
-          <span class="addr-sub">Los Feliz · 6-unit · 1940 Build</span>
-        </div>
-        <div class="le-note">
-          Pulled after seller received a private offer, <span class="note-highlight">not publicly shopped</span>. 
-          Classic Los Feliz vintage — character building, all 1BDs, long-tenanted.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">—</span>
-          <span class="price-ppu">Undisclosed</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">R. Calvo</span>
-          <span>Marcus &amp; Millichap</span>
-        </div>
-      </div>
-
-      <!-- Entry 05 — NEW LISTING -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>14:20</span>
-          <span class="date">Jun 5</span>
-        </div>
-        <div><span class="badge badge-new">New Listing</span></div>
-        <div class="le-addr">
-          <span class="addr-main">11302 Iowa Ave</span>
-          <span class="addr-sub">West LA · 7-unit · 1968 Build</span>
-        </div>
-        <div class="le-note">
-          Walk to Sawtelle. <span class="note-highlight">Five units vacant</span> after coordinated move-outs — rare value-add entry point in a supply-constrained zip. 
-          Seller offering seller financing at 5.75%.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$3,150,000</span>
-          <span class="price-ppu">$450K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">L. Ostrovsky</span>
-          <span>Berkadia</span>
-        </div>
-      </div>
-
-      <!-- Entry 06 — SOLD / CLOSED -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>COE</span>
-          <span class="date">Jun 4</span>
-        </div>
-        <div><span class="badge badge-sold">Closed</span></div>
-        <div class="le-addr">
-          <span class="addr-main">2281 Crenshaw Blvd</span>
-          <span class="addr-sub">Baldwin Hills · 12-unit · 1964 Build</span>
-        </div>
-        <div class="le-note">
-          Closed <span class="note-highlight">at full ask, 31 days on market</span>. 
-          Buyer: private family office, all-cash close. Post-close CapEx commitment estimated $420K for MEP overhaul.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$3,840,000</span>
-          <span class="price-ppu">$320K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">T. Nakamura</span>
-          <span>CBRE Multifamily</span>
-        </div>
-      </div>
-
-      <!-- Entry 07 — PRICE CHANGE -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>10:55</span>
-          <span class="date">Jun 3</span>
-        </div>
-        <div><span class="badge badge-price">Price Chg</span></div>
-        <div class="le-addr">
-          <span class="addr-main">6630 Van Nuys Blvd</span>
-          <span class="addr-sub">Van Nuys · 18-unit · 1979 Build</span>
-        </div>
-        <div class="le-note">
-          Third price cut in 90 days. <span class="note-highlight">Cap rate now 5.9%</span> at ask — realistic for the corridor. 
-          Deferred maintenance disclosed: roof, gutters, soft-story not yet completed.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$5,100,000</span>
-          <span class="price-ppu">$283K/unit</span>
-          <span class="price-change price-dn">▼ $400K (3rd reduction)</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">S. Marchetti</span>
-          <span>IPA · Marcus &amp; Millichap</span>
-        </div>
-      </div>
-
-      <!-- Entry 08 — NEW LISTING -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>07:45</span>
-          <span class="date">Jun 2</span>
-        </div>
-        <div><span class="badge badge-new">New Listing</span></div>
-        <div class="le-addr">
-          <span class="addr-main">531 S Virgil Ave</span>
-          <span class="addr-sub">Koreatown · 22-unit · 1986 Build</span>
-        </div>
-        <div class="le-note">
-          Post-1978 build, <span class="note-highlight">not subject to LA RSO</span>. All 2BR/1BA units. 
-          Seller upgraded electrical panels in 2023. Subterranean parking, low vacancy over 8-year ownership.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$8,800,000</span>
-          <span class="price-ppu">$400K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">R. Calvo</span>
-          <span>Marcus &amp; Millichap</span>
-        </div>
-      </div>
-
-      <!-- Entry 09 — CONTRACT -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>15:10</span>
-          <span class="date">May 31</span>
-        </div>
-        <div><span class="badge badge-contract">Contract</span></div>
-        <div class="le-addr">
-          <span class="addr-main">2040 Malcolm Ave</span>
-          <span class="addr-sub">Westwood · 5-unit · 1952 Build</span>
-        </div>
-        <div class="le-note">
-          Under contract in <span class="note-highlight">11 days</span>. Six offers received; two over asking. 
-          Proximity to UCLA and sub-4% vacancy trend in this pocket driving aggressive bidding.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$2,975,000</span>
-          <span class="price-ppu">$595K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">L. Ostrovsky</span>
-          <span>Berkadia</span>
-        </div>
-      </div>
-
-      <!-- Entry 10 — BACK ON MARKET -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>13:30</span>
-          <span class="date">May 29</span>
-        </div>
-        <div><span class="badge badge-back">Back on Mkt</span></div>
-        <div class="le-addr">
-          <span class="addr-main">8812 Sepulveda Blvd</span>
-          <span class="addr-sub">North Hills · 16-unit · 1973 Build</span>
-        </div>
-        <div class="le-note">
-          Buyer fell out during due diligence — <span class="note-highlight">financing contingency</span> not waived in time. 
-          Back at original ask. Seller offering 45-day escrow and all inspection reports delivered.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$4,640,000</span>
-          <span class="price-ppu">$290K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">S. Marchetti</span>
-          <span>IPA · Marcus &amp; Millichap</span>
-        </div>
-      </div>
-
-      <!-- Entry 11 — OFF MARKET -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>09:00</span>
-          <span class="date">May 27</span>
-        </div>
-        <div><span class="badge badge-offmkt">Off Market</span></div>
-        <div class="le-addr">
-          <span class="addr-main">1832 Glendale Blvd</span>
-          <span class="addr-sub">Silver Lake · 9-unit · 1948 Build</span>
-        </div>
-        <div class="le-note">
-          Transacted off-market, never listed publicly. <span class="note-highlight">$487K/unit</span> — sets a comp for the corridor. 
-          Both principals had a prior relationship. Recorded after 12-day escrow.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$4,380,000</span>
-          <span class="price-ppu">$487K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">D. Whitmore</span>
-          <span>Newmark</span>
-        </div>
-      </div>
-
-      <!-- Entry 12 — NEW LISTING -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>11:45</span>
-          <span class="date">May 24</span>
-        </div>
-        <div><span class="badge badge-new">New Listing</span></div>
-        <div class="le-addr">
-          <span class="addr-main">4210 S Figueroa St</span>
-          <span class="addr-sub">South LA · 20-unit · 1988 Build</span>
-        </div>
-        <div class="le-note">
-          Institutional seller, clear title, <span class="note-highlight">Section 8 mix (~35%)</span>. 
-          All soft-story retrofits complete, permits finaled. Strong cash flow on current rents, upside on vacancies at market.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$5,600,000</span>
-          <span class="price-ppu">$280K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">T. Nakamura</span>
-          <span>CBRE Multifamily</span>
-        </div>
-      </div>
-
-      <!-- Entry 13 — PRICE CHANGE -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>14:00</span>
-          <span class="date">May 21</span>
-        </div>
-        <div><span class="badge badge-price">Price Chg</span></div>
-        <div class="le-addr">
-          <span class="addr-main">462 N Western Ave</span>
-          <span class="addr-sub">East Hollywood · 11-unit · 1960 Build</span>
-        </div>
-        <div class="le-note">
-          Reduced after appraisal gap killed prior deal. <span class="note-highlight">Three long-tenanted units under $900/mo</span> dragging yield. 
-          New ask targets investors who can model a decade-long rent normalization.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$3,190,000</span>
-          <span class="price-ppu">$290K/unit</span>
-          <span class="price-change price-dn">▼ $310K from original</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">R. Calvo</span>
-          <span>Marcus &amp; Millichap</span>
-        </div>
-      </div>
-
-      <!-- Entry 14 — CLOSED -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>COE</span>
-          <span class="date">May 19</span>
-        </div>
-        <div><span class="badge badge-sold">Closed</span></div>
-        <div class="le-addr">
-          <span class="addr-main">3301 Overland Ave</span>
-          <span class="addr-sub">Palms · 8-unit · 1963 Build</span>
-        </div>
-        <div class="le-note">
-          Closed <span class="note-highlight">$85K below ask</span> after negotiated credit for window replacement and roof. 
-          Buyer will operate as-is through 2025 before repositioning. Clean 1031 exchange, no debt assumed.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$2,915,000</span>
-          <span class="price-ppu">$364K/unit</span>
-          <span class="price-change price-dn">▼ $85K from ask</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">L. Ostrovsky</span>
-          <span>Berkadia</span>
-        </div>
-      </div>
-
-      <!-- Entry 15 — NEW LISTING -->
-      <div class="log-entry">
-        <div class="le-time">
-          <span>10:15</span>
-          <span class="date">May 16</span>
-        </div>
-        <div><span class="badge badge-new">New Listing</span></div>
-        <div class="le-addr">
-          <span class="addr-main">610 S Ardmore Ave</span>
-          <span class="addr-sub">Koreatown · 16-unit · 1974 Build</span>
-        </div>
-        <div class="le-note">
-          Corner lot at signalized intersection. <span class="note-highlight">Full soft-story retrofit finaled 2022</span>. 
-          Owners selling after 18-year hold; below-market rents create rent growth story. Will go fast.
-        </div>
-        <div class="le-price">
-          <span class="price-ask">$5,280,000</span>
-          <span class="price-ppu">$330K/unit</span>
-        </div>
-        <div class="le-broker">
-          <span class="broker-name">S. Marchetti</span>
-          <span>IPA · Marcus &amp; Millichap</span>
-        </div>
+      <!-- Empty state: more listings shipping -->
+      <div style="padding: clamp(48px, 6vw, 80px) 24px; text-align: center; border-top: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px;">Feed Status</div>
+        <div style="font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); font-weight: 400; line-height: 1.4; color: var(--ink); max-width: 56ch; margin: 0 auto;">More listings shipping weekly. The feed is live and growing.</div>
+        <div style="font-family: 'Source Serif 4', var(--serif); font-size: 14.5px; font-style: italic; color: var(--muted); margin-top: 12px; max-width: 54ch; margin-left: auto; margin-right: auto; line-height: 1.6;">LA multifamily brokers: if you'd like a listing covered, email <a href="mailto:David@AtlasHomePro.com" style="color: var(--accent); border-bottom: 1px solid var(--accent);">David@AtlasHomePro.com</a>. We read every deal.</div>
       </div>
 
     </div><!-- /activity-log -->
@@ -1271,144 +903,47 @@
 
     <div class="section-label">
       <span class="sl-num">FILE</span>
-      <span class="sl-title">Active Broker Dossiers</span>
-      <span class="sl-count">4 Tracked</span>
+      <span class="sl-title">Broker Dossiers</span>
+      <span class="sl-count">In production</span>
     </div>
 
-    <!-- Broker 1 -->
+    <!-- Real broker 1 -->
     <div class="dossier-card">
       <div class="dc-head">
-        <div class="dc-monogram">RC</div>
+        <div class="dc-monogram">TB</div>
         <div class="dc-name-block">
-          <div class="dc-name">Rafael Calvo</div>
-          <div class="dc-firm">Marcus &amp; Millichap · LA West</div>
+          <div class="dc-name">Tamas Batyi</div>
+          <div class="dc-firm">Compass · DRE 02053534</div>
         </div>
       </div>
-      <div class="dc-stats">
-        <div class="dc-stat">
-          <div class="dc-stat-val">41</div>
-          <div class="dc-stat-lbl">Units Traded YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">$18.4M</div>
-          <div class="dc-stat-lbl">Vol. YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">23</div>
-          <div class="dc-stat-lbl">Avg DOM</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">98.2%</div>
-          <div class="dc-stat-lbl">List/Sale Ratio</div>
-        </div>
-      </div>
-      <div class="dc-note">Calvo's quiet strength is off-market inventory — estate sellers and long-hold Korean-American owners who don't want to go public. If a deal isn't on CoStar, ask Rafael first.</div>
+      <div class="dc-note">Listed 1825 N Gramercy — the 27-unit Hollywood trade that set the tone for the spring. Clean package, responsive, priced the deal below the ULA line. <a href="/atlas-brief/1825-gramercy-hollywood-trade/" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Read the full note →</a></div>
       <div class="dc-footer">
-        <span class="dc-territory">Koreatown · Hollywood · Los Feliz</span>
-        <span class="dc-status watching">Watching</span>
+        <span class="dc-territory">Hollywood · Los Feliz · Silver Lake</span>
+        <span class="dc-status watching">Tracked</span>
       </div>
     </div>
 
-    <!-- Broker 2 -->
+    <!-- Real broker 2 -->
     <div class="dossier-card">
       <div class="dc-head">
-        <div class="dc-monogram">TN</div>
+        <div class="dc-monogram">HS</div>
         <div class="dc-name-block">
-          <div class="dc-name">Takeshi Nakamura</div>
-          <div class="dc-firm">CBRE · Multifamily Capital Markets</div>
+          <div class="dc-name">Hirsch Sherman</div>
+          <div class="dc-firm">Keller Williams · Calabasas · DRE 00710184</div>
         </div>
       </div>
-      <div class="dc-stats">
-        <div class="dc-stat">
-          <div class="dc-stat-val">86</div>
-          <div class="dc-stat-lbl">Units Traded YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">$31.7M</div>
-          <div class="dc-stat-lbl">Vol. YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">17</div>
-          <div class="dc-stat-lbl">Avg DOM</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">101.4%</div>
-          <div class="dc-stat-lbl">List/Sale Ratio</div>
-        </div>
-      </div>
-      <div class="dc-note">Nakamura consistently sells above asking by running a disciplined best-and-final process. He moves 10–25-unit product with institutional-grade data packages. Buyers love the predictability.</div>
+      <div class="dc-note">Buy-side on 1825 N Gramercy. Closed at $5.05M on a 9.3 GRM — one of the better numbers to trade in LA this cycle.</div>
       <div class="dc-footer">
-        <span class="dc-territory">Koreatown · Baldwin Hills · South LA</span>
-        <span class="dc-status watching">Watching</span>
+        <span class="dc-territory">Westside · Calabasas · Hollywood</span>
+        <span class="dc-status watching">Tracked</span>
       </div>
     </div>
 
-    <!-- Broker 3 -->
-    <div class="dossier-card">
-      <div class="dc-head">
-        <div class="dc-monogram">DW</div>
-        <div class="dc-name-block">
-          <div class="dc-name">Drew Whitmore</div>
-          <div class="dc-firm">Newmark · Investment Sales</div>
-        </div>
-      </div>
-      <div class="dc-stats">
-        <div class="dc-stat">
-          <div class="dc-stat-val">28</div>
-          <div class="dc-stat-lbl">Units Traded YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">$22.1M</div>
-          <div class="dc-stat-lbl">Vol. YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">31</div>
-          <div class="dc-stat-lbl">Avg DOM</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">96.8%</div>
-          <div class="dc-stat-lbl">List/Sale Ratio</div>
-        </div>
-      </div>
-      <div class="dc-note">Whitmore deals in high-value boutique product — Silver Lake, Los Feliz, East Hollywood. He prices for the story, not just the numbers, which means he often attracts owner-operators with a vision rather than pure yield buyers.</div>
-      <div class="dc-footer">
-        <span class="dc-territory">Silver Lake · Los Feliz · Echo Park</span>
-        <span class="dc-status watching">Watching</span>
-      </div>
-    </div>
-
-    <!-- Broker 4 -->
-    <div class="dossier-card">
-      <div class="dc-head">
-        <div class="dc-monogram">SM</div>
-        <div class="dc-name-block">
-          <div class="dc-name">Sandro Marchetti</div>
-          <div class="dc-firm">IPA · Institutional Property Advisors</div>
-        </div>
-      </div>
-      <div class="dc-stats">
-        <div class="dc-stat">
-          <div class="dc-stat-val">112</div>
-          <div class="dc-stat-lbl">Units Traded YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">$38.9M</div>
-          <div class="dc-stat-lbl">Vol. YTD</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">38</div>
-          <div class="dc-stat-lbl">Avg DOM</div>
-        </div>
-        <div class="dc-stat">
-          <div class="dc-stat-val">95.1%</div>
-          <div class="dc-stat-lbl">List/Sale Ratio</div>
-        </div>
-      </div>
-      <div class="dc-note">Marchetti dominates the SFV corridor — Van Nuys, North Hills, Canoga Park. His listings tend to require heavy CapEx on close, which depresses DOM but compresses final price. Good for operators who know what they're buying.</div>
-      <div class="dc-footer">
-        <span class="dc-territory">SFV · Van Nuys · North Hills</span>
-        <span class="dc-status watching">Watching</span>
-      </div>
+    <!-- Empty state: submit a broker -->
+    <div style="margin-top: 32px; padding: 24px; border: 1px dashed var(--rule); background: var(--bg-alt); text-align: center;">
+      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px;">Brokers</div>
+      <div style="font-family: var(--serif); font-size: 16px; line-height: 1.5; color: var(--ink); margin-bottom: 10px;">Working a deal in LA multifamily?</div>
+      <div style="font-family: 'Source Serif 4', var(--serif); font-size: 13.5px; font-style: italic; color: var(--muted); line-height: 1.55;">Send the deal sheet to <a href="mailto:David@AtlasHomePro.com" style="color: var(--accent); border-bottom: 1px solid var(--accent);">David@AtlasHomePro.com</a> and it may run in the next Brief.</div>
     </div>
 
   </aside>
@@ -1528,5 +1063,6 @@
   });
 </script>
 
+<script defer src="/atlas-ticker.js"></script>
 </body>
 </html>

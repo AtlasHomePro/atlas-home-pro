@@ -726,6 +726,9 @@
   </div>
 </nav>
 
+<!-- Live market ticker -->
+<div id="atlas-ticker"></div>
+
 <!-- ============= DEPARTMENT STRAP ============= -->
 <div class="dept-strap">
   <div class="dept-strap-inner">
@@ -916,13 +919,6 @@
           <span class="fn-cat">Systems</span>
         </a>
 
-        <!-- Placeholder future piece -->
-        <a href="#" class="fn-item" aria-label="Coming: Sewer camera reports — what they show that sellers don't disclose">
-          <span class="fn-n">FN-05</span>
-          <span class="fn-title"><em>Sewer camera reports: what they show that sellers don't disclose.</em></span>
-          <span class="fn-cat coming">Coming Q3</span>
-        </a>
-
       </div>
       <div class="fn-col">
 
@@ -942,20 +938,6 @@
           <span class="fn-n">FN-08</span>
           <span class="fn-title">The sub-contractor availability map: where licensed plumbers are, and aren't, in the Basin.</span>
           <span class="fn-cat">Market</span>
-        </a>
-
-        <!-- Placeholder future piece -->
-        <a href="#" class="fn-item" aria-label="Coming: The HVAC replacement cycle in a coastal climate">
-          <span class="fn-n">FN-09</span>
-          <span class="fn-title"><em>The HVAC replacement cycle in a coastal climate: what salt air does that inland warranties don't cover.</em></span>
-          <span class="fn-cat coming">Coming Q3</span>
-        </a>
-
-        <!-- Placeholder future piece -->
-        <a href="#" class="fn-item" aria-label="Coming: Reading your DWP bill as a diagnostic tool">
-          <span class="fn-n">FN-10</span>
-          <span class="fn-title"><em>Reading your DWP water bill as a diagnostic: what the usage tiers tell you about hidden leaks.</em></span>
-          <span class="fn-cat coming">Coming Q4</span>
         </a>
 
       </div>
@@ -1071,5 +1053,6 @@
   b.addEventListener('click', () => { b.classList.toggle('open'); m.classList.toggle('open'); });
 </script>
 
+<script defer src="/atlas-ticker.js"></script>
 </body>
 </html>
