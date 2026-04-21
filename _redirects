@@ -93,3 +93,24 @@
 
 # ── Misc ───────────────────────────────────────────────────────────────────
 /ops/fleet       /ops/       302
+
+# ══════════════════════════════════════════════════════════════════════════
+# CLEAN SLATE 2026-04-21 — scrapped 17 early Brief articles, pivot to real-content only
+# ══════════════════════════════════════════════════════════════════════════
+/atlas-brief/50k-pre-sale-what-returns/*                 /atlas-brief/  301
+/atlas-brief/cost-of-deferred-maintenance/*              /atlas-brief/  301
+/atlas-brief/first-60-minutes-after-a-burst/*            /atlas-brief/  301
+/atlas-brief/good-primer-is-cheap-insurance/*            /atlas-brief/  301
+/atlas-brief/hard-water-la-what-it-does/*                /atlas-brief/  301
+/atlas-brief/honest-cost-of-a-hillside/*                 /atlas-brief/  301
+/atlas-brief/la-backflow-testing-requirements/*          /atlas-brief/  301
+/atlas-brief/la-panel-upgrade-true-cost/*                /atlas-brief/  301
+/atlas-brief/la-two-seasons-owner-checklist/*            /atlas-brief/  301
+/atlas-brief/main-water-line-signs-costs/*               /atlas-brief/  301
+/atlas-brief/paint-is-maintenance-not-cosmetics/*        /atlas-brief/  301
+/atlas-brief/plumbing-inspection-before-buying/*         /atlas-brief/  301
+/atlas-brief/trenchless-sewer-costs-honest-math/*        /atlas-brief/  301
+/atlas-brief/water-damage-restoration-real-cost/*        /atlas-brief/  301
+/atlas-brief/westside-plumbing-costs-2026/*              /atlas-brief/  301
+/atlas-brief/why-la-plumbing-costs-are-rising/*          /atlas-brief/  301
+/atlas-brief/article/*                                   /atlas-brief/  301

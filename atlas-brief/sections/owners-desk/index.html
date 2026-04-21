@@ -767,7 +767,7 @@
         <div class="essay-num">01</div>
         <div class="essay-content">
           <div class="essay-cat">Owner&rsquo;s Desk · Published</div>
-          <h2 class="essay-title"><a href="/atlas-brief/cost-of-deferred-maintenance/">The Cost of Deferred Maintenance. It Is Never Free to Wait.</a></h2>
+          <h2 class="essay-title"><span>The Cost of Deferred Maintenance. It Is Never Free to Wait.</span></h2>
           <p class="essay-deck">What happens to a building when an owner decides a repair can hold until next year, and then next year becomes five. A candid accounting of the compounding price of delay.</p>
           <div class="essay-footer">
             <b>D. Safai</b>
@@ -782,7 +782,7 @@
         <div class="essay-num">02</div>
         <div class="essay-content">
           <div class="essay-cat">Owner&rsquo;s Desk · Published</div>
-          <h2 class="essay-title"><a href="/atlas-brief/good-primer-is-cheap-insurance/">Good Primer Is Cheap Insurance.</a></h2>
+          <h2 class="essay-title"><span>Good Primer Is Cheap Insurance.</span></h2>
           <p class="essay-deck">The primer question is not aesthetic. It is structural. An argument for treating surface preparation not as a cost to trim, but as a position to take.</p>
           <div class="essay-footer">
             <b>D. Safai</b>
@@ -797,7 +797,7 @@
         <div class="essay-num">03</div>
         <div class="essay-content">
           <div class="essay-cat">Owner&rsquo;s Desk · Published</div>
-          <h2 class="essay-title"><a href="/atlas-brief/paint-is-maintenance-not-cosmetics/">Paint Is Maintenance, Not Cosmetics.</a></h2>
+          <h2 class="essay-title"><span>Paint Is Maintenance, Not Cosmetics.</span></h2>
           <p class="essay-deck">The industry sells paint as beautification. Owners who understand what a coat of paint actually does, what it seals, what it exposes, what it prevents, approach the job entirely differently.</p>
           <div class="essay-footer">
             <b>D. Safai</b>
@@ -812,7 +812,7 @@
         <div class="essay-num">04</div>
         <div class="essay-content">
           <div class="essay-cat">Owner&rsquo;s Desk · Published</div>
-          <h2 class="essay-title"><a href="/atlas-brief/50k-pre-sale-what-returns/">$50K Before the Listing. What Returns, and What Doesn&rsquo;t.</a></h2>
+          <h2 class="essay-title"><span>$50K Before the Listing. What Returns, and What Doesn&rsquo;t.</span></h2>
           <p class="essay-deck">A practitioner&rsquo;s table of pre-sale preparation spend: which improvements recapture on the closing statement, which recapture in days-on-market, and which are simply the cost of competing in a serious market.</p>
           <div class="essay-footer">
             <b>D. Safai</b>
@@ -837,6 +837,113 @@
     </div>
   </div>
 </div>
+
+<!-- ============= SEE ALSO ============= -->
+<section class="see-also">
+  <div class="see-also-inner">
+    <div class="see-also-head"><span>Other Desks</span></div>
+    <div class="see-also-grid">
+
+      <a href="/atlas-brief/sections/market-commentary/">
+        <div class="see-also-num">Section 01</div>
+        <div class="see-also-name">Market Commentary</div>
+        <div class="see-also-blurb">LA prices, macro, cycles</div>
+      </a>
+
+      <a href="/atlas-brief/sections/operator-guides/">
+        <div class="see-also-num">Section 08</div>
+        <div class="see-also-name">Operator Guides</div>
+        <div class="see-also-blurb">Field-level how-tos</div>
+      </a>
+
+      <a href="/atlas-brief/sections/construction-costs/">
+        <div class="see-also-num">Section 04</div>
+        <div class="see-also-name">Construction Costs</div>
+        <div class="see-also-blurb">Honest job-site math</div>
+      </a>
+
+      <a href="/atlas-brief/sections/investing-philosophy/">
+        <div class="see-also-num">Section 10</div>
+        <div class="see-also-name">Investing Philosophy</div>
+        <div class="see-also-blurb">Principles, not tactics</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= DATA-DRIVEN FEED ============= -->
+<section style="padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);">
+  <div class="wrap" style="max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad-x);">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--ink); margin-bottom: 0;">
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">In This Desk</div>
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);" id="desk-count">Loading…</div>
+    </div>
+    <div id="desk-feed" data-desk="Owner's Desk"></div>
+  </div>
+  <style>
+    #desk-feed .desk-row { display: grid; grid-template-columns: 56px 180px 1fr auto; gap: 24px; padding: 24px 0; border-bottom: 1px dotted var(--rule); align-items: start; color: var(--ink); }
+    #desk-feed .desk-row:hover { background: var(--bg-alt); }
+    #desk-feed .desk-row:hover .d-title { color: var(--accent); }
+    #desk-feed .d-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent); padding-top: 6px; }
+    #desk-feed .d-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding-top: 6px; line-height: 1.5; }
+    #desk-feed .d-title { font-family: var(--serif); font-weight: 500; font-size: clamp(20px, 2vw, 26px); line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 8px; }
+    #desk-feed .d-deck { font-family: var(--serif); font-size: 15.5px; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: 68ch; }
+    #desk-feed .d-date { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 8px; white-space: nowrap; }
+    #desk-feed .desk-empty { padding: clamp(48px, 6vw, 80px) 0; text-align: center; }
+    #desk-feed .desk-empty .e-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    #desk-feed .desk-empty .e-line { font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); color: var(--ink); max-width: 56ch; margin: 0 auto; line-height: 1.4; }
+    #desk-feed .desk-empty .e-sub { font-family: 'Source Serif 4', var(--serif); font-size: 14.5px; font-style: italic; color: var(--muted); margin-top: 12px; max-width: 54ch; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    @media (max-width: 820px) {
+      #desk-feed .desk-row { grid-template-columns: 40px 1fr; gap: 14px; padding: 20px 0; }
+      #desk-feed .d-kicker, #desk-feed .d-date { grid-column: 2; padding-top: 0; }
+      #desk-feed .d-kicker { order: -1; font-size: 9.5px; margin-bottom: 4px; }
+      #desk-feed .d-date { font-size: 9.5px; margin-top: 6px; }
+      #desk-feed .d-num { grid-row: span 4; font-size: 13px; }
+      #desk-feed .d-title { font-size: 19px !important; }
+      #desk-feed .d-deck { font-size: 14.5px; }
+    }
+  </style>
+  <script>
+  (function() {
+    function esc(s) { return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    fetch('/data/articles.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : null)
+      .then(function(data) {
+        var host = document.getElementById('desk-feed');
+        if (!host || !data) return;
+        var desk = host.getAttribute('data-desk');
+        var items = data.articles.filter(function(a) { return a.desk === desk; });
+        var countEl = document.getElementById('desk-count');
+
+        if (!items.length) {
+          host.innerHTML = '<div class="desk-empty">' +
+            '<div class="e-tag">Desk Status</div>' +
+            '<div class="e-line">First dispatch from this desk is shipping soon.</div>' +
+            '<div class="e-sub">Every piece runs when it has real numbers, not on a schedule.</div>' +
+            '</div>';
+          if (countEl) countEl.textContent = '0 entries · In production';
+          return;
+        }
+
+        host.innerHTML = items.map(function(a) {
+          return '<a href="' + esc(a.url) + '" class="desk-row">' +
+            '<div class="d-num">№ ' + esc(a.entry) + '</div>' +
+            '<div class="d-kicker">' + esc(a.desk) + (a.status ? ' · ' + esc(a.status) : '') + '</div>' +
+            '<div>' +
+              '<h3 class="d-title">' + esc(a.title) + '</h3>' +
+              '<p class="d-deck">' + esc(a.deck) + '</p>' +
+            '</div>' +
+            '<div class="d-date">' + esc(a.date_display) + '</div>' +
+          '</a>';
+        }).join('');
+
+        if (countEl) countEl.textContent = items.length + ' entr' + (items.length === 1 ? 'y' : 'ies') + ' · Newest first';
+      })
+      .catch(function() {});
+  })();
+  </script>
+</section>
 
 <!-- ============= SEE ALSO ============= -->
 <section class="see-also">

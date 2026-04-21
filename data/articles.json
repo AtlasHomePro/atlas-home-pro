@@ -1,0 +1,65 @@
+{
+  "updated": "2026-04-21",
+  "articles": [
+    {
+      "entry": "04",
+      "slug": "bluon-hvac-tech-intelligence",
+      "url": "/atlas-brief/bluon-hvac-tech-intelligence/",
+      "title": "Bluon: The HVAC Tech Brain in Every Technician's Pocket.",
+      "deck": "Bluon puts every manual, wiring diagram, parts list, and AI diagnostic for 30 million HVAC model numbers into a technician's pocket. For LA multifamily owners, fewer callbacks. For small HVAC shops, it's the difference between competing and not.",
+      "desk": "Operator Guides",
+      "series": null,
+      "status": null,
+      "date": "2026-04-21",
+      "date_display": "April 21, 2026",
+      "read": "6 min",
+      "hero": "/images/brief/bluon/bluon-app-ui-jobber.jpg",
+      "hero_alt": "Three smartphone screens showing the Bluon HVAC app with model lookup, manuals, and parts screens."
+    },
+    {
+      "entry": "03",
+      "slug": "1101-w-45th-historic-south-central",
+      "url": "/atlas-brief/1101-w-45th-historic-south-central/",
+      "title": "1101 W 45th, 90037: A 20-Door Trade at a 6.79 Cap.",
+      "deck": "A 20-unit Historic South Central multifamily just traded at $2,250,000. Numbers line up tight: 6.79% CAP, sub-7 GRM, under $200 a foot, $112K a door. And the broker who got it done is worth writing about.",
+      "desk": "Broker Activity",
+      "series": "Opportunity Watch",
+      "status": "Sold",
+      "date": "2026-04-21",
+      "date_display": "April 21, 2026",
+      "read": "7 min",
+      "hero": "/images/brief/1101-w-45th.jpg",
+      "hero_alt": "1101 W 45th Street, a two-story Spanish-tile-roof 20-unit apartment building in Historic South Central Los Angeles."
+    },
+    {
+      "entry": "02",
+      "slug": "5712-camellia-noho-14-units",
+      "url": "/atlas-brief/5712-camellia-noho-14-units/",
+      "title": "5712 Camellia, NoHo: 14 Doors at $306K a Unit.",
+      "deck": "A 1989 NoHo apartment just hit the market at $4.295M. $306,786/door, 4.86% CAP current, 12.23 GRM. Not RSO, which is the whole pitch. An operator's read on whether the ask clears.",
+      "desk": "Broker Activity",
+      "series": "Opportunity Watch",
+      "status": "For Sale",
+      "date": "2026-04-21",
+      "date_display": "April 21, 2026",
+      "read": "7 min",
+      "hero": "/images/brief/5712-camellia-noho.jpg",
+      "hero_alt": "5712 Camellia Ave, a three-story stucco 14-unit apartment building in North Hollywood."
+    },
+    {
+      "entry": "01",
+      "slug": "1825-gramercy-hollywood-trade",
+      "url": "/atlas-brief/1825-gramercy-hollywood-trade/",
+      "title": "1825 N Gramercy: A 27-Door Hollywood Trade at $187K a Unit.",
+      "deck": "A 1968 Hollywood multifamily just closed at $5.05M, 9.3 GRM, $174/SF, priced below the ULA line. The kind of deal where disciplined leverage, operating patience, and sensible policy reform can produce a 17% IRR over a decade.",
+      "desk": "Comps",
+      "series": "Opportunity Watch",
+      "status": "Sold",
+      "date": "2026-04-20",
+      "date_display": "April 20, 2026",
+      "read": "8 min",
+      "hero": "/images/brief/gramercy-comp.jpg",
+      "hero_alt": "1825 N Gramercy Pl, a 1968 three-story Hollywood apartment building with tuck-under parking and mature palm trees."
+    }
+  ]
+}
