@@ -951,11 +951,62 @@
   </div>
 </section>
 
+<!-- ============= RECURRING SERIES ============= -->
+<section class="series-block" style="padding: clamp(56px, 7vw, 96px) 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="more-head">
+      <div class="num">§ V, Recurring Series</div>
+      <h3>Four series, running through the Brief.</h3>
+      <div class="right">Built for readers who subscribe to one thread.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 16px;" class="series-grid">
+      <a href="/atlas-brief/series/cost-file/" class="series-card" style="padding: 28px 24px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 10px; background: var(--bg); transition: background 0.15s;">
+        <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);">Series I</span>
+        <h4 style="font-family: var(--serif); font-weight: 500; font-size: 24px; letter-spacing: -0.015em; line-height: 1.15; margin: 0; color: var(--ink);">Cost File</h4>
+        <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-soft); margin: 0;">Receipts, not estimates. What a job actually costs in LA, priced line-by-line.</p>
+        <div style="margin-top: auto; padding-top: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);">Twice a month · 4 entries</div>
+      </a>
+      <a href="/atlas-brief/series/opportunity-watch/" class="series-card" style="padding: 28px 24px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 10px; background: var(--bg);">
+        <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);">Series II</span>
+        <h4 style="font-family: var(--serif); font-weight: 500; font-size: 24px; letter-spacing: -0.015em; line-height: 1.15; margin: 0; color: var(--ink);">Opportunity Watch</h4>
+        <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-soft); margin: 0;">The board, with commentary. For-sale and just-sold LA multifamily with an operator's read.</p>
+        <div style="margin-top: auto; padding-top: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);">Weekly · 3 entries</div>
+      </a>
+      <a href="/atlas-brief/series/owners-guardrail/" class="series-card" style="padding: 28px 24px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 10px; background: var(--bg);">
+        <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);">Series III</span>
+        <h4 style="font-family: var(--serif); font-weight: 500; font-size: 24px; letter-spacing: -0.015em; line-height: 1.15; margin: 0; color: var(--ink);">Owner's Guardrail</h4>
+        <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-soft); margin: 0;">Policy, insurance, compliance, and code traps that can quietly bankrupt an LA owner.</p>
+        <div style="margin-top: auto; padding-top: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);">Monthly + alerts · 3 entries</div>
+      </a>
+      <a href="/atlas-brief/series/reading-room/" class="series-card" style="padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; background: var(--bg);">
+        <span style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);">Series IV</span>
+        <h4 style="font-family: var(--serif); font-weight: 500; font-size: 24px; letter-spacing: -0.015em; line-height: 1.15; margin: 0; color: var(--ink);">Reading Room</h4>
+        <p style="font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-soft); margin: 0;">The books, papers, and podcasts that actually shape how I think about this work.</p>
+        <div style="margin-top: auto; padding-top: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);">Every 6-8 weeks · 2 entries</div>
+      </a>
+    </div>
+  </div>
+  <style>
+    .series-card:hover { background: var(--bg-alt) !important; }
+    .series-card:hover h4 { color: var(--accent); }
+    @media (max-width: 900px) {
+      .series-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .series-card:nth-child(2) { border-right: 0 !important; }
+      .series-card:nth-child(1), .series-card:nth-child(2) { border-bottom: 1px solid var(--rule); }
+    }
+    @media (max-width: 560px) {
+      .series-grid { grid-template-columns: 1fr !important; }
+      .series-card { border-right: 0 !important; border-bottom: 1px solid var(--rule); }
+      .series-card:last-child { border-bottom: 0; }
+    }
+  </style>
+</section>
+
 <!-- ============= DESKS DIRECTORY ============= -->
 <section class="desks-dir">
   <div class="wrap">
     <div class="more-head">
-      <div class="num">§ V, Browse by Desk</div>
+      <div class="num">§ VI, Browse by Desk</div>
       <h3>The eleven desks of Atlas Brief.</h3>
       <div class="right">Each a department of its own.</div>
     </div>
@@ -1057,7 +1108,7 @@
 <section class="archive">
   <div class="wrap">
     <div class="archive-head">
-      <div class="num">§ VI, Archive</div>
+      <div class="num">§ VII, Archive</div>
       <h3>The full index.</h3>
       <div class="right">17 entries · No paywall</div>
     </div>
