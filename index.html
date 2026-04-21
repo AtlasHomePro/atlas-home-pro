@@ -1151,7 +1151,7 @@
 <!-- ============= DISPATCH SIGNUP (compact) ============= -->
 <section id="dispatch" style="padding: clamp(56px, 7vw, 96px) 0; background: #0E1116; color: #F5F5F2; border-top: 1px solid #1C2128;">
   <div class="wrap" style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
-    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center;" class="dispatch-grid">
+    <div class="dispatch-grid">
       <div>
         <div style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #C89A5C; margin-bottom: 18px;">The Atlas Dispatch</div>
         <h2 style="font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.05; letter-spacing: -0.02em; color: #F5F5F2; margin: 0 0 18px; max-width: 18ch;">Real LA real estate, <em style="color: #C89A5C;">in your inbox.</em></h2>
@@ -1179,8 +1179,16 @@
     </div>
   </div>
   <style>
+    .dispatch-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
+    }
     @media (max-width: 860px) {
-      .dispatch-grid { grid-template-columns: 1fr; gap: 32px; }
+      .dispatch-grid { grid-template-columns: 1fr !important; gap: 32px; }
+      .sb-form-home { padding: 24px !important; }
+      .sb-form-home [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 12px !important; }
     }
     .sb-form-home.sent .fields { display: none; }
     .sb-form-home.sent .success { display: block; }

@@ -709,3 +709,133 @@ body {
   .kt-head { padding-top: 0; }
   .kt-list li { font-size: 16px; }
 }
+
+/* ============================================================
+   MOBILE SAFETY NET
+   Global fixes for article pages and long-form layouts
+   ============================================================ */
+
+/* Prevent horizontal overflow on any page */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Article body layouts: force single column on mobile */
+@media (max-width: 900px) {
+  .body-grid,
+  .brokers-grid,
+  .author-in,
+  .kt-card {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* TOC sidebar readable on mobile */
+  .body-grid aside {
+    position: static !important;
+    order: -1;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+  .body-grid aside ol {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .body-grid aside li {
+    font-size: 13px !important;
+    padding: 10px 0 !important;
+    letter-spacing: 0.04em !important;
+  }
+  .body-grid aside a { color: var(--ink); }
+
+  /* Article prose sizing on mobile */
+  article.prose {
+    font-size: 17px !important;
+    line-height: 1.65 !important;
+  }
+  article.prose p { margin-bottom: 1em; }
+  article.prose h2 { font-size: clamp(24px, 6.5vw, 30px) !important; margin-top: 1.6em !important; }
+
+  /* Drop cap should not consume mobile width */
+  article.prose .drop::first-letter {
+    font-size: 3.6em !important;
+    padding: 4px 8px 0 0 !important;
+  }
+
+  /* Tables in articles */
+  article.prose .table-fig { overflow-x: auto; }
+  article.prose table { font-size: 12px !important; }
+  article.prose table th,
+  article.prose table td {
+    padding: 10px 10px 10px 0 !important;
+  }
+
+  /* Hero + stats sections get proper padding */
+  .art-top,
+  .art-lead,
+  .deal-stats,
+  .co-stats,
+  .key-takeaways,
+  .art-body,
+  .author {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .art-top .wrap,
+  .art-lead .wrap,
+  .deal-stats .wrap,
+  .co-stats .wrap,
+  .key-takeaways .wrap,
+  .art-body .wrap,
+  .author .wrap {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Headline + deck */
+  .art-top h1 { font-size: clamp(34px, 9.6vw, 44px) !important; line-height: 1.02 !important; }
+  .art-top .deck { font-size: clamp(17px, 4.8vw, 20px) !important; }
+  .art-top .byl {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px 20px !important;
+  }
+
+  /* Deal stats 2-col on phone for scannability */
+  .stats-grid, .co-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .stats-grid .stat, .co-stats-grid .stat {
+    padding: 14px 12px !important;
+    border-right: 0 !important;
+    border-bottom: 1px dotted var(--rule) !important;
+  }
+  .stats-grid .v, .co-stats-grid .v { font-size: 17px !important; }
+  .stats-grid .s, .co-stats-grid .s { font-size: 12px !important; }
+  .stats-grid .k, .co-stats-grid .k { font-size: 9px !important; letter-spacing: 0.12em !important; }
+
+  /* Crumb should wrap cleanly */
+  .crumb { font-size: 10px !important; letter-spacing: 0.1em !important; gap: 6px !important; }
+
+  /* Key takeaways: stack cleanly */
+  .kt-card { padding: 22px 18px !important; }
+  .kt-head { padding-top: 0 !important; }
+  .kt-list li { font-size: 16px !important; padding-left: 34px !important; }
+}
+
+/* Phone-only tightening */
+@media (max-width: 480px) {
+  .stats-grid .stat, .co-stats-grid .stat {
+    padding: 12px 10px !important;
+  }
+  .stats-grid .v, .co-stats-grid .v { font-size: 15px !important; }
+
+  /* Deal-stats-head, co-stats-head */
+  .stats-head, .co-stats-head {
+    font-size: 9.5px !important;
+    letter-spacing: 0.14em !important;
+  }
+}
