@@ -310,6 +310,30 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
+.entry-photo-real {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-alt);
+}
+.entry-photo-real img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover;
+}
+.entry-photo-real .entry-photo-label {
+  position: absolute;
+  bottom: 12px; left: 14px; right: 14px;
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 4px 8px;
+  border: 1px solid var(--rule);
+  line-height: 1.4;
+}
 /* Grid paper interior for photo placeholder */
 .entry-photo-frame::before {
   content: "";
@@ -915,10 +939,10 @@
           <h2 class="entry-title">Olympic Towers Lease-Up: Month 6 Absorption, Unit by Unit.</h2>
 
           <div class="entry-photo-row">
-            <div class="entry-photo-frame grid-bg">
-              <div class="entry-photo-corner"></div>
-              <div class="entry-photo-label">Fig. 02-A — Lease-up absorption chart, Olympic Towers · Months 1–6 · Jan 2026</div>
-            </div>
+            <figure class="entry-photo-real">
+              <img src="/images/projects/olympic-towers.jpg" alt="Olympic Towers — a four-story white multifamily building with orange accent bands, on Olympic Boulevard." loading="lazy" width="1920" height="1080" />
+              <figcaption class="entry-photo-label">Fig. 02-A — Olympic Towers · Mid-City West · Delivered 2014</figcaption>
+            </figure>
             <div class="entry-annotation">
               <div class="ann-label">Lease-Up — Month 6 Snapshot</div>
               <div class="ann-line"><span class="ann-k">Total units</span><span class="ann-v">24</span></div>
@@ -958,6 +982,22 @@
           </div>
 
           <h2 class="entry-title">The Felix on Fairfax, Year Four: What the Pro Forma Knew and What It Didn't.</h2>
+
+          <div class="entry-photo-row">
+            <figure class="entry-photo-real">
+              <img src="/images/projects/felix-fairfax.jpg" alt="The Felix on Fairfax — a five-story grey-and-white multifamily building at 731 N Fairfax Avenue, with a landscaped living wall at ground level." loading="lazy" width="1920" height="1080" />
+              <figcaption class="entry-photo-label">Fig. 01-A — The Felix on Fairfax · 731 N Fairfax Avenue · Delivered Q1 2022</figcaption>
+            </figure>
+            <div class="entry-annotation">
+              <div class="ann-label">The Felix — Year Four NOI Delta</div>
+              <div class="ann-line"><span class="ann-k">Units</span><span class="ann-v">43</span></div>
+              <div class="ann-line"><span class="ann-k">Typology</span><span class="ann-v">Type-V wood-frame</span></div>
+              <div class="ann-line"><span class="ann-k">Delivered</span><span class="ann-v">Q1 2022</span></div>
+              <div class="ann-line"><span class="ann-k">Revenue vs. pro forma</span><span class="ann-v">− 1.4%</span></div>
+              <div class="ann-line"><span class="ann-k">Expense vs. pro forma</span><span class="ann-v">+ 14.2%</span></div>
+              <div class="ann-line"><span class="ann-k">NOI vs. model</span><span class="ann-v">− 6.1%</span></div>
+            </div>
+          </div>
 
           <div class="entry-body">
             <p>Year four is when a pro forma's fiction becomes obvious. The rent schedule held; the maintenance budget did not. The Felix — 43 units, Type-V, Fairfax District, delivered Q1 2022 — turned in a year-four NOI that was 6.1% below the acquisition model. The revenue line was within 1.4% of forecast. The expense line was 14.2% above it.</p>
