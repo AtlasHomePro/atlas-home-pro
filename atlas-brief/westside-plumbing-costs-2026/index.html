@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>What a Westside Repipe Actually Costs in 2026 — Atlas Brief</title>
+<link rel="stylesheet" href="/atlas-v2.css"/>
+<style>
+.art-top{padding:clamp(48px,6vw,96px) 0 clamp(32px,4vw,56px);border-bottom:1px solid var(--ink)}
+.crumb{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+.crumb a{color:var(--muted);border-bottom:1px solid transparent}
+.crumb a:hover{color:var(--ink);border-color:var(--accent)}
+.crumb .sep{color:var(--muted-2)}
+.art-top .cat{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:block}
+.art-top h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,112px);line-height:.95;letter-spacing:-.03em;margin:0 0 32px;max-width:20ch}
+.art-top h1 em{font-style:italic;color:var(--ink-soft)}
+.art-top .deck{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.45;color:var(--ink-soft);max-width:52ch;margin:0 0 48px}
+.byl{display:grid;grid-template-columns:repeat(4,auto) 1fr;gap:48px;padding-top:24px;border-top:var(--tick);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.byl b{color:var(--ink);display:block;margin-bottom:4px}
+@media(max-width:1024px){.byl{grid-template-columns:1fr 1fr;gap:20px 32px}}
+
+.art-lead{padding:clamp(32px,4vw,56px) 0;border-bottom:1px solid var(--ink)}
+.art-lead .frame{aspect-ratio:16/8}
+
+.art-body{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
+.body-grid{display:grid;grid-template-columns:220px minmax(0,680px) 1fr;gap:48px}
+.body-grid aside{position:sticky;top:88px;align-self:start}
+.body-grid aside .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.body-grid aside ol{list-style:none;counter-reset:toc;padding:0;margin:0;border-top:var(--tick)}
+.body-grid aside li{counter-increment:toc;padding:10px 0;border-bottom:var(--tick-soft);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:grid;grid-template-columns:28px 1fr;gap:8px}
+.body-grid aside li::before{content:counter(toc, decimal-leading-zero);color:var(--accent)}
+.body-grid aside a{color:inherit}
+.body-grid aside a:hover{color:var(--ink)}
+
+article.prose{font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--ink-soft);letter-spacing:-.003em}
+article.prose p{margin:0 0 1.2em}
+article.prose h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin:2.2em 0 .6em}
+article.prose h2::before{content:"§ "counter(sec, upper-roman)" — ";counter-increment:sec;font-family:var(--mono);font-size:14px;letter-spacing:.14em;color:var(--accent);display:inline}
+article.prose{counter-reset:sec}
+article.prose h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:22px;color:var(--ink);margin:1.8em 0 .4em}
+article.prose .drop::first-letter{font-family:var(--serif);font-size:5em;float:left;line-height:.85;padding:6px 10px 0 0;font-weight:500;color:var(--ink)}
+article.prose blockquote{margin:2em 0;padding:32px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.25;letter-spacing:-.015em;color:var(--ink);max-width:22ch}
+article.prose blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:18px}
+article.prose figure{margin:2em 0}
+article.prose figure .frame{aspect-ratio:16/9}
+article.prose figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding-top:12px;border-top:1px dotted var(--rule);margin-top:14px}
+article.prose .table-fig{margin:2em 0;padding-top:20px;border-top:1px solid var(--ink)}
+article.prose .table-fig .cap{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+article.prose table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+article.prose table th,article.prose table td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px dotted var(--rule);letter-spacing:.02em}
+article.prose table th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+article.prose table td.n{text-align:right}
+article.prose table th.n{text-align:right}
+article.prose table tr.total td{border-top:1px solid var(--ink);border-bottom:0;font-weight:600;color:var(--ink);padding-top:14px}
+article.prose a.link{color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:1px}
+
+.marg{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);line-height:1.55;padding-left:16px;border-left:1px solid var(--accent);margin-top:88px}
+.marg b{display:block;color:var(--ink);letter-spacing:.14em;text-transform:uppercase;font-size:10px;margin-bottom:8px}
+
+@media(max-width:1024px){
+  .body-grid{grid-template-columns:1fr;gap:40px}
+  .body-grid aside{position:static;order:2}
+  .body-grid article{order:1}
+  .marg{display:none}
+}
+
+.author{padding:clamp(48px,6vw,80px) 0;background:var(--bg-alt);border-bottom:1px solid var(--ink)}
+.author-in{display:grid;grid-template-columns:180px 1fr auto;gap:48px;align-items:start}
+.author-in .pic{aspect-ratio:1/1;width:180px;background:var(--bg-alt);border:1px solid var(--rule);position:relative}
+.author-in .pic::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,var(--rule) 14px,var(--rule) 15px)}
+.author-in .pic span{position:absolute;bottom:10px;left:10px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--bg-alt);padding:4px 6px;border:1px solid var(--rule)}
+.author-in .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.author-in h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+.author-in p{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:52ch;margin:0}
+.author-in .btns{display:flex;flex-direction:column;gap:10px;white-space:nowrap}
+.author-in .btns a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--ink)}
+.author-in .btns a:first-child{background:var(--ink);color:var(--bg)}
+@media(max-width:1024px){.author-in{grid-template-columns:1fr;gap:24px} .author-in .btns{flex-direction:row}}
+
+.more{padding:clamp(56px,7vw,96px) 0}
+.more-head{padding-bottom:24px;border-bottom:1px solid var(--ink);margin-bottom:40px;display:grid;grid-template-columns:200px 1fr auto;gap:32px;align-items:end}
+.more-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.more-head h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.02em;margin:0;font-style:italic}
+.more-head a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:3px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:var(--tick)}
+.more-grid .m{padding:28px 24px 28px 0;border-right:var(--tick);border-bottom:var(--tick);display:flex;flex-direction:column;gap:14px;transition:background .15s}
+.more-grid .m:hover{background:rgba(154,107,63,.03)}
+.more-grid .m:nth-child(3n){border-right:0;padding-right:0}
+.more-grid .m:not(:nth-child(3n+1)){padding-left:24px}
+.more-grid .cat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.more-grid h4{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.015em;line-height:1.15;margin:0}
+.more-grid footer{margin-top:auto;padding-top:14px;border-top:var(--tick-soft);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.more-grid footer b{color:var(--ink)}
+@media(max-width:1024px){.more-head{grid-template-columns:1fr;gap:10px;align-items:start} .more-grid{grid-template-columns:1fr} .more-grid .m{border-right:0!important;padding:28px 0!important}}
+</style>
+
+<meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas <span style="color:var(--accent)">Home Pro</span></a>
+    <ul class="nav-links"><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/" class="active">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-right"><span class="nav-phone">(213) 275-2210</span><a href="/contact/" class="nav-cta">Contact Atlas</a><button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div>
+  <div class="mobile-menu" id="mm"><ul><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul><div class="mm-meta"><span>(213) 275-2210</span><span>David@AtlasHomePro.com</span></div></div>
+</nav>
+
+<header class="art-top">
+  <div class="wrap">
+    <nav class="crumb"><a href="/">Atlas <span style="color:var(--accent)">Home Pro</span></a><span class="sep">/</span><a href="/atlas-brief/">Atlas Brief</a><span class="sep">/</span><a href="/atlas-brief/">Construction Costs</a><span class="sep">/</span><span>Entry № 043</span></nav>
+    <span class="cat">Construction Costs · Entry № 043</span>
+    <h1>What a Westside Repipe Actually Costs in&nbsp;<em>2026.</em></h1>
+    <p class="deck">Three recent repipes on our own buildings, priced line-by-line. What the quote should show, what the flat-rate shop won't tell you, and why the cheap bid is almost always the expensive one.</p>
+    <div class="byl">
+      <div><b>David Safai</b>Editor · Publisher</div>
+      <div><b>Published</b>April 20, 2026</div>
+      <div><b>Read time</b>9 minutes · 2,140 words</div>
+      <div><b>Dateline</b>Los Angeles, CA</div>
+    </div>
+  </div>
+</header>
+
+<section class="art-lead">
+  <div class="wrap">
+    <div class="frame frame-ratio-16-9">
+      <div class="frame-corner"></div>
+      <div class="frame-label">Fig. 00 — LEAD · Copper vs. PEX repipe, seven recent Atlas jobs, Westside LA</div>
+    </div>
+  </div>
+</section>
+
+<section class="art-body">
+  <div class="wrap">
+    <div class="body-grid">
+      <aside>
+        <div class="k">§ In this entry</div>
+        <ol>
+          <li><a href="#s1">What a repipe actually is</a></li>
+          <li><a href="#s2">The seven buckets of a real quote</a></li>
+          <li><a href="#s3">Copper versus PEX, honestly</a></li>
+          <li><a href="#s4">Red flags on every estimate</a></li>
+          <li><a href="#s5">What to do if you own an older building</a></li>
+        </ol>
+      </aside>
+
+      <article class="prose">
+        <p class="drop">Every eighteen months or so, an older LA building tells you it is done with its copper. The water pressure drops at the second-floor units first, a pinhole leak shows up in a wall someone painted two years ago, and suddenly the conversation shifts from "let's get one plumber out" to "what does a whole-building repipe actually cost?" The answer most owners hear is $8,000 to $20,000. That number is directionally correct and functionally useless. It does not tell you what the job is, it does not tell you how it should be priced, and it does not tell you why the plumber who quotes you $9,000 is almost certainly going to bill you $18,000 by the time they are done.</p>
+
+        <p>I write this from the other side of the table. We have repiped our own buildings. We have repiped buildings we took over. We have had cheap bids come in and blow up mid-job, and we have had the expensive bid be the honest one. What follows is what I wish I had known the first time I signed a repipe contract, laid out the way I would want it explained to me.</p>
+
+        <h2 id="s1">What a repipe actually is.</h2>
+
+        <p>A whole-building repipe is the replacement of every supply line — the pressurized water running from your main shutoff to every fixture — between the meter and the last faucet. It is not the drain lines. It is not the gas. It is not the water heater. It is the network of pipes your tenants turn on and off two hundred times a day, and when it fails, it fails everywhere at once.</p>
+
+        <p>On a Westside LA courtyard building from the 1940s or 50s, that network is almost always galvanized steel or first-generation copper. Both fail on a predictable timeline. Galvanized scales shut from the inside until the bore is the diameter of a pencil. Copper from that era thins at the joints and pinholes through in the last decade of its life. The question is never <em>whether</em> the repipe comes — it is whether you do it on your schedule or the pipe's.</p>
+
+        <blockquote>The cheap bid is almost always the expensive one. The only question is who eats the delta, and when.<cite>— Field note, March 2026</cite></blockquote>
+
+        <h2 id="s2">The seven buckets of a real quote.</h2>
+
+        <p>A line-item repipe quote on a Westside multifamily should have seven buckets, not one. If your estimate is a single round number at the bottom of the page, you are not looking at a quote — you are looking at a hope. Here is what our own jobs break into, normalized across three recent repipes on our own buildings and published with the owners' numbers anonymized.</p>
+
+        <div class="table-fig">
+          <div class="cap">Fig. 01 — Typical line items, 2026 Westside multifamily PEX repipe · per-door cost range</div>
+          <table>
+            <thead><tr><th>Line item</th><th class="n">Low</th><th class="n">High</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>PEX material &amp; manifolds</td><td class="n">$400</td><td class="n">$700</td><td>Per door, includes fittings</td></tr>
+              <tr><td>Demo &amp; drywall access</td><td class="n">$600</td><td class="n">$1,400</td><td>Depends on wall condition</td></tr>
+              <tr><td>Plumbing labor</td><td class="n">$1,800</td><td class="n">$3,200</td><td>W-2 journeyman, burdened</td></tr>
+              <tr><td>Drywall patch &amp; texture</td><td class="n">$400</td><td class="n">$900</td><td>Before paint</td></tr>
+              <tr><td>Paint &amp; finish restore</td><td class="n">$300</td><td class="n">$700</td><td>Common areas + repair walls</td></tr>
+              <tr><td>Permits &amp; inspection</td><td class="n">$200</td><td class="n">$500</td><td>LADBS + water dept.</td></tr>
+              <tr><td>Tenant coordination</td><td class="n">$150</td><td class="n">$400</td><td>Per-door average</td></tr>
+              <tr class="total"><td>All-in per door</td><td class="n">$3,850</td><td class="n">$7,800</td><td>6–12 unit courtyard, occupied</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Against a typical Westside courtyard building — eight to twelve doors — that works out to $31,000 to $94,000 all-in, not the $8,000 number a flat-rate shop will quote you for the "plumbing" only. The gap is not markup. It is the other six buckets, which the cheap quote has simply left for you to discover on your own.</p>
+
+        <h2 id="s3">Copper versus PEX, honestly.</h2>
+
+        <p>The industry has been arguing about copper versus PEX for twenty years, and the argument is mostly bad. Here is what I can tell you from our own jobs, with no product affiliation in either direction.</p>
+
+        <p><b>PEX</b> is cheaper to install, faster to run, and more forgiving of the imperfect framing you find in a 1940s building. It handles a slab leak retrofit without the wall destruction copper requires, and the fittings, run properly, are as reliable as soldered copper. The knock on PEX — UV degradation, rodent damage, chlorine sensitivity — is real in edge cases and irrelevant in a properly insulated, properly routed install. We use it on most of our multifamily repipes. It comes in at roughly 60 to 70 percent of the all-in cost of a copper equivalent.</p>
+
+        <p><b>Copper</b> is still the right choice in two situations: exposed runs where appearance matters, and high-end residential where the owner values the material for its own sake. The labor is slower, the material is more expensive, and the skill required to solder a clean joint is not as widely available as it was twenty years ago. A good copper installer is worth what you pay them. A bad one will poison your job for a decade.</p>
+
+        <p>If your plumber has a strong opinion in one direction and refuses to discuss the other, you have the wrong plumber. <a href="/capabilities/" class="link">I have written about this before</a>.</p>
+
+        <h2 id="s4">Red flags on every estimate.</h2>
+
+        <p>Here are the four things I look for on any repipe quote I review for someone who asks:</p>
+
+        <p><b>No line items.</b> A single round number for "plumbing" is not a quote. If the estimator cannot show you the seven buckets, they have not thought about the job — they are pricing what they think you will accept.</p>
+
+        <p><b>"Repairs not included."</b> Some quotes carve out drywall patch, paint, or fixture reinstall as "owner responsibility." This can be legitimate on a vacant rehab. On an occupied building, it means the plumber is coming in, opening walls, and handing the job back to you. You will pay for the missing buckets later, and you will pay more.</p>
+
+        <p><b>A fixed price with no site walk.</b> Nobody can price a Westside repipe from a phone call. The routing, the accessibility, the wall construction, the current valve conditions — all of it matters. Any quote issued without a walk-through is a guess, and the guess always tilts in the plumber's favor at change-order time.</p>
+
+        <p><b>"We can start tomorrow."</b> A good plumbing crew is booked three to six weeks out in Westside LA. If your estimator is offering immediate availability on a significant repipe, ask why. There are honest reasons. There are also less honest ones.</p>
+
+        <h2 id="s5">What to do if you own an older building.</h2>
+
+        <p>If you own a pre-1980 Westside multifamily building and you have not repiped yet, you are on a clock. You can choose to repipe on a schedule you control — on a vacancy, in a rent-stabilized unit turnover, across a soft phase of the rental market — or you can repipe after a rupture on a Sunday night, which will cost you more every way the bill gets tallied.</p>
+
+        <p>Three practical moves:</p>
+
+        <p><b>First,</b> pull the last three years of plumbing service tickets on the building. If you are seeing more than two pinhole leak calls per year across the portfolio, the pipe is telling you it is done. Believe it.</p>
+
+        <p><b>Second,</b> get three quotes, walk all three properties with the estimators, and require a line-item breakdown on each. If one of them refuses, cross them off the list. You have learned what you needed to learn.</p>
+
+        <p><b>Third,</b> do not optimize for the lowest bid. Optimize for the bid that matches what you can see with your own eyes — the scope, the trades, the realistic duration. The honest bid and the low bid are rarely the same bid.</p>
+
+        <p>A repipe is a capital project with a twenty-year payoff. Price it like one, and the arithmetic gets much clearer.</p>
+
+        <p style="margin-top:3em;padding-top:24px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">— End of Entry № 043 · Los Angeles, April 20, 2026</p>
+      </article>
+
+      <div class="marg">
+        <b>Margin notes</b>
+        Pricing drawn from three recent Atlas PEX repipes on Westside LA multifamily, 2025–2026. Per-door ranges reflect occupied buildings, 6–12 units.<br/><br/>
+        <b style="margin-top:24px">Filed under</b>
+        Construction Costs · Plumbing · LA Multifamily<br/><br/>
+        <b style="margin-top:24px">Share</b>
+        David@AtlasHomePro.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="author">
+  <div class="wrap">
+    <div class="author-in">
+      <div class="pic"><span>Author portrait</span></div>
+      <div>
+        <div class="k">About the Editor</div>
+        <h3>David Safai</h3>
+        <p>Thirty years of operating real estate in Los Angeles — multifamily ground-up, condominium development, and the full back-of-house of a general contracting practice. Developer of The Felix on Fairfax (43 units) and Olympic Towers (12 condos). Principal of Atlas Home Builders, Inc., California Class B.</p>
+      </div>
+      <div class="btns">
+        <a href="/atlas-brief/">All entries →</a>
+        <a href="/contact/">Write to the editor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="more">
+  <div class="wrap">
+    <div class="more-head">
+      <div class="num">§ More from Atlas Brief</div>
+      <h3>Read next.</h3>
+      <a href="/atlas-brief/">The full archive →</a>
+    </div>
+    <div class="more-grid">
+      <a href="/atlas-brief/article/" class="m"><span class="cat">Development Journal</span><h4>The Felix on Fairfax: what a pro forma won't tell you about year four.</h4><footer><b>David Safai</b><span>11 min · Apr 2</span></footer></a>
+      <a href="/atlas-brief/article/" class="m"><span class="cat">Owner's Perspective</span><h4>Merchant-builder, owner-operator: the gulf is wider than the trade press admits.</h4><footer><b>David Safai</b><span>8 min · Mar 26</span></footer></a>
+      <a href="/atlas-brief/article/" class="m"><span class="cat">Policy</span><h4>ED1, TOC, and the quiet repricing of a thousand LA parcels.</h4><footer><b>David Safai</b><span>12 min · Mar 11</span></footer></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><div class="footer-logo">Atlas<br/>Home Pro.</div><p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p></div>
+      <div><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/capabilities/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
+      <div><h5>The Company</h5><ul><li><a href="/about/">About David Safai</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Service Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="footer-contact"><h5>Office</h5><p>145 S Fairfax Avenue, Suite 200</p><p>Los Angeles, California 90036</p><p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p><p class="m">(213) 275-2210</p></div>
+    </div>
+    <div class="footer-legal"><span>© MMXXVI Atlas Home Builders, Inc.</span><span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span></div>
+  </div>
+</footer>
+<script>const b=document.getElementById('burger'),m=document.getElementById('mm');b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');});</script>
+</body>
+</html>
