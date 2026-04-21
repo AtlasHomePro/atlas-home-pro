@@ -839,3 +839,192 @@ html, body {
     letter-spacing: 0.14em !important;
   }
 }
+
+/* ============================================================
+   STATUS BADGES — authoritative, WSJ/Reuters-level presence
+   Applied sitewide: article headers, log boards, front-page rails
+   ============================================================ */
+.badge-sold,
+.badge-forsale,
+.badge-contract,
+.badge-new,
+.badge-price,
+.badge-offmkt,
+.badge-back,
+.front-feed .lead-kicker .badge,
+.cat .badge-sold,
+.cat .badge-forsale,
+.cat .badge-contract {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase;
+  padding: 6px 14px !important;
+  border-radius: 0;
+  color: #FFFFFF !important;
+  line-height: 1.2;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.badge-sold,
+.cat .badge-sold,
+.front-feed .lead-kicker .badge-sold {
+  background: #A31414 !important;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.18);
+}
+.badge-forsale,
+.cat .badge-forsale,
+.front-feed .lead-kicker .badge-forsale {
+  background: #0A5417 !important;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
+}
+.badge-contract {
+  background: #B76A1F !important;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2);
+}
+.badge-price   { background: #6B4D2B !important; }
+.badge-new     { background: #0A5417 !important; }
+.badge-offmkt  { background: #3C3C3C !important; }
+.badge-back    { background: #2A2A2A !important; }
+
+/* Article header cat row: shift badge to pair visually with the kicker */
+.art-top .cat {
+  gap: 16px !important;
+  align-items: center !important;
+}
+.art-top .cat .badge-sold,
+.art-top .cat .badge-forsale,
+.art-top .cat .badge-contract {
+  font-size: 14px !important;
+  padding: 7px 16px !important;
+  letter-spacing: 0.24em !important;
+}
+
+/* Log entries on broker-activity board: keep badges equally prominent */
+.activity-log .badge-sold,
+.activity-log .badge-forsale,
+.activity-log .badge-contract {
+  font-size: 12px !important;
+  padding: 5px 12px !important;
+  letter-spacing: 0.2em !important;
+}
+
+/* Front-page rail (smaller thumbnails) — slightly tighter badges */
+.rail-item .badge-sold,
+.rail-item .badge-forsale {
+  font-size: 10.5px !important;
+  padding: 4px 10px !important;
+  letter-spacing: 0.18em !important;
+}
+
+/* Mobile: ensure badges don't get squished */
+@media (max-width: 600px) {
+  .badge-sold, .badge-forsale, .badge-contract,
+  .cat .badge-sold, .cat .badge-forsale, .cat .badge-contract {
+    font-size: 12px !important;
+    padding: 6px 13px !important;
+    letter-spacing: 0.2em !important;
+  }
+}
+
+/* ============================================================
+   UNIVERSAL SIGNUP BAR — injected above footer on every page
+   ============================================================ */
+#universal-signup {
+  background: #0E1116;
+  color: #F5F5F2;
+  padding: clamp(28px, 3.5vw, 44px) 0;
+  border-top: 1px solid #1C2128;
+  border-bottom: 1px solid #1C2128;
+}
+#universal-signup .us-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+#universal-signup .us-copy {}
+#universal-signup .us-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #C89A5C;
+  margin-bottom: 8px;
+}
+#universal-signup .us-headline {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: #F5F5F2;
+  margin-bottom: 6px;
+}
+#universal-signup .us-sub {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: #B8BCC4;
+  line-height: 1.45;
+}
+#universal-signup .us-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+#universal-signup input[type="email"] {
+  background: #141821;
+  border: 1px solid #2A2F38;
+  color: #F5F5F2;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  padding: 13px 14px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#universal-signup input[type="email"]:focus {
+  outline: 1px solid #C89A5C;
+  border-color: #C89A5C;
+}
+#universal-signup button {
+  background: #C89A5C;
+  color: #0E1116;
+  border: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 13px 22px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#universal-signup button:hover { background: #D8AB6E; }
+#universal-signup .us-success {
+  display: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #C89A5C;
+  text-align: right;
+}
+#universal-signup.sent .us-form { display: none; }
+#universal-signup.sent .us-success { display: block; }
+
+@media (max-width: 760px) {
+  #universal-signup .us-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: left;
+  }
+  #universal-signup .us-form { grid-template-columns: 1fr; }
+  #universal-signup .us-success { text-align: left; }
+}
