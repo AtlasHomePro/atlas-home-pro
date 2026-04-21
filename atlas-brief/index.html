@@ -248,28 +248,27 @@
 .flag-mini span { color: var(--muted); letter-spacing: 0.1em; }
 
 /* Left column — What's News */
-.wn-list { list-style: none; padding: 0; margin: 0; }
+.wn-list { list-style: none; padding: 0; margin: 0; counter-reset: wn; }
 .wn-list li {
-  padding: 14px 0;
+  position: relative;
+  padding: 14px 0 14px 28px;
   border-bottom: 1px dotted var(--rule);
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 12px;
   font-size: 14.5px;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--ink-soft);
 }
 .wn-list li:last-child { border-bottom: 0; }
 .wn-list li::before {
   content: counter(wn, upper-roman) ".";
   counter-increment: wn;
+  position: absolute;
+  left: 0;
+  top: 17px;
   font-family: var(--mono);
   font-size: 10px;
   color: var(--accent);
   letter-spacing: 0.1em;
-  padding-top: 3px;
 }
-.wn-list { counter-reset: wn; }
 .wn-list b { color: var(--ink); font-weight: 500; }
 .wn-list a { color: inherit; }
 .wn-list a:hover { color: var(--accent-ink); }
