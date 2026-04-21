@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Opportunities — Atlas Brief · Atlas Home Pro</title>
+<meta name="description" content="Atlas Opportunities Desk. A running dealbook of interesting assets seen on the Los Angeles market — SFR, duplex, small multifamily, and ED-1 parcels across LA neighborhoods." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Opportunities — Atlas Brief · Atlas Home Pro" />
+<meta property="og:description" content="A running dealbook of interesting assets seen on the LA market. Observational, not promotional." />
+<meta property="og:image" content="/images/brief/cat-opportunities.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/atlas-v2.css" />
+
+<style>
+/* ============================================================
+   OPPORTUNITIES — Deal Book layout
+   ============================================================ */
+
+/* ---- Page masthead ---- */
+.opp-masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 0;
+}
+.opp-masthead-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 420px;
+}
+.opp-masthead-text {
+  padding: clamp(48px, 6vw, 88px) clamp(32px, 4vw, 72px) clamp(48px, 6vw, 88px) 0;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0;
+}
+.opp-masthead-meta {
+  padding: clamp(48px, 6vw, 88px) 0 clamp(48px, 6vw, 88px) clamp(32px, 4vw, 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.opp-breadcrumb {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.opp-breadcrumb a { color: var(--muted); }
+.opp-breadcrumb a:hover { color: var(--accent-ink); }
+.opp-breadcrumb .sep { color: var(--rule); }
+.opp-breadcrumb .active { color: var(--accent); }
+.opp-section-no {
+  font-family: var(--mono);
+  font-size: 68px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--rule);
+  line-height: 1;
+  margin-bottom: 12px;
+  display: block;
+}
+.opp-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(56px, 8vw, 116px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin: 0 0 20px;
+  color: var(--ink);
+}
+.opp-title em { font-style: italic; color: var(--ink-soft); }
+.opp-dek {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* Meta panel (right of masthead) */
+.opp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.opp-stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.opp-stat-value {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.opp-stat-value.accent { color: var(--accent); }
+.opp-meta-divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 8px 0;
+}
+.opp-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  margin-top: 32px;
+}
+.opp-image-wrap img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: sepia(40%) contrast(1.1) brightness(0.92);
+  display: block;
+}
+.opp-image-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: rgba(26,26,26,0.72);
+  padding: 4px 8px;
+  backdrop-filter: blur(4px);
+}
+.opp-masthead-text .tag-row {
+  margin-top: 28px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.opp-tag {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+}
+
+@media (max-width: 900px) {
+  .opp-masthead-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .opp-masthead-text {
+    padding: 48px 0 32px;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .opp-masthead-meta {
+    padding: 28px 0 40px;
+  }
+}
+
+/* ---- Disclaimer ---- */
+.disclaimer-bar {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--ink);
+}
+.disclaimer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 20px var(--pad-x);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: baseline;
+}
+.disclaimer-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+.disclaimer-text {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+@media (max-width: 640px) {
+  .disclaimer-inner { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* ---- Filter bar ---- */
+.filter-bar {
+  border-bottom: 1px solid var(--ink);
+  background: var(--bg);
+  position: sticky;
+  top: 68px;
+  z-index: 10;
+}
+.filter-bar-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 50px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-bar-inner::-webkit-scrollbar { display: none; }
+.filter-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 18px;
+  height: 100%;
+  border-right: 1px solid var(--rule-soft);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+.filter-btn:hover { color: var(--ink); }
+.filter-btn.active {
+  color: var(--ink);
+  background: transparent;
+  position: relative;
+}
+.filter-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: var(--accent);
+}
+.filter-count {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 20px;
+}
+@media (max-width: 1024px) { .filter-bar { top: 60px; } }
+@media (max-width: 640px) { .filter-count { display: none; } }
+
+/* ---- Deal book zone ---- */
+.dealbook {
+  padding: clamp(48px, 6vw, 88px) 0 clamp(64px, 8vw, 112px);
+}
+.dealbook-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.dealbook-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 40px;
+}
+.dealbook-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dealbook-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.dealbook-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--ink);
+}
+.dealbook-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---- Card grid ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 1100px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Opportunity card ---- */
+.opp-card {
+  background: var(--bg);
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: background 0.15s;
+  position: relative;
+}
+.opp-card:hover { background: #F5F4F0; }
+.opp-card.passed { opacity: 0.68; }
+.opp-card.passed:hover { opacity: 1; }
+
+/* Card header row */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.card-status {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border: 1px solid;
+}
+.card-status.active {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+.card-status.in-diligence {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.card-status.passed {
+  color: var(--muted);
+  border-color: var(--rule);
+}
+.card-no {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* Asset type + neighborhood */
+.card-type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.card-asset-type {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--bg-alt);
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+}
+.card-neighborhood {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+}
+
+/* Price */
+.card-price {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+  margin: 12px 0 4px;
+}
+.card-price-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* Atlas view */
+.card-view-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.card-view-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  max-width: 36ch;
+}
+.passed .card-view-text { color: var(--muted); }
+
+/* Card footer */
+.card-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dotted var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.card-foot-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.card-foot-note {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  text-align: right;
+}
+
+/* ---- "See also" desks block ---- */
+.also {
+  border-top: 3px double var(--ink);
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+.also-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.also-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 36px;
+}
+.also-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.also-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.also-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 900px) {
+  .also-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .also-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.also-item {
+  background: var(--bg);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
+}
+.also-item:hover { background: var(--bg-alt); }
+.also-item-no {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.also-item-name {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.also-item-desc {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: auto;
+}
+
+</style>
+</head>
+<body>
+
+<!-- =========== NAV =========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas <span style="color:var(--accent)">Home Pro</span></a>
+    <ul class="nav-links">
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/" class="active">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-phone">(213) 275-2210</span>
+      <a href="/contact/" class="nav-cta">Contact Atlas</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <ul>
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="mm-meta">
+      <span>(213) 275-2210</span>
+      <span>David@AtlasHomePro.com</span>
+    </div>
+  </div>
+</nav>
+
+<!-- =========== MASTHEAD =========== -->
+<header class="opp-masthead">
+  <div class="opp-masthead-inner">
+
+    <!-- Left: Title block -->
+    <div class="opp-masthead-text">
+      <div class="opp-breadcrumb">
+        <a href="/atlas-brief/">Atlas Brief</a>
+        <span class="sep">/</span>
+        <span class="active">Opportunities · 09</span>
+      </div>
+      <span class="opp-section-no">09</span>
+      <h1 class="opp-title">Oppor&shy;<em>tunities</em></h1>
+      <p class="opp-dek">Interesting assets seen on the LA market. An operator's running dealbook — not a pitch deck, not a listicle.</p>
+      <div class="tag-row">
+        <span class="opp-tag">SFR</span>
+        <span class="opp-tag">Duplex</span>
+        <span class="opp-tag">4-Plex</span>
+        <span class="opp-tag">Small MF</span>
+        <span class="opp-tag">ED-1 Parcel</span>
+        <span class="opp-tag">Los Angeles</span>
+      </div>
+    </div>
+
+    <!-- Right: Stats + hero image -->
+    <div class="opp-masthead-meta">
+      <div class="opp-stat">
+        <div class="opp-stat-label">Desk Updated</div>
+        <div class="opp-stat-value">Apr 19, 2026</div>
+      </div>
+      <div class="opp-meta-divider"></div>
+      <div class="opp-stat">
+        <div class="opp-stat-label">Entries this cycle</div>
+        <div class="opp-stat-value accent">8 assets</div>
+      </div>
+      <div class="opp-stat">
+        <div class="opp-stat-label">Active</div>
+        <div class="opp-stat-value">3</div>
+      </div>
+      <div class="opp-stat">
+        <div class="opp-stat-label">In Diligence</div>
+        <div class="opp-stat-value">2</div>
+      </div>
+      <div class="opp-stat">
+        <div class="opp-stat-label">Passed</div>
+        <div class="opp-stat-value">3</div>
+      </div>
+      <div class="opp-meta-divider"></div>
+      <div class="opp-stat">
+        <div class="opp-stat-label">Price Range (cycle)</div>
+        <div class="opp-stat-value">$795K – $4.2M</div>
+      </div>
+
+      <div class="opp-image-wrap">
+        <img
+          src="/images/brief/cat-opportunities.jpg"
+          alt="Los Angeles residential street — Atlas Opportunities Desk"
+          width="900"
+          height="506"
+          loading="eager"
+        />
+        <div class="opp-image-caption">Atlas Opportunities Desk · Los Angeles, 2026</div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- =========== DISCLAIMER =========== -->
+<div class="disclaimer-bar">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-label">Disclaimer</div>
+    <div class="disclaimer-text">
+      This desk catalogs interesting assets we have seen on the market. Not investment advice.
+      Atlas may or may not pursue any entry here. Prices are as-listed at time of entry;
+      conditions change. Consult your own counsel before acting on any information below.
+    </div>
+  </div>
+</div>
+
+<!-- =========== FILTER BAR =========== -->
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <span class="filter-label">Filter</span>
+    <button class="filter-btn active" data-status="all" id="f-all">All</button>
+    <button class="filter-btn" data-status="active" id="f-active">Active</button>
+    <button class="filter-btn" data-status="in-diligence" id="f-diligence">In Diligence</button>
+    <button class="filter-btn" data-status="passed" id="f-passed">Passed</button>
+    <span class="filter-count" id="filter-count">8 entries</span>
+  </div>
+</div>
+
+<!-- =========== DEAL BOOK =========== -->
+<section class="dealbook">
+  <div class="dealbook-inner">
+
+    <div class="dealbook-head">
+      <div class="dealbook-head-left">
+        <div class="dealbook-label">Atlas Brief · Opportunities Desk</div>
+        <h2 class="dealbook-title">Deal Book — Spring 2026</h2>
+      </div>
+      <div class="dealbook-date">Cycle opens Apr 1 · Closes Jun 30</div>
+    </div>
+
+    <!-- ===== CARD GRID ===== -->
+    <div class="card-grid" id="cardGrid">
+
+      <!-- CARD 01 — Active / SFR / Silver Lake -->
+      <article class="opp-card" data-status="active">
+        <div class="card-header">
+          <span class="card-status active">Active</span>
+          <span class="card-no">OPP-2026-001</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">SFR</span>
+          <span class="card-neighborhood">Silver Lake</span>
+        </div>
+        <div class="card-price">$1.42M</div>
+        <div class="card-price-label">Asking Price</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">1923 Craftsman on a 6,400 sf lot with a detached garage that tolerates a JADU conversation. Priced for the kitchen, which is recent. Deferred roofing and galvanized supply lines are the real story.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Apr 3, 2026</span>
+          <span class="card-foot-note">2 Bed / 1 Ba · 1,180 sf</span>
+        </div>
+      </article>
+
+      <!-- CARD 02 — In Diligence / Duplex / Echo Park -->
+      <article class="opp-card" data-status="in-diligence">
+        <div class="card-header">
+          <span class="card-status in-diligence">In Diligence</span>
+          <span class="card-no">OPP-2026-002</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">Duplex</span>
+          <span class="card-neighborhood">Echo Park</span>
+        </div>
+        <div class="card-price">$1.89M</div>
+        <div class="card-price-label">Asking Price</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">Two-on-one lot, each unit individually metered. Front unit is 1940s bones with a 2022 bath remodel; rear unit is tenant-occupied month-to-month. Sewer lateral needs inspection before any number makes sense.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Apr 7, 2026</span>
+          <span class="card-foot-note">2+1 / 2+1 · 2,340 sf tot.</span>
+        </div>
+      </article>
+
+      <!-- CARD 03 — Active / ED-1 Parcel / Koreatown -->
+      <article class="opp-card" data-status="active">
+        <div class="card-header">
+          <span class="card-status active">Active</span>
+          <span class="card-no">OPP-2026-003</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">ED-1 Parcel</span>
+          <span class="card-neighborhood">Koreatown</span>
+        </div>
+        <div class="card-price">$2.15M</div>
+        <div class="card-price-label">Asking Price</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">Existing 8-unit cleared for ED-1 processing. Developer has done the pre-app legwork; lot is flat and corner-adjacent. The gap between asking and realistic construction costs is real but not irrational at current land pricing.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Apr 9, 2026</span>
+          <span class="card-foot-note">8,200 sf lot · RD1.5 zone</span>
+        </div>
+      </article>
+
+      <!-- CARD 04 — Passed / Small MF / Palms -->
+      <article class="opp-card passed" data-status="passed">
+        <div class="card-header">
+          <span class="card-status passed">Passed</span>
+          <span class="card-no">OPP-2026-004</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">Small MF</span>
+          <span class="card-neighborhood">Palms</span>
+        </div>
+        <div class="card-price">$3.10M</div>
+        <div class="card-price-label">Asking Price (at pass)</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">Six-unit 1960s walk-up, three units RSO-protected. Cap rate math doesn't close at ask with current carry costs. Passed pending a price correction that hasn't materialized.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Mar 14 · Passed Apr 1</span>
+          <span class="card-foot-note">6 units · 4,900 sf</span>
+        </div>
+      </article>
+
+      <!-- CARD 05 — In Diligence / 4-plex / Jefferson Park -->
+      <article class="opp-card" data-status="in-diligence">
+        <div class="card-header">
+          <span class="card-status in-diligence">In Diligence</span>
+          <span class="card-no">OPP-2026-005</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">4-Plex</span>
+          <span class="card-neighborhood">Jefferson Park</span>
+        </div>
+        <div class="card-price">$1.95M</div>
+        <div class="card-price-label">Asking Price</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">1948 fourplex, two of four units on month-to-month. Roof was replaced 2019. The electrical panels are split 60A/100A across units — a panel upgrade pass-through is baked into our pro forma. Location is the argument; pricing is not unreasonable.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Apr 11, 2026</span>
+          <span class="card-foot-note">4 units · 3,280 sf</span>
+        </div>
+      </article>
+
+      <!-- CARD 06 — Active / SFR / Highland Park -->
+      <article class="opp-card" data-status="active">
+        <div class="card-header">
+          <span class="card-status active">Active</span>
+          <span class="card-no">OPP-2026-006</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">SFR</span>
+          <span class="card-neighborhood">Highland Park</span>
+        </div>
+        <div class="card-price">$795K</div>
+        <div class="card-price-label">Asking Price</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">Hillside lot with a 1955 SFR in rough shape. Priced at land value minus demolition. The slope warrants a soils report before you touch anything. If the retaining wall condition is what it looks like, the real basis is closer to $950K all-in before a shovel.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Apr 14, 2026</span>
+          <span class="card-foot-note">3 Bed / 1 Ba · 1,040 sf</span>
+        </div>
+      </article>
+
+      <!-- CARD 07 — Passed / Duplex / Mar Vista -->
+      <article class="opp-card passed" data-status="passed">
+        <div class="card-header">
+          <span class="card-status passed">Passed</span>
+          <span class="card-no">OPP-2026-007</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">Duplex</span>
+          <span class="card-neighborhood">Mar Vista</span>
+        </div>
+        <div class="card-price">$2.35M</div>
+        <div class="card-price-label">Asking Price (at pass)</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">Well-located but aggressively priced for a property with long-term tenants in both units and a non-conforming rear structure. Passed — the tenant situation alone adds 18–24 months to any repositioning plan.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Mar 22 · Passed Mar 30</span>
+          <span class="card-foot-note">2+1 / 2+1 · 2,680 sf</span>
+        </div>
+      </article>
+
+      <!-- CARD 08 — Passed / ED-1 Parcel / Boyle Heights -->
+      <article class="opp-card passed" data-status="passed">
+        <div class="card-header">
+          <span class="card-status passed">Passed</span>
+          <span class="card-no">OPP-2026-008</span>
+        </div>
+        <div class="card-type-row">
+          <span class="card-asset-type">ED-1 Parcel</span>
+          <span class="card-neighborhood">Boyle Heights</span>
+        </div>
+        <div class="card-price">$4.20M</div>
+        <div class="card-price-label">Asking Price (at pass)</div>
+        <div class="card-view-label">Atlas View</div>
+        <p class="card-view-text">Large corner site, ED-1 feasibility confirmed by city pre-app. Seller's pricing assumes a pro forma that requires sub-$280/sf hard cost — that number doesn't hold in this market. Watching for a reset.</p>
+        <div class="card-foot">
+          <span class="card-foot-date">Added Mar 5 · Passed Mar 19</span>
+          <span class="card-foot-note">14,200 sf lot · C2 zone</span>
+        </div>
+      </article>
+
+    </div><!-- /card-grid -->
+
+  </div>
+</section>
+
+<!-- =========== SEE ALSO / OTHER DESKS =========== -->
+<section class="also">
+  <div class="also-inner">
+    <div class="also-head">
+      <div class="also-label">Other desks</div>
+      <h2 class="also-title">More from Atlas Brief</h2>
+    </div>
+    <div class="also-grid">
+      <a href="/atlas-brief/sections/market-commentary/" class="also-item">
+        <div class="also-item-no">01</div>
+        <div class="also-item-name">Market Commentary</div>
+        <div class="also-item-desc">Conditions, direction, and the gap between price and value</div>
+      </a>
+      <a href="/atlas-brief/sections/development-journal/" class="also-item">
+        <div class="also-item-no">03</div>
+        <div class="also-item-name">Development Journal</div>
+        <div class="also-item-desc">Active projects and what the process actually looks like</div>
+      </a>
+      <a href="/atlas-brief/sections/comps/" class="also-item">
+        <div class="also-item-no">06</div>
+        <div class="also-item-name">Comps</div>
+        <div class="also-item-desc">Recent transactions and what they actually mean</div>
+      </a>
+      <a href="/atlas-brief/sections/broker-activity/" class="also-item">
+        <div class="also-item-no">07</div>
+        <div class="also-item-name">Broker Activity</div>
+        <div class="also-item-desc">Who is moving what, and at what velocity</div>
+      </a>
+      <a href="/atlas-brief/sections/investing-philosophy/" class="also-item">
+        <div class="also-item-no">10</div>
+        <div class="also-item-name">Investing Philosophy</div>
+        <div class="also-item-desc">First-principles thinking on real estate as a craft</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-sections">
+      <div class="fs-head">
+        <div class="fs-k">Atlas Brief · Sections</div>
+        <div class="fs-note">11 sections · Filter the archive</div>
+      </div>
+      <div class="fs-grid">
+        <a href="/atlas-brief/sections/market-commentary/"><span>Market Commentary</span><span class="n">01</span></a>
+        <a href="/atlas-brief/sections/owners-desk/"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
+        <a href="/atlas-brief/sections/development-journal/"><span>Development Journal</span><span class="n">03</span></a>
+        <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs</span><span class="n">04</span></a>
+        <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">05</span></a>
+        <a href="/atlas-brief/sections/comps/"><span>Comps</span><span class="n">06</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">07</span></a>
+        <a href="/atlas-brief/sections/operator-guides/"><span>Operator Guides</span><span class="n">08</span></a>
+        <a href="/atlas-brief/sections/opportunities/"><span>Opportunities</span><span class="n">09</span></a>
+        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">10</span></a>
+        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">11</span></a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Atlas<br/>Home Pro.</div>
+        <p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p>
+      </div>
+      <div>
+        <h5>Capabilities</h5>
+        <ul>
+          <li><a href="/capabilities/">General Contracting</a></li>
+          <li><a href="/capabilities/">HVAC</a></li>
+          <li><a href="/capabilities/">Plumbing</a></li>
+          <li><a href="/capabilities/">Electrical</a></li>
+          <li><a href="/capabilities/">Painting</a></li>
+          <li><a href="/capabilities/">Water Restoration</a></li>
+          <li><a href="/capabilities/">Gates &amp; Garage Doors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>The Company</h5>
+        <ul>
+          <li><a href="/about/">About David Safai</a></li>
+          <li><a href="/atlas-brief/">Atlas Brief</a></li>
+          <li><a href="/areas/">Service Areas</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Office</h5>
+        <p>145 S Fairfax Avenue, Suite 200</p>
+        <p>Los Angeles, California 90036</p>
+        <p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p>
+        <p class="m">(213) 275-2210</p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© MMXXVI Atlas Home Builders, Inc.</span>
+      <span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav burger
+  const b = document.getElementById('burger');
+  const m = document.getElementById('mm');
+  b.addEventListener('click', () => { b.classList.toggle('open'); m.classList.toggle('open'); });
+
+  // Status filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.opp-card');
+  const countEl = document.getElementById('filter-count');
+
+  function applyFilter(status) {
+    filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.status === status));
+    let visible = 0;
+    cards.forEach(card => {
+      const show = status === 'all' || card.dataset.status === status;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    countEl.textContent = visible + (visible === 1 ? ' entry' : ' entries');
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.status));
+  });
+
+  // Handle ?status= param on load
+  const params = new URLSearchParams(location.search);
+  const initStatus = params.get('status');
+  if (initStatus) {
+    applyFilter(initStatus);
+    setTimeout(() => document.querySelector('.filter-bar').scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  }
+</script>
+
+</body>
+</html>

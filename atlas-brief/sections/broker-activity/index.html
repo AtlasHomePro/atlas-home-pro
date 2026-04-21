@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Broker Activity — Atlas Brief</title>
+<meta name="description" content="A running log of LA multifamily brokerage activity — new listings, price changes, contracts, and off-market moves. Bloomberg terminal view of the brokerage floor." />
+<meta property="og:title" content="Broker Activity — Atlas Brief" />
+<meta property="og:description" content="Live-feed log of LA multifamily brokerage: new listings, price reductions, off-market pulls, contracts. Broker dossiers and market essays." />
+<meta property="og:image" content="/images/brief/cat-broker-activity.jpg" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="stylesheet" href="/atlas-v2.css" />
+
+<style>
+/* ============================================================
+   BROKER ACTIVITY — Bloomberg terminal / marketplace ticker
+   ============================================================ */
+
+/* ---- Terminal strap ---- */
+.term-strap {
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 8px var(--pad-x);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  max-width: 100%;
+}
+.term-strap .ts-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #7ED87E;
+}
+.ts-dot {
+  width: 6px; height: 6px;
+  background: #7ED87E;
+  border-radius: 50%;
+  animation: blink 1.4s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+.term-strap .ts-right { color: #9A9A95; }
+@media (max-width: 640px) {
+  .term-strap { flex-direction: column; gap: 4px; text-align: center; }
+  .term-strap .ts-right { display: none; }
+}
+
+/* ---- Category masthead ---- */
+.cat-masthead {
+  border-bottom: 3px double var(--ink);
+  padding: clamp(28px, 4vw, 56px) 0 clamp(20px, 3vw, 36px);
+}
+.cat-masthead-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.cat-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.cat-masthead h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(38px, 5.5vw, 80px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+}
+.cat-masthead h1 em {
+  font-style: italic;
+  color: var(--accent-ink);
+}
+.cat-dek {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 24px;
+}
+.cat-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cat-meta span { border-right: 1px solid var(--rule); padding-right: 20px; }
+.cat-meta span:last-child { border-right: 0; padding-right: 0; }
+
+/* Hero image panel */
+.cat-hero-img {
+  position: relative;
+}
+.cat-hero-img img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  filter: grayscale(100%) sepia(30%) contrast(1.05);
+  display: block;
+}
+.cat-img-caption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .cat-masthead-inner {
+    grid-template-columns: 1fr;
+  }
+  .cat-hero-img { display: none; }
+}
+
+/* ---- Main layout ---- */
+.ba-layout {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 60px) var(--pad-x) 0;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .ba-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Section label ---- */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+.section-label .sl-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  padding: 3px 8px;
+}
+.section-label .sl-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.section-label .sl-count {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* ---- Activity Log ---- */
+.activity-log {
+  border: 1px solid var(--rule);
+  background: var(--bg);
+}
+
+.log-header {
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: grid;
+  grid-template-columns: 70px 100px 1fr 140px 100px;
+  gap: 0;
+  padding: 0;
+}
+.log-header > div {
+  padding: 9px 14px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.log-header > div:last-child { border-right: 0; }
+
+@media (max-width: 860px) {
+  .log-header { display: none; }
+}
+
+/* Individual log entry */
+.log-entry {
+  display: grid;
+  grid-template-columns: 70px 100px 1fr 140px 100px;
+  gap: 0;
+  border-bottom: 1px solid var(--rule-soft);
+  transition: background 0.12s;
+}
+.log-entry:last-child { border-bottom: 0; }
+.log-entry:hover { background: var(--bg-alt); }
+.log-entry > div {
+  padding: 13px 14px;
+  border-right: 1px solid var(--rule-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+.log-entry > div:last-child { border-right: 0; }
+
+.le-time {
+  color: var(--muted);
+  font-size: 10px !important;
+  letter-spacing: 0.08em;
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 1px;
+}
+.le-time .date { color: var(--muted-2); font-size: 9px; }
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 1px;
+  white-space: nowrap;
+}
+.badge-new      { background: #1A1A1A; color: #FAFAF8; }
+.badge-price    { background: #9A6B3F; color: #FAFAF8; }
+.badge-contract { background: #2E5A2E; color: #E8F4E8; }
+.badge-offmkt   { background: #5A2E2E; color: #F4E8E8; }
+.badge-sold     { background: #3A3A3A; color: #C8C8C8; }
+.badge-back     { background: #4A4A4A; color: #FAFAF8; }
+
+.le-addr {
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 2px;
+}
+.le-addr .addr-main {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 11.5px;
+}
+.le-addr .addr-sub {
+  font-size: 9.5px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.le-note {
+  font-family: var(--sans);
+  font-size: 12px !important;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+.le-note .note-highlight {
+  color: var(--accent-ink);
+  font-weight: 500;
+}
+
+.le-price {
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 2px;
+}
+.le-price .price-ask {
+  font-weight: 600;
+  font-size: 12px !important;
+  color: var(--ink);
+}
+.le-price .price-ppu {
+  font-size: 9.5px;
+  color: var(--muted);
+}
+.le-price .price-change {
+  font-size: 9.5px;
+}
+.price-dn { color: #8B3A3A; }
+.price-up { color: #2E6B2E; }
+
+.le-broker {
+  font-size: 10.5px !important;
+  color: var(--muted);
+  flex-direction: column;
+  align-items: flex-start !important;
+  gap: 2px;
+}
+.le-broker .broker-name {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 11px !important;
+}
+
+@media (max-width: 860px) {
+  .log-entry {
+    grid-template-columns: 1fr;
+    border-bottom: 2px solid var(--rule);
+    padding: 14px;
+    gap: 8px;
+  }
+  .log-entry > div {
+    padding: 0;
+    border-right: 0;
+    font-size: 12px !important;
+  }
+  .le-time { flex-direction: row; gap: 8px; }
+}
+
+/* ---- Sidebar: Broker Dossiers ---- */
+.dossier-panel {
+  position: sticky;
+  top: 80px;
+}
+
+.dossier-card {
+  border: 1px solid var(--rule);
+  margin-bottom: 16px;
+  background: var(--bg);
+  transition: border-color 0.15s;
+}
+.dossier-card:hover { border-color: var(--ink); }
+
+.dc-head {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: center;
+}
+.dc-monogram {
+  width: 44px; height: 44px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+}
+.dc-name-block {}
+.dc-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.dc-firm {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.dc-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.dc-stat {
+  padding: 10px 16px;
+  border-right: 1px solid var(--rule-soft);
+}
+.dc-stat:nth-child(2), .dc-stat:nth-child(4) { border-right: 0; }
+.dc-stat:nth-child(3), .dc-stat:nth-child(4) { border-top: 1px solid var(--rule-soft); }
+.dc-stat-val {
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.dc-stat-lbl {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dc-note {
+  padding: 12px 16px;
+  font-family: var(--serif);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  font-style: italic;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.dc-footer {
+  padding: 9px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dc-territory {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.dc-status {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+}
+.dc-status.watching { border-color: var(--accent); color: var(--accent); }
+
+/* ---- Essays section ---- */
+.ba-essays {
+  max-width: var(--maxw);
+  margin: clamp(48px, 5vw, 80px) auto 0;
+  padding: 0 var(--pad-x);
+}
+
+.essays-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-left: 1px solid var(--rule);
+}
+@media (max-width: 860px) {
+  .essays-grid { grid-template-columns: 1fr; }
+}
+
+.essay-card {
+  padding: clamp(18px, 2vw, 28px);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.12s;
+}
+.essay-card:hover { background: var(--bg-alt); }
+.essay-card.coming { opacity: 0.6; }
+
+.ec-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.ec-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.ec-label {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+}
+.ec-label.coming { border-color: var(--accent); color: var(--accent); }
+
+.ec-title {
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.5vw, 19px);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.essay-card:not(.coming) .ec-title:hover { color: var(--accent-ink); cursor: pointer; }
+
+.ec-dek {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.ec-byline {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.ec-byline b { color: var(--ink); }
+
+/* ---- See Also ---- */
+.see-also {
+  max-width: var(--maxw);
+  margin: clamp(48px, 5vw, 80px) auto 0;
+  padding: 0 var(--pad-x);
+  border-top: 1px solid var(--ink);
+  padding-top: 28px;
+}
+.see-also-head {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.see-also-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+@media (max-width: 860px) {
+  .see-also-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .see-also-grid { grid-template-columns: 1fr; }
+}
+.sa-item {
+  padding: 16px 20px 16px 0;
+  border-right: 1px solid var(--rule);
+  margin-right: 20px;
+}
+.sa-item:last-child { border-right: 0; margin-right: 0; }
+.sa-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.sa-name {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+  display: inline;
+}
+.sa-item:hover .sa-name {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* ---- Footer sections CSS (replicate from base) ---- */
+.footer-sections {
+  border: 1px solid var(--rule);
+  margin-bottom: 48px;
+  padding: 0;
+}
+.fs-head {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fs-k {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.fs-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.fs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 0;
+}
+@media (max-width: 860px) {
+  .fs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.fs-grid a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+  transition: background 0.12s;
+}
+.fs-grid a:hover { background: var(--bg-alt); }
+.fs-grid a .n {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* Footer */
+.footer {
+  margin-top: 120px;
+  border-top: 1px solid var(--ink);
+  background: var(--bg);
+  padding-top: 56px;
+  padding-bottom: 28px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+@media (max-width: 860px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.footer-tag {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.footer h5 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+.footer ul {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.footer li {
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 7px 0;
+}
+.footer li:last-child { border-bottom: 0; }
+.footer li a {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.footer li a:hover { color: var(--ink); }
+.footer-contact p {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 5px;
+}
+.footer-contact .m {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+}
+.footer-legal {
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas <span style="color:var(--accent)">Home Pro</span></a>
+    <ul class="nav-links">
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/" class="active">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-phone">(213) 275-2210</span>
+      <a href="/contact/" class="nav-cta">Contact Atlas</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <ul>
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="mm-meta">
+      <span>(213) 275-2210</span>
+      <span>David@AtlasHomePro.com</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= TERMINAL STRAP ============= -->
+<div class="term-strap">
+  <span class="ts-live"><span class="ts-dot"></span> Live Feed · LA Multifamily Brokerage Activity</span>
+  <span>MF/CAP · Westside 4.1% · Koreatown 5.3% · SFV 5.8% · LBC 5.6%</span>
+  <span class="ts-right">Desk 07 — Broker Activity · Atlas Brief</span>
+</div>
+
+<!-- ============= CATEGORY MASTHEAD ============= -->
+<header class="cat-masthead">
+  <div class="cat-masthead-inner">
+    <div>
+      <div class="cat-eyebrow">Atlas Brief · Section 07</div>
+      <h1>Broker<br/><em>Activity</em></h1>
+      <p class="cat-dek">A running marketplace log of LA multifamily brokerage — new listings, price reductions, contract signings, and off-market moves. Broker dossiers and essays on the mechanics of the deal floor.</p>
+      <div class="cat-meta">
+        <span>15 Log Entries</span>
+        <span>4 Broker Dossiers</span>
+        <span>Koreatown · Westside · SFV · DTLA</span>
+        <span>Updated Continuously</span>
+      </div>
+    </div>
+    <div class="cat-hero-img">
+      <img src="/images/brief/cat-broker-activity.jpg" alt="Broker Activity — LA Multifamily" />
+      <div class="cat-img-caption">Section 07 · Broker Activity · LA Multifamily</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============= MAIN CONTENT ============= -->
+<div class="ba-layout">
+
+  <!-- LEFT: Activity Log -->
+  <div class="ba-main">
+
+    <div class="section-label">
+      <span class="sl-num">LOG</span>
+      <span class="sl-title">Marketplace Activity Feed</span>
+      <span class="sl-count">15 Entries · Rolling 60 Days</span>
+    </div>
+
+    <div class="activity-log">
+      <!-- Column headers -->
+      <div class="log-header">
+        <div>Time</div>
+        <div>Status</div>
+        <div>Address / Note</div>
+        <div>Pricing</div>
+        <div>Broker</div>
+      </div>
+
+      <!-- Entry 01 — NEW LISTING -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>09:14</span>
+          <span class="date">Jun 9</span>
+        </div>
+        <div><span class="badge badge-new">New Listing</span></div>
+        <div class="le-addr">
+          <span class="addr-main">3842 W 6th St</span>
+          <span class="addr-sub">Koreatown · 14-unit · 1962 Build</span>
+        </div>
+        <div class="le-note">
+          Hard-corner lot, alley access, <span class="note-highlight">RTI permit pending</span> for two ADUs. 
+          Seller is an estate; priced to move before probate complication.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$4,200,000</span>
+          <span class="price-ppu">$300K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">R. Calvo</span>
+          <span>Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+      <!-- Entry 02 — CONTRACT -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>16:42</span>
+          <span class="date">Jun 8</span>
+        </div>
+        <div><span class="badge badge-contract">Contract</span></div>
+        <div class="le-addr">
+          <span class="addr-main">1147 S Serrano Ave</span>
+          <span class="addr-sub">Koreatown · 8-unit · 1958 Build</span>
+        </div>
+        <div class="le-note">
+          Listed 22 days. Multiple offers. <span class="note-highlight">Went over ask</span> after best-and-final round. 
+          Buyer is a local 1031 exchange from SFV.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$2,650,000</span>
+          <span class="price-ppu">$331K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">T. Nakamura</span>
+          <span>CBRE Multifamily</span>
+        </div>
+      </div>
+
+      <!-- Entry 03 — PRICE CHANGE -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>11:05</span>
+          <span class="date">Jun 7</span>
+        </div>
+        <div><span class="badge badge-price">Price Chg</span></div>
+        <div class="le-addr">
+          <span class="addr-main">7718 Fountain Ave</span>
+          <span class="addr-sub">Hollywood · 10-unit · 1971 Build</span>
+        </div>
+        <div class="le-note">
+          Reduced after <span class="note-highlight">47 DOM with no contract</span>. Inspector flagged lateral sewer — buyer pool spooked. 
+          Current ask presumes a full relining.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$3,480,000</span>
+          <span class="price-ppu">$348K/unit</span>
+          <span class="price-change price-dn">▼ $220K from ask</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">D. Whitmore</span>
+          <span>Newmark</span>
+        </div>
+      </div>
+
+      <!-- Entry 04 — OFF MARKET -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>08:30</span>
+          <span class="date">Jun 6</span>
+        </div>
+        <div><span class="badge badge-offmkt">Off Market</span></div>
+        <div class="le-addr">
+          <span class="addr-main">4455 Hawthorn Ave</span>
+          <span class="addr-sub">Los Feliz · 6-unit · 1940 Build</span>
+        </div>
+        <div class="le-note">
+          Pulled after seller received a private offer, <span class="note-highlight">not publicly shopped</span>. 
+          Classic Los Feliz vintage — character building, all 1BDs, long-tenanted.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">—</span>
+          <span class="price-ppu">Undisclosed</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">R. Calvo</span>
+          <span>Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+      <!-- Entry 05 — NEW LISTING -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>14:20</span>
+          <span class="date">Jun 5</span>
+        </div>
+        <div><span class="badge badge-new">New Listing</span></div>
+        <div class="le-addr">
+          <span class="addr-main">11302 Iowa Ave</span>
+          <span class="addr-sub">West LA · 7-unit · 1968 Build</span>
+        </div>
+        <div class="le-note">
+          Walk to Sawtelle. <span class="note-highlight">Five units vacant</span> after coordinated move-outs — rare value-add entry point in a supply-constrained zip. 
+          Seller offering seller financing at 5.75%.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$3,150,000</span>
+          <span class="price-ppu">$450K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">L. Ostrovsky</span>
+          <span>Berkadia</span>
+        </div>
+      </div>
+
+      <!-- Entry 06 — SOLD / CLOSED -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>COE</span>
+          <span class="date">Jun 4</span>
+        </div>
+        <div><span class="badge badge-sold">Closed</span></div>
+        <div class="le-addr">
+          <span class="addr-main">2281 Crenshaw Blvd</span>
+          <span class="addr-sub">Baldwin Hills · 12-unit · 1964 Build</span>
+        </div>
+        <div class="le-note">
+          Closed <span class="note-highlight">at full ask, 31 days on market</span>. 
+          Buyer: private family office, all-cash close. Post-close CapEx commitment estimated $420K for MEP overhaul.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$3,840,000</span>
+          <span class="price-ppu">$320K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">T. Nakamura</span>
+          <span>CBRE Multifamily</span>
+        </div>
+      </div>
+
+      <!-- Entry 07 — PRICE CHANGE -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>10:55</span>
+          <span class="date">Jun 3</span>
+        </div>
+        <div><span class="badge badge-price">Price Chg</span></div>
+        <div class="le-addr">
+          <span class="addr-main">6630 Van Nuys Blvd</span>
+          <span class="addr-sub">Van Nuys · 18-unit · 1979 Build</span>
+        </div>
+        <div class="le-note">
+          Third price cut in 90 days. <span class="note-highlight">Cap rate now 5.9%</span> at ask — realistic for the corridor. 
+          Deferred maintenance disclosed: roof, gutters, soft-story not yet completed.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$5,100,000</span>
+          <span class="price-ppu">$283K/unit</span>
+          <span class="price-change price-dn">▼ $400K (3rd reduction)</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">S. Marchetti</span>
+          <span>IPA · Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+      <!-- Entry 08 — NEW LISTING -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>07:45</span>
+          <span class="date">Jun 2</span>
+        </div>
+        <div><span class="badge badge-new">New Listing</span></div>
+        <div class="le-addr">
+          <span class="addr-main">531 S Virgil Ave</span>
+          <span class="addr-sub">Koreatown · 22-unit · 1986 Build</span>
+        </div>
+        <div class="le-note">
+          Post-1978 build, <span class="note-highlight">not subject to LA RSO</span>. All 2BR/1BA units. 
+          Seller upgraded electrical panels in 2023. Subterranean parking, low vacancy over 8-year ownership.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$8,800,000</span>
+          <span class="price-ppu">$400K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">R. Calvo</span>
+          <span>Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+      <!-- Entry 09 — CONTRACT -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>15:10</span>
+          <span class="date">May 31</span>
+        </div>
+        <div><span class="badge badge-contract">Contract</span></div>
+        <div class="le-addr">
+          <span class="addr-main">2040 Malcolm Ave</span>
+          <span class="addr-sub">Westwood · 5-unit · 1952 Build</span>
+        </div>
+        <div class="le-note">
+          Under contract in <span class="note-highlight">11 days</span>. Six offers received; two over asking. 
+          Proximity to UCLA and sub-4% vacancy trend in this pocket driving aggressive bidding.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$2,975,000</span>
+          <span class="price-ppu">$595K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">L. Ostrovsky</span>
+          <span>Berkadia</span>
+        </div>
+      </div>
+
+      <!-- Entry 10 — BACK ON MARKET -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>13:30</span>
+          <span class="date">May 29</span>
+        </div>
+        <div><span class="badge badge-back">Back on Mkt</span></div>
+        <div class="le-addr">
+          <span class="addr-main">8812 Sepulveda Blvd</span>
+          <span class="addr-sub">North Hills · 16-unit · 1973 Build</span>
+        </div>
+        <div class="le-note">
+          Buyer fell out during due diligence — <span class="note-highlight">financing contingency</span> not waived in time. 
+          Back at original ask. Seller offering 45-day escrow and all inspection reports delivered.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$4,640,000</span>
+          <span class="price-ppu">$290K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">S. Marchetti</span>
+          <span>IPA · Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+      <!-- Entry 11 — OFF MARKET -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>09:00</span>
+          <span class="date">May 27</span>
+        </div>
+        <div><span class="badge badge-offmkt">Off Market</span></div>
+        <div class="le-addr">
+          <span class="addr-main">1832 Glendale Blvd</span>
+          <span class="addr-sub">Silver Lake · 9-unit · 1948 Build</span>
+        </div>
+        <div class="le-note">
+          Transacted off-market, never listed publicly. <span class="note-highlight">$487K/unit</span> — sets a comp for the corridor. 
+          Both principals had a prior relationship. Recorded after 12-day escrow.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$4,380,000</span>
+          <span class="price-ppu">$487K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">D. Whitmore</span>
+          <span>Newmark</span>
+        </div>
+      </div>
+
+      <!-- Entry 12 — NEW LISTING -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>11:45</span>
+          <span class="date">May 24</span>
+        </div>
+        <div><span class="badge badge-new">New Listing</span></div>
+        <div class="le-addr">
+          <span class="addr-main">4210 S Figueroa St</span>
+          <span class="addr-sub">South LA · 20-unit · 1988 Build</span>
+        </div>
+        <div class="le-note">
+          Institutional seller, clear title, <span class="note-highlight">Section 8 mix (~35%)</span>. 
+          All soft-story retrofits complete, permits finaled. Strong cash flow on current rents, upside on vacancies at market.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$5,600,000</span>
+          <span class="price-ppu">$280K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">T. Nakamura</span>
+          <span>CBRE Multifamily</span>
+        </div>
+      </div>
+
+      <!-- Entry 13 — PRICE CHANGE -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>14:00</span>
+          <span class="date">May 21</span>
+        </div>
+        <div><span class="badge badge-price">Price Chg</span></div>
+        <div class="le-addr">
+          <span class="addr-main">462 N Western Ave</span>
+          <span class="addr-sub">East Hollywood · 11-unit · 1960 Build</span>
+        </div>
+        <div class="le-note">
+          Reduced after appraisal gap killed prior deal. <span class="note-highlight">Three long-tenanted units under $900/mo</span> dragging yield. 
+          New ask targets investors who can model a decade-long rent normalization.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$3,190,000</span>
+          <span class="price-ppu">$290K/unit</span>
+          <span class="price-change price-dn">▼ $310K from original</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">R. Calvo</span>
+          <span>Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+      <!-- Entry 14 — CLOSED -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>COE</span>
+          <span class="date">May 19</span>
+        </div>
+        <div><span class="badge badge-sold">Closed</span></div>
+        <div class="le-addr">
+          <span class="addr-main">3301 Overland Ave</span>
+          <span class="addr-sub">Palms · 8-unit · 1963 Build</span>
+        </div>
+        <div class="le-note">
+          Closed <span class="note-highlight">$85K below ask</span> after negotiated credit for window replacement and roof. 
+          Buyer will operate as-is through 2025 before repositioning. Clean 1031 exchange, no debt assumed.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$2,915,000</span>
+          <span class="price-ppu">$364K/unit</span>
+          <span class="price-change price-dn">▼ $85K from ask</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">L. Ostrovsky</span>
+          <span>Berkadia</span>
+        </div>
+      </div>
+
+      <!-- Entry 15 — NEW LISTING -->
+      <div class="log-entry">
+        <div class="le-time">
+          <span>10:15</span>
+          <span class="date">May 16</span>
+        </div>
+        <div><span class="badge badge-new">New Listing</span></div>
+        <div class="le-addr">
+          <span class="addr-main">610 S Ardmore Ave</span>
+          <span class="addr-sub">Koreatown · 16-unit · 1974 Build</span>
+        </div>
+        <div class="le-note">
+          Corner lot at signalized intersection. <span class="note-highlight">Full soft-story retrofit finaled 2022</span>. 
+          Owners selling after 18-year hold; below-market rents create rent growth story. Will go fast.
+        </div>
+        <div class="le-price">
+          <span class="price-ask">$5,280,000</span>
+          <span class="price-ppu">$330K/unit</span>
+        </div>
+        <div class="le-broker">
+          <span class="broker-name">S. Marchetti</span>
+          <span>IPA · Marcus &amp; Millichap</span>
+        </div>
+      </div>
+
+    </div><!-- /activity-log -->
+
+  </div><!-- /ba-main -->
+
+  <!-- RIGHT: Broker Dossiers -->
+  <aside class="dossier-panel">
+
+    <div class="section-label">
+      <span class="sl-num">FILE</span>
+      <span class="sl-title">Active Broker Dossiers</span>
+      <span class="sl-count">4 Tracked</span>
+    </div>
+
+    <!-- Broker 1 -->
+    <div class="dossier-card">
+      <div class="dc-head">
+        <div class="dc-monogram">RC</div>
+        <div class="dc-name-block">
+          <div class="dc-name">Rafael Calvo</div>
+          <div class="dc-firm">Marcus &amp; Millichap · LA West</div>
+        </div>
+      </div>
+      <div class="dc-stats">
+        <div class="dc-stat">
+          <div class="dc-stat-val">41</div>
+          <div class="dc-stat-lbl">Units Traded YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">$18.4M</div>
+          <div class="dc-stat-lbl">Vol. YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">23</div>
+          <div class="dc-stat-lbl">Avg DOM</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">98.2%</div>
+          <div class="dc-stat-lbl">List/Sale Ratio</div>
+        </div>
+      </div>
+      <div class="dc-note">Calvo's quiet strength is off-market inventory — estate sellers and long-hold Korean-American owners who don't want to go public. If a deal isn't on CoStar, ask Rafael first.</div>
+      <div class="dc-footer">
+        <span class="dc-territory">Koreatown · Hollywood · Los Feliz</span>
+        <span class="dc-status watching">Watching</span>
+      </div>
+    </div>
+
+    <!-- Broker 2 -->
+    <div class="dossier-card">
+      <div class="dc-head">
+        <div class="dc-monogram">TN</div>
+        <div class="dc-name-block">
+          <div class="dc-name">Takeshi Nakamura</div>
+          <div class="dc-firm">CBRE · Multifamily Capital Markets</div>
+        </div>
+      </div>
+      <div class="dc-stats">
+        <div class="dc-stat">
+          <div class="dc-stat-val">86</div>
+          <div class="dc-stat-lbl">Units Traded YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">$31.7M</div>
+          <div class="dc-stat-lbl">Vol. YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">17</div>
+          <div class="dc-stat-lbl">Avg DOM</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">101.4%</div>
+          <div class="dc-stat-lbl">List/Sale Ratio</div>
+        </div>
+      </div>
+      <div class="dc-note">Nakamura consistently sells above asking by running a disciplined best-and-final process. He moves 10–25-unit product with institutional-grade data packages. Buyers love the predictability.</div>
+      <div class="dc-footer">
+        <span class="dc-territory">Koreatown · Baldwin Hills · South LA</span>
+        <span class="dc-status watching">Watching</span>
+      </div>
+    </div>
+
+    <!-- Broker 3 -->
+    <div class="dossier-card">
+      <div class="dc-head">
+        <div class="dc-monogram">DW</div>
+        <div class="dc-name-block">
+          <div class="dc-name">Drew Whitmore</div>
+          <div class="dc-firm">Newmark · Investment Sales</div>
+        </div>
+      </div>
+      <div class="dc-stats">
+        <div class="dc-stat">
+          <div class="dc-stat-val">28</div>
+          <div class="dc-stat-lbl">Units Traded YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">$22.1M</div>
+          <div class="dc-stat-lbl">Vol. YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">31</div>
+          <div class="dc-stat-lbl">Avg DOM</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">96.8%</div>
+          <div class="dc-stat-lbl">List/Sale Ratio</div>
+        </div>
+      </div>
+      <div class="dc-note">Whitmore deals in high-value boutique product — Silver Lake, Los Feliz, East Hollywood. He prices for the story, not just the numbers, which means he often attracts owner-operators with a vision rather than pure yield buyers.</div>
+      <div class="dc-footer">
+        <span class="dc-territory">Silver Lake · Los Feliz · Echo Park</span>
+        <span class="dc-status watching">Watching</span>
+      </div>
+    </div>
+
+    <!-- Broker 4 -->
+    <div class="dossier-card">
+      <div class="dc-head">
+        <div class="dc-monogram">SM</div>
+        <div class="dc-name-block">
+          <div class="dc-name">Sandro Marchetti</div>
+          <div class="dc-firm">IPA · Institutional Property Advisors</div>
+        </div>
+      </div>
+      <div class="dc-stats">
+        <div class="dc-stat">
+          <div class="dc-stat-val">112</div>
+          <div class="dc-stat-lbl">Units Traded YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">$38.9M</div>
+          <div class="dc-stat-lbl">Vol. YTD</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">38</div>
+          <div class="dc-stat-lbl">Avg DOM</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-stat-val">95.1%</div>
+          <div class="dc-stat-lbl">List/Sale Ratio</div>
+        </div>
+      </div>
+      <div class="dc-note">Marchetti dominates the SFV corridor — Van Nuys, North Hills, Canoga Park. His listings tend to require heavy CapEx on close, which depresses DOM but compresses final price. Good for operators who know what they're buying.</div>
+      <div class="dc-footer">
+        <span class="dc-territory">SFV · Van Nuys · North Hills</span>
+        <span class="dc-status watching">Watching</span>
+      </div>
+    </div>
+
+  </aside>
+</div><!-- /ba-layout -->
+
+<!-- ============= ESSAYS / ANALYSIS ============= -->
+<section class="ba-essays">
+  <div class="section-label">
+    <span class="sl-num">DESK</span>
+    <span class="sl-title">Essays on Broker Dynamics</span>
+    <span class="sl-count">Pipeline · Coming</span>
+  </div>
+
+  <div class="essays-grid">
+
+    <article class="essay-card coming">
+      <div class="ec-meta">
+        <span class="ec-num">07 · 001</span>
+        <span class="ec-label coming">Coming Q3 2026</span>
+      </div>
+      <h2 class="ec-title">Why the Best LA Multifamily Deals Never Hit CoStar</h2>
+      <p class="ec-dek">The off-market pipeline is real and it runs through six brokers. How relationship capital determines access to the deals that actually pencil.</p>
+      <div class="ec-byline"><b>D. Safai</b> · Broker Activity · Est. 18 min</div>
+    </article>
+
+    <article class="essay-card coming">
+      <div class="ec-meta">
+        <span class="ec-num">07 · 002</span>
+        <span class="ec-label coming">Coming Q3 2026</span>
+      </div>
+      <h2 class="ec-title">Reading a Broker's DOM: What 60+ Days on Market Is Really Telling You</h2>
+      <p class="ec-dek">Extended days-on-market is a data point, not a verdict. A framework for distinguishing overpricing, title problems, deferred maintenance, and tenant complexity.</p>
+      <div class="ec-byline"><b>D. Safai</b> · Broker Activity · Est. 14 min</div>
+    </article>
+
+    <article class="essay-card coming">
+      <div class="ec-meta">
+        <span class="ec-num">07 · 003</span>
+        <span class="ec-label coming">Coming Q4 2026</span>
+      </div>
+      <h2 class="ec-title">The Best-and-Final Process: How to Win Without Overpaying</h2>
+      <p class="ec-dek">Structured offer rounds favor the operationally credible buyer. How to present so that brokers rank you first — even at a lower number.</p>
+      <div class="ec-byline"><b>D. Safai</b> · Broker Activity · Est. 12 min</div>
+    </article>
+
+    <article class="essay-card coming">
+      <div class="ec-meta">
+        <span class="ec-num">07 · 004</span>
+        <span class="ec-label coming">Coming Q4 2026</span>
+      </div>
+      <h2 class="ec-title">Koreatown Broker Geography: Which Firms Own Which Corridors</h2>
+      <p class="ec-dek">The KTown multifamily market isn't one market — it's four or five overlapping networks. A map of who controls inventory on which blocks and why it matters for buyers.</p>
+      <div class="ec-byline"><b>D. Safai</b> · Broker Activity · Est. 16 min</div>
+    </article>
+
+    <article class="essay-card coming">
+      <div class="ec-meta">
+        <span class="ec-num">07 · 005</span>
+        <span class="ec-label coming">Coming Q4 2026</span>
+      </div>
+      <h2 class="ec-title">When Brokers Price for the Story vs. the Numbers</h2>
+      <p class="ec-dek">Silver Lake and Los Feliz listings often cite "character" and "neighborhood trajectory" to justify non-penciling caps. When to buy the narrative and when to walk.</p>
+      <div class="ec-byline"><b>D. Safai</b> · Broker Activity · Est. 11 min</div>
+    </article>
+
+    <article class="essay-card coming">
+      <div class="ec-meta">
+        <span class="ec-num">07 · 006</span>
+        <span class="ec-label coming">Coming 2027</span>
+      </div>
+      <h2 class="ec-title">Seller Financing in the SFV: A Deal Mechanic Worth Understanding</h2>
+      <p class="ec-dek">As conventional debt tightened in 2024–25, seller carry became a real tool again. Mechanics, terms, and the three scenarios where it makes sense to accept it.</p>
+      <div class="ec-byline"><b>D. Safai</b> · Broker Activity · Est. 10 min</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============= SEE ALSO ============= -->
+<nav class="see-also" aria-label="Other sections">
+  <div class="see-also-head">Other Desks — Atlas Brief</div>
+  <div class="see-also-grid">
+    <div class="sa-item">
+      <div class="sa-num">01</div>
+      <a href="/atlas-brief/sections/market-commentary/" class="sa-name">Market Commentary</a>
+    </div>
+    <div class="sa-item">
+      <div class="sa-num">06</div>
+      <a href="/atlas-brief/sections/comps/" class="sa-name">Comps</a>
+    </div>
+    <div class="sa-item">
+      <div class="sa-num">03</div>
+      <a href="/atlas-brief/sections/development-journal/" class="sa-name">Development Journal</a>
+    </div>
+    <div class="sa-item">
+      <div class="sa-num">09</div>
+      <a href="/atlas-brief/sections/opportunities/" class="sa-name">Opportunities</a>
+    </div>
+    <div class="sa-item">
+      <div class="sa-num">05</div>
+      <a href="/atlas-brief/sections/policy/" class="sa-name">Policy</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer-sections">
+      <div class="fs-head">
+        <div class="fs-k">Atlas Brief · Sections</div>
+        <div class="fs-note">11 sections · Filter the archive</div>
+      </div>
+      <div class="fs-grid">
+        <a href="/atlas-brief/sections/market-commentary/"><span>Market Commentary</span><span class="n">01</span></a>
+        <a href="/atlas-brief/sections/owners-desk/"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
+        <a href="/atlas-brief/sections/development-journal/"><span>Development Journal</span><span class="n">03</span></a>
+        <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs</span><span class="n">04</span></a>
+        <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">05</span></a>
+        <a href="/atlas-brief/sections/comps/"><span>Comps</span><span class="n">06</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">07</span></a>
+        <a href="/atlas-brief/sections/operator-guides/"><span>Operator Guides</span><span class="n">08</span></a>
+        <a href="/atlas-brief/sections/opportunities/"><span>Opportunities</span><span class="n">09</span></a>
+        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">10</span></a>
+        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">11</span></a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Atlas<br/>Home Pro.</div>
+        <p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p>
+      </div>
+      <div>
+        <h5>Capabilities</h5>
+        <ul>
+          <li><a href="/capabilities/">General Contracting</a></li>
+          <li><a href="/capabilities/">HVAC</a></li>
+          <li><a href="/capabilities/">Plumbing</a></li>
+          <li><a href="/capabilities/">Electrical</a></li>
+          <li><a href="/capabilities/">Painting</a></li>
+          <li><a href="/capabilities/">Water Restoration</a></li>
+          <li><a href="/capabilities/">Gates &amp; Garage Doors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>The Company</h5>
+        <ul>
+          <li><a href="/about/">About David Safai</a></li>
+          <li><a href="/atlas-brief/">Atlas Brief</a></li>
+          <li><a href="/areas/">Service Areas</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Office</h5>
+        <p>145 S Fairfax Avenue, Suite 200</p>
+        <p>Los Angeles, California 90036</p>
+        <p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p>
+        <p class="m">(213) 275-2210</p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© MMXXVI Atlas Home Builders, Inc.</span>
+      <span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const b = document.getElementById('burger');
+  const m = document.getElementById('mm');
+  b.addEventListener('click', () => {
+    b.classList.toggle('open');
+    m.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

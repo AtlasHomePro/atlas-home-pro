@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Investing Philosophy — Atlas Brief</title>
+<meta name="description" content="Value-investing principles applied to Los Angeles real estate. Howard Marks, Charlie Munger, Benjamin Graham, and the classical tradition, translated for the LA property owner." />
+<meta property="og:title" content="Investing Philosophy — Atlas Brief" />
+<meta property="og:description" content="The classical value-investing canon, applied to Los Angeles real estate. Marks on cycles, Munger on mental models, Graham on margin of safety." />
+<meta property="og:image" content="/images/brief/cat-investing-philosophy.jpg" />
+<meta property="og:type" content="website" />
+<link rel="stylesheet" href="/atlas-v2.css" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<style>
+/* ============================================================
+   INVESTING PHILOSOPHY — Quote-Driven / Pillar Essays
+   ============================================================ */
+
+/* ---- Strap ---- */
+.strap {
+  border-bottom: 1px solid var(--ink);
+  background: var(--bg);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.strap-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10px var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.strap .center { text-align: center; color: var(--ink); }
+.strap .right  { text-align: right; }
+.strap a { border-bottom: 1px solid var(--accent); padding-bottom: 1px; }
+@media (max-width: 1024px) {
+  .strap-inner { grid-template-columns: 1fr; text-align: center; gap: 4px; }
+  .strap .right, .strap .left { display: none; }
+}
+
+/* ---- Category masthead ---- */
+.cat-masthead {
+  border-bottom: 3px double var(--ink);
+  padding: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 56px);
+}
+.cat-masthead-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.cat-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.cat-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  max-width: 320px;
+}
+.cat-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(44px, 7vw, 108px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 0 0 clamp(20px, 3vw, 36px);
+  color: var(--ink);
+}
+.cat-title em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.cat-dek {
+  max-width: 68ch;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin: 0 0 28px;
+}
+.cat-meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cat-meta b { color: var(--ink); }
+
+/* ---- Hero image strip ---- */
+.hero-image-strip {
+  width: 100%;
+  aspect-ratio: 16 / 5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ink);
+}
+.hero-image-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(60%) contrast(1.1) brightness(0.92);
+  display: block;
+}
+
+/* ---- Hero quote card ---- */
+.hero-quote-section {
+  padding: clamp(56px, 6vw, 96px) 0;
+  border-bottom: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+.hero-quote-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 0;
+  align-items: center;
+}
+.hq-ornament {
+  font-family: var(--serif);
+  font-size: clamp(96px, 14vw, 200px);
+  line-height: 0.75;
+  color: var(--accent);
+  font-style: italic;
+  opacity: 0.4;
+  user-select: none;
+  padding-top: 8px;
+}
+.hq-body {
+  padding: 0 clamp(24px, 3vw, 56px);
+  text-align: center;
+}
+.hq-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(28px, 3.8vw, 58px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--bg);
+  margin: 0 0 clamp(24px, 3vw, 40px);
+}
+.hq-text::before { content: '\201C'; }
+.hq-text::after  { content: '\201D'; }
+.hq-rule {
+  width: 56px;
+  height: 1px;
+  background: var(--accent);
+  margin: 0 auto clamp(16px, 2vw, 28px);
+}
+.hq-attribution {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 248, 0.55);
+  line-height: 1.9;
+}
+.hq-attribution strong {
+  display: block;
+  color: var(--bg);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+.hq-attribution span {
+  color: var(--accent);
+  opacity: 0.85;
+}
+.hq-close-ornament {
+  font-family: var(--serif);
+  font-size: clamp(96px, 14vw, 200px);
+  line-height: 0.75;
+  color: var(--accent);
+  font-style: italic;
+  opacity: 0.4;
+  user-select: none;
+  text-align: right;
+  padding-top: 8px;
+}
+@media (max-width: 768px) {
+  .hero-quote-inner {
+    grid-template-columns: 1fr;
+  }
+  .hq-ornament, .hq-close-ornament { display: none; }
+  .hq-body { padding: 0; }
+}
+
+/* ---- Section label ---- */
+.section-label {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 64px) var(--pad-x) 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.section-label .num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.section-label h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 38px);
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-sublabel {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px var(--pad-x) clamp(32px, 4vw, 52px);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width-calc: 80ch;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---- Pillar grid ---- */
+.pillars-section {
+  padding: 0 0 clamp(64px, 7vw, 104px);
+  border-bottom: 3px double var(--ink);
+}
+.pillars-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 52px) var(--pad-x) 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+/* 3-col border rules */
+.pillar-card {
+  padding: clamp(24px, 3vw, 40px);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: background .2s;
+}
+.pillar-card:hover { background: var(--bg-alt); }
+.pillar-card:nth-child(3n) { border-right: 0; }
+.pillar-card:nth-child(4),
+.pillar-card:nth-child(5),
+.pillar-card:nth-child(6) { border-bottom: 0; }
+
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+.pillar-num .coming {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+
+.pillar-thinker {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2vw, 32px);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.pillar-descriptor {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.pillar-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  flex-grow: 1;
+}
+.pillar-quote::before { content: '\201C'; }
+.pillar-quote::after  { content: '\201D'; }
+
+.pillar-essays {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+}
+.pillar-essays li {
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+}
+.pillar-essays li:last-child { border-bottom: 0; padding-bottom: 0; }
+.pillar-essays a {
+  font-family: var(--serif);
+  font-size: clamp(13px, 1vw, 15.5px);
+  line-height: 1.4;
+  color: var(--ink-soft);
+  transition: color .15s;
+}
+.pillar-essays a:hover { color: var(--accent-ink); }
+.pillar-essays .tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+.pillar-essays .tag.coming { color: var(--accent); opacity: 0.7; }
+
+@media (max-width: 1024px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillar-card:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .pillar-card:nth-child(2n) { border-right: 0; }
+  .pillar-card:nth-child(5),
+  .pillar-card:nth-child(6) { border-bottom: 0; }
+  .pillar-card:nth-child(4) { border-bottom: 1px solid var(--rule); }
+  .pillar-card:nth-child(3) { border-bottom: 1px solid var(--rule); }
+}
+@media (max-width: 640px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar-card { border-right: 0 !important; border-bottom: 1px solid var(--rule) !important; }
+  .pillar-card:last-child { border-bottom: 0 !important; }
+}
+
+/* ---- Interstitial pull quote band ---- */
+.pull-band {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-alt);
+  padding: clamp(32px, 4vw, 56px) 0;
+}
+.pull-band-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(24px, 3vw, 52px);
+  align-items: center;
+}
+.pull-band-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+.pull-band-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 34px);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.pull-band-text::before { content: '\201C'; }
+.pull-band-text::after  { content: '\201D'; }
+.pull-band-attr {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pull-band-attr b { color: var(--ink); }
+@media (max-width: 640px) {
+  .pull-band-inner { grid-template-columns: 1fr; }
+  .pull-band-label { writing-mode: horizontal-tb; transform: none; }
+}
+
+/* ---- See Also / Other Desks ---- */
+.see-also {
+  padding: clamp(52px, 6vw, 88px) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.see-also-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.see-also-head {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: clamp(28px, 3vw, 44px);
+}
+.see-also-head h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2vw, 30px);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.see-also-head .all-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  margin-left: auto;
+}
+.desks-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+.desk-card {
+  padding: 22px 20px;
+  border-right: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+}
+.desk-card:first-child { border-left: 1px solid var(--rule); }
+.desk-card:hover { background: var(--bg-alt); }
+.desk-n {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 10px;
+}
+.desk-name {
+  font-family: var(--serif);
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.3;
+  color: var(--ink);
+  font-weight: 500;
+}
+.desk-card:hover .desk-name { color: var(--accent-ink); }
+@media (max-width: 1024px) {
+  .desks-row { grid-template-columns: repeat(3, 1fr); }
+  .desk-card { border-left: 0 !important; }
+  .desks-row .desk-card:nth-child(3n+1) { border-left: 1px solid var(--rule) !important; }
+}
+@media (max-width: 640px) {
+  .desks-row { grid-template-columns: repeat(2, 1fr); }
+  .desks-row .desk-card:nth-child(2n+1) { border-left: 1px solid var(--rule) !important; }
+  .desks-row .desk-card:nth-child(2n) { border-right: 1px solid var(--rule) !important; }
+  .desks-row .desk-card:nth-child(3n+1) { border-left: 1px solid var(--rule) !important; }
+}
+
+/* ---- Footer ---- */
+.footer {
+  margin-top: 0;
+  border-top: 1px solid var(--ink);
+  background: var(--bg);
+  padding-top: 56px;
+  padding-bottom: 28px;
+}
+.footer-sections {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+}
+.fs-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.fs-k {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.fs-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.fs-grid {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 0;
+}
+.fs-grid a {
+  border-right: 1px solid var(--rule);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+  transition: background .15s;
+}
+.fs-grid a:first-child { border-left: 1px solid var(--rule); }
+.fs-grid a:hover { background: var(--bg-alt); color: var(--ink); }
+.fs-grid a[href*="investing-philosophy"] { background: var(--bg-alt); color: var(--ink); font-weight: 500; }
+.fs-grid .n {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted-2);
+}
+@media (max-width: 1280px) {
+  .fs-grid { grid-template-columns: repeat(6, 1fr); }
+  .fs-grid a:nth-child(6) { border-right: 0; }
+  .fs-grid a:nth-child(7) { border-left: 1px solid var(--rule); }
+}
+@media (max-width: 768px) {
+  .fs-grid { grid-template-columns: repeat(3, 1fr); }
+  .fs-grid a { border-right: 1px solid var(--rule) !important; border-left: 0 !important; }
+  .fs-grid a:nth-child(3n) { border-right: 0 !important; }
+  .fs-grid a:nth-child(3n+1) { border-left: 1px solid var(--rule) !important; }
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+.footer-tag {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.footer h5 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.footer ul a {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--muted);
+  transition: color .15s;
+}
+.footer ul a:hover { color: var(--ink); }
+.footer-contact p {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.footer-contact .m { font-family: var(--mono); font-size: 12px; }
+.footer-legal {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  flex-wrap: wrap;
+}
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-legal { flex-direction: column; gap: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas <span style="color:var(--accent)">Home Pro</span></a>
+    <ul class="nav-links">
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/" class="active">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-phone">(213) 275-2210</span>
+      <a href="/contact/" class="nav-cta">Contact Atlas</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <ul>
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="mm-meta">
+      <span>(213) 275-2210</span>
+      <span>David@AtlasHomePro.com</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= STRAP ============= -->
+<div class="strap">
+  <div class="strap-inner">
+    <div class="left">Los Angeles · 72°F · Clear · Lat. 34.07° N</div>
+    <div class="center">Sunday, April 19, 2026 · <a href="#subscribe">Subscribe to The Atlas Dispatch</a></div>
+    <div class="right">Vol. III · Issue 003 · 42 entries archived</div>
+  </div>
+</div>
+
+<!-- ============= CATEGORY MASTHEAD ============= -->
+<section class="cat-masthead">
+  <div class="cat-masthead-inner">
+    <div class="cat-eyebrow">Atlas Brief &nbsp;·&nbsp; Section 10</div>
+    <h1 class="cat-title">Investing<br/><em>Philosophy</em></h1>
+    <p class="cat-dek">The classical value-investing canon — Marks, Munger, Buffett, Graham, Taleb, Kahneman — read slowly and applied to the specific conditions of owning, building, and holding property in Los Angeles.</p>
+    <div class="cat-meta">
+      <span><b>Editor:</b> D. Safai</span>
+      <span><b>Frequency:</b> Occasional</span>
+      <span><b>Method:</b> Primary texts · No shortcuts</span>
+      <span><b>6 Pillars</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============= HERO IMAGE ============= -->
+<div class="hero-image-strip">
+  <img src="/images/brief/cat-investing-philosophy.jpg" alt="Investing Philosophy — Atlas Brief" loading="eager" />
+</div>
+
+<!-- ============= HERO QUOTE CARD ============= -->
+<section class="hero-quote-section" aria-label="Opening quotation">
+  <div class="hero-quote-inner">
+    <div class="hq-ornament" aria-hidden="true">&ldquo;</div>
+    <div class="hq-body">
+      <blockquote class="hq-text">Leverage plus volatility equals dynamite.</blockquote>
+      <div class="hq-rule"></div>
+      <div class="hq-attribution">
+        <strong>Howard Marks</strong>
+        <span>Oaktree Capital Management</span><br/>
+        <span style="font-size:9px; letter-spacing:0.18em;">The Most Important Thing, 2011</span>
+      </div>
+    </div>
+    <div class="hq-close-ornament" aria-hidden="true">&rdquo;</div>
+  </div>
+</section>
+
+<!-- ============= SECTION LABEL ============= -->
+<div class="section-label" style="max-width: var(--maxw); margin: 0 auto; padding: clamp(40px, 5vw, 64px) var(--pad-x) 0; display: flex; align-items: center; gap: 20px;">
+  <div class="num" style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; white-space: nowrap;">§ I &mdash; The Pillars</div>
+  <h2 style="font-family: var(--serif); font-weight: 500; font-size: clamp(22px, 2.6vw, 38px); letter-spacing: -0.03em; margin: 0; line-height: 1;">Six thinkers. Their core insight. Applied to LA.</h2>
+  <div style="flex: 1; height: 1px; background: var(--rule);"></div>
+</div>
+<div style="max-width: var(--maxw); margin: 0 auto; padding: 14px var(--pad-x) clamp(32px, 4vw, 52px); font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--muted); line-height: 1.6; border-bottom: 1px solid var(--rule);">
+  Each pillar takes one canonical thinker, surfaces their single most transferable idea, and maps it to the specific decisions LA property operators face — cycle timing, capital structure, renovation optionality, behavioral error. No fan letters. Only the part that pays.
+</div>
+
+<!-- ============= PILLAR GRID ============= -->
+<section class="pillars-section">
+  <div class="pillars-grid">
+
+    <!-- PILLAR 1: MARKS -->
+    <article class="pillar-card" data-pillar="marks">
+      <div class="pillar-num">
+        <span>Pillar I &nbsp;·&nbsp; Cycles</span>
+        <span class="coming">Coming 2026</span>
+      </div>
+      <h2 class="pillar-thinker">Howard Marks</h2>
+      <div class="pillar-descriptor">Oaktree Capital &nbsp;·&nbsp; Cycle Theory</div>
+      <blockquote class="pillar-quote">The seven scariest words in investing: everyone else is doing it, too.</blockquote>
+      <ul class="pillar-essays">
+        <li>
+          <a href="#">Where We Are in the LA Cycle: A Marks Framework Applied to the Current Bid-Ask</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">The Pendulum Knows No Bottom: Reading Westside Cap-Rate Compression as a Sentiment Indicator</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">Marks on Second-Level Thinking: Why the Obvious Trade in LA Almost Never Works</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+      </ul>
+    </article>
+
+    <!-- PILLAR 2: MUNGER -->
+    <article class="pillar-card" data-pillar="munger">
+      <div class="pillar-num">
+        <span>Pillar II &nbsp;·&nbsp; Mental Models</span>
+        <span class="coming">Coming 2026</span>
+      </div>
+      <h2 class="pillar-thinker">Charlie Munger</h2>
+      <div class="pillar-descriptor">Berkshire Hathaway &nbsp;·&nbsp; Lattice of Models</div>
+      <blockquote class="pillar-quote">Invert, always invert. Turn a situation or problem upside down. Look at it backward.</blockquote>
+      <ul class="pillar-essays">
+        <li>
+          <a href="#">Inverted: What Kills an LA Renovation Project Before the Plans Are Filed</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">The Lollapalooza Effect in a Rising Permit Backlog: How Three Bad Conditions Compound</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+        <li>
+          <a href="#">Munger on Incentives: Reading Your Contractor&rsquo;s Proposal Like a Behavioral Economist</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+      </ul>
+    </article>
+
+    <!-- PILLAR 3: BUFFETT -->
+    <article class="pillar-card" data-pillar="buffett">
+      <div class="pillar-num">
+        <span>Pillar III &nbsp;·&nbsp; Hold Quality</span>
+        <span class="coming">Coming 2026</span>
+      </div>
+      <h2 class="pillar-thinker">Warren Buffett</h2>
+      <div class="pillar-descriptor">Berkshire Hathaway &nbsp;·&nbsp; On Real Estate</div>
+      <blockquote class="pillar-quote">The best holding period is forever. But only for the right asset, at the right price.</blockquote>
+      <ul class="pillar-essays">
+        <li>
+          <a href="#">What Buffett&rsquo;s 1986 Farm Letter Teaches About Holding a Hillside Fourplex</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">Price Is What You Pay, Value Is What You Rent: Underwriting NOI Without Optimism</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">Why Buffett Would Never Tour a Brentwood Flip: The Cosmetics Trap in LA Residential</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+      </ul>
+    </article>
+
+    <!-- PILLAR 4: GRAHAM -->
+    <article class="pillar-card" data-pillar="graham">
+      <div class="pillar-num">
+        <span>Pillar IV &nbsp;·&nbsp; Margin of Safety</span>
+        <span class="coming">Coming 2026</span>
+      </div>
+      <h2 class="pillar-thinker">Benjamin Graham</h2>
+      <div class="pillar-descriptor">Columbia University &nbsp;·&nbsp; Value Discipline</div>
+      <blockquote class="pillar-quote">The margin of safety is always dependent on the price paid. It will be large at one price, small at a higher price, nonexistent at some still higher price.</blockquote>
+      <ul class="pillar-essays">
+        <li>
+          <a href="#">How to Size a Margin of Safety on a $2.4M Mid-City Income Property</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">Mr. Market in Silver Lake: Reading Irrational Pricing in a Thin-Turnover Submarket</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+        <li>
+          <a href="#">Graham&rsquo;s Defensive Investor, Updated for LA&rsquo;s Rent Control and Deferred-Maintenance Exposures</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+      </ul>
+    </article>
+
+    <!-- PILLAR 5: TALEB -->
+    <article class="pillar-card" data-pillar="taleb">
+      <div class="pillar-num">
+        <span>Pillar V &nbsp;·&nbsp; Tail Risk</span>
+        <span class="coming">Coming 2026</span>
+      </div>
+      <h2 class="pillar-thinker">Nassim Taleb</h2>
+      <div class="pillar-descriptor">Black Swan Theory &nbsp;·&nbsp; Antifragility</div>
+      <blockquote class="pillar-quote">Antifragility is beyond resilience or robustness. The resilient resists shocks and stays the same; the antifragile gets better.</blockquote>
+      <ul class="pillar-essays">
+        <li>
+          <a href="#">Building Antifragile: Why the LA Owner Who Over-Maintains Has the Optionality Advantage</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">Fat Tails in LA Seismic Risk: What Standard Insurance Underwriting Does Not Price</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+        <li>
+          <a href="#">Via Negativa for Property Owners: The Decisions Not to Make That Compound in Your Favor</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+      </ul>
+    </article>
+
+    <!-- PILLAR 6: KAHNEMAN -->
+    <article class="pillar-card" data-pillar="kahneman">
+      <div class="pillar-num">
+        <span>Pillar VI &nbsp;·&nbsp; Behavioral Error</span>
+        <span class="coming">Coming 2026</span>
+      </div>
+      <h2 class="pillar-thinker">Daniel Kahneman</h2>
+      <div class="pillar-descriptor">Princeton &nbsp;·&nbsp; Thinking, Fast and Slow</div>
+      <blockquote class="pillar-quote">Nothing in life is as important as you think it is while you are thinking about it.</blockquote>
+      <ul class="pillar-essays">
+        <li>
+          <a href="#">System 1 at the Open House: The Cognitive Biases That Run Your Acquisition Process</a>
+          <span class="tag coming">Q3 2026</span>
+        </li>
+        <li>
+          <a href="#">Loss Aversion and the LA Seller Who Holds Too Long: A Case Study in Prospect Theory</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+        <li>
+          <a href="#">Planning Fallacy in Renovation Budgets: Why Every Pro Forma Underestimates, and How to Correct It</a>
+          <span class="tag coming">Q4 2026</span>
+        </li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============= PULL QUOTE BAND ============= -->
+<div class="pull-band">
+  <div class="pull-band-inner">
+    <div class="pull-band-label">Patience</div>
+    <div>
+      <p class="pull-band-text">Real estate favors the investor who can sit quietly while others cannot. In Los Angeles, patience is not a virtue — it is a structural edge against a market dominated by buyers who need to deploy capital on a calendar.</p>
+      <div class="pull-band-attr"><b>D. Safai</b> &nbsp;&mdash;&nbsp; Atlas Brief, Vol. III</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= SEE ALSO / OTHER DESKS ============= -->
+<section class="see-also">
+  <div class="see-also-inner">
+    <div class="see-also-head">
+      <h3>Other desks in Atlas Brief</h3>
+      <a href="/atlas-brief/" class="all-link">View full index &rarr;</a>
+    </div>
+    <div class="desks-row">
+      <a href="/atlas-brief/sections/market-commentary/" class="desk-card">
+        <div class="desk-n">01</div>
+        <div class="desk-name">Market Commentary</div>
+      </a>
+      <a href="/atlas-brief/sections/owners-desk/" class="desk-card">
+        <div class="desk-n">02</div>
+        <div class="desk-name">Owner&rsquo;s Desk</div>
+      </a>
+      <a href="/atlas-brief/sections/development-journal/" class="desk-card">
+        <div class="desk-n">03</div>
+        <div class="desk-name">Development Journal</div>
+      </a>
+      <a href="/atlas-brief/sections/construction-costs/" class="desk-card">
+        <div class="desk-n">04</div>
+        <div class="desk-name">Construction Costs</div>
+      </a>
+      <a href="/atlas-brief/sections/great-books/" class="desk-card">
+        <div class="desk-n">11</div>
+        <div class="desk-name">Great Books</div>
+      </a>
+      <a href="/atlas-brief/sections/policy/" class="desk-card">
+        <div class="desk-n">05</div>
+        <div class="desk-name">Policy</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-sections">
+      <div class="fs-head">
+        <div class="fs-k">Atlas Brief &nbsp;&middot;&nbsp; Sections</div>
+        <div class="fs-note">11 sections &nbsp;&middot;&nbsp; Filter the archive</div>
+      </div>
+      <div class="fs-grid">
+        <a href="/atlas-brief/sections/market-commentary/"><span>Market Commentary</span><span class="n">01</span></a>
+        <a href="/atlas-brief/sections/owners-desk/"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
+        <a href="/atlas-brief/sections/development-journal/"><span>Development Journal</span><span class="n">03</span></a>
+        <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs</span><span class="n">04</span></a>
+        <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">05</span></a>
+        <a href="/atlas-brief/sections/comps/"><span>Comps</span><span class="n">06</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">07</span></a>
+        <a href="/atlas-brief/sections/operator-guides/"><span>Operator Guides</span><span class="n">08</span></a>
+        <a href="/atlas-brief/sections/opportunities/"><span>Opportunities</span><span class="n">09</span></a>
+        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">10</span></a>
+        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">11</span></a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Atlas<br/>Home Pro.</div>
+        <p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p>
+      </div>
+      <div>
+        <h5>Capabilities</h5>
+        <ul>
+          <li><a href="/capabilities/">General Contracting</a></li>
+          <li><a href="/capabilities/">HVAC</a></li>
+          <li><a href="/capabilities/">Plumbing</a></li>
+          <li><a href="/capabilities/">Electrical</a></li>
+          <li><a href="/capabilities/">Painting</a></li>
+          <li><a href="/capabilities/">Water Restoration</a></li>
+          <li><a href="/capabilities/">Gates &amp; Garage Doors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>The Company</h5>
+        <ul>
+          <li><a href="/about/">About David Safai</a></li>
+          <li><a href="/atlas-brief/">Atlas Brief</a></li>
+          <li><a href="/areas/">Service Areas</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Office</h5>
+        <p>145 S Fairfax Avenue, Suite 200</p>
+        <p>Los Angeles, California 90036</p>
+        <p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p>
+        <p class="m">(213) 275-2210</p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>&copy; MMXXVI Atlas Home Builders, Inc.</span>
+      <span>Atlas Home Pro is a division of Atlas Home Builders, Inc. &nbsp;&middot;&nbsp; CA Class B General Contractor</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const b = document.getElementById('burger');
+  const m = document.getElementById('mm');
+  b.addEventListener('click', () => {
+    b.classList.toggle('open');
+    m.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

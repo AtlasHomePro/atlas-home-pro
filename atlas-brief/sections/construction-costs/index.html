@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Construction Costs — Atlas Brief</title>
+<meta name="description" content="Construction cost data, trade breakdowns, and honest math on LA multifamily and single-family work. By David Safai, Atlas Home Pro." />
+<link rel="stylesheet" href="/atlas-v2.css" />
+
+<meta property="og:title" content="Construction Costs — Atlas Brief" />
+<meta property="og:description" content="Construction cost data, trade breakdowns, and honest math on LA multifamily and single-family work." />
+<meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://atlashomepro.com/images/og-atlas-brief.png" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<style>
+/* ============================================================
+   CONSTRUCTION COSTS — Tabular Index / Price List
+   RSMeans data book meets editorial commentary
+   Mono-heavy, reference-document feel
+   ============================================================ */
+
+/* ---- Top strap ---- */
+.strap {
+  border-bottom: 1px solid var(--ink);
+  background: var(--bg);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.strap-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10px var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.strap .center { text-align: center; color: var(--ink); }
+.strap .right { text-align: right; }
+.strap a { border-bottom: 1px solid var(--accent); padding-bottom: 1px; }
+@media (max-width: 1024px) {
+  .strap-inner { grid-template-columns: 1fr; text-align: center; gap: 4px; }
+  .strap .right, .strap .left { display: none; }
+}
+
+/* ---- Section masthead ---- */
+.cc-masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 0;
+  background: var(--bg);
+}
+.cc-masthead-top {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 52px) var(--pad-x) 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.cc-section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cc-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  max-width: 80px;
+}
+.cc-masthead h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(42px, 6.5vw, 96px);
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  color: var(--ink);
+}
+.cc-masthead h1 em {
+  font-style: italic;
+  color: var(--accent-ink);
+}
+.cc-dek {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.6vw, 22px);
+  line-height: 1.48;
+  color: var(--ink-soft);
+  font-weight: 300;
+  max-width: 52ch;
+  margin-bottom: 28px;
+}
+.cc-masthead-right {
+  padding-top: clamp(28px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---- Hero stat panel ---- */
+.hero-stat-block {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 32px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-stat-block::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 120px; height: 120px;
+  border-left: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.5);
+  margin-bottom: 14px;
+}
+.hero-stat-value {
+  font-family: var(--mono);
+  font-size: clamp(38px, 5.5vw, 72px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--bg);
+  margin-bottom: 6px;
+}
+.hero-stat-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: rgba(250,250,248,0.65);
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+.hero-stat-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #6FBF8F;
+  background: rgba(111,191,143,0.12);
+  padding: 6px 12px;
+  margin-bottom: 20px;
+}
+.hero-stat-footnote {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.35);
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Data micro-bar under hero stat */
+.data-micro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--rule);
+  border-top: 0;
+}
+.data-micro-cell {
+  padding: 14px 16px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.data-micro-cell:last-child { border-right: 0; }
+.data-micro-cell .lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.data-micro-cell .val {
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.data-micro-cell .chg {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+}
+.up { color: #4DA376; }
+.dn { color: #C07040; }
+
+/* Image panel */
+.cc-img-panel {
+  position: relative;
+  margin-top: 24px;
+}
+.cc-hero-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) sepia(20%) contrast(1.05);
+  border: 1px solid var(--rule);
+}
+.cc-img-cap {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Ticker (cost data) */
+.cost-ticker {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  overflow: hidden;
+  margin-top: 32px;
+}
+.cost-ticker-inner {
+  display: flex;
+  gap: 40px;
+  padding: 10px 0;
+  animation: tick 70s linear infinite;
+  width: max-content;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.cost-ticker-inner span { opacity: 0.6; }
+.cost-ticker-inner b { color: var(--accent); letter-spacing: 0.12em; font-weight: 500; margin-right: 6px; }
+.cost-ticker-inner .up { color: #6FBF8F; opacity: 1; }
+.cost-ticker-inner .dn { color: #D98C6A; opacity: 1; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .cost-ticker-inner { animation: none; } }
+
+@media (max-width: 900px) {
+  .cc-masthead-top { grid-template-columns: 1fr; gap: 32px; }
+  .cc-masthead-right { padding-top: 0; }
+}
+
+/* ============================================================
+   TABLE SECTION — the main index
+   ============================================================ */
+.cc-table-section {
+  padding: clamp(48px, 6vw, 88px) 0 clamp(40px, 5vw, 72px);
+  border-bottom: 3px double var(--ink);
+}
+.cc-table-header {
+  max-width: var(--maxw);
+  margin: 0 auto 0;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 0;
+}
+.cc-table-header-left {}
+.cc-table-section-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.cc-table-header h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(28px, 3.4vw, 46px);
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--ink);
+}
+.cc-table-header-right {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* Column headers row */
+.cc-col-heads {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 52px 1fr 180px 130px 90px;
+  gap: 20px;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ink);
+  background: var(--bg-alt);
+}
+.cc-col-heads span {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: default;
+  user-select: none;
+}
+.cc-col-heads span.sortable {
+  cursor: pointer;
+  color: var(--ink);
+}
+.cc-col-heads span.sortable:hover { color: var(--accent-ink); }
+.cc-col-heads span.sorted { color: var(--accent); }
+.sort-arrow { font-size: 8px; opacity: 0.7; }
+
+/* Table rows */
+.cc-table {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.cc-row {
+  display: grid;
+  grid-template-columns: 52px 1fr 180px 130px 90px;
+  gap: 20px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px dotted var(--rule);
+  transition: background .12s, padding-left .12s, padding-right .12s;
+  cursor: default;
+}
+.cc-row:hover {
+  background: rgba(154,107,63,0.04);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 2px;
+}
+.cc-row.live { cursor: pointer; }
+.cc-row.live:hover .cc-row-title { color: var(--accent-ink); }
+
+.cc-row-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  padding-top: 3px;
+}
+.cc-row-title-block {}
+.cc-row-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.cc-row-title {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  transition: color .15s;
+}
+.cc-row-title a { color: inherit; }
+.cc-row-dek {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 4px;
+  max-width: 55ch;
+}
+.cc-row-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.cc-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+.cc-tag.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.cc-row-cost {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.cc-row-cost .cost-note {
+  display: block;
+  font-weight: 400;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+.cc-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+.cc-row-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.cc-row-status {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+.status-live {
+  background: var(--ink);
+  color: var(--bg);
+}
+.status-coming {
+  border: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+/* Divider rows (subtrade headers) */
+.cc-row-divider {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 24px 0 10px;
+  border-bottom: 1px solid var(--ink);
+  margin-top: 8px;
+}
+.cc-row-divider .div-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cc-row-divider .div-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@media (max-width: 1100px) {
+  .cc-col-heads { grid-template-columns: 40px 1fr 140px 100px 80px; gap: 14px; }
+  .cc-row { grid-template-columns: 40px 1fr 140px 100px 80px; gap: 14px; }
+}
+@media (max-width: 900px) {
+  .cc-col-heads { display: none; }
+  .cc-row {
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px 12px;
+    padding: 20px 0;
+  }
+  .cc-row-num { grid-row: 1; grid-column: 1; padding-top: 4px; }
+  .cc-row-title-block { grid-row: 1 / span 2; grid-column: 2; }
+  .cc-row-tags { grid-row: 3; grid-column: 2; }
+  .cc-row-cost { grid-row: 2; grid-column: 1 / span 2; padding-left: 48px; }
+  .cc-row-meta { grid-row: 3; grid-column: 1 / span 2; flex-direction: row; align-items: center; justify-content: flex-start; padding-left: 48px; }
+}
+
+/* ============================================================
+   FEATURED ESSAYS — 3-card row
+   ============================================================ */
+.cc-essays {
+  padding: clamp(48px, 6vw, 88px) 0 clamp(40px, 5vw, 72px);
+  border-bottom: 1px solid var(--ink);
+}
+.cc-essays-header {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: end;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 0;
+}
+.cc-essays-header .sec-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cc-essays-header h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(26px, 3vw, 42px);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.cc-essays-header .right-note {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cc-essay-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.cc-essay-card {
+  padding: 36px 32px 36px 0;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cc-essay-card:last-child {
+  border-right: 0;
+  padding-left: 32px;
+  padding-right: 0;
+}
+.cc-essay-card:nth-child(2) {
+  padding-left: 32px;
+}
+.cc-essay-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cc-essay-type {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cc-essay-h {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 16px;
+  flex: 1;
+}
+.cc-essay-h a { color: inherit; }
+.cc-essay-h a:hover { color: var(--accent-ink); }
+.cc-essay-deck {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+.cc-essay-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cc-essay-footer b { color: var(--ink); font-weight: 500; }
+.cc-essay-read-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  transition: color .15s;
+}
+.cc-essay-read-link:hover { color: var(--accent-ink); }
+
+@media (max-width: 900px) {
+  .cc-essay-grid { grid-template-columns: 1fr; }
+  .cc-essay-card { padding: 28px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .cc-essay-card:last-child { padding-left: 0; border-bottom: 0; }
+  .cc-essay-card:nth-child(2) { padding-left: 0; }
+}
+
+/* ============================================================
+   SEE ALSO / CROSS-NAV
+   ============================================================ */
+.cc-see-also {
+  padding: clamp(40px, 5vw, 72px) 0 clamp(40px, 5vw, 72px);
+  border-bottom: 1px solid var(--ink);
+}
+.cc-see-also-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.cc-see-also-head {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cc-see-also-head span { color: var(--accent); }
+.cc-desks {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.cc-desk {
+  padding: 22px 20px 22px 0;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background .12s;
+}
+.cc-desk:hover { background: rgba(154,107,63,0.04); }
+.cc-desk:last-child { border-right: 0; }
+.cc-desk-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cc-desk-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: color .15s;
+}
+.cc-desk:hover .cc-desk-name { color: var(--accent-ink); }
+.cc-desk-note {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  line-height: 1.5;
+}
+@media (max-width: 1100px) {
+  .cc-desks { grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .cc-desk:nth-child(3) { border-right: 0; }
+  .cc-desk:nth-child(4) { border-right: 1px solid var(--rule); }
+  .cc-desk:nth-child(4), .cc-desk:nth-child(5) {
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .cc-desks { grid-template-columns: repeat(2, 1fr); }
+  .cc-desk:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .cc-desk:nth-child(even) { border-right: 0; }
+  .cc-desk:nth-child(n+3) { border-top: 1px solid var(--rule); padding-top: 20px; }
+}
+
+/* ============================================================
+   FOOTER (shared)
+   ============================================================ */
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas <span style="color:var(--accent)">Home Pro</span></a>
+    <ul class="nav-links">
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/" class="active">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-phone">(213) 275-2210</span>
+      <a href="/contact/" class="nav-cta">Contact Atlas</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mm">
+    <ul>
+      <li><a href="/capabilities/">Capabilities</a></li>
+      <li><a href="/atlas-brief/">Atlas Brief</a></li>
+      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="mm-meta">
+      <span>(213) 275-2210</span>
+      <span>David@AtlasHomePro.com</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= STRAP ============= -->
+<div class="strap">
+  <div class="strap-inner">
+    <div class="left">Los Angeles · 72°F · Clear · Lat. 34.07° N</div>
+    <div class="center">Sunday, April 19, 2026 · <a href="#subscribe">Subscribe to The Atlas Dispatch</a></div>
+    <div class="right">Atlas Brief · Section 04 · Construction Costs</div>
+  </div>
+</div>
+
+<!-- ============= SECTION MASTHEAD ============= -->
+<header class="cc-masthead">
+  <div class="cc-masthead-top">
+
+    <!-- Left: editorial title + dek -->
+    <div>
+      <div class="cc-section-label">Atlas Brief / Section 04</div>
+      <h1>Construction<br/><em>Costs</em></h1>
+      <p class="cc-dek">Trade-by-trade breakdowns, honest math on LA multifamily and single-family work, and the numbers the bid sheets don't show you. Every figure comes from an actual job.</p>
+      <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin:0;">
+        By David Safai &nbsp;·&nbsp; Editor &amp; Publisher &nbsp;·&nbsp; Ongoing series
+      </p>
+    </div>
+
+    <!-- Right: hero stat + data cells + image -->
+    <div class="cc-masthead-right">
+      <div class="hero-stat-block">
+        <div class="hero-stat-kicker">LA Type-V Multifamily · $/GSF · Wk of Apr 19</div>
+        <div class="hero-stat-value">$612</div>
+        <div class="hero-stat-label">Per gross square foot, hard costs · All-in, shell + MEP</div>
+        <div class="hero-stat-change">&#9650; 1.4% wk &nbsp;·&nbsp; +8.1% YTD</div>
+        <div class="hero-stat-footnote">Source: Atlas internal · Active LA multifamily jobs · Hard costs only. Excludes land, financing, permits, and soft costs. Updated weekly.</div>
+      </div>
+      <div class="data-micro">
+        <div class="data-micro-cell">
+          <span class="lbl">Concrete $/CY</span>
+          <span class="val">$218</span>
+          <span class="chg up">&#9650; 3.2% wk</span>
+        </div>
+        <div class="data-micro-cell">
+          <span class="lbl">Trades Labor $/hr</span>
+          <span class="val">$72.40</span>
+          <span class="chg up">&#9650; 0.6% wk</span>
+        </div>
+        <div class="data-micro-cell">
+          <span class="lbl">LADBS Days</span>
+          <span class="val">147</span>
+          <span class="chg dn">&#9660; 4 days wk</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Hero image (duotone, 16:9) -->
+  <div style="max-width:var(--maxw);margin:32px auto 0;padding:0 var(--pad-x);">
+    <div style="position:relative;">
+      <img src="/images/brief/cat-construction-costs.jpg"
+           alt="LA construction site — framing, concrete, MEP rough-in"
+           style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:grayscale(100%) sepia(18%) contrast(1.08);border:1px solid var(--rule);" />
+      <div style="position:absolute;bottom:14px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:4px 8px;border:1px solid var(--rule);">
+        Fig. 01 — LA Type-V wood-frame, mid-Wilshire, active job, 2026
+      </div>
+      <div style="position:absolute;top:14px;right:14px;width:10px;height:10px;border-top:1px solid var(--ink);border-right:1px solid var(--ink);"></div>
+    </div>
+  </div>
+
+  <!-- Cost ticker -->
+  <div class="cost-ticker" aria-hidden="true">
+    <div class="cost-ticker-inner">
+      <span><b>TYPE-V·MF</b>$612/GSF<span class="up"> &#9650; 1.4%</span></span>
+      <span><b>PLUMBING·SF</b>$28–$44/SF<span class="up"> &#9650; 0.8%</span></span>
+      <span><b>ELECTRICAL·SF</b>$22–$36/SF<span class="up"> &#9650; 1.1%</span></span>
+      <span><b>HVAC·SF</b>$18–$31/SF<span class="dn"> &#9660; 0.3%</span></span>
+      <span><b>CONCRETE·CY</b>$218<span class="up"> &#9650; 3.2%</span></span>
+      <span><b>ROOFING·SF</b>$9.50–$22<span class="up"> &#9650; 1.8%</span></span>
+      <span><b>SEISMIC·UNIT</b>$12,400–$18,200<span class="up"> &#9650; 2.1%</span></span>
+      <span><b>TRENCH·LF</b>$185–$420<span class="dn"> &#9660; 0.4%</span></span>
+      <span><b>PANEL·UP</b>$4,800–$14,200</span>
+      <span><b>LABOR·HR</b>$72.40<span class="up"> &#9650; 0.6%</span></span>
+      <span><b>LUMBER·1000</b>$486<span class="up"> &#9650; 2.1%</span></span>
+      <!-- repeat for seamless scroll -->
+      <span><b>TYPE-V·MF</b>$612/GSF<span class="up"> &#9650; 1.4%</span></span>
+      <span><b>PLUMBING·SF</b>$28–$44/SF<span class="up"> &#9650; 0.8%</span></span>
+      <span><b>ELECTRICAL·SF</b>$22–$36/SF<span class="up"> &#9650; 1.1%</span></span>
+      <span><b>HVAC·SF</b>$18–$31/SF<span class="dn"> &#9660; 0.3%</span></span>
+      <span><b>CONCRETE·CY</b>$218<span class="up"> &#9650; 3.2%</span></span>
+      <span><b>ROOFING·SF</b>$9.50–$22<span class="up"> &#9650; 1.8%</span></span>
+      <span><b>SEISMIC·UNIT</b>$12,400–$18,200<span class="up"> &#9650; 2.1%</span></span>
+      <span><b>TRENCH·LF</b>$185–$420<span class="dn"> &#9660; 0.4%</span></span>
+      <span><b>PANEL·UP</b>$4,800–$14,200</span>
+      <span><b>LABOR·HR</b>$72.40<span class="up"> &#9650; 0.6%</span></span>
+      <span><b>LUMBER·1000</b>$486<span class="up"> &#9650; 2.1%</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============= PRICE INDEX TABLE ============= -->
+<section class="cc-table-section">
+  <div class="cc-table-header wrap">
+    <div class="cc-table-header-left">
+      <div class="cc-table-section-num">§ I &nbsp;—&nbsp; Cost Guides &amp; Price Reports</div>
+      <h2>The index, in full.</h2>
+    </div>
+    <div class="cc-table-header-right">
+      10 entries &nbsp;·&nbsp; 4 published<br/>
+      <span style="color:var(--accent);">Sorted: Newest</span>
+    </div>
+  </div>
+
+  <!-- Column headers -->
+  <div class="cc-col-heads">
+    <span>№</span>
+    <span class="sortable sorted">Title &nbsp;<span class="sort-arrow">&#9660;</span></span>
+    <span>Subtrade</span>
+    <span class="sortable">Cost Range &nbsp;<span class="sort-arrow">&#9661;</span></span>
+    <span class="sortable" style="justify-content:flex-end;">Date &nbsp;<span class="sort-arrow">&#9661;</span></span>
+  </div>
+
+  <!-- TABLE ROWS -->
+  <div class="cc-table">
+
+    <!-- Row 1 — live article -->
+    <a href="/atlas-brief/westside-plumbing-costs-2026/" class="cc-row live" style="text-decoration:none;color:inherit;">
+      <div class="cc-row-num">№&thinsp;001</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title">Westside Repipe Costs, 2026: What a Real Number Looks Like.</div>
+        <div class="cc-row-dek">Copper versus PEX on a 1,400-SF Westside SFR. What subs actually quoted, what got missed in the bid, and why the final invoice came in 14% above the estimate.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Plumbing</span>
+        <span class="cc-tag">Sitework</span>
+      </div>
+      <div class="cc-row-cost">
+        $18,400–$31,200
+        <span class="cost-note">per full repipe · SFR</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date">Apr 20, 2026</div>
+        <div class="cc-row-status status-live">Live</div>
+      </div>
+    </a>
+
+    <!-- Row 2 — live article -->
+    <a href="/atlas-brief/trenchless-sewer-costs-honest-math/" class="cc-row live" style="text-decoration:none;color:inherit;">
+      <div class="cc-row-num">№&thinsp;002</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title">Trenchless Sewer Costs: Honest Math.</div>
+        <div class="cc-row-dek">Pipe bursting versus open-cut on a 60-foot residential lateral in the Westside. The bid that sold us on trenchless, the invoice that complicated it.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Plumbing</span>
+        <span class="cc-tag active">Sitework</span>
+      </div>
+      <div class="cc-row-cost">
+        $185–$420/LF
+        <span class="cost-note">lateral only · pipe bursting</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date">Apr 12, 2026</div>
+        <div class="cc-row-status status-live">Live</div>
+      </div>
+    </a>
+
+    <!-- Row 3 — live article -->
+    <a href="/atlas-brief/la-panel-upgrade-true-cost/" class="cc-row live" style="text-decoration:none;color:inherit;">
+      <div class="cc-row-num">№&thinsp;003</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title">LA Panel Upgrade: The True Cost.</div>
+        <div class="cc-row-dek">A 200A service upgrade in a 1960s Mid-City fourplex. What LADWP's queue adds to the schedule, why the permit is almost always more expensive than the panel, and the three hidden costs nobody quotes you up front.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Electrical</span>
+      </div>
+      <div class="cc-row-cost">
+        $4,800–$14,200
+        <span class="cost-note">200A service · per unit</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date">Apr 5, 2026</div>
+        <div class="cc-row-status status-live">Live</div>
+      </div>
+    </a>
+
+    <!-- Row 4 — live article -->
+    <a href="/atlas-brief/water-damage-restoration-real-cost/" class="cc-row live" style="text-decoration:none;color:inherit;">
+      <div class="cc-row-num">№&thinsp;004</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title">Water Damage Restoration: The Real Cost.</div>
+        <div class="cc-row-dek">A kitchen supply line failure in a second-floor unit. The mitigation invoice, the reconstruction scope, the gap between what insurance covered and what the job actually cost.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Plumbing</span>
+        <span class="cc-tag">Sitework</span>
+      </div>
+      <div class="cc-row-cost">
+        $8,200–$34,600
+        <span class="cost-note">scope-dependent · MF unit</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date">Mar 28, 2026</div>
+        <div class="cc-row-status status-live">Live</div>
+      </div>
+    </a>
+
+    <!-- Row 5 — placeholder -->
+    <div class="cc-row">
+      <div class="cc-row-num">№&thinsp;005</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title"><em>HVAC Replacement in a Multifamily Building: What You're Actually Buying.</em></div>
+        <div class="cc-row-dek">Mini-split versus central ducted on a 12-unit 1970s apartment. Material, labor, and the soft cost nobody prices at bid time: tenant access coordination.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">HVAC</span>
+      </div>
+      <div class="cc-row-cost">
+        $3,400–$7,800/unit
+        <span class="cost-note">mini-split install · per unit</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date cc-coming">Coming Q3 2026</div>
+        <div class="cc-row-status status-coming">Coming</div>
+      </div>
+    </div>
+
+    <!-- Row 6 — placeholder -->
+    <div class="cc-row">
+      <div class="cc-row-num">№&thinsp;006</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title"><em>Roofing a Flat Deck in Los Angeles: A Line-Item Breakdown.</em></div>
+        <div class="cc-row-dek">TPO versus built-up on a commercial-style parapet deck. The LA-specific drainage requirements that inflate scope, and the inspection cycle that adds three weeks to every job.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Sitework</span>
+      </div>
+      <div class="cc-row-cost">
+        $9.50–$22/SF
+        <span class="cost-note">installed · flat deck · LA</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date cc-coming">Coming Q3 2026</div>
+        <div class="cc-row-status status-coming">Coming</div>
+      </div>
+    </div>
+
+    <!-- Row 7 — placeholder -->
+    <div class="cc-row">
+      <div class="cc-row-num">№&thinsp;007</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide</div>
+        <div class="cc-row-title"><em>Concrete Flatwork and Foundation Repair in Los Angeles: The Honest Number.</em></div>
+        <div class="cc-row-dek">What post-tensioned slab repairs actually cost in hillside conditions versus flat lots. Three jobs, three scopes, one conclusion about why bids vary 40% for identical specs.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Sitework</span>
+      </div>
+      <div class="cc-row-cost">
+        $218/CY pour
+        <span class="cost-note">plus formwork, rebar, pump</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date cc-coming">Coming Q4 2026</div>
+        <div class="cc-row-status status-coming">Coming</div>
+      </div>
+    </div>
+
+    <!-- Row 8 — placeholder -->
+    <div class="cc-row">
+      <div class="cc-row-num">№&thinsp;008</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide · Seismic</div>
+        <div class="cc-row-title"><em>Seismic Retrofit Costs in LA: What the Mandatory Ordinance Is Actually Costing Owners.</em></div>
+        <div class="cc-row-dek">A crawl-space bolt-and-brace on a 1940s SFR versus a cripple-wall retrofit on a 1960s fourplex. Permit fees, engineering, and the three variables that move the bid by $8,000 in either direction.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Sitework</span>
+      </div>
+      <div class="cc-row-cost">
+        $12,400–$18,200
+        <span class="cost-note">per building · bolt + brace</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date cc-coming">Coming Q4 2026</div>
+        <div class="cc-row-status status-coming">Coming</div>
+      </div>
+    </div>
+
+    <!-- Row 9 — placeholder -->
+    <div class="cc-row">
+      <div class="cc-row-num">№&thinsp;009</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide · Seismic</div>
+        <div class="cc-row-title"><em>Soft-Story Retrofit: Four Buildings, Four Invoices, One Honest Assessment.</em></div>
+        <div class="cc-row-dek">The mandatory soft-story program deadline passed. For owners who are behind, what the scope looks like today, what it cost eighteen months ago, and why the delta is mostly labor.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Sitework</span>
+        <span class="cc-tag">Electrical</span>
+      </div>
+      <div class="cc-row-cost">
+        $38,000–$92,000
+        <span class="cost-note">per building · typical LA MF</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date cc-coming">Coming Q1 2027</div>
+        <div class="cc-row-status status-coming">Coming</div>
+      </div>
+    </div>
+
+    <!-- Row 10 — placeholder -->
+    <div class="cc-row">
+      <div class="cc-row-num">№&thinsp;010</div>
+      <div class="cc-row-title-block">
+        <div class="cc-row-eyebrow">Cost Guide · Tenant Improvement</div>
+        <div class="cc-row-title"><em>T&amp;I Costs in LA Multifamily: What a Real Unit Turn Actually Costs in 2026.</em></div>
+        <div class="cc-row-dek">A cosmetic turn versus a full gut-and-repaint on a vacancy in a mid-Wilshire building. The line items that doubled since 2022, and the ones that held. Plus: the cost of doing it wrong the first time.</div>
+      </div>
+      <div class="cc-row-tags">
+        <span class="cc-tag active">Plumbing</span>
+        <span class="cc-tag active">Electrical</span>
+        <span class="cc-tag active">HVAC</span>
+      </div>
+      <div class="cc-row-cost">
+        $6,400–$28,000
+        <span class="cost-note">per unit · scope-dependent</span>
+      </div>
+      <div class="cc-row-meta">
+        <div class="cc-row-date cc-coming">Coming Q1 2027</div>
+        <div class="cc-row-status status-coming">Coming</div>
+      </div>
+    </div>
+
+  </div><!-- /.cc-table -->
+</section>
+
+<!-- ============= FEATURED ESSAYS ============= -->
+<section class="cc-essays">
+  <div class="cc-essays-header wrap">
+    <div class="sec-num">§ II &nbsp;—&nbsp; Featured Essays</div>
+    <h2>Deeper reads on cost.</h2>
+    <div class="right-note">3 selected</div>
+  </div>
+
+  <div class="cc-essay-grid wrap">
+
+    <!-- Essay 1 — Westside Plumbing -->
+    <article class="cc-essay-card">
+      <div class="cc-essay-num">
+        <span>E-01 &nbsp;·&nbsp; Cost Guide</span>
+        <span class="cc-essay-type">Plumbing</span>
+      </div>
+      <h3 class="cc-essay-h">
+        <a href="/atlas-brief/westside-plumbing-costs-2026/">Westside Repipe Costs,&nbsp;2026.</a>
+      </h3>
+      <p class="cc-essay-deck">A line-by-line on copper versus PEX on a 1,400-square-foot Westside single-family job. What subs actually quoted. What got missed in the bid. Why the final invoice came in 14% above the estimate — and what that gap reveals about the current LA plumbing market.</p>
+      <div class="cc-essay-footer">
+        <span><b>D. Safai</b> &nbsp;·&nbsp; 14 min</span>
+        <a href="/atlas-brief/westside-plumbing-costs-2026/" class="cc-essay-read-link">Read &rarr;</a>
+      </div>
+    </article>
+
+    <!-- Essay 2 — Panel Upgrade -->
+    <article class="cc-essay-card">
+      <div class="cc-essay-num">
+        <span>E-02 &nbsp;·&nbsp; Cost Guide</span>
+        <span class="cc-essay-type">Electrical</span>
+      </div>
+      <h3 class="cc-essay-h">
+        <a href="/atlas-brief/la-panel-upgrade-true-cost/">LA Panel Upgrade: The True Cost.</a>
+      </h3>
+      <p class="cc-essay-deck">A 200A service upgrade in a 1960s Mid-City fourplex. What LADWP's queue adds to the schedule, why the permit almost always costs more than the panel, and the three hidden line items nobody quotes you at bid time.</p>
+      <div class="cc-essay-footer">
+        <span><b>D. Safai</b> &nbsp;·&nbsp; 11 min</span>
+        <a href="/atlas-brief/la-panel-upgrade-true-cost/" class="cc-essay-read-link">Read &rarr;</a>
+      </div>
+    </article>
+
+    <!-- Essay 3 — Trenchless Sewer -->
+    <article class="cc-essay-card">
+      <div class="cc-essay-num">
+        <span>E-03 &nbsp;·&nbsp; Cost Guide</span>
+        <span class="cc-essay-type">Plumbing · Sitework</span>
+      </div>
+      <h3 class="cc-essay-h">
+        <a href="/atlas-brief/trenchless-sewer-costs-honest-math/">Trenchless Sewer Costs: Honest&nbsp;Math.</a>
+      </h3>
+      <p class="cc-essay-deck">Pipe bursting versus open-cut on a 60-foot residential lateral in the Westside. The bid that sold us on trenchless, the invoice that complicated the story, and what to expect when the scope changes mid-dig.</p>
+      <div class="cc-essay-footer">
+        <span><b>D. Safai</b> &nbsp;·&nbsp; 9 min</span>
+        <a href="/atlas-brief/trenchless-sewer-costs-honest-math/" class="cc-essay-read-link">Read &rarr;</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============= SEE ALSO — OTHER DESKS ============= -->
+<section class="cc-see-also">
+  <div class="cc-see-also-inner">
+    <div class="cc-see-also-head">
+      <span>Other desks in <span>Atlas Brief</span></span>
+      <span>11 sections total</span>
+    </div>
+    <div class="cc-desks">
+
+      <a href="/atlas-brief/sections/operator-guides/" class="cc-desk" style="text-decoration:none;">
+        <div class="cc-desk-num">08</div>
+        <div class="cc-desk-name">Operator<br/>Guides</div>
+        <div class="cc-desk-note">How-to and field ops for LA property owners. System-by-system.</div>
+      </a>
+
+      <a href="/atlas-brief/sections/development-journal/" class="cc-desk" style="text-decoration:none;">
+        <div class="cc-desk-num">03</div>
+        <div class="cc-desk-name">Development<br/>Journal</div>
+        <div class="cc-desk-note">Active project dispatches from the Atlas development pipeline.</div>
+      </a>
+
+      <a href="/atlas-brief/sections/owners-desk/" class="cc-desk" style="text-decoration:none;">
+        <div class="cc-desk-num">02</div>
+        <div class="cc-desk-name">Owner&rsquo;s<br/>Desk</div>
+        <div class="cc-desk-note">Maintenance, capital planning, and the cost of doing nothing.</div>
+      </a>
+
+      <a href="/atlas-brief/sections/policy/" class="cc-desk" style="text-decoration:none;">
+        <div class="cc-desk-num">05</div>
+        <div class="cc-desk-name">Policy</div>
+        <div class="cc-desk-note">LADBS, ULA, ED1, TOC — what the ordinance changes cost owners in practice.</div>
+      </a>
+
+      <a href="/atlas-brief/sections/market-commentary/" class="cc-desk" style="text-decoration:none;">
+        <div class="cc-desk-num">01</div>
+        <div class="cc-desk-name">Market<br/>Commentary</div>
+        <div class="cc-desk-note">Reading the LA market from the ground up, not from the data terminal down.</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-sections">
+      <div class="fs-head">
+        <div class="fs-k">Atlas Brief · Sections</div>
+        <div class="fs-note">11 sections · Filter the archive</div>
+      </div>
+      <div class="fs-grid">
+        <a href="/atlas-brief/sections/market-commentary/"><span>Market Commentary</span><span class="n">01</span></a>
+        <a href="/atlas-brief/sections/owners-desk/"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
+        <a href="/atlas-brief/sections/development-journal/"><span>Development Journal</span><span class="n">03</span></a>
+        <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs</span><span class="n">04</span></a>
+        <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">05</span></a>
+        <a href="/atlas-brief/sections/comps/"><span>Comps</span><span class="n">06</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">07</span></a>
+        <a href="/atlas-brief/sections/operator-guides/"><span>Operator Guides</span><span class="n">08</span></a>
+        <a href="/atlas-brief/sections/opportunities/"><span>Opportunities</span><span class="n">09</span></a>
+        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">10</span></a>
+        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">11</span></a>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Atlas<br/>Home Pro.</div>
+        <p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p>
+      </div>
+      <div>
+        <h5>Capabilities</h5>
+        <ul>
+          <li><a href="/capabilities/">General Contracting</a></li>
+          <li><a href="/capabilities/">HVAC</a></li>
+          <li><a href="/capabilities/">Plumbing</a></li>
+          <li><a href="/capabilities/">Electrical</a></li>
+          <li><a href="/capabilities/">Painting</a></li>
+          <li><a href="/capabilities/">Water Restoration</a></li>
+          <li><a href="/capabilities/">Gates &amp; Garage Doors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>The Company</h5>
+        <ul>
+          <li><a href="/about/">About David Safai</a></li>
+          <li><a href="/atlas-brief/">Atlas Brief</a></li>
+          <li><a href="/areas/">Service Areas</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Office</h5>
+        <p>145 S Fairfax Avenue, Suite 200</p>
+        <p>Los Angeles, California 90036</p>
+        <p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p>
+        <p class="m">(213) 275-2210</p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© MMXXVI Atlas Home Builders, Inc.</span>
+      <span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const b = document.getElementById('burger');
+  const m = document.getElementById('mm');
+  b.addEventListener('click', () => { b.classList.toggle('open'); m.classList.toggle('open'); });
+
+  // Table row sort (visual, client-side)
+  const sortableCols = document.querySelectorAll('.cc-col-heads .sortable');
+  sortableCols.forEach(col => {
+    col.addEventListener('click', () => {
+      sortableCols.forEach(c => c.classList.remove('sorted'));
+      col.classList.add('sorted');
+    });
+  });
+</script>
+
+</body>
+</html>
