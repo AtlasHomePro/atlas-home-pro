@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atlas Home Pro — Plumbing Pricing</title>
+<title>Atlas Home Pro, Plumbing Pricing</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -110,7 +110,7 @@ td.p{color:var(--purple);font-weight:600}
   <div style="display:flex;align-items:center;gap:12px">
     <div>
       <div class="h-title">🔧 Plumbing Pricing</div>
-      <div class="h-sub">Atlas Home Pro — Ops Portal</div>
+      <div class="h-sub">Atlas Home Pro, Ops Portal</div>
     </div>
     <span class="h-badge">Internal Use Only</span>
   </div>
@@ -142,7 +142,7 @@ td.p{color:var(--purple);font-weight:600}
       <div>
         <label class="fl">Service Category</label>
         <select id="svcCat" onchange="onCatChange()">
-          <option value="">— Pick category —</option>
+          <option value="">,  Pick category , </option>
           <option value="drain">🚿 Drain Cleaning & Sewer</option>
           <option value="wh">🔥 Water Heaters</option>
           <option value="fixture">🚰 Fixtures & Faucets</option>
@@ -153,7 +153,7 @@ td.p{color:var(--purple);font-weight:600}
       <div>
         <label class="fl">Specific Service</label>
         <select id="svcId" onchange="onSvcChange()">
-          <option value="">— Pick category first —</option>
+          <option value="">,  Pick category first , </option>
         </select>
       </div>
     </div>
@@ -166,18 +166,18 @@ td.p{color:var(--purple);font-weight:600}
       <div class="grid3" style="margin-top:8px">
         <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')">
           <div class="t-label g">Good</div>
-          <div class="t-price g" id="tGoodPrice">—</div>
-          <div class="t-desc g" id="tGoodDesc">—</div>
+          <div class="t-price g" id="tGoodPrice">, </div>
+          <div class="t-desc g" id="tGoodDesc">, </div>
         </div>
         <div class="tier-card" id="tcBetter" onclick="selTier('better')">
           <div class="t-label b">Better</div>
-          <div class="t-price b" id="tBetterPrice">—</div>
-          <div class="t-desc b" id="tBetterDesc">—</div>
+          <div class="t-price b" id="tBetterPrice">, </div>
+          <div class="t-desc b" id="tBetterDesc">, </div>
         </div>
         <div class="tier-card" id="tcBest" onclick="selTier('best')">
           <div class="t-label p">Best</div>
-          <div class="t-price p" id="tBestPrice">—</div>
-          <div class="t-desc p" id="tBestDesc">—</div>
+          <div class="t-price p" id="tBestPrice">, </div>
+          <div class="t-desc p" id="tBestDesc">, </div>
         </div>
       </div>
     </div>
@@ -231,13 +231,13 @@ td.p{color:var(--purple);font-weight:600}
     <div class="quote-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
         <div>
-          <div class="q-label" id="qLabel">—</div>
+          <div class="q-label" id="qLabel">, </div>
           <div class="q-price" id="qPrice">$0</div>
-          <div class="q-range" id="qRange">—</div>
+          <div class="q-range" id="qRange">, </div>
         </div>
         <div style="text-align:right">
-          <span class="mbadge" id="mBadge">—</span>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">—</div>
+          <span class="mbadge" id="mBadge">, </span>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">, </div>
         </div>
       </div>
       <div class="q-tier-desc" id="qTierDesc"></div>
@@ -260,7 +260,7 @@ td.p{color:var(--purple);font-weight:600}
 
 <!-- ═══ TAB 2: QUICK REFERENCE ═══ -->
 <div class="tc" id="tab-quickref">
-  <div class="sec-title">📋 Quick Reference — All Plumbing Services</div>
+  <div class="sec-title">📋 Quick Reference, All Plumbing Services</div>
   <div class="sec-sub">Good / Better / Best at a glance. Full details in the calculator.</div>
 
   <div style="margin-bottom:12px;font-size:13px;font-weight:600;color:var(--navy)">🚿 Drain Cleaning & Sewer</div>
@@ -286,27 +286,27 @@ td.p{color:var(--purple);font-weight:600}
       <thead><tr><th>Type / Size</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Margin</th><th>Tech Notes</th></tr></thead>
       <tbody>
         <tr><td><strong>WH Repair (all types)</strong></td><td class="g">$285</td><td class="b">$395</td><td class="p">$595</td><td><span class="badge bg">72%</span></td><td style="font-size:11px">Always quote repair vs replace. 10+ years = replacement conversation. Sediment buildup on tank = flush included in Better/Best.</td></tr>
-        <tr><td><strong>Tank Gas — 30–40 gal</strong></td><td class="g">$1,799</td><td class="b">$2,100</td><td class="p">$2,600</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">Most common. Bradford White preferred. Check gas line and expansion tank. Permit required in LA.</td></tr>
-        <tr><td><strong>Tank Gas — 50 gal</strong></td><td class="g">$2,150</td><td class="b">$2,495</td><td class="p">$2,995</td><td><span class="badge ba">51%</span></td><td style="font-size:11px">Standard for 3-4BR home. Tight closets = difficult access rate.</td></tr>
-        <tr><td><strong>Tank Gas — 75–80 gal (estate)</strong></td><td class="g">$2,700</td><td class="b">$3,200</td><td class="p">$3,895</td><td><span class="badge ba">50%</span></td><td style="font-size:11px">Beverly Hills / Bel Air standard. Often needs dedicated gas line check.</td></tr>
-        <tr><td><strong>Tankless Gas — up to 9.5 GPM</strong></td><td class="g">$3,499</td><td class="b">$4,200</td><td class="p">$5,200</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">Navien or Rinnai preferred. Requires gas line sizing. Venting assessment critical.</td></tr>
-        <tr><td><strong>Tankless Gas — 10–11 GPM</strong></td><td class="g">$4,500</td><td class="b">$5,200</td><td class="p">$6,200</td><td><span class="badge ba">47%</span></td><td style="font-size:11px">Multiple bath homes. Flow rate calculation required. Annual descaling plan.</td></tr>
-        <tr><td><strong>Tankless Gas — 11+ GPM (estate)</strong></td><td class="g">$5,800</td><td class="b">$7,200</td><td class="p">$8,500</td><td><span class="badge ba">46%</span></td><td style="font-size:11px">Estate tier. Often need recirculation pump. Navien NPE-240A or equiv.</td></tr>
+        <tr><td><strong>Tank Gas, 30-40 gal</strong></td><td class="g">$1,799</td><td class="b">$2,100</td><td class="p">$2,600</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">Most common. Bradford White preferred. Check gas line and expansion tank. Permit required in LA.</td></tr>
+        <tr><td><strong>Tank Gas, 50 gal</strong></td><td class="g">$2,150</td><td class="b">$2,495</td><td class="p">$2,995</td><td><span class="badge ba">51%</span></td><td style="font-size:11px">Standard for 3-4BR home. Tight closets = difficult access rate.</td></tr>
+        <tr><td><strong>Tank Gas, 75-80 gal (estate)</strong></td><td class="g">$2,700</td><td class="b">$3,200</td><td class="p">$3,895</td><td><span class="badge ba">50%</span></td><td style="font-size:11px">Beverly Hills / Bel Air standard. Often needs dedicated gas line check.</td></tr>
+        <tr><td><strong>Tankless Gas, up to 9.5 GPM</strong></td><td class="g">$3,499</td><td class="b">$4,200</td><td class="p">$5,200</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">Navien or Rinnai preferred. Requires gas line sizing. Venting assessment critical.</td></tr>
+        <tr><td><strong>Tankless Gas, 10-11 GPM</strong></td><td class="g">$4,500</td><td class="b">$5,200</td><td class="p">$6,200</td><td><span class="badge ba">47%</span></td><td style="font-size:11px">Multiple bath homes. Flow rate calculation required. Annual descaling plan.</td></tr>
+        <tr><td><strong>Tankless Gas, 11+ GPM (estate)</strong></td><td class="g">$5,800</td><td class="b">$7,200</td><td class="p">$8,500</td><td><span class="badge ba">46%</span></td><td style="font-size:11px">Estate tier. Often need recirculation pump. Navien NPE-240A or equiv.</td></tr>
         <tr><td><strong>Heat Pump Hybrid</strong></td><td class="g">$2,800</td><td class="b">$3,500</td><td class="p">$4,200</td><td><span class="badge ba">50%</span></td><td style="font-size:11px">Rheem ProTerra or equiv. Needs 10 sq ft clearance. IRA 30% credit up to $2K. Check electrical capacity.</td></tr>
         <tr><td><strong>Water Heater Flush</strong></td><td class="g">$199</td><td class="b">$249</td><td class="p">$349</td><td><span class="badge bg">82%</span></td><td style="font-size:11px">Best annual maintenance upsell. Extends tank life 3-5 years. Include in every WH repair visit.</td></tr>
       </tbody>
     </table>
   </div>
   <div class="card">
-    <div style="font-weight:600;font-size:14px;margin-bottom:12px">Sizing Guide — Which WH for Which Home</div>
+    <div style="font-weight:600;font-size:14px;margin-bottom:12px">Sizing Guide, Which WH for Which Home</div>
     <table>
       <thead><tr><th>Home Size</th><th>Bedrooms</th><th>Recommended Type</th><th>Best Fit</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>Condo / Small Apt</td><td>1–2 BR</td><td>Tank 30–40 gal</td><td>$1,799–$2,100</td><td style="font-size:11px">Check water pressure. Expansion tank often needed in closed systems.</td></tr>
-        <tr><td>Standard Westside Home</td><td>3–4 BR</td><td>Tank 50 gal or Tankless 9.5 GPM</td><td>$2,150–$4,200</td><td style="font-size:11px">Tankless upsell strong here — "endless hot water for your family."</td></tr>
-        <tr><td>Larger Home / Multi-Bath</td><td>4–5 BR</td><td>Tankless 10–11 GPM</td><td>$4,500–$6,200</td><td style="font-size:11px">Two showers simultaneously = need 10+ GPM. Calculate flow rate before quoting.</td></tr>
-        <tr><td>Beverly Hills / Bel Air Estate</td><td>5+ BR</td><td>Tankless 11+ GPM + Recirc</td><td>$5,800–$9,500</td><td style="font-size:11px">Recirculation pump essential. Guest house may need separate unit.</td></tr>
-        <tr><td>Eco / Upgrade Play</td><td>Any</td><td>Hybrid Heat Pump</td><td>$2,800–$4,200</td><td style="font-size:11px">IRA credit + utility rebates. Best pitch to sustainability-minded homeowners.</td></tr>
+        <tr><td>Condo / Small Apt</td><td>1-2 BR</td><td>Tank 30-40 gal</td><td>$1,799-$2,100</td><td style="font-size:11px">Check water pressure. Expansion tank often needed in closed systems.</td></tr>
+        <tr><td>Standard Westside Home</td><td>3-4 BR</td><td>Tank 50 gal or Tankless 9.5 GPM</td><td>$2,150-$4,200</td><td style="font-size:11px">Tankless upsell strong here, "endless hot water for your family."</td></tr>
+        <tr><td>Larger Home / Multi-Bath</td><td>4-5 BR</td><td>Tankless 10-11 GPM</td><td>$4,500-$6,200</td><td style="font-size:11px">Two showers simultaneously = need 10+ GPM. Calculate flow rate before quoting.</td></tr>
+        <tr><td>Beverly Hills / Bel Air Estate</td><td>5+ BR</td><td>Tankless 11+ GPM + Recirc</td><td>$5,800-$9,500</td><td style="font-size:11px">Recirculation pump essential. Guest house may need separate unit.</td></tr>
+        <tr><td>Eco / Upgrade Play</td><td>Any</td><td>Hybrid Heat Pump</td><td>$2,800-$4,200</td><td style="font-size:11px">IRA credit + utility rebates. Best pitch to sustainability-minded homeowners.</td></tr>
       </tbody>
     </table>
   </div>
@@ -315,16 +315,16 @@ td.p{color:var(--purple);font-weight:600}
 <!-- ═══ TAB 4: COMPETITOR INTEL ═══ -->
 <div class="tc" id="tab-intel">
   <div class="sec-title">🔍 Plumbing Competitor Intelligence</div>
-  <div class="sec-sub">Westside LA market — April 2026. Know this going into every job.</div>
+  <div class="sec-sub">Westside LA market, April 2026. Know this going into every job.</div>
   <div class="card" style="margin-bottom:16px">
     <table>
       <thead><tr><th>Competitor</th><th>Threat</th><th>Google</th><th>Yelp</th><th>CSLB</th><th>Key Vulnerability</th></tr></thead>
       <tbody>
         <tr><td><strong>A-1 Total Service</strong></td><td><span class="badge br">VERY HIGH</span></td><td>4.6 / 1,912+</td><td>4.7 / ~900</td><td>#PE-backed ✅</td><td style="font-size:11px">Zero published prices = #1 negative review theme. PE-backed Gryphon $10B. Post-PE Indeed 3.0/5.0. Beverly Hills page live Aug 2025. Can't match on transparency.</td></tr>
-        <tr><td><strong>Western Rooter</strong></td><td><span class="badge br">HIGH</span></td><td>4.9 / 3,587+</td><td>4.9 / high</td><td style="color:var(--red);font-weight:600">#725320 EXP 6/30/26!</td><td style="font-size:11px">Arcadia base — 30+ min to core territory. Best-run competitor. Check license June 2026.</td></tr>
-        <tr><td><strong>Flood Brothers</strong></td><td><span class="badge br">HIGH</span></td><td>4.9 / 2,089+</td><td>4.9 / high</td><td>#active ✅</td><td style="font-size:11px">Studio City base — 30-45 min to territory. No online booking, no financing, no trenchless. Blog stalled Nov 2024.</td></tr>
-        <tr><td><strong>Mr. Speedy</strong></td><td><span class="badge ba">MEDIUM</span></td><td>4.8 / mid</td><td>4.8 / mid</td><td>#active ✅</td><td style="font-size:11px">WeHo anchor. PM relationships. $299 disposal (volume play). Small op — Atlas outscales quickly.</td></tr>
-        <tr><td><strong>Right Price Rooter</strong></td><td><span class="badge ba">MEDIUM</span></td><td>5.0 / 390</td><td>5.0 / high</td><td style="color:var(--red);font-weight:600">#645613 EXP 5/31/26!</td><td style="font-size:11px">Glendale base. $0 diagnostic model — applied toward repair. Check license May 2026.</td></tr>
+        <tr><td><strong>Western Rooter</strong></td><td><span class="badge br">HIGH</span></td><td>4.9 / 3,587+</td><td>4.9 / high</td><td style="color:var(--red);font-weight:600">#725320 EXP 6/30/26!</td><td style="font-size:11px">Arcadia base, 30+ min to core territory. Best-run competitor. Check license June 2026.</td></tr>
+        <tr><td><strong>Flood Brothers</strong></td><td><span class="badge br">HIGH</span></td><td>4.9 / 2,089+</td><td>4.9 / high</td><td>#active ✅</td><td style="font-size:11px">Studio City base, 30-45 min to territory. No online booking, no financing, no trenchless. Blog stalled Nov 2024.</td></tr>
+        <tr><td><strong>Mr. Speedy</strong></td><td><span class="badge ba">MEDIUM</span></td><td>4.8 / mid</td><td>4.8 / mid</td><td>#active ✅</td><td style="font-size:11px">WeHo anchor. PM relationships. $299 disposal (volume play). Small op, Atlas outscales quickly.</td></tr>
+        <tr><td><strong>Right Price Rooter</strong></td><td><span class="badge ba">MEDIUM</span></td><td>5.0 / 390</td><td>5.0 / high</td><td style="color:var(--red);font-weight:600">#645613 EXP 5/31/26!</td><td style="font-size:11px">Glendale base. $0 diagnostic model, applied toward repair. Check license May 2026.</td></tr>
         <tr><td><strong>Mike Diamond</strong></td><td><span class="badge ba">MEDIUM</span></td><td>2.3 / low</td><td>1.4 / low</td><td>#active</td><td style="font-size:11px">Terrible ratings. Heavy radio spend. Their reviews are Atlas's best recruiting tool for customers.</td></tr>
         <tr><td><strong>Roto-Rooter</strong></td><td><span class="badge bg">LOW</span></td><td>2.3 / national</td><td>1.5 / low</td><td>#national</td><td style="font-size:11px">Cannot compete on trust or quality. Brand name only. Their reviews are a gift.</td></tr>
       </tbody>
@@ -338,29 +338,29 @@ td.p{color:var(--purple);font-weight:600}
     <div style="font-size:13px;line-height:1.9">
       <strong>1.</strong> "Our prices are published at atlashomepro.com/pricing before you call. What you see is what you pay."<br>
       <strong>2.</strong> "The price we quote before we start is the maximum you pay. If the job takes less, you pay less."<br>
-      <strong>3.</strong> "Get a lower written estimate from any CSLB-licensed plumber for the same job — we match it."
+      <strong>3.</strong> "Get a lower written estimate from any CSLB-licensed plumber for the same job, we match it."
     </div>
   </div>
 </div>
 
 <!-- ═══ TAB 5: SERVICE GUIDES ═══ -->
 <div class="tc" id="tab-guides">
-  <div class="sec-title">📖 Service Guides — Tech Reference</div>
+  <div class="sec-title">📖 Service Guides, Tech Reference</div>
   <div class="sec-sub">What to check, what to say, and what to upsell on every common job type.</div>
   <div class="grid2">
     <div class="card">
-      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚿 Drain Cleaning — Job Checklist</div>
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚿 Drain Cleaning, Job Checklist</div>
       <div style="font-size:12px;line-height:1.9">
         <strong>On arrival:</strong> Ask when it last backed up, how many drains affected, any recent work done.<br>
-        <strong>Branch line ($119–$549):</strong> Single drain — cable first. If no movement at 50ft = main line issue.<br>
-        <strong>Main line ($225–$495):</strong> Multiple drains or recurring = main. Always run camera after clearing.<br>
-        <strong>Hydro jet ($425–$695):</strong> Grease/scale buildup, roots. Quote before — not an upgrade mid-job.<br>
+        <strong>Branch line ($119-$549):</strong> Single drain, cable first. If no movement at 50ft = main line issue.<br>
+        <strong>Main line ($225-$495):</strong> Multiple drains or recurring = main. Always run camera after clearing.<br>
+        <strong>Hydro jet ($425-$695):</strong> Grease/scale buildup, roots. Quote before, not an upgrade mid-job.<br>
         <strong>Red flags:</strong> Multiple drains at once = main line, not branch rate. Roof access = 2-man job.<br>
         <strong>Upsells:</strong> Camera inspection +$149, Maintenance plan +$199/yr, Annual hydro jet.
       </div>
     </div>
     <div class="card">
-      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔥 Water Heater — Job Checklist</div>
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔥 Water Heater, Job Checklist</div>
       <div style="font-size:12px;line-height:1.9">
         <strong>On arrival:</strong> Age of unit, symptoms (no hot water / lukewarm / noise / leak), gas or electric.<br>
         <strong>Repair triggers:</strong> Thermocouple, anode rod, element, T&P valve. Under 10 years = repair.<br>
@@ -371,9 +371,9 @@ td.p{color:var(--purple);font-weight:600}
       </div>
     </div>
     <div class="card">
-      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">💧 Leak Detection — Job Checklist</div>
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">💧 Leak Detection, Job Checklist</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>Electronic detection ($275–$550):</strong> Non-invasive. Locates to within 6 inches. Always written report.<br>
+        <strong>Electronic detection ($275-$550):</strong> Non-invasive. Locates to within 6 inches. Always written report.<br>
         <strong>Slab leak ($399 flat):</strong> Includes detection and written findings. Repair quoted separately.<br>
         <strong>Hot spot test:</strong> If slab leak suspected, infrared camera shows heat signature from hot line leak.<br>
         <strong>Slab repair options:</strong> Spot repair (open slab), reroute (through walls), epoxy lining.<br>
@@ -382,36 +382,36 @@ td.p{color:var(--purple);font-weight:600}
       </div>
     </div>
     <div class="card">
-      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">⚡ Gas Line — Job Checklist</div>
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">⚡ Gas Line, Job Checklist</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>ALWAYS:</strong> C-36 license required for gas work. Never guess on gas — leak test before and after.<br>
-        <strong>Gas leak detection ($375–$750):</strong> Electronic detector + pressure test. Document everything.<br>
-        <strong>Earthquake shutoff ($425 installed):</strong> Seismic shutoff valve — required in some LA zones.<br>
+        <strong>ALWAYS:</strong> C-36 license required for gas work. Never guess on gas, leak test before and after.<br>
+        <strong>Gas leak detection ($375-$750):</strong> Electronic detector + pressure test. Document everything.<br>
+        <strong>Earthquake shutoff ($425 installed):</strong> Seismic shutoff valve, required in some LA zones.<br>
         <strong>Gas line repair:</strong> Must be permitted and inspected in LA County. Add $200 for permit.<br>
         <strong>Red flags:</strong> Smell of gas = emergency. Evacuate first, call from outside, then call us.<br>
         <strong>Upsells:</strong> CSST bonding if present, Seismic shutoff, Whole-home gas pressure test.
       </div>
     </div>
     <div class="card">
-      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚽 Toilet — Job Checklist</div>
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚽 Toilet, Job Checklist</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>Repair ($185–$395):</strong> Flapper, fill valve, flush valve, handle, supply line, wax ring.<br>
-        <strong>Replace ($395–$895):</strong> Running constantly + 15+ years old = replace conversation.<br>
+        <strong>Repair ($185-$395):</strong> Flapper, fill valve, flush valve, handle, supply line, wax ring.<br>
+        <strong>Replace ($395-$895):</strong> Running constantly + 15+ years old = replace conversation.<br>
         <strong>Rocking toilet:</strong> Check flange first. Cracked flange = extra cost. Quote before starting.<br>
         <strong>Water on floor:</strong> Could be wax ring OR cracked bowl. Diagnose before quoting repair.<br>
-        <strong>Bidet upsell:</strong> Add $95–$195 for bidet seat installation on replacement jobs.<br>
+        <strong>Bidet upsell:</strong> Add $95-$195 for bidet seat installation on replacement jobs.<br>
         <strong>Upsells:</strong> Angle stop replacement +$185, Bidet seat, Comfort height upgrade on replace.
       </div>
     </div>
     <div class="card">
-      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔩 Repiping — Job Checklist</div>
+      <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔩 Repiping, Job Checklist</div>
       <div style="font-size:12px;line-height:1.9">
         <strong>Triggers:</strong> Galvanized pipe (pre-1960), multiple pinhole leaks, low pressure, rust in water.<br>
         <strong>PEX is standard:</strong> Flexible, faster install, lower cost than copper. 25-year warranty.<br>
-        <strong>Copper premium:</strong> Some BH homeowners prefer copper — quote accordingly (+20-30%).<br>
+        <strong>Copper premium:</strong> Some BH homeowners prefer copper, quote accordingly (+20-30%).<br>
         <strong>Staging:</strong> Can be done room by room to minimize disruption. Phase billing available.<br>
         <strong>Permit:</strong> Always required for whole-home repipe. LADBS inspection at completion.<br>
-        <strong>GetHearth:</strong> Always mention financing on repipes — these are $8K–$25K jobs.
+        <strong>GetHearth:</strong> Always mention financing on repipes, these are $8K-$25K jobs.
       </div>
     </div>
   </div>

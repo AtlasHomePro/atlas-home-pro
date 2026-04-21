@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atlas Home Pro — Gates & Garage Doors Pricing</title>
+<title>Atlas Home Pro, Gates & Garage Doors Pricing</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -77,7 +77,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
 <body>
 <div class="header">
   <div style="display:flex;align-items:center;gap:12px">
-    <div><div style="font-size:15px;font-weight:700;color:#fff">🚪 Gates & Garage Door Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro — Ops Portal</div></div>
+    <div><div style="font-size:15px;font-weight:700;color:#fff">🚪 Gates & Garage Door Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro, Ops Portal</div></div>
     <span class="h-badge">Internal Use Only</span>
   </div>
   <div class="trade-nav">
@@ -104,7 +104,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
       <div>
         <label class="fl">Service Category</label>
         <select id="svcCat" onchange="onCatChange()">
-          <option value="">— Pick category —</option>
+          <option value="">,  Pick category , </option>
           <option value="garage_repair">🚗 Garage Door Repair</option>
           <option value="garage_install">🔧 Garage Door Installation</option>
           <option value="gate_repair">🚪 Electric Gate Repair</option>
@@ -114,7 +114,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
       </div>
       <div>
         <label class="fl">Specific Service</label>
-        <select id="svcId" onchange="onSvcChange()"><option value="">— Pick category first —</option></select>
+        <select id="svcId" onchange="onSvcChange()"><option value="">,  Pick category first , </option></select>
       </div>
     </div>
   </div>
@@ -122,9 +122,9 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
     <div class="card" style="margin-bottom:16px">
       <label class="fl">Service Tier</label>
       <div class="grid3" style="margin-top:8px">
-        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">—</div><div class="t-desc g" id="tGoodDesc">—</div></div>
-        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">—</div><div class="t-desc b" id="tBetterDesc">—</div></div>
-        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">—</div><div class="t-desc p" id="tBestDesc">—</div></div>
+        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">, </div><div class="t-desc g" id="tGoodDesc">, </div></div>
+        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">, </div><div class="t-desc b" id="tBetterDesc">, </div></div>
+        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">, </div><div class="t-desc p" id="tBestDesc">, </div></div>
       </div>
     </div>
     <div class="card" style="margin-bottom:16px">
@@ -153,8 +153,8 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
     </div>
     <div class="quote-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div><div class="q-label" id="qLabel">—</div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">—</div></div>
-        <div style="text-align:right"><span class="mbadge" id="mBadge">—</span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">—</div></div>
+        <div><div class="q-label" id="qLabel">, </div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">, </div></div>
+        <div style="text-align:right"><span class="mbadge" id="mBadge">, </span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">, </div></div>
       </div>
       <div class="q-tier-desc" id="qTierDesc"></div>
       <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px" id="qBreakdown"></div>
@@ -172,14 +172,14 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
 
 <!-- QUICK REF -->
 <div class="tc" id="tab-quickref">
-  <div class="sec-title">📋 Quick Reference — All Gate & Garage Services</div>
+  <div class="sec-title">📋 Quick Reference, All Gate & Garage Services</div>
   <div class="sec-sub">Good / Better / Best at a glance. Emergency rates 2× standard labor.</div>
   <div class="card">
     <table>
       <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Margin</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><strong>Spring Repair (1 spring)</strong></td><td class="g">$195</td><td class="b">$275</td><td class="p">$375</td><td><span class="badge bg">72%</span></td><td style="font-size:11px">Replace both springs while there — always recommend. Lifetime warranty on Best tier.</td></tr>
-        <tr><td><strong>Spring Repair (both springs)</strong></td><td class="g">$295</td><td class="b">$395</td><td class="p">$495</td><td><span class="badge bg">70%</span></td><td style="font-size:11px">Best value — one spring failing means the other is close. Standard pitch on every spring job.</td></tr>
+        <tr><td><strong>Spring Repair (1 spring)</strong></td><td class="g">$195</td><td class="b">$275</td><td class="p">$375</td><td><span class="badge bg">72%</span></td><td style="font-size:11px">Replace both springs while there, always recommend. Lifetime warranty on Best tier.</td></tr>
+        <tr><td><strong>Spring Repair (both springs)</strong></td><td class="g">$295</td><td class="b">$395</td><td class="p">$495</td><td><span class="badge bg">70%</span></td><td style="font-size:11px">Best value, one spring failing means the other is close. Standard pitch on every spring job.</td></tr>
         <tr><td><strong>Opener Repair</strong></td><td class="g">$225</td><td class="b">$325</td><td class="p">$425</td><td><span class="badge bg">75%</span></td><td style="font-size:11px">Diagnose board vs. drive vs. motor. Board replacement = often cheaper to replace opener.</td></tr>
         <tr><td><strong>Opener Replacement</strong></td><td class="g">$395</td><td class="b">$545</td><td class="p">$795</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Liftmaster preferred. Wi-Fi enabled = Good standard. Battery backup = Better/Best. Good upsell.</td></tr>
         <tr><td><strong>Cable Repair</strong></td><td class="g">$185</td><td class="b">$265</td><td class="p">$345</td><td><span class="badge bg">74%</span></td><td style="font-size:11px">Replace both cables while there. Check drums and springs when cable is off.</td></tr>
@@ -187,7 +187,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
         <tr><td><strong>Panel Replacement</strong></td><td class="g">$275</td><td class="b">$450</td><td class="p">$695</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Match existing panels. Multiple panels = full door replacement often better value.</td></tr>
         <tr><td><strong>Remote Programming</strong></td><td class="g">$95</td><td class="b">$125</td><td class="p">$195</td><td><span class="badge bg">88%</span></td><td style="font-size:11px">High margin. Add keypad programming to every opener job. Quick upsell.</td></tr>
         <tr><td><strong>Annual Tune-Up</strong></td><td class="g">$125</td><td class="b">$175</td><td class="p">$249</td><td><span class="badge bg">80%</span></td><td style="font-size:11px">Lubrication, balance test, safety test, hardware tighten, opener force test. Pitch annual plan.</td></tr>
-        <tr><td><strong>Electric Gate Repair</strong></td><td class="g">$275</td><td class="b">$450</td><td class="p">$750</td><td><span class="badge ba">65%</span></td><td style="font-size:11px">Diagnose motor vs. control board vs. sensor vs. intercom. Board = expensive — get part cost first.</td></tr>
+        <tr><td><strong>Electric Gate Repair</strong></td><td class="g">$275</td><td class="b">$450</td><td class="p">$750</td><td><span class="badge ba">65%</span></td><td style="font-size:11px">Diagnose motor vs. control board vs. sensor vs. intercom. Board = expensive, get part cost first.</td></tr>
         <tr><td><strong>Gate Motor Replacement</strong></td><td class="g">$895</td><td class="b">$1,295</td><td class="p">$1,895</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">LiftMaster or Viking preferred. Match existing if replacement. Always 2-year warranty on motor.</td></tr>
         <tr><td><strong>Custom Gate Install</strong></td><td class="g">$3,500</td><td class="b">$6,500</td><td class="p">$12,000+</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">Always site assess first. Beverly Hills = always Best tier minimum. Permit required.</td></tr>
         <tr><td><strong>Access Control Install</strong></td><td class="g">$495</td><td class="b">$895</td><td class="p">$1,895</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Keypad vs intercom vs camera+app integration. Beverly Hills = camera + app standard.</td></tr>
@@ -198,14 +198,14 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
 
 <!-- SERVICE GUIDES -->
 <div class="tc" id="tab-guides">
-  <div class="sec-title">📖 Service Guides — Tech Reference</div>
+  <div class="sec-title">📖 Service Guides, Tech Reference</div>
   <div class="sec-sub">What to check, what to say, what to upsell on every gate and garage job.</div>
   <div class="grid2">
     <div class="card">
       <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🔧 Garage Door Spring Guide</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>Torsion springs (above door):</strong> Most common in LA. One or two springs. ALWAYS replace both when one breaks — the other is at end of life.<br>
-        <strong>Extension springs (sides):</strong> Older homes. Replace with torsion if possible — safer and lasts longer. Upgrade pitch.<br>
+        <strong>Torsion springs (above door):</strong> Most common in LA. One or two springs. ALWAYS replace both when one breaks, the other is at end of life.<br>
+        <strong>Extension springs (sides):</strong> Older homes. Replace with torsion if possible, safer and lasts longer. Upgrade pitch.<br>
         <strong>Cycle ratings:</strong> Standard = 10,000 cycles. Heavy duty = 25,000. High-cycle = 50,000 (estate/commercial). Always quote heavy duty or high-cycle on Best tier.<br>
         <strong>Safety cable:</strong> Extension springs MUST have safety cables. If missing, add to every quote.
       </div>
@@ -216,15 +216,15 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
         <strong>Drive types:</strong> Chain (noisy, cheap), Belt (quiet, mid), Direct drive (quietest, premium). Beverly Hills = always belt or direct drive.<br>
         <strong>Horsepower:</strong> 1/2 HP for standard, 3/4 HP for heavy or insulated doors, 1 HP+ for commercial.<br>
         <strong>LiftMaster is preferred brand:</strong> myQ app integration, battery backup option, safety sensors standard.<br>
-        <strong>Battery backup:</strong> $50 part, $30 labor — always include in Better/Best. LA power outages = stranded cars without it.
+        <strong>Battery backup:</strong> $50 part, $30 labor, always include in Better/Best. LA power outages = stranded cars without it.
       </div>
     </div>
     <div class="card">
       <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🚪 Electric Gate Diagnosis Guide</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>Motor not running:</strong> Check power first, then capacitor, then motor windings, then control board. Board replacement is expensive — get part cost before quoting repair.<br>
+        <strong>Motor not running:</strong> Check power first, then capacitor, then motor windings, then control board. Board replacement is expensive, get part cost before quoting repair.<br>
         <strong>Gate moves slow/jerky:</strong> Check battery backup if solar, lubricate drive mechanism, check limit switches.<br>
-        <strong>Gate won't close fully:</strong> Limit switch or obstruction sensor. Often a 10-minute fix — quote accordingly.<br>
+        <strong>Gate won't close fully:</strong> Limit switch or obstruction sensor. Often a 10-minute fix, quote accordingly.<br>
         <strong>Safety sensors:</strong> Mandatory on all electric gates. If missing or damaged = always replace as part of any repair.
       </div>
     </div>
@@ -234,8 +234,8 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
         <strong>Always Best tier minimum</strong> for BH, Bel Air, Brentwood estate work.<br>
         <strong>Custom gates:</strong> Always site assess. Iron/steel vs. aluminum vs. wood. HOA approval may be needed.<br>
         <strong>Access control:</strong> Intercom with camera + smartphone app is the standard. Ring or DoorBird preferred.<br>
-        <strong>Permit:</strong> Required for new gate installation in LA. Add $200–$300 to quote.<br>
-        <strong>Lubrication type:</strong> Use white lithium grease on springs and hinges. Silicone spray on rubber seals. Never WD-40 — it attracts dirt.
+        <strong>Permit:</strong> Required for new gate installation in LA. Add $200-$300 to quote.<br>
+        <strong>Lubrication type:</strong> Use white lithium grease on springs and hinges. Silicone spray on rubber seals. Never WD-40, it attracts dirt.
       </div>
     </div>
   </div>

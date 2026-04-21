@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atlas Home Pro — HVAC Pricing</title>
+<title>Atlas Home Pro, HVAC Pricing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -112,7 +112,7 @@ td.p{color:#7C3AED;font-weight:600}
   <div class="header-left">
     <div>
       <div class="header h1" style="font-size:15px;font-weight:700;color:#fff">❄️ HVAC Pricing</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro — Ops Portal</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro, Ops Portal</div>
     </div>
     <span class="header-badge">Internal Use Only</span>
   </div>
@@ -148,13 +148,13 @@ td.p{color:#7C3AED;font-weight:600}
       <div>
         <label class="field-label" style="margin-bottom:4px">Category</label>
         <select id="svcCat" onchange="onCatChange()">
-          <option value="">— Pick category —</option>
+          <option value="">,  Pick category , </option>
           <option value="diag">Diagnostics</option>
           <option value="refrig">Refrigerant</option>
           <option value="component">Components (Capacitor, Contactor, Fan, Compressor)</option>
           <option value="tune">Tune-Up / Maintenance</option>
-          <option value="install_split">Installation — Split Systems</option>
-          <option value="install_mini">Installation — Mini-Splits</option>
+          <option value="install_split">Installation, Split Systems</option>
+          <option value="install_mini">Installation, Mini-Splits</option>
           <option value="heating">Heating (Furnace / Heat Pump)</option>
           <option value="ducts">Duct Work</option>
           <option value="therm">Thermostats</option>
@@ -163,7 +163,7 @@ td.p{color:#7C3AED;font-weight:600}
       <div>
         <label class="field-label" style="margin-bottom:4px">Specific Service</label>
         <select id="svcId" onchange="onServiceChange()">
-          <option value="">— Pick category first —</option>
+          <option value="">,  Pick category first , </option>
         </select>
       </div>
     </div>
@@ -177,18 +177,18 @@ td.p{color:#7C3AED;font-weight:600}
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:6px" id="tierCards">
         <div id="tierGood" class="card" style="cursor:pointer;border:2px solid #16A34A;background:#F0FDF4;padding:14px" onclick="selTier('good')">
           <div style="font-size:11px;font-weight:700;color:#16A34A;text-transform:uppercase;margin-bottom:4px">Good</div>
-          <div style="font-size:22px;font-weight:700;color:#15803d" id="tierGoodPrice">—</div>
-          <div style="font-size:11px;color:#166534;margin-top:4px" id="tierGoodDesc">—</div>
+          <div style="font-size:22px;font-weight:700;color:#15803d" id="tierGoodPrice">, </div>
+          <div style="font-size:11px;color:#166534;margin-top:4px" id="tierGoodDesc">, </div>
         </div>
         <div id="tierBetter" class="card" style="cursor:pointer;border:2px solid var(--border);padding:14px" onclick="selTier('better')">
           <div style="font-size:11px;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Better</div>
-          <div style="font-size:22px;font-weight:700;color:var(--text)" id="tierBetterPrice">—</div>
-          <div style="font-size:11px;color:var(--text-light);margin-top:4px" id="tierBetterDesc">—</div>
+          <div style="font-size:22px;font-weight:700;color:var(--text)" id="tierBetterPrice">, </div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:4px" id="tierBetterDesc">, </div>
         </div>
         <div id="tierBest" class="card" style="cursor:pointer;border:2px solid var(--border);padding:14px" onclick="selTier('best')">
           <div style="font-size:11px;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Best</div>
-          <div style="font-size:22px;font-weight:700;color:var(--text)" id="tierBestPrice">—</div>
-          <div style="font-size:11px;color:var(--text-light);margin-top:4px" id="tierBestDesc">—</div>
+          <div style="font-size:22px;font-weight:700;color:var(--text)" id="tierBestPrice">, </div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:4px" id="tierBestDesc">, </div>
         </div>
       </div>
     </div>
@@ -244,13 +244,13 @@ td.p{color:#7C3AED;font-weight:600}
     <div class="quote-card" id="quoteCard">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
         <div>
-          <div class="quote-label" id="quoteJobLabel">—</div>
+          <div class="quote-label" id="quoteJobLabel">, </div>
           <div class="quote-price" id="quotePrice">$0</div>
-          <div class="quote-range" id="quoteRange">—</div>
+          <div class="quote-range" id="quoteRange">, </div>
         </div>
         <div style="text-align:right">
-          <span class="margin-badge" id="marginBadge">—</span>
-          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="marginLabel">—</div>
+          <span class="margin-badge" id="marginBadge">, </span>
+          <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="marginLabel">, </div>
         </div>
       </div>
       <div class="quote-tier-desc" id="quoteTierDesc"></div>
@@ -273,7 +273,7 @@ td.p{color:#7C3AED;font-weight:600}
 
 <!-- ═══════ TAB 2: REPAIR REFERENCE ═══════ -->
 <div class="tab-content" id="tab-repair-ref">
-  <div class="section-title">🔧 HVAC Repair — Price Reference</div>
+  <div class="section-title">🔧 HVAC Repair, Price Reference</div>
   <div class="section-sub">Good / Better / Best pricing by service. Market comparison and margin for every common repair.</div>
   <div class="card">
     <table>
@@ -286,14 +286,14 @@ td.p{color:#7C3AED;font-weight:600}
         <tr><td><strong>Refrigerant R-454B A2L (per lb)</strong></td><td class="g">$165/lb</td><td class="b">$185/lb</td><td class="p">$210/lb full doc</td><td><span class="badge ba">55%</span></td><td style="font-size:11px">A2L cert required. All 2025+ systems. Verify tech certified before dispatch.</td><td style="font-size:11px">Full system eval if 3+ lbs low</td></tr>
         <tr><td><strong>Capacitor Replacement</strong></td><td class="g">$295</td><td class="b">$350 OEM premium</td><td class="p">$425 same-day parts</td><td><span class="badge bg">85%</span></td><td style="font-size:11px">10+ years = full system eval. Check contactor too.</td><td style="font-size:11px">Contactor +$285, Tune-up +$159, Care Plan +$299</td></tr>
         <tr><td><strong>Contactor Replacement</strong></td><td class="g">$285</td><td class="b">$325</td><td class="p">$395</td><td><span class="badge bg">85%</span></td><td style="font-size:11px">Pitting = system running hot. Check capacitor while there.</td><td style="font-size:11px">Capacitor +$295, Tune-up +$159</td></tr>
-        <tr><td><strong>Condenser Fan Motor</strong></td><td class="g">$649</td><td class="b">$749 OEM premium</td><td class="p">$895 variable speed</td><td><span class="badge bg">72%</span></td><td style="font-size:11px">Check capacitor — often failed together. 12+ years = replacement convo.</td><td style="font-size:11px">Full tune-up +$159, Care Plan</td></tr>
-        <tr><td><strong>Compressor Replacement (3-ton)</strong></td><td class="g">$2,800</td><td class="b">$3,200</td><td class="p">$3,600</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">ALWAYS written repair-vs-replace analysis. 10+ yrs = recommend replacement.</td><td style="font-size:11px">Full system install — show 3-ton $13,500–$17,500</td></tr>
-        <tr><td><strong>Furnace Repair</strong></td><td class="g">$450</td><td class="b">$600</td><td class="p">$750</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Rooftop/attic adds $500–$1,000. Quote after diagnostic.</td><td style="font-size:11px">High-efficiency replacement if 15+ years</td></tr>
+        <tr><td><strong>Condenser Fan Motor</strong></td><td class="g">$649</td><td class="b">$749 OEM premium</td><td class="p">$895 variable speed</td><td><span class="badge bg">72%</span></td><td style="font-size:11px">Check capacitor, often failed together. 12+ years = replacement convo.</td><td style="font-size:11px">Full tune-up +$159, Care Plan</td></tr>
+        <tr><td><strong>Compressor Replacement (3-ton)</strong></td><td class="g">$2,800</td><td class="b">$3,200</td><td class="p">$3,600</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">ALWAYS written repair-vs-replace analysis. 10+ yrs = recommend replacement.</td><td style="font-size:11px">Full system install, show 3-ton $13,500-$17,500</td></tr>
+        <tr><td><strong>Furnace Repair</strong></td><td class="g">$450</td><td class="b">$600</td><td class="p">$750</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Rooftop/attic adds $500-$1,000. Quote after diagnostic.</td><td style="font-size:11px">High-efficiency replacement if 15+ years</td></tr>
         <tr><td><strong>Heat Pump Repair</strong></td><td class="g">$425</td><td class="b">$662</td><td class="p">$900</td><td><span class="badge ba">60%</span></td><td style="font-size:11px">Check refrigerant and capacitor while there.</td><td style="font-size:11px">Care Plan +$299, IRA credit on replacement</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="note" style="margin-top:8px">After-hours multipliers apply to labor only. Always state before dispatch. R-454B: Honeywell applied 42% surcharge April 2025 — verify current cost with supplier before quoting large recharges.</div>
+  <div class="note" style="margin-top:8px">After-hours multipliers apply to labor only. Always state before dispatch. R-454B: Honeywell applied 42% surcharge April 2025, verify current cost with supplier before quoting large recharges.</div>
 </div>
 
 <!-- ═══════ TAB 3: INSTALLATION ═══════ -->
@@ -307,16 +307,16 @@ td.p{color:#7C3AED;font-weight:600}
       </thead>
       <tbody>
         <tr><td><strong>2-ton split (condo/apt)</strong></td><td class="g">$10,500</td><td class="b">$12,000</td><td class="p">$13,500</td><td><span class="badge ba">51%</span></td><td style="font-size:11px">Elevator access +$500. Condo board approval may be needed. HOA permit process.</td></tr>
-        <tr><td><strong>3-ton split (standard LA home)</strong></td><td class="g">$13,500</td><td class="b">$15,500</td><td class="p">$17,500</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">Most common Westside install. Rooftop adds $1,500–$3,000. Manual J required.</td></tr>
-        <tr><td><strong>4-ton split (larger home)</strong></td><td class="g">$16,500</td><td class="b">$19,250</td><td class="p">$22,000</td><td><span class="badge ba">50%</span></td><td style="font-size:11px">Manual J + duct inspection required. Rooftop/attic access adds $1,500–$3,000.</td></tr>
+        <tr><td><strong>3-ton split (standard LA home)</strong></td><td class="g">$13,500</td><td class="b">$15,500</td><td class="p">$17,500</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">Most common Westside install. Rooftop adds $1,500-$3,000. Manual J required.</td></tr>
+        <tr><td><strong>4-ton split (larger home)</strong></td><td class="g">$16,500</td><td class="b">$19,250</td><td class="p">$22,000</td><td><span class="badge ba">50%</span></td><td style="font-size:11px">Manual J + duct inspection required. Rooftop/attic access adds $1,500-$3,000.</td></tr>
         <tr><td><strong>5-ton split (estate)</strong></td><td class="g">$20,000</td><td class="b">$24,000</td><td class="p">$28,000</td><td><span class="badge ba">48%</span></td><td style="font-size:11px">Variable-speed. Crane if needed (+$800). Multi-zone? Recommend cassette.</td></tr>
         <tr><td><strong>Mini-split single zone</strong></td><td class="g">$6,200</td><td class="b">$7,850</td><td class="p">$9,500</td><td><span class="badge ba">53%</span></td><td style="font-size:11px">Concealed line set routing adds time. Exterior penetration = waterproofing needed.</td></tr>
-        <tr><td><strong>Mini-split multi-zone (3–4)</strong></td><td class="g">$14,500</td><td class="b">$18,250</td><td class="p">$22,000</td><td><span class="badge ba">51%</span></td><td style="font-size:11px">Zone layout consultation required. Confirm outdoor unit BTU capacity.</td></tr>
+        <tr><td><strong>Mini-split multi-zone (3-4)</strong></td><td class="g">$14,500</td><td class="b">$18,250</td><td class="p">$22,000</td><td><span class="badge ba">51%</span></td><td style="font-size:11px">Zone layout consultation required. Confirm outdoor unit BTU capacity.</td></tr>
         <tr><td><strong>Ductless cassette (per zone)</strong></td><td class="g">$7,500</td><td class="b">$9,750</td><td class="p">$12,000</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">Ceiling access + drain pan routing adds time. Structural check before install.</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="note" style="margin-top:8px">Equipment costs 15–30% above 2024 due to tariffs. IRA 30% tax credit (up to $2,000) for qualifying heat pump installs — we process the application. LADWP rebates $100–$120/ton for high-efficiency.</div>
+  <div class="note" style="margin-top:8px">Equipment costs 15-30% above 2024 due to tariffs. IRA 30% tax credit (up to $2,000) for qualifying heat pump installs, we process the application. LADWP rebates $100-$120/ton for high-efficiency.</div>
 </div>
 
 <!-- ═══════ TAB 4: MAINTENANCE PLANS ═══════ -->
@@ -325,7 +325,7 @@ td.p{color:#7C3AED;font-weight:600}
   <div class="section-sub">The maintenance plan is Atlas's most important recurring revenue product. Pitch on every tune-up and every install.</div>
   <div class="grid2">
     <div class="plan-card">
-      <div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Atlas Care Plan — Standard</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Atlas Care Plan, Standard</div>
       <div class="plan-price">$299<span style="font-size:14px;font-weight:400;color:var(--text-light)">/year</span></div>
       <div style="margin-top:16px">
         <div class="plan-row"><span>Spring AC tune-up (21-point)</span><span>included</span></div>
@@ -333,14 +333,14 @@ td.p{color:#7C3AED;font-weight:600}
         <div class="plan-row"><span>4-hour priority dispatch</span><span>included</span></div>
         <div class="plan-row"><span>Repair discount</span><span style="font-weight:700;color:var(--green)">15% off</span></div>
         <div class="plan-row"><span>Filter delivery</span><span>included</span></div>
-        <div class="plan-row"><span>Cancel policy</span><span style="font-weight:700;color:var(--green)">Anytime — prorated</span></div>
+        <div class="plan-row"><span>Cancel policy</span><span style="font-weight:700;color:var(--green)">Anytime, prorated</span></div>
         <div class="plan-row"><span>Cost to deliver</span><span>~$110</span></div>
         <div class="plan-row" style="font-weight:700"><span>Gross margin</span><span style="color:var(--green)">63%</span></div>
       </div>
-      <div class="alert-box rf" style="margin-top:12px">Service Champions charges ~$250/yr and CANNOT cancel without losing benefits — documented complaint. "Cancel anytime, prorated refund" is Atlas's direct counter. Lead with it every pitch.</div>
+      <div class="alert-box rf" style="margin-top:12px">Service Champions charges ~$250/yr and CANNOT cancel without losing benefits, documented complaint. "Cancel anytime, prorated refund" is Atlas's direct counter. Lead with it every pitch.</div>
     </div>
     <div class="plan-card featured">
-      <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Atlas Care Plan+ — Premier</div>
+      <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Atlas Care Plan+, Premier</div>
       <div class="plan-price">$499<span style="font-size:14px;font-weight:400;color:var(--text-light)">/year</span></div>
       <div style="margin-top:16px">
         <div class="plan-row"><span>Everything in Standard</span><span>included</span></div>
@@ -355,7 +355,7 @@ td.p{color:#7C3AED;font-weight:600}
     </div>
   </div>
   <div class="card" style="margin-top:16px">
-    <div style="font-weight:600;margin-bottom:12px;font-size:14px">Single Tune-Up — $159</div>
+    <div style="font-weight:600;margin-bottom:12px;font-size:14px">Single Tune-Up, $159</div>
     <table>
       <thead><tr><th>21-Point Checklist Item</th><th>What to Look For</th></tr></thead>
       <tbody>
@@ -368,7 +368,7 @@ td.p{color:#7C3AED;font-weight:600}
         <tr><td>Refrigerant level check</td><td style="font-size:11px">Subcooling/superheat. Low = leak. Don't top off without finding source.</td></tr>
         <tr><td>Filter check/replacement</td><td style="font-size:11px">Replace if dirty. Document MERV rating. Upsell: filter subscription.</td></tr>
         <tr><td>Condensate drain</td><td style="font-size:11px">Flush and treat. Clogged = water damage. Check float switch.</td></tr>
-        <tr><td>Temperature differential</td><td style="font-size:11px">Supply/return target: 16–22°F. Outside range = system issue.</td></tr>
+        <tr><td>Temperature differential</td><td style="font-size:11px">Supply/return target: 16-22°F. Outside range = system issue.</td></tr>
       </tbody>
     </table>
   </div>
@@ -382,10 +382,10 @@ td.p{color:#7C3AED;font-weight:600}
     <table>
       <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Red Flags</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><strong>Furnace repair (typical)</strong></td><td class="g">$450</td><td class="b">$600</td><td class="p">$750</td><td style="font-size:11px">Rooftop/attic access +$500–$1,000. Always quote after diagnostic.</td><td style="font-size:11px">Written parts estimate required before starting</td></tr>
-        <tr><td><strong>Furnace replace — 80% AFUE</strong></td><td class="g">$7,200</td><td class="b">$8,850</td><td class="p">$10,500</td><td style="font-size:11px">BH labor alone $2,500–$6,000. Attic/rooftop adds $1,000–$3,000.</td><td style="font-size:11px">Carrier/Lennox/Trane. Permit + LADBS inspection. 2-yr warranty.</td></tr>
-        <tr><td><strong>Furnace replace — 96% AFUE</strong></td><td class="g">$10,500</td><td class="b">$12,500</td><td class="p">$14,500</td><td style="font-size:11px">PVC venting required — check existing route. IRA credit may apply.</td><td style="font-size:11px">High-efficiency. 5-yr extended warranty option.</td></tr>
-        <tr><td><strong>Heat pump install (3-ton)</strong></td><td class="g">$13,500</td><td class="b">$16,000</td><td class="p">$18,500</td><td style="font-size:11px">Manual J required. Electrical upgrade may be needed for heat pump.</td><td style="font-size:11px">IRA 30% credit up to $2K + LADWP rebate — we process both applications.</td></tr>
+        <tr><td><strong>Furnace repair (typical)</strong></td><td class="g">$450</td><td class="b">$600</td><td class="p">$750</td><td style="font-size:11px">Rooftop/attic access +$500-$1,000. Always quote after diagnostic.</td><td style="font-size:11px">Written parts estimate required before starting</td></tr>
+        <tr><td><strong>Furnace replace, 80% AFUE</strong></td><td class="g">$7,200</td><td class="b">$8,850</td><td class="p">$10,500</td><td style="font-size:11px">BH labor alone $2,500-$6,000. Attic/rooftop adds $1,000-$3,000.</td><td style="font-size:11px">Carrier/Lennox/Trane. Permit + LADBS inspection. 2-yr warranty.</td></tr>
+        <tr><td><strong>Furnace replace, 96% AFUE</strong></td><td class="g">$10,500</td><td class="b">$12,500</td><td class="p">$14,500</td><td style="font-size:11px">PVC venting required, check existing route. IRA credit may apply.</td><td style="font-size:11px">High-efficiency. 5-yr extended warranty option.</td></tr>
+        <tr><td><strong>Heat pump install (3-ton)</strong></td><td class="g">$13,500</td><td class="b">$16,000</td><td class="p">$18,500</td><td style="font-size:11px">Manual J required. Electrical upgrade may be needed for heat pump.</td><td style="font-size:11px">IRA 30% credit up to $2K + LADWP rebate, we process both applications.</td></tr>
         <tr><td><strong>Heat pump repair</strong></td><td class="g">$425</td><td class="b">$662</td><td class="p">$900</td><td style="font-size:11px">Check refrigerant level and capacitor while there.</td><td style="font-size:11px">Quoted specifically after diagnostic.</td></tr>
       </tbody>
     </table>
@@ -401,9 +401,9 @@ td.p{color:#7C3AED;font-weight:600}
     <table>
       <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Red Flags</th></tr></thead>
       <tbody>
-        <tr><td><strong>Duct cleaning (whole system)</strong></td><td class="g">$475</td><td class="b">$637</td><td class="p">$800</td><td style="font-size:11px">$45/vent — count first. Old flex duct may need replacement not cleaning.</td></tr>
-        <tr><td><strong>Aeroseal duct sealing</strong></td><td class="g">$2,400</td><td class="b">$3,450</td><td class="p">$4,500</td><td style="font-size:11px">Pre/post pressure test required. LADWP rebate — process for customer. LA homes lose 20–30% conditioned air.</td></tr>
-        <tr><td><strong>Full duct replacement (3–4BR)</strong></td><td class="g">$8,500</td><td class="b">$11,750</td><td class="p">$15,000</td><td style="font-size:11px">BH pre-1960 homes: asbestos abatement adds $2K–$6K. Check before quoting.</td></tr>
+        <tr><td><strong>Duct cleaning (whole system)</strong></td><td class="g">$475</td><td class="b">$637</td><td class="p">$800</td><td style="font-size:11px">$45/vent, count first. Old flex duct may need replacement not cleaning.</td></tr>
+        <tr><td><strong>Aeroseal duct sealing</strong></td><td class="g">$2,400</td><td class="b">$3,450</td><td class="p">$4,500</td><td style="font-size:11px">Pre/post pressure test required. LADWP rebate, process for customer. LA homes lose 20-30% conditioned air.</td></tr>
+        <tr><td><strong>Full duct replacement (3-4BR)</strong></td><td class="g">$8,500</td><td class="b">$11,750</td><td class="p">$15,000</td><td style="font-size:11px">BH pre-1960 homes: asbestos abatement adds $2K-$6K. Check before quoting.</td></tr>
       </tbody>
     </table>
   </div>
@@ -412,7 +412,7 @@ td.p{color:#7C3AED;font-weight:600}
     <table>
       <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><strong>Smart thermostat (Nest/Ecobee)</strong></td><td class="g">$349</td><td class="b">$399</td><td class="p">$495</td><td style="font-size:11px">C-wire required — check before visit. Full programming and app setup included.</td></tr>
+        <tr><td><strong>Smart thermostat (Nest/Ecobee)</strong></td><td class="g">$349</td><td class="b">$399</td><td class="p">$495</td><td style="font-size:11px">C-wire required, check before visit. Full programming and app setup included.</td></tr>
         <tr><td><strong>Premium (Carrier Infinity/Ecobee+)</strong></td><td class="g">$650</td><td class="b">$825</td><td class="p">$1,000</td><td style="font-size:11px">Control4/Savant integration. Beverly Hills luxury standard.</td></tr>
         <tr><td><strong>Zoning system (2-zone)</strong></td><td class="g">$2,200</td><td class="b">$2,850</td><td class="p">$3,500</td><td style="font-size:11px">Damper placement requires duct inspection first.</td></tr>
       </tbody>
@@ -423,29 +423,29 @@ td.p{color:#7C3AED;font-weight:600}
 <!-- ═══════ TAB 7: COMPETITOR INTEL ═══════ -->
 <div class="tab-content" id="tab-intel">
   <div class="section-title">🔍 HVAC Competitor Intelligence</div>
-  <div class="section-sub">Westside LA market — April 2026. Know this before every customer conversation.</div>
+  <div class="section-sub">Westside LA market, April 2026. Know this before every customer conversation.</div>
   <div class="card" style="margin-bottom:16px">
     <table>
       <thead><tr><th>Competitor</th><th>Threat</th><th>Google</th><th>Yelp</th><th>CSLB</th><th>Key Vulnerability</th></tr></thead>
       <tbody>
         <tr><td><strong>Brody Pennell</strong></td><td><span class="badge br">VERY HIGH</span></td><td>4.9 / 4,700+</td><td style="color:var(--red);font-weight:600">4.0 / 390</td><td>#256821 ✅</td><td style="font-size:11px">Yelp gap = intercept. $40M+, 150+ trucks. Can't beat Google in Yr 1. Beat Yelp first. Upsell complaints in BH/Bel Air.</td></tr>
-        <tr><td><strong>Service Genius</strong></td><td><span class="badge br">HIGH</span></td><td>4.8+ / 523+</td><td>4.3 / 42 (LA)</td><td>#1030812 ✅ exp 9/27</td><td style="font-size:11px">0.5 mi from Atlas HQ. Only competitor publishing any pricing. 42 Yelp reviews — Atlas out-reviews them in 12 months.</td></tr>
+        <tr><td><strong>Service Genius</strong></td><td><span class="badge br">HIGH</span></td><td>4.8+ / 523+</td><td>4.3 / 42 (LA)</td><td>#1030812 ✅ exp 9/27</td><td style="font-size:11px">0.5 mi from Atlas HQ. Only competitor publishing any pricing. 42 Yelp reviews, Atlas out-reviews them in 12 months.</td></tr>
         <tr><td><strong>JW Heating &amp; Air</strong></td><td><span class="badge br">HIGH</span></td><td>4.8 / 2,305+</td><td style="color:var(--red);font-weight:600">3.9 / 458</td><td style="color:var(--red);font-weight:600">#921266 EXP 8/31/26!</td><td style="font-size:11px">Blackstone. $23K bid for $10K job documented. Worst Yelp of major competitors. CHECK LICENSE JULY 2026.</td></tr>
-        <tr><td><strong>Service Champions</strong></td><td><span class="badge br">HIGH</span></td><td>4.9 / 6,147+</td><td>4.3 / 175</td><td>#799170</td><td style="font-size:11px">Blackstone. Elder exploitation documented. BBB 1.36★. Membership cancellation trap — "cancel anytime" wins this directly.</td></tr>
-        <tr><td><strong>NexGen HVAC</strong></td><td><span class="badge ba">MEDIUM</span></td><td>—</td><td>4.2 / 378</td><td>#1011173</td><td style="font-size:11px">Valley only. NOT in Westside LSA. $466/lb refrigerant. 56 BBB complaints. Elder exploitation documented.</td></tr>
+        <tr><td><strong>Service Champions</strong></td><td><span class="badge br">HIGH</span></td><td>4.9 / 6,147+</td><td>4.3 / 175</td><td>#799170</td><td style="font-size:11px">Blackstone. Elder exploitation documented. BBB 1.36★. Membership cancellation trap, "cancel anytime" wins this directly.</td></tr>
+        <tr><td><strong>NexGen HVAC</strong></td><td><span class="badge ba">MEDIUM</span></td><td>, </td><td>4.2 / 378</td><td>#1011173</td><td style="font-size:11px">Valley only. NOT in Westside LSA. $466/lb refrigerant. 56 BBB complaints. Elder exploitation documented.</td></tr>
         <tr><td><strong>Westside H&amp;A</strong></td><td><span class="badge ba">MEDIUM</span></td><td>~20 reviews</td><td>4.6 / 70</td><td>#557579 ✅</td><td style="font-size:11px">39-year family op. Closes 4PM weekdays. No maintenance plan. Turns away customers at peak. 7 employees.</td></tr>
       </tbody>
     </table>
   </div>
   <div class="alert-box rf">
-    <strong>⚠️ License Alert:</strong> JW Heating &amp; Air CSLB #921266 expires 8/31/2026 — same month as Atlas launch. If lapsed, their LSA badge goes dark. Check cslb.ca.gov in July 2026.
+    <strong>⚠️ License Alert:</strong> JW Heating &amp; Air CSLB #921266 expires 8/31/2026, same month as Atlas launch. If lapsed, their LSA badge goes dark. Check cslb.ca.gov in July 2026.
   </div>
   <div class="card" style="margin-top:16px">
     <div style="font-weight:600;margin-bottom:10px;font-size:14px">The Three Sentences That Win Every HVAC Customer Conversation</div>
     <div style="font-size:13px;line-height:1.8">
-      <strong>1.</strong> "Atlas technicians are salaried — never commissioned. Their pay does not change based on what you buy."<br>
+      <strong>1.</strong> "Atlas technicians are salaried, never commissioned. Their pay does not change based on what you buy."<br>
       <strong>2.</strong> "Our prices are published at atlashomepro.com/pricing before you call. What you see is what you pay."<br>
-      <strong>3.</strong> "Atlas Care Plan is $299/year — cancel anytime with a prorated refund. No traps, no locked contracts."
+      <strong>3.</strong> "Atlas Care Plan is $299/year, cancel anytime with a prorated refund. No traps, no locked contracts."
     </div>
   </div>
 </div>

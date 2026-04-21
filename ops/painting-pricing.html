@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atlas Home Pro — Painting Pricing</title>
+<title>Atlas Home Pro, Painting Pricing</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -76,7 +76,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
 <body>
 <div class="header">
   <div style="display:flex;align-items:center;gap:12px">
-    <div><div style="font-size:15px;font-weight:700;color:#fff">🎨 Painting Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro — Ops Portal</div></div>
+    <div><div style="font-size:15px;font-weight:700;color:#fff">🎨 Painting Pricing</div><div style="font-size:11px;color:rgba(255,255,255,.6)">Atlas Home Pro, Ops Portal</div></div>
     <span class="h-badge">Internal Use Only</span>
   </div>
   <div class="trade-nav">
@@ -103,7 +103,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
       <div>
         <label class="fl">Service Category</label>
         <select id="svcCat" onchange="onCatChange()">
-          <option value="">— Pick category —</option>
+          <option value="">,  Pick category , </option>
           <option value="interior">🏠 Interior Painting</option>
           <option value="exterior">🌤️ Exterior Painting</option>
           <option value="cabinets">🗄️ Cabinet Refinishing</option>
@@ -112,7 +112,7 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
       </div>
       <div>
         <label class="fl">Specific Service</label>
-        <select id="svcId" onchange="onSvcChange()"><option value="">— Pick category first —</option></select>
+        <select id="svcId" onchange="onSvcChange()"><option value="">,  Pick category first , </option></select>
       </div>
     </div>
   </div>
@@ -120,9 +120,9 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
     <div class="card" style="margin-bottom:16px">
       <label class="fl">Service Tier</label>
       <div class="grid3" style="margin-top:8px">
-        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">—</div><div class="t-desc g" id="tGoodDesc">—</div></div>
-        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">—</div><div class="t-desc b" id="tBetterDesc">—</div></div>
-        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">—</div><div class="t-desc p" id="tBestDesc">—</div></div>
+        <div class="tier-card sel-good" id="tcGood" onclick="selTier('good')"><div class="t-label g">Good</div><div class="t-price g" id="tGoodPrice">, </div><div class="t-desc g" id="tGoodDesc">, </div></div>
+        <div class="tier-card" id="tcBetter" onclick="selTier('better')"><div class="t-label b">Better</div><div class="t-price b" id="tBetterPrice">, </div><div class="t-desc b" id="tBetterDesc">, </div></div>
+        <div class="tier-card" id="tcBest" onclick="selTier('best')"><div class="t-label p">Best</div><div class="t-price p" id="tBestPrice">, </div><div class="t-desc p" id="tBestDesc">, </div></div>
       </div>
     </div>
     <div class="card" style="margin-bottom:16px">
@@ -131,9 +131,9 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
         <div>
           <label class="fl" style="margin-bottom:4px">Condition / Prep</label>
           <div class="tog-g">
-            <button class="tog sel" onclick="setMod('cond','good',this)">Good — minimal prep</button>
-            <button class="tog" onclick="setMod('cond','fair',this)">Fair — moderate prep +15%</button>
-            <button class="tog" onclick="setMod('cond','poor',this)">Poor — heavy prep +35%</button>
+            <button class="tog sel" onclick="setMod('cond','good',this)">Good, minimal prep</button>
+            <button class="tog" onclick="setMod('cond','fair',this)">Fair, moderate prep +15%</button>
+            <button class="tog" onclick="setMod('cond','poor',this)">Poor, heavy prep +35%</button>
           </div>
         </div>
         <div>
@@ -168,8 +168,8 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
     </div>
     <div class="quote-card">
       <div style="display:flex;justify-content:space-between;align-items:flex-start">
-        <div><div class="q-label" id="qLabel">—</div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">—</div></div>
-        <div style="text-align:right"><span class="mbadge" id="mBadge">—</span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">—</div></div>
+        <div><div class="q-label" id="qLabel">, </div><div class="q-price" id="qPrice">$0</div><div class="q-range" id="qRange">, </div></div>
+        <div style="text-align:right"><span class="mbadge" id="mBadge">, </span><div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px" id="mLabel">, </div></div>
       </div>
       <div class="q-tier-desc" id="qTierDesc"></div>
       <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:12px" id="qBreakdown"></div>
@@ -187,41 +187,41 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
 
 <!-- QUICK REF -->
 <div class="tc" id="tab-quickref">
-  <div class="sec-title">📋 Quick Reference — All Painting Services</div>
+  <div class="sec-title">📋 Quick Reference, All Painting Services</div>
   <div class="sec-sub">Good / Better / Best pricing. Minimum project $2,500. All include surface prep, primer, 2 finish coats.</div>
   <div class="card">
     <table>
       <thead><tr><th>Service</th><th class="g">Good</th><th class="b">Better</th><th class="p">Best</th><th>Margin</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><strong>Interior — Single Room</strong></td><td class="g">$400</td><td class="b">$600</td><td class="p">$800</td><td><span class="badge bg">62%</span></td><td style="font-size:11px">Walls + ceiling. Good = 1 coat paint. Better/Best = 2 coat finish coat. Minimum $2,500/job regardless.</td></tr>
-        <tr><td><strong>Interior — 3-4 Rooms</strong></td><td class="g">$1,800</td><td class="b">$2,800</td><td class="p">$3,800</td><td><span class="badge bg">60%</span></td><td style="font-size:11px">Walls + ceilings + trim. Good = standard paint. Better = Sherwin Williams SuperPaint. Best = premium paint + color consultation.</td></tr>
-        <tr><td><strong>Interior — Whole Home (1,500–2,500 sq ft)</strong></td><td class="g">$3,500</td><td class="b">$5,500</td><td class="p">$8,000</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Full home including trim, doors, ceilings. Best includes color consultation. GetHearth for larger projects.</td></tr>
-        <tr><td><strong>Interior — Whole Home (2,500–4,000 sq ft)</strong></td><td class="g">$5,500</td><td class="b">$8,500</td><td class="p">$12,000</td><td><span class="badge ba">56%</span></td><td style="font-size:11px">Beverly Hills standard. Always quote Better or Best. Multiple crews, precise color work.</td></tr>
-        <tr><td><strong>Exterior — Standard Home</strong></td><td class="g">$4,000</td><td class="b">$6,500</td><td class="p">$9,000</td><td><span class="badge ba">55%</span></td><td style="font-size:11px">Power wash, prep, prime, 2 coats body + trim. Good = 1 body color. Best = body + trim + accents + premium paint.</td></tr>
-        <tr><td><strong>Exterior — Large Home/Estate</strong></td><td class="g">$7,500</td><td class="b">$12,000</td><td class="p">$18,000+</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">BH/Bel Air estates. Scaffolding often needed. Best includes wood repair, caulk, premium elastomeric paint.</td></tr>
-        <tr><td><strong>Cabinet Refinishing — Kitchen</strong></td><td class="g">$1,500</td><td class="b">$2,800</td><td class="p">$4,500</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Good = spray paint in place. Better = remove doors, spray, reinstall. Best = sand, prime, spray, new hardware.</td></tr>
-        <tr><td><strong>Cabinet Refinishing — Full Custom</strong></td><td class="g">$3,500</td><td class="b">$6,000</td><td class="p">$9,500</td><td><span class="badge ba">56%</span></td><td style="font-size:11px">High-end kitchen remodel level. Remove all, spray, reinstall. Best includes new hinges and soft-close hardware.</td></tr>
-        <tr><td><strong>Drywall Repair — Small</strong></td><td class="g">$250</td><td class="b">$395</td><td class="p">$595</td><td><span class="badge bg">68%</span></td><td style="font-size:11px">Holes, cracks, dings under 6 inches. Patch, texture match, prime, paint. Minimum $2,500 if standalone.</td></tr>
-        <tr><td><strong>Drywall Repair — Section</strong></td><td class="g">$650</td><td class="b">$1,100</td><td class="p">$1,800</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Large section replacement, texture match, prime, paint. Water damage repair = restoration first.</td></tr>
+        <tr><td><strong>Interior, Single Room</strong></td><td class="g">$400</td><td class="b">$600</td><td class="p">$800</td><td><span class="badge bg">62%</span></td><td style="font-size:11px">Walls + ceiling. Good = 1 coat paint. Better/Best = 2 coat finish coat. Minimum $2,500/job regardless.</td></tr>
+        <tr><td><strong>Interior, 3-4 Rooms</strong></td><td class="g">$1,800</td><td class="b">$2,800</td><td class="p">$3,800</td><td><span class="badge bg">60%</span></td><td style="font-size:11px">Walls + ceilings + trim. Good = standard paint. Better = Sherwin Williams SuperPaint. Best = premium paint + color consultation.</td></tr>
+        <tr><td><strong>Interior, Whole Home (1,500-2,500 sq ft)</strong></td><td class="g">$3,500</td><td class="b">$5,500</td><td class="p">$8,000</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Full home including trim, doors, ceilings. Best includes color consultation. GetHearth for larger projects.</td></tr>
+        <tr><td><strong>Interior, Whole Home (2,500-4,000 sq ft)</strong></td><td class="g">$5,500</td><td class="b">$8,500</td><td class="p">$12,000</td><td><span class="badge ba">56%</span></td><td style="font-size:11px">Beverly Hills standard. Always quote Better or Best. Multiple crews, precise color work.</td></tr>
+        <tr><td><strong>Exterior, Standard Home</strong></td><td class="g">$4,000</td><td class="b">$6,500</td><td class="p">$9,000</td><td><span class="badge ba">55%</span></td><td style="font-size:11px">Power wash, prep, prime, 2 coats body + trim. Good = 1 body color. Best = body + trim + accents + premium paint.</td></tr>
+        <tr><td><strong>Exterior, Large Home/Estate</strong></td><td class="g">$7,500</td><td class="b">$12,000</td><td class="p">$18,000+</td><td><span class="badge ba">52%</span></td><td style="font-size:11px">BH/Bel Air estates. Scaffolding often needed. Best includes wood repair, caulk, premium elastomeric paint.</td></tr>
+        <tr><td><strong>Cabinet Refinishing, Kitchen</strong></td><td class="g">$1,500</td><td class="b">$2,800</td><td class="p">$4,500</td><td><span class="badge ba">58%</span></td><td style="font-size:11px">Good = spray paint in place. Better = remove doors, spray, reinstall. Best = sand, prime, spray, new hardware.</td></tr>
+        <tr><td><strong>Cabinet Refinishing, Full Custom</strong></td><td class="g">$3,500</td><td class="b">$6,000</td><td class="p">$9,500</td><td><span class="badge ba">56%</span></td><td style="font-size:11px">High-end kitchen remodel level. Remove all, spray, reinstall. Best includes new hinges and soft-close hardware.</td></tr>
+        <tr><td><strong>Drywall Repair, Small</strong></td><td class="g">$250</td><td class="b">$395</td><td class="p">$595</td><td><span class="badge bg">68%</span></td><td style="font-size:11px">Holes, cracks, dings under 6 inches. Patch, texture match, prime, paint. Minimum $2,500 if standalone.</td></tr>
+        <tr><td><strong>Drywall Repair, Section</strong></td><td class="g">$650</td><td class="b">$1,100</td><td class="p">$1,800</td><td><span class="badge ba">62%</span></td><td style="font-size:11px">Large section replacement, texture match, prime, paint. Water damage repair = restoration first.</td></tr>
         <tr><td><strong>Accent Wall</strong></td><td class="g">$350</td><td class="b">$550</td><td class="p">$850</td><td><span class="badge bg">65%</span></td><td style="font-size:11px">Single wall, often dark or bold color. Good = 2 coats. Best includes color consultation and custom finish.</td></tr>
         <tr><td><strong>Color Consultation</strong></td><td class="g">$150</td><td class="b">$295</td><td class="p">$495</td><td><span class="badge bg">85%</span></td><td style="font-size:11px">Applied as credit toward project. Best = full board with swatches, digital mockup, follow-up.</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="alert-box rf" style="margin-top:12px">Minimum project: $2,500 — no exceptions. Poor condition surfaces add 15–35% to any quote. Luxury/estate tier adds 25%. Always power wash exterior before quoting — condition changes pricing significantly.</div>
+  <div class="alert-box rf" style="margin-top:12px">Minimum project: $2,500, no exceptions. Poor condition surfaces add 15-35% to any quote. Luxury/estate tier adds 25%. Always power wash exterior before quoting, condition changes pricing significantly.</div>
 </div>
 
 <!-- SERVICE GUIDES -->
 <div class="tc" id="tab-guides">
-  <div class="sec-title">📖 Service Guides — Painting Tech Reference</div>
+  <div class="sec-title">📖 Service Guides, Painting Tech Reference</div>
   <div class="sec-sub">What separates a $3,500 job from an $8,000 job. Paint quality, prep work, and customer expectations.</div>
   <div class="grid2">
     <div class="card">
       <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🎨 Paint Quality Guide</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>Good tier paints:</strong> Behr Premium Plus, PPG Timeless — solid coverage, 10-year warranty.<br>
-        <strong>Better tier paints:</strong> Sherwin Williams SuperPaint, Duration — better hide, washable, 15-year.<br>
-        <strong>Best tier paints:</strong> Benjamin Moore Aura, Sherwin Williams Emerald — designer quality, 25-year, premium sheen options. Beverly Hills standard.<br><br>
+        <strong>Good tier paints:</strong> Behr Premium Plus, PPG Timeless, solid coverage, 10-year warranty.<br>
+        <strong>Better tier paints:</strong> Sherwin Williams SuperPaint, Duration, better hide, washable, 15-year.<br>
+        <strong>Best tier paints:</strong> Benjamin Moore Aura, Sherwin Williams Emerald, designer quality, 25-year, premium sheen options. Beverly Hills standard.<br><br>
         <strong>Key rule:</strong> Never quote a color change from dark to light without 2 coats minimum. Some dark reds and blues need 3 coats. Factor into quote.
       </div>
     </div>
@@ -245,12 +245,12 @@ td.g{color:var(--green);font-weight:600}td.b{color:var(--blue);font-weight:600}t
     <div class="card">
       <div style="font-weight:600;font-size:14px;color:var(--navy);margin-bottom:10px">🏰 Beverly Hills Painting Standards</div>
       <div style="font-size:12px;line-height:1.9">
-        <strong>Always Benjamin Moore Aura or Sherwin Emerald</strong> — homeowners know the brand names and expect premium.<br>
-        <strong>Color consultation is standard</strong> — not optional. Include in every BH quote.<br>
-        <strong>No roller marks</strong> — spray only for ceilings and large surfaces. Roller is for tight areas only.<br>
-        <strong>Furniture protection</strong> — professional floor and furniture protection, not drop cloth corners. This is a luxury home.<br>
-        <strong>Daily cleanup</strong> — no paint cans left overnight, no tape marks, crew picks up every day.<br>
-        <strong>Minimum project $2,500</strong> — enforce this. Single room jobs below $2,500 are not worth the logistics.
+        <strong>Always Benjamin Moore Aura or Sherwin Emerald</strong>, homeowners know the brand names and expect premium.<br>
+        <strong>Color consultation is standard</strong>, not optional. Include in every BH quote.<br>
+        <strong>No roller marks</strong>, spray only for ceilings and large surfaces. Roller is for tight areas only.<br>
+        <strong>Furniture protection</strong>, professional floor and furniture protection, not drop cloth corners. This is a luxury home.<br>
+        <strong>Daily cleanup</strong>, no paint cans left overnight, no tape marks, crew picks up every day.<br>
+        <strong>Minimum project $2,500</strong>, enforce this. Single room jobs below $2,500 are not worth the logistics.
       </div>
     </div>
   </div>
