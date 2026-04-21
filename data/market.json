@@ -1,14 +1,62 @@
 {
-  "updated": "2026-04-20T14:00:00-07:00",
-  "updated_display": "Apr 20 · 2:00 PM PT",
+  "updated": "2026-04-21T21:10:11Z",
+  "updated_display": "Apr 21 \u00b7 2:00 PM PT",
   "tickers": [
-    { "sym": "HG",  "name": "Copper",       "val": "$6.05",   "chg": "+1.4%",  "dir": "up" },
-    { "sym": "LB",  "name": "Lumber",       "val": "$585.50", "chg": "+2.1%",  "dir": "up" },
-    { "sym": "SLX", "name": "Steel ETF",    "val": "$78.40",  "chg": "-0.4%",  "dir": "dn" },
-    { "sym": "VMC", "name": "Vulcan Mat.",  "val": "$267.10", "chg": "+0.6%",  "dir": "up" },
-    { "sym": "AVB", "name": "AvalonBay",    "val": "$176.36", "chg": "-0.3%",  "dir": "dn" },
-    { "sym": "DEI", "name": "Douglas Em.",  "val": "$16.42",  "chg": "-0.6%",  "dir": "dn" },
-    { "sym": "XHB", "name": "Homebuilders", "val": "$109.40", "chg": "+0.8%",  "dir": "up" },
-    { "sym": "IYR", "name": "US Real Est.", "val": "$103.23", "chg": "+0.5%",  "dir": "up" }
+    {
+      "sym": "HG",
+      "name": "Copper",
+      "val": "$6.02",
+      "chg": "-0.5%",
+      "dir": "dn"
+    },
+    {
+      "sym": "LB",
+      "name": "Lumber",
+      "val": "$576.50",
+      "chg": "-1.5%",
+      "dir": "dn"
+    },
+    {
+      "sym": "SLX",
+      "name": "Steel ETF",
+      "val": "$100.78",
+      "chg": "-1.1%",
+      "dir": "dn"
+    },
+    {
+      "sym": "VMC",
+      "name": "Vulcan Mat.",
+      "val": "$290.72",
+      "chg": "-1.4%",
+      "dir": "dn"
+    },
+    {
+      "sym": "AVB",
+      "name": "AvalonBay",
+      "val": "$172.14",
+      "chg": "-2.4%",
+      "dir": "dn"
+    },
+    {
+      "sym": "DEI",
+      "name": "Douglas Em.",
+      "val": "$10.69",
+      "chg": "-1.3%",
+      "dir": "dn"
+    },
+    {
+      "sym": "XHB",
+      "name": "Homebuilders",
+      "val": "$108.80",
+      "chg": "-0.5%",
+      "dir": "dn"
+    },
+    {
+      "sym": "IYR",
+      "name": "US Real Est.",
+      "val": "$101.45",
+      "chg": "-1.7%",
+      "dir": "dn"
+    }
   ]
 }
