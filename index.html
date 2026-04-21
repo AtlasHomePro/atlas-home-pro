@@ -724,6 +724,12 @@
 <script src="/atlas-editor.js" defer></script>
 </head>
 <body>
+<!-- Netlify form detection (hidden) -->
+<form name="atlas-dispatch" netlify netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email" />
+  <input type="text" name="first_name" />
+  <input type="text" name="role" />
+</form>
 
 <!-- ============= NAV ============= -->
 <nav class="nav">
@@ -1140,6 +1146,55 @@
       </form>
     </div>
   </div>
+</section>
+
+<!-- ============= DISPATCH SIGNUP (compact) ============= -->
+<section id="dispatch" style="padding: clamp(56px, 7vw, 96px) 0; background: #0E1116; color: #F5F5F2; border-top: 1px solid #1C2128;">
+  <div class="wrap" style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center;" class="dispatch-grid">
+      <div>
+        <div style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #C89A5C; margin-bottom: 18px;">The Atlas Dispatch</div>
+        <h2 style="font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.05; letter-spacing: -0.02em; color: #F5F5F2; margin: 0 0 18px; max-width: 18ch;">Real LA real estate, <em style="color: #C89A5C;">in your inbox.</em></h2>
+        <p style="font-family: var(--serif); font-size: 17px; line-height: 1.55; color: #C8CAD0; margin: 0 0 8px; max-width: 46ch;">Three short emails a week, Monday, Wednesday, and Friday. New deal comps, honest construction costs, and policy that actually moves rents. Written by an operator, not a marketer.</p>
+      </div>
+      <form class="sb-form-home" name="atlas-dispatch" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks/" onsubmit="return atlasSubscribeHome(this, event)" style="background: #141821; border: 1px solid #252A33; padding: 32px;">
+        <input type="hidden" name="form-name" value="atlas-dispatch" />
+        <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
+        <div class="fields">
+          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #C89A5C; margin-bottom: 14px;">Subscribe, free</div>
+          <div style="margin-bottom: 12px;">
+            <input type="email" name="email" required placeholder="Your email address" autocomplete="email" style="width: 100%; background: #0E1116; border: 1px solid #2A2F38; color: #F5F5F2; font-family: var(--mono); font-size: 14px; padding: 13px 14px; border-radius: 0; -webkit-appearance: none; appearance: none;" />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+            <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" style="background: #0E1116; border: 1px solid #2A2F38; color: #F5F5F2; font-family: var(--mono); font-size: 14px; padding: 13px 14px; border-radius: 0;" />
+            <select name="role" style="background: #0E1116; border: 1px solid #2A2F38; color: #F5F5F2; font-family: var(--mono); font-size: 14px; padding: 13px 14px; border-radius: 0; -webkit-appearance: none; appearance: none;">
+              <option value="owner">Owner</option><option value="broker">Broker</option><option value="investor">Investor</option><option value="operator">Operator</option><option value="contractor">Contractor</option><option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" style="width: 100%; padding: 14px 18px; background: #C89A5C; color: #0E1116; border: 0; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer;">Subscribe to the Dispatch</button>
+          <div style="margin-top: 12px; font-family: var(--mono); font-size: 10px; color: #6B7280; letter-spacing: 0.04em; line-height: 1.5;">Never sold. Unsubscribe anytime.</div>
+        </div>
+        <div class="success" style="display:none; padding: 22px; border: 1px dashed #C89A5C; background: #0E1116; text-align: center; font-family: var(--serif); font-size: 17px; color: #F5F5F2;">You're on the list. <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: #8892A0; margin-top: 8px; text-transform: uppercase;">First dispatch lands Monday.</div></div>
+      </form>
+    </div>
+  </div>
+  <style>
+    @media (max-width: 860px) {
+      .dispatch-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .sb-form-home.sent .fields { display: none; }
+    .sb-form-home.sent .success { display: block; }
+  </style>
+  <script>
+    function atlasSubscribeHome(form, ev) {
+      ev.preventDefault();
+      var fd = new FormData(form);
+      fetch('/', { method: 'POST', headers: { 'Accept': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(fd).toString() })
+        .then(function(){ form.classList.add('sent'); })
+        .catch(function(){ form.classList.add('sent'); });
+      return false;
+    }
+  </script>
 </section>
 
 <!-- ============= FOOTER ============= -->

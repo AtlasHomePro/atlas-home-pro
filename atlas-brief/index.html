@@ -1083,6 +1083,149 @@
   </div>
 </section>
 
+<!-- ============= SUBSCRIBE BLOCK ============= -->
+<section id="subscribe" class="subscribe-block">
+  <style>
+    .subscribe-block {
+      padding: clamp(64px, 8vw, 112px) 0;
+      background: #0E1116;
+      color: #F5F5F2;
+      border-top: 1px solid #1C2128;
+      border-bottom: 1px solid #1C2128;
+    }
+    .subscribe-block .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+    .sb-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+    @media (max-width: 860px) { .sb-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .sb-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #C89A5C; margin-bottom: 20px; }
+    .sb-title { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.02; letter-spacing: -0.025em; color: #F5F5F2; margin: 0 0 20px; max-width: 15ch; }
+    .sb-title em { font-style: italic; color: #C89A5C; }
+    .sb-deck { font-family: var(--serif); font-size: clamp(16px, 1.55vw, 19px); line-height: 1.55; color: #C8CAD0; margin: 0 0 22px; max-width: 42ch; }
+    .sb-bullets { list-style: none; padding: 0; margin: 0 0 8px; }
+    .sb-bullets li { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.05em; color: #9CA2AC; padding: 7px 0; border-bottom: 1px dotted #2A2F38; display: grid; grid-template-columns: 20px 1fr; gap: 10px; }
+    .sb-bullets li::before { content: "→"; color: #C89A5C; }
+    .sb-bullets li:last-child { border-bottom: 0; }
+
+    .sb-form-card { background: #141821; border: 1px solid #252A33; padding: clamp(28px, 3.2vw, 40px); }
+    .sb-form-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #C89A5C; margin-bottom: 12px; }
+    .sb-form-head { font-family: var(--serif); font-weight: 500; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; letter-spacing: -0.015em; color: #F5F5F2; margin: 0 0 22px; }
+    .sb-form .row { margin-bottom: 14px; }
+    .sb-form label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #8892A0; margin-bottom: 8px; }
+    .sb-form input[type="email"], .sb-form input[type="text"], .sb-form select {
+      width: 100%;
+      background: #0E1116;
+      border: 1px solid #2A2F38;
+      color: #F5F5F2;
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      padding: 13px 14px;
+      border-radius: 0;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .sb-form input:focus, .sb-form select:focus { outline: 1px solid #C89A5C; border-color: #C89A5C; }
+    .sb-form .row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .sb-form .row-split { grid-template-columns: 1fr; gap: 14px; } }
+    .sb-form button {
+      width: 100%; margin-top: 10px; padding: 15px 18px;
+      background: #C89A5C; color: #0E1116; border: 0;
+      font-family: var(--mono); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer;
+    }
+    .sb-form button:hover { background: #D8AB6E; }
+    .sb-form .fine { margin-top: 14px; font-family: var(--mono); font-size: 10px; color: #6B7280; letter-spacing: 0.05em; line-height: 1.5; }
+    .sb-form .fine a { color: #8892A0; border-bottom: 1px solid #2A2F38; }
+    .sb-form.sent .fields { display: none; }
+    .sb-form.sent .success { display: block; }
+    .sb-form .success { display: none; padding: 22px; border: 1px dashed #C89A5C; background: #0E1116; text-align: center; font-family: var(--serif); font-size: 18px; color: #F5F5F2; }
+    .sb-form .success .sm { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: #8892A0; margin-top: 10px; text-transform: uppercase; }
+  </style>
+
+  <div class="wrap">
+    <div class="sb-grid">
+      <div>
+        <div class="sb-eyebrow">The Atlas Dispatch, from the field</div>
+        <h2 class="sb-title">One email. Real <em>numbers.</em> No fluff.</h2>
+        <p class="sb-deck">Every week, the Brief's best work lands in your inbox. Deal notes, honest operator takes on LA multifamily, construction costs priced off real jobs, and policy that actually moves rents. Written for owners, operators, and brokers.</p>
+        <ul class="sb-bullets">
+          <li>Every Monday, Wednesday, and Friday, 3 short emails</li>
+          <li>New sale comps, with our read on the number</li>
+          <li>What a job actually costs, from the receipts</li>
+          <li>Unsubscribe anytime, nothing sold</li>
+        </ul>
+      </div>
+
+      <div class="sb-form-card">
+        <div class="sb-form-label">Subscribe, free</div>
+        <div class="sb-form-head">Built by owners, for owners.</div>
+
+        <form class="sb-form"
+              name="atlas-dispatch"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/thanks/"
+              onsubmit="return atlasSubscribe(this, event)">
+          <input type="hidden" name="form-name" value="atlas-dispatch" />
+          <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
+
+          <div class="fields">
+            <div class="row">
+              <label for="sb-email">Email address</label>
+              <input id="sb-email" type="email" name="email" required placeholder="you@yourdomain.com" autocomplete="email" />
+            </div>
+            <div class="row row-split">
+              <div>
+                <label for="sb-first">First name</label>
+                <input id="sb-first" type="text" name="first_name" autocomplete="given-name" />
+              </div>
+              <div>
+                <label for="sb-role">You are</label>
+                <select id="sb-role" name="role">
+                  <option value="owner">LA property owner</option>
+                  <option value="broker">Broker</option>
+                  <option value="investor">Investor</option>
+                  <option value="operator">Operator</option>
+                  <option value="contractor">Contractor</option>
+                  <option value="other">Other, curious reader</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit">Subscribe to the Dispatch</button>
+            <div class="fine">We'll never sell your address. We'll never spam you. Questions: <a href="mailto:David@AtlasHomePro.com">David@AtlasHomePro.com</a>.</div>
+          </div>
+
+          <div class="success">
+            You're on the list.
+            <div class="sm">First dispatch lands next Monday.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function atlasSubscribe(form, ev) {
+      ev.preventDefault();
+      var fd = new FormData(form);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Accept': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(fd).toString()
+      }).then(function (res) {
+        if (res.ok || res.status === 200) {
+          form.classList.add('sent');
+        } else {
+          form.classList.add('sent');
+        }
+      }).catch(function () {
+        form.classList.add('sent');
+      });
+      return false;
+    }
+  </script>
+</section>
+
 <!-- ============= FOOTER ============= -->
 <footer class="footer">
   <div class="wrap">
