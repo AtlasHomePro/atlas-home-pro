@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bluon: The HVAC Tech Brain in Every Technician's Pocket. Atlas Brief</title>
+<link rel="canonical" href="https://atlashomepro.com/atlas-brief/bluon-hvac-tech-intelligence/"/>
+<meta property="og:title" content="Bluon: The HVAC Tech Brain in Every Technician's Pocket"/>
+<meta property="og:description" content="Bluon gives HVAC technicians instant access to manuals, wiring diagrams, AI diagnostics, and local parts availability on their phone. For LA multifamily owners, this means fewer callbacks and faster repairs. For small HVAC shops, it's the difference between competing and not."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://atlashomepro.com/atlas-brief/bluon-hvac-tech-intelligence/"/>
+<meta name="description" content="Bluon (bluon.com) is an HVAC intelligence platform used by 170K+ technicians. An LA operator's read on why owners and small HVAC shops should pay attention."/>
+<link rel="stylesheet" href="/atlas-v2.css"/>
+<style>
+.art-top{padding:clamp(48px,6vw,96px) 0 clamp(32px,4vw,56px);border-bottom:1px solid var(--ink)}
+.crumb{display:flex;gap:10px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:40px;flex-wrap:wrap}
+.crumb a{color:var(--muted);border-bottom:1px solid transparent}
+.crumb a:hover{color:var(--ink);border-color:var(--accent)}
+.crumb .sep{color:var(--muted-2)}
+.art-top .cat{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.art-top h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.6vw,104px);line-height:.98;letter-spacing:-.03em;margin:0 0 32px;max-width:20ch}
+.art-top h1 em{font-style:italic;color:var(--ink-soft)}
+.art-top .deck{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.45;color:var(--ink-soft);max-width:54ch;margin:0 0 48px}
+.byl{display:grid;grid-template-columns:repeat(4,auto) 1fr;gap:48px;padding-top:24px;border-top:var(--tick);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.byl b{color:var(--ink);display:block;margin-bottom:4px}
+@media(max-width:1024px){.byl{grid-template-columns:1fr 1fr;gap:20px 32px}}
+
+.art-lead{padding:clamp(32px,4vw,56px) 0;border-bottom:1px solid var(--ink)}
+.art-lead .lead-photo{margin:0}
+.art-lead .lead-photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center 30%;border:1px solid var(--ink);background:var(--bg-alt)}
+.art-lead .lead-photo .cap{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding-top:14px;border-top:1px dotted var(--rule);margin-top:16px}
+.art-lead .lead-photo .cap b{color:var(--ink);letter-spacing:.14em}
+
+.co-stats{padding:clamp(40px,5vw,72px) 0;border-bottom:1px solid var(--ink);background:var(--bg-alt)}
+.co-stats-head{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.co-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.co-stats-grid .stat{padding:20px 24px;border-right:1px dotted var(--rule);background:var(--bg)}
+.co-stats-grid .stat:last-child{border-right:0}
+.co-stats-grid .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.co-stats-grid .v{font-family:var(--mono);font-size:22px;letter-spacing:-.01em;color:var(--ink);font-weight:500;margin-bottom:4px}
+.co-stats-grid .s{font-family:var(--serif);font-size:13px;color:var(--muted);font-style:italic}
+@media(max-width:900px){.co-stats-grid{grid-template-columns:repeat(2,1fr)} .co-stats-grid .stat:nth-child(2n){border-right:0} .co-stats-grid .stat{border-bottom:1px dotted var(--rule)}}
+@media(max-width:480px){.co-stats-grid{grid-template-columns:1fr} .co-stats-grid .stat{border-right:0}}
+
+.art-body{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
+.body-grid{display:grid;grid-template-columns:220px minmax(0,680px) 1fr;gap:48px}
+.body-grid aside{position:sticky;top:88px;align-self:start}
+.body-grid aside .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.body-grid aside ol{list-style:none;counter-reset:toc;padding:0;margin:0;border-top:var(--tick)}
+.body-grid aside li{counter-increment:toc;padding:10px 0;border-bottom:var(--tick-soft);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:grid;grid-template-columns:28px 1fr;gap:8px}
+.body-grid aside li::before{content:counter(toc, decimal-leading-zero);color:var(--accent)}
+
+article.prose{font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--ink-soft);letter-spacing:-.003em}
+article.prose p{margin:0 0 1.2em}
+article.prose h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:-.02em;color:var(--ink);margin:2.2em 0 .6em}
+article.prose h2::before{content:"§ "counter(sec, upper-roman)". ";counter-increment:sec;font-family:var(--mono);font-size:14px;letter-spacing:.14em;color:var(--accent);display:inline}
+article.prose{counter-reset:sec}
+article.prose .drop::first-letter{font-family:var(--serif);font-size:5em;float:left;line-height:.85;padding:6px 10px 0 0;font-weight:500;color:var(--ink)}
+article.prose blockquote{margin:2em 0;padding:32px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.4vw,30px);line-height:1.25;letter-spacing:-.015em;color:var(--ink);max-width:26ch}
+article.prose blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:18px}
+
+article.prose .inset-img{margin:2em 0;padding-top:16px;border-top:1px solid var(--ink)}
+article.prose .inset-img img{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+article.prose .inset-img .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+article.prose .inset-img .cap b{color:var(--ink)}
+
+.profile-block{margin:3em 0 2em;padding:36px;border:1px solid var(--ink);background:var(--bg-alt)}
+.pb-head{display:grid;grid-template-columns:110px 1fr;gap:28px;align-items:start;margin-bottom:24px}
+.pb-head img{width:110px;height:110px;object-fit:cover;border:1px solid var(--rule);background:var(--bg)}
+.pb-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.pb-name{font-family:var(--serif);font-weight:500;font-size:28px;letter-spacing:-.015em;color:var(--ink);margin:0}
+.pb-role{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);margin-top:4px}
+.pb-body{font-family:var(--serif);font-size:16px;line-height:1.6;color:var(--ink);margin-bottom:18px}
+.pb-list{list-style:none;padding:0;margin:0 0 14px;font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--muted);line-height:1.8}
+.pb-list li{padding:4px 0;border-bottom:1px dotted var(--rule)}
+.pb-list b{color:var(--ink);display:inline-block;min-width:120px;letter-spacing:.08em;font-size:10px;text-transform:uppercase;padding-right:8px}
+.pb-list a{color:var(--ink);border-bottom:1px solid var(--accent)}
+@media(max-width:700px){.pb-head{grid-template-columns:1fr;gap:16px}.pb-head img{width:96px;height:96px}}
+
+@media(max-width:1024px){
+  .body-grid{grid-template-columns:1fr;gap:40px}
+  .body-grid aside{position:static;order:2}
+  .body-grid article{order:1}
+}
+
+.author{padding:clamp(48px,6vw,80px) 0;background:var(--bg-alt);border-bottom:1px solid var(--ink)}
+.author-in{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+.author-in .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.author-in h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+.author-in p{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:54ch;margin:0}
+.author-in .btns{display:flex;flex-direction:column;gap:10px;white-space:nowrap}
+.author-in .btns a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--ink)}
+.author-in .btns a:first-child{background:var(--ink);color:var(--bg)}
+@media(max-width:1024px){.author-in{grid-template-columns:1fr;gap:24px} .author-in .btns{flex-direction:row}}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/atlas-editor.js" defer></script>
+<script defer src="/atlas-ticker.js"></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas <span style="color:var(--accent)">Home Pro</span></a>
+    <ul class="nav-links"><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/" class="active">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-right"><span class="nav-phone">(213) 275-2210</span><a href="/contact/" class="nav-cta">Contact Atlas</a><button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div>
+</nav>
+
+<div id="atlas-ticker"></div>
+
+<header class="art-top">
+  <div class="wrap">
+    <nav class="crumb"><a href="/">Atlas <span style="color:var(--accent)">Home Pro</span></a><span class="sep">/</span><a href="/atlas-brief/">Atlas Brief</a><span class="sep">/</span><a href="/atlas-brief/sections/operator-guides/">Operator Guides</a><span class="sep">/</span><span>Entry № 062</span></nav>
+    <div class="cat"><span>Operator Guides &middot; Technology &middot; Entry № 062</span></div>
+    <h1>Bluon: A HVAC Tech's <em>Brain</em> in the Palm of Their Hand.</h1>
+    <p class="deck">Bluon puts every manual, wiring diagram, parts list, and AI diagnostic for 30 million HVAC model numbers into a technician's pocket. For LA multifamily owners, this means fewer callbacks. For small HVAC shops, it's the difference between competing and not.</p>
+    <div class="byl">
+      <div><b>David Safai</b>Editor, Publisher</div>
+      <div><b>Published</b>April 21, 2026</div>
+      <div><b>Subject</b>Bluon, Irvine, CA</div>
+      <div><b>Read time</b>6 minutes</div>
+    </div>
+  </div>
+</header>
+
+<section class="art-lead">
+  <div class="wrap">
+    <figure class="lead-photo">
+      <img src="/images/brief/bluon/bluon-app-ui-jobber.jpg" alt="Three smartphone screens showing the Bluon HVAC app, with model numbers, manuals, parts lists, retrofit steps, and a discussion feature listed on the interface." loading="eager" fetchpriority="high" width="1200" height="900" />
+      <figcaption class="cap"><b>FIG. 00</b>, Bluon app interface, model lookup, manuals, parts, and discussion tabs visible. Image via Jobber editorial, Bluon product screens.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="co-stats">
+  <div class="wrap">
+    <div class="co-stats-head">Bluon, By the Numbers</div>
+    <div class="co-stats-grid">
+      <div class="stat"><div class="k">Founded</div><div class="v">2014</div><div class="s">Irvine, California</div></div>
+      <div class="stat"><div class="k">Technicians</div><div class="v">170,000+</div><div class="s">on the platform</div></div>
+      <div class="stat"><div class="k">Contractors</div><div class="v">55,000</div><div class="s">using the app</div></div>
+      <div class="stat"><div class="k">Model Numbers</div><div class="v">30M+</div><div class="s">in the database</div></div>
+      <div class="stat"><div class="k">OEM Brands</div><div class="v">240+</div><div class="s">covered</div></div>
+      <div class="stat"><div class="k">Series B</div><div class="v">$37M</div><div class="s">Jan 2022, EIF led</div></div>
+      <div class="stat"><div class="k">AI Training Data</div><div class="v">135,000</div><div class="s">verified service calls</div></div>
+      <div class="stat"><div class="k">CEO</div><div class="v">Peter Capuciati</div><div class="s">Founder</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="art-body">
+  <div class="wrap">
+    <div class="body-grid">
+
+      <aside>
+        <div class="k">In this piece</div>
+        <ol>
+          <li><a href="#problem">The problem this solves</a></li>
+          <li><a href="#product">What the app actually does</a></li>
+          <li><a href="#owner">Why owners should care</a></li>
+          <li><a href="#shop">Why small shops need it</a></li>
+          <li><a href="#limits">Honest limitations</a></li>
+          <li><a href="#contact">How to reach them</a></li>
+        </ol>
+      </aside>
+
+      <article class="prose">
+        <p class="drop">I came across Bluon (<a href="https://www.bluon.com" target="_blank" rel="noopener" style="border-bottom:1px solid var(--accent);color:var(--ink);">bluon.com</a>) and it's one of those services that, once you see it, you can't unsee it. It's a tool that puts every HVAC manual, every wiring diagram, every spec sheet, and an AI diagnostic brain trained on 135,000 real-world service calls, into the pocket of any technician who opens the app. For owners of apartment buildings in LA, this is the kind of operational leverage that quietly shaves 15 to 25% off your annual HVAC service spend when your vendor uses it.</p>
+
+        <h2 id="problem">The problem this solves</h2>
+        <p>Every LA multifamily owner has had this day. Tenant calls. A/C down. You dispatch your HVAC contractor. Tech shows up. The unit is a 14 year old Carrier with a brand-discontinued model number on a rooftop in 100 degree heat. Tech doesn't have the manual. Tech calls the distributor counter. Counter guy doesn't know either. Tech leaves, says he needs to research it, comes back tomorrow. If the tenant is on the top floor, you are getting a complaint call that night and probably a habitability notice from their attorney within a week.</p>
+
+        <p>Multiply that by 50 units across your portfolio and you are looking at a meaningful cost center. The real cost is not the service call, it's the callbacks, the wrong parts, the second and third truck rolls, and the rent you eventually concede to the tenant who has had it with the building.</p>
+
+        <p>Bluon attacks the root of that problem. Any tech with the app scans the nameplate on that 14 year old Carrier and has the full manual, wiring diagram, bill of materials, refrigerant chart, and parts cross-reference in about 15 seconds. No counter calls. No research trips. One visit, one fix, one less angry tenant.</p>
+
+        <h2 id="product">What the app actually does</h2>
+        <p>Four things, in the order a tech on a job site would use them.</p>
+
+        <p><b>One, model lookup.</b> Tech scans or types in the model number. The app pulls the OEM manual, the wiring diagram, the spec sheet, the BOM, and the refrigerant data. The database covers 30 million model numbers across 240 brands, going back decades. That matters in LA because a huge chunk of the multifamily stock is running equipment that is 15 to 30 years old.</p>
+
+        <p><b>Two, MasterMechanic AI.</b> The tech types a question like "unit is short cycling, compressor cuts off after 3 minutes on a Carrier 50XC" and the AI returns step-by-step troubleshooting. It's trained on 135,000 verified service calls, which is a very different dataset than what a general-purpose AI would hit. Bluon claims 99% accuracy on HVAC problems versus the 50% error rate you get asking ChatGPT. I haven't independently verified that number, but the principle is sound. A narrow AI trained on the right problem-solution pairs will outperform a general model, every time.</p>
+
+        <div class="inset-img">
+          <img src="/images/brief/bluon/peter-capuciati-ceo-headshot.png" alt="Peter Capuciati, Founder and CEO of Bluon, photographed in a modern office setting with a data center visible in the background." loading="lazy" />
+          <div class="cap"><b>FIG. 01</b>, Peter Capuciati, Founder and CEO of Bluon, Inc. Former EVP at Savills, Columbia-trained physicist, Forbes Technology Council member. Image via Orange County Business Journal.</div>
+        </div>
+
+        <p><b>Three, PartsConnect.</b> This is the April 2026 launch. From the same scanned model number, the app generates a compatible replacement parts list and then shows which local distributors have those specific parts in stock. The tech can order right there, on the job, without calling around. Peter Capuciati, the CEO, said it cleanly in their launch announcement:</p>
+
+        <blockquote>
+          Identifying compatible replacement part options is hard enough, but trying to determine if a local distributor carries any of those compatible options has historically been a massive friction point for HVAC shops. We believe we have finally cracked the code to this enormous challenge.
+          <cite>Peter Capuciati, CEO Bluon, April 2026</cite>
+        </blockquote>
+
+        <p><b>Four, FSM integrations.</b> Bluon is embedded in ServiceTitan, Housecall Pro, and BuildOps. If your HVAC contractor uses any of those platforms, Bluon is already sitting in their workflow. They don't have to switch tools, and they might not even realize the data they are reading is Bluon's.</p>
+
+        <h2 id="owner">Why owners should care</h2>
+        <p>Three reasons this matters for a multifamily owner running 20, 50, or 500 units in LA.</p>
+
+        <p><b>One, your HVAC spend drops meaningfully when callbacks drop.</b> A callback is an invoice you pay twice. A good HVAC vendor running Bluon-equipped techs diagnoses on the first visit more often. Industry reports suggest 20 to 30% fewer callbacks when techs have instant manual access. Conservative: call it 15%. On a 100 unit portfolio spending $80K a year on HVAC service, that's $12K back in your pocket, every year.</p>
+
+        <p><b>Two, LA's old stock is Bluon's wheelhouse.</b> The database is deep on legacy equipment. A lot of pre-1990 LA multifamily is running Carrier, Lennox, York, Rheem, and Day & Night units from the late 80s and early 90s. Parts and manuals for that equipment are exactly the kind of thing that a senior tech used to keep in his truck and that a junior tech now has no way to access, except through a tool like this.</p>
+
+        <p><b>Three, your vendor's capacity scales.</b> If your HVAC contractor is a three-person shop, and they all use Bluon, they are effectively operating at the capability level of a bigger shop with a senior tech on every truck. That compresses dispatch time and helps your calls get triaged faster. It's a quiet win for you.</p>
+
+        <h2 id="shop">Why small shops need it</h2>
+        <p>If you are a small HVAC contractor in LA reading this, you need this tool. The skilled tech shortage is not fixed by training. It's being solved by software. Bluon's CEO has said publicly there's a 100,000 technician shortage in the US. You are not going to hire your way out of that. You are going to arm the techs you have with better information.</p>
+
+        <p>A junior tech with Bluon on their phone can handle service calls that, pre-Bluon, would have required escalation to a 20 year veteran. That is the kind of capability that used to be headcount, and now it's an app. This is the operational leverage that makes a 3-person shop competitive against a 30-person regional outfit.</p>
+
+        <p>The one concrete action for small HVAC shops I want to suggest: try it. The company offers a limited free tier (about 3 lookups a month), which will let you kick the tires. If your techs find it useful, the paid tier is priced per-business and handled by sales. It is a tool, not a toy.</p>
+
+        <h2 id="limits">Honest limitations</h2>
+        <p>I want to be straight about what I don't know.</p>
+
+        <p>One, pricing is not public. The paid tier is B2B and requires a sales conversation. For a small contractor that's friction, but it's probably fine. If you want the full platform, you talk to their BD team.</p>
+
+        <p>Two, the AI was still evolving in early 2024. Some techs on Reddit flagged the AI as "hit or miss" for certain types of diagnostics. That's honest feedback from the field. The product has improved since then and the training data is deeper, but if you sign up expecting perfection, you will be disappointed. Expect a tool that is 90% accurate and covers most common service call problems, not a replacement for experience.</p>
+
+        <p>Three, PartsConnect's coverage in the LA basin is not publicly documented. The feature relies on local distributors opting in to share inventory data. Ferguson is a major investor, which means they likely have deep inventory integration, but a small independent distributor on the East side might not be in the network. Worth asking your vendor to confirm before you rely on it.</p>
+
+        <h2 id="contact">How to reach them</h2>
+        <p>Bluon is not shy about talking to press or partners. I'm tracking them because I think they are going to become a standard tool across HVAC service in the next 24 months. If you are an HVAC contractor who hasn't tried it, or an OEM looking at embedded integrations, or another software platform thinking about a partnership, here's the lineup.</p>
+
+        <div class="profile-block">
+          <div class="pb-head">
+            <img src="/images/brief/bluon/peter-capuciati-ceo-headshot.png" alt="Peter Capuciati, Founder and CEO of Bluon" />
+            <div>
+              <div class="pb-label">Founder, Chairman &amp; CEO</div>
+              <h3 class="pb-name">Peter Capuciati</h3>
+              <div class="pb-role">Bluon, Inc. &middot; Irvine, California</div>
+            </div>
+          </div>
+          <div class="pb-body">Columbia-trained physicist. Former EVP at Savills North America, $20B+ in real estate deals. Founded Bluon in 2014. Forbes Technology Council member.</div>
+          <ul class="pb-list">
+            <li><b>Website</b><a href="https://www.bluon.com" target="_blank" rel="noopener">bluon.com</a></li>
+            <li><b>LinkedIn</b><a href="https://www.linkedin.com/in/peter-capuciati-9625b4206" target="_blank" rel="noopener">linkedin.com/in/peter-capuciati</a></li>
+            <li><b>PR Contact</b><a href="mailto:Grant@bospar.com">Grant Zehnder &middot; Bospar PR &middot; Grant@bospar.com</a></li>
+            <li><b>BD Lead</b>Taylor Distler, VP of Business Development</li>
+            <li><b>Product Lead</b>Adam Curry, SVP Software &amp; Data</li>
+          </ul>
+        </div>
+
+        <p>If you are an HVAC contractor in LA and you want a warm intro, I can make one. If you are a multifamily owner whose current vendor isn't using this and you think they should be, forward them this piece. The best thing for everyone in the chain is a tech who shows up and fixes the problem on the first visit. Bluon is moving the industry toward that standard.</p>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="author">
+  <div class="wrap">
+    <div class="author-in">
+      <div>
+        <div class="k">Written from the field</div>
+        <h3>David Safai, operator, developer, GC.</h3>
+        <p>Atlas Home Pro is a Los Angeles owner-operator and general contractor. If you run a tech platform, a brokerage, or an investment fund serving LA real estate and want an operator's honest read, send it to <a href="mailto:David@AtlasHomePro.com" style="border-bottom:1px solid var(--accent);color:var(--ink);">David@AtlasHomePro.com</a>. If it's interesting, it runs in the Brief.</p>
+      </div>
+      <div class="btns">
+        <a href="https://www.bluon.com" target="_blank" rel="noopener">Visit Bluon</a>
+        <a href="/atlas-brief/">Back to the Brief</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" style="padding:48px 0;border-top:1px solid var(--ink);background:var(--bg-alt)">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:32px;align-items:baseline;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted)">
+    <div>&copy; 2026 Atlas Home Pro &middot; <a href="/atlas-brief/" style="color:var(--ink)">Atlas Brief</a></div>
+    <div>Entry № 062 &middot; Operator Guides &middot; April 21, 2026</div>
+    <div>Los Angeles &middot; <a href="mailto:David@AtlasHomePro.com" style="color:var(--ink)">David@AtlasHomePro.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
