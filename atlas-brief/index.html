@@ -732,18 +732,13 @@
 <!-- ============= SECTIONS BAR ============= -->
 <div class="cat-bar">
   <div class="cat-bar-inner">
-    <div class="count">4 live · 9 desks</div>
+    <div class="count">5 live · 4 desks</div>
     <ul class="cat-list" id="catList">
       <li><button class="active" data-cat="all">All</button></li>
-      <li><a href="/atlas-brief/sections/market-commentary/">Market Commentary</a></li>
-      <li><a href="/atlas-brief/sections/owners-desk/">Owner's Desk</a></li>
-      <li><a href="/atlas-brief/sections/construction-costs/">Construction Costs</a></li>
-      <li><a href="/atlas-brief/sections/policy/">Policy</a></li>
-      <li><a href="/atlas-brief/sections/comps/">Comps</a></li>
       <li><a href="/atlas-brief/sections/broker-activity/">Broker Activity</a></li>
-      <li><a href="/atlas-brief/sections/operator-guides/">Operator Guides</a></li>
+      <li><a href="/atlas-brief/sections/construction-costs/">Construction Costs &amp; Guides</a></li>
+      <li><a href="/atlas-brief/sections/policy/">Policy</a></li>
       <li><a href="/atlas-brief/sections/investing-philosophy/">Investing Philosophy</a></li>
-      <li><a href="/atlas-brief/sections/great-books/">Great Books</a></li>
     </ul>
     <div class="sort">Sorted: <b>Newest</b></div>
   </div>
@@ -932,54 +927,29 @@
   <div class="wrap">
     <div class="more-head">
       <div class="num">§ V, Browse by Desk</div>
-      <h3>The eleven desks of Atlas Brief.</h3>
+      <h3>The four desks of Atlas Brief.</h3>
       <div class="right">Each a department of its own.</div>
     </div>
     <div class="desks-grid">
-      <a href="/atlas-brief/sections/market-commentary/" class="desk">
+      <a href="/atlas-brief/sections/broker-activity/" class="desk">
         <span class="n">01</span>
-        <h4>Market Commentary</h4>
-        <p>Cap rates, rents, insurance repricing, rate moves. Data-first reading of the LA market.</p>
-      </a>
-      <a href="/atlas-brief/sections/owners-desk/" class="desk">
-        <span class="n">02</span>
-        <h4>Owner's Desk</h4>
-        <p>Opinion, philosophy, and the long-held arguments. A column of operator judgment.</p>
+        <h4>Broker Activity</h4>
+        <p>The running log of LA multifamily marketplace activity. On-market listings, sold comps, and operator notes on every deal worth reading.</p>
       </a>
       <a href="/atlas-brief/sections/construction-costs/" class="desk">
-        <span class="n">03</span>
-        <h4>Construction Costs</h4>
-        <p>Line-by-line cost references. Not a price list, a reference document priced from real jobs.</p>
+        <span class="n">02</span>
+        <h4>Construction Costs &amp; Guides</h4>
+        <p>Real numbers from real jobs. Line items brokers do not show you, and how we actually operate our own buildings.</p>
       </a>
       <a href="/atlas-brief/sections/policy/" class="desk">
-        <span class="n">04</span>
+        <span class="n">03</span>
         <h4>Policy</h4>
-        <p>ED-1, TOC, ULA, JJJ, AB 1482, soft-story. The dossiers that move LA land economics.</p>
-      </a>
-      <a href="/atlas-brief/sections/comps/" class="desk">
-        <span class="n">05</span>
-        <h4>Comps</h4>
-        <p>What is trading across LA, plate by plate, with a one-line operator note per entry.</p>
-      </a>
-      <a href="/atlas-brief/sections/broker-activity/" class="desk">
-        <span class="n">06</span>
-        <h4>Broker Activity</h4>
-        <p>The running log of LA multifamily marketplace activity. Listings, sold comps, and operator notes on every deal worth reading.</p>
-      </a>
-      <a href="/atlas-brief/sections/operator-guides/" class="desk">
-        <span class="n">07</span>
-        <h4>Operator Guides</h4>
-        <p>Practical, specific, honest. How we actually operate our own buildings. The backbone desk.</p>
+        <p>ULA, AB 1482, RSO, SB 721, SB 326. What the law actually does to an LA operator's P&amp;L.</p>
       </a>
       <a href="/atlas-brief/sections/investing-philosophy/" class="desk">
-        <span class="n">08</span>
+        <span class="n">04</span>
         <h4>Investing Philosophy</h4>
-        <p>Marks, Munger, Graham, Taleb, applied to LA real estate. The principles we try to operate by.</p>
-      </a>
-      <a href="/atlas-brief/sections/great-books/" class="desk">
-        <span class="n">09</span>
-        <h4>Great Books</h4>
-        <p>A well-read operator's reading list. Books that have changed how we think about a deal.</p>
+        <p>Marks, Munger, Graham, Taleb, applied to LA real estate. Plus the reading list that built the playbook.</p>
       </a>
     </div>
   </div>
@@ -987,7 +957,7 @@
 
 <style>
 .desks-dir { padding: clamp(56px,7vw,96px) 0; background: var(--bg-alt); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-.desks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); margin-top: 40px; }
+.desks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--ink); margin-top: 40px; }
 .desks-grid .desk {
   padding: 28px 28px 32px;
   border-right: 1px solid var(--rule);
@@ -999,7 +969,7 @@
   min-height: 180px;
 }
 .desks-grid .desk:hover { background: var(--bg-alt); }
-.desks-grid .desk:nth-child(3n) { border-right: 0; }
+.desks-grid .desk:nth-child(4n) { border-right: 0; }
 .desks-grid .desk .n {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
   color: var(--accent); margin-bottom: 18px;
@@ -1014,7 +984,7 @@
 }
 @media (max-width: 900px) {
   .desks-grid { grid-template-columns: repeat(2, 1fr); }
-  .desks-grid .desk:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .desks-grid .desk:nth-child(4n) { border-right: 1px solid var(--rule); }
   .desks-grid .desk:nth-child(2n) { border-right: 0; }
 }
 @media (max-width: 560px) {
@@ -1173,18 +1143,18 @@
         <div class="footer-sections">
       <div class="fs-head">
         <div class="fs-k">Atlas Brief · Sections</div>
-        <div class="fs-note">9 sections · Filter the archive</div>
+        <div class="fs-note">4 sections · Filter the archive</div>
       </div>
       <div class="fs-grid">
-        <a href="/atlas-brief/sections/market-commentary/"><span>Market Commentary</span><span class="n">01</span></a>
-        <a href="/atlas-brief/sections/owners-desk/"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Market Commentary</span><span class="n">01</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Owner&rsquo;s Desk</span><span class="n">02</span></a>
         <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs</span><span class="n">03</span></a>
         <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">04</span></a>
-        <a href="/atlas-brief/sections/comps/"><span>Comps</span><span class="n">05</span></a>
+        <a href="/atlas-brief/sections/broker-activity/"><span>Comps</span><span class="n">05</span></a>
         <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">06</span></a>
-        <a href="/atlas-brief/sections/operator-guides/"><span>Operator Guides</span><span class="n">07</span></a>
+        <a href="/atlas-brief/sections/construction-costs/"><span>Operator Guides</span><span class="n">07</span></a>
         <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">08</span></a>
-        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">09</span></a>
+        <a href="/atlas-brief/sections/investing-philosophy/"><span>Great Books</span><span class="n">09</span></a>
       </div>
     </div>
 

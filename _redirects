@@ -1,9 +1,24 @@
 # Atlas Home Pro — Netlify Redirects
 # Fixes 40 GSC 404s and 111 broken internal links
 
-# Opportunities section merged into Broker Activity (Apr 21, 2026)
-/atlas-brief/sections/opportunities/*  /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/opportunities    /atlas-brief/sections/broker-activity/  301
+# 9 → 4 desk consolidation (Apr 21, 2026)
+# All deal commentary + market reads → Broker Activity
+/atlas-brief/sections/opportunities/*      /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/opportunities        /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/market-commentary/*  /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/market-commentary    /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/owners-desk/*        /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/owners-desk          /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/comps/*              /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/comps                /atlas-brief/sections/broker-activity/  301
+
+# Operator Guides → Construction Costs & Guides
+/atlas-brief/sections/operator-guides/*    /atlas-brief/sections/construction-costs/  301
+/atlas-brief/sections/operator-guides      /atlas-brief/sections/construction-costs/  301
+
+# Great Books folded into Investing Philosophy
+/atlas-brief/sections/great-books/*        /atlas-brief/sections/investing-philosophy/  301
+/atlas-brief/sections/great-books          /atlas-brief/sections/investing-philosophy/  301
 
 # ══════════════════════════════════════════════════════════════════════════
 # V2 DEPLOY 2026-04-19 — redirects for deleted/moved paths

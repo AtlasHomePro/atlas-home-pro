@@ -527,7 +527,6 @@ function renderCard(r) {
       </div>
 
 
-
       ${r.status !== "Fulfilled" && r.status !== "Cancelled" ? `
       <div class="status-bar">
         ${nextStatuses.map(s => `<button class="status-btn" onclick="promptStatusUpdate('${r.id}','${s}')">${s === "In Review" ? "Start Review" : s === "Ordered" ? "Mark Ordered" : s === "Ready" ? "Mark Ready" : s === "In Transit" ? "In Transit" : s === "Fulfilled" ? "Mark Fulfilled" : s}</button>`).join("")}
