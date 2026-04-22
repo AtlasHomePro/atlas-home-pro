@@ -28,8 +28,21 @@
       '</div>'
     ].join('');
 
-    // Insert just before the first <footer> on page
-    var footer = document.querySelector('footer');
+    // Insert just before the SITE footer (skip any inline <footer> tags inside cards).
+    // Prefer a body-level direct child that is a <footer>.
+    var footer = null;
+    var kids = document.body.children;
+    for (var i = kids.length - 1; i >= 0; i--) {
+      if (kids[i].tagName === 'FOOTER' || kids[i].classList.contains('site-footer') || kids[i].classList.contains('footer')) {
+        footer = kids[i];
+        break;
+      }
+    }
+    // Fallback to last <footer> anywhere
+    if (!footer) {
+      var all = document.querySelectorAll('footer');
+      if (all.length) footer = all[all.length - 1];
+    }
     if (footer && footer.parentNode) {
       footer.parentNode.insertBefore(bar, footer);
     } else {
