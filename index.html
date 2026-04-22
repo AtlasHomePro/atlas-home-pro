@@ -1132,27 +1132,43 @@
 </section>
 
 <!-- ============= SUBSCRIBE ============= -->
-<section class="subscribe">
+<section class="subscribe" id="dispatch">
   <div class="wrap">
     <div class="subscribe-inner">
       <div>
         <div class="kicker">The Atlas Dispatch</div>
         <h2>A letter from the field, every&nbsp;Friday.</h2>
       </div>
-      <form onsubmit="event.preventDefault(); this.querySelector('button').innerText='Subscribed ✓'; this.querySelector('input').value='';">
+      <form name="atlas-dispatch" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks/" onsubmit="return atlasHomeSub(this, event)">
+        <input type="hidden" name="form-name" value="atlas-dispatch" />
+        <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
         <label for="email">Email address</label>
-        <input type="email" id="email" placeholder="name@domain.com" required />
+        <input type="email" id="email" name="email" placeholder="name@domain.com" required autocomplete="email" />
         <div class="sub-row">
           <p class="fine">No ads. No funnels. One short note from David on what's moving in LA.</p>
           <button type="submit">Subscribe</button>
         </div>
+        <div class="sent-msg" style="display:none;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:14px;">You are on the list. First dispatch lands Friday.</div>
       </form>
     </div>
   </div>
+  <script>
+    function atlasHomeSub(form, ev) {
+      ev.preventDefault();
+      var fd = new FormData(form);
+      fetch('/', { method:'POST', headers:{'Accept':'application/x-www-form-urlencoded'}, body:new URLSearchParams(fd).toString() })
+        .finally(function(){
+          form.querySelector('input[type=email]').value = '';
+          form.querySelector('button').innerText = 'Subscribed ✓';
+          form.querySelector('.sent-msg').style.display = 'block';
+        });
+      return false;
+    }
+  </script>
 </section>
 
-<!-- ============= DISPATCH SIGNUP (compact) ============= -->
-<section id="dispatch" style="padding: clamp(56px, 7vw, 96px) 0; background: #0E1116; color: #F5F5F2; border-top: 1px solid #1C2128;">
+<!-- DISPATCH SIGNUP (compact) — REMOVED, replaced by single clean .subscribe block above -->
+<section id="dispatch-removed" style="display:none;" data-removed="true" style="padding: clamp(56px, 7vw, 96px) 0; background: #0E1116; color: #F5F5F2; border-top: 1px solid #1C2128;">
   <div class="wrap" style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
     <div class="dispatch-grid">
       <div>
