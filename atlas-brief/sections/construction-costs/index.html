@@ -903,7 +903,7 @@
   <div class="wrap" style="max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad-x);">
     <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--ink); margin-bottom: 0;">
       <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);">In This Desk</div>
-      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);" id="desk-count">Loading…</div>
+      <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);" id="desk-count">First Cost File entry publishing soon.</div>
     </div>
     <div id="desk-feed" data-desk="Construction Costs &amp; Guides"></div>
   </div>
@@ -948,7 +948,6 @@
             '<div class="e-line">First dispatch from this desk is shipping soon.</div>' +
             '<div class="e-sub">Every piece runs when it has real numbers, not on a schedule.</div>' +
             '</div>';
-          if (countEl) countEl.textContent = '0 entries · In production';
           return;
         }
 
@@ -964,7 +963,6 @@
           '</a>';
         }).join('');
 
-        if (countEl) countEl.textContent = items.length + ' entr' + (items.length === 1 ? 'y' : 'ies') + ' · Newest first';
       })
       .catch(function() {});
   })();
