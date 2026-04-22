@@ -227,12 +227,13 @@
   display: flex !important;
   align-items: stretch !important;
   gap: 14px;
-  padding: 14px !important;
+  padding: 16px 14px !important;
+  min-width: 0;
 }
 .le-addr-thumb {
-  flex: 0 0 108px;
+  flex: 0 0 120px;
   display: block;
-  height: 84px;
+  height: 88px;
   overflow: hidden;
   border: 1px solid var(--ink);
   background: var(--bg-alt);
@@ -270,12 +271,12 @@
 .log-entry:last-child { border-bottom: 0; }
 .log-entry:hover { background: var(--bg-alt); }
 .log-entry > div {
-  padding: 13px 14px;
+  padding: 16px 14px;
   border-right: 1px solid var(--rule-soft);
   font-family: var(--mono);
   font-size: 11px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .log-entry > div:last-child { border-right: 0; }
 
