@@ -835,41 +835,51 @@
 
   </div>
 
-  <!-- Hero image, real Atlas jobsite -->
+  <!-- Rate snapshot strip — static 9-cell grid, no scroll -->
+  <div class="rate-strip" aria-label="Cost of capital snapshot" style="max-width:var(--maxw);margin:32px auto 0;">
+    <div class="rs-cell"><span class="rs-lbl">Fed Funds</span><span class="rs-val">3.64%</span><span class="rs-note">target 3.50&ndash;3.75%</span></div>
+    <div class="rs-cell"><span class="rs-lbl">5Y UST</span><span class="rs-val">3.91%</span><span class="rs-note up">&#9650; 1.6%</span></div>
+    <div class="rs-cell"><span class="rs-lbl">10Y UST</span><span class="rs-val">4.29%</span><span class="rs-note up">&#9650; 1.1%</span></div>
+    <div class="rs-cell"><span class="rs-lbl">13W T-Bill</span><span class="rs-val">3.60%</span><span class="rs-note">flat</span></div>
+    <div class="rs-cell"><span class="rs-lbl">MF Loan Spread</span><span class="rs-val">+150&ndash;250 bps</span><span class="rs-note">over 5Y/10Y</span></div>
+    <div class="rs-cell"><span class="rs-lbl">Agency 10Y MF</span><span class="rs-val">~5.80&ndash;6.40%</span><span class="rs-note">Fannie/Freddie</span></div>
+    <div class="rs-cell"><span class="rs-lbl">Bank 7Y MF</span><span class="rs-val">~6.25&ndash;6.90%</span><span class="rs-note">LA banks</span></div>
+    <div class="rs-cell"><span class="rs-lbl">Prime</span><span class="rs-val">6.75%</span><span class="rs-note">WSJ</span></div>
+    <div class="rs-cell"><span class="rs-lbl">SOFR 1M</span><span class="rs-val">3.68%</span><span class="rs-note">overnight</span></div>
+  </div>
+  <style>
+    .rate-strip { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--bg); }
+    .rate-strip .rs-cell { padding: 18px 14px; border-right: 1px dotted var(--rule); display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .rate-strip .rs-cell:last-child { border-right: 0; }
+    .rate-strip .rs-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rate-strip .rs-val { font-family: var(--mono); font-size: clamp(15px, 1.3vw, 18px); letter-spacing: -0.01em; color: var(--ink); font-weight: 500; white-space: nowrap; }
+    .rate-strip .rs-note { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--muted); line-height: 1.3; }
+    .rate-strip .rs-note.up { color: #3C7A51; font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 0.02em; }
+    @media (max-width: 1200px) {
+      .rate-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .rate-strip .rs-cell { border-bottom: 1px dotted var(--rule); }
+      .rate-strip .rs-cell:nth-child(3n) { border-right: 0; }
+      .rate-strip .rs-cell:nth-last-child(-n+3) { border-bottom: 0; }
+    }
+    @media (max-width: 640px) {
+      .rate-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .rate-strip .rs-cell:nth-child(3n) { border-right: 1px dotted var(--rule); }
+      .rate-strip .rs-cell:nth-child(2n) { border-right: 0; }
+      .rate-strip .rs-cell:nth-last-child(-n+3) { border-bottom: 1px dotted var(--rule); }
+      .rate-strip .rs-cell:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+  </style>
+
+  <!-- Hero image — moved BELOW rate strip -->
   <div style="max-width:var(--maxw);margin:32px auto 0;padding:0 var(--pad-x);">
     <div style="position:relative;">
       <img src="/images/field/la-excavation-deere-wide.jpg"
            alt="Atlas Home Pro jobsite, Los Angeles: excavated building pad with shoring walls, a Deere 350 excavator pulled up to one side, graffiti on the neighboring parapet wall, and an overcast LA sky."
            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid var(--ink);" />
       <div style="position:absolute;bottom:14px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:6px 10px;border:1px solid var(--ink);">
-        Fig. 01, Atlas jobsite, Los Angeles · Excavation + shoring, 2026
+        Fig. 01 &middot; Atlas jobsite, Los Angeles
       </div>
       <div style="position:absolute;top:14px;right:14px;width:10px;height:10px;border-top:1px solid var(--ink);border-right:1px solid var(--ink);"></div>
-    </div>
-  </div>
-
-  <!-- Rate snapshot ticker -->
-  <div class="cost-ticker" aria-hidden="true">
-    <div class="cost-ticker-inner">
-      <span><b>FED FUNDS</b>3.64%<span class="chg"> target 3.50&ndash;3.75%</span></span>
-      <span><b>5Y UST</b>3.91%<span class="up"> &#9650; 1.6%</span></span>
-      <span><b>10Y UST</b>4.29%<span class="up"> &#9650; 1.1%</span></span>
-      <span><b>13W T-BILL</b>3.60%<span class="chg"> flat</span></span>
-      <span><b>MF LOAN SPREAD</b>+150&ndash;250 bps<span class="chg"> over 5Y/10Y</span></span>
-      <span><b>AGENCY 10Y MF</b>~5.80&ndash;6.40%<span class="chg"> Fannie/Freddie</span></span>
-      <span><b>BANK 7Y MF</b>~6.25&ndash;6.90%<span class="chg"> LA banks</span></span>
-      <span><b>PRIME</b>6.75%<span class="chg"> WSJ</span></span>
-      <span><b>SOFR 1M</b>3.68%<span class="chg"> overnight</span></span>
-      <!-- repeat for seamless scroll -->
-      <span><b>FED FUNDS</b>3.64%<span class="chg"> target 3.50&ndash;3.75%</span></span>
-      <span><b>5Y UST</b>3.91%<span class="up"> &#9650; 1.6%</span></span>
-      <span><b>10Y UST</b>4.29%<span class="up"> &#9650; 1.1%</span></span>
-      <span><b>13W T-BILL</b>3.60%<span class="chg"> flat</span></span>
-      <span><b>MF LOAN SPREAD</b>+150&ndash;250 bps<span class="chg"> over 5Y/10Y</span></span>
-      <span><b>AGENCY 10Y MF</b>~5.80&ndash;6.40%<span class="chg"> Fannie/Freddie</span></span>
-      <span><b>BANK 7Y MF</b>~6.25&ndash;6.90%<span class="chg"> LA banks</span></span>
-      <span><b>PRIME</b>6.75%<span class="chg"> WSJ</span></span>
-      <span><b>SOFR 1M</b>3.68%<span class="chg"> overnight</span></span>
     </div>
   </div>
 </header>
