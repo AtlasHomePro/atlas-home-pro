@@ -1,6 +1,10 @@
 # Atlas Home Pro — Netlify Redirects
 # Fixes 40 GSC 404s and 111 broken internal links
 
+# Opportunities section merged into Broker Activity (Apr 21, 2026)
+/atlas-brief/sections/opportunities/*  /atlas-brief/sections/broker-activity/  301
+/atlas-brief/sections/opportunities    /atlas-brief/sections/broker-activity/  301
+
 # ══════════════════════════════════════════════════════════════════════════
 # V2 DEPLOY 2026-04-19 — redirects for deleted/moved paths
 # (added above older rules; first-match wins, so this supersedes any stale

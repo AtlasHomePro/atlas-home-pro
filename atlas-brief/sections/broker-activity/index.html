@@ -200,7 +200,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   display: grid;
-  grid-template-columns: 70px 100px 104px 1fr 140px 100px;
+  grid-template-columns: 64px 86px minmax(320px, 1.4fr) minmax(200px, 0.9fr) minmax(140px, 0.8fr);
   gap: 0;
   padding: 0;
 }
@@ -217,34 +217,55 @@
 /* Individual log entry */
 .log-entry {
   display: grid;
-  grid-template-columns: 70px 100px 104px 1fr 140px 100px;
+  grid-template-columns: 64px 86px minmax(320px, 1.4fr) minmax(200px, 0.9fr) minmax(140px, 0.8fr);
   gap: 0;
   border-bottom: 1px solid var(--rule-soft);
   transition: background 0.12s;
 }
-.le-photo {
-  padding: 10px !important;
+/* Address + photo combined cell */
+.le-addr {
+  display: flex !important;
   align-items: stretch !important;
+  gap: 14px;
+  padding: 14px !important;
 }
-.le-photo a {
+.le-addr-thumb {
+  flex: 0 0 108px;
   display: block;
-  width: 100%;
-  height: 72px;
+  height: 84px;
   overflow: hidden;
   border: 1px solid var(--ink);
   background: var(--bg-alt);
 }
-.le-photo img {
+.le-addr-thumb img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-.le-photo a:hover img { transform: scale(1.04); }
+.le-addr-thumb:hover img { transform: scale(1.04); }
+.le-addr-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+.le-addr-body .addr-main a { color: var(--ink); }
+.le-addr-body .addr-note {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+}
+.le-addr-body .addr-note .note-highlight { color: var(--accent-ink); font-weight: 500; }
+.le-addr-body .addr-note a { color: var(--accent); border-bottom: 1px solid var(--accent); }
 @media (max-width: 860px) {
-  .le-photo { padding: 0 !important; }
-  .le-photo a { height: 180px; }
+  .le-addr { flex-direction: column; gap: 12px; padding: 14px !important; }
+  .le-addr-thumb { flex: 0 0 auto; width: 100%; height: 180px; }
 }
 .log-entry:last-child { border-bottom: 0; }
 .log-entry:hover { background: var(--bg-alt); }
@@ -882,8 +903,7 @@
       <div class="log-header">
         <div>Time</div>
         <div>Status</div>
-        <div>Photo</div>
-        <div>Address / Note</div>
+        <div>Address &amp; Note</div>
         <div>Pricing</div>
         <div>Broker</div>
       </div>
@@ -895,13 +915,13 @@
           <span class="date">2026</span>
         </div>
         <div><span class="badge badge-sold">Sold</span></div>
-        <div class="le-photo"><a href="/atlas-brief/1101-w-45th-historic-south-central/" aria-label="1101 W 45th St"><img src="/images/brief/1101-w-45th.jpg" alt="1101 W 45th St, Historic South Central" loading="lazy" /></a></div>
         <div class="le-addr">
-          <span class="addr-main"><a href="/atlas-brief/1101-w-45th-historic-south-central/">1101 W 45th St</a></span>
-          <span class="addr-sub">Historic South Central 90037 &middot; 20-unit &middot; Spanish-tile 1920s build</span>
-        </div>
-        <div class="le-note">
-          Closed at <span class="note-highlight">$112K/door, sub-$200/SF</span> on a 6.79% CAP, sub-7 GRM. Numbers line up tight, rare in 2026 LA MF. Basis trade, not a yield bet. <a href="/atlas-brief/1101-w-45th-historic-south-central/">Full note &rarr;</a>
+          <a href="/atlas-brief/1101-w-45th-historic-south-central/" class="le-addr-thumb" aria-label="1101 W 45th St"><img src="/images/brief/1101-w-45th.jpg" alt="1101 W 45th St, Historic South Central" loading="lazy" /></a>
+          <div class="le-addr-body">
+            <span class="addr-main"><a href="/atlas-brief/1101-w-45th-historic-south-central/">1101 W 45th St</a></span>
+            <span class="addr-sub">Historic South Central 90037 &middot; 20-unit &middot; Spanish-tile 1920s build</span>
+            <span class="addr-note">Closed at <span class="note-highlight">$112K/door, sub-$200/SF</span> on a 6.79% CAP, sub-7 GRM. Numbers line up tight, rare in 2026 LA MF. Basis trade, not a yield bet. <a href="/atlas-brief/1101-w-45th-historic-south-central/">Full note &rarr;</a></span>
+          </div>
         </div>
         <div class="le-price">
           <span class="price-ask">$2,250,000</span>
@@ -920,13 +940,13 @@
           <span class="date">2026</span>
         </div>
         <div><span class="badge badge-forsale">For Sale</span></div>
-        <div class="le-photo"><a href="/atlas-brief/5712-camellia-noho-14-units/" aria-label="5712 Camellia Ave"><img src="/images/brief/5712-camellia-noho.jpg" alt="5712 Camellia Ave, North Hollywood" loading="lazy" /></a></div>
         <div class="le-addr">
-          <span class="addr-main"><a href="/atlas-brief/5712-camellia-noho-14-units/">5712 Camellia Ave</a></span>
-          <span class="addr-sub">North Hollywood 91601 &middot; 14-unit &middot; 15,200 SF &middot; 1989 Build &middot; Not RSO</span>
-        </div>
-        <div class="le-note">
-          Just listed at <span class="note-highlight">$306K/door, $282/SF</span> on a 12.23 GRM current &nbsp;(10.48 market). 1989 build means non-RSO, AB 1482 applies. Broker pitching 5.77% market CAP; current is 4.86%. Operator read: probably trades between $3.9M and $4.1M. <a href="/atlas-brief/5712-camellia-noho-14-units/">Full note &rarr;</a>
+          <a href="/atlas-brief/5712-camellia-noho-14-units/" class="le-addr-thumb" aria-label="5712 Camellia Ave"><img src="/images/brief/5712-camellia-noho.jpg" alt="5712 Camellia Ave, North Hollywood" loading="lazy" /></a>
+          <div class="le-addr-body">
+            <span class="addr-main"><a href="/atlas-brief/5712-camellia-noho-14-units/">5712 Camellia Ave</a></span>
+            <span class="addr-sub">North Hollywood 91601 &middot; 14-unit &middot; 15,200 SF &middot; 1989 Build &middot; Not RSO</span>
+            <span class="addr-note">Just listed at <span class="note-highlight">$306K/door, $282/SF</span> on a 12.23 GRM current (10.48 market). 1989 build means non-RSO, AB 1482 applies. Broker pitching 5.77% market CAP; current is 4.86%. Operator read: probably trades between $3.9M and $4.1M. <a href="/atlas-brief/5712-camellia-noho-14-units/">Full note &rarr;</a></span>
+          </div>
         </div>
         <div class="le-price">
           <span class="price-ask">$4,295,000</span>
@@ -945,13 +965,13 @@
           <span class="date">2026</span>
         </div>
         <div><span class="badge badge-sold">Sold</span></div>
-        <div class="le-photo"><a href="/atlas-brief/1825-gramercy-hollywood-trade/" aria-label="1825 N Gramercy Pl"><img src="/images/brief/gramercy-comp.jpg" alt="1825 N Gramercy Pl, Hollywood" loading="lazy" /></a></div>
         <div class="le-addr">
-          <span class="addr-main"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy Pl</a></span>
-          <span class="addr-sub">Hollywood · 27-unit · 29,085 SF · 1968 Build</span>
-        </div>
-        <div class="le-note">
-          Closed at <span class="note-highlight">$187K/door, $174/SF</span> on a 9.3 GRM, which works to roughly a 6-cap today and sets up a 10-year path to an 8-cap for a patient operator. Traded below the $5.3M ULA threshold; speculation the buyer covered broker commissions directly to keep the sale price under the trigger. <a href="/atlas-brief/1825-gramercy-hollywood-trade/">Full note →</a>
+          <a href="/atlas-brief/1825-gramercy-hollywood-trade/" class="le-addr-thumb" aria-label="1825 N Gramercy Pl"><img src="/images/brief/gramercy-comp.jpg" alt="1825 N Gramercy Pl, Hollywood" loading="lazy" /></a>
+          <div class="le-addr-body">
+            <span class="addr-main"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy Pl</a></span>
+            <span class="addr-sub">Hollywood · 27-unit · 29,085 SF · 1968 Build</span>
+            <span class="addr-note">Closed at <span class="note-highlight">$187K/door, $174/SF</span> on a 9.3 GRM, which works to roughly a 6-cap today and sets up a 10-year path to an 8-cap for a patient operator. Traded below the $5.3M ULA threshold; speculation the buyer covered broker commissions directly to keep the sale price under the trigger. <a href="/atlas-brief/1825-gramercy-hollywood-trade/">Full note →</a></span>
+          </div>
         </div>
         <div class="le-price">
           <span class="price-ask">$5,050,000</span>
@@ -1085,10 +1105,7 @@
     </div>
     <div class="sa-item">
       <div class="sa-num">03</div>
-    </div>
-    <div class="sa-item">
-      <div class="sa-num">09</div>
-      <a href="/atlas-brief/sections/opportunities/" class="sa-name">Opportunities</a>
+      <a href="/atlas-brief/sections/construction-costs/" class="sa-name">Construction Costs</a>
     </div>
     <div class="sa-item">
       <div class="sa-num">05</div>
@@ -1104,7 +1121,7 @@
     <div class="footer-sections">
       <div class="fs-head">
         <div class="fs-k">Atlas Brief · Sections</div>
-        <div class="fs-note">10 sections · Filter the archive</div>
+        <div class="fs-note">9 sections · Filter the archive</div>
       </div>
       <div class="fs-grid">
         <a href="/atlas-brief/sections/market-commentary/"><span>Market Commentary</span><span class="n">01</span></a>
@@ -1114,9 +1131,8 @@
         <a href="/atlas-brief/sections/comps/"><span>Comps</span><span class="n">05</span></a>
         <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">06</span></a>
         <a href="/atlas-brief/sections/operator-guides/"><span>Operator Guides</span><span class="n">07</span></a>
-        <a href="/atlas-brief/sections/opportunities/"><span>Opportunities</span><span class="n">08</span></a>
-        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">09</span></a>
-        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">10</span></a>
+        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">08</span></a>
+        <a href="/atlas-brief/sections/great-books/"><span>Great Books</span><span class="n">09</span></a>
       </div>
     </div>
 
