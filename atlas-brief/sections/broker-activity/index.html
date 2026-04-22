@@ -200,7 +200,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   display: grid;
-  grid-template-columns: 70px 100px 1fr 140px 100px;
+  grid-template-columns: 70px 100px 104px 1fr 140px 100px;
   gap: 0;
   padding: 0;
 }
@@ -217,10 +217,34 @@
 /* Individual log entry */
 .log-entry {
   display: grid;
-  grid-template-columns: 70px 100px 1fr 140px 100px;
+  grid-template-columns: 70px 100px 104px 1fr 140px 100px;
   gap: 0;
   border-bottom: 1px solid var(--rule-soft);
   transition: background 0.12s;
+}
+.le-photo {
+  padding: 10px !important;
+  align-items: stretch !important;
+}
+.le-photo a {
+  display: block;
+  width: 100%;
+  height: 72px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: var(--bg-alt);
+}
+.le-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.le-photo a:hover img { transform: scale(1.04); }
+@media (max-width: 860px) {
+  .le-photo { padding: 0 !important; }
+  .le-photo a { height: 180px; }
 }
 .log-entry:last-child { border-bottom: 0; }
 .log-entry:hover { background: var(--bg-alt); }
@@ -858,6 +882,7 @@
       <div class="log-header">
         <div>Time</div>
         <div>Status</div>
+        <div>Photo</div>
         <div>Address / Note</div>
         <div>Pricing</div>
         <div>Broker</div>
@@ -870,6 +895,7 @@
           <span class="date">2026</span>
         </div>
         <div><span class="badge badge-sold">Sold</span></div>
+        <div class="le-photo"><a href="/atlas-brief/1101-w-45th-historic-south-central/" aria-label="1101 W 45th St"><img src="/images/brief/1101-w-45th.jpg" alt="1101 W 45th St, Historic South Central" loading="lazy" /></a></div>
         <div class="le-addr">
           <span class="addr-main"><a href="/atlas-brief/1101-w-45th-historic-south-central/">1101 W 45th St</a></span>
           <span class="addr-sub">Historic South Central 90037 &middot; 20-unit &middot; Spanish-tile 1920s build</span>
@@ -894,6 +920,7 @@
           <span class="date">2026</span>
         </div>
         <div><span class="badge badge-forsale">For Sale</span></div>
+        <div class="le-photo"><a href="/atlas-brief/5712-camellia-noho-14-units/" aria-label="5712 Camellia Ave"><img src="/images/brief/5712-camellia-noho.jpg" alt="5712 Camellia Ave, North Hollywood" loading="lazy" /></a></div>
         <div class="le-addr">
           <span class="addr-main"><a href="/atlas-brief/5712-camellia-noho-14-units/">5712 Camellia Ave</a></span>
           <span class="addr-sub">North Hollywood 91601 &middot; 14-unit &middot; 15,200 SF &middot; 1989 Build &middot; Not RSO</span>
@@ -918,6 +945,7 @@
           <span class="date">2026</span>
         </div>
         <div><span class="badge badge-sold">Sold</span></div>
+        <div class="le-photo"><a href="/atlas-brief/1825-gramercy-hollywood-trade/" aria-label="1825 N Gramercy Pl"><img src="/images/brief/gramercy-comp.jpg" alt="1825 N Gramercy Pl, Hollywood" loading="lazy" /></a></div>
         <div class="le-addr">
           <span class="addr-main"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy Pl</a></span>
           <span class="addr-sub">Hollywood · 27-unit · 29,085 SF · 1968 Build</span>
