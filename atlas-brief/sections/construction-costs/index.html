@@ -805,200 +805,98 @@
       </p>
     </div>
 
-    <!-- Right: hero stat + data cells + image -->
+    <!-- Right: cost of capital snapshot -->
     <div class="cc-masthead-right">
       <div class="hero-stat-block">
-        <div class="hero-stat-kicker">LA Type-V Multifamily · $/GSF · Wk of Apr 19</div>
-        <div class="hero-stat-value">$612</div>
-        <div class="hero-stat-label">Per gross square foot, hard costs · All-in, shell + MEP</div>
-        <div class="hero-stat-change">&#9650; 1.4% wk &nbsp;·&nbsp; +8.1% YTD</div>
-        <div class="hero-stat-footnote">Source: Atlas internal · Active LA multifamily jobs · Hard costs only. Excludes land, financing, permits, and soft costs. Updated weekly.</div>
+        <div class="hero-stat-kicker">Effective Fed Funds Rate &middot; As of Apr 17, 2026</div>
+        <div class="hero-stat-value" id="cc-ffr">3.64%</div>
+        <div class="hero-stat-label">The price of money. Every LA multifamily underwrite starts here.</div>
+        <div class="hero-stat-change">Fed target range: 3.50&ndash;3.75%</div>
+        <div class="hero-stat-footnote">Source: Federal Reserve Bank of New York. Updated daily. Shown with 5Y and 10Y Treasury below.</div>
       </div>
       <div class="data-micro">
         <div class="data-micro-cell">
-          <span class="lbl">Concrete $/CY</span>
-          <span class="val">$218</span>
-          <span class="chg up">&#9650; 3.2% wk</span>
+          <span class="lbl">5Y Treasury</span>
+          <span class="val" id="cc-us5">3.91%</span>
+          <span class="chg up" id="cc-us5-chg">&#9650; 1.6% wk</span>
         </div>
         <div class="data-micro-cell">
-          <span class="lbl">Trades Labor $/hr</span>
-          <span class="val">$72.40</span>
-          <span class="chg up">&#9650; 0.6% wk</span>
+          <span class="lbl">10Y Treasury</span>
+          <span class="val" id="cc-us10">4.29%</span>
+          <span class="chg up" id="cc-us10-chg">&#9650; 1.1% wk</span>
         </div>
         <div class="data-micro-cell">
-          <span class="lbl">LADBS Days</span>
-          <span class="val">147</span>
-          <span class="chg dn">&#9660; 4 days wk</span>
+          <span class="lbl">MF Loan Spread</span>
+          <span class="val">+150&ndash;250 bps</span>
+          <span class="chg">over 5Y/10Y</span>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- Hero image (duotone, 16:9) -->
+  <!-- Hero image, real Atlas jobsite -->
   <div style="max-width:var(--maxw);margin:32px auto 0;padding:0 var(--pad-x);">
     <div style="position:relative;">
-      <img src="/images/brief/cat-construction-costs.jpg"
-           alt="LA construction site — framing, concrete, MEP rough-in"
-           style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:grayscale(100%) sepia(18%) contrast(1.08);border:1px solid var(--rule);" />
-      <div style="position:absolute;bottom:14px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:4px 8px;border:1px solid var(--rule);">
-        Fig. 01, LA Type-V wood-frame, mid-Wilshire, active job, 2026
+      <img src="/images/field/la-excavation-deere-wide.jpg"
+           alt="Atlas Home Pro jobsite, Los Angeles: excavated building pad with shoring walls, a Deere 350 excavator pulled up to one side, graffiti on the neighboring parapet wall, and an overcast LA sky."
+           style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid var(--ink);" />
+      <div style="position:absolute;bottom:14px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding:6px 10px;border:1px solid var(--ink);">
+        Fig. 01, Atlas jobsite, Los Angeles · Excavation + shoring, 2026
       </div>
       <div style="position:absolute;top:14px;right:14px;width:10px;height:10px;border-top:1px solid var(--ink);border-right:1px solid var(--ink);"></div>
     </div>
   </div>
 
-  <!-- Cost ticker -->
+  <!-- Rate snapshot ticker -->
   <div class="cost-ticker" aria-hidden="true">
     <div class="cost-ticker-inner">
-      <span><b>TYPE-V·MF</b>$612/GSF<span class="up"> &#9650; 1.4%</span></span>
-      <span><b>PLUMBING·SF</b>$28-$44/SF<span class="up"> &#9650; 0.8%</span></span>
-      <span><b>ELECTRICAL·SF</b>$22-$36/SF<span class="up"> &#9650; 1.1%</span></span>
-      <span><b>HVAC·SF</b>$18-$31/SF<span class="dn"> &#9660; 0.3%</span></span>
-      <span><b>CONCRETE·CY</b>$218<span class="up"> &#9650; 3.2%</span></span>
-      <span><b>ROOFING·SF</b>$9.50-$22<span class="up"> &#9650; 1.8%</span></span>
-      <span><b>SEISMIC·UNIT</b>$12,400-$18,200<span class="up"> &#9650; 2.1%</span></span>
-      <span><b>TRENCH·LF</b>$185-$420<span class="dn"> &#9660; 0.4%</span></span>
-      <span><b>PANEL·UP</b>$4,800-$14,200</span>
-      <span><b>LABOR·HR</b>$72.40<span class="up"> &#9650; 0.6%</span></span>
-      <span><b>LUMBER·1000</b>$486<span class="up"> &#9650; 2.1%</span></span>
+      <span><b>FED FUNDS</b>3.64%<span class="chg"> target 3.50&ndash;3.75%</span></span>
+      <span><b>5Y UST</b>3.91%<span class="up"> &#9650; 1.6%</span></span>
+      <span><b>10Y UST</b>4.29%<span class="up"> &#9650; 1.1%</span></span>
+      <span><b>13W T-BILL</b>3.60%<span class="chg"> flat</span></span>
+      <span><b>MF LOAN SPREAD</b>+150&ndash;250 bps<span class="chg"> over 5Y/10Y</span></span>
+      <span><b>AGENCY 10Y MF</b>~5.80&ndash;6.40%<span class="chg"> Fannie/Freddie</span></span>
+      <span><b>BANK 7Y MF</b>~6.25&ndash;6.90%<span class="chg"> LA banks</span></span>
+      <span><b>PRIME</b>6.75%<span class="chg"> WSJ</span></span>
+      <span><b>SOFR 1M</b>3.68%<span class="chg"> overnight</span></span>
       <!-- repeat for seamless scroll -->
-      <span><b>TYPE-V·MF</b>$612/GSF<span class="up"> &#9650; 1.4%</span></span>
-      <span><b>PLUMBING·SF</b>$28-$44/SF<span class="up"> &#9650; 0.8%</span></span>
-      <span><b>ELECTRICAL·SF</b>$22-$36/SF<span class="up"> &#9650; 1.1%</span></span>
-      <span><b>HVAC·SF</b>$18-$31/SF<span class="dn"> &#9660; 0.3%</span></span>
-      <span><b>CONCRETE·CY</b>$218<span class="up"> &#9650; 3.2%</span></span>
-      <span><b>ROOFING·SF</b>$9.50-$22<span class="up"> &#9650; 1.8%</span></span>
-      <span><b>SEISMIC·UNIT</b>$12,400-$18,200<span class="up"> &#9650; 2.1%</span></span>
-      <span><b>TRENCH·LF</b>$185-$420<span class="dn"> &#9660; 0.4%</span></span>
-      <span><b>PANEL·UP</b>$4,800-$14,200</span>
-      <span><b>LABOR·HR</b>$72.40<span class="up"> &#9650; 0.6%</span></span>
-      <span><b>LUMBER·1000</b>$486<span class="up"> &#9650; 2.1%</span></span>
+      <span><b>FED FUNDS</b>3.64%<span class="chg"> target 3.50&ndash;3.75%</span></span>
+      <span><b>5Y UST</b>3.91%<span class="up"> &#9650; 1.6%</span></span>
+      <span><b>10Y UST</b>4.29%<span class="up"> &#9650; 1.1%</span></span>
+      <span><b>13W T-BILL</b>3.60%<span class="chg"> flat</span></span>
+      <span><b>MF LOAN SPREAD</b>+150&ndash;250 bps<span class="chg"> over 5Y/10Y</span></span>
+      <span><b>AGENCY 10Y MF</b>~5.80&ndash;6.40%<span class="chg"> Fannie/Freddie</span></span>
+      <span><b>BANK 7Y MF</b>~6.25&ndash;6.90%<span class="chg"> LA banks</span></span>
+      <span><b>PRIME</b>6.75%<span class="chg"> WSJ</span></span>
+      <span><b>SOFR 1M</b>3.68%<span class="chg"> overnight</span></span>
     </div>
   </div>
 </header>
 
-<!-- ============= PRICE INDEX TABLE ============= -->
+<!-- ============= THE RATE READ ============= -->
 <section class="cc-table-section">
   <div class="cc-table-header wrap">
     <div class="cc-table-header-left">
-      <div class="cc-table-section-num">§ I &nbsp;, &nbsp; Cost Guides &amp; Price Reports</div>
-      <h2>The index, in full.</h2>
+      <div class="cc-table-section-num">§ I &nbsp;, &nbsp; The Rate Read</div>
+      <h2>What this actually means for a deal.</h2>
     </div>
     <div class="cc-table-header-right">
-      10 entries &nbsp;·&nbsp; 4 published<br/>
-      <span style="color:var(--accent);">Sorted: Newest</span>
+      Updated daily<br/>
+      <span style="color:var(--accent);">Source: Federal Reserve, Treasury</span>
     </div>
   </div>
 
-  <!-- Column headers -->
-  <div class="cc-col-heads">
-    <span>№</span>
-    <span class="sortable sorted">Title &nbsp;<span class="sort-arrow">&#9660;</span></span>
-    <span>Subtrade</span>
-    <span class="sortable">Cost Range &nbsp;<span class="sort-arrow">&#9661;</span></span>
-    <span class="sortable" style="justify-content:flex-end;">Date &nbsp;<span class="sort-arrow">&#9661;</span></span>
-  </div>
-
-  <!-- TABLE ROWS -->
-  <div class="cc-table">
-
-    <!-- Row 1 — live article -->
-    <span>
-      <div class="cc-row-num">№&thinsp;001</div>
-      <div class="cc-row-title-block">
-        <div class="cc-row-eyebrow">Cost Guide</div>
-        <div class="cc-row-title">Westside Repipe Costs, 2026: What a Real Number Looks Like.</div>
-        <div class="cc-row-dek">Copper versus PEX on a 1,400-SF Westside SFR. What subs actually quoted, what got missed in the bid, and why the final invoice came in 14% above the estimate.</div>
-      </div>
-      <div class="cc-row-tags">
-        <span class="cc-tag active">Plumbing</span>
-        <span class="cc-tag">Sitework</span>
-      </div>
-      <div class="cc-row-cost">
-        $18,400-$31,200
-        <span class="cost-note">per full repipe · SFR</span>
-      </div>
-      <div class="cc-row-meta">
-        <div class="cc-row-date">Apr 20, 2026</div>
-        <div class="cc-row-status status-live">Live</div>
-      </div>
-    </span>
-
-    <!-- Row 2 — live article -->
-    <span>
-      <div class="cc-row-num">№&thinsp;002</div>
-      <div class="cc-row-title-block">
-        <div class="cc-row-eyebrow">Cost Guide</div>
-        <div class="cc-row-title">Trenchless Sewer Costs: Honest Math.</div>
-        <div class="cc-row-dek">Pipe bursting versus open-cut on a 60-foot residential lateral in the Westside. The bid that sold us on trenchless, the invoice that complicated it.</div>
-      </div>
-      <div class="cc-row-tags">
-        <span class="cc-tag active">Plumbing</span>
-        <span class="cc-tag active">Sitework</span>
-      </div>
-      <div class="cc-row-cost">
-        $185-$420/LF
-        <span class="cost-note">lateral only · pipe bursting</span>
-      </div>
-      <div class="cc-row-meta">
-        <div class="cc-row-date">Apr 12, 2026</div>
-        <div class="cc-row-status status-live">Live</div>
-      </div>
-    </span>
-
-    <!-- Row 3 — live article -->
-    <span>
-      <div class="cc-row-num">№&thinsp;003</div>
-      <div class="cc-row-title-block">
-        <div class="cc-row-eyebrow">Cost Guide</div>
-        <div class="cc-row-title">LA Panel Upgrade: The True Cost.</div>
-        <div class="cc-row-dek">A 200A service upgrade in a 1960s Mid-City fourplex. What LADWP's queue adds to the schedule, why the permit is almost always more expensive than the panel, and the three hidden costs nobody quotes you up front.</div>
-      </div>
-      <div class="cc-row-tags">
-        <span class="cc-tag active">Electrical</span>
-      </div>
-      <div class="cc-row-cost">
-        $4,800-$14,200
-        <span class="cost-note">200A service · per unit</span>
-      </div>
-      <div class="cc-row-meta">
-        <div class="cc-row-date">Apr 5, 2026</div>
-        <div class="cc-row-status status-live">Live</div>
-      </div>
-    </span>
-
-    <!-- Row 4 — live article -->
-    <span>
-      <div class="cc-row-num">№&thinsp;004</div>
-      <div class="cc-row-title-block">
-        <div class="cc-row-eyebrow">Cost Guide</div>
-        <div class="cc-row-title">Water Damage Restoration: The Real Cost.</div>
-        <div class="cc-row-dek">A kitchen supply line failure in a second-floor unit. The mitigation invoice, the reconstruction scope, the gap between what insurance covered and what the job actually cost.</div>
-      </div>
-      <div class="cc-row-tags">
-        <span class="cc-tag active">Plumbing</span>
-        <span class="cc-tag">Sitework</span>
-      </div>
-      <div class="cc-row-cost">
-        $8,200-$34,600
-        <span class="cost-note">scope-dependent · MF unit</span>
-      </div>
-      <div class="cc-row-meta">
-        <div class="cc-row-date">Mar 28, 2026</div>
-        <div class="cc-row-status status-live">Live</div>
-      </div>
-    </span>
-
-    <!-- More cost guides shipping -->
-    <div style="padding: clamp(48px, 6vw, 80px) 24px; text-align: center; border-top: 1px solid var(--rule);">
-      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px;">Desk Status</div>
-      <div style="font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); font-weight: 400; line-height: 1.4; color: var(--ink); max-width: 56ch; margin: 0 auto;">More cost guides shipping. The desk adds one or two per month.</div>
-      <div style="font-family: 'Source Serif 4', var(--serif); font-size: 14.5px; font-style: italic; color: var(--muted); margin-top: 12px; max-width: 54ch; margin-left: auto; margin-right: auto; line-height: 1.6;">Every number is from a real job. No compilations. No averages. No bid estimates dressed up as prices.</div>
+  <div class="wrap" style="padding: 32px var(--pad-x) 48px; font-family: var(--serif); color: var(--ink-soft);">
+    <div style="max-width: 72ch; margin: 0 auto; font-size: 18px; line-height: 1.7;">
+      <p style="margin: 0 0 1.4em;">LA multifamily loans get priced off the 5 and 10 year Treasury, not the Fed Funds rate. Today that 5Y sits at <b>3.91%</b> and the 10Y at <b>4.29%</b>. Add the typical bank spread of 150 to 250 basis points and a levered buyer is writing a check for 5.40% to 6.80% on stabilized product, depending on the sponsor, the loan size, and the lender.</p>
+      <p style="margin: 0 0 1.4em;">That range is the whole ball game. A 10-unit Mid-City building bought at a 5.25% cap on 80% leverage at 5.40% barely covers debt service. The same building at 6.40% does not, it needs a writedown, a bigger equity check, or both. This is why cap rates have not compressed yet despite the Fed easing, the spread has not come down.</p>
+      <p style="margin: 0;">When the 10Y drops below 4.00% and bank spreads tighten toward 1.50%, that is when the 2026 LA multifamily market starts to move. Until then, the disciplined buyer waits, and the disciplined seller repositions.</p>
     </div>
-
-    </div><!-- /.cc-table -->
+  </div>
 </section>
+
+
 
 <!-- ============= DATA-DRIVEN FEED ============= -->
 <section style="padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);">
@@ -1179,5 +1077,25 @@
 
 <script defer src="/atlas-ticker.js"></script>
 <script defer src="/atlas-signup.js"></script>
+
+<!-- Rate hydration, refreshes live from /data/rates.json daily -->
+<script>
+(function(){
+  fetch('/data/rates.json', { cache: 'no-store' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d) return;
+      var $ = function(id){ return document.getElementById(id); };
+      if (d.ffr && $('cc-ffr')) $('cc-ffr').textContent = d.ffr.val;
+      if (d.rates) {
+        d.rates.forEach(function(r){
+          if (r.sym === '5Y UST')   { if ($('cc-us5'))    $('cc-us5').textContent   = r.val; if ($('cc-us5-chg'))   $('cc-us5-chg').textContent   = r.chg; }
+          if (r.sym === '10Y UST')  { if ($('cc-us10'))   $('cc-us10').textContent  = r.val; if ($('cc-us10-chg'))  $('cc-us10-chg').textContent  = r.chg; }
+        });
+      }
+    })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>

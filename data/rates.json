@@ -1,0 +1,27 @@
+{
+  "updated": "2026-04-21T18:44:54Z",
+  "updated_display": "Apr 21 · 11:44 AM PT",
+  "ffr": {
+    "label": "Effective Fed Funds Rate",
+    "val": "3.64%",
+    "target_range": "3.50–3.75%",
+    "as_of": "Apr 17, 2026",
+    "source": "Federal Reserve Bank of New York"
+  },
+  "rates": [
+    { "sym": "5Y UST",          "name": "5Y Treasury",     "val": "3.91%", "chg": "+1.6%", "dir": "up" },
+    { "sym": "10Y UST",         "name": "10Y Treasury",    "val": "4.29%", "chg": "+1.1%", "dir": "up" },
+    { "sym": "MF LOAN SPREAD",  "name": "MF Loan Spread",  "val": "+150–250 bps", "chg": "over 5Y/10Y", "dir": "flat" }
+  ],
+  "ticker": [
+    { "sym": "FED FUNDS",      "val": "3.64%",        "note": "target 3.50–3.75%", "dir": "flat" },
+    { "sym": "5Y UST",         "val": "3.91%",        "note": "+1.6%", "dir": "up" },
+    { "sym": "10Y UST",        "val": "4.29%",        "note": "+1.1%", "dir": "up" },
+    { "sym": "13W T-BILL",     "val": "3.60%",        "note": "flat",  "dir": "flat" },
+    { "sym": "MF LOAN SPREAD", "val": "+150–250 bps", "note": "over 5Y/10Y", "dir": "flat" },
+    { "sym": "AGENCY 10Y MF",  "val": "~5.80–6.40%",  "note": "Fannie/Freddie", "dir": "flat" },
+    { "sym": "BANK 7Y MF",     "val": "~6.25–6.90%",  "note": "LA banks", "dir": "flat" },
+    { "sym": "PRIME",          "val": "6.75%",        "note": "WSJ", "dir": "flat" },
+    { "sym": "SOFR 1M",        "val": "3.68%",        "note": "overnight", "dir": "flat" }
+  ]
+}
