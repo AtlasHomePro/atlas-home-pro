@@ -881,8 +881,39 @@
 .tape-entry {
   padding: clamp(24px, 3vw, 36px) 0;
   border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
 }
 .tape-entry:last-child { border-bottom: 0; }
+.tape-entry .te-body { min-width: 0; }
+.tape-entry .te-thumb {
+  display: block;
+  width: 220px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.tape-entry .te-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity .2s;
+}
+.tape-entry .te-thumb:hover img { opacity: 0.9; }
+@media (max-width: 720px) {
+  .tape-entry {
+    grid-template-columns: 1fr;
+  }
+  .tape-entry .te-thumb {
+    width: 100%;
+    max-width: 360px;
+    order: -1;
+  }
+}
 .tape-entry .te-meta {
   display: flex;
   gap: 16px;
@@ -1027,36 +1058,51 @@
   <div class="wrap">
 
     <article class="tape-entry">
-      <div class="te-meta">
-        <span class="te-tier">TAPE 3</span>
-        <span class="te-date">April 21, 2026</span>
+      <div class="te-body">
+        <div class="te-meta">
+          <span class="te-tier">TAPE 3</span>
+          <span class="te-date">April 21, 2026</span>
+        </div>
+        <h2 class="te-headline"><a href="/atlas-brief/5712-camellia-noho-14-units/">5712 Camellia, NoHo: 14 doors at $306K a unit.</a></h2>
+        <div class="te-place">5712 Camellia Ave &middot; North Hollywood &middot; 14 units, 1989</div>
+        <p class="te-excerpt">A 14-unit NoHo asset at $4.295M. The premium is priced for one thing &mdash; non-RSO. That's either the entire thesis or a trap, depending on who's underwriting.</p>
+        <div class="te-foot">Broker Activity &middot; For sale</div>
       </div>
-      <h2 class="te-headline"><a href="/atlas-brief/5712-camellia-noho-14-units/">5712 Camellia, NoHo: 14 doors at $306K a unit.</a></h2>
-      <div class="te-place">5712 Camellia Ave &middot; North Hollywood &middot; 14 units, 1989</div>
-      <p class="te-excerpt">A 14-unit NoHo asset at $4.295M. The premium is priced for one thing &mdash; non-RSO. That's either the entire thesis or a trap, depending on who's underwriting.</p>
-      <div class="te-foot">Broker Activity &middot; For sale</div>
+      <a class="te-thumb" href="/atlas-brief/5712-camellia-noho-14-units/" aria-label="5712 Camellia, NoHo">
+        <img src="/images/brief/5712-camellia-noho-card.jpg" alt="5712 Camellia Ave, North Hollywood" loading="lazy" width="220" height="165">
+      </a>
     </article>
 
     <article class="tape-entry">
-      <div class="te-meta">
-        <span class="te-tier">TAPE 3</span>
-        <span class="te-date">April 21, 2026</span>
+      <div class="te-body">
+        <div class="te-meta">
+          <span class="te-tier">TAPE 3</span>
+          <span class="te-date">April 21, 2026</span>
+        </div>
+        <h2 class="te-headline"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy, Hollywood: 36 doors on the market.</a></h2>
+        <div class="te-place">1825 N Gramercy Pl &middot; Hollywood &middot; 36 units, 1968</div>
+        <p class="te-excerpt">36 doors in Hollywood at $5.3M, $147K/door, 5.8% CAP. The broker pitches 33% upside. The math works. The timeline is the conversation.</p>
+        <div class="te-foot">Broker Activity &middot; For sale</div>
       </div>
-      <h2 class="te-headline"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy, Hollywood: 36 doors on the market.</a></h2>
-      <div class="te-place">1825 N Gramercy Pl &middot; Hollywood &middot; 36 units, 1968</div>
-      <p class="te-excerpt">36 doors in Hollywood at $5.3M, $147K/door, 5.8% CAP. The broker pitches 33% upside. The math works. The timeline is the conversation.</p>
-      <div class="te-foot">Broker Activity &middot; For sale</div>
+      <a class="te-thumb" href="/atlas-brief/1825-gramercy-hollywood-trade/" aria-label="1825 N Gramercy, Hollywood">
+        <img src="/images/brief/gramercy-comp-1200.jpg" alt="1825 N Gramercy Pl, Hollywood" loading="lazy" width="220" height="165">
+      </a>
     </article>
 
     <article class="tape-entry">
-      <div class="te-meta">
-        <span class="te-tier">TAPE 3</span>
-        <span class="te-date">April 21, 2026</span>
+      <div class="te-body">
+        <div class="te-meta">
+          <span class="te-tier">TAPE 3</span>
+          <span class="te-date">April 21, 2026</span>
+        </div>
+        <h2 class="te-headline"><a href="/atlas-brief/1101-w-45th-historic-south-central/">1101 W 45th, Historic South Central: a 20-door trade at a 6.79 cap.</a></h2>
+        <div class="te-place">1101 W 45th Street &middot; Historic South Central &middot; 20 units</div>
+        <p class="te-excerpt">A 20-door Historic South Central trade at a 6.79 CAP. The number most LA buyers still haven't mentally priced in this part of the basin.</p>
+        <div class="te-foot">Broker Activity &middot; Trade</div>
       </div>
-      <h2 class="te-headline"><a href="/atlas-brief/1101-w-45th-historic-south-central/">1101 W 45th, Historic South Central: a 20-door trade at a 6.79 cap.</a></h2>
-      <div class="te-place">1101 W 45th Street &middot; Historic South Central &middot; 20 units</div>
-      <p class="te-excerpt">A 20-door Historic South Central trade at a 6.79 CAP. The number most LA buyers still haven't mentally priced in this part of the basin.</p>
-      <div class="te-foot">Broker Activity &middot; Trade</div>
+      <a class="te-thumb" href="/atlas-brief/1101-w-45th-historic-south-central/" aria-label="1101 W 45th, Historic South Central">
+        <img src="/images/brief/1101-w-45th-card.jpg" alt="1101 W 45th Street, Historic South Central" loading="lazy" width="220" height="165">
+      </a>
     </article>
 
   </div>
