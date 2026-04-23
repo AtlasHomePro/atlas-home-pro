@@ -722,35 +722,103 @@
    THE TAPE — publication-first homepage
    ============================================================ */
 
-/* ---- Compact masthead strip ---- */
-.tape-masthead {
-  padding: clamp(28px, 4vw, 48px) 0 clamp(24px, 3.5vw, 40px);
-  border-bottom: 1px solid var(--ink);
+/* ---- Broadsheet flag (masthead) ---- */
+.flag {
+  padding: clamp(28px, 4vw, 48px) 0 clamp(16px, 2vw, 24px);
+  border-bottom: 3px double var(--ink);
 }
-.tape-masthead .tm-kicker {
+.flag-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 32px;
+  align-items: end;
+}
+.flag-left,
+.flag-right {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.flag-left b,
+.flag-right b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.flag-right { text-align: right; }
+.flag-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(52px, 9vw, 148px);
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin: 0;
+  color: var(--ink);
+}
+.flag-title em {
+  font-style: italic;
+  color: var(--accent-ink);
+}
+.flag-rule {
+  max-width: var(--maxw);
+  margin: 14px auto 0;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--mono);
+  font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.tape-masthead .tm-title {
-  margin: 10px 0 8px;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(32px, 4.4vw, 56px);
-  line-height: 1;
-  letter-spacing: -0.025em;
-  font-style: italic;
+.flag-rule hr {
+  border: 0;
+  border-top: 1px solid var(--ink);
+  margin: 0;
+}
+.flag-rule .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--ink);
+  border-radius: 50%;
+  justify-self: center;
+}
+@media (max-width: 1024px) {
+  .flag-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+  }
+  .flag-left,
+  .flag-right { text-align: center; }
+  .flag-rule { grid-template-columns: 1fr auto 1fr; }
+  .flag-rule hr:nth-child(3),
+  .flag-rule .dot:nth-child(2),
+  .flag-rule span:nth-child(4) { display: none; }
+}
+
+/* ---- Dispatch strip (below flag) ---- */
+.tape-masthead {
+  padding: clamp(20px, 2.5vw, 32px) 0;
+  border-bottom: 1px solid var(--ink);
 }
 .tape-masthead .tm-deck {
-  margin: 0 0 28px;
+  margin: 0 0 20px;
   font-family: var(--serif);
   font-size: clamp(15px, 1.2vw, 18px);
   line-height: 1.5;
   color: var(--ink-soft);
   max-width: 72ch;
   font-weight: 400;
+  font-style: italic;
 }
 .tape-masthead .tm-dispatch {
   display: flex;
@@ -913,11 +981,33 @@
   </div>
 </nav>
 
-<!-- ============= MASTHEAD (compact strip) ============= -->
-<header class="tape-masthead">
+<!-- ============= BROADSHEET FLAG ============= -->
+<header class="flag">
+  <div class="flag-inner">
+    <div class="flag-left">
+      <b>Editor &amp; Publisher</b><br/>
+      David Safai<br/>
+      Los Angeles, Cal.
+    </div>
+    <h1 class="flag-title">Atlas <em>Brief</em></h1>
+    <div class="flag-right">
+      <b>A Journal of Record</b><br/>
+      Real Estate &middot; Development<br/>
+      Construction &middot; Policy
+    </div>
+  </div>
+  <div class="flag-rule">
+    <hr/>
+    <span>Est. MCMXCVI</span>
+    <hr/>
+    <span class="dot"></span>
+    <hr/>
+  </div>
+</header>
+
+<!-- ============= DECK + DISPATCH STRIP ============= -->
+<section class="tape-masthead">
   <div class="wrap">
-    <div class="tm-kicker">An Owner-Builder Journal &middot; Los Angeles &middot; Est. 1996</div>
-    <h1 class="tm-title">Atlas Brief</h1>
     <p class="tm-deck">A running log of Los Angeles real estate &mdash; what trades, what's listed, what the numbers actually say. Written by David Safai, operator &middot; developer &middot; GC.</p>
 
     <!-- Inline dispatch signup -->
@@ -930,7 +1020,7 @@
       <span class="tm-d-sent">You are on the list.</span>
     </form>
   </div>
-</header>
+</section>
 
 <!-- ============= THE TAPE FEED ============= -->
 <section class="tape-feed">
