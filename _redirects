@@ -1,3 +1,11 @@
+# Publication-first restructure (2026-04-22)
+/capabilities/*  /build/  301
+/capabilities    /build/  301
+/atlas-brief/sections/broker-activity/*  /  301
+/atlas-brief/sections/broker-activity    /  301
+/atlas-brief/  /  301!
+/atlas-brief    /  301!
+
 # Atlas Home Pro — Netlify Redirects
 # Fixes 40 GSC 404s and 111 broken internal links
 

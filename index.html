@@ -717,6 +717,156 @@
   .subscribe-inner { grid-template-columns: 1fr; gap: 48px; align-items: start; }
   .subscribe form { margin-left: 0; }
 }
+
+/* ============================================================
+   THE TAPE — publication-first homepage
+   ============================================================ */
+
+/* ---- Compact masthead strip ---- */
+.tape-masthead {
+  padding: clamp(28px, 4vw, 48px) 0 clamp(24px, 3.5vw, 40px);
+  border-bottom: 1px solid var(--ink);
+}
+.tape-masthead .tm-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tape-masthead .tm-title {
+  margin: 10px 0 8px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-style: italic;
+}
+.tape-masthead .tm-deck {
+  margin: 0 0 28px;
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 72ch;
+  font-weight: 400;
+}
+.tape-masthead .tm-dispatch {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px dotted var(--rule);
+}
+.tape-masthead .tm-d-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.tape-masthead .tm-dispatch input[type=email] {
+  flex: 1 1 220px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--ink);
+  outline: none;
+  min-width: 180px;
+  transition: border-color .15s;
+}
+.tape-masthead .tm-dispatch input[type=email]:focus { border-color: var(--accent); }
+.tape-masthead .tm-dispatch button {
+  padding: 10px 18px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background .15s, color .15s;
+}
+.tape-masthead .tm-dispatch button:hover { background: transparent; color: var(--ink); }
+.tape-masthead .tm-d-sent {
+  display: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.tape-masthead .tm-dispatch.sent .tm-d-sent { display: inline; }
+.tape-masthead .tm-dispatch.sent input,
+.tape-masthead .tm-dispatch.sent button { display: none; }
+
+/* ---- Tape feed ---- */
+.tape-feed {
+  padding: clamp(32px, 4vw, 48px) 0 clamp(56px, 7vw, 96px);
+}
+.tape-entry {
+  padding: clamp(24px, 3vw, 36px) 0;
+  border-bottom: 1px solid var(--rule);
+}
+.tape-entry:last-child { border-bottom: 0; }
+.tape-entry .te-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.tape-entry .te-tier {
+  color: var(--accent);
+  font-weight: 500;
+}
+.tape-entry .te-date { color: var(--muted); }
+.tape-entry .te-headline {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  max-width: 30ch;
+}
+.tape-entry .te-headline a {
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s;
+}
+.tape-entry .te-headline a:hover { border-color: var(--accent); }
+.tape-entry .te-place {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.tape-entry .te-excerpt {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+.tape-entry .te-foot {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 </style>
 
 <meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
@@ -739,15 +889,12 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo"><span class="mark"></span> Atlas</a>
     <ul class="nav-links">
-      <li><a href="/capabilities/">Capabilities</a></li>
-      <li><a href="/atlas-brief/">Atlas Brief</a></li>
-      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/" class="active">The Tape</a></li>
       <li><a href="/about/">About</a></li>
+      <li><a href="/build/">Build</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <span class="nav-phone">(213) 275-2210</span>
-      <a href="/contact/" class="nav-cta">Contact Atlas</a>
       <button class="nav-burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -755,316 +902,98 @@
   </div>
   <div class="mobile-menu" id="mm">
     <ul>
-      <li><a href="/capabilities/">Capabilities</a></li>
-      <li><a href="/atlas-brief/">Atlas Brief</a></li>
-      <li><a href="/areas/">Areas</a></li>
+      <li><a href="/">The Tape</a></li>
       <li><a href="/about/">About</a></li>
+      <li><a href="/build/">Build</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
     <div class="mm-meta">
-      <span>(213) 275-2210</span>
       <span>David@AtlasHomePro.com</span>
     </div>
   </div>
 </nav>
 
-<!-- ============= MASTHEAD ============= -->
-<header class="masthead">
+<!-- ============= MASTHEAD (compact strip) ============= -->
+<header class="tape-masthead">
   <div class="wrap">
-    <div class="masthead-top">
-      <div class="center" style="grid-column: 1 / -1; text-align: center;">An Owner-Builder Journal &middot; Los Angeles &middot; Spring MMXXVI</div>
-    </div>
-    <h1 class="masthead-title">Atlas</h1>
-    <div style="text-align: center; font-family: var(--serif); font-style: italic; font-size: clamp(18px, 1.8vw, 26px); color: var(--ink-soft); letter-spacing: -0.005em; margin-top: 0.3em;">Home Builders, Inc. &middot; Est. 1996</div>
+    <div class="tm-kicker">An Owner-Builder Journal &middot; Los Angeles &middot; Est. 1996</div>
+    <h1 class="tm-title">Atlas Brief</h1>
+    <p class="tm-deck">The Tape &mdash; a running log of Los Angeles multifamily deal commentary. Written by David Safai, operator &middot; developer &middot; GC.</p>
+
+    <!-- Inline dispatch signup -->
+    <form class="tm-dispatch" name="atlas-dispatch" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks/" onsubmit="return atlasHomeSub(this, event)">
+      <input type="hidden" name="form-name" value="atlas-dispatch" />
+      <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
+      <span class="tm-d-label">Friday dispatch &mdash; one note per week.</span>
+      <input type="email" name="email" placeholder="name@domain.com" required autocomplete="email" aria-label="Email address" />
+      <button type="submit">Subscribe</button>
+      <span class="tm-d-sent">You are on the list.</span>
+    </form>
   </div>
 </header>
 
-<!-- ============= STATEMENT ============= -->
-<section class="statement">
+<!-- ============= THE TAPE FEED ============= -->
+<section class="tape-feed">
   <div class="wrap">
-    <div class="statement-grid">
-      <div class="label">A Statement of Purpose, 001</div>
-      <div>
-        <h1>Built by owners,<br/><em>for&nbsp;owners.</em></h1>
+
+    <article class="tape-entry">
+      <div class="te-meta">
+        <span class="te-tier">TAPE 3</span>
+        <span class="te-date">April 21, 2026</span>
       </div>
-    </div>
-    <div class="statement-footer">
-      <div class="statement-byline">
-        By David Safai<br/>
-        Operator · Developer · GC
+      <h2 class="te-headline"><a href="/atlas-brief/5712-camellia-noho-14-units/">5712 Camellia, NoHo: 14 doors at $306K a unit.</a></h2>
+      <div class="te-place">5712 Camellia Ave &middot; North Hollywood &middot; 14 units, 1989</div>
+      <p class="te-excerpt">A 1989 14-unit NoHo asset just hit the market at $4.295M, $306,786 a door on a 12.23 GRM current. Not RSO. Non-rent-controlled is the whole story here.</p>
+      <div class="te-foot">Broker Activity &middot; For sale</div>
+    </article>
+
+    <article class="tape-entry">
+      <div class="te-meta">
+        <span class="te-tier">TAPE 3</span>
+        <span class="te-date">April 21, 2026</span>
       </div>
-      <div class="statement-body">
-        <p>Atlas is the operating journal of a three-decade Los Angeles real estate practice. Value-add apartments, commercial properties, multifamily ground-up, condominium ground-up, and long-hold portfolios, now writing openly about what it knows.</p>
-        <p>We cover the LA micro-market from Mid-City outward: what's trading, what's selling, what it cost to build, and what actually works for which kind of buyer. Cap rates, rents, concessions, construction costs, entitlement timelines, the questions every owner asks and most brokers answer poorly.</p>
+      <h2 class="te-headline"><a href="/atlas-brief/1825-gramercy-hollywood-trade/">1825 N Gramercy, Hollywood: 36 doors on the market.</a></h2>
+      <div class="te-place">1825 N Gramercy Pl &middot; Hollywood &middot; 36 units, 1968</div>
+      <p class="te-excerpt">A 1968 Hollywood multifamily is on the market at pricing that implies roughly $187K a unit, 9.3 GRM, $174/SF, below the ULA line &mdash; the kind of deal where disciplined leverage could produce a 17% IRR over a decade.</p>
+      <div class="te-foot">Broker Activity &middot; For sale</div>
+    </article>
+
+    <article class="tape-entry">
+      <div class="te-meta">
+        <span class="te-tier">TAPE 3</span>
+        <span class="te-date">April 21, 2026</span>
       </div>
-      <div class="statement-body">
-        <p>The writing is opinionated on purpose. Howard Marks: “Leverage plus volatility equals dynamite.” We believe him.</p>
-        <p>Read Atlas like a trade journal, not a brochure.</p>
-      </div>
-    </div>
+      <h2 class="te-headline"><a href="/atlas-brief/1101-w-45th-historic-south-central/">1101 W 45th, Historic South Central: a 20-door trade at a 6.79 cap.</a></h2>
+      <div class="te-place">1101 W 45th Street &middot; Historic South Central &middot; 20 units</div>
+      <p class="te-excerpt">A 20-door Historic South Central trade printing at a 6.79 cap &mdash; an operator read on a cap rate most LA buyers still have not mentally priced in this part of the basin.</p>
+      <div class="te-foot">Broker Activity &middot; Trade</div>
+    </article>
+
   </div>
 </section>
 
-<!-- IN THIS ISSUE + SEVEN TRADES SECTIONS DELETED per homepage brief -->
-
-<!-- ============= ATLAS BRIEF FEATURE ============= -->
-<section class="section" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="num">§ 03, Atlas Brief</div>
-      <h2>From the Brief.</h2>
-      <a href="/atlas-brief/" class="see">Read the Brief →</a>
-    </div>
-    <div class="brief">
-      <div class="brief-main">
-        <div class="tag-row">
-          <span class="cat-tag">Broker Activity</span>
-          <span class="date">April 20, 2026</span>
-          <span class="date">· 8 min read</span>
-        </div>
-        <h3><a href="/atlas-brief/1825-gramercy-hollywood-trade/" style="color: inherit; text-decoration: none;">1825 N Gramercy: A 27-Door Hollywood Trade at $187K a&nbsp;Unit.</a></h3>
-        <p class="deck">A 1968 Hollywood multifamily just closed at $5.05M, 9.3 GRM, $174/SF, priced below the ULA line. The kind of deal where disciplined leverage, operating patience, and sensible policy reform can produce a 17% IRR over a decade.</p>
-        <figure style="margin: 36px 0 0; border: 1px solid var(--ink); background: var(--bg-alt);">
-          <a href="/atlas-brief/1825-gramercy-hollywood-trade/" style="display: block;"><img src="/images/brief/gramercy-comp.jpg" alt="1825 N Gramercy Pl, a 1968 three-story Hollywood apartment building with tuck-under parking and mature palm trees." loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;" /></a>
-          <figcaption style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-top: 1px dotted var(--rule); background: var(--bg);">Fig. 01 &middot; 1825 N Gramercy Pl, Hollywood</figcaption>
-        </figure>
-        <div class="byline">
-          <b>By David Safai</b>
-          <span>Editor &amp; Publisher</span>
-          <span style="margin-left:auto;">Entry Nº 01</span>
-        </div>
-      </div>
-      <aside class="brief-side">
-        <h5>Also in Atlas Brief</h5>
-        <a href="/atlas-brief/1101-w-45th-historic-south-central/" class="side-art">
-          <span class="n">03</span>
-          <div>
-            <span class="cat">Broker Activity</span>
-            <h6>1101 W 45th, 90037: a 20-door trade at a 6.79 cap.</h6>
-            <span class="rt">7 min read · April 21, 2026</span>
-          </div>
-        </a>
-        <a href="/atlas-brief/5712-camellia-noho-14-units/" class="side-art">
-          <span class="n">02</span>
-          <div>
-            <span class="cat">Broker Activity</span>
-            <h6>5712 Camellia, NoHo: 14 doors at $306K a unit.</h6>
-            <span class="rt">7 min read · April 21, 2026</span>
-          </div>
-        </a>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ============= PROJECTS ============= -->
-<section class="section" style="padding-top: 0;">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="num">§ 04, Selected Work</div>
-      <h2>Two buildings,<br/>still held by the&nbsp;builder.</h2>
-      <a href="/about/" class="see">About the portfolio →</a>
-    </div>
-    <div class="projects">
-
-      <article class="project">
-        <header class="p-head">
-          <span class="n">P-01</span>
-          <h3>The Felix on Fairfax</h3>
-          <span class="cat">Multifamily · Ground-up</span>
-        </header>
-        <figure class="p-photo">
-          <img src="/images/projects/felix-fairfax-1200.jpg" alt="The Felix on Fairfax — a five-story grey-and-white multifamily building at 731 N Fairfax Avenue, Los Angeles." loading="lazy" width="1200" height="675" />
-          <figcaption class="p-cap">Exterior, south elevation · 731 N Fairfax Avenue</figcaption>
-        </figure>
-        <dl>
-          <div><dt>Units</dt><dd>43</dd></div>
-          <div><dt>Stories</dt><dd>5</dd></div>
-          <div><dt>Delivered</dt><dd>2023</dd></div>
-          <div><dt>Held by</dt><dd>Sponsor</dd></div>
-        </dl>
-        <p>A 43-unit, five-story residential building developed, built, and held by Atlas. Designed around a single organizing principle: no unit plan exists that the sponsor wouldn't live in.</p>
-      </article>
-
-      <article class="project">
-        <header class="p-head">
-          <span class="n">P-02</span>
-          <h3>Olympic Towers</h3>
-          <span class="cat">Condominium · Twelve Homes</span>
-        </header>
-        <figure class="p-photo">
-          <img src="/images/projects/olympic-towers-1200.jpg" alt="Olympic Towers — a four-story white multifamily building with orange accent bands and cantilevered balconies, Mid-City West." loading="lazy" width="1200" height="675" />
-          <figcaption class="p-cap">Exterior, corner elevation · Olympic Boulevard</figcaption>
-        </figure>
-        <dl>
-          <div><dt>Units</dt><dd>12</dd></div>
-          <div><dt>Type</dt><dd>Condo</dd></div>
-          <div><dt>Delivered</dt><dd>2019</dd></div>
-          <div><dt>Sold</dt><dd>12 of 12</dd></div>
-        </dl>
-        <p>Twelve for-sale homes in a mid-Wilshire infill. A study in how much a thoughtful building envelope and a real construction schedule can add to a buyer's basis without adding a dollar to ours.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============= WHO WE SERVE ============= -->
-<!-- WHO WE SERVE + COVERAGE DELETED per homepage brief -->
-
-<!-- ============= SUBSCRIBE ============= -->
-<section class="subscribe" id="dispatch">
-  <div class="wrap">
-    <div class="subscribe-inner">
-      <div>
-        <div class="kicker">The Atlas Dispatch</div>
-        <h2>A letter from the field, every&nbsp;Friday.</h2>
-      </div>
-      <form name="atlas-dispatch" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks/" onsubmit="return atlasHomeSub(this, event)">
-        <input type="hidden" name="form-name" value="atlas-dispatch" />
-        <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="name@domain.com" required autocomplete="email" />
-        <div style="margin-top: 14px;">
-          <label for="role" style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,250,248,0.5); display: block; margin-bottom: 6px;">Role</label>
-          <select id="role" name="role" style="width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(250,250,248,0.4); color: var(--bg); font-family: var(--serif); font-size: 18px; padding: 10px 0; outline: none; border-radius: 0; -webkit-appearance: none; appearance: none; cursor: pointer;">
-            <option value="owner" style="color:#000">Owner</option>
-            <option value="broker" style="color:#000">Broker</option>
-            <option value="investor" style="color:#000">Investor</option>
-            <option value="operator" style="color:#000">Operator</option>
-            <option value="contractor" style="color:#000">Contractor</option>
-            <option value="other" style="color:#000">Other</option>
-          </select>
-        </div>
-        <div class="sub-row">
-          <p class="fine">No ads. No funnels. One short note from David on what's moving in LA.</p>
-          <button type="submit">Subscribe</button>
-        </div>
-        <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; color: rgba(250,250,248,0.5); margin-top: 10px;">Never sold. Unsubscribe anytime.</div>
-        <div class="sent-msg" style="display:none;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:14px;">You are on the list. First dispatch lands Friday.</div>
-      </form>
-    </div>
-  </div>
-  <script>
-    function atlasHomeSub(form, ev) {
-      ev.preventDefault();
-      var fd = new FormData(form);
-      fetch('/', { method:'POST', headers:{'Accept':'application/x-www-form-urlencoded'}, body:new URLSearchParams(fd).toString() })
-        .finally(function(){
-          form.querySelector('input[type=email]').value = '';
-          form.querySelector('button').innerText = 'Subscribed ✓';
-          form.querySelector('.sent-msg').style.display = 'block';
-        });
-      return false;
-    }
-  </script>
-</section>
-
-<!-- DISPATCH SIGNUP (second) — FULLY REMOVED per homepage brief. Original preserved in git history. -->
-<section id="dispatch-removed" style="display:none;" data-removed="true" aria-hidden="true" hidden>
-  <div class="wrap" style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
-    <div class="dispatch-grid">
-      <div>
-        <div style="font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #C89A5C; margin-bottom: 18px;">The Atlas Dispatch</div>
-        <h2 style="font-family: var(--serif); font-weight: 500; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.05; letter-spacing: -0.02em; color: #F5F5F2; margin: 0 0 18px; max-width: 18ch;">Real LA real estate, <em style="color: #C89A5C;">in your inbox.</em></h2>
-        <p style="font-family: var(--serif); font-size: 17px; line-height: 1.55; color: #C8CAD0; margin: 0 0 8px; max-width: 46ch;">Three short emails a week, Monday, Wednesday, and Friday. New deal comps, honest construction costs, and policy that actually moves rents. Written by an operator, not a marketer.</p>
-      </div>
-      <form class="sb-form-home" name="atlas-dispatch" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks/" onsubmit="return atlasSubscribeHome(this, event)" style="background: #141821; border: 1px solid #252A33; padding: 32px;">
-        <input type="hidden" name="form-name" value="atlas-dispatch" />
-        <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
-        <div class="fields">
-          <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #C89A5C; margin-bottom: 14px;">Subscribe, free</div>
-          <div style="margin-bottom: 12px;">
-            <input type="email" name="email" required placeholder="Your email address" autocomplete="email" style="width: 100%; background: #0E1116; border: 1px solid #2A2F38; color: #F5F5F2; font-family: var(--mono); font-size: 14px; padding: 13px 14px; border-radius: 0; -webkit-appearance: none; appearance: none;" />
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
-            <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" style="background: #0E1116; border: 1px solid #2A2F38; color: #F5F5F2; font-family: var(--mono); font-size: 14px; padding: 13px 14px; border-radius: 0;" />
-            <select name="role" style="background: #0E1116; border: 1px solid #2A2F38; color: #F5F5F2; font-family: var(--mono); font-size: 14px; padding: 13px 14px; border-radius: 0; -webkit-appearance: none; appearance: none;">
-              <option value="owner">Owner</option><option value="broker">Broker</option><option value="investor">Investor</option><option value="operator">Operator</option><option value="contractor">Contractor</option><option value="other">Other</option>
-            </select>
-          </div>
-          <button type="submit" style="width: 100%; padding: 14px 18px; background: #C89A5C; color: #0E1116; border: 0; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer;">Subscribe to the Dispatch</button>
-          <div style="margin-top: 12px; font-family: var(--mono); font-size: 10px; color: #6B7280; letter-spacing: 0.04em; line-height: 1.5;">Never sold. Unsubscribe anytime.</div>
-        </div>
-        <div class="success" style="display:none; padding: 22px; border: 1px dashed #C89A5C; background: #0E1116; text-align: center; font-family: var(--serif); font-size: 17px; color: #F5F5F2;">You're on the list. <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: #8892A0; margin-top: 8px; text-transform: uppercase;">First dispatch lands Monday.</div></div>
-      </form>
-    </div>
-  </div>
-  <style>
-    .dispatch-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: clamp(32px, 5vw, 72px);
-      align-items: center;
-    }
-    @media (max-width: 860px) {
-      .dispatch-grid { grid-template-columns: 1fr !important; gap: 32px; }
-      .sb-form-home { padding: 24px !important; }
-      .sb-form-home [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 12px !important; }
-    }
-    .sb-form-home.sent .fields { display: none; }
-    .sb-form-home.sent .success { display: block; }
-  </style>
-  <script>
-    function atlasSubscribeHome(form, ev) {
-      ev.preventDefault();
-      var fd = new FormData(form);
-      fetch('/', { method: 'POST', headers: { 'Accept': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(fd).toString() })
-        .then(function(){ form.classList.add('sent'); })
-        .catch(function(){ form.classList.add('sent'); });
-      return false;
-    }
-  </script>
-</section>
 
 <!-- ============= FOOTER ============= -->
 <footer class="footer">
   <div class="wrap">
-        <div class="footer-sections">
-      <div class="fs-head">
-        <div class="fs-k">Atlas Brief · Desks</div>
-        <div class="fs-note">4 desks · Browse the archive</div>
-      </div>
-      <div class="fs-grid">
-        <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">01</span></a>
-        <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs &amp; Guides</span><span class="n">02</span></a>
-        <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">03</span></a>
-        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">04</span></a>
-      </div>
-    </div>
-
     <div class="footer-top">
       <div>
         <div class="footer-logo">Atlas<br/>Home Builders, Inc.</div>
         <p class="footer-tag">An owner-builder journal, published from Los Angeles.</p>
       </div>
       <div>
-        <h5>Capabilities</h5>
+        <h5>Read</h5>
         <ul>
-          <li><a href="/capabilities/">General Contracting</a></li>
-          <li><a href="/capabilities/">HVAC</a></li>
-          <li><a href="/capabilities/">Plumbing</a></li>
-          <li><a href="/capabilities/">Electrical</a></li>
-          <li><a href="/capabilities/">Painting</a></li>
-          <li><a href="/capabilities/">Water Restoration</a></li>
-          <li><a href="/capabilities/">Gates &amp; Garage Doors</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>The Company</h5>
-        <ul>
-          <li><a href="/about/">About David Safai</a></li>
-          <li><a href="/atlas-brief/">Atlas Brief</a></li>
-          <li><a href="/areas/">Service Areas</a></li>
+          <li><a href="/">The Tape</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/build/">Build</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </div>
       <div class="footer-contact">
         <h5>Office</h5>
-        <p>145 S Fairfax Avenue, Suite 200</p>
-        <p>Los Angeles, California 90036</p>
+        <p>Los Angeles, California</p>
         <p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p>
-        <p class="m">(213) 275-2210</p>
       </div>
     </div>
     <div class="footer-legal">
@@ -1077,10 +1006,17 @@
 <script>
   const b = document.getElementById('burger');
   const m = document.getElementById('mm');
-  b.addEventListener('click', () => {
+  if (b && m) b.addEventListener('click', () => {
     b.classList.toggle('open');
     m.classList.toggle('open');
   });
+  function atlasHomeSub(form, ev) {
+    ev.preventDefault();
+    var fd = new FormData(form);
+    fetch('/', { method:'POST', headers:{'Accept':'application/x-www-form-urlencoded'}, body:new URLSearchParams(fd).toString() })
+      .finally(function(){ form.classList.add('sent'); });
+    return false;
+  }
 </script>
 
 <script defer src="/atlas-signup.js"></script>

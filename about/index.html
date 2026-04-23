@@ -3,96 +3,146 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>About, David Safai · Atlas Home Pro</title>
+<title>About · Atlas Brief</title>
+<meta name="description" content="Atlas Brief is written by David Safai, a Los Angeles operator, developer, and general contractor."/>
 <link rel="stylesheet" href="/atlas-v2.css"/>
 <style>
-.ab-hero{padding:clamp(64px,9vw,140px) 0 clamp(48px,6vw,96px);border-bottom:1px solid var(--ink)}
-.ab-hero .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
-.ab-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(56px,9.5vw,168px);line-height:.88;letter-spacing:-.04em;margin:0 0 40px}
-.ab-hero h1 em{font-style:italic;color:var(--ink-soft)}
-.ab-hero .row{display:grid;grid-template-columns:1fr 1fr;gap:72px;padding-top:32px;border-top:var(--tick)}
-.ab-hero .row p{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.5;color:var(--ink-soft);margin:0;max-width:40ch}
-.ab-hero .row p + p{font-family:var(--serif);font-size:18px;line-height:1.65;color:var(--muted);max-width:42ch}
-@media(max-width:1024px){.ab-hero .row{grid-template-columns:1fr;gap:24px}}
+.ab-top {
+  padding: clamp(40px, 5vw, 64px) 0 clamp(24px, 3vw, 40px);
+  border-bottom: 1px solid var(--ink);
+}
+.ab-top .eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.ab-top h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(48px, 6.5vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
 
-.portrait{padding:0 0 clamp(48px,6vw,80px);border-bottom:1px solid var(--ink)}
-.portrait-in{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start;padding-top:clamp(48px,6vw,80px)}
-.portrait .pic{aspect-ratio:4/5;background:var(--bg-alt);border:1px solid var(--rule);position:relative;overflow:hidden}
-.portrait .pic::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 18px,var(--rule) 18px,var(--rule) 19px)}
-.portrait .pic .tag{position:absolute;bottom:16px;left:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--bg-alt);padding:6px 8px;border:1px solid var(--rule)}
-.portrait .pic .tag b{color:var(--ink);display:block;margin-bottom:2px}
-.portrait .words{padding:8px 0}
-.portrait .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
-.portrait h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4vw,56px);line-height:1.05;letter-spacing:-.025em;margin:0 0 28px;font-style:italic;max-width:16ch}
-.portrait .body{font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--ink-soft)}
-.portrait .body p{margin:0 0 1.1em;max-width:52ch}
-.portrait .body p:first-child::first-letter{font-family:var(--serif);font-size:4em;float:left;line-height:.85;padding:8px 10px 0 0;font-weight:500;color:var(--ink)}
-@media(max-width:1024px){.portrait-in{grid-template-columns:1fr;gap:32px} .portrait .pic{max-width:380px}}
+.ab-body {
+  padding: clamp(40px, 6vw, 80px) 0;
+  border-bottom: 1px solid var(--ink);
+}
+.ab-body .prose {
+  max-width: 60ch;
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.4vw, 21px);
+  line-height: 1.6;
+  color: var(--ink);
+}
+.ab-body .prose p { margin: 0 0 1.15em; }
+.ab-body .prose p:last-child { margin-bottom: 0; }
 
-.facts{padding:clamp(56px,7vw,96px) 0;background:var(--bg-alt);border-bottom:1px solid var(--ink)}
-.facts-head{display:grid;grid-template-columns:220px 1fr;gap:48px;padding-bottom:24px;border-bottom:1px solid var(--ink);margin-bottom:48px;align-items:end}
-.facts-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.facts-head h2{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(32px,4vw,56px);line-height:1;letter-spacing:-.025em;margin:0}
-.facts-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.fact{padding:24px 24px 24px 0;border-right:1px solid var(--rule);min-height:160px;display:flex;flex-direction:column;gap:12px}
-.fact:nth-child(4n){border-right:0;padding-right:0}
-.fact:not(:nth-child(4n+1)){padding-left:24px}
-.fact .n{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.03em;color:var(--ink)}
-.fact .n em{font-style:italic;color:var(--accent)}
-.fact .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.5;margin-top:auto}
-.fact .l b{color:var(--ink);display:block;margin-bottom:4px}
-@media(max-width:1024px){.facts-head{grid-template-columns:1fr;gap:12px;align-items:start} .facts-grid{grid-template-columns:repeat(2,1fr)} .fact:nth-child(4n){border-right:1px solid var(--rule);padding-right:24px} .fact:nth-child(2n){border-right:0;padding-right:0} .fact:not(:nth-child(4n+1)){padding-left:0} .fact:nth-child(2n){padding-left:24px}}
-@media(max-width:640px){.facts-grid{grid-template-columns:1fr} .fact{border-right:0!important;padding:28px 0!important;min-height:0;border-bottom:1px dotted var(--rule)}}
+/* ---- Portfolio block (from old homepage) ---- */
+.ab-portfolio {
+  padding: clamp(48px, 6vw, 88px) 0;
+  border-bottom: 1px solid var(--ink);
+}
+.ab-portfolio .section-head {
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+.ab-portfolio .section-head .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.ab-portfolio .section-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  max-width: 20ch;
+}
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.project { display: flex; flex-direction: column; }
+.project .p-head {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+}
+.project .p-head .n { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.12em; }
+.project .p-head .cat {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); white-space: nowrap;
+}
+.project .p-head h3 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(28px, 2.6vw, 40px);
+  line-height: 1; letter-spacing: -0.02em; margin: 0;
+}
+.p-photo { margin: 20px 0 0; border: 1px solid var(--ink); overflow: hidden; background: var(--bg-alt); }
+.p-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; }
+.p-cap { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-top: 1px dotted var(--rule); background: var(--bg); }
+.project dl {
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: var(--tick);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.project dl > div { display: flex; flex-direction: column; gap: 4px; }
+.project dt {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.project dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -0.005em;
+}
+.project p {
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 48ch;
+}
+@media (max-width: 1024px) {
+  .projects { grid-template-columns: 1fr; gap: 64px; }
+}
+@media (max-width: 400px) {
+  .project dl { grid-template-columns: repeat(2, 1fr); }
+  .project .p-head { grid-template-columns: 36px 1fr; }
+  .project .p-head .cat { grid-column: 2; }
+}
 
-.principles{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
-.pr-head{padding-bottom:24px;border-bottom:1px solid var(--ink);margin-bottom:48px;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:end}
-.pr-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.pr-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.5vw,64px);line-height:1;letter-spacing:-.025em;margin:0;max-width:14ch}
-.pr-head h2 em{font-style:italic;color:var(--ink-soft)}
-.pr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
-.pr{padding:36px 32px 36px 0;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:start}
-.pr:nth-child(2n){border-right:0;padding-right:0;padding-left:32px}
-.pr .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent)}
-.pr h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.4vw,32px);line-height:1.1;letter-spacing:-.015em;margin:0 0 14px;font-style:italic}
-.pr p{margin:0;font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:44ch}
-@media(max-width:1024px){.pr-head{grid-template-columns:1fr;gap:12px;align-items:start} .pr-grid{grid-template-columns:1fr} .pr{border-right:0!important;padding:32px 0!important;grid-template-columns:48px 1fr}}
-
-.timeline{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
-.tl-head{padding-bottom:24px;border-bottom:1px solid var(--ink);margin-bottom:48px;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:end}
-.tl-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.tl-head h2{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(32px,4.5vw,60px);line-height:1;letter-spacing:-.025em;margin:0}
-.tl{display:flex;flex-direction:column}
-.tl-row{display:grid;grid-template-columns:140px 160px 1fr;gap:32px;padding:24px 0;border-bottom:1px dotted var(--rule);align-items:baseline;transition:padding .15s,background .15s}
-.tl-row:hover{background:rgba(154,107,63,.03);padding-left:12px;padding-right:12px}
-.tl-row .y{font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.1em;color:var(--accent)}
-.tl-row .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.tl-row .w{font-family:var(--serif);font-size:20px;line-height:1.4;letter-spacing:-.005em}
-.tl-row .w b{font-weight:500;font-style:italic}
-@media(max-width:1024px){.tl-head{grid-template-columns:1fr;gap:12px;align-items:start} .tl-row{grid-template-columns:80px 1fr;gap:16px} .tl-row .k{grid-column:2;order:2} .tl-row .w{grid-column:2;order:3}}
-
-.projects{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--ink)}
-.pj-head{padding-bottom:24px;border-bottom:1px solid var(--ink);margin-bottom:48px;display:grid;grid-template-columns:220px 1fr auto;gap:32px;align-items:end}
-.pj-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.pj-head h2{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(32px,4vw,56px);line-height:1;letter-spacing:-.025em;margin:0}
-.pj-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.pj .frame{aspect-ratio:4/3;margin-bottom:24px}
-.pj-photo{margin:0 0 24px;border:1px solid var(--ink);overflow:hidden}
-.pj-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.pj-photo-cap{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-top:1px dotted var(--rule);background:var(--bg);display:block}
-.pj .cat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:block}
-.pj h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0 0 12px}
-.pj h3 em{font-style:italic}
-.pj p{margin:0 0 20px;font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink-soft);max-width:44ch}
-.pj dl{margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 24px;padding-top:18px;border-top:var(--tick);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.pj dl b{color:var(--ink);display:block}
-@media(max-width:1024px){.pj-head{grid-template-columns:1fr;gap:12px;align-items:start} .pj-grid{grid-template-columns:1fr;gap:56px}}
-
-.quote-b{padding:clamp(64px,9vw,140px) 0;background:var(--ink);color:var(--bg);border-bottom:1px solid var(--ink)}
-.quote-b .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
-.quote-b blockquote{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(32px,5vw,72px);line-height:1.05;letter-spacing:-.025em;max-width:20ch}
-.quote-b blockquote em{font-style:italic;color:var(--muted-2)}
-.quote-b cite{display:block;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);font-style:normal}
-.quote-b cite b{color:var(--bg)}
+.ab-tail {
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+.ab-tail .prose {
+  max-width: 60ch;
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.4vw, 21px);
+  line-height: 1.6;
+  color: var(--ink);
+}
+.ab-tail .prose p { margin: 0 0 1.15em; }
+.ab-tail .prose p:last-child { margin-bottom: 0; }
 </style>
 
 <meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
@@ -106,165 +156,131 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo"><span class="mark"></span> Atlas</a>
-    <ul class="nav-links"><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/" class="active">About</a></li><li><a href="/contact/">Contact</a></li></ul>
-    <div class="nav-right"><span class="nav-phone">(213) 275-2210</span><a href="/contact/" class="nav-cta">Contact Atlas</a><button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+    <ul class="nav-links">
+      <li><a href="/">The Tape</a></li>
+      <li><a href="/about/" class="active">About</a></li>
+      <li><a href="/build/">Build</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
-  <div class="mobile-menu" id="mm"><ul><li><a href="/capabilities/">Capabilities</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Areas</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul><div class="mm-meta"><span>(213) 275-2210</span><span>David@AtlasHomePro.com</span></div></div>
+  <div class="mobile-menu" id="mm">
+    <ul>
+      <li><a href="/">The Tape</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/build/">Build</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="mm-meta"><span>David@AtlasHomePro.com</span></div>
+  </div>
 </nav>
 
-<header class="ab-hero">
+<header class="ab-top">
   <div class="wrap">
-    <div class="k">§ About · The principal</div>
-    <h1>Thirty years,<br/>one&nbsp;<em>city.</em></h1>
-    <div class="row">
-      <p>David Safai is a Los Angeles real estate operator, multifamily developer, and Class B licensed general contractor. Atlas Home Pro is his editorial platform, and Atlas Home Builders his building practice.</p>
-      <p>The two are the same job. Writing about a market you do not operate in is consulting. Operating in a market you do not write about is anonymous. Atlas Home Pro is the refusal to choose.</p>
-    </div>
+    <div class="eyebrow">§ About</div>
+    <h1>About.</h1>
   </div>
 </header>
 
-<section class="portrait">
+<section class="ab-body">
   <div class="wrap">
-    <div class="portrait-in">
-      <div class="pic"><span class="tag"><b>Portrait</b>David Safai · LA, 2026</span></div>
-      <div class="words">
-        <div class="k">§ The long version</div>
-        <h2>Owner, builder, writer, in that order.</h2>
-        <div class="body">
-          <p>I was not born into Los Angeles real estate. I arrived, like most of the people I respect in this business, by taking on one building I probably should not have bought, and then another, and then another, for thirty years. Along the way I bought a general contractor's license, because the only thing worse than a bad operator is an operator at the mercy of a bad contractor.</p>
-          <p>I have developed ground-up multifamily, including The Felix on Fairfax, forty-three rental units we still hold and operate, and Olympic Towers, twelve for-sale condominiums we delivered, sold, and continue to steward through the HOA. I have bought and repositioned smaller courtyard buildings across the basin. I have sat on both sides of every table in this business: the buyer, the seller, the landlord, the borrower, the builder, and the permit applicant.</p>
-          <p>Atlas Home Pro began as a set of internal memos, the kind an operator writes to a junior partner after a walk-through, or to a lender before a renewal call. At some point it became clear that the people I respect most in this business are the ones who read and write carefully about it. So we started publishing. Not to sell anything. To make the thinking visible.</p>
-          <p>The company is family-capitalized. We have no outside investors, no carried interest clock, and no reason to exit. If you have read this far and are wondering what that actually means, it means we can take the long view on a job, on a tenant, on a neighborhood, without apologizing for it to a fund-level IRR.</p>
-        </div>
-      </div>
+    <div class="prose">
+      <p>Atlas Brief is written by David Safai, a Los Angeles operator, developer, and general contractor. The publication covers what trades in LA multifamily and residential real estate, what it costs, and what works for which kind of buyer.</p>
+      <p>The practice began in 1996. Today it holds a portfolio of approximately 126 units across multiple Los Angeles buildings, including two that were developed ground-up and are still held by the builder: the Felix on Fairfax, a 43-unit apartment, and Olympic Towers, a 12-unit condominium.</p>
     </div>
   </div>
 </section>
 
-<section class="facts">
+<section class="ab-portfolio">
   <div class="wrap">
-    <div class="facts-head">
-      <div class="num">§ By the numbers</div>
-      <h2>A practice, not a pitch.</h2>
+    <div class="section-head">
+      <div class="num">§ Selected work</div>
+      <h2>Two buildings,<br/>still held by the&nbsp;builder.</h2>
     </div>
-    <div class="facts-grid">
-      <div class="fact"><div class="n">30 <em>yrs</em></div><div class="l"><b>Operating history</b>In Los Angeles, continuously.</div></div>
-      <div class="fact"><div class="n">55</div><div class="l"><b>Units delivered</b>Between Felix &amp; Olympic Towers.</div></div>
-      <div class="fact"><div class="n">7</div><div class="l"><b>In-house trades</b>Under one GC license.</div></div>
-      <div class="fact"><div class="n">Class <em>B</em></div><div class="l"><b>CA license</b>Atlas Home Builders, Inc.</div></div>
-    </div>
-  </div>
-</section>
+    <div class="projects">
 
-<section class="principles">
-  <div class="wrap">
-    <div class="pr-head">
-      <div class="num">§ On how we work</div>
-      <h2>Four principles, held <em>honestly.</em></h2>
-    </div>
-    <div class="pr-grid">
-      <div class="pr"><span class="n">I.</span><div><h3>Owner first, always.</h3><p>The principal is not a name on the letterhead. He walks the job, takes the call, and signs the closeout. If you need a full-time CEO of your project, you have hired the wrong firm.</p></div></div>
-      <div class="pr"><span class="n">II.</span><div><h3>Long-hold math.</h3><p>Family-capitalized and proud of it. We underwrite buildings we would still want to own in 2045. That discipline leaks into everything: tenant selection, sequencing, material choice, warranty work.</p></div></div>
-      <div class="pr"><span class="n">III.</span><div><h3>Self-perform where it matters.</h3><p>Seven trades, one schedule. A GC who can open every wall and every panel is a GC who can tell you the truth about what is behind them. That is worth the overhead, in our experience.</p></div></div>
-      <div class="pr"><span class="n">IV.</span><div><h3>Publish the thinking.</h3><p>Atlas Brief is not marketing; it is the in-house memo turned outward. If we believe something strongly enough to bet a building on it, we write it down, with numbers, and put our name on it.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="timeline">
-  <div class="wrap">
-    <div class="tl-head">
-      <div class="num">§ Selected chronology</div>
-      <h2>Three decades, in a column.</h2>
-    </div>
-    <div class="tl">
-      <div class="tl-row"><span class="y">1996</span><span class="k">First acquisition</span><span class="w">Acquires first triplex in Mid-Wilshire; begins what would become a <b>thirty-year operating book</b> in Los Angeles multifamily.</span></div>
-      <div class="tl-row"><span class="y">2003</span><span class="k">Operator → Builder</span><span class="w">Takes the California Class B General Contractor examination after a decade of fighting sub-par contractors. <b>Atlas Home Builders, Inc.</b> is organized the same year.</span></div>
-      <div class="tl-row"><span class="y">2009</span><span class="k">Downturn book</span><span class="w">Expands the portfolio through the GFC by acquiring distressed courtyard stock across Hancock Park and Mid-City, the cohort that still underpins the operating book today.</span></div>
-      <div class="tl-row"><span class="y">2014</span><span class="k">First ground-up</span><span class="w">Delivers <b>Olympic Towers</b>, twelve for-sale condominiums on Olympic Boulevard; full lease-up / sell-out within nine months.</span></div>
-      <div class="tl-row"><span class="y">2019</span><span class="k">Ground-up multifamily</span><span class="w">Breaks ground on <b>The Felix on Fairfax</b>, a forty-three-unit rental development held and operated by the Atlas book.</span></div>
-      <div class="tl-row"><span class="y">2022</span><span class="k">In-house MEP</span><span class="w">Brings HVAC, plumbing, and electrical in-house as self-performed disciplines under the GC license, in response to a dysfunctional subcontractor market.</span></div>
-      <div class="tl-row"><span class="y">2024</span><span class="k">Atlas Brief · launch</span><span class="w">Publishes the first public issue of <b>Atlas Brief</b>, an editorial platform written from the operating desk, not the press release.</span></div>
-      <div class="tl-row"><span class="y">2026</span><span class="k">Present day</span><span class="w">Five active LA projects; forty-two entries in the Atlas Brief archive; one principal, still walking the job.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="projects">
-  <div class="wrap">
-    <div class="pj-head">
-      <div class="num">§ Two proof points</div>
-      <h2>What we've built, and still hold.</h2>
-      <a href="/contact/" style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:3px;">Request a site walk →</a>
-    </div>
-    <div class="pj-grid">
-      <article class="pj">
-        <figure class="pj-photo">
-          <img src="/images/projects/felix-fairfax-card.jpg" alt="The Felix on Fairfax — a five-story grey-and-white multifamily building at 731 N Fairfax Avenue, with a landscaped living wall at ground level." loading="lazy" width="1200" height="900" />
-          <figcaption class="pj-photo-cap">731 N Fairfax Avenue · Delivered 2021</figcaption>
+      <article class="project">
+        <header class="p-head">
+          <span class="n">P-01</span>
+          <h3>The Felix on Fairfax</h3>
+          <span class="cat">Multifamily · Ground-up</span>
+        </header>
+        <figure class="p-photo">
+          <img src="/images/projects/felix-fairfax-1200.jpg" alt="The Felix on Fairfax — a five-story grey-and-white multifamily building at 731 N Fairfax Avenue, Los Angeles." loading="lazy" width="1200" height="675" />
+          <figcaption class="p-cap">Exterior, south elevation · 731 N Fairfax Avenue</figcaption>
         </figure>
-        <span class="cat">Project № 01, Ground-up multifamily</span>
-        <h3>The Felix on <em>Fairfax.</em></h3>
-        <p>A forty-three-unit rental development on Fairfax Avenue, developed, built, and still operated by Atlas. The building that taught us most of what we know about sequencing mechanical before framing closes.</p>
         <dl>
-          <div><b>Units</b>43</div>
-          <div><b>Typology</b>Ground-up rental</div>
-          <div><b>Delivered</b>2021</div>
-          <div><b>Status</b>Held · operated</div>
+          <div><dt>Units</dt><dd>43</dd></div>
+          <div><dt>Stories</dt><dd>5</dd></div>
+          <div><dt>Delivered</dt><dd>2023</dd></div>
+          <div><dt>Held by</dt><dd>Sponsor</dd></div>
         </dl>
+        <p>A 43-unit, five-story residential building developed, built, and held by Atlas. Designed around a single organizing principle: no unit plan exists that the sponsor wouldn't live in.</p>
       </article>
-      <article class="pj">
-        <figure class="pj-photo">
-          <img src="/images/projects/olympic-towers-card.jpg" alt="Olympic Towers — a four-story white multifamily building with orange accent bands and cantilevered balconies, Mid-City West." loading="lazy" width="1200" height="900" />
-          <figcaption class="pj-photo-cap">Olympic Boulevard · Delivered 2014</figcaption>
+
+      <article class="project">
+        <header class="p-head">
+          <span class="n">P-02</span>
+          <h3>Olympic Towers</h3>
+          <span class="cat">Condominium · Twelve Homes</span>
+        </header>
+        <figure class="p-photo">
+          <img src="/images/projects/olympic-towers-1200.jpg" alt="Olympic Towers — a four-story white multifamily building with orange accent bands and cantilevered balconies, Mid-City West." loading="lazy" width="1200" height="675" />
+          <figcaption class="p-cap">Exterior, corner elevation · Olympic Boulevard</figcaption>
         </figure>
-        <span class="cat">Project № 02, Condominium development</span>
-        <h3>Olympic <em>Towers.</em></h3>
-        <p>Twelve for-sale condominiums on Olympic Boulevard. Twelve buyers, one principal still stewarding the HOA a decade later. The project that proved for-sale and long-hold discipline can coexist on the same sheet.</p>
         <dl>
-          <div><b>Units</b>12</div>
-          <div><b>Typology</b>For-sale condos</div>
-          <div><b>Delivered</b>2014</div>
-          <div><b>Status</b>Sold · HOA active</div>
+          <div><dt>Units</dt><dd>12</dd></div>
+          <div><dt>Type</dt><dd>Condo</dd></div>
+          <div><dt>Delivered</dt><dd>2019</dd></div>
+          <div><dt>Sold</dt><dd>12 of 12</dd></div>
         </dl>
+        <p>Twelve for-sale homes in a mid-Wilshire infill. A study in how much a thoughtful building envelope and a real construction schedule can add to a buyer's basis without adding a dollar to ours.</p>
       </article>
+
     </div>
   </div>
 </section>
 
-<section class="quote-b">
+<section class="ab-tail">
   <div class="wrap">
-    <div class="k">§ A position, not a slogan</div>
-    <blockquote>We don't want to build the most buildings. We want to build the <em>ones we would still want to own, thirty years from now.</em></blockquote>
-    <cite><b>David Safai</b>, Principal, Atlas Home Pro</cite>
+    <div class="prose">
+      <p>Atlas Home Builders, Inc. is a licensed California Class B general contractor, operating, developing, and building in Los Angeles since 1996.</p>
+      <p>The Tape is not a marketing funnel. It is an operating journal. Read it like a trade publication, not a brochure.</p>
+    </div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="wrap">
-        <div class="footer-sections">
-      <div class="fs-head">
-        <div class="fs-k">Atlas Brief · Desks</div>
-        <div class="fs-note">4 desks · Browse the archive</div>
-      </div>
-      <div class="fs-grid">
-        <a href="/atlas-brief/sections/broker-activity/"><span>Broker Activity</span><span class="n">01</span></a>
-        <a href="/atlas-brief/sections/construction-costs/"><span>Construction Costs &amp; Guides</span><span class="n">02</span></a>
-        <a href="/atlas-brief/sections/policy/"><span>Policy</span><span class="n">03</span></a>
-        <a href="/atlas-brief/sections/investing-philosophy/"><span>Investing Philosophy</span><span class="n">04</span></a>
-      </div>
-    </div>
-
     <div class="footer-top">
-      <div><div class="footer-logo">Atlas<br/>Home Pro.</div><p class="footer-tag">A thought-leadership platform and general contracting practice, based in Los Angeles, California.</p></div>
-      <div><h5>Capabilities</h5><ul><li><a href="/capabilities/">General Contracting</a></li><li><a href="/capabilities/">HVAC</a></li><li><a href="/capabilities/">Plumbing</a></li><li><a href="/capabilities/">Electrical</a></li><li><a href="/capabilities/">Painting</a></li><li><a href="/capabilities/">Water Restoration</a></li><li><a href="/capabilities/">Gates &amp; Garage Doors</a></li></ul></div>
-      <div><h5>The Company</h5><ul><li><a href="/about/">About David Safai</a></li><li><a href="/atlas-brief/">Atlas Brief</a></li><li><a href="/areas/">Service Areas</a></li><li><a href="/contact/">Contact</a></li></ul></div>
-      <div class="footer-contact"><h5>Office</h5><p>145 S Fairfax Avenue, Suite 200</p><p>Los Angeles, California 90036</p><p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p><p class="m">(213) 275-2210</p></div>
+      <div>
+        <div class="footer-logo">Atlas<br/>Home Builders, Inc.</div>
+        <p class="footer-tag">An owner-builder journal, published from Los Angeles.</p>
+      </div>
+      <div>
+        <h5>Read</h5>
+        <ul>
+          <li><a href="/">The Tape</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/build/">Build</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Office</h5>
+        <p>Los Angeles, California</p>
+        <p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p>
+      </div>
     </div>
-    <div class="footer-legal"><span>© MMXXVI Atlas Home Builders, Inc.</span><span>Atlas Home Pro is a division of Atlas Home Builders, Inc. · CA Class B General Contractor</span></div>
+    <div class="footer-legal">
+      <span>© MMXXVI Atlas Home Builders, Inc. · CA Class B General Contractor · License [pending]</span>
+      <span style="font-size:0.85em;opacity:0.7;">atlashomepro.com</span>
+    </div>
   </div>
 </footer>
-<script>const b=document.getElementById('burger'),m=document.getElementById('mm');b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');});</script>
+<script>const b=document.getElementById('burger'),m=document.getElementById('mm');if(b&&m)b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');});</script>
 <script defer src="/atlas-signup.js"></script>
 </body>
 </html>

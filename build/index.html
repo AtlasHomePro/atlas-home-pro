@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Build · Atlas Brief</title>
+<link rel="stylesheet" href="/atlas-v2.css"/>
+<style>
+.cap-hero{padding:clamp(72px,10vw,160px) 0 clamp(48px,6vw,96px);border-bottom:1px solid var(--ink)}
+.cap-hero .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.cap-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(56px,9vw,160px);line-height:.9;letter-spacing:-.035em;margin:0 0 32px;max-width:14ch}
+.cap-hero h1 em{font-style:italic;color:var(--ink-soft)}
+.cap-hero .grid{display:grid;grid-template-columns:220px 1fr;gap:48px;padding-top:32px;border-top:var(--tick)}
+.cap-hero .meta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.8}
+.cap-hero .meta b{color:var(--ink);display:block;margin-bottom:4px}
+.cap-hero p{font-family:var(--serif);font-size:clamp(20px,2vw,26px);line-height:1.5;color:var(--ink-soft);font-weight:300;max-width:52ch;margin:0}
+@media(max-width:1024px){.cap-hero .grid{grid-template-columns:1fr;gap:24px}}
+
+.trade{border-bottom:1px solid var(--ink)}
+.trade-row{display:grid;grid-template-columns:120px 1.2fr 1fr 1fr;gap:48px;padding:clamp(36px,5vw,72px) 0;align-items:start;transition:background .2s}
+.trade:hover .trade-row{background:rgba(154,107,63,.03)}
+.trade-row .n{font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.14em;color:var(--accent)}
+.trade-row h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5vw,68px);line-height:.98;letter-spacing:-.025em;margin:0 0 10px}
+.trade-row h2 em{font-style:italic;color:var(--ink-soft)}
+.trade-row .disc{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.trade-row .body{font-family:var(--serif);font-size:18px;line-height:1.55;color:var(--ink-soft);max-width:40ch}
+.trade-row .body p{margin:0 0 12px}
+.trade-row ul{list-style:none;padding:0;margin:0;border-top:1px dotted var(--rule)}
+.trade-row li{padding:10px 0;border-bottom:1px dotted var(--rule);font-family:var(--serif);font-size:15px;letter-spacing:-.005em;display:grid;grid-template-columns:24px 1fr;gap:10px}
+.trade-row li::before{content:counter(scope);counter-increment:scope;font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.1em;padding-top:4px}
+.trade-row ul{counter-reset:scope}
+@media(max-width:1024px){.trade-row{grid-template-columns:1fr;gap:20px;padding:48px 0} .trade-row .body{max-width:none}}
+
+.how{padding:clamp(64px,8vw,120px) 0;border-bottom:1px solid var(--ink);background:var(--bg-alt)}
+.how-head{display:grid;grid-template-columns:220px 1fr;gap:48px;padding-bottom:32px;border-bottom:1px solid var(--ink);margin-bottom:48px;align-items:end}
+.how-head .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.how-head h2{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(32px,4.5vw,60px);line-height:1;letter-spacing:-.025em;margin:0}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.how-step{padding:24px 24px 32px 0;border-right:1px solid var(--rule);min-height:220px}
+.how-step:nth-child(4n){border-right:0;padding-right:0}
+.how-step:not(:nth-child(4n+1)){padding-left:24px}
+.how-step .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);margin-bottom:16px}
+.how-step h4{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.01em;margin:0 0 12px}
+.how-step p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted);font-family:var(--serif)}
+@media(max-width:1024px){.how-head{grid-template-columns:1fr;gap:12px} .how-grid{grid-template-columns:repeat(2,1fr)} .how-step:nth-child(4n){border-right:1px solid var(--rule);padding-right:24px} .how-step:nth-child(2n){border-right:0;padding-right:0} .how-step:not(:nth-child(4n+1)){padding-left:0} .how-step:nth-child(2n){padding-left:24px}}
+@media(max-width:640px){.how-grid{grid-template-columns:1fr} .how-step{border-right:0!important;padding:24px 0!important;min-height:0;border-bottom:1px dotted var(--rule)}}
+
+.cta{padding:clamp(64px,8vw,120px) 0;background:var(--ink);color:var(--bg);border-bottom:1px solid var(--ink)}
+.cta-inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end}
+.cta .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,5.5vw,76px);line-height:1;letter-spacing:-.025em;margin:0;max-width:18ch}
+.cta h2 em{font-style:italic}
+.cta a.btn-w{padding:16px 24px;border:1px solid var(--bg);color:var(--ink);background:var(--bg);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;transition:background .15s,color .15s;white-space:nowrap}
+.cta a.btn-w:hover{background:transparent;color:var(--bg)}
+@media(max-width:1024px){.cta-inner{grid-template-columns:1fr;gap:28px;align-items:start}}
+</style>
+
+<meta property="og:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://atlashomepro.com/images/og-atlas-brief.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/atlas-editor.js" defer></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="mark"></span> Atlas</a>
+    <ul class="nav-links"><li><a href="/">The Tape</a></li><li><a href="/about/">About</a></li><li><a href="/build/" class="active">Build</a></li><li><a href="/contact/">Contact</a></li></ul>
+    <div class="nav-right"><button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+  </div>
+  <div class="mobile-menu" id="mm"><ul><li><a href="/">The Tape</a></li><li><a href="/about/">About</a></li><li><a href="/build/">Build</a></li><li><a href="/contact/">Contact</a></li></ul><div class="mm-meta"><span>David@AtlasHomePro.com</span></div></div>
+</nav>
+
+<header class="cap-hero">
+  <div class="wrap">
+    <div class="k">§ Build · Owner-developer-GC practice</div>
+    <h1>Build.</h1>
+    <div class="grid">
+      <div class="meta"><b>Discipline</b>General contracting<br/>& in-house trades<br/><br/><b>License</b>CA Class B<br/>Atlas Home Builders, Inc.</div>
+      <p>A general contractor's capability set, not a consumer-services menu. Every trade below is run on the same schedule, to the same standard, by the same principal who walks the job.</p>
+    </div>
+  </div>
+</header>
+
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">I.</span>
+      <div><h2>General <em>Contracting.</em></h2><div class="disc">The discipline that ties the other six together.</div></div>
+      <div class="body"><p>Ground-up multifamily, gut renovations, adaptive reuse, and structural retrofit. Class B licensed, self-performed where the math supports it, managed from the principal's desk either way.</p><p>We bid the whole job, or we sit as the construction manager on yours.</p></div>
+      <ul><li>Ground-up multifamily</li><li>Condominium conversion</li><li>Gut renovation &amp; adaptive reuse</li><li>Structural retrofit (soft-story, seismic)</li><li>Owner's-rep &amp; CM</li></ul>
+    </div>
+  </div>
+</section>
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">II.</span>
+      <div><h2>HVAC.</h2><div class="disc">Design-build mechanical for multifamily and luxury residential.</div></div>
+      <div class="body"><p>From load calc to start-up. Title-24 compliant, balanced on delivery, and documented in a closeout binder an operator can actually use five years later.</p></div>
+      <ul><li>Central systems &amp; mini-splits</li><li>Heat-pump conversions</li><li>Ventilation &amp; IAQ</li><li>Title-24 compliance packages</li><li>Rooftop &amp; mechanical-room retrofits</li></ul>
+    </div>
+  </div>
+</section>
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">III.</span>
+      <div><h2>Plumbing.</h2><div class="disc">Rough-in through fixture set. Repipes that stay quiet.</div></div>
+      <div class="body"><p>Water services, gas, drain and vent, and the full-building repipes that keep older LA stock habitable. We open walls cleanly and close them cleanlier.</p></div>
+      <ul><li>Full-building repipes (copper &amp; PEX)</li><li>Water-service upgrades</li><li>Gas lines &amp; appliance hookups</li><li>Drain, waste &amp; vent</li><li>Trenchless sewer</li></ul>
+    </div>
+  </div>
+</section>
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">IV.</span>
+      <div><h2>Electrical.</h2><div class="disc">Service upgrades, sub-metering, EV, low-voltage.</div></div>
+      <div class="body"><p>The unglamorous infrastructure work that makes a building worth holding. We pull our own permits, we know the inspectors, and we document the panel as we leave it.</p></div>
+      <ul><li>Service &amp; panel upgrades</li><li>Unit sub-metering</li><li>EV infrastructure (Level 2 / DCFC)</li><li>Lighting design &amp; control</li><li>Low-voltage / structured cabling</li></ul>
+    </div>
+  </div>
+</section>
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">V.</span>
+      <div><h2>Painting.</h2><div class="disc">Interior, exterior, cabinet, architectural finish.</div></div>
+      <div class="body"><p>Prep is the job; paint is the finish. We budget for the first, we charge for the second. The sequence matters more than the product sheet.</p></div>
+      <ul><li>Interior &amp; exterior</li><li>Cabinet refinishing (spray-booth)</li><li>Architectural finish coatings</li><li>Surface prep &amp; substrate repair</li><li>Elastomeric &amp; water-proofing</li></ul>
+    </div>
+  </div>
+</section>
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">VI.</span>
+      <div><h2>Water <em>Restoration.</em></h2><div class="disc">Mitigation, drying, rebuild, to IICRC protocol.</div></div>
+      <div class="body"><p>When a unit floods at 2 a.m., you do not want three phone numbers. You want the GC, the plumber, and the restoration crew all on one invoice, on one schedule, the same morning.</p></div>
+      <ul><li>Emergency mitigation &amp; extraction</li><li>Structural drying &amp; dehumidification</li><li>Category 1-3 water losses</li><li>Mold remediation</li><li>Full rebuild &amp; documentation</li></ul>
+    </div>
+  </div>
+</section>
+<section class="trade">
+  <div class="wrap">
+    <div class="trade-row">
+      <span class="n">VII.</span>
+      <div><h2>Gates &amp; <em>Garage Doors.</em></h2><div class="disc">Perimeter, access, automation.</div></div>
+      <div class="body"><p>Security infrastructure and daily-use hardware treated as one system. Motors, openers, hinges, and the logic that ties them into access control.</p></div>
+      <ul><li>Automated sliding &amp; swing gates</li><li>Garage doors &amp; opener service</li><li>Motor replacement &amp; retrofit</li><li>Access control &amp; keypad integration</li><li>Perimeter security hardware</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <div class="how-head">
+      <div class="num">§ How we work</div>
+      <h2>A four-step sequence, the <em>same every job.</em></h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step"><div class="n">Step · 01</div><h4>Walk.</h4><p>The principal visits the property before the first document is drafted. No exceptions. If the math won't support a walk, the math won't support the job.</p></div>
+      <div class="how-step"><div class="n">Step · 02</div><h4>Scope &amp; schedule.</h4><p>A written scope, a written schedule, and a written allowance. Change orders get their own sheet, on day one, for the inevitable.</p></div>
+      <div class="how-step"><div class="n">Step · 03</div><h4>Build.</h4><p>Self-performed or subcontracted, run through a single project manager, with weekly field notes that the owner actually reads.</p></div>
+      <div class="how-step"><div class="n">Step · 04</div><h4>Close out.</h4><p>A closeout binder an operator can pick up five years from now: permits, specs, warranties, as-builts. The building is only half the deliverable.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-inner">
+      <div><div class="k">Begin a project</div><h2>Have a building, or a site, we should <em>walk?</em></h2></div>
+      <a href="/contact/" class="btn-w">Contact →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><div class="footer-logo">Atlas<br/>Home Builders, Inc.</div><p class="footer-tag">An owner-builder journal, published from Los Angeles.</p></div>
+      <div><h5>Read</h5><ul><li><a href="/">The Tape</a></li><li><a href="/about/">About</a></li><li><a href="/build/">Build</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+      <div class="footer-contact"><h5>Office</h5><p>Los Angeles, California</p><p class="m" style="margin-top:14px;">David@AtlasHomePro.com</p></div>
+    </div>
+    <div class="footer-legal"><span>© MMXXVI Atlas Home Builders, Inc. · CA Class B General Contractor · License [pending]</span><span style="font-size:0.85em;opacity:0.7;">atlashomepro.com</span></div>
+  </div>
+</footer>
+<script>const b=document.getElementById('burger'),m=document.getElementById('mm');b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');});</script>
+<script defer src="/atlas-signup.js"></script>
+</body>
+</html>
