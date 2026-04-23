@@ -72,74 +72,36 @@ form.c-fields{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
 
 <header class="c-hero">
   <div class="wrap">
-    <div class="k">§ Contact Atlas · Begin a project</div>
-    <h1>Write the <em>first line.</em></h1>
-    <p>The principal reads the inbox. Expect a reply within one business day. For active emergencies, call the office number, it forwards.</p>
+    <div class="k">§ Contact</div>
+    <h1>Contact.</h1>
+    <p>Atlas Home Builders, Inc. is based in Los Angeles.</p>
   </div>
 </header>
 
 <section class="c-main">
   <div class="c-form">
-    <div class="k">Form · 01</div>
-    <h2>Tell us what you're building, or what's&nbsp;failing.</h2>
-    <form class="c-fields" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we'll reply within one business day.';this.querySelectorAll('input,textarea,select').forEach(i=>i.disabled=true);">
-      <div class="fld"><label>Name <b>*</b></label><input type="text" required placeholder="Your full name"/></div>
-      <div class="fld"><label>Email <b>*</b></label><input type="email" required placeholder="you@domain.com"/></div>
-      <div class="fld"><label>Phone</label><input type="tel" placeholder="(___) ___-____"/></div>
-      <div class="fld"><label>Project Type <b>*</b></label>
-        <select required>
-          <option value="">Select one , </option>
-          <option>Multifamily development</option>
-          <option>Ground-up residential</option>
-          <option>Gut renovation</option>
-          <option>HVAC</option>
-          <option>Plumbing / repipe</option>
-          <option>Electrical</option>
-          <option>Painting</option>
-          <option>Water restoration</option>
-          <option>Gates &amp; garage doors</option>
-          <option>Editorial / press</option>
-        </select>
-      </div>
-      <div class="fld full"><label>Project Address or Neighborhood</label><input type="text" placeholder="Street address, or neighborhood if confidential"/></div>
-      <div class="fld full"><label>Project Description <b>*</b></label><textarea required placeholder="Scope, timeline, existing drawings, anything the principal should see before the first walk."></textarea><span class="hint">Plain English is welcome. Drawings can be sent in a follow-up.</span></div>
-      <p class="consent">By submitting, you agree that Atlas Home Builders, Inc. may contact you regarding your project. We do not share submissions and we do not run retargeting.</p>
-      <button type="submit">Send to the principal →</button>
-    </form>
+    <div class="k">Inquiries</div>
+    <h2><strong>For editorial inquiries</strong></h2>
+    <p>If you have a listing, a comp, a trade, or a deal worth covering in The Tape: send it over. We read every submission. Interesting deals run in the next issue of the Brief. Uninteresting ones get a straight answer back the same day.</p>
+    <h2 style="margin-top:36px;"><strong>For construction or development inquiries</strong></h2>
+    <p>If you have a project that needs a general contractor, or a site that needs a walk: describe it in a few sentences. If it is a fit, we schedule a walk within the week. If it is not, we tell you why.</p>
+    <h2 style="margin-top:36px;"><strong>For acquisition inquiries</strong></h2>
+    <p>If you own a Los Angeles home service business and are thinking about a sale, or a broker representing one: we are a buyer. Plumbing, HVAC, electrical, restoration. Conversations are confidential. Preferred size $500K to $5M in revenue, but we will read anything that fits the thesis.</p>
   </div>
 
   <aside class="c-side">
-    <div class="k">Direct lines</div>
-    <h3>For the people who still pick up the phone.</h3>
+    <div class="k">Direct line</div>
+    <h3>David Safai</h3>
+    <p style="font-style:italic;font-size:13px;color:var(--muted);margin-top:-8px;margin-bottom:18px;">Operator · Developer · GC</p>
     <dl>
-      <div><dt>Office</dt><dd>145 S Fairfax Avenue<br/>Suite 200<br/>Los Angeles, CA 90036</dd></div>
-      <div><dt>Phone</dt><dd><a href="tel:+12132752210">(213) 275-2210</a></dd></div>
       <div><dt>Email</dt><dd><a href="mailto:David@AtlasHomePro.com">David@AtlasHomePro.com</a></dd></div>
-      <div><dt>Editor</dt><dd>David Safai<br/><span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">Principal · Atlas Brief</span></dd></div>
-      <div><dt>License</dt><dd>California Class B<br/><span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">Atlas Home Builders, Inc.</span></dd></div>
+      <div><dt>Office</dt><dd>Los Angeles, California</dd></div>
+      <div><dt>License</dt><dd>CA Class B General Contractor<br/><span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">License [pending]</span></dd></div>
     </dl>
   </aside>
 </section>
 
-<section class="hours">
-  <div class="wrap">
-    <div class="hours-inner">
-      <div class="num">§ Hours of Operation</div>
-      <div>
-        <h2>Office hours, for the office.</h2>
-        <ul>
-          <li><span class="d">Monday</span><span class="w">Principal in office</span><span class="h">8 AM, 6 PM</span></li>
-          <li><span class="d">Tuesday</span><span class="w">Principal on site</span><span class="h">8 AM, 6 PM</span></li>
-          <li><span class="d">Wednesday</span><span class="w">Principal in office</span><span class="h">8 AM, 6 PM</span></li>
-          <li><span class="d">Thursday</span><span class="w">Principal on site</span><span class="h">8 AM, 6 PM</span></li>
-          <li><span class="d">Friday</span><span class="w">Principal in office</span><span class="h">8 AM, 4 PM</span></li>
-          <li><span class="d">Saturday</span><span class="w">By appointment</span><span class="h">, </span></li>
-          <li><span class="d">Sunday</span><span class="w">Closed, emergencies forward</span><span class="h">, </span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <footer class="footer">
   <div class="wrap">
