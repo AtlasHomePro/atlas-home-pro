@@ -1,143 +1,102 @@
-# Publication-first restructure (2026-04-22)
-/capabilities/*  /build/  301
-/capabilities    /build/  301
-/atlas-brief/sections/broker-activity/*  /  301
-/atlas-brief/sections/broker-activity    /  301
-/atlas-brief/  /  301!
-/atlas-brief    /  301!
+# Atlas Home Pro — Netlify _redirects
+# Rewritten 2026-05-07 for SEO cleanup after pivot to 9-page core site.
+# All redirects are 301 permanent. First match wins.
+#
+# DO NOT add rules that match live URLs:
+#   /  /about/  /capabilities/  /plumbing/  /atlas-brief/
+#   /contact/  /areas/  /privacy-policy/  /terms-of-service/
 
-# Atlas Home Pro — Netlify Redirects
-# Fixes 40 GSC 404s and 111 broken internal links
+# ─────────────────────────────────────────────────────────────────────────
+# Specific service-area + service combos → /plumbing/
+# ─────────────────────────────────────────────────────────────────────────
+/service-areas/los-angeles/plumbing/        /plumbing/   301
+/service-areas/east-hollywood/plumbing/     /plumbing/   301
+/service-areas/los-feliz/plumbing/          /plumbing/   301
+/service-areas/culver-city/plumbing/        /plumbing/   301
+/service-areas/palms/plumbing/              /plumbing/   301
+/service-areas/mar-vista/plumbing/          /plumbing/   301
 
-# 9 → 4 desk consolidation (Apr 21, 2026)
-# All deal commentary + market reads → Broker Activity
-/atlas-brief/sections/opportunities/*      /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/opportunities        /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/market-commentary/*  /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/market-commentary    /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/owners-desk/*        /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/owners-desk          /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/comps/*              /atlas-brief/sections/broker-activity/  301
-/atlas-brief/sections/comps                /atlas-brief/sections/broker-activity/  301
+# ─────────────────────────────────────────────────────────────────────────
+# Specific service-area + service combos → /capabilities/
+# ─────────────────────────────────────────────────────────────────────────
+/service-areas/los-angeles/roofing/             /capabilities/   301
+/service-areas/los-angeles/electrical/          /capabilities/   301
+/service-areas/los-angeles/painting/            /capabilities/   301
+/service-areas/los-angeles/water-restoration/   /capabilities/   301
+/service-areas/east-hollywood/roofing/          /capabilities/   301
+/service-areas/east-hollywood/painting/         /capabilities/   301
+/service-areas/east-hollywood/water-restoration/ /capabilities/  301
+/service-areas/east-hollywood/hvac/             /capabilities/   301
+/service-areas/east-hollywood/gates-welding/    /capabilities/   301
+/service-areas/los-feliz/roofing/               /capabilities/   301
+/service-areas/los-feliz/electrical/            /capabilities/   301
+/service-areas/los-feliz/painting/              /capabilities/   301
+/service-areas/los-feliz/hvac/                  /capabilities/   301
+/service-areas/los-feliz/gates-welding/         /capabilities/   301
+/service-areas/culver-city/electrical/          /capabilities/   301
+/service-areas/culver-city/painting/            /capabilities/   301
+/service-areas/culver-city/hvac/                /capabilities/   301
+/service-areas/culver-city/water-restoration/   /capabilities/   301
+/service-areas/culver-city/gates-welding/       /capabilities/   301
+/service-areas/playa-vista/painting/            /capabilities/   301
+/service-areas/playa-vista/electrical/          /capabilities/   301
+/service-areas/playa-vista/gates-welding/       /capabilities/   301
+/service-areas/playa-vista/water-restoration/   /capabilities/   301
+/service-areas/palms/electrical/                /capabilities/   301
+/service-areas/palms/hvac/                      /capabilities/   301
+/service-areas/palms/gates-welding/             /capabilities/   301
+/service-areas/palms/water-restoration/         /capabilities/   301
+/service-areas/mar-vista/electrical/            /capabilities/   301
+/service-areas/mar-vista/water-restoration/     /capabilities/   301
 
-# Operator Guides → Construction Costs & Guides
-/atlas-brief/sections/operator-guides/*    /atlas-brief/sections/construction-costs/  301
-/atlas-brief/sections/operator-guides      /atlas-brief/sections/construction-costs/  301
+# ─────────────────────────────────────────────────────────────────────────
+# Area landing → /areas/
+# ─────────────────────────────────────────────────────────────────────────
+/service-areas/los-angeles-central/   /areas/   301
 
-# Great Books folded into Investing Philosophy
-/atlas-brief/sections/great-books/*        /atlas-brief/sections/investing-philosophy/  301
-/atlas-brief/sections/great-books          /atlas-brief/sections/investing-philosophy/  301
+# ─────────────────────────────────────────────────────────────────────────
+# Deleted blog content with no equivalent → home
+# ─────────────────────────────────────────────────────────────────────────
+/learn/why-ants-keep-coming-back/   /   301
+/learn/pest-cost-guide/             /   301
+/learn/quarterly-pest-programs/     /   301
+/learn/ant-control-west-la/         /   301
+/learn/rodent-exclusion/            /   301
 
-# ══════════════════════════════════════════════════════════════════════════
-# V2 DEPLOY 2026-04-19 — redirects for deleted/moved paths
-# (added above older rules; first-match wins, so this supersedes any stale
-#  references to /hvac/, /electric/, etc. further down)
-# ══════════════════════════════════════════════════════════════════════════
+# ─────────────────────────────────────────────────────────────────────────
+# Privacy / terms slug fixes
+# ─────────────────────────────────────────────────────────────────────────
+/privacy/   /privacy-policy/     301
+/privacy    /privacy-policy/     301
+/terms/     /terms-of-service/   301
+/terms      /terms-of-service/   301
 
-# Deleted service-company pages → home
-/hvac/*                /  301
-/electric/*            /  301
-/electrical/*          /  301
-/painting/*            /  301
-/restoration/*         /  301
-/gates-garage-doors/*  /  301
+# ─────────────────────────────────────────────────────────────────────────
+# Catch-all wildcards (must come AFTER specific rules above)
+# ─────────────────────────────────────────────────────────────────────────
+/service-areas/*   /areas/         301
+/learn/*           /               301
+/guides/*          /               301
+/hvac/*            /capabilities/  301
+/electric/*        /capabilities/  301
+/electrical/*      /capabilities/  301
+/painting/*        /capabilities/  301
+/restoration/*     /capabilities/  301
+/gates-garage-doors/*  /capabilities/  301
 
-# /service-areas/ → new /areas/ page
-/service-areas/*       /areas/  301
-
-# Plumbing subfolders → /plumbing/ (catchall: any sub-subpath under /plumbing/)
-/plumbing/*/*          /plumbing/  301
-
-# Archived /learn/ and /guides/ → /atlas-brief/
-/learn/*               /atlas-brief/  301
-/guides/*              /atlas-brief/  301
-
+# ─────────────────────────────────────────────────────────────────────────
 # Removed single-page sections → home
-/offers         /  301
-/reviews        /  301
-/careers        /  301
-/training       /  301
-/pricing        /  301
-/developments   /  301
-/partnerships   /  301
+# ─────────────────────────────────────────────────────────────────────────
+/offers          /   301
+/reviews         /   301
+/careers         /   301
+/training        /   301
+/pricing         /   301
+/developments    /   301
+/partnerships    /   301
 
-# ── Renamed service slugs ──────────────────────────────────────────────────
-/gates-garage-doors/garage-door-repair/      /gates-garage-doors/              301
-/gates-garage-doors/garage-door-repair       /gates-garage-doors/              301
-
-# ── gates-welding → gates-garage-doors (service renamed) ──────────────────
-/service-areas/:area/gates-welding/          /service-areas/:area/gates-garage-doors/   301
-/service-areas/:area/gates-welding           /service-areas/:area/gates-garage-doors/   301
-
-# ── Wrong privacy/terms slugs ──────────────────────────────────────────────
-/privacy/        /privacy-policy/        301
-/privacy         /privacy-policy/        301
-/terms/          /terms-of-service/      301
-/terms           /terms-of-service/      301
-
-# ── Roofing pages (not a service Atlas offers) ───────────────────────────────
-/service-areas/:area/roofing/    /service-areas/:area/    301
-/service-areas/:area/roofing     /service-areas/:area/    301
-
-# ── Pest control articles (not a service Atlas offers) ───────────────────────
-/learn/why-ants-keep-coming-back/    /learn/    301
-/learn/pest-cost-guide/              /learn/    301
-/learn/quarterly-pest-programs/      /learn/    301
-/learn/ant-control-west-la/          /learn/    301
-/learn/rodent-exclusion/             /learn/    301
-
-# ── Missing service area pages → parent area page ─────────────────────────
-/service-areas/studio-city/          /service-areas/los-angeles/       302
-/service-areas/encino/               /service-areas/los-angeles/       302
-/service-areas/sherman-oaks/         /service-areas/los-angeles/       302
-/service-areas/beverlywood/          /service-areas/los-angeles/       302
-/service-areas/cheviot-hills/        /service-areas/culver-city/       302
-/service-areas/mid-wilshire/         /service-areas/miracle-mile/      302
-
-# ── Missing marina-del-rey and silver-lake service sub-pages ──────────────
-/service-areas/marina-del-rey/hvac/              /hvac/               302
-/service-areas/marina-del-rey/electrical/        /electrical/         302
-/service-areas/marina-del-rey/painting/          /painting/           302
-/service-areas/marina-del-rey/water-restoration/ /restoration/        302
-/service-areas/marina-del-rey/gates-welding/     /gates-garage-doors/ 302
-/service-areas/silver-lake/hvac/                 /hvac/               302
-/service-areas/silver-lake/electrical/           /electrical/         302
-/service-areas/silver-lake/painting/             /painting/           302
-/service-areas/silver-lake/water-restoration/    /restoration/        302
-/service-areas/silver-lake/gates-welding/        /gates-garage-doors/ 302
-
-# ── Missing learn articles → closest match ────────────────────────────────
-/learn/garage-door-maintenance/      /learn/automated-gate-maintenance/    301
-/learn/home-security-basics/         /learn/home-security-gates-westside-la/  301
-/learn/hvac-replacement-cost-guide/  /learn/hvac-cost-guide/               301
-/learn/ac-not-cooling/               /learn/why-ac-blowing-warm/           301
-/learn/hvac-warning-signs/           /learn/hvac-system-signals/           301
-/learn/smart-thermostat-guide/       /learn/smart-thermostats/             301
-
-# ── Guides section ─────────────────────────────────────────────────────────
-/guides/         /learn/     302
-/guides          /learn/     302
-
-# ── Misc ───────────────────────────────────────────────────────────────────
-/ops/fleet       /ops/       302
-
-# ══════════════════════════════════════════════════════════════════════════
-# CLEAN SLATE 2026-04-21 — scrapped 17 early Brief articles, pivot to real-content only
-# ══════════════════════════════════════════════════════════════════════════
-/atlas-brief/50k-pre-sale-what-returns/*                 /atlas-brief/  301
-/atlas-brief/cost-of-deferred-maintenance/*              /atlas-brief/  301
-/atlas-brief/first-60-minutes-after-a-burst/*            /atlas-brief/  301
-/atlas-brief/good-primer-is-cheap-insurance/*            /atlas-brief/  301
-/atlas-brief/hard-water-la-what-it-does/*                /atlas-brief/  301
-/atlas-brief/honest-cost-of-a-hillside/*                 /atlas-brief/  301
-/atlas-brief/la-backflow-testing-requirements/*          /atlas-brief/  301
-/atlas-brief/la-panel-upgrade-true-cost/*                /atlas-brief/  301
-/atlas-brief/la-two-seasons-owner-checklist/*            /atlas-brief/  301
-/atlas-brief/main-water-line-signs-costs/*               /atlas-brief/  301
-/atlas-brief/paint-is-maintenance-not-cosmetics/*        /atlas-brief/  301
-/atlas-brief/plumbing-inspection-before-buying/*         /atlas-brief/  301
-/atlas-brief/trenchless-sewer-costs-honest-math/*        /atlas-brief/  301
-/atlas-brief/water-damage-restoration-real-cost/*        /atlas-brief/  301
-/atlas-brief/westside-plumbing-costs-2026/*              /atlas-brief/  301
-/atlas-brief/why-la-plumbing-costs-are-rising/*          /atlas-brief/  301
-/atlas-brief/article/*                                   /atlas-brief/  301
+# ─────────────────────────────────────────────────────────────────────────
+# Old "<area>-plumber" landing-pages pattern (e.g. /bel-air-plumber/)
+# ─────────────────────────────────────────────────────────────────────────
+/*-plumber/   /plumbing/   301
+/*-plumber    /plumbing/   301

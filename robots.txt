@@ -4,4 +4,3 @@ Disallow: /ops/
 Disallow: /procurement/
 
 Sitemap: https://atlashomepro.com/sitemap.xml
-Sitemap: https://atlashomepro.com/geo-sitemap.xml
