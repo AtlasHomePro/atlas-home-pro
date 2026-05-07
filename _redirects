@@ -96,7 +96,68 @@
 /partnerships    /   301
 
 # ─────────────────────────────────────────────────────────────────────────
-# Old "<area>-plumber" landing-pages pattern (e.g. /bel-air-plumber/)
+# Old "<area>-plumber" landing-pages → /plumbing/
+# (Netlify _redirects can't glob a path segment, so list explicitly)
 # ─────────────────────────────────────────────────────────────────────────
-/*-plumber/   /plumbing/   301
-/*-plumber    /plumbing/   301
+/bel-air-plumber/             /plumbing/   301
+/bel-air-plumber              /plumbing/   301
+/beverly-hills-plumber/       /plumbing/   301
+/beverly-hills-plumber        /plumbing/   301
+/brentwood-plumber/           /plumbing/   301
+/brentwood-plumber            /plumbing/   301
+/west-hollywood-plumber/      /plumbing/   301
+/west-hollywood-plumber       /plumbing/   301
+/culver-city-plumber/         /plumbing/   301
+/culver-city-plumber          /plumbing/   301
+/santa-monica-plumber/        /plumbing/   301
+/santa-monica-plumber         /plumbing/   301
+/pacific-palisades-plumber/   /plumbing/   301
+/pacific-palisades-plumber    /plumbing/   301
+/westwood-plumber/            /plumbing/   301
+/westwood-plumber             /plumbing/   301
+/mar-vista-plumber/           /plumbing/   301
+/mar-vista-plumber            /plumbing/   301
+/playa-vista-plumber/         /plumbing/   301
+/playa-vista-plumber          /plumbing/   301
+/marina-del-rey-plumber/      /plumbing/   301
+/marina-del-rey-plumber       /plumbing/   301
+/hancock-park-plumber/        /plumbing/   301
+/hancock-park-plumber         /plumbing/   301
+/larchmont-plumber/           /plumbing/   301
+/larchmont-plumber            /plumbing/   301
+/mid-city-plumber/            /plumbing/   301
+/mid-city-plumber             /plumbing/   301
+/miracle-mile-plumber/        /plumbing/   301
+/miracle-mile-plumber         /plumbing/   301
+/windsor-square-plumber/      /plumbing/   301
+/windsor-square-plumber       /plumbing/   301
+/park-la-brea-plumber/        /plumbing/   301
+/park-la-brea-plumber         /plumbing/   301
+/fairfax-plumber/             /plumbing/   301
+/fairfax-plumber              /plumbing/   301
+/beverly-grove-plumber/       /plumbing/   301
+/beverly-grove-plumber        /plumbing/   301
+/carthay-plumber/             /plumbing/   301
+/carthay-plumber              /plumbing/   301
+/koreatown-plumber/           /plumbing/   301
+/koreatown-plumber            /plumbing/   301
+/los-feliz-plumber/           /plumbing/   301
+/los-feliz-plumber            /plumbing/   301
+/east-hollywood-plumber/      /plumbing/   301
+/east-hollywood-plumber       /plumbing/   301
+/century-city-plumber/        /plumbing/   301
+/century-city-plumber         /plumbing/   301
+/silver-lake-plumber/         /plumbing/   301
+/silver-lake-plumber          /plumbing/   301
+/pasadena-plumber/            /plumbing/   301
+/pasadena-plumber             /plumbing/   301
+/glendale-plumber/            /plumbing/   301
+/glendale-plumber             /plumbing/   301
+/burbank-plumber/             /plumbing/   301
+/burbank-plumber              /plumbing/   301
+/pico-robertson-plumber/      /plumbing/   301
+/pico-robertson-plumber       /plumbing/   301
+/palms-plumber/               /plumbing/   301
+/palms-plumber                /plumbing/   301
+/los-angeles-plumber/         /plumbing/   301
+/los-angeles-plumber          /plumbing/   301
